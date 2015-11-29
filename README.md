@@ -9,9 +9,10 @@ This GitHub offers examples to use Boost.Graph that are
 
 Boost.Graph is a C++ library that is part of [www.boost.org](Boost).
 
- * [create a graph without edge or node labels](create_simplest_graph.md)
- * [create a graph with int vertex labels](create_graph_with_int_vertex_labels.md)
- * [create a graph with std::string vertex labels](create_graph_with_string_vertex_labels.md)
+ * [create_empty_graph: create an empty graph without edge or node labels](create_empty_graph.md)
+ * [create_simple_graph: create a graph without edge or node labels](create_simple_graph.md)
+ * [create_graph_with_int_vertex_labels: create a graph with int vertex labels](create_graph_with_int_vertex_labels.md)
+ * [create_graph_with_string_vertex_labels: create a graph with std::string vertex labels](create_graph_with_string_vertex_labels.md)
  * [extract int vertex labels](extract_int_vertex_labels.md)
  * [extract std::string vertex labels](extract_string_vertex_labels.md)
  * [is_self_loop: does an edge start and end at the same vertex?](is_self_loop.md)
@@ -25,7 +26,9 @@ I think that Boost.Graph is designed very well. Drawback is IMHO that there are 
 ### What do you think of the book `Boost Graph Library: User Guide and Reference Manual`?
 
 I think the authors took great care that the code snippets written in the book were correct:
-all snippets are numbered, and I assume they are tested to compile. 
+all snippets are numbered, and I'd bet they are tested to compile. 
+
+Expect to find heavy templated code. My students cringe when they read even the first code snippet!
 
 I would assume that the book would start with creating a simple graph in `main`, then reading its vertices and
 edges, etc. The first code snippet that has a `main` is at page 15 (first page is 4) and is approximately the 10th 
@@ -41,6 +44,8 @@ called `build_router_network` (page 9) does not return a graph (and
 thus has a known data type), it modifies an existing templated graph
 of unknown data type.
 I have had no idea how to call that code for a long long time!
+
+The code that was in the book is uploaded at [informIT](http://www.informit.com/store/boost-graph-library-user-guide-and-reference-manual-9780201729146) as a `.sit` (StuffIt) file, which is badly supported on Linux. Why not just post an open compression file format?
 
 ## References 
 [1] Siek, Jeremy G., Lie-Quan Lee, and Andrew Lumsdaine. Boost Graph Library: User Guide and Reference Manual, The. Pearson Education, 2001.
