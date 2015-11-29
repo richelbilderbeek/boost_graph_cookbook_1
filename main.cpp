@@ -2,6 +2,7 @@
 #include "build_router_network.h"
 #include "create_empty_graph.h"
 #include "create_router_network.h"
+#include "create_router_network_graph.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "is_self_loop.h"
@@ -18,6 +19,7 @@ int main()
   test_build_router_network();
   test_create_empty_graph();
   test_create_router_network();
+  test_create_router_network_graph();
   test_get_n_edges();
   test_get_n_vertices();
   test_is_self_loop();

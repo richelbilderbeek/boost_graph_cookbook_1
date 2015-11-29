@@ -1,6 +1,5 @@
 HEADERS += \
   bfs_name_printer.h \
-  build_router_network.h \
   create_empty_graph.h \
   is_self_loop.h \
   print_trans_delay.h \
@@ -9,13 +8,14 @@ HEADERS += \
   print_vertex_names.h \
   get_n_edges.h \
   get_n_vertices.h \
-    $$PWD/create_router_network.h
+    $$PWD/create_router_network.h \
+    $$PWD/build_router_network.h \
+    $$PWD/create_router_network_graph.h
 
 
 
 SOURCES += \
   bfs_name_printer.cpp \
-  build_router_network.cpp \
   create_empty_graph.cpp \
   is_self_loop.cpp \
   print_trans_delay.cpp \
@@ -24,5 +24,6 @@ SOURCES += \
   print_vertex_names.cpp \
   get_n_edges.cpp \
   get_n_vertices.cpp \
-    $$PWD/create_router_network.cpp
-
+    $$PWD/create_router_network.cpp \
+    $$PWD/build_router_network.cpp \
+    $$PWD/create_router_network_graph.cpp

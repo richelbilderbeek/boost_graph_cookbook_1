@@ -2,13 +2,20 @@
 #define CREATE_ROUTER_NETWORK_H
 
 #include <boost/graph/adjacency_list.hpp>
+#include <map>
 
-boost::adjacency_list<
-  boost::listS,    // Store out-edges of each vertex in a std::list
-  boost::vecS,     // Store vertices in a std::vector
-  boost::directedS // The graph is directed
->
-create_router_network() noexcept;
+struct router_network
+{
+  using graph = boost::adjacency_list<boost::listS,boost::vecS,boost::directedS>;
+  using edge_descriptor = graph::edge_descriptor;
+  using vertex_descriptor = graph::vertex_descriptor;
+  router_network() : m_delay_map{}, m_graph{}, m_router_names{} {}
+  std::map<edge_descriptor,int> m_delay_map;
+  graph m_graph;
+  std::map<vertex_descriptor,std::string> m_router_names;
+};
+
+router_network create_router_network() noexcept;
 
 void test_create_router_network() noexcept;
 

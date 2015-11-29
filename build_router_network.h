@@ -1,11 +1,23 @@
-#ifndef BUILD_ROUTER_NETWORK_H
-#define BUILD_ROUTER_NETWORK_H
+#ifndef BUILD_ROUTER_NETWORK_EXTERNAL_H
+#define BUILD_ROUTER_NETWORK_EXTERNAL_H
 
 #include <cassert>
 #include <boost/graph/graph_traits.hpp>
 
+//Build a router network supplying an external router name map and transmission delay map
 //Modified from Siek, Jeremy G., Lie-Quan Lee, and Andrew Lumsdaine. Boost Graph Library: User Guide and Reference Manual, The. Pearson Education, 2001.
 //Page 9
+/*
+
+ a --- 1.2 ---> b
+ a --- 4.5 ---> d
+ b --- 1.8 ---> d
+ c --- 2.6 ---> a
+ c --- 5.2 ---> e
+ d --- 0.4 ---> c
+ d --- 3.3 ---> e
+
+*/
 template <typename Graph, typename VertexNameMap, typename TransDelayMap>
 void build_router_network(
   Graph& g,
@@ -38,4 +50,4 @@ void build_router_network(
 
 void test_build_router_network() noexcept;
 
-#endif // BUILD_ROUTER_NETWORK_H
+#endif // BUILD_ROUTER_NETWORK_EXTERNAL_H
