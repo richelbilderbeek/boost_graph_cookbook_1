@@ -48,6 +48,6 @@ void build_router_network(
   const my_pair eg = add_edge(vd, ve, g); delay_map[eg.first] = 3.3; assert(eg.second);
 }
 
-void test_build_router_network() noexcept;
+void build_router_network_test() noexcept;
 
 #endif // BUILD_ROUTER_NETWORK_EXTERNAL_H

@@ -14,7 +14,7 @@ boost::adjacency_list<
 >
 create_router_network_graph() noexcept;
 
-void test_create_router_network_graph() noexcept;
+void create_router_network_graph_test() noexcept;
 
 
 #endif // CREATE_ROUTER_NETWORK_GRAPH_H

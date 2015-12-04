@@ -1,21 +1,16 @@
 # Boost.Graph tutorial
 
-This GitHub offers examples to use Boost.Graph that are
+A [Boost.Graph tutorial (PDF)](boost_graph_tutorial.pdf).
+
+This tutorial offers examples to use Boost.Graph that are
 
  * simple
  * short
  * complete
  * tested to compile
+ * in a chronological order.
 
 Boost.Graph is a C++ library that is part of [www.boost.org](Boost).
-
- * [create_empty_graph: create an empty graph without edge or node labels](create_empty_graph.md)
- * [create_simple_graph: create a graph without edge or node labels](create_simple_graph.md)
- * [create_graph_with_int_vertex_labels: create a graph with int vertex labels](create_graph_with_int_vertex_labels.md)
- * [create_graph_with_string_vertex_labels: create a graph with std::string vertex labels](create_graph_with_string_vertex_labels.md)
- * [extract int vertex labels](extract_int_vertex_labels.md)
- * [extract std::string vertex labels](extract_string_vertex_labels.md)
- * [is_self_loop: does an edge start and end at the same vertex?](is_self_loop.md)
 
 ## FAQ
 

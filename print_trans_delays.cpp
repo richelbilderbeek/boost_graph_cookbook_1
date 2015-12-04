@@ -5,7 +5,7 @@
 
 #include "create_router_network.h"
 
-void test_print_trans_delays() noexcept
+void print_trans_delays_test() noexcept
 {
   /*
   const router_network r{create_router_network()};

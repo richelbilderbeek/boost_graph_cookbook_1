@@ -1,0 +1,119 @@
+%% LyX 2.0.8.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+\usepackage{float}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Boost.Graph tutorial}
+
+
+\author{Richel Bilderbeek}
+
+\maketitle
+
+\section{Introduction}
+
+I think that Boost.Graph is designed very well. Drawback is IMHO that
+there are only few and even fewer complete examples using Boost.Graph. 
+
+The book \cite{siek2001boost} is IMHO not suited best for a tutorial
+as it contains heavy templated code, and an unchronological ordering
+of subjects. More experienced programmers can appreciate that the
+authors took great care that the code snippets written in the book
+were correct: all snippets are numbered, and I'd bet they are tested
+to compile. 
+
+
+\subsection{Coding style used}
+
+I prefer not to use the keyword auto, but to explicitly mention the
+type instead. I think this is beneficial to beginners. When using
+Boost.Graph in production code, I do prefer to use auto.
+
+
+\section{Creating graphs}
+
+Boost.Graph is about creating graphs. In this chapter we create graphs,
+starting from simple to more complex. 
+
+
+\subsection{Creating an empty graph}
+
+Let's create a trivial empty graph:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_empty_graph.cpp}
+
+\caption{Creating an empty graph}
+\end{algorithm}
+
+
+Congratulations, you've just created a boost::adjacency\_list in which:
+\begin{itemize}
+\item The out edges are stored in a std::vector
+\item The vertices are stored in a std::vector
+\item The graph is directed
+\item Vertices, edges and graph have no properties
+\item Edges are stored in a std::list 
+\end{itemize}
+The boost::adjacency\_list is the most commonly used graph type, the
+other is the boost::adjacency\_matrix.
+
+
+\subsection{Creating $K_{2}$, a fully connected graph with two vertices}
+
+To create a fully connected graph with two vertices (also called $K_{2}$),
+one needs two vertices and one (undirected) edge, as depicted in figure
+\ref{fig:k2_graph}.
+
+\begin{figure}[H]
+\tikz 
+\draw[thick] 
+  (0,0) node[fill=black,shape=circle,text=white] {$a$} 
+    -- (5,1) node[fill=black,shape=circle,text=white] {$b$} 
+;
+
+\caption{$K_{2}$: a fully connected graph with two vertices named $a$ and
+$b$\label{fig:k2_graph}}
+\end{figure}
+
+
+To create $K_{2}$, the following code can be used:
+
+\lstinputlisting[breaklines=true,captionpos=b,frame=tb,language={C++}]{create_k2_graph.cpp}
+
+Note that this code has more lines of using statements than actual
+code! In this code, the third template argument of boost::adjacency\_list
+is boost::undirectedS, to select (that is what the S means) for an
+undirected graph. Adding a vertex with boost::add\_vertex results
+in a vertex descriptor, which is a handle to the vertex added to the
+graph. Two vertex descriptors are then used to add an edge to the
+graph. Adding an edge using boost::add\_edge returns two things: an
+edge descriptor and a boolean indicating success. In the code example,
+we assume insertion is successfull.
+
+Note that the graph lacks all properties: nodes do not have names,
+nor do edges.
+
+\bibliographystyle{plain}
+\bibliography{boost_graph_tutorial}
+
+\end{document}

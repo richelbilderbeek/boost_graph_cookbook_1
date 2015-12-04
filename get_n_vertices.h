@@ -12,6 +12,6 @@ int get_n_vertices(const graph& g)
   return std::distance(vertex_iters.first,vertex_iters.second);
 }
 
-void test_get_n_vertices() noexcept;
+void get_n_vertices_test() noexcept;
 
 #endif // GET_N_VERTICES_H

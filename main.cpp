@@ -1,8 +1,9 @@
 #include "bfs_name_printer.h"
 #include "build_router_network.h"
 #include "create_empty_graph.h"
-#include "create_router_network.h"
+#include "create_k2_graph.h"
 #include "create_router_network_graph.h"
+#include "create_router_network.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "is_self_loop.h"
@@ -15,17 +16,18 @@
 
 int main()
 {
-  test_bfs_name_printer();
-  test_build_router_network();
-  test_create_empty_graph();
-  test_create_router_network();
-  test_create_router_network_graph();
-  test_get_n_edges();
-  test_get_n_vertices();
-  test_is_self_loop();
-  test_print_trans_delay();
-  test_print_trans_delays();
-  test_print_vertex_name();
-  test_print_vertex_names();
+  bfs_name_printer_test();
+  build_router_network_test();
+  create_empty_graph_test();
+  create_k2_graph_test();
+  create_router_network_graph_test();
+  create_router_network_test();
+  get_n_edges_test();
+  get_n_vertices_test();
+  is_self_loop_test();
+  print_trans_delays_test();
+  print_trans_delay_test();
+  print_vertex_names_test();
+  print_vertex_name_test();
   std::cout << "Done" << std::endl;
 }

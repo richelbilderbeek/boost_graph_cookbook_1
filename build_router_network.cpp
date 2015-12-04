@@ -8,9 +8,9 @@
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 
-void test_build_router_network() noexcept
+void build_router_network_test() noexcept
 {
-  using my_graph = boost::adjacency_list<boost::listS,boost::vecS,boost::directedS>;
+  using my_graph = boost::adjacency_list<>;
   using my_edge_descriptor = my_graph::edge_descriptor;
   using my_vertex_descriptor = my_graph::vertex_descriptor;
   my_graph g = create_empty_graph();

@@ -29,6 +29,6 @@ void print_trans_delay(
   ;
 }
 
-void test_print_trans_delay() noexcept;
+void print_trans_delay_test() noexcept;
 
 #endif // PRINT_TRANS_DELAY_H

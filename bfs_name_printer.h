@@ -22,6 +22,6 @@ private:
   VertexNameMap m_name_map;
 };
 
-void test_bfs_name_printer() noexcept;
+void bfs_name_printer_test() noexcept;
 
 #endif // BFS_NAME_PRINTER_H

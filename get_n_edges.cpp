@@ -4,7 +4,7 @@
 
 #include "create_empty_graph.h"
 
-void test_get_n_edges() noexcept
+void get_n_edges_test() noexcept
 {
   const auto g = create_empty_graph();
   assert(get_n_edges(g) == 0);

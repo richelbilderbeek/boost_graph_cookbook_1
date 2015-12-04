@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-void test_print_trans_delay() noexcept
+void print_trans_delay_test() noexcept
 {
   std::cerr << __func__ << ": TODO" << std::endl;
 }

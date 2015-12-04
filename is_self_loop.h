@@ -14,6 +14,6 @@ bool is_self_loop(typename boost::graph_traits<Graph>::edge_descriptor e, const 
   return u == v;
 }
 
-void test_is_self_loop() noexcept;
+void is_self_loop_test() noexcept;
 
 #endif // IS_SELF_LOOP_H

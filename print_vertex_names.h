@@ -35,6 +35,6 @@ void print_vertex_names(const graph& g)
 
 }
 
-void test_print_vertex_names() noexcept;
+void print_vertex_names_test() noexcept;
 
 #endif // PRINT_VERTEX_NAMES_H

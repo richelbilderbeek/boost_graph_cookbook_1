@@ -14,7 +14,7 @@ router_network create_router_network() noexcept
   return r;
 }
 
-void test_create_router_network() noexcept
+void create_router_network_test() noexcept
 {
   const auto r = create_router_network();
   assert(get_n_edges(r.m_graph) == 7);

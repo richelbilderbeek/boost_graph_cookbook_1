@@ -1,0 +1,393 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Boost.Graph tutorial
+\end_layout
+
+\begin_layout Author
+Richel Bilderbeek
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+I think that Boost.Graph is designed very well.
+ Drawback is IMHO that there are only few and even fewer complete examples
+ using Boost.Graph.
+ The book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+ is IMHO not the most helpful.
+\end_layout
+
+\begin_layout Subsection
+What do you think of the book `Boost Graph Library: User Guide and Reference
+ Manual`?
+\end_layout
+
+\begin_layout Standard
+I think the authors took great care that the code snippets written in the
+ book were correct: all snippets are numbered, and I'd bet they are tested
+ to compile.
+ 
+\end_layout
+
+\begin_layout Standard
+Expect to find heavy templated code.
+ My students cringe when they read even the first code snippet!
+\end_layout
+
+\begin_layout Standard
+I would assume that the book would start with creating a simple graph in
+ `main`, then reading its vertices and edges, etc.
+ The first code snippet that has a `main` is at page 15 (first page is 4)
+ and is approximately the 10th code snippet.
+ 
+\end_layout
+
+\begin_layout Standard
+Instead of a code snippet with `main`, the first code snippet `is_self_loop`
+ (at page 6) describes how to test an edge for starting and ending at the
+ same node, which has only templated arguments.
+ I have had no idea how to call that code for a long long time!
+\end_layout
+
+\begin_layout Standard
+Also the first code snippet in which a graph is build up, called `build_router_n
+etwork` (page 9) does not return a graph (and thus has a known data type),
+ it modifies an existing templated graph of unknown data type.
+ I have had no idea how to call that code for a long long time!
+\end_layout
+
+\begin_layout Standard
+The code that was in the book is uploaded at [informIT](http://www.informit.com/st
+ore/boost-graph-library-user-guide-and-reference-manual-9780201729146) as
+ a `.sit` (StuffIt) file, which is badly supported on Linux.
+ Why not just post an open compression file format?
+\end_layout
+
+\begin_layout Subsection
+Coding style used
+\end_layout
+
+\begin_layout Standard
+I prefer not to use the keyword auto, but to explicitly mention the type
+ instead.
+ I think this is beneficial to beginners.
+ When using Boost.Graph in production code, I do prefer to use auto.
+\end_layout
+
+\begin_layout Section
+Creating graphs
+\end_layout
+
+\begin_layout Standard
+Boost.Graph is about creating graphs.
+ In this chapter we create graphs, starting from simple to more complex.
+ 
+\end_layout
+
+\begin_layout Subsection
+Creating an empty graph
+\end_layout
+
+\begin_layout Standard
+Let's create a trivial empty graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_graph.cpp"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty graph
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Congratulations, you've just created a boost::adjacency_list in which:
+\end_layout
+
+\begin_layout Itemize
+The out edges are stored in a std::vector
+\end_layout
+
+\begin_layout Itemize
+The vertices are stored in a std::vector
+\end_layout
+
+\begin_layout Itemize
+The graph is directed
+\end_layout
+
+\begin_layout Itemize
+Vertices, edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Why specify edge storage twice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list is the most commonly used graph type, the other
+ is the boost::adjacency_matrix.
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, a fully connected graph with two vertices
+\end_layout
+
+\begin_layout Standard
+To create a fully connected graph with two vertices (also called 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+), one needs two vertices and one (undirected) edge, as depicted in figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k2_graph"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[fill=black,shape=circle,text=white] {$a$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,1) node[fill=black,shape=circle,text=white] {$b$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+: a fully connected graph with two vertices named 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k2_graph.cpp"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this code has more lines of using statements than actual code!
+ In this code, the third template argument of boost::adjacency_list is boost::un
+directedS, to select (that is what the S means) for an undirected graph.
+ Adding a vertex with boost::add_vertex results in a vertex descriptor,
+ which is a handle to the vertex added to the graph.
+ Two vertex descriptors are then used to add an edge to the graph.
+ Adding an edge using boost::add_edge returns two things: an edge descriptor
+ and a boolean indicating success.
+ In the code example, we assume insertion is successfull.
+\end_layout
+
+\begin_layout Standard
+Note that the graph lacks all properties: nodes do not have names, nor do
+ edges.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "boost_graph_tutorial"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

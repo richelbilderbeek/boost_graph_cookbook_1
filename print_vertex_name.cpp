@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void test_print_vertex_name() noexcept
+void print_vertex_name_test() noexcept
 {
   std::cerr << __func__ << ": TODO" << std::endl;
 }

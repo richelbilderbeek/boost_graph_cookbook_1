@@ -10,7 +10,8 @@ HEADERS += \
   get_n_vertices.h \
     $$PWD/create_router_network.h \
     $$PWD/build_router_network.h \
-    $$PWD/create_router_network_graph.h
+    $$PWD/create_router_network_graph.h \
+    create_k2_graph.h
 
 
 
@@ -26,4 +27,8 @@ SOURCES += \
   get_n_vertices.cpp \
     $$PWD/create_router_network.cpp \
     $$PWD/build_router_network.cpp \
-    $$PWD/create_router_network_graph.cpp
+    $$PWD/create_router_network_graph.cpp \
+    create_empty_graph_test.cpp \
+    create_router_network_graph_test.cpp \
+    create_k2_graph.cpp \
+    create_k2_graph_test.cpp

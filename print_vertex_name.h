@@ -12,6 +12,6 @@ void print_vertex_name(VertexDescriptor v, VertexNameMap name_map)
   std::cout << get(name_map, v);
 }
 
-void test_print_vertex_name() noexcept;
+void print_vertex_name_test() noexcept;
 
 #endif // PRINT_VERTEX_NAME_H

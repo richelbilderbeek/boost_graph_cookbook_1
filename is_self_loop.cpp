@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-void test_is_self_loop() noexcept
+void is_self_loop_test() noexcept
 {
   std::cerr << __func__ << ": TODO" << std::endl;
 }

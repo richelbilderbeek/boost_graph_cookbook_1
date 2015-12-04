@@ -17,6 +17,6 @@ struct router_network
 
 router_network create_router_network() noexcept;
 
-void test_create_router_network() noexcept;
+void create_router_network_test() noexcept;
 
 #endif // CREATE_ROUTER_NETWORK_H
