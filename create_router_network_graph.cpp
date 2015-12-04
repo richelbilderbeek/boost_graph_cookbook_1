@@ -28,6 +28,7 @@ create_router_network_graph() noexcept
   using edge_weight_t = boost::property_map<graph,boost::edge_weight_t>::type;
 
 
+
   graph g;
 
   name_map_t name_map{boost::get(boost::vertex_name,g)};
@@ -55,20 +56,6 @@ create_router_network_graph() noexcept
   const my_pair eg = add_edge(vd, ve, g); delay_map[eg.first] = 3.3; assert(eg.second);
 
 
-  for (auto i = boost::vertices(g); i.first != i.second; ++i.first) {
-    std::cout << name_map[*i.first] << std::endl;
-  }
-  assert(!"This must be put in a function");
-  //Does not workname_map
-  //for (const auto& i: name_map) {
-  //  std::cout << i << std::endl;
-  //}
-
-  //Does not work
-  //for (auto i = std::begin(name_map); i.first != i.end(); ++i) {
-  //  std::cout << i.first << std::endl;
-  //}
-  //print_vertex_names(g);
   return g;
 }
 
@@ -78,7 +65,7 @@ void test_create_router_network_graph() noexcept
   const auto g = create_router_network_graph();
   assert(get_n_edges(g) == 7);
   assert(get_n_vertices(g) == 5);
-  //print_vertex_names(g); //Does not work
+  print_vertex_names(g);
   //Check the router names and delay times
   assert(!"Green");
   std::cout << __func__ << ": TODO" << '\n';
