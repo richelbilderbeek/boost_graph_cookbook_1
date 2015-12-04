@@ -384,7 +384,7 @@ Creating
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with named vertices
+ with named vertices and nodes
 \end_layout
 
 \begin_layout Standard
@@ -430,12 +430,17 @@ draw[thick]
 
 \begin_layout Plain Layout
 
-  (0,0) node[fill=black,shape=circle,text=white] {from} 
+  (0,0) node[fill=black,shape=circle,text=white] {$a$} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (5,0) node[fill=black,shape=circle,text=white] {to} 
+    -- (2.5,0.5) node[] {$c$}
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,1) node[fill=black,shape=circle,text=white] {$b$} 
 \end_layout
 
 \begin_layout Plain Layout

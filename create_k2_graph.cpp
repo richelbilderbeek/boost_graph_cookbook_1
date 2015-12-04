@@ -22,7 +22,8 @@ create_k2_graph() noexcept
   graph g;
   const vertex_descriptor va = boost::add_vertex(g);
   const vertex_descriptor vb = boost::add_vertex(g);
-  const edge_insertion_result ea = boost::add_edge(va, vb, g);
+  const edge_insertion_result ea
+    = boost::add_edge(va, vb, g);
   assert(ea.second);
   return g;
 }
