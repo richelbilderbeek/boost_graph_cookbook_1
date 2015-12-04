@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -15,13 +15,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -32,15 +32,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -154,7 +163,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty graph
@@ -293,7 +302,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset Formula $K_{2}$
@@ -354,10 +363,21 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k2_graph"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k2_graph"
@@ -400,6 +420,13 @@ Creating
 \end_inset
 
  with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k2"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -470,7 +497,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset Formula $K_{2}$
@@ -524,10 +551,21 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_k2_graph"
@@ -556,8 +594,207 @@ reference "alg:create_k2_graph"
 \end_inset
 
 .
- In the end, the names are obtained as a boost::property_map and simply
- set.
+ In the end, the names are obtained as a boost::property_map and set.
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named edges and vertices
+\end_layout
+
+\begin_layout Standard
+We extend the graph 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2"
+
+\end_inset
+
+ by adding names to the edges, as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (2,4) node[fill=black,shape=circle,text=white] {top} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (3,2) node[anchor=west] {AB} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (4,0) node[fill=black,shape=circle,text=white] {right} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (2,0) node[anchor=north] {BC} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (0,0) node[fill=black,shape=circle,text=white] {left} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (1,2) node[anchor=east] {CA} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (2,4)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+: a fully connected graph with three named edges and vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_k3_graph.cpp"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a repeat of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_k2_graph"
+
+\end_inset
+
+.
+ In the end, the edge names are obtained as a boost::property_map and set.
 \end_layout
 
 \begin_layout Section
@@ -596,10 +833,10 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Count the numbe of vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_vertices"
@@ -656,10 +893,10 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Count the number of edges
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_edges"
@@ -693,8 +930,17 @@ Getting the vertices' names
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph have named vertices, one can extract them as
- such:
+When the vertices of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+, one can extract them as such:
 \end_layout
 
 \begin_layout Standard
@@ -716,10 +962,10 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Get the vertices' names
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_names"
@@ -748,6 +994,172 @@ The names of the vertices are obtained from a boost::property_map and then
 When trying to get the vertices' names from a graph without vertices with
  names, you will get the error 'formed reference to void' (for example,
  with the code 'get_vertex_names(create_k2_graph());').
+\end_layout
+
+\begin_layout Subsection
+Getting the edges' names
+\end_layout
+
+\begin_layout Standard
+When the edges of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+, one can extract them as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_names.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Get the edges' names
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The names of the edges are obtained from a boost::property_map and then
+ put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+When trying to get the edges' names from a graph without vertices with names,
+ you will get the error 'formed reference to void' (for example, with the
+ code 'get_vertex_names(create_k2_graph());').
+\end_layout
+
+\begin_layout Subsection
+Find a vertex by its name
+\end_layout
+
+\begin_layout Section
+Modifying simple graphs traits
+\end_layout
+
+\begin_layout Standard
+It is useful to be able to modify every aspect of a graph.
+\end_layout
+
+\begin_layout Subsection
+Add a vertex
+\end_layout
+
+\begin_layout Standard
+wef
+\end_layout
+
+\begin_layout Subsection
+Add a node
+\end_layout
+
+\begin_layout Subsection
+Setting all vertices' names
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+, one set their names as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_vertex_names.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Setting the vertices' names
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An impressive feature is that getting the property map holding the graph
+ its names is not a copy, but a reference.
+ Otherwise, modifying 'name_map' (obtained by non-reference) would only
+ modify a copy.
+\end_layout
+
+\begin_layout Section
+Visualizing graphs
 \end_layout
 
 \begin_layout Standard

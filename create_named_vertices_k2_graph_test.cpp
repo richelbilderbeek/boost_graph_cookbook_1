@@ -1,6 +1,7 @@
 #include "create_named_vertices_k2_graph_test.h"
 
 #include <cassert>
+#include <iostream>
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_vertex_names.h"

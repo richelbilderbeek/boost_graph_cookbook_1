@@ -1,6 +1,7 @@
 #include "create_k2_graph.h"
 
 #include <cassert>
+#include <iostream>
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 
