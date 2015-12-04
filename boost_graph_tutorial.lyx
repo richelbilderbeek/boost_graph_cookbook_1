@@ -109,6 +109,14 @@ I prefer not to use the keyword auto, but to explicitly mention the type
  When using Boost.Graph in production code, I do prefer to use auto.
 \end_layout
 
+\begin_layout Subsection
+Pitfalls
+\end_layout
+
+\begin_layout Standard
+Do not use 'boost::get', use 'get'
+\end_layout
+
 \begin_layout Section
 Creating graphs
 \end_layout
@@ -214,6 +222,13 @@ Creating
 \end_inset
 
 , a fully connected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -388,19 +403,25 @@ Creating
 \end_layout
 
 \begin_layout Standard
-To create a fully connected graph with two vertices (also called 
+We extend 
 \begin_inset Formula $K_{2}$
 \end_inset
 
-), one needs two vertices and one (undirected) edge, as depicted in figure
- 
+ of chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:named_k2_graph"
+reference "sub:create_k2"
 
 \end_inset
 
-.
+ by naming the vertices 'from' and 'to', as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -455,18 +476,11 @@ draw[thick]
 \begin_inset Formula $K_{2}$
 \end_inset
 
-: a fully connected graph with two vertices named 
-\begin_inset Formula $a$
-\end_inset
-
- and 
-\begin_inset Formula $b$
-\end_inset
-
-
+: a fully connected graph with two vertices with the text 'from' and 'to'
+ 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:named_k2_graph"
+name "fig:named_vertices_k2_graph"
 
 \end_inset
 
@@ -501,7 +515,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_named_k2_graph.cpp"
+filename "create_named_vertices_k2_graph.cpp"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -534,20 +548,16 @@ name "alg:create_named_k2_graph"
 \end_layout
 
 \begin_layout Standard
-Note that this code has more lines of using statements than actual code!
- In this code, the third template argument of boost::adjacency_list is boost::un
-directedS, to select (that is what the S means) for an undirected graph.
- Adding a vertex with boost::add_vertex results in a vertex descriptor,
- which is a handle to the vertex added to the graph.
- Two vertex descriptors are then used to add an edge to the graph.
- Adding an edge using boost::add_edge returns two things: an edge descriptor
- and a boolean indicating success.
- In the code example, we assume insertion is successfull.
-\end_layout
+Most of the code is a repeat of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
 
-\begin_layout Standard
-Note that the graph lacks all properties: nodes do not have names, nor do
- edges.
+\end_inset
+
+.
+ In the end, the names are obtained as a boost::property_map and simply
+ set.
 \end_layout
 
 \begin_layout Section
@@ -680,6 +690,64 @@ The free function boost::edges returns a pair of iterators.
 
 \begin_layout Subsection
 Getting the vertices' names
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have named vertices, one can extract them as
+ such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_names.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty graph
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The names of the vertices are obtained from a boost::property_map and then
+ put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+When trying to get the vertices' names from a graph without vertices with
+ names, you will get the error 'formed reference to void' (for example,
+ with the code 'get_vertex_names(create_k2_graph());').
 \end_layout
 
 \begin_layout Standard

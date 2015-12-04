@@ -8,7 +8,13 @@
 template <class graph>
 int get_n_vertices(const graph& g)
 {
-  const auto vertex_iters = boost::vertices(g);
+  using vertex_iterator
+    = typename boost::graph_traits<graph>::vertex_iterator;
+  using vertex_iterators
+    = std::pair<vertex_iterator,vertex_iterator>;
+
+  const vertex_iterators vertex_iters
+    = boost::vertices(g);
   return std::distance(
     vertex_iters.first,
     vertex_iters.second

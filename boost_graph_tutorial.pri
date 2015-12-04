@@ -15,21 +15,18 @@ HEADERS += \
     create_k2_graph.h \
     get_n_edges_test.h \
     create_named_vertices_k2_graph.h \
-    create_named_vertices_k2_graph_test.h
+    create_named_vertices_k2_graph_test.h \
+    get_vertex_names.h \
+    get_vertex_names_test.h \
+    set_vertex_names.h \
+    set_vertex_names_test.h
 
 
 
 SOURCES += \
   bfs_name_printer.cpp \
   create_empty_graph.cpp \
-  is_self_loop.cpp \
-  print_trans_delay.cpp \
   get_n_vertices_test.cpp \
-  print_trans_delays.cpp \
-  print_vertex_name.cpp \
-  print_vertex_names.cpp \
-  get_n_edges.cpp \
-  get_n_vertices.cpp \
     $$PWD/create_router_network.cpp \
     $$PWD/build_router_network.cpp \
     $$PWD/create_router_network_graph.cpp \
@@ -39,4 +36,11 @@ SOURCES += \
     create_k2_graph_test.cpp \
     get_n_edges_test.cpp \
     create_named_vertices_k2_graph.cpp \
-    create_named_vertices_k2_graph_test.cpp
+    create_named_vertices_k2_graph_test.cpp \
+    get_vertex_names_test.cpp \
+    print_vertex_names_test.cpp \
+    print_vertex_name_test.cpp \
+    print_trans_delay_test.cpp \
+    print_trans_delays_test.cpp \
+    is_self_loop_test.cpp \
+    set_vertex_names_test.cpp
