@@ -1,10 +1,9 @@
-#include "get_edge_names_test.h"
+#include "get_edge_names.h"
 
 #include <cassert>
 #include <iostream>
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
-#include "get_edge_names.h"
 #include "create_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 

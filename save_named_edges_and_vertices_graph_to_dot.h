@@ -26,6 +26,7 @@ void save_named_edges_and_vertices_graph_to_dot(const graph& g, const std::strin
   );
 }
 
+void save_named_edges_and_vertices_graph_to_dot_test() noexcept;
 
 #endif // SAVE_NAMED_EDGES_AND_VERTICES_GRAPH_TO_DOT
 

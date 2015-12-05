@@ -15,4 +15,6 @@ int get_n_edges(const graph& g)
   */
 }
 
+void get_n_edges_test() noexcept;
+
 #endif // GET_N_EDGES_H

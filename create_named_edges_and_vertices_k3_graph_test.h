@@ -1,6 +1,0 @@
-#ifndef CREATE_NAMED_EDGES_AND_VERTICES_K3_GRAPH_TEST_H
-#define CREATE_NAMED_EDGES_AND_VERTICES_K3_GRAPH_TEST_H
-
-void create_named_edges_and_vertices_k3_graph_test() noexcept;
-
-#endif // CREATE_NAMED_EDGES_AND_VERTICES_K3_GRAPH_TEST_H

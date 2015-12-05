@@ -1,4 +1,3 @@
-#include "get_n_edges_test.h"
 #include "get_n_edges.h"
 
 #include <iostream>

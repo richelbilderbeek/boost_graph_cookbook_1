@@ -1,4 +1,4 @@
-#include "create_named_edges_and_vertices_k3_graph_test.h"
+#include "create_named_edges_and_vertices_k3_graph.h"
 
 #include <cassert>
 #include <iostream>
@@ -7,7 +7,6 @@
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 #include "print_vertex_names.h"
-#include "create_named_edges_and_vertices_k3_graph.h"
 
 void create_named_edges_and_vertices_k3_graph_test() noexcept
 {

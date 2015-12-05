@@ -17,5 +17,7 @@ void save_named_vertices_graph_to_dot(const graph& g, const std::string& filenam
   boost::write_graphviz(f,g,boost::make_label_writer(&names[0]));
 }
 
+void save_named_vertices_graph_to_dot_test() noexcept;
+
 
 #endif // SAVE_NAMED_VERTICES_GRAPH_TO_DOT_H

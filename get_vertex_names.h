@@ -18,7 +18,7 @@ std::vector<std::string> get_vertex_names(const graph& g)
   std::vector<std::string> v;
 
   //TODO: remove auto
-  const auto name_map = boost::get(boost::vertex_name,g);
+  const auto name_map = get(boost::vertex_name,g);
 
   for (vertex_iterators p = vertices(g);
     p.first != p.second;
@@ -52,5 +52,7 @@ std::vector<std::string> get_vertex_names_DOESNOTWORK(const graph& g)
   }
   return v;
 }
+
+void get_vertex_names_test() noexcept;
 
 #endif // GET_VERTEX_NAMES_H

@@ -1,4 +1,4 @@
-#include "get_n_vertices_test.h"
+#include "get_n_vertices.h"
 
 #include <iostream>
 

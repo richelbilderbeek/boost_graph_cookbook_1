@@ -12,4 +12,6 @@ void save_graph_to_dot(const graph& g, const std::string& filename)
   boost::write_graphviz(f,g);
 }
 
+void save_graph_to_dot_test() noexcept;
+
 #endif // SAVE_GRAPH_TO_DOT_H

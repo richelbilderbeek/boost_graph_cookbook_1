@@ -18,7 +18,7 @@ std::vector<std::string> get_edge_names(const graph& g)
   std::vector<std::string> v;
 
   //TODO: remove auto
-  const auto edge_name_map = boost::get(boost::edge_name,g);
+  const auto edge_name_map = get(boost::edge_name,g);
 
   for (edge_iterators p = edges(g);
     p.first != p.second;
@@ -28,6 +28,8 @@ std::vector<std::string> get_edge_names(const graph& g)
   }
   return v;
 }
+
+void get_edge_names_test() noexcept;
 
 
 #endif // GET_EDGE_NAMES

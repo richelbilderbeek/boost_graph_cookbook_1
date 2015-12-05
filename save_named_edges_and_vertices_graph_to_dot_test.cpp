@@ -1,4 +1,4 @@
-#include "save_named_edges_and_vertices_graph_to_dot_test.h"
+#include "save_named_edges_and_vertices_graph_to_dot.h"
 
 #include <cassert>
 #include <iostream>
@@ -10,7 +10,6 @@
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_router_network_graph.h"
 #include "show_dot.h"
-#include "save_named_edges_and_vertices_graph_to_dot.h"
 
 void save_named_edges_and_vertices_graph_to_dot_test() noexcept
 {

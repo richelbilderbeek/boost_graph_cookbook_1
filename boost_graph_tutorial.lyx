@@ -80,6 +80,15 @@ Boost.Graph tutorial
 Richel Bilderbeek
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introduction
 \end_layout
@@ -291,7 +300,7 @@ void remove_vertex(vertex_descriptor u, adjacency_list& g) .
 \end_layout
 
 \begin_layout Section
-Creating graphs
+Building graphs
 \end_layout
 
 \begin_layout Standard
@@ -387,6 +396,14 @@ Why specify edge storage twice?
 \begin_layout Standard
 The boost::adjacency_list is the most commonly used graph type, the other
  is the boost::adjacency_matrix.
+\end_layout
+
+\begin_layout Subsection
+Add a vertex
+\end_layout
+
+\begin_layout Subsection
+Add a node
 \end_layout
 
 \begin_layout Subsection
@@ -579,6 +596,10 @@ Note that the graph lacks all properties: nodes do not have names, nor do
 \end_layout
 
 \begin_layout Subsection
+Add a vertex with a name
+\end_layout
+
+\begin_layout Subsection
 Creating 
 \begin_inset Formula $K_{2}$
 \end_inset
@@ -759,6 +780,10 @@ reference "alg:create_k2_graph"
 
 .
  In the end, the names are obtained as a boost::property_map and set.
+\end_layout
+
+\begin_layout Subsection
+Add an edge with a name
 \end_layout
 
 \begin_layout Subsection
@@ -959,6 +984,55 @@ reference "alg:create_named_vertices_k2_graph"
 
 .
  In the end, the edge names are obtained as a boost::property_map and set.
+\end_layout
+
+\begin_layout Subsection
+Add a custom vertex
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of using vertices with a name, or other properties, here we use
+ a custom vertex class called 'my_vertex'.
+ A 'my_vertex' has an x coordinat, y coordinat, a name and a description.
+\end_layout
+
+\begin_layout Subsection
+Add a custom edge
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_edges_and_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of using edges with a name, or other properties, here we use a custom
+ edge class called 'my_edge'.
 \end_layout
 
 \begin_layout Section
@@ -1245,14 +1319,7 @@ Modifying simple graphs traits
 
 \begin_layout Standard
 It is useful to be able to modify every aspect of a graph.
-\end_layout
-
-\begin_layout Subsection
-Add a vertex
-\end_layout
-
-\begin_layout Subsection
-Add a node
+ Adding nodes and edges are found in earlier chapters.
 \end_layout
 
 \begin_layout Subsection
