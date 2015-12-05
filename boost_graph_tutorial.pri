@@ -24,7 +24,12 @@ HEADERS += \
     $$PWD/create_named_edges_and_vertices_k3_graph.h \
     $$PWD/create_named_edges_and_vertices_k3_graph_test.h \
     $$PWD/get_edge_names.h \
-    $$PWD/get_edge_names_test.h
+    $$PWD/get_edge_names_test.h \
+    $$PWD/save_graph_to_dot.h \
+    $$PWD/save_graph_to_dot_test.h \
+    $$PWD/show_dot.h \
+    $$PWD/save_named_vertices_graph_to_dot.h \
+    $$PWD/save_named_vertices_graph_to_dot_test.h
 
 
 
@@ -51,4 +56,7 @@ SOURCES += \
     set_vertex_names_test.cpp \
     $$PWD/create_named_edges_and_vertices_k3_graph.cpp \
     $$PWD/create_named_edges_and_vertices_k3_graph_test.cpp \
-    $$PWD/get_edge_names_test.cpp
+    $$PWD/get_edge_names_test.cpp \
+    $$PWD/save_graph_to_dot_test.cpp \
+    $$PWD/show_dot.cpp \
+    $$PWD/save_named_vertices_graph_to_dot_test.cpp

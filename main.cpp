@@ -14,6 +14,8 @@
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
+#include "save_graph_to_dot_test.h"
+#include "save_named_vertices_graph_to_dot_test.h"
 #include "print_vertex_names.h"
 #include "set_vertex_names_test.h"
 #include <iostream>
@@ -38,5 +40,7 @@ int main()
   print_vertex_names_test();
   print_vertex_name_test();
   set_vertex_names_test();
+  save_graph_to_dot_test();
+  save_named_vertices_graph_to_dot_test();
   std::cout << "Done" << std::endl;
 }

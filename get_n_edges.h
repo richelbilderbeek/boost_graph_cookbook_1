@@ -8,8 +8,11 @@
 template <class graph>
 int get_n_edges(const graph& g)
 {
+  return static_cast<int>(boost::num_edges(g));
+  /*
   const auto edge_iters = boost::edges(g);
   return std::distance(edge_iters.first,edge_iters.second);
+  */
 }
 
 #endif // GET_N_EDGES_H

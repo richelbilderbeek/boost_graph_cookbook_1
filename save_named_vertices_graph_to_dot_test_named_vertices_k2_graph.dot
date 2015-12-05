@@ -1,0 +1,5 @@
+graph G {
+0[label=from];
+1[label=to];
+0--1 ;
+}

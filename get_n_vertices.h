@@ -8,6 +8,8 @@
 template <class graph>
 int get_n_vertices(const graph& g)
 {
+  return static_cast<int>(boost::num_vertices(g));
+  /*
   using vertex_iterator
     = typename boost::graph_traits<graph>::vertex_iterator;
   using vertex_iterators
@@ -19,6 +21,7 @@ int get_n_vertices(const graph& g)
     vertex_iters.first,
     vertex_iters.second
   );
+  */
 }
 
 #endif // GET_N_VERTICES_H

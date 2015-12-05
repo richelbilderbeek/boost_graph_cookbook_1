@@ -108,7 +108,63 @@ key "siek2001boost"
 \end_layout
 
 \begin_layout Subsection
+Personal experciences with Boost.Graph
+\end_layout
+
+\begin_layout Standard
+I have been experimenting with Boost.Graph since 2006 and I both use the
+ documentation on the Boost website [1] and the book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Boost.Graph seems like the most type-safe extendable graph library around:
+ learning it will pay off! 
+\end_layout
+
+\begin_layout Itemize
+Boost.Graph requires a good compiler, like GCC 
+\end_layout
+
+\begin_layout Itemize
+The book [2] will not help a beginner: all code snippets are written 'too
+ smart', where a beginner might prefer four easy-to-understand lines, instead
+ of one using magic.
+ Most code snippets are scattered as part of a complete project, where a
+ beginner might prefer simple short projects 
+\end_layout
+
+\begin_layout Itemize
+The website [1] will not help a beginner, for the same reasons as above
+ 
+\end_layout
+
+\begin_layout Itemize
+I have never found Boost.Graph documentation or code snippets a beginner
+ would understand (except for (hopefully) at my website), as if nobody understan
+ds Boost.Graph and/or everybody that understands Boost.Graph cannot explain
+ simply anymore 
+\end_layout
+
+\begin_layout Itemize
+I learned most of Boost.Graph from my IDE ( the helpful Qt Creator): by viewing
+ the code that failed, I could understand what was expected for me.
+ I would never have understood Boost.Graph if I would have used a text editor
+ for programming 
+\end_layout
+
+\begin_layout Subsection
 Coding style used
+\end_layout
+
+\begin_layout Standard
+I use the coding style from the Core C++ Guidelines.
 \end_layout
 
 \begin_layout Standard
@@ -118,12 +174,120 @@ I prefer not to use the keyword auto, but to explicitly mention the type
  When using Boost.Graph in production code, I do prefer to use auto.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+OTOH, while writing this tutorial, I use auto when I loose too much time
+ figuring out the type
+\end_layout
+
+\begin_layout Standard
+All coding snippets are taken from compiled C++ code.
+\end_layout
+
 \begin_layout Subsection
 Pitfalls
 \end_layout
 
 \begin_layout Standard
-Do not use 'boost::get', use 'get'
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+The choice between 'boost::get', 'std::get' and 'get'.
+ AFAIKS, when in doubt, use 'get'.
+\end_layout
+
+\begin_layout Subsection
+TODO's in general
+\end_layout
+
+\begin_layout Standard
+Code snippets show include guards , use header_imp instead.
+\end_layout
+
+\begin_layout Itemize
+std::pair<edge_iterator, edge_iterator> edges(const adjacency_list& g) .
+ Returns an iterator pair corresponding to the edges in graph g
+\end_layout
+
+\begin_layout Itemize
+vertices_size_type num_vertices(const adjacency_list& g) .
+ Returns the number of vertices in g
+\end_layout
+
+\begin_layout Itemize
+edges_size_type num_edges(const adjacency_list& g) .
+ Returns the number of edges in g
+\end_layout
+
+\begin_layout Itemize
+vertex_descriptor source(edge_descriptor e, const adjacency_list& g) .
+ Returns the source vertex of an edge
+\end_layout
+
+\begin_layout Itemize
+vertex_descriptor target(edge_descriptor e, const adjacency_list& g) .
+ Returns the target vertex of an edge
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Itemize
+degree_size_type out_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the out-degree of a vertex 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
+ g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(edge_descriptor e, adjacency_list& g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void clear_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes all edges to and from u 
+\end_layout
+
+\begin_layout Itemize
+void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all outgoing edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs) 
+\end_layout
+
+\begin_layout Itemize
+void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all incoming edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs)
+\end_layout
+
+\begin_layout Itemize
+void remove_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes a vertex from graph g (It is expected that all edges associated
+ with this vertex have already been removed using clear_vertex or another
+ appropriate function.)
 \end_layout
 
 \begin_layout Section
@@ -568,7 +732,7 @@ reference "fig:named_vertices_k2_graph"
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_named_k2_graph"
+name "alg:create_named_vertices_k2_graph"
 
 \end_inset
 
@@ -789,7 +953,7 @@ name "alg:create_named_edges_and_vertices_k3"
 Most of the code is a repeat of algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_k2_graph"
+reference "alg:create_named_vertices_k2_graph"
 
 \end_inset
 
@@ -806,12 +970,31 @@ Measuring simple traits of the graphs created allows you to debug your code.
 \end_layout
 
 \begin_layout Subsection
+Getting the vertices
+\end_layout
+
+\begin_layout Standard
+You can use boost::vertices to obtain an iterator pair.
+ The first iterator points to the first vertex, the second points to beyond
+ the last vertex.
+\end_layout
+
+\begin_layout Subsection
+Getting the edges
+\end_layout
+
+\begin_layout Standard
+You can use boost::edges to obtain an iterator pair.
+ The first iterator points to the first edge, the second points to beyond
+ the last edge.
+\end_layout
+
+\begin_layout Subsection
 Counting the number of vertices
 \end_layout
 
 \begin_layout Standard
-There is na member function to directly obtain the number of vertices.
- One solution is to use the following code:
+Use boost::num_vertices, as shown here:
 \end_layout
 
 \begin_layout Standard
@@ -856,22 +1039,12 @@ name "alg:get_n_vertices"
 
 \end_layout
 
-\begin_layout Standard
-The free function boost::vertices returns a pair of iterators.
- The first points to the first vertex, the second beyond the last vertex.
- The STL function std::distance can be used to measure the amount of elements
- in between.
- Note that if the vertices are stored in a std::list, this function takes
- O(n) complexity.
-\end_layout
-
 \begin_layout Subsection
 Counting the number of edges
 \end_layout
 
 \begin_layout Standard
-There is na member function to directly obtain the number of edges.
- One solution is to use the following code:
+Use boost::num_edges, as show here:
 \end_layout
 
 \begin_layout Standard
@@ -914,15 +1087,6 @@ name "alg:get_n_edges"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The free function boost::edges returns a pair of iterators.
- The first points to the first vertex, the second beyond the last vertex.
- The STL function std::distance can be used to measure the amount of elements
- in between.
- Note that if the edges are stored in a std::list, this function takes O(n)
- complexity.
 \end_layout
 
 \begin_layout Subsection
@@ -1071,6 +1235,10 @@ When trying to get the edges' names from a graph without vertices with names,
 Find a vertex by its name
 \end_layout
 
+\begin_layout Subsection
+Replace a vertex its name
+\end_layout
+
 \begin_layout Section
 Modifying simple graphs traits
 \end_layout
@@ -1081,10 +1249,6 @@ It is useful to be able to modify every aspect of a graph.
 
 \begin_layout Subsection
 Add a vertex
-\end_layout
-
-\begin_layout Standard
-wef
 \end_layout
 
 \begin_layout Subsection
@@ -1160,6 +1324,286 @@ An impressive feature is that getting the property map holding the graph
 
 \begin_layout Section
 Visualizing graphs
+\end_layout
+
+\begin_layout Standard
+Before graphs are visualized, they are stored as a file first.
+ Here, I use the .dot file format.
+\end_layout
+
+\begin_layout Subsection
+Storing a graph as a .dot 
+\end_layout
+
+\begin_layout Standard
+Graph are easily saved to a .dot file:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_graph_to_dot.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Storing a graph as a .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+) to create a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph, the .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot_test_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_graph_to_dot_test_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+.dot file created from the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot_test_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with named vertices, you see that the .dot file does not have stored
+ the vertex names:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_graph_to_dot_test_named_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+.dot file created from the create_named_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot_test_named_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, the 'save_graph_to_dot' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) saves the structure of the graph.
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with named vertices as a .dot 
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with named vertices, you can store these names additionally with
+ algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_named_vertices_graph_to_dot.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Storing a graph with named vertices as a .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file created is:
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with named vertices and edges as a .dot 
 \end_layout
 
 \begin_layout Standard
