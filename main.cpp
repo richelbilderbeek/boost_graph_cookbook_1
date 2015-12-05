@@ -43,5 +43,6 @@ int main()
   set_vertex_names_test();
   save_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
+  save_named_edges_and_vertices_graph_to_dot_test();
   std::cout << "Done" << std::endl;
 }
