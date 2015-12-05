@@ -29,7 +29,8 @@ HEADERS += \
     $$PWD/save_graph_to_dot_test.h \
     $$PWD/show_dot.h \
     $$PWD/save_named_vertices_graph_to_dot.h \
-    $$PWD/save_named_vertices_graph_to_dot_test.h
+    $$PWD/save_named_vertices_graph_to_dot_test.h \
+    $$PWD/save_named_edges_and_vertices_graph_to_dot_test.h
 
 
 
@@ -59,4 +60,5 @@ SOURCES += \
     $$PWD/get_edge_names_test.cpp \
     $$PWD/save_graph_to_dot_test.cpp \
     $$PWD/show_dot.cpp \
-    $$PWD/save_named_vertices_graph_to_dot_test.cpp
+    $$PWD/save_named_vertices_graph_to_dot_test.cpp \
+    $$PWD/save_named_edges_and_vertices_graph_to_dot_test.cpp

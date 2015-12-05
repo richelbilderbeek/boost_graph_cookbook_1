@@ -16,6 +16,7 @@
 #include "print_vertex_name.h"
 #include "save_graph_to_dot_test.h"
 #include "save_named_vertices_graph_to_dot_test.h"
+#include "save_named_edges_and_vertices_graph_to_dot_test.h"
 #include "print_vertex_names.h"
 #include "set_vertex_names_test.h"
 #include <iostream>
