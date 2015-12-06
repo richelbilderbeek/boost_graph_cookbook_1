@@ -1,13 +1,9 @@
 #ifndef CREATE_EMPTY_CUSTOM_VERTICES_GRAPH_H
 #define CREATE_EMPTY_CUSTOM_VERTICES_GRAPH_H
 
+#include "install_vertex_custom_type.h"
 #include "my_vertex.h"
 #include <boost/graph/adjacency_list.hpp>
-
-namespace boost {
-  enum vertex_custom_type_t { vertex_custom_type = 314 };
-  BOOST_INSTALL_PROPERTY(vertex,custom_type);
-}
 
 boost::adjacency_list<
   boost::vecS,

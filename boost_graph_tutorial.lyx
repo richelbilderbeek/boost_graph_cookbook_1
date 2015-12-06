@@ -2075,6 +2075,466 @@ reference "alg:create_named_vertices_k2_graph"
 Create an empty graph with custom vertices
 \end_layout
 
+\begin_layout Standard
+Say we want to use our own vertex class as graph nodes.
+ This is done in multiple steps:
+\end_layout
+
+\begin_layout Enumerate
+Create a custom vertex class, called 'my_vertex'
+\end_layout
+
+\begin_layout Enumerate
+Install a new property, called 'vertex_custom_type
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+vertex_custom_type
+\end_layout
+
+\end_inset
+
+'
+\end_layout
+
+\begin_layout Enumerate
+Use the new property in creating a boost::adjacency_list
+\end_layout
+
+\begin_layout Subsubsection
+Creating the custom vertex class
+\end_layout
+
+\begin_layout Standard
+In this example, I create a custom vertex class.
+ Here I will show the header file of it, as the implementation of it is
+ not important yet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "my_vertex.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Declaration of my_vertex
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+my_vertex.h
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+my_vertex declaration
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Declaration, my_vertex 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:my_vertex_h"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+my_vertex is a class that has multiple properties: two doubles 'm_x' ('m_
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+m_
+\end_layout
+
+\end_inset
+
+' stands for member
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+member
+\end_layout
+
+\end_inset
+
+) and 'm_y', and two std::strings m_name and m_description.
+ my_vertex is copyable, but cannot trivially be converted to a std::string.
+\end_layout
+
+\begin_layout Subsubsection
+Installing the new property
+\end_layout
+
+\begin_layout Standard
+Installing a new property would have been easier, if 'more C++ compilers
+ were standards conformant' (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+, chapter 3.6, footnote at page 52).
+ Boost.Graph uses the BOOST_INSTALL_PROPERTY
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+BOOST_INSTALL_PROPERTY
+\end_layout
+
+\end_inset
+
+ macro
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+macro
+\end_layout
+
+\end_inset
+
+ to allow using a custom property:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "install_vertex_custom_type.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Installing the vertex_custom_type property
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+install_vertex_custom_type
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:install_vertex_custom_type"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The enum value 314
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $100\pi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ must be unique.
+\end_layout
+
+\begin_layout Subsubsection
+Create the empty graph with custom vertices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_custom_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating an empty graph with custom vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_custom_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a custom type, that is of data
+ type my_vertex (due to the boost::property< boost::vertex_custom_type_t,my_vert
+ex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::vertex_custom_type_t,my_vertex>
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Why specify edge storage twice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'boost::property< boost::vertex_custom_type
+_t,my_vertex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::vertex_custom_type_t,my_vertex>
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the property 'boost::vertex_custom_type_t', which is of data
+ type 'my_vertex'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a custom type called my_vertex
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Add a custom vertex
 \end_layout
@@ -2098,6 +2558,10 @@ name "sub:create_custom_vertices_k2"
 Instead of using vertices with a name, or other properties, here we use
  a custom vertex class called 'my_vertex'.
  A 'my_vertex' has an x coordinat, y coordinat, a name and a description.
+\end_layout
+
+\begin_layout Subsection
+Create an empty graph with custom edges and vertices
 \end_layout
 
 \begin_layout Subsection

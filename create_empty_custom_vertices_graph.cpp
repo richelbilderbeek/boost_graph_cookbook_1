@@ -1,33 +1,11 @@
 #include "create_empty_custom_vertices_graph.h"
 
+#include "create_empty_custom_vertices_graph.impl"
+
 #include <iostream>
 
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
-
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t,my_vertex
-  >
->
-create_empty_custom_vertices_graph() noexcept
-{
-  using graph = boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t,my_vertex
-    >
-  >;
-
-  graph g;
-  return g;
-}
-
 
 void create_empty_custom_vertices_graph_test() noexcept
 {

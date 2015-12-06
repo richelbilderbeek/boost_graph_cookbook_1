@@ -1,0 +1,26 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_custom_type.h"
+#include "my_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t,my_vertex
+  >
+>
+create_empty_custom_vertices_graph() noexcept
+{
+  using graph = boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t,my_vertex
+    >
+  >;
+
+  graph g;
+  return g;
+}

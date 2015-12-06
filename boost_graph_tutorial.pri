@@ -30,7 +30,8 @@ HEADERS += \
     $$PWD/create_empty_named_edges_and_vertices_graph.h \
     $$PWD/add_named_edge.h \
     $$PWD/create_empty_custom_vertices_graph.h \
-    $$PWD/my_vertex.h
+    $$PWD/my_vertex.h \
+    $$PWD/install_vertex_custom_type.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -81,4 +82,6 @@ DISTFILES += \
   create_empty_named_vertices_graph.impl \
     $$PWD/add_named_vertex.impl \
     $$PWD/create_empty_named_edges_and_vertices_graph.impl \
-    $$PWD/add_named_edge.impl
+    $$PWD/add_named_edge.impl \
+    $$PWD/create_empty_custom_vertices_graph.impl \
+    $$PWD/install_vertex_custom_type.impl
