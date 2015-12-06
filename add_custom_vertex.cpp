@@ -8,9 +8,7 @@
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 
-#ifdef TODO_1
-#include "get_custom_vertices.h"
-#endif
+#include "get_vertex_my_vertexes.h"
 
 void add_custom_vertex_test() noexcept
 {
@@ -23,13 +21,9 @@ void add_custom_vertex_test() noexcept
     add_custom_vertex(g,vertex);
     assert(get_n_vertices(g) == 1);
     assert(get_n_edges(g) == 0);
-    #ifdef TODO_1
-    const std::vector<my_vertex> vertices{get_custom_vertices(g)};
+    const std::vector<my_vertex> vertices{get_vertex_my_vertexes(g)};
     const std::vector<my_vertex> expected_vertices{vertex};
     assert(vertices == expected_vertices);
-    #else
-    std::cout << __func__ << ": TODO #1" << '\n';
-    #endif
   }
   //Add 2
   {
@@ -37,16 +31,14 @@ void add_custom_vertex_test() noexcept
     assert(get_n_vertices(g) == 0);
     assert(get_n_edges(g) == 0);
     const my_vertex vertex_1("X");
-    const my_vertex vertex_2("X");
+    const my_vertex vertex_2("Y");
     add_custom_vertex(g,vertex_1);
     add_custom_vertex(g,vertex_2);
     assert(get_n_vertices(g) == 2);
     assert(get_n_edges(g) == 0);
-    #ifdef TODO_1
-    const std::vector<my_vertex> vertices{get_custom_vertices(g)};
+    const std::vector<my_vertex> vertices{get_vertex_my_vertexes(g)};
     const std::vector<my_vertex> expected_vertices{vertex_1, vertex_2};
     assert(vertices == expected_vertices);
-    #endif
   }
   std::cout << __func__ << ": OK" << '\n';
 }
