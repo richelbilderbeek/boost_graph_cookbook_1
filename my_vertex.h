@@ -18,4 +18,6 @@ public:
   double m_y;
 };
 
+bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept;
+
 #endif // MY_VERTEX_H

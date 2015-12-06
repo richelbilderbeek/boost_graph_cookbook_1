@@ -423,10 +423,10 @@ Note that boost::add_vertex returns a vertex descriptor, which is ignored
  for now.
  A vertex descriptor
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-vertex descriptor
+Vertex descriptor
 \end_layout
 
 \end_inset
@@ -465,7 +465,7 @@ To add an edge to a graph, two vertex descriptors are needed.
 status open
 
 \begin_layout Plain Layout
-vertex descriptor
+Vertex descriptor
 \end_layout
 
 \end_inset
@@ -803,7 +803,7 @@ name "alg:create_k2_graph"
 Note that this code has more lines of using statements than actual code!
  In this code, the third template argument of boost::adjacency_list
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::adjacency_list
@@ -824,7 +824,7 @@ boost::undirectedS
 , to select (that is what the S means) for an undirected graph.
  Adding a vertex with boost::add_vertex
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::add_vertex
@@ -834,10 +834,10 @@ boost::add_vertex
 
  results in a vertex descriptor
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-vertex descriptor
+Vertex descriptor
 \end_layout
 
 \end_inset
@@ -846,7 +846,7 @@ vertex descriptor
  Two vertex descriptors are then used to add an edge to the graph.
  Adding an edge using boost::add_edge
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::add_edge
@@ -1006,16 +1006,6 @@ ng (due to the boost::property< boost::vertex_name_t,std::string>
 status open
 
 \begin_layout Plain Layout
-boost::vertex_name_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
 boost::property
 \end_layout
 
@@ -1026,7 +1016,7 @@ boost::property
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::vertex_name_t,std::string>
+boost::vertex_name_t
 \end_layout
 
 \end_inset
@@ -1055,7 +1045,7 @@ Why specify edge storage twice?
 \begin_layout Standard
 The boost::adjacency_list
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::adjacency_list
@@ -1066,20 +1056,20 @@ boost::adjacency_list
  has a new, fourth template argument 'boost::property< boost::vertex_name_t,std:
 :string>
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-boost::vertex_name_t
+boost::property
 \end_layout
 
 \end_inset
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-boost::property<boost::vertex_name_t,std::string>
+boost::vertex_name_t
 \end_layout
 
 \end_inset
@@ -1221,7 +1211,7 @@ me,g)
 status open
 
 \begin_layout Plain Layout
-boost::vertex_name
+boost::get
 \end_layout
 
 \end_inset
@@ -1231,7 +1221,7 @@ boost::vertex_name
 status open
 
 \begin_layout Plain Layout
-boost::get(boost::vertex_name,g)
+boost::vertex_name
 \end_layout
 
 \end_inset
@@ -1603,16 +1593,6 @@ ng (due to the boost::property< boost::vertex_name_t,std::string>
 status open
 
 \begin_layout Plain Layout
-boost::vertex_name_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
 boost::property
 \end_layout
 
@@ -1623,7 +1603,7 @@ boost::property
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::vertex_name_t,std::string>
+boost::vertex_name_t
 \end_layout
 
 \end_inset
@@ -1638,16 +1618,6 @@ The edges have one property: they have a name, that is of data type std::string
 status open
 
 \begin_layout Plain Layout
-boost::edge_name_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
 boost::property
 \end_layout
 
@@ -1658,7 +1628,7 @@ boost::property
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::edge_name_t,std::string>
+boost::edge_name_t
 \end_layout
 
 \end_inset
@@ -1687,7 +1657,7 @@ Why specify edge storage twice?
 \begin_layout Standard
 The boost::adjacency_list
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::adjacency_list
@@ -1701,7 +1671,7 @@ ring>
 status open
 
 \begin_layout Plain Layout
-boost::edge_name_t
+boost::property
 \end_layout
 
 \end_inset
@@ -1711,7 +1681,7 @@ boost::edge_name_t
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::edge_name_t,std::string>
+boost::edge_name_t
 \end_layout
 
 \end_inset
@@ -2094,7 +2064,7 @@ Create a custom vertex class, called 'my_vertex'
 \begin_layout Enumerate
 Install a new property, called 'vertex_custom_type
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 vertex_custom_type
@@ -2321,10 +2291,7 @@ The enum value 314
 status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $100\pi$
-\end_inset
-
-
+pi
 \end_layout
 
 \end_inset
@@ -2442,16 +2409,6 @@ ex>
 status open
 
 \begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
 boost::property
 \end_layout
 
@@ -2462,7 +2419,17 @@ boost::property
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::vertex_custom_type_t,my_vertex>
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
 \end_layout
 
 \end_inset
@@ -2491,7 +2458,7 @@ Why specify edge storage twice?
 \begin_layout Standard
 The boost::adjacency_list
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::adjacency_list
@@ -2501,6 +2468,16 @@ boost::adjacency_list
 
  has a new, fourth template argument 'boost::property< boost::vertex_custom_type
 _t,my_vertex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -2515,7 +2492,7 @@ boost::vertex_custom_type_t
 status open
 
 \begin_layout Plain Layout
-boost::property<boost::vertex_custom_type_t,my_vertex>
+my_vertex
 \end_layout
 
 \end_inset
@@ -2615,7 +2592,7 @@ When having added a new (abstract) vertex to the graph, the vertex descriptor
  is used to set the my_vertex in the graph its my_vertex map (using 'boost::get(
 boost::vertex_custom_type,g)
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 boost::vertex_custom_type
@@ -2625,10 +2602,10 @@ boost::vertex_custom_type
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-boost::get(boost::vertex_custom_type,g)
+boost::get
 \end_layout
 
 \end_inset
@@ -2775,7 +2752,8 @@ Measuring simple graphs traits
 \end_layout
 
 \begin_layout Standard
-Measuring simple traits of the graphs created allows you to debug your code.
+Measuring simple traits of the graphs created allows you to deb ug your
+ code.
 \end_layout
 
 \begin_layout Subsection
@@ -2804,7 +2782,7 @@ Counting the number of vertices
 status open
 
 \begin_layout Plain Layout
-vertices, counting
+Vertices, counting
 \end_layout
 
 \end_inset
@@ -2894,7 +2872,7 @@ Counting the number of edges
 status open
 
 \begin_layout Plain Layout
-edges, counting
+Edges, counting
 \end_layout
 
 \end_inset
@@ -3020,7 +2998,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_layout Plain Layout
 Get the vertices' names
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 get_vertex_names
@@ -3055,8 +3033,17 @@ The names of the vertices are obtained from a boost::property_map and then
 
 \begin_layout Standard
 When trying to get the vertices' names from a graph without vertices with
- names, you will get the error 'formed reference to void' (for example,
- with the code 'get_vertex_names(create_k2_graph());').
+ names, you will get the error 'formed reference to void
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+formed reference to void
+\end_layout
+
+\end_inset
+
+' (for example, with the code 'get_vertex_names(create_k2_graph());').
 \end_layout
 
 \begin_layout Subsection
@@ -3138,6 +3125,98 @@ The names of the edges are obtained from a boost::property_map and then
 When trying to get the edges' names from a graph without vertices with names,
  you will get the error 'formed reference to void' (for example, with the
  code 'get_vertex_names(create_k2_graph());').
+\end_layout
+
+\begin_layout Subsection
+Getting the vertices' my_vertexes
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+the name 'my_vertexes' is chosen to indicate this function returns a container
+ of my_vertex
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have any associated my_vertex, one can extract
+ these as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_my_vertexes.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Get the vertices' my_vertexes
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The my_vertex object associated with the vertices are obtained from a boost::pro
+perty_map and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+When trying to get the vertices' my_vertex from a graph without my_vertex
+ objects associated, you will get the error 'formed reference to void
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+formed reference to void
+\end_layout
+
+\end_inset
+
+' (for example, with the code 'get_vertex_my_vertexes(create_k2_graph());').
 \end_layout
 
 \begin_layout Subsection
@@ -4174,60 +4253,245 @@ reference "alg:save_graph_to_dot"
 ) saves only the structure of the graph and its edge and vertex names.
 \end_layout
 
-\begin_layout Section
-TODO's in general
-\end_layout
-
 \begin_layout Subsection
-Personal experciences with Boost.Graph
-\end_layout
+Storing a graph with custom vertices as a .dot
+\begin_inset Index idx
+status open
 
-\begin_layout Standard
-I have been experimenting with Boost.Graph since 2006 and I both use the
- documentation on the Boost website [1] and the book 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "siek2001boost"
+\begin_layout Plain Layout
+Save graph with custom vertices as .dot
+\end_layout
 
 \end_inset
 
-.
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create .dot from graph with custom vertices
 \end_layout
 
-\begin_layout Itemize
-Boost.Graph seems like the most type-safe extendable graph library around:
- learning it will pay off! 
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-Boost.Graph requires a good compiler, like GCC 
-\end_layout
-
-\begin_layout Itemize
-The book [2] will not help a beginner: all code snippets are written 'too
- smart', where a beginner might prefer four easy-to-understand lines, instead
- of one using magic.
- Most code snippets are scattered as part of a complete project, where a
- beginner might prefer simple short projects 
-\end_layout
-
-\begin_layout Itemize
-The website [1] will not help a beginner, for the same reasons as above
  
 \end_layout
 
-\begin_layout Itemize
-I have never found Boost.Graph documentation or code snippets a beginner
- would understand (except for (hopefully) at my website), as if nobody understan
-ds Boost.Graph and/or everybody that understands Boost.Graph cannot explain
- simply anymore 
+\begin_layout Standard
+If you used the create_custom_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with vertices associated with my_vertex objects, you can store these
+ my_vertexes additionally with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_vertices_graph_to_dot"
+
+\end_inset
+
+:
 \end_layout
 
-\begin_layout Itemize
-I learned most of Boost.Graph from my IDE ( the helpful Qt Creator): by viewing
- the code that failed, I could understand what was expected for me.
- I would never have understood Boost.Graph if I would have used a text editor
- for programming 
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_custom_vertices_graph_to_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Storing a graph with custom vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_custom_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_custom_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+.dot file created from the create_custom_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+.svg file created from the create_custom_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+pi
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Measuring more complex graphs traits
+\end_layout
+
+\begin_layout Subsection
+Count the number of self-loops
+\end_layout
+
+\begin_layout Section
+TODO's in general
 \end_layout
 
 \begin_layout Subsection

@@ -14,3 +14,13 @@ my_vertex::my_vertex(
 
 }
 
+
+bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
+{
+  return
+       lhs.m_description == rhs.m_description
+    && lhs.m_name == rhs.m_name
+    && lhs.m_x == rhs.m_x
+    && lhs.m_y == rhs.m_y
+  ;
+}

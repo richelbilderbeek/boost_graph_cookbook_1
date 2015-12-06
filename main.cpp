@@ -20,6 +20,7 @@
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_vertex_names.h"
+#include "get_vertex_my_vertexes.h"
 #include "is_self_loop.h"
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
@@ -28,6 +29,7 @@
 #include "save_graph_to_dot.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot.h"
+#include "save_custom_vertices_graph_to_dot.h"
 #include "set_vertex_names.h"
 #include <iostream>
 
@@ -39,6 +41,7 @@ int main()
   add_named_vertex_test();
   add_vertex_test();
   bfs_name_printer_test();
+  get_vertex_my_vertexes_test();
   build_router_network_test();
   create_custom_vertices_k2_graph_test();
   create_empty_custom_vertices_graph_test();
@@ -63,6 +66,7 @@ int main()
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
+  save_custom_vertices_graph_to_dot_test();
   set_vertex_names_test();
   std::cout << "Done" << std::endl;
 }
