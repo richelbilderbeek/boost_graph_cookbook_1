@@ -32,7 +32,8 @@ HEADERS += \
   create_empty_custom_vertices_graph.h \
   my_vertex.h \
   install_vertex_custom_type.h \
-  add_custom_vertex.h
+  add_custom_vertex.h \
+    $$PWD/create_custom_vertices_k2_graph.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -49,18 +50,7 @@ SOURCES += \
   create_router_network.cpp \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
-  get_n_edges_test.cpp \
-  get_n_vertices_test.cpp \
-  get_vertex_names_test.cpp \
   is_self_loop_test.cpp \
-  print_trans_delays_test.cpp \
-  print_trans_delay_test.cpp \
-  print_vertex_names_test.cpp \
-  print_vertex_name_test.cpp \
-  save_graph_to_dot_test.cpp \
-  save_named_edges_and_vertices_graph_to_dot_test.cpp \
-  save_named_vertices_graph_to_dot_test.cpp \
-  set_vertex_names_test.cpp \
   show_dot.cpp \
   add_vertex.cpp \
   create_tutorial_chapters_graph.cpp \
@@ -73,7 +63,19 @@ SOURCES += \
   get_edge_names.cpp \
   create_empty_custom_vertices_graph.cpp \
   my_vertex.cpp \
-  add_custom_vertex.cpp
+  add_custom_vertex.cpp \
+    $$PWD/create_custom_vertices_k2_graph.cpp \
+    $$PWD/get_n_vertices.cpp \
+    $$PWD/get_n_edges.cpp \
+    $$PWD/get_vertex_names.cpp \
+    $$PWD/set_vertex_names.cpp \
+    $$PWD/save_graph_to_dot.cpp \
+    $$PWD/print_vertex_names.cpp \
+    $$PWD/print_vertex_name.cpp \
+    $$PWD/print_trans_delays.cpp \
+    $$PWD/print_trans_delay.cpp \
+    $$PWD/save_named_edges_and_vertices_graph_to_dot.cpp \
+    $$PWD/save_named_vertices_graph_to_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -87,4 +89,5 @@ DISTFILES += \
   add_named_edge.impl \
   create_empty_custom_vertices_graph.impl \
   install_vertex_custom_type.impl \
-  add_custom_vertex.impl
+  add_custom_vertex.impl \
+    $$PWD/create_custom_vertices_k2_graph.impl

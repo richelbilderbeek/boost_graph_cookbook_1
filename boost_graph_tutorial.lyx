@@ -2652,9 +2652,94 @@ name "sub:create_custom_vertices_k2"
 \end_layout
 
 \begin_layout Standard
-Instead of using vertices with a name, or other properties, here we use
- a custom vertex class called 'my_vertex'.
- A 'my_vertex' has an x coordinat, y coordinat, a name and a description.
+We reproduce the 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2"
+
+\end_inset
+
+ , but with our custom vertices intead:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_custom_vertices_k2_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a slight modification of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+.
+ In the end, the my_vertices are obtained as a boost::property_map and set
+ with two custom my_vertex objects.
 \end_layout
 
 \begin_layout Subsection
@@ -2715,10 +2800,40 @@ You can use boost::edges to obtain an iterator pair.
 
 \begin_layout Subsection
 Counting the number of vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertices, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of vertices
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Use boost::num_vertices, as shown here:
+Use boost::num_vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_vertices
+\end_layout
+
+\end_inset
+
+, as shown here:
 \end_layout
 
 \begin_layout Standard
@@ -2731,7 +2846,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_n_vertices.h"
+filename "get_n_vertices.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2744,6 +2859,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Count the numbe of vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_vertices
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_vertices"
@@ -2765,10 +2890,40 @@ name "alg:get_n_vertices"
 
 \begin_layout Subsection
 Counting the number of edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edges, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of edges
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Use boost::num_edges, as show here:
+Use boost::num_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_edges
+\end_layout
+
+\end_inset
+
+, as shown here:
 \end_layout
 
 \begin_layout Standard
@@ -2781,7 +2936,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_n_edges.h"
+filename "get_n_edges.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2794,6 +2949,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Count the number of edges
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_edges
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_edges"
@@ -2841,7 +3006,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertex_names.h"
+filename "get_vertex_names.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2854,6 +3019,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Get the vertices' names
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_vertex_names
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_names"
@@ -2912,7 +3087,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_edge_names.h"
+filename "get_edge_names.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2925,6 +3100,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Get the edges' names
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_edge_names
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_names"
@@ -2974,6 +3159,26 @@ It is useful to be able to modify every aspect of a graph.
 
 \begin_layout Subsection
 Setting all vertices' names
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set vertex names
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertices, set names
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3000,7 +3205,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_vertex_names.h"
+filename "set_vertex_names.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -3013,6 +3218,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Setting the vertices' names
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_vertex_names
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_vertex_names"
@@ -3049,7 +3264,27 @@ Before graphs are visualized, they are stored as a file first.
 \end_layout
 
 \begin_layout Subsection
-Storing a graph as a .dot 
+Storing a graph as a .dot
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save graph as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create .dot from graph
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3066,7 +3301,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_graph_to_dot.h"
+filename "save_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -3079,6 +3314,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Storing a graph as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_graph_to_dot
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:save_graph_to_dot"
@@ -3305,7 +3550,27 @@ reference "alg:save_graph_to_dot"
 \end_layout
 
 \begin_layout Subsection
-Storing a graph with named vertices as a .dot 
+Storing a graph with named vertices as a .dot
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Save graph with name vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create .dot from graph with named vertices
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3341,7 +3606,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_named_vertices_graph_to_dot.h"
+filename "save_named_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -3354,6 +3619,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Storing a graph with named vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_named_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:save_named_vertices_graph_to_dot"
@@ -3572,6 +3847,26 @@ reference "alg:save_graph_to_dot"
 
 \begin_layout Subsection
 Storing a graph with named vertices and edges as a .dot
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Save graph with name edges and vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create .dot from graph with named edges and vertices
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3608,7 +3903,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_named_edges_and_vertices_graph_to_dot.h"
+filename "save_named_edges_and_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -3621,6 +3916,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Storing a graph with named edges and vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_named_edges_and_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:save_named_edges_and_vertices_graph_to_dot"

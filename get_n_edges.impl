@@ -1,0 +1,8 @@
+#include <boost/graph/adjacency_list.hpp>
+
+///Get the number of edges a graph has
+template <class graph>
+int get_n_edges(const graph& g)
+{
+  return static_cast<int>(boost::num_edges(g));
+}
