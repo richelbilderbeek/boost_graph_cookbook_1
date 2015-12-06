@@ -28,7 +28,9 @@ HEADERS += \
   create_empty_named_vertices_graph.h \
     $$PWD/add_named_vertex.h \
     $$PWD/create_empty_named_edges_and_vertices_graph.h \
-    $$PWD/add_named_edge.h
+    $$PWD/add_named_edge.h \
+    $$PWD/create_empty_custom_vertices_graph.h \
+    $$PWD/my_vertex.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -66,7 +68,9 @@ SOURCES += \
     $$PWD/add_named_vertex.cpp \
     $$PWD/create_empty_named_edges_and_vertices_graph.cpp \
     $$PWD/add_named_edge.cpp \
-    $$PWD/get_edge_names.cpp
+    $$PWD/get_edge_names.cpp \
+    $$PWD/create_empty_custom_vertices_graph.cpp \
+    $$PWD/my_vertex.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
