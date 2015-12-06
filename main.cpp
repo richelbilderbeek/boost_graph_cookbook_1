@@ -1,4 +1,5 @@
 #include "add_edge.h"
+#include "add_custom_vertex.h"
 #include "add_named_edge.h"
 #include "add_named_vertex.h"
 #include "add_vertex.h"
@@ -31,6 +32,7 @@
 
 int main()
 {
+  add_custom_vertex_test();
   add_edge_test();
   add_named_edge_test();
   add_named_vertex_test();

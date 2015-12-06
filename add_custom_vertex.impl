@@ -1,0 +1,23 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_custom_type.h"
+#include "my_vertex.h"
+
+template <typename graph>
+void add_custom_vertex(graph& g, const my_vertex& v)
+{
+  using boost::graph_traits;
+  using boost::property_map;
+  using boost::vertex_name_t;
+  using boost::vertex_custom_type_t;
+  using vertex_descriptor
+    = typename boost::graph_traits<graph>::vertex_descriptor;
+  using my_vertex_map_t
+    = typename property_map<graph,vertex_custom_type_t>::type;
+
+  const vertex_descriptor vd{
+    boost::add_vertex(g)
+  };
+
+  my_vertex_map_t name_map{boost::get(boost::vertex_custom_type,g)};
+  name_map[vd] = v;
+}

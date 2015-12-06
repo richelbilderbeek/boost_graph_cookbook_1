@@ -26,12 +26,13 @@ HEADERS += \
   create_tutorial_chapters_graph.h \
   add_edge.h \
   create_empty_named_vertices_graph.h \
-    $$PWD/add_named_vertex.h \
-    $$PWD/create_empty_named_edges_and_vertices_graph.h \
-    $$PWD/add_named_edge.h \
-    $$PWD/create_empty_custom_vertices_graph.h \
-    $$PWD/my_vertex.h \
-    $$PWD/install_vertex_custom_type.h
+  add_named_vertex.h \
+  create_empty_named_edges_and_vertices_graph.h \
+  add_named_edge.h \
+  create_empty_custom_vertices_graph.h \
+  my_vertex.h \
+  install_vertex_custom_type.h \
+  add_custom_vertex.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -66,12 +67,13 @@ SOURCES += \
   add_edge.cpp \
   create_empty_named_vertices_graph.cpp \
   create_empty_named_vertices_graph_test.cpp \
-    $$PWD/add_named_vertex.cpp \
-    $$PWD/create_empty_named_edges_and_vertices_graph.cpp \
-    $$PWD/add_named_edge.cpp \
-    $$PWD/get_edge_names.cpp \
-    $$PWD/create_empty_custom_vertices_graph.cpp \
-    $$PWD/my_vertex.cpp
+  add_named_vertex.cpp \
+  create_empty_named_edges_and_vertices_graph.cpp \
+  add_named_edge.cpp \
+  get_edge_names.cpp \
+  create_empty_custom_vertices_graph.cpp \
+  my_vertex.cpp \
+  add_custom_vertex.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -80,8 +82,9 @@ DISTFILES += \
   add_vertex.impl \
   add_edge.impl \
   create_empty_named_vertices_graph.impl \
-    $$PWD/add_named_vertex.impl \
-    $$PWD/create_empty_named_edges_and_vertices_graph.impl \
-    $$PWD/add_named_edge.impl \
-    $$PWD/create_empty_custom_vertices_graph.impl \
-    $$PWD/install_vertex_custom_type.impl
+  add_named_vertex.impl \
+  create_empty_named_edges_and_vertices_graph.impl \
+  add_named_edge.impl \
+  create_empty_custom_vertices_graph.impl \
+  install_vertex_custom_type.impl \
+  add_custom_vertex.impl

@@ -1138,6 +1138,13 @@ Vertex, add named
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_named_vertex"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2537,6 +2544,96 @@ vertices have a custom type called my_vertex
 
 \begin_layout Subsection
 Add a custom vertex
+\end_layout
+
+\begin_layout Standard
+Adding a custom vertex is very similar to adding a named vertex (chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_named_vertex"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Add a vertex with a name
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+add_named_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having added a new (abstract) vertex to the graph, the vertex descriptor
+ is used to set the my_vertex in the graph its my_vertex map (using 'boost::get(
+boost::vertex_custom_type,g)
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::vertex_custom_type
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::get(boost::vertex_custom_type,g)
+\end_layout
+
+\end_inset
+
+').
 \end_layout
 
 \begin_layout Subsection
