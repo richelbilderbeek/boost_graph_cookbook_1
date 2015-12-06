@@ -3242,7 +3242,7 @@ Setting all vertices' names
 status open
 
 \begin_layout Plain Layout
-Set vertex names
+Set vertices names
 \end_layout
 
 \end_inset
@@ -3331,6 +3331,94 @@ An impressive feature is that getting the property map holding the graph
  its names is not a copy, but a reference.
  Otherwise, modifying 'name_map' (obtained by non-reference) would only
  modify a copy.
+\end_layout
+
+\begin_layout Subsection
+Setting all vertices' my_vertex objects
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set vertices my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertices, set my_vertexes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph are associated with my_vertex objects, one
+ can set these my_vertexes as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_vertex_my_vertexes.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Setting the vertices' my_vertexes
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_vertex_my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An impressive feature is that getting the property map holding the graph
+ its names is not a copy, but a reference.
+ Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
+ only modify a copy.
 \end_layout
 
 \begin_layout Section

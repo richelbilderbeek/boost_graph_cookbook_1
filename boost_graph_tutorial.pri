@@ -34,6 +34,7 @@ HEADERS += \
   save_graph_to_dot.h \
   save_named_edges_and_vertices_graph_to_dot.h \
   save_named_vertices_graph_to_dot.h \
+  set_vertex_my_vertexes.h \
   set_vertex_names.h \
   show_dot.h
 
@@ -78,6 +79,7 @@ SOURCES += \
   save_graph_to_dot.cpp \
   save_named_edges_and_vertices_graph_to_dot.cpp \
   save_named_vertices_graph_to_dot.cpp \
+  set_vertex_my_vertexes.cpp \
   set_vertex_names.cpp \
   show_dot.cpp
 
@@ -104,5 +106,6 @@ DISTFILES += \
   save_graph_to_dot.impl \
   save_named_edges_and_vertices_graph_to_dot.impl \
   save_named_vertices_graph_to_dot.impl \
+  set_vertex_my_vertexes.impl \
   set_vertex_names.impl
 
