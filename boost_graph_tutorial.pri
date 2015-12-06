@@ -94,8 +94,15 @@ DISTFILES += \
   create_empty_custom_vertices_graph.impl \
   create_empty_named_edges_and_vertices_graph.impl \
   create_empty_named_vertices_graph.impl \
+  get_edge_names.impl \
+  get_n_edges.impl \
+  get_n_vertices.impl \
   get_vertex_my_vertexes.impl \
+  get_vertex_names.impl \
   install_vertex_custom_type.impl \
+  save_custom_vertices_graph_to_dot.impl \
+  save_graph_to_dot.impl \
   save_named_edges_and_vertices_graph_to_dot.impl \
   save_named_vertices_graph_to_dot.impl \
-  save_custom_vertices_graph_to_dot.impl
+  set_vertex_names.impl
+
