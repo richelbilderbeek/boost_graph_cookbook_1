@@ -117,58 +117,6 @@ key "siek2001boost"
 \end_layout
 
 \begin_layout Subsection
-Personal experciences with Boost.Graph
-\end_layout
-
-\begin_layout Standard
-I have been experimenting with Boost.Graph since 2006 and I both use the
- documentation on the Boost website [1] and the book 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "siek2001boost"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Boost.Graph seems like the most type-safe extendable graph library around:
- learning it will pay off! 
-\end_layout
-
-\begin_layout Itemize
-Boost.Graph requires a good compiler, like GCC 
-\end_layout
-
-\begin_layout Itemize
-The book [2] will not help a beginner: all code snippets are written 'too
- smart', where a beginner might prefer four easy-to-understand lines, instead
- of one using magic.
- Most code snippets are scattered as part of a complete project, where a
- beginner might prefer simple short projects 
-\end_layout
-
-\begin_layout Itemize
-The website [1] will not help a beginner, for the same reasons as above
- 
-\end_layout
-
-\begin_layout Itemize
-I have never found Boost.Graph documentation or code snippets a beginner
- would understand (except for (hopefully) at my website), as if nobody understan
-ds Boost.Graph and/or everybody that understands Boost.Graph cannot explain
- simply anymore 
-\end_layout
-
-\begin_layout Itemize
-I learned most of Boost.Graph from my IDE ( the helpful Qt Creator): by viewing
- the code that failed, I could understand what was expected for me.
- I would never have understood Boost.Graph if I would have used a text editor
- for programming 
-\end_layout
-
-\begin_layout Subsection
 Coding style used
 \end_layout
 
@@ -217,86 +165,6 @@ TODO
 
 The choice between 'boost::get', 'std::get' and 'get'.
  AFAIKS, when in doubt, use 'get'.
-\end_layout
-
-\begin_layout Subsection
-TODO's in general
-\end_layout
-
-\begin_layout Standard
-Code snippets show include guards , use header_imp instead.
-\end_layout
-
-\begin_layout Itemize
-std::pair<edge_iterator, edge_iterator> edges(const adjacency_list& g) .
- Returns an iterator pair corresponding to the edges in graph g
-\end_layout
-
-\begin_layout Itemize
-vertices_size_type num_vertices(const adjacency_list& g) .
- Returns the number of vertices in g
-\end_layout
-
-\begin_layout Itemize
-edges_size_type num_edges(const adjacency_list& g) .
- Returns the number of edges in g
-\end_layout
-
-\begin_layout Itemize
-vertex_descriptor source(edge_descriptor e, const adjacency_list& g) .
- Returns the source vertex of an edge
-\end_layout
-
-\begin_layout Itemize
-vertex_descriptor target(edge_descriptor e, const adjacency_list& g) .
- Returns the target vertex of an edge
-\end_layout
-
-\begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
-\end_layout
-
-\begin_layout Itemize
-degree_size_type out_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the out-degree of a vertex 
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
- g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(edge_descriptor e, adjacency_list& g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Itemize
-void clear_vertex(vertex_descriptor u, adjacency_list& g) .
- Removes all edges to and from u 
-\end_layout
-
-\begin_layout Itemize
-void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all outgoing edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs) 
-\end_layout
-
-\begin_layout Itemize
-void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all incoming edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs)
-\end_layout
-
-\begin_layout Itemize
-void remove_vertex(vertex_descriptor u, adjacency_list& g) .
- Removes a vertex from graph g (It is expected that all edges associated
- with this vertex have already been removed using clear_vertex or another
- appropriate function.)
 \end_layout
 
 \begin_layout Section
@@ -402,8 +270,133 @@ The boost::adjacency_list is the most commonly used graph type, the other
 Add a vertex
 \end_layout
 
+\begin_layout Standard
+To add a vertex to a graph, the boost::add_vertex function is used as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Adding a vertex to a graph
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that boost::add_vertex returns a vertex descriptor, which is ignored
+ for now.
+ This vertex descriptor can be used to connect two vertices by an edge
+\end_layout
+
 \begin_layout Subsection
-Add a node
+Add an edge
+\end_layout
+
+\begin_layout Standard
+To add an edge to a graph, two vertex descriptors are needed.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge"
+
+\end_inset
+
+ adds two vertices to a graph, and connects these two using boost::add_edge:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Adding (two vertices and) an edge to a graph
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that half of the code consists out of using statements.
+ This algorithm only shows how to add an isolated edge to a graph, instead
+ of allowing for graphs with higher connectivities.
+ The function boost::add_edge returns a pair, consisting of an edge descriptor
+ and a boolean success indicator.
+ In algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge"
+
+\end_inset
+
+ we assert that insertion was successfull.
+ Insertion can fail if an edge is already present and duplicates are not
+ allowed.
 \end_layout
 
 \begin_layout Subsection
@@ -593,6 +586,80 @@ directedS, to select (that is what the S means) for an undirected graph.
 \begin_layout Standard
 Note that the graph lacks all properties: nodes do not have names, nor do
  edges.
+\end_layout
+
+\begin_layout Subsection
+Creating an empty graph with named vertices
+\end_layout
+
+\begin_layout Standard
+Let's create a trivial empty graph, in which the vertices can have a name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_named_vertices_graph.cpp"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating an empty graph
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The difference with creating an ordinary empty graphs (as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_graph"
+
+\end_inset
+
+) is the fourth template argument of boost::adjacency_list.
+ The notation 'boost::property<boost::vertex_name_t,std::string>' can be
+ read as: 
+\begin_inset Quotes eld
+\end_inset
+
+there is a vertex property, called 'boost::vertex_name' that has data type
+ 'std::string'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Sure, we have not added any vertex to this graph yet, we did create a data
+ type that allows for doing so.
 \end_layout
 
 \begin_layout Subsection
@@ -2217,6 +2284,132 @@ reference "alg:save_graph_to_dot"
 \end_inset
 
 ) saves only the structure of the graph and its edge and vertex names.
+\end_layout
+
+\begin_layout Section
+TODO's in general
+\end_layout
+
+\begin_layout Subsection
+Personal experciences with Boost.Graph
+\end_layout
+
+\begin_layout Standard
+I have been experimenting with Boost.Graph since 2006 and I both use the
+ documentation on the Boost website [1] and the book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Boost.Graph seems like the most type-safe extendable graph library around:
+ learning it will pay off! 
+\end_layout
+
+\begin_layout Itemize
+Boost.Graph requires a good compiler, like GCC 
+\end_layout
+
+\begin_layout Itemize
+The book [2] will not help a beginner: all code snippets are written 'too
+ smart', where a beginner might prefer four easy-to-understand lines, instead
+ of one using magic.
+ Most code snippets are scattered as part of a complete project, where a
+ beginner might prefer simple short projects 
+\end_layout
+
+\begin_layout Itemize
+The website [1] will not help a beginner, for the same reasons as above
+ 
+\end_layout
+
+\begin_layout Itemize
+I have never found Boost.Graph documentation or code snippets a beginner
+ would understand (except for (hopefully) at my website), as if nobody understan
+ds Boost.Graph and/or everybody that understands Boost.Graph cannot explain
+ simply anymore 
+\end_layout
+
+\begin_layout Itemize
+I learned most of Boost.Graph from my IDE ( the helpful Qt Creator): by viewing
+ the code that failed, I could understand what was expected for me.
+ I would never have understood Boost.Graph if I would have used a text editor
+ for programming 
+\end_layout
+
+\begin_layout Subsection
+To add
+\end_layout
+
+\begin_layout Standard
+Code snippets show include guards , use header_imp instead.
+\end_layout
+
+\begin_layout Itemize
+std::pair<edge_iterator, edge_iterator> edges(const adjacency_list& g) .
+ Returns an iterator pair corresponding to the edges in graph g
+\end_layout
+
+\begin_layout Itemize
+vertex_descriptor source(edge_descriptor e, const adjacency_list& g) .
+ Returns the source vertex of an edge
+\end_layout
+
+\begin_layout Itemize
+vertex_descriptor target(edge_descriptor e, const adjacency_list& g) .
+ Returns the target vertex of an edge
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Itemize
+degree_size_type out_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the out-degree of a vertex 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
+ g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(edge_descriptor e, adjacency_list& g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void clear_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes all edges to and from u 
+\end_layout
+
+\begin_layout Itemize
+void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all outgoing edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs) 
+\end_layout
+
+\begin_layout Itemize
+void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all incoming edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs)
+\end_layout
+
+\begin_layout Itemize
+void remove_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes a vertex from graph g (It is expected that all edges associated
+ with this vertex have already been removed using clear_vertex or another
+ appropriate function.)
 \end_layout
 
 \begin_layout Standard
