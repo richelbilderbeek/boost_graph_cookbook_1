@@ -25,7 +25,8 @@ HEADERS += \
   show_dot.h \
   create_tutorial_chapters_graph.h \
   add_edge.h \
-  create_empty_named_vertices_graph.h
+  create_empty_named_vertices_graph.h \
+    $$PWD/add_named_vertex.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -60,7 +61,8 @@ SOURCES += \
   create_tutorial_chapters_graph.cpp \
   add_edge.cpp \
   create_empty_named_vertices_graph.cpp \
-  create_empty_named_vertices_graph_test.cpp
+  create_empty_named_vertices_graph_test.cpp \
+    $$PWD/add_named_vertex.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -68,4 +70,5 @@ SOURCES += \
 DISTFILES += \
   add_vertex.impl \
   add_edge.impl \
-  create_empty_named_vertices_graph.impl
+  create_empty_named_vertices_graph.impl \
+    $$PWD/add_named_vertex.impl

@@ -268,6 +268,13 @@ The boost::adjacency_list is the most commonly used graph type, the other
 
 \begin_layout Subsection
 Add a vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Add-a-vertex"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -606,7 +613,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_named_vertices_graph.cpp"
+filename "add_named_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -639,31 +646,78 @@ name "alg:create_empty_named_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-The difference with creating an ordinary empty graphs (as in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_empty_graph"
-
-\end_inset
-
-) is the fourth template argument of boost::adjacency_list.
- The notation 'boost::property<boost::vertex_name_t,std::string>' can be
- read as: 
-\begin_inset Quotes eld
-\end_inset
-
-there is a vertex property, called 'boost::vertex_name' that has data type
- 'std::string'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Sure, we have not added any vertex to this graph yet, we did create a data
- type that allows for doing so.
+wef
 \end_layout
 
 \begin_layout Subsection
 Add a vertex with a name
+\end_layout
+
+\begin_layout Standard
+Adding a vertex without a name was trivially easy (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_vertex"
+
+\end_inset
+
+).
+ Adding a vertex with a name is less easy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_named_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating an empty graph
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of calling 'boost::add_vertex' with an additional argument containing
+ the name of the vertex, multiple things need to be done.
+ After adding a new vertex to the graph, the graph its name map is obtained,
+ which contains all the vertices' names.
+ To set the new vertex its name in the name map, an iterator to the newly
+ added vertex is needed.
+ boost::vertices is used to obtain an iterator pair.
+ The second iterator of that pair points beyond the last vertex, so decrementing
+ it makes it point to the new vertex.
+ Finally, 'put' is used to set the name.
 \end_layout
 
 \begin_layout Subsection
