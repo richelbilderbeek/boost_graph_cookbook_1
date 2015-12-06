@@ -4,7 +4,26 @@ graph G {
 2[label=create_empty_named_edges_and_vertices_graph];
 3[label=create_empty_custom_vertices_graph];
 4[label=create_empty_custom_edges_and_vertices_graph];
+5[label=create_k2_graph];
+6[label=create_named_vertices_k2_graph];
+7[label=create_named_edges_and_vertices_k2_graph];
+8[label=add_vertex];
+9[label=add_named_vertex];
+10[label=add_custom_vertex];
+11[label=add_edge];
+12[label=add_named_edge];
+13[label=add_custom_edge];
 0--1 [label="std::string vertex type"];
 1--2 [label="std::string edge type"];
 0--3 [label="custom vertex type"];
+3--4 [label="custom edge type"];
+0--5 [label="add nodes and edge"];
+5--6 [label="std::string vertex type"];
+6--7 [label="std::string edge and vertex type"];
+0--8 [label="add"];
+8--9 [label="std::string vertex type"];
+8--10 [label="custom vertex type"];
+0--11 [label="add"];
+11--12 [label="std::string vertex type"];
+11--13 [label="custom vertex type"];
 }

@@ -3453,6 +3453,9 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename create_tutorial_chapters_graph.svg
+	width 100theight%
+	scaleBeforeRotation
+	rotateAngle 90
 
 \end_inset
 
