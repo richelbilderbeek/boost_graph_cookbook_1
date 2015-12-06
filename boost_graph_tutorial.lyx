@@ -3220,11 +3220,71 @@ formed reference to void
 \end_layout
 
 \begin_layout Subsection
-Find a vertex by its name
+Count vertex name
+\end_layout
+
+\begin_layout Standard
+count_vertices_with_name
 \end_layout
 
 \begin_layout Subsection
-Replace a vertex its name
+Find a vertex by its name
+\end_layout
+
+\begin_layout Standard
+find_vertex_with_name
+\end_layout
+
+\begin_layout Subsection
+Get a named vertex its in-degree
+\end_layout
+
+\begin_layout Standard
+get_named_vertex_in_degree
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Subsection
+Get a named vertex its out-degree
+\end_layout
+
+\begin_layout Standard
+get_named_vertex_out_degree
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Subsection
+Count vertex my_vertex
+\end_layout
+
+\begin_layout Standard
+count_vertex_my_vertex
+\end_layout
+
+\begin_layout Subsection
+Find a my_vertex
+\end_layout
+
+\begin_layout Standard
+find_my_vertex
+\end_layout
+
+\begin_layout Subsection
+Find the vertices connected to a certain my_vertex
+\end_layout
+
+\begin_layout Standard
+find_vertices_connected_to_my_vertex
 \end_layout
 
 \begin_layout Section
@@ -3419,6 +3479,97 @@ An impressive feature is that getting the property map holding the graph
  its names is not a copy, but a reference.
  Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
  only modify a copy.
+\end_layout
+
+\begin_layout Subsection
+Replace a vertex its name
+\end_layout
+
+\begin_layout Standard
+rename_vertex
+\end_layout
+
+\begin_layout Subsection
+Replace an edge its name
+\end_layout
+
+\begin_layout Standard
+rename_edge
+\end_layout
+
+\begin_layout Subsection
+Replace a my_vertex
+\end_layout
+
+\begin_layout Standard
+replace_my_vertex
+\end_layout
+
+\begin_layout Subsection
+Clear a named vertex
+\end_layout
+
+\begin_layout Standard
+clear_named_vertex
+\end_layout
+
+\begin_layout Itemize
+void clear_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes all edges to and from u 
+\end_layout
+
+\begin_layout Itemize
+void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all outgoing edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs) 
+\end_layout
+
+\begin_layout Itemize
+void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
+ Removes all incoming edges from vertex u in the directed graph g (not applicabl
+e for undirected graphs)
+\end_layout
+
+\begin_layout Subsection
+Remove a named vertex
+\end_layout
+
+\begin_layout Standard
+remove_named_vertex
+\end_layout
+
+\begin_layout Subsection
+Remove a named edge
+\end_layout
+
+\begin_layout Standard
+remove_named_vertex
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
+ g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(edge_descriptor e, adjacency_list& g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Subsection
+Remove a my_vertex
+\end_layout
+
+\begin_layout Standard
+remove_my_vertex
+\end_layout
+
+\begin_layout Itemize
+void remove_vertex(vertex_descriptor u, adjacency_list& g) .
+ Removes a vertex from graph g (It is expected that all edges associated
+ with this vertex have already been removed using clear_vertex or another
+ appropriate function.)
 \end_layout
 
 \begin_layout Section
@@ -4576,142 +4727,6 @@ Measuring more complex graphs traits
 
 \begin_layout Subsection
 Count the number of self-loops
-\end_layout
-
-\begin_layout Section
-TODO's in general
-\end_layout
-
-\begin_layout Subsection
-To add
-\end_layout
-
-\begin_layout Standard
-Code snippets show include guards , use header_impl instead.
-\end_layout
-
-\begin_layout Itemize
-std::pair<edge_iterator, edge_iterator> edges(const adjacency_list& g) .
- Returns an iterator pair corresponding to the edges in graph g
-\end_layout
-
-\begin_layout Itemize
-vertex_descriptor source(edge_descriptor e, const adjacency_list& g) .
- Returns the source vertex of an edge
-\end_layout
-
-\begin_layout Itemize
-vertex_descriptor target(edge_descriptor e, const adjacency_list& g) .
- Returns the target vertex of an edge
-\end_layout
-
-\begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
-\end_layout
-
-\begin_layout Itemize
-degree_size_type out_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the out-degree of a vertex 
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
- g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(edge_descriptor e, adjacency_list& g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Itemize
-void clear_vertex(vertex_descriptor u, adjacency_list& g) .
- Removes all edges to and from u 
-\end_layout
-
-\begin_layout Itemize
-void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all outgoing edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs) 
-\end_layout
-
-\begin_layout Itemize
-void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all incoming edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs)
-\end_layout
-
-\begin_layout Itemize
-void remove_vertex(vertex_descriptor u, adjacency_list& g) .
- Removes a vertex from graph g (It is expected that all edges associated
- with this vertex have already been removed using clear_vertex or another
- appropriate function.)
-\end_layout
-
-\begin_layout Section
-Graph of this tutorial
-\end_layout
-
-\begin_layout Standard
-This tutorial would not be complete with a graph that connects all chapter
- chronologically:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_tutorial_chapters_graph.svg
-	width 100theight%
-	scaleBeforeRotation
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-.svg file created from the create_tutorial_chapters_graph 
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-create_tutorial_chapters_graph
-\end_layout
-
-\end_inset
-
- function
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:create_tutorial_chapters_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

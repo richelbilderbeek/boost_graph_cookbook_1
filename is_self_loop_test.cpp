@@ -5,5 +5,5 @@
 
 void is_self_loop_test() noexcept
 {
-  std::cerr << __func__ << ": TODO" << std::endl;
+  std::cout << __func__ << ": TODO" << std::endl;
 }

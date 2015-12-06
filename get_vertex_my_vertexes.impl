@@ -26,18 +26,3 @@ std::vector<my_vertex> get_vertex_my_vertexes(const graph& g)
   }
   return v;
 }
-
-/*
-  using vertex_descriptor
-    = typename boost::graph_traits<graph>::vertex_descriptor;
-  using my_vertex_map_t
-    = typename property_map<graph,vertex_custom_type_t>::type;
-
-  const vertex_descriptor vd{
-    boost::add_vertex(g)
-  };
-
-  my_vertex_map_t name_map{boost::get(boost::vertex_custom_type,g)};
-  name_map[vd] = v;
-
-*/
