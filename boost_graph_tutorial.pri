@@ -26,7 +26,9 @@ HEADERS += \
   create_tutorial_chapters_graph.h \
   add_edge.h \
   create_empty_named_vertices_graph.h \
-    $$PWD/add_named_vertex.h
+    $$PWD/add_named_vertex.h \
+    $$PWD/create_empty_named_edges_and_vertices_graph.h \
+    $$PWD/add_named_edge.h
 
 SOURCES += \
   bfs_name_printer.cpp \
@@ -43,7 +45,6 @@ SOURCES += \
   create_router_network.cpp \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
-  get_edge_names_test.cpp \
   get_n_edges_test.cpp \
   get_n_vertices_test.cpp \
   get_vertex_names_test.cpp \
@@ -62,7 +63,10 @@ SOURCES += \
   add_edge.cpp \
   create_empty_named_vertices_graph.cpp \
   create_empty_named_vertices_graph_test.cpp \
-    $$PWD/add_named_vertex.cpp
+    $$PWD/add_named_vertex.cpp \
+    $$PWD/create_empty_named_edges_and_vertices_graph.cpp \
+    $$PWD/add_named_edge.cpp \
+    $$PWD/get_edge_names.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -71,4 +75,6 @@ DISTFILES += \
   add_vertex.impl \
   add_edge.impl \
   create_empty_named_vertices_graph.impl \
-    $$PWD/add_named_vertex.impl
+    $$PWD/add_named_vertex.impl \
+    $$PWD/create_empty_named_edges_and_vertices_graph.impl \
+    $$PWD/add_named_edge.impl

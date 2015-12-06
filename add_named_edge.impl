@@ -1,0 +1,33 @@
+
+#include <boost/graph/adjacency_list.hpp>
+
+#include <cassert>
+
+template <typename graph>
+void add_named_edge(graph& g, const std::string& edge_name)
+{
+  using boost::edge_name_t;
+  using boost::graph_traits;
+  using boost::property_map;
+  using vertex_descriptor
+    = typename graph_traits<graph>::vertex_descriptor;
+  using edge_descriptor
+    = typename graph_traits<graph>::edge_descriptor;
+  using edge_insertion_result
+    = std::pair<edge_descriptor,bool>;
+  using name_map_t
+    = typename property_map<graph,edge_name_t>::type;
+
+  const vertex_descriptor va = boost::add_vertex(g);
+  const vertex_descriptor vb = boost::add_vertex(g);
+  const edge_insertion_result ea
+    = boost::add_edge(va, vb, g);
+
+  assert(ea.second);
+
+  name_map_t name_map{
+    boost::get(boost::edge_name,g)
+  };
+  name_map[ea.first] = edge_name;
+
+}

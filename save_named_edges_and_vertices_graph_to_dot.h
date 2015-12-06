@@ -21,7 +21,7 @@ void save_named_edges_and_vertices_graph_to_dot(const graph& g, const std::strin
     g,
     boost::make_label_writer(&vertex_names[0]),
     [edge_name_map](std::ostream& out, const auto& e) {
-      out << "[label=" << edge_name_map[e] << "]";
+      out << "[label=\"" << edge_name_map[e] << "\"]";
     }
   );
 }

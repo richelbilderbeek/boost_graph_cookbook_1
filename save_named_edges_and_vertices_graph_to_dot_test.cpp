@@ -19,7 +19,7 @@ void save_named_edges_and_vertices_graph_to_dot_test() noexcept
     //const std::string filename{"save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"};
     //save_named_edges_and_vertices_graph_to_dot(g,filename);
   }
-  //Show it does not store the edges' names
+  //Show it stores the edges' names
   {
     const auto g = create_named_edges_and_vertices_k3_graph();
     const std::string base_filename{"save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph"};
@@ -35,9 +35,9 @@ void save_named_edges_and_vertices_graph_to_dot_test() noexcept
       "0[label=top];",
       "1[label=right];",
       "2[label=left];",
-      "0--1 [label=AB];",
-      "1--2 [label=BC];",
-      "2--0 [label=CA];",
+      "0--1 [label=\"AB\"];",
+      "1--2 [label=\"BC\"];",
+      "2--0 [label=\"CA\"];",
       "}"
     };
     assert(text == expected_text);

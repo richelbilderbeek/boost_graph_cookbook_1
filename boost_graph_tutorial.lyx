@@ -94,26 +94,31 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-I think that Boost.Graph is designed very well.
- Drawback is IMHO that there are only few and even fewer complete examples
- using Boost.Graph.
- 
+I needed this tutorial in 2006, when I started experimenting with Boost.Graph.
+ More specifically, I needed a tutorial that:
+\end_layout
+
+\begin_layout Itemize
+Orders concepts chronologically
+\end_layout
+
+\begin_layout Itemize
+Increases complexity gradually
+\end_layout
+
+\begin_layout Itemize
+Shows complete pieces of code
 \end_layout
 
 \begin_layout Standard
-The book 
+What I had were the book 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "siek2001boost"
 
 \end_inset
 
- is IMHO not suited best for a tutorial as it contains heavy templated code,
- and an unchronological ordering of subjects.
- More experienced programmers can appreciate that the authors took great
- care that the code snippets written in the book were correct: all snippets
- are numbered, and I'd bet they are tested to compile.
- 
+ and the Boost.Graph website, both did not satisfy these requirements.
 \end_layout
 
 \begin_layout Subsection
@@ -179,6 +184,26 @@ Boost.Graph is about creating graphs.
 
 \begin_layout Subsection
 Creating an empty graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create an empty graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Empty graph, create
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -208,6 +233,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Creating an empty graph
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_empty_graph
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_graph"
@@ -228,7 +263,17 @@ name "alg:create_empty_graph"
 \end_layout
 
 \begin_layout Standard
-Congratulations, you've just created a boost::adjacency_list in which:
+Congratulations, you've just created a boost::adjacency_list
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ in which:
 \end_layout
 
 \begin_layout Itemize
@@ -263,11 +308,41 @@ Why specify edge storage twice?
 
 \begin_layout Standard
 The boost::adjacency_list is the most commonly used graph type, the other
- is the boost::adjacency_matrix.
+ is the boost::adjacency_matrix
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_matrix
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 Add a vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add a vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex, add
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Add-a-vertex"
@@ -278,7 +353,17 @@ name "sub:Add-a-vertex"
 \end_layout
 
 \begin_layout Standard
-To add a vertex to a graph, the boost::add_vertex function is used as such:
+To add a vertex to a graph, the boost::add_vertex
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::add_vertex
+\end_layout
+
+\end_inset
+
+ function is used as such:
 \end_layout
 
 \begin_layout Standard
@@ -304,6 +389,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Adding a vertex to a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_vertex
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_vertex"
@@ -326,15 +421,56 @@ name "alg:add_vertex"
 \begin_layout Standard
 Note that boost::add_vertex returns a vertex descriptor, which is ignored
  for now.
- This vertex descriptor can be used to connect two vertices by an edge
+ A vertex descriptor
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+vertex descriptor
+\end_layout
+
+\end_inset
+
+ can be used to, for example, connect two vertices by an edge
 \end_layout
 
 \begin_layout Subsection
 Add an edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add an edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edge, add
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 To add an edge to a graph, two vertex descriptors are needed.
+ A vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex descriptor
+\end_layout
+
+\end_inset
+
+ is a handle to the vertex with in graph.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -342,8 +478,17 @@ reference "alg:add_edge"
 
 \end_inset
 
- adds two vertices to a graph, and connects these two using boost::add_edge:
- 
+ adds two vertices to a graph, and connects these two using boost::add_edge
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+: 
 \end_layout
 
 \begin_layout Standard
@@ -369,6 +514,16 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Adding (two vertices and) an edge to a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_edge
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_edge"
@@ -392,8 +547,27 @@ name "alg:add_edge"
 Note that half of the code consists out of using statements.
  This algorithm only shows how to add an isolated edge to a graph, instead
  of allowing for graphs with higher connectivities.
- The function boost::add_edge returns a pair, consisting of an edge descriptor
- and a boolean success indicator.
+ The function boost::add_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ returns a std::pair
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::pair
+\end_layout
+
+\end_inset
+
+, consisting of an edge descriptor and a boolean success indicator.
  In algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -401,7 +575,17 @@ reference "alg:add_edge"
 
 \end_inset
 
- we assert that insertion was successfull.
+ we assert
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+assert
+\end_layout
+
+\end_inset
+
+ that this insertion was successfull.
  Insertion can fail if an edge is already present and duplicates are not
  allowed.
 \end_layout
@@ -412,6 +596,33 @@ Creating
 \end_inset
 
 , a fully connected graph with two vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, create
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:create_k2"
@@ -551,10 +762,20 @@ Creating
 \begin_inset Formula $K_{2}$
 \end_inset
 
- as depicted in figure
+ as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_k2_graph
+\end_layout
 
 \end_inset
 
@@ -580,13 +801,60 @@ name "alg:create_k2_graph"
 
 \begin_layout Standard
 Note that this code has more lines of using statements than actual code!
- In this code, the third template argument of boost::adjacency_list is boost::un
-directedS, to select (that is what the S means) for an undirected graph.
- Adding a vertex with boost::add_vertex results in a vertex descriptor,
- which is a handle to the vertex added to the graph.
+ In this code, the third template argument of boost::adjacency_list
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ is boost::undirectedS
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+, to select (that is what the S means) for an undirected graph.
+ Adding a vertex with boost::add_vertex
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::add_vertex
+\end_layout
+
+\end_inset
+
+ results in a vertex descriptor
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+vertex descriptor
+\end_layout
+
+\end_inset
+
+, which is a handle to the vertex added to the graph.
  Two vertex descriptors are then used to add an edge to the graph.
- Adding an edge using boost::add_edge returns two things: an edge descriptor
- and a boolean indicating success.
+ Adding an edge using boost::add_edge
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ returns two things: an edge descriptor and a boolean indicating success.
  In the code example, we assume insertion is successfull.
 \end_layout
 
@@ -597,72 +865,40 @@ Note that the graph lacks all properties: nodes do not have names, nor do
 
 \begin_layout Subsection
 Creating an empty graph with named vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create an empty graph with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Named vertices, create empty graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Empty graph with named vertices, create
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Let's create a trivial empty graph, in which the vertices can have a name:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "add_named_vertex.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Creating an empty graph
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_empty_named_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-wef
-\end_layout
-
-\begin_layout Subsection
-Add a vertex with a name
-\end_layout
-
-\begin_layout Standard
-Adding a vertex without a name was trivially easy (see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:add_vertex"
-
-\end_inset
-
-).
- Adding a vertex with a name is less easy:
 \end_layout
 
 \begin_layout Standard
@@ -687,7 +923,268 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Creating an empty graph
+Creating an empty graph with named vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_empty_named_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a name, that is of data type std::stri
+ng (due to the boost::property< boost::vertex_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::vertex_name_t,std::string>
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+Edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Why specify edge storage twice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'boost::property< boost::vertex_name_t,std:
+:string>
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::property<boost::vertex_name_t,std::string>
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the property 'boost::vertex_name_t', that is of data type
+ 'std::string'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a name that is stored as a std::string
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Add a vertex with a name
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Add named vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Named vertex, add
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Vertex, add named
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding a vertex without a name was trivially easy (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_vertex"
+
+\end_inset
+
+).
+ Adding a vertex with a name is less easy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Add a vertex with a name
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+add_named_vertex
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_named_vertex"
@@ -710,14 +1207,29 @@ name "alg:add_named_vertex"
 \begin_layout Standard
 Instead of calling 'boost::add_vertex' with an additional argument containing
  the name of the vertex, multiple things need to be done.
- After adding a new vertex to the graph, the graph its name map is obtained,
- which contains all the vertices' names.
- To set the new vertex its name in the name map, an iterator to the newly
- added vertex is needed.
- boost::vertices is used to obtain an iterator pair.
- The second iterator of that pair points beyond the last vertex, so decrementing
- it makes it point to the new vertex.
- Finally, 'put' is used to set the name.
+ When adding a new vertex to the graph, the vertex descriptor is stored.
+ After obtaining the name map from the graph (using 'boost::get(boost::vertex_na
+me,g)
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::get(boost::vertex_name,g)
+\end_layout
+
+\end_inset
+
+'), the name of the vertex is set using that vertex descriptor.
 \end_layout
 
 \begin_layout Subsection
@@ -726,6 +1238,33 @@ Creating
 \end_inset
 
  with named vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices, create
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:create_named_vertices_k2"
@@ -872,6 +1411,16 @@ reference "fig:named_vertices_k2_graph"
 \end_inset
 
 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_named_vertices_k2_graph
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_vertices_k2_graph"
@@ -904,7 +1453,385 @@ reference "alg:create_k2_graph"
 \end_layout
 
 \begin_layout Subsection
+Creating an empty graph with named edges and vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create an empty graph with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Named edges and vertices, create empty graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Empty graph with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's create a trivial empty graph, in which the both the edges and vertices
+ can have a name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_named_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating an empty graph with named edges and vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_empty_named_edges_and_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a name, that is of data type std::stri
+ng (due to the boost::property< boost::vertex_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::vertex_name_t,std::string>
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges have one property: they have a name, that is of data type std::string
+ (due to the boost::property< boost::edge_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_name_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::edge_name_t,std::string>
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The graph has no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Why specify edge storage twice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fifth template argument 'boost::property< boost::edge_name_t,std::st
+ring>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_name_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property<boost::edge_name_t,std::string>
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have the property 'boost::edge_name_t', that is of data type 'std::string'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have a name that is stored as a std::string
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
 Add an edge with a name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add named edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Named edge, add
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding an edge with a name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Add a vertex with a name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_named_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this code snippet, the edge descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edge descriptor
+\end_layout
+
+\end_inset
+
+ when using 'boost::add_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+' is used as a key to change the edge name map.
 \end_layout
 
 \begin_layout Subsection
@@ -913,6 +1840,33 @@ Creating
 \end_inset
 
  with named edges and vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1076,6 +2030,16 @@ reference "fig:named_edges_and_vertices_k3"
 \end_inset
 
 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_named_edges_and_vertices_k3
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_edges_and_vertices_k3"
@@ -1105,6 +2069,10 @@ reference "alg:create_named_vertices_k2_graph"
 
 .
  In the end, the edge names are obtained as a boost::property_map and set.
+\end_layout
+
+\begin_layout Subsection
+Create an empty graph with custom vertices
 \end_layout
 
 \begin_layout Subsection
@@ -2401,7 +3369,7 @@ To add
 \end_layout
 
 \begin_layout Standard
-Code snippets show include guards , use header_imp instead.
+Code snippets show include guards , use header_impl instead.
 \end_layout
 
 \begin_layout Itemize
@@ -2466,11 +3434,80 @@ void remove_vertex(vertex_descriptor u, adjacency_list& g) .
  appropriate function.)
 \end_layout
 
+\begin_layout Section
+Graph of this tutorial
+\end_layout
+
+\begin_layout Standard
+This tutorial would not be complete with a graph that connects all chapter
+ chronologically:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_tutorial_chapters_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+.svg file created from the create_tutorial_chapters_graph 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_tutorial_chapters_graph
+\end_layout
+
+\end_inset
+
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_tutorial_chapters_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "boost_graph_tutorial"
 options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset index_print
+LatexCommand printindex
+type "idx"
 
 \end_inset
 

@@ -1,0 +1,10 @@
+graph G {
+0[label=create_empty_graph];
+1[label=create_empty_named_vertices_graph];
+2[label=create_empty_named_edges_and_vertices_graph];
+3[label=create_empty_custom_vertices_graph];
+4[label=create_empty_custom_edges_and_vertices_graph];
+0--1 [label="std::string vertex type"];
+1--2 [label="std::string edge type"];
+0--3 [label="custom vertex type"];
+}

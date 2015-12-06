@@ -39,6 +39,7 @@ void add_named_vertex_test() noexcept
     const std::vector<std::string> expected_names{vertex_name_1,vertex_name_2};
     assert(vertex_names == expected_names);
   }
+
   std::cout << __func__ << ": OK" << '\n';
 }
 

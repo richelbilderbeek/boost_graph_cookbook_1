@@ -1,11 +1,14 @@
 #include "add_vertex.h"
 #include "add_named_vertex.h"
+#include "add_named_edge.h"
 #include "add_edge.h"
 #include "bfs_name_printer.h"
 #include "build_router_network.h"
 #include "create_empty_graph.h"
 #include "create_empty_named_vertices_graph.h"
+#include "create_empty_named_edges_and_vertices_graph.h"
 #include "create_k2_graph.h"
+#include "create_tutorial_chapters_graph.h"
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_router_network_graph.h"
@@ -29,11 +32,14 @@ int main()
 {
   add_edge_test();
   add_vertex_test();
+  add_named_edge_test();
   add_named_vertex_test();
   bfs_name_printer_test();
   build_router_network_test();
   create_empty_graph_test();
+  create_empty_named_edges_and_vertices_graph_test();
   create_empty_named_vertices_graph_test();
+  create_tutorial_chapters_graph_test();
   create_k2_graph_test();
   create_named_edges_and_vertices_k3_graph_test();
   create_named_vertices_k2_graph_test();
