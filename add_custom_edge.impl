@@ -1,0 +1,18 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include "install_edge_custom_type.h"
+#include "install_vertex_custom_type.h"
+#include "my_vertex.h"
+#include "my_edge.h"
+
+template <typename graph>
+void add_custom_edge(graph& g, const my_edge& v)
+{
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
+  const auto my_edge_map = boost::get(boost::edge_custom_type,g);
+  my_edge_map[aer.first] = v;
+}

@@ -20,7 +20,7 @@ void save_graph_to_dot_test() noexcept
   //create_empty_directed_graph
   {
     const auto g = create_empty_directed_graph();
-    const std::string base_filename{"create_empty_directed_graph"};
+    const std::string base_filename{"save_graph_to_dot_test_empty_directed_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
@@ -48,7 +48,7 @@ void save_graph_to_dot_test() noexcept
   //create_empty_undirected_graph
   {
     const auto g = create_empty_undirected_graph();
-    const std::string base_filename{"create_empty_undirected_graph"};
+    const std::string base_filename{"save_graph_to_dot_test_empty_undirected_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
@@ -76,7 +76,7 @@ void save_graph_to_dot_test() noexcept
   //create_k2_graph
   {
     const auto g = create_k2_graph();
-    const std::string base_filename{"create_k2_graph"};
+    const std::string base_filename{"save_graph_to_dot_test_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);

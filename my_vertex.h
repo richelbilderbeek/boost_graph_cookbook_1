@@ -11,7 +11,7 @@ public:
     const std::string& description = "",
     const double x = 0.0,
     const double y = 0.0
-  );
+  ) noexcept;
   std::string m_name;
   std::string m_description;
   double m_x;

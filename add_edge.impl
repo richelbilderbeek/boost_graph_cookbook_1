@@ -5,13 +5,13 @@
 template <typename graph>
 void add_edge(graph& g)
 {
-  const auto vertex_descriptor_a = boost::add_vertex(g);
-  const auto vertex_descriptor_b = boost::add_vertex(g);
-  const auto edge_insertion_result = boost::add_edge(
-    vertex_descriptor_a,
-    vertex_descriptor_b,
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer = boost::add_edge(
+    vd_a,
+    vd_b,
     g
   );
 
-  assert(edge_insertion_result.second);
+  assert(aer.second);
 }

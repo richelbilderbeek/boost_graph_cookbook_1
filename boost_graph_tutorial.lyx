@@ -131,10 +131,6 @@ I prefer to use the keyword auto over doubling the lines of code for using
 All coding snippets are taken from compiled C++ code.
 \end_layout
 
-\begin_layout Standard
-vd: vertex_discriptor
-\end_layout
-
 \begin_layout Subsection
 Pitfalls
 \end_layout
@@ -159,12 +155,158 @@ Building graphs
 
 \begin_layout Standard
 Boost.Graph is about creating graphs.
- In this chapter we create graphs, starting from simple to more complex.
+ In this chapter we create graphs, starting from simple to more complex:
+\end_layout
+
+\begin_layout Itemize
+An empty (directed) graph, which is the default type: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_undirected_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, an undirected graph with two vertices and one edge, chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for vertices with names: see chapter
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with named vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for edges and vertices with names:
+ see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with named edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom vertices: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom edges and vertices: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with custom edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_edges_and_vertices_k3"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Creating an empty (directed) graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_graph"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -213,7 +355,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating an empty graph
+Creating an empty (directed) graph
 \begin_inset Index idx
 status open
 
@@ -226,7 +368,7 @@ create_empty_directed_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_graph"
+name "alg:create_empty_directed_graph"
 
 \end_inset
 
@@ -304,8 +446,15 @@ boost::adjacency_matrix
 
 \begin_layout Subsection
 Creating an empty undirected graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_graph"
+
+\end_inset
+
+
 \begin_inset Index idx
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Create an empty graph
@@ -315,7 +464,7 @@ Create an empty graph
 
 
 \begin_inset Index idx
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Empty graph, create
@@ -541,7 +690,25 @@ name "alg:add_vertex"
 \begin_layout Standard
 Note that boost::add_vertex returns a vertex descriptor, which is ignored
  for now.
- A vertex descriptor
+ Vertex descriptors are looked at in more details at the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Vertex descriptors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Vertex-descriptors"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -551,7 +718,34 @@ Vertex descriptor
 
 \end_inset
 
- can be used to, for example, connect two vertices by an edge
+
+\end_layout
+
+\begin_layout Standard
+A vertex descriptor is a handle to a vertex within a graph.
+ Vertex descriptors are used to:
+\end_layout
+
+\begin_layout Itemize
+boost::add_edge: connects two vertices by an edge
+\end_layout
+
+\begin_layout Itemize
+obtain the name of vertex
+\end_layout
+
+\begin_layout Standard
+In this tutorial, vertex descriptors have named prefixed with 'vd_'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vd_
+\end_layout
+
+\end_inset
+
+, for example 'vd_1'.
 \end_layout
 
 \begin_layout Subsection
@@ -590,7 +784,15 @@ Vertex descriptor
 
 \end_inset
 
- is a handle to the vertex with in graph.
+ is a handle to the vertex with in graph (vertex descriptors are looked
+ at in more details in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+).
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -722,11 +924,110 @@ assert
 \end_layout
 
 \begin_layout Subsection
+boost::add_edge result
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:boost::add_edge result"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge result
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When using the function 'boost::add_edge', a 'std::pair<edge_descriptor,bool>'
+ is returned.
+ It contains both the edge descriptor (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+) and a boolean indicating insertion success.
+\end_layout
+
+\begin_layout Standard
+In this tutorial, boost::add_edge results have named prefixed with 'aer_'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+aer_
+\end_layout
+
+\end_inset
+
+, for example 'aer_1'.
+\end_layout
+
+\begin_layout Subsection
+Edge descriptors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Edge-descriptors"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edge descriptor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An edge descriptor is a handle to an edge within a graph.
+ Edge descriptors are used to:
+\end_layout
+
+\begin_layout Itemize
+obtain the name, or other properties, of an edge
+\end_layout
+
+\begin_layout Standard
+In this tutorial, edge descriptors have named prefixed with 'ed_'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+ed_
+\end_layout
+
+\end_inset
+
+, for example 'ed_1'.
+\end_layout
+
+\begin_layout Subsection
 Creating 
 \begin_inset Formula $K_{2}$
 \end_inset
 
 , a fully connected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -750,13 +1051,6 @@ status open
 
 , create
 \end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_k2"
 
 \end_inset
 
@@ -996,6 +1290,13 @@ Note that the graph lacks all properties: nodes do not have names, nor do
 
 \begin_layout Subsection
 Creating an empty graph with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_named_vertices_graph"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -1229,6 +1530,13 @@ vertices have a name that is stored as a std::string
 
 \begin_layout Subsection
 Add a vertex with a name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_named_vertex"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -1255,13 +1563,6 @@ status collapsed
 \begin_layout Plain Layout
 Vertex, add named
 \end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:add_named_vertex"
 
 \end_inset
 
@@ -1366,6 +1667,13 @@ Creating
 \end_inset
 
  with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k2"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -1389,13 +1697,6 @@ status collapsed
 
  with named vertices, create
 \end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_named_vertices_k2"
 
 \end_inset
 
@@ -1582,6 +1883,13 @@ reference "alg:create_k2_graph"
 
 \begin_layout Subsection
 Creating an empty graph with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_named_edges_and_vertices_graph"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -1840,6 +2148,13 @@ edges have a name that is stored as a std::string
 
 \begin_layout Subsection
 Add an edge with a name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_named_edge"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -1948,6 +2263,13 @@ Creating
 \end_inset
 
  with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -2181,6 +2503,13 @@ reference "alg:create_named_vertices_k2_graph"
 
 \begin_layout Subsection
 Create an empty graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_custom_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2852,6 +3181,13 @@ reference "alg:create_named_vertices_k2_graph"
 
 \begin_layout Subsection
 Create an empty graph with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2860,13 +3196,13 @@ Add a custom edge
 
 \begin_layout Subsection
 Creating 
-\begin_inset Formula $K_{2}$
+\begin_inset Formula $K_{3}$
 \end_inset
 
  with custom edges and vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_custom_edges_and_vertices_k2"
+name "sub:create_custom_edges_and_vertices_k3"
 
 \end_inset
 

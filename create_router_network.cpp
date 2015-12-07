@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "build_router_network.h"
-#include "create_empty_graph.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 

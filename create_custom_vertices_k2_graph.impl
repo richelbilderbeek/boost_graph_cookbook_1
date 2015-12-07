@@ -15,17 +15,16 @@ boost::adjacency_list<
 create_custom_vertices_k2_graph() noexcept
 {
   auto g = create_empty_custom_vertices_graph();
-  const auto vertex_descriptor_a = boost::add_vertex(g);
-  const auto vertex_descriptor_b = boost::add_vertex(g);
-  const auto edge_insertion_result
-    = boost::add_edge(vertex_descriptor_a, vertex_descriptor_b, g);
-  assert(edge_insertion_result.second);
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
 
   //Add names
   auto my_vertex_name_map = boost::get(boost::vertex_custom_type,g);
-  my_vertex_name_map[vertex_descriptor_a]
+  my_vertex_name_map[vd_a]
     = my_vertex("from","source",0.0,0.0);
-  my_vertex_name_map[vertex_descriptor_b]
+  my_vertex_name_map[vd_b]
     = my_vertex("to","target",3.14,3.14);
 
   return g;

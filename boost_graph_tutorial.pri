@@ -39,7 +39,13 @@ HEADERS += \
   has_dot.h \
   is_valid_dot_file.h \
   create_empty_directed_graph.h \
-  create_empty_undirected_graph.h
+  create_empty_undirected_graph.h \
+    install_edge_custom_type.h \
+    create_empty_custom_edges_and_vertices_graph.h \
+    my_edge.h \
+    add_custom_edge.h \
+    get_edge_my_edges.h \
+    create_custom_edges_and_vertices_k3_graph.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -88,7 +94,12 @@ SOURCES += \
   create_empty_directed_graph.cpp \
   create_empty_directed_graph_test.cpp \
   create_empty_undirected_graph.cpp \
-  create_empty_undirected_graph_test.cpp
+  create_empty_undirected_graph_test.cpp \
+    create_empty_custom_edges_and_vertices_graph.cpp \
+    my_edge.cpp \
+    add_custom_edge.cpp \
+    get_edge_my_edges.cpp \
+    create_custom_edges_and_vertices_k3_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -116,5 +127,10 @@ OTHER_FILES += \
   set_vertex_my_vertexes.impl \
   set_vertex_names.impl \
   create_empty_directed_graph.impl \
-  create_empty_undirected_graph.impl
+  create_empty_undirected_graph.impl \
+    install_edge_custom_type.impl \
+    create_empty_custom_edges_and_vertices_graph.impl \
+    add_custom_edge.impl \
+    get_edge_my_edges.impl \
+    create_custom_edges_and_vertices_k3_graph.impl
 

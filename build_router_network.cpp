@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include <boost/graph/adjacency_list.hpp>
-#include "create_empty_graph.h"
+#include "create_empty_directed_graph.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 

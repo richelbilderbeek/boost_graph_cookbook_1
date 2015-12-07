@@ -1,0 +1,21 @@
+#include <vector>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "install_edge_custom_type.h"
+#include "my_edge.h"
+
+//TODO: generalize to return any type
+template <typename graph>
+std::vector<my_edge> get_edge_my_edges(const graph& g)
+{
+  std::vector<my_edge> v;
+
+  const auto my_edges_map = get(boost::edge_custom_type,g);
+
+  for (auto p = edges(g);
+    p.first != p.second;
+    ++p.first) {
+    v.emplace_back(get(my_edges_map, *p.first));
+  }
+  return v;
+}

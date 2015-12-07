@@ -5,7 +5,7 @@ my_vertex::my_vertex(
   const std::string& description,
   const double x,
   const double y
-) :
+) noexcept :
   m_name{name},
   m_description{description},
   m_x{x},
