@@ -8,20 +8,13 @@
 template <typename graph>
 std::vector<my_vertex> get_vertex_my_vertexes(const graph& g)
 {
-  using vertex_iterator
-    = typename boost::graph_traits<graph>::vertex_iterator;
-  using vertex_iterators
-    = std::pair<vertex_iterator,vertex_iterator>;
-
   std::vector<my_vertex> v;
 
-  //TODO: remove auto
   const auto my_vertexes_map = get(boost::vertex_custom_type,g);
 
-  for (vertex_iterators p = vertices(g);
+  for (auto p = vertices(g);
     p.first != p.second;
-    ++p.first)
-  {
+    ++p.first) {
     v.emplace_back(get(my_vertexes_map, *p.first));
   }
   return v;

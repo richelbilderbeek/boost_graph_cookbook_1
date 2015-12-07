@@ -3,19 +3,8 @@
 template <typename graph>
 void add_named_vertex(graph& g, const std::string& name)
 {
-  using boost::graph_traits;
-  using boost::property_map;
-  using boost::vertex_name_t;
-  using vertex_descriptor
-    = typename boost::graph_traits<graph>::vertex_descriptor;
-  using name_map_t
-    = typename property_map<graph,vertex_name_t>::type;
-
-  const vertex_descriptor vd{
-    boost::add_vertex(g)
-  };
-
-  name_map_t name_map{boost::get(boost::vertex_name,g)};
-  name_map[vd] = name;
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  auto vertex_name_map = boost::get(boost::vertex_name,g);
+  vertex_name_map[vertex_descriptor_a] = name;
 }
 

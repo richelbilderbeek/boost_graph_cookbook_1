@@ -10,7 +10,7 @@
 
 void add_vertex_test() noexcept
 {
-  auto g = create_empty_graph();
+  auto g = create_empty_directed_graph();
   assert(get_n_vertices(g) == 0);
   assert(get_n_edges(g) == 0);
   add_vertex(g);

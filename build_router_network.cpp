@@ -13,7 +13,7 @@ void build_router_network_test() noexcept
   using my_graph = boost::adjacency_list<>;
   using my_edge_descriptor = my_graph::edge_descriptor;
   using my_vertex_descriptor = my_graph::vertex_descriptor;
-  my_graph g = create_empty_graph();
+  my_graph g = create_empty_directed_graph();
   std::map<my_vertex_descriptor,std::string> router_names;
   std::map<my_edge_descriptor,int> delay_map;
   build_router_network(g,router_names,delay_map);

@@ -9,7 +9,6 @@ HEADERS += \
   convert_dot_to_svg.h \
   create_custom_vertices_k2_graph.h \
   create_empty_custom_vertices_graph.h \
-  create_empty_graph.h \
   create_empty_named_edges_and_vertices_graph.h \
   create_empty_named_vertices_graph.h \
   create_k2_graph.h \
@@ -36,7 +35,11 @@ HEADERS += \
   save_named_vertices_graph_to_dot.h \
   set_vertex_my_vertexes.h \
   set_vertex_names.h \
-  show_dot.h
+  show_dot.h \
+  has_dot.h \
+  is_valid_dot_file.h \
+  create_empty_directed_graph.h \
+  create_empty_undirected_graph.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -49,8 +52,6 @@ SOURCES += \
   convert_dot_to_svg.cpp \
   create_custom_vertices_k2_graph.cpp \
   create_empty_custom_vertices_graph.cpp \
-  create_empty_graph.cpp \
-  create_empty_graph_test.cpp \
   create_empty_named_edges_and_vertices_graph.cpp \
   create_empty_named_vertices_graph.cpp \
   create_empty_named_vertices_graph_test.cpp \
@@ -81,12 +82,18 @@ SOURCES += \
   save_named_vertices_graph_to_dot.cpp \
   set_vertex_my_vertexes.cpp \
   set_vertex_names.cpp \
-  show_dot.cpp
+  show_dot.cpp \
+  has_dot.cpp \
+  is_valid_dot_file.cpp \
+  create_empty_directed_graph.cpp \
+  create_empty_directed_graph_test.cpp \
+  create_empty_undirected_graph.cpp \
+  create_empty_undirected_graph_test.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
 # other housekeeping
-DISTFILES += \
+OTHER_FILES += \
   add_custom_vertex.impl \
   add_edge.impl \
   add_named_edge.impl \
@@ -107,5 +114,7 @@ DISTFILES += \
   save_named_edges_and_vertices_graph_to_dot.impl \
   save_named_vertices_graph_to_dot.impl \
   set_vertex_my_vertexes.impl \
-  set_vertex_names.impl
+  set_vertex_names.impl \
+  create_empty_directed_graph.impl \
+  create_empty_undirected_graph.impl
 

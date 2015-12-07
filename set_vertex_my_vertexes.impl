@@ -14,16 +14,11 @@ void set_vertex_my_vertexes(
   const std::vector<my_vertex>& my_vertexes
 )
 {
-  using vertex_iterator
-    = typename boost::graph_traits<graph>::vertex_iterator;
-  using vertex_iterators
-    = std::pair<vertex_iterator,vertex_iterator>;
-
   const auto my_vertex_map = get(boost::vertex_custom_type,g);
 
   auto my_vertexes_begin = std::begin(my_vertexes);
   const auto my_vertexes_end = std::end(my_vertexes);
-  for (vertex_iterators vi = vertices(g);
+  for (auto vi = vertices(g);
     vi.first != vi.second;
     ++vi.first, ++my_vertexes_begin)
   {

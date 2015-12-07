@@ -6,28 +6,13 @@
 template <typename graph>
 void add_named_edge(graph& g, const std::string& edge_name)
 {
-  using boost::edge_name_t;
-  using boost::graph_traits;
-  using boost::property_map;
-  using vertex_descriptor
-    = typename graph_traits<graph>::vertex_descriptor;
-  using edge_descriptor
-    = typename graph_traits<graph>::edge_descriptor;
-  using edge_insertion_result
-    = std::pair<edge_descriptor,bool>;
-  using name_map_t
-    = typename property_map<graph,edge_name_t>::type;
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  const auto vertex_descriptor_b = boost::add_vertex(g);
+  const auto edge_insertion_result
+    = boost::add_edge(vertex_descriptor_a, vertex_descriptor_b, g);
 
-  const vertex_descriptor va = boost::add_vertex(g);
-  const vertex_descriptor vb = boost::add_vertex(g);
-  const edge_insertion_result ea
-    = boost::add_edge(va, vb, g);
+  assert(edge_insertion_result.second);
 
-  assert(ea.second);
-
-  name_map_t name_map{
-    boost::get(boost::edge_name,g)
-  };
-  name_map[ea.first] = edge_name;
-
+  auto edge_name_map = boost::get(boost::edge_name,g);
+  edge_name_map[edge_insertion_result.first] = edge_name;
 }

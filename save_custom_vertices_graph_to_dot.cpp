@@ -11,6 +11,7 @@
 
 void save_custom_vertices_graph_to_dot_test() noexcept
 {
+  const ribi::FileIo f;
   //Should not compile on graphs without named vertices. It does not :-)
   {
     //const auto g = create_k2_graph();
@@ -26,25 +27,23 @@ void save_custom_vertices_graph_to_dot_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
 
     save_custom_vertices_graph_to_dot(g,dot_filename);
+    assert(f.IsRegularFile(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      f.FileToVector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
-      "graph G {",
-      "0[label=from];",
-      "1[label=to];",
-      "0--1 ;",
+      "digraph G {",
       "}"
     };
     assert(text != expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
@@ -60,7 +59,7 @@ void save_custom_vertices_graph_to_dot_test() noexcept
 
     save_custom_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      f.FileToVector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -75,12 +74,12 @@ void save_custom_vertices_graph_to_dot_test() noexcept
     };
     assert(text != expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite

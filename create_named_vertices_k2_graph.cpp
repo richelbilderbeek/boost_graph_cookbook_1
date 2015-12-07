@@ -1,5 +1,5 @@
 #include "create_named_vertices_k2_graph.h"
-
+#include "create_empty_named_vertices_graph.h"
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
@@ -8,34 +8,20 @@ boost::adjacency_list<
 >
 create_named_vertices_k2_graph() noexcept
 {
-  using graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::property<
-      boost::vertex_name_t,std::string
-    >
-  >;
-  using vertex_descriptor
-    = typename boost::graph_traits<graph>::vertex_descriptor;
-  using edge_descriptor
-    = typename boost::graph_traits<graph>::edge_descriptor;
-  using edge_insertion_result
-    = std::pair<edge_descriptor,bool>;
-  using name_map_t
-    = boost::property_map<graph,boost::vertex_name_t>::type;
+  auto g = create_empty_named_vertices_graph();
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  const auto vertex_descriptor_b = boost::add_vertex(g);
+  const auto edge_insertion_result
+    = boost::add_edge(
+    vertex_descriptor_a,
+    vertex_descriptor_b,
+    g
+  );
+  assert(edge_insertion_result.second);
 
-  graph g;
-  const vertex_descriptor va = boost::add_vertex(g);
-  const vertex_descriptor vb = boost::add_vertex(g);
-  const edge_insertion_result ea
-    = boost::add_edge(va, vb, g);
-  assert(ea.second);
-
-  //Add names
-  name_map_t name_map{boost::get(boost::vertex_name,g)};
-  name_map[va] = "from";
-  name_map[vb] = "to";
+  auto name_map = boost::get(boost::vertex_name,g);
+  name_map[vertex_descriptor_a] = "from";
+  name_map[vertex_descriptor_b] = "to";
 
   return g;
 }

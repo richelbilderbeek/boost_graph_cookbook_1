@@ -9,7 +9,7 @@
 void get_n_vertices_test() noexcept
 {
   {
-    const auto g = create_empty_graph();
+    const auto g = create_empty_directed_graph();
     assert(get_n_vertices(g) == 0);
   }
   {

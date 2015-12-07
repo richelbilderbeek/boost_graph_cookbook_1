@@ -1,5 +1,7 @@
 #include "create_named_edges_and_vertices_k3_graph.h"
 
+#include "create_empty_named_edges_and_vertices_graph.h"
+
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
@@ -9,54 +11,33 @@ boost::adjacency_list<
 >
 create_named_edges_and_vertices_k3_graph() noexcept
 {
-  using graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::property<
-      boost::vertex_name_t,std::string
-    >,
-    boost::property<
-      boost::edge_name_t,std::string
-    >
-  >;
-  using vertex_descriptor
-    = typename boost::graph_traits<graph>::vertex_descriptor;
-  using edge_descriptor
-    = typename boost::graph_traits<graph>::edge_descriptor;
-  using edge_insertion_result
-    = std::pair<edge_descriptor,bool>;
-  using vertex_name_map_t
-    = boost::property_map<graph,boost::vertex_name_t>::type;
-  using edge_name_map_t
-    = boost::property_map<graph,boost::edge_name_t>::type;
-
-  graph g;
-  const vertex_descriptor va = boost::add_vertex(g);
-  const vertex_descriptor vb = boost::add_vertex(g);
-  const vertex_descriptor vc = boost::add_vertex(g);
-  const edge_insertion_result eab
-    = boost::add_edge(va, vb, g);
-  assert(eab.second);
-  const edge_insertion_result ebc
-    = boost::add_edge(vb, vc, g);
-  assert(ebc.second);
-  const edge_insertion_result eca
-    = boost::add_edge(vc, va, g);
-  assert(eca.second);
+  auto g = create_empty_named_edges_and_vertices_graph();
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  const auto vertex_descriptor_b = boost::add_vertex(g);
+  const auto vertex_descriptor_c = boost::add_vertex(g);
+  const auto edge_insertion_result_ab
+    = boost::add_edge(vertex_descriptor_a, vertex_descriptor_b, g);
+  assert(edge_insertion_result_ab.second);
+  const auto edge_insertion_result_bc
+    = boost::add_edge(vertex_descriptor_b, vertex_descriptor_c, g);
+  assert(edge_insertion_result_bc.second);
+  const auto edge_insertion_result_ca
+    = boost::add_edge(vertex_descriptor_c, vertex_descriptor_a, g);
+  assert(edge_insertion_result_ca.second);
 
   //Add vertex names
-  vertex_name_map_t vertex_name_map{boost::get(boost::vertex_name,g)};
-  vertex_name_map[va] = "top";
-  vertex_name_map[vb] = "right";
-  vertex_name_map[vc] = "left";
+  auto vertex_name_map = boost::get(boost::vertex_name,g);
+  vertex_name_map[vertex_descriptor_a] = "top";
+  vertex_name_map[vertex_descriptor_b] = "right";
+  vertex_name_map[vertex_descriptor_c] = "left";
 
   //Add edge names
-  edge_name_map_t edge_name_map{boost::get(boost::edge_name,g)};
-  edge_name_map[eab.first] = "AB";
-  edge_name_map[ebc.first] = "BC";
-  edge_name_map[eca.first] = "CA";
+  auto edge_name_map = boost::get(boost::edge_name,g);
+  edge_name_map[edge_insertion_result_ab.first] = "AB";
+  edge_name_map[edge_insertion_result_bc.first] = "BC";
+  edge_name_map[edge_insertion_result_ca.first] = "CA";
 
   return g;
+
 }
 

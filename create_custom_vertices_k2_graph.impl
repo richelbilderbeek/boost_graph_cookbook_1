@@ -1,5 +1,7 @@
 #include "install_vertex_custom_type.h"
 #include "my_vertex.h"
+#include "create_empty_custom_vertices_graph.h"
+
 #include <boost/graph/adjacency_list.hpp>
 
 boost::adjacency_list<
@@ -12,36 +14,19 @@ boost::adjacency_list<
 >
 create_custom_vertices_k2_graph() noexcept
 {
-  using boost::property_map;
-  using boost::vertex_custom_type_t;
-  using graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::property<
-      boost::vertex_custom_type_t,my_vertex
-    >
-  >;
-  using vertex_descriptor
-    = typename boost::graph_traits<graph>::vertex_descriptor;
-  using edge_descriptor
-    = typename boost::graph_traits<graph>::edge_descriptor;
-  using edge_insertion_result
-    = std::pair<edge_descriptor,bool>;
-  using my_vertex_map_t
-    = typename property_map<graph,vertex_custom_type_t>::type;
-
-  graph g;
-  const vertex_descriptor va = boost::add_vertex(g);
-  const vertex_descriptor vb = boost::add_vertex(g);
-  const edge_insertion_result ea
-    = boost::add_edge(va, vb, g);
-  assert(ea.second);
+  auto g = create_empty_custom_vertices_graph();
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  const auto vertex_descriptor_b = boost::add_vertex(g);
+  const auto edge_insertion_result
+    = boost::add_edge(vertex_descriptor_a, vertex_descriptor_b, g);
+  assert(edge_insertion_result.second);
 
   //Add names
-  my_vertex_map_t name_map{boost::get(boost::vertex_custom_type,g)};
-  name_map[va] = my_vertex("from","source",0.0,0.0);
-  name_map[vb] = my_vertex("to","target",3.14,3.14);
+  auto my_vertex_name_map = boost::get(boost::vertex_custom_type,g);
+  my_vertex_name_map[vertex_descriptor_a]
+    = my_vertex("from","source",0.0,0.0);
+  my_vertex_name_map[vertex_descriptor_b]
+    = my_vertex("to","target",3.14,3.14);
 
   return g;
 }

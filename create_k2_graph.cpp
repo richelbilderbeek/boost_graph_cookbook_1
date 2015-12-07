@@ -1,4 +1,5 @@
 #include "create_k2_graph.h"
+#include "create_empty_graph.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -7,27 +8,12 @@ boost::adjacency_list<
 >
 create_k2_graph() noexcept
 {
-  using boost::graph_traits;
-
-  using graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS
-  >;
-
-  using vertex_descriptor
-    = typename graph_traits<graph>::vertex_descriptor;
-  using edge_descriptor
-    = typename graph_traits<graph>::edge_descriptor;
-  using edge_insertion_result
-    = std::pair<edge_descriptor,bool>;
-
-  graph g;
-  const vertex_descriptor va = boost::add_vertex(g);
-  const vertex_descriptor vb = boost::add_vertex(g);
-  const edge_insertion_result ea
-    = boost::add_edge(va, vb, g);
-  assert(ea.second);
+  auto g = create_empty_undirected_graph();
+  const auto vertex_descriptor_a = boost::add_vertex(g);
+  const auto vertex_descriptor_b = boost::add_vertex(g);
+  const auto edge_insertion_result
+    = boost::add_edge(vertex_descriptor_a, vertex_descriptor_b, g);
+  assert(edge_insertion_result.second);
   return g;
 }
 

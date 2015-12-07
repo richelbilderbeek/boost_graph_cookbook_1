@@ -8,9 +8,11 @@
 #include "create_custom_vertices_k2_graph.h"
 //#include "create_empty_custom_edges_and_vertices_graph.h"
 #include "create_empty_custom_vertices_graph.h"
-#include "create_empty_graph.h"
+#include "create_empty_directed_graph.h"
+#include "create_empty_undirected_graph.h"
 #include "create_empty_named_edges_and_vertices_graph.h"
 #include "create_empty_named_vertices_graph.h"
+#include "create_empty_undirected_graph.h"
 #include "create_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_named_vertices_k2_graph.h"
@@ -23,6 +25,7 @@
 #include "get_vertex_my_vertexes.h"
 #include "get_vertex_names.h"
 #include "is_self_loop.h"
+#include "is_valid_dot_file.h"
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
@@ -38,6 +41,7 @@
 
 int main()
 {
+  is_valid_dot_file_test();
   add_custom_vertex_test();
   add_edge_test();
   add_named_edge_test();
@@ -48,7 +52,8 @@ int main()
   create_custom_vertices_k2_graph_test();
   //create_empty_custom_edges_and_vertices_graph_test();
   create_empty_custom_vertices_graph_test();
-  create_empty_graph_test();
+  create_empty_directed_graph_test();
+  create_empty_undirected_graph_test();
   create_empty_named_edges_and_vertices_graph_test();
   create_empty_named_vertices_graph_test();
   create_k2_graph_test();
