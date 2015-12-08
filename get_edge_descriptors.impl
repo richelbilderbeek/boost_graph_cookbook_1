@@ -1,0 +1,20 @@
+#include <vector>
+#include "boost/graph/graph_traits.hpp"
+
+template <class graph>
+std::vector<
+  typename boost::graph_traits<graph>::edge_descriptor
+> get_edge_descriptors(const graph& g) noexcept
+{
+  using boost::graph_traits;
+  std::vector<
+    typename graph_traits<graph>::edge_descriptor
+  > v;
+  for (auto vi = edges(g);
+    vi.first != vi.second;
+    ++vi.first)
+  {
+    v.emplace_back(*vi.first);
+  }
+  return v;
+}

@@ -723,15 +723,63 @@ Vertex descriptor
 
 \begin_layout Standard
 A vertex descriptor is a handle to a vertex within a graph.
- Vertex descriptors are used to:
+ 
+\end_layout
+
+\begin_layout Standard
+Vertex descriptors can be obtained by:
 \end_layout
 
 \begin_layout Itemize
-boost::add_edge: connects two vertices by an edge
+dereference a vertex iterator, see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vertex descriptors are used to:
 \end_layout
 
 \begin_layout Itemize
-obtain the name of vertex
+add and edge between two vertices, see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+obtain properties of vertex a vertex, for example the vertex its out degrees
+ (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_out_degrees"
+
+\end_inset
+
+), the vertex its name (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_names"
+
+\end_inset
+
+), or a custom vertex property (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_my_vertexes"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -749,7 +797,237 @@ vd_
 \end_layout
 
 \begin_layout Subsection
+Get the vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You cannot get the vertices.
+ This may sound unexpected, as it must be possible to work on the vertices
+ of a graph.
+ Working on the vertices of a graph is done throught these steps:
+\end_layout
+
+\begin_layout Itemize
+Obtain a vertex iterator pair from the graph
+\end_layout
+
+\begin_layout Itemize
+Dereference a vertex iterator to obtain a vertex descriptor
+\end_layout
+
+\begin_layout Standard
+boost::vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::vertices
+\end_layout
+
+\end_inset
+
+ is used to obtain a vertex iterator pair
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex iterator pair
+\end_layout
+
+\end_inset
+
+.
+ The first vertex iterator
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex iterator
+\end_layout
+
+\end_inset
+
+ points to the first vertex (its descriptor, to be precise), the second
+ points to beyond the last vertex.
+ In this tutorial, vertex iterator pairs have named prefixed with 'vip_'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vip_
+\end_layout
+
+\end_inset
+
+, for example 'vip_1'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the vertex iterators of a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_descriptors
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These vertex iterators can be dereferenced to obtain the vertex descriptors.
+ Note that this function will not be used often in isolation: usually one
+ obtains the vertex descriptors immediatly.
+\end_layout
+
+\begin_layout Subsection
+Get all vertex descriptors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_descriptors"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex descriptors, get
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vertex descriptors are obtained from dereferencing vertex iterators:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_descriptors.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get all vertex descriptors of a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_descriptors
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This does show an important concept of the Boost.Graph library: boost::vertices
+ returns two vertex iterators
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex iterator
+\end_layout
+
+\end_inset
+
+, that can be dereferenced to obtain the vertex descriptors.
+\end_layout
+
+\begin_layout Subsection
 Add an edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_edge"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -972,6 +1250,16 @@ aer_
 \end_layout
 
 \begin_layout Subsection
+Getting the edges
+\end_layout
+
+\begin_layout Standard
+You can use boost::edges to obtain an iterator pair.
+ The first iterator points to the first edge, the second points to beyond
+ the last edge.
+\end_layout
+
+\begin_layout Subsection
 Edge descriptors
 \begin_inset CommandInset label
 LatexCommand label
@@ -1013,6 +1301,117 @@ ed_
 \end_inset
 
 , for example 'ed_1'.
+\end_layout
+
+\begin_layout Subsection
+Get all edge descriptors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_descriptors"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edge descriptors, get
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get edge descriptors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obtaining all edge descriptors is not as simple of a function as you'd guess:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_descriptors.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get all edge descriptors of a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_descriptors
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This does show an important concept of the Boost.Graph library: boost::edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edges
+\end_layout
+
+\end_inset
+
+ returns to vertex iterators
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex iterator
+\end_layout
+
+\end_inset
+
+, that can be dereferenced to obtain the vertex descriptors.
 \end_layout
 
 \begin_layout Subsection
@@ -2981,6 +3380,13 @@ vertices have a custom type called my_vertex
 
 \begin_layout Subsection
 Add a custom vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_custom_vertex"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3192,6 +3598,13 @@ name "sub:create_empty_custom_edges_and_vertices_graph"
 
 \begin_layout Subsection
 Add a custom edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_custom_edge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3224,27 +3637,14 @@ Measuring simple traits of the graphs created allows you to deb ug your
 \end_layout
 
 \begin_layout Subsection
-Getting the vertices
-\end_layout
-
-\begin_layout Standard
-You can use boost::vertices to obtain an iterator pair.
- The first iterator points to the first vertex, the second points to beyond
- the last vertex.
-\end_layout
-
-\begin_layout Subsection
-Getting the edges
-\end_layout
-
-\begin_layout Standard
-You can use boost::edges to obtain an iterator pair.
- The first iterator points to the first edge, the second points to beyond
- the last edge.
-\end_layout
-
-\begin_layout Subsection
 Counting the number of vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_vertices"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -3335,6 +3735,13 @@ name "alg:get_n_vertices"
 
 \begin_layout Subsection
 Counting the number of edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_edges"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -3424,7 +3831,125 @@ name "alg:get_n_edges"
 \end_layout
 
 \begin_layout Subsection
+Getting the vertices' out degree
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The out degree of a vertex is the number of edges that originate at it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_out_degrees.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the vertices' out degrees
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_out_degrees
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The out degrees of the vertices are obtained directly from the vertex descriptor
+ and then put into a std::vector.
+ Note that the std::vector has element type 'int', instead of 'graph::degree_siz
+e_type', as one should prefer using int (over unsigned int) in an interface
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lakos1996large"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 9.2.2
+\end_layout
+
+\end_inset
+
+.
+ Also, preferring using an unsigned an int to gain one more bit to represent
+ positive integers is almost never a good idea
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 4.4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
 Getting the vertices' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_names"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3496,6 +4021,19 @@ name "alg:get_vertex_names"
 \begin_layout Standard
 The names of the vertices are obtained from a boost::property_map and then
  put into a std::vector.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+Note that the std::vector has element type 'std::string', instead of extracting
+ the type from the graph.
+ If you know how to do so, please email me.
 \end_layout
 
 \begin_layout Standard
@@ -3515,6 +4053,13 @@ formed reference to void
 
 \begin_layout Subsection
 Getting the edges' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_names"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3603,6 +4148,13 @@ status collapsed
 the name 'my_vertexes' is chosen to indicate this function returns a container
  of my_vertex
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_my_vertexes"
 
 \end_inset
 
@@ -3765,6 +4317,13 @@ It is useful to be able to modify every aspect of a graph.
 
 \begin_layout Subsection
 Setting all vertices' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_vertex_names"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -3862,6 +4421,13 @@ An impressive feature is that getting the property map holding the graph
 
 \begin_layout Subsection
 Setting all vertices' my_vertex objects
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_vertex_my_vertexes"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -4050,6 +4616,13 @@ Before graphs are visualized, they are stored as a file first.
 
 \begin_layout Subsection
 Storing a graph as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -4336,6 +4909,13 @@ reference "alg:save_graph_to_dot"
 
 \begin_layout Subsection
 Storing a graph with named vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -4632,6 +5212,13 @@ reference "alg:save_graph_to_dot"
 
 \begin_layout Subsection
 Storing a graph with named vertices and edges as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_named_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset Index idx
 status collapsed
 
@@ -4975,6 +5562,13 @@ reference "alg:save_graph_to_dot"
 
 \begin_layout Subsection
 Storing a graph with custom vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_custom_vertices_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 

@@ -1,0 +1,13 @@
+#include <vector>
+
+template <typename graph>
+std::vector<int> get_vertex_out_degrees(const graph& g)
+{
+  std::vector<int> v;
+  for (auto p = vertices(g);
+    p.first != p.second;
+    ++p.first) {
+    v.emplace_back(out_degree(*p.first,g));
+  }
+  return v;
+}

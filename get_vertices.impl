@@ -1,0 +1,11 @@
+#include <boost/graph/adjacency_list.hpp>
+
+template <class graph>
+std::pair<
+  typename graph::vertex_iterator,
+  typename graph::vertex_iterator
+>
+get_vertices(const graph& g)
+{
+  return boost::vertices(g);
+}

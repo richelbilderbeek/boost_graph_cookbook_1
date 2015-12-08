@@ -45,7 +45,11 @@ HEADERS += \
     my_edge.h \
     add_custom_edge.h \
     get_edge_my_edges.h \
-    create_custom_edges_and_vertices_k3_graph.h
+    create_custom_edges_and_vertices_k3_graph.h \
+    get_vertex_out_degrees.h \
+    get_vertex_descriptors.h \
+    get_edge_descriptors.h \
+    get_vertices.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -99,7 +103,11 @@ SOURCES += \
     my_edge.cpp \
     add_custom_edge.cpp \
     get_edge_my_edges.cpp \
-    create_custom_edges_and_vertices_k3_graph.cpp
+    create_custom_edges_and_vertices_k3_graph.cpp \
+    get_vertex_out_degrees.cpp \
+    get_vertex_descriptors.cpp \
+    get_edge_descriptors.cpp \
+    get_vertices.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -132,5 +140,9 @@ OTHER_FILES += \
     create_empty_custom_edges_and_vertices_graph.impl \
     add_custom_edge.impl \
     get_edge_my_edges.impl \
-    create_custom_edges_and_vertices_k3_graph.impl
+    create_custom_edges_and_vertices_k3_graph.impl \
+    get_vertex_out_degrees.impl \
+    get_vertex_descriptors.impl \
+    get_edge_descriptors.impl \
+    get_vertices.impl
 

@@ -25,8 +25,12 @@
 #include "get_edge_names.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
+#include "get_edge_descriptors.h"
+#include "get_vertex_descriptors.h"
 #include "get_vertex_my_vertexes.h"
+#include "get_vertices.h"
 #include "get_vertex_names.h"
+#include "get_vertex_out_degrees.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
 #include "print_trans_delay.h"
@@ -69,10 +73,14 @@ int main()
   create_tutorial_chapters_graph_test();
   get_edge_my_edges_test();
   get_edge_names_test();
-  get_n_edges_test();
+  //get_edges_test();
   get_n_vertices_test();
+  get_edge_descriptors_test();
+  get_vertex_descriptors_test();
   get_vertex_my_vertexes_test();
+  get_vertices_test();
   get_vertex_names_test();
+  get_vertex_out_degrees_test();
   is_self_loop_test();
   is_valid_dot_file_test();
   print_trans_delays_test();
