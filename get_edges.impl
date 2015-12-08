@@ -1,0 +1,11 @@
+#include <boost/graph/adjacency_list.hpp>
+
+template <class graph>
+std::pair<
+  typename graph::edge_iterator,
+  typename graph::edge_iterator
+>
+get_edges(const graph& g)
+{
+  return boost::edges(g);
+}

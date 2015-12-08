@@ -49,7 +49,9 @@ HEADERS += \
     get_vertex_out_degrees.h \
     get_vertex_descriptors.h \
     get_edge_descriptors.h \
-    get_vertices.h
+    get_vertices.h \
+    get_edges.h \
+    formed_reference_to_void.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -107,7 +109,9 @@ SOURCES += \
     get_vertex_out_degrees.cpp \
     get_vertex_descriptors.cpp \
     get_edge_descriptors.cpp \
-    get_vertices.cpp
+    get_vertices.cpp \
+    get_edges.cpp \
+    formed_reference_to_void.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -144,5 +148,7 @@ OTHER_FILES += \
     get_vertex_out_degrees.impl \
     get_vertex_descriptors.impl \
     get_edge_descriptors.impl \
-    get_vertices.impl
+    get_vertices.impl \
+    get_edges.impl \
+    formed_reference_to_void.impl
 

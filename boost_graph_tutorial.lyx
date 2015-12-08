@@ -150,7 +150,7 @@ The choice between 'boost::get', 'std::get' and 'get'.
 \end_layout
 
 \begin_layout Section
-Building graphs
+Building graphs and basic functions
 \end_layout
 
 \begin_layout Standard
@@ -296,6 +296,81 @@ reference "sub:create_custom_edges_and_vertices_k3"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Adding a vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting all vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting all vertex descriptors: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding an edge: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting all edges: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting all edge descriptors: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_edge_descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
 \end_layout
 
 \begin_layout Subsection
@@ -592,6 +667,13 @@ boost::adjacency_matrix
 
 \begin_layout Subsection
 Add a vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_vertex"
+
+\end_inset
+
+
 \begin_inset Index idx
 status open
 
@@ -608,13 +690,6 @@ status open
 \begin_layout Plain Layout
 Vertex, add
 \end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Add-a-vertex"
 
 \end_inset
 
@@ -896,7 +971,7 @@ Get the vertex iterators of a graph
 status open
 
 \begin_layout Plain Layout
-get_vertex_descriptors
+get_vertices
 \end_layout
 
 \end_inset
@@ -1251,12 +1326,131 @@ aer_
 
 \begin_layout Subsection
 Getting the edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edges"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-You can use boost::edges to obtain an iterator pair.
- The first iterator points to the first edge, the second points to beyond
- the last edge.
+You cannot get the edges.
+ Working on the edges of a graph is done throught these steps:
+\end_layout
+
+\begin_layout Itemize
+Obtain an edge iterator pair from the graph
+\end_layout
+
+\begin_layout Itemize
+Dereference an edge iterator to obtain an edge descriptor
+\end_layout
+
+\begin_layout Standard
+boost::edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edges
+\end_layout
+
+\end_inset
+
+ is used to obtain an edge iterator pair
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edge iterator pair
+\end_layout
+
+\end_inset
+
+.
+ The first edge iterator
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edge iterator
+\end_layout
+
+\end_inset
+
+ points to the first edge (its descriptor, to be precise), the second points
+ to beyond the last edge.
+ In this tutorial, edge iterator pairs have named prefixed with 'eip_'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+eip_
+\end_layout
+
+\end_inset
+
+, for example 'eip_1'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the edge iterators of a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These edge iterators can be dereferenced to obtain the edge descriptors.
+ Note that this function will not be used often in isolation: usually one
+ obtains the edge descriptors immediatly.
 \end_layout
 
 \begin_layout Subsection
@@ -3394,7 +3588,7 @@ Adding a custom vertex is very similar to adding a named vertex (chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:add_named_vertex"
+reference "sub:add_named_vertex"
 
 \end_inset
 
@@ -3423,12 +3617,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Add a vertex with a name
+Add a custom vertex
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-add_named_vertex
+add_custom_vertex
 \end_layout
 
 \end_inset
@@ -3596,6 +3790,508 @@ name "sub:create_empty_custom_edges_and_vertices_graph"
 
 \end_layout
 
+\begin_layout Standard
+Say we want to use our own edge class as graph nodes.
+ This is done in multiple steps:
+\end_layout
+
+\begin_layout Enumerate
+Create a custom edge class, called 'my_edge'
+\end_layout
+
+\begin_layout Enumerate
+Install a new property, called 'edge_custom_type
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edge_custom_type
+\end_layout
+
+\end_inset
+
+'
+\end_layout
+
+\begin_layout Enumerate
+Use the new property in creating a boost::adjacency_list
+\end_layout
+
+\begin_layout Subsubsection
+Creating the custom edge class
+\end_layout
+
+\begin_layout Standard
+In this example, I create a custom edge class.
+ Here I will show the header file of it, as the implementation of it is
+ not important yet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "my_edge.h"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Declaration of my_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge.h
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge declaration
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Declaration, my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:my_edge_h"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+my_edge is a class that has multiple properties: two doubles 'm_width' ('m_
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+m_
+\end_layout
+
+\end_inset
+
+' stands for member
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+member
+\end_layout
+
+\end_inset
+
+) and 'm_height', and two std::strings m_name and m_description.
+ my_edge is copyable, but cannot trivially be converted to a std::string.
+\end_layout
+
+\begin_layout Subsubsection
+Installing the new property
+\end_layout
+
+\begin_layout Standard
+Installing a new property would have been easier, if 'more C++ compilers
+ were standards conformant' (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+, chapter 3.6, footnote at page 52).
+ Boost.Graph uses the BOOST_INSTALL_PROPERTY
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+BOOST_INSTALL_PROPERTY
+\end_layout
+
+\end_inset
+
+ macro
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+macro
+\end_layout
+
+\end_inset
+
+ to allow using a custom property:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "install_edge_custom_type.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Installing the edge_custom_type property
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+install_vertex_custom_type
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:install_edge_custom_type"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The enum value 3142
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+pi
+\end_layout
+
+\end_inset
+
+ must be unique.
+\end_layout
+
+\begin_layout Subsubsection
+Create the empty graph with custom edges and vertices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_custom_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty graph with custom vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_custom_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a custom type, that is of data
+ type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
+ my_vertex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges have one property: they have a custom type, that is of data type
+ my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The graph has no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Why specify edge storage twice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
+ my_edge>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have the property 'boost::edge_custom_type_t', which is of data type
+ 'my_edge'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have a custom type called my_edge
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Add a custom edge
 \begin_inset CommandInset label
@@ -3605,6 +4301,95 @@ name "sub:add_custom_edge"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Adding a custom edge is very similar to adding a named edge (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_named_edge"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add a custom edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_custom_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having added a new (abstract) edge to the graph, the edge descriptor
+ is used to set the my_edge in the graph its my_edge map (using 'boost::get(boos
+t::edge_custom_type,g)
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_custom_type
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::get
+\end_layout
+
+\end_inset
+
+').
 \end_layout
 
 \begin_layout Subsection
@@ -3627,13 +4412,103 @@ Instead of using edges with a name, or other properties, here we use a custom
  edge class called 'my_edge'.
 \end_layout
 
+\begin_layout Standard
+We reproduce the 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named edges and vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+ , but with our custom edges and vertices intead:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_edges_and_vertices_k3_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_custom_edges_and_vertices_k3_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a slight modification of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+.
+ In the end, the my_edges and my_vertices are obtained as a boost::property_map
+ and set with the custom my_edge and my_vertex objects.
+\end_layout
+
 \begin_layout Section
 Measuring simple graphs traits
 \end_layout
 
 \begin_layout Standard
-Measuring simple traits of the graphs created allows you to deb ug your
- code.
+Measuring simple traits of the graphs created allows you to debug your code.
 \end_layout
 
 \begin_layout Subsection
@@ -3920,8 +4795,8 @@ Chapter 9.2.2
 \end_inset
 
 .
- Also, preferring using an unsigned an int to gain one more bit to represent
- positive integers is almost never a good idea
+ Also, avoid using an unsigned an int for the sake of gaining that one more
+ bit 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroustrup1997"
@@ -4038,17 +4913,14 @@ Note that the std::vector has element type 'std::string', instead of extracting
 
 \begin_layout Standard
 When trying to get the vertices' names from a graph without vertices with
- names, you will get the error 'formed reference to void
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-formed reference to void
-\end_layout
+ names, you will get the error 'formed reference to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
 
 \end_inset
 
-' (for example, with the code 'get_vertex_names(create_k2_graph());').
+).
 \end_layout
 
 \begin_layout Subsection
@@ -4135,8 +5007,14 @@ The names of the edges are obtained from a boost::property_map and then
 
 \begin_layout Standard
 When trying to get the edges' names from a graph without vertices with names,
- you will get the error 'formed reference to void' (for example, with the
- code 'get_vertex_names(create_k2_graph());').
+ you will get the error 'formed reference to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -4225,17 +5103,15 @@ perty_map and then put into a std::vector.
 
 \begin_layout Standard
 When trying to get the vertices' my_vertex from a graph without my_vertex
- objects associated, you will get the error 'formed reference to void
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-formed reference to void
-\end_layout
+ objects associated, you will get the error 'formed reference to void' (see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
 
 \end_inset
 
-' (for example, with the code 'get_vertex_my_vertexes(create_k2_graph());').
+).
 \end_layout
 
 \begin_layout Subsection
@@ -5452,100 +6328,16 @@ name "fig:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_grap
 \end_layout
 
 \begin_layout Standard
-If you used the 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-MORE_COMPLEX_create_named_edges_and_vertices_k3_graph function (algorithm
- 
+If you created a graph with edges more complex than just a name, you will
+ still just write these to the .dot file.
+ Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
+reference "sub:save_custom_vertices_graph_to_dot"
 
 \end_inset
 
-) to produce a 
-\begin_inset Formula $K_{3}$
-\end_inset
-
- graph with named edges and vertices, you see that the .dot file does not
- have stored the edge names:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: show true other output
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-MORE_COMPLEX_create_named_edges_and_vertices_k3_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ shows how to write custom vertices to a .dot file.
 \end_layout
 
 \begin_layout Standard
@@ -5816,6 +6608,104 @@ Measuring more complex graphs traits
 
 \begin_layout Subsection
 Count the number of self-loops
+\end_layout
+
+\begin_layout Section
+Errors
+\end_layout
+
+\begin_layout Standard
+Some common errors.
+\end_layout
+
+\begin_layout Subsection
+Formed reference to void
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:formed_reference_to_void"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This compile-time error occurs when you create a graph without a certain
+ property, then subsequently reading that property, as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:formed_reference_to_void"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "formed_reference_to_void.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the error 'formed reference to void'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+formed_reference_to_void
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:formed_reference_to_void"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:formed_reference_to_void"
+
+\end_inset
+
+ a graph is created with vertices of no properties.
+ Then the names of these vertices, which do not exists, are tried to be
+ read.
+ If you want to read the names of the vertices, supply a graph that has
+ this property.
 \end_layout
 
 \begin_layout Standard

@@ -1,0 +1,7 @@
+#include "create_k2_graph.h"
+#include "get_vertex_names.h"
+
+void formed_reference_to_void() noexcept
+{
+  get_vertex_names(create_k2_graph());
+}
