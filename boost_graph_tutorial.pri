@@ -51,7 +51,8 @@ HEADERS += \
     get_edge_descriptors.h \
     get_vertices.h \
     get_edges.h \
-    formed_reference_to_void.h
+    formed_reference_to_void.h \
+    get_type_name.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -111,7 +112,8 @@ SOURCES += \
     get_edge_descriptors.cpp \
     get_vertices.cpp \
     get_edges.cpp \
-    formed_reference_to_void.cpp
+    formed_reference_to_void.cpp \
+    get_type_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and

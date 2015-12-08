@@ -1,6 +1,7 @@
 #include "has_dot.h"
 
 #include <cassert>
+#include <iostream>
 #include <sstream>
 
 #include "fileio.h"
@@ -13,5 +14,9 @@ bool has_dot() noexcept
   std::system(cmd.str().c_str());
   assert(ribi::FileIo().IsRegularFile(filename));
   const auto v = ribi::FileIo().FileToVector(filename);
-  return v.size() > 1;
+  const bool has_dot{v.size() > 1};
+  if (!has_dot) {
+    std::cerr << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
+  }
+  return has_dot;
 }

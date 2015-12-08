@@ -26,6 +26,7 @@
 #include "get_n_edges.h"
 #include "get_edges.h"
 #include "get_n_vertices.h"
+#include "get_type_name.h"
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertex_my_vertexes.h"
@@ -80,6 +81,7 @@ int main()
   get_vertex_descriptors_test();
   get_vertex_my_vertexes_test();
   get_vertices_test();
+  get_type_name_test();
   get_vertex_names_test();
   get_vertex_out_degrees_test();
   is_self_loop_test();
