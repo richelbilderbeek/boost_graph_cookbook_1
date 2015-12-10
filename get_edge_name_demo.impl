@@ -1,0 +1,15 @@
+#include <cassert>
+
+#include "add_named_edge.h"
+#include "create_empty_named_edges_and_vertices_graph.h"
+#include "find_first_edge_with_name.h"
+#include "get_edge_name.h"
+
+void get_edge_name_demo() noexcept
+{
+  auto g = create_empty_named_edges_and_vertices_graph();
+  const std::string name{"Dex"};
+  add_named_edge(name, g);
+  const auto ed = find_first_edge_with_name(name,g);
+  assert(get_edge_name(ed,g) == name);
+}

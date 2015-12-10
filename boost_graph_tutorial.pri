@@ -63,7 +63,9 @@ HEADERS += \
     remove_first_vertex_with_name.h \
     get_first_vertex_with_name_out_degree.h \
     has_edge_with_name.h \
-    find_first_edge_with_name.h
+    find_first_edge_with_name.h \
+    get_edge_name.h \
+    set_edge_name.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -134,7 +136,9 @@ SOURCES += \
     remove_first_vertex_with_name.cpp \
     get_first_vertex_with_name_out_degree.cpp \
     has_edge_with_name.cpp \
-    find_first_edge_with_name.cpp
+    find_first_edge_with_name.cpp \
+    get_edge_name.cpp \
+    set_edge_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -218,5 +222,9 @@ OTHER_FILES += \
     has_edge_with_name.impl \
     has_edge_with_name_demo.impl \
     find_first_edge_with_name.impl \
-    find_first_edge_with_name_demo.impl
+    find_first_edge_with_name_demo.impl \
+    get_edge_name.impl \
+    get_edge_name_demo.impl \
+    set_edge_name.impl \
+    set_edge_name_demo.impl
 

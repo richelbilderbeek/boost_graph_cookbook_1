@@ -7164,6 +7164,290 @@ name "alg:find_first_edge_with_name_demo"
 \end_layout
 
 \begin_layout Subsection
+Get a (named) edge its name from its edge descriptor
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This may seem a trivial paragraph, as chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_edge_names"
+
+\end_inset
+
+ describes the 'get_edge_names' algorithm, in which we get all edges' names.
+ But it does not allow to first find an edge of interest and subsequently
+ getting only that one its name.
+\end_layout
+
+\begin_layout Standard
+To obtain the name from an edgedescriptor, one needs to pull out the name
+ map and then look up the edge of interest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get an edge its name from its edge descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'get_edge_name', one first needs to obtain an edge descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_names_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'get_edge_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Set a (named) edge its name from its edge descriptor
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_edge_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know how to get the name from an edge descriptor, setting it is just
+ as easy, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_edge_name"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_edge_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set an edge its name from its edge descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_edge_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_edge_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'set_edge_name', one first needs to obtain an edge descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_edge_name_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_edge_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'set_edge_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_edge_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_edge_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Remove a named edge
 \end_layout
 

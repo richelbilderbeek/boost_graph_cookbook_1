@@ -27,6 +27,7 @@
 #include "find_first_vertex_with_name.h"
 #include "get_edge_descriptors.h"
 #include "get_edge_my_edges.h"
+#include "get_edge_name.h"
 #include "get_edge_names.h"
 #include "get_edges.h"
 #include "get_first_vertex_with_name_out_degree.h"
@@ -52,6 +53,7 @@
 #include "save_graph_to_dot.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot.h"
+#include "set_edge_name.h"
 //#include "set_edge_my_edges.h"
 #include "set_vertex_my_vertexes.h"
 #include "set_vertex_name.h"
@@ -85,13 +87,14 @@ int main()
   create_router_network_graph_test();
   create_router_network_test();
   create_tutorial_chapters_graph_test();
-  find_first_vertex_with_name_test();
   find_first_edge_with_name_test();
+  find_first_vertex_with_name_test();
   get_edge_descriptors_test();
-  get_first_vertex_with_name_out_degree_test();
   get_edge_my_edges_test();
   get_edge_names_test();
+  get_edge_name_test();
   get_edges_test();
+  get_first_vertex_with_name_out_degree_test();
   get_n_vertices_test();
   get_type_name_test();
   get_vertex_descriptors_test();
@@ -113,6 +116,7 @@ int main()
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
+  set_edge_name_test();
   set_vertex_my_vertexes_test();
   set_vertex_names_test();
   set_vertex_name_test();

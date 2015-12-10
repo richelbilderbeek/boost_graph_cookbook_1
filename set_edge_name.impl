@@ -1,0 +1,14 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+void set_edge_name(
+  const std::string& name,
+  const typename boost::graph_traits<graph>::edge_descriptor& vd,
+  graph& g
+)
+{
+  auto edge_name_map = get(boost::edge_name,g);
+  edge_name_map[vd] = name;
+}
