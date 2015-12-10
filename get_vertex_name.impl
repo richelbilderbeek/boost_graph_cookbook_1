@@ -1,0 +1,13 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+std::string get_vertex_name(
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd,
+  const graph& g
+)
+{
+  const auto vertex_name_map = get(boost::vertex_name,g);
+  return vertex_name_map[vd];
+}

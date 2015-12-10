@@ -1,0 +1,23 @@
+#include <string>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+int count_vertices_with_name(
+  const graph& g,
+  const std::string& name
+)
+{
+  int cnt{0};
+  const auto vertex_name_map = get(boost::vertex_name,g);
+
+  for (auto p = vertices(g);
+    p.first != p.second;
+    ++p.first) {
+    const std::string s{
+      get(vertex_name_map, *p.first)
+    };
+    if (s == name) ++cnt;
+  }
+
+  return cnt;
+}

@@ -110,6 +110,15 @@ key "siek2001boost"
 \end_inset
 
  and the Boost.Graph website, both did not satisfy these requirements.
+ This tutorial is intended to take the reader to the level of understanding
+ the book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+ and the Boost.Graph website require.
 \end_layout
 
 \begin_layout Subsection
@@ -846,7 +855,7 @@ reference "alg:add_vertex"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -909,7 +918,7 @@ reference "alg:add_vertex_demo"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -926,7 +935,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Adding a vertex to a graph
+Demonstration of the 'add_vertex' function
 \begin_inset Index idx
 status open
 
@@ -2457,12 +2466,46 @@ name "alg:create_k2_graph_demo"
 \end_layout
 
 \begin_layout Section
-Measuring simple traits of a graph without properties
+Working on a graph without properties
 \end_layout
 
 \begin_layout Standard
 Graphs without edge and vertex properties have plenty of things to measure.
- Additionally, it allows you to test abd debug your code.
+ These simple getters and setters will allow you to work with, test and
+ debug your code:
+\end_layout
+
+\begin_layout Itemize
+Counting the number of vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_n_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Counting the number of edges: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_n_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting the vertices' out degrees: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_out_degrees"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2972,6 +3015,362 @@ name "alg:get_vertex_out_degrees_demo"
 
 \end_layout
 
+\begin_layout Subsection
+Storing a graph as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save graph as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create .dot from graph
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Graph are easily saved to a .dot file:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_graph_to_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot_demo"
+
+\end_inset
+
+ shows how to use this function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_graph_to_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'save_graph_to_dot' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_graph_to_dot_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When using the 'create_k2_graph function' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+) to create a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph, the .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot_test_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_graph_to_dot_test_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot_test_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_graph_to_dot_test_k2_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_graph_to_dot_test_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_graph_to_dot_test_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with named vertices, you see that the .dot file does not have stored
+ the vertex names:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_graph_to_dot_test_named_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_named_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_graph_to_dot_test_named_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, the 'save_graph_to_dot' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) saves only the structure of the graph.
+\end_layout
+
 \begin_layout Section
 Building graphs with built-in properties
 \end_layout
@@ -2980,7 +3379,13 @@ Building graphs with built-in properties
 Up until now, the graphs created have had edges and vertices without any
  propery.
  In this chapter, graphs will be created, in which edges vertices can have
- a (std::string) name and/or are of a custom type.
+ a (std::string) name.
+ There are many more built-in properties edges and nodes can have (see the
+ boost/graph/properties.hpp file for these).
+\end_layout
+
+\begin_layout Standard
+In this chapter, we will build the following graphs:
 \end_layout
 
 \begin_layout Itemize
@@ -3035,58 +3440,6 @@ reference "sub:create_named_edges_and_vertices_k3"
 
 \end_layout
 
-\begin_layout Itemize
-An empty (undirected) graph that allows for custom vertices: see chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{2}$
-\end_inset
-
-with custom vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_custom_vertices_k2"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-An empty (undirected) graph that allows for custom edges and vertices: see
- chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_edges_and_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{3}$
-\end_inset
-
-with custom edges and vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_custom_edges_and_vertices_k3"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
@@ -3125,21 +3478,10 @@ reference "sub:add_named_edge"
 \end_layout
 
 \begin_layout Itemize
-Adding a custom vertex: see chapter 
+Getting the edges' names: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:add_custom_vertex"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Adding a custom edge: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:add_custom_edge"
+reference "sub:get_edge_names"
 
 \end_inset
 
@@ -5123,26 +5465,55 @@ name "alg:create_named_edges_and_vertices_k3_graph_demo"
 \end_layout
 
 \begin_layout Section
-Measuring simple graphs traits of a graph with named edges and vertices
+Working with graphs with named edges and vertices
 \end_layout
 
 \begin_layout Standard
 Measuring simple traits of the graphs created allows
 \end_layout
 
-\begin_layout Subsection
-Count vertex name
+\begin_layout Itemize
+Find a (named) vertex by its name: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:find_vertex_first_with_name"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-count_vertices_with_name
+\begin_layout Itemize
+Get a (named) vertex its name from its vertex descripto: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_name"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection
-Find a vertex by its name
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:find_vertex_with_name"
+\begin_layout Itemize
+Set a (named) vertex its name using its vertex descripto: chapter
+\end_layout
+
+\begin_layout Itemize
+Storing a graph with named vertices as a .dot: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Storing a graph with named edges and vertices as a .dot: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_named_edges_and_vertices_graph_to_dot"
 
 \end_inset
 
@@ -5150,35 +5521,1335 @@ name "sub:find_vertex_with_name"
 \end_layout
 
 \begin_layout Standard
-find_vertex_with_name
+Especially the first paragraph is important: 'find_first_vertex_by_name'
+ shows how to obtain a vertex descriptor, which is used in later algorithms.
 \end_layout
 
 \begin_layout Subsection
-Get a named vertex its in-degree
+Find a vertex by its name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_vertex_first_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-get_named_vertex_in_degree
+Where STL functions work with iterators, here we obtain a vertex descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired vertex.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_vertex_with_name"
+
+\end_inset
+
+ shows how to obtain a vertex descriptor to the first (name) vertex found
+ with a specific name.
 \end_layout
 
-\begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_vertex_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find a vertex by its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_vertex_by_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_vertex_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the vertex descriptor obtained, one can read and modify the graph.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_vertex_with_name_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_vertex_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_vertex_by_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_vertex_by_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_vertex_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-Get a named vertex its out-degree
+Get a (named) vertex its name from its vertex descriptor
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-get_named_vertex_out_degree
+This may seem a trivial paragraph, as chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_names"
+
+\end_inset
+
+ describes the 'get_vertex_names' algorithm, in which we get all vertices'
+ names.
+ But it does not allow to first find a vertex of interest and subsequently
+ getting only that one its name.
+\end_layout
+
+\begin_layout Standard
+To obtain the name from a vertex descriptor, one needs to pull out the name
+ map and then look up the vertex of interest (I like to compare it as such:
+ the vertex descriptor is a last name, the name map is a phone book, the
+ desired info a phone number).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get a vertex its name from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'get_vertex_name', one first needs to obtain a vertex descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_names_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'get_vertex_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Set a (named) vertex its name from its vertex descriptor
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_vertex_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know how to get the name from a vertex descriptor, setting it is
+ just as easy, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_vertex_name"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_vertex_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set a vertex its name from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_vertex_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_vertex_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'set_vertex_name', one first needs to obtain a vertex descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_vertex_name_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_vertex_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'set_vertex_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_vertex_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_vertex_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Setting all vertices' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_vertex_names"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set vertices names
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertices, set names
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+ and you want to set all their names at once:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_vertex_names.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Setting the vertices' names
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_vertex_names
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An impressive feature is that getting the property map holding the graph
+ its names is not a copy, but a reference.
+ Otherwise, modifying 'name_map' (obtained by non-reference) would only
+ modify a copy.
+\end_layout
+
+\begin_layout Subsection
+Clear the edges of a named vertex
+\end_layout
+
+\begin_layout Standard
+A vertex descriptor can be used to clear all in/out/both edges connected
+ to a vertex.
+ It is necessary to remove these connections before the vertex itself can
+ be removed.
+ There are three functions to remove the edges connected to a vertex:
 \end_layout
 
 \begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
+boost::clear_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::clear_vertex
+\end_layout
+
+\end_inset
+
+: removes all edges to and from the vertex 
+\end_layout
+
+\begin_layout Itemize
+boost::clear_out_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::clear_out_edges
+\end_layout
+
+\end_inset
+
+: removes all outgoing edges from the vertex (in directed graphs only, else
+ you will get a 'error: no matching function for call to clear_out_edges',
+ as described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:no_matching_function_for_call_to_clear_out_edges"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+boost::clear_in_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::clear_in_edges
+\end_layout
+
+\end_inset
+
+: removes all incoming edges from the vertex (in directed graphs only, else
+ you will get a 'error: no matching function for call to clear_in_edges',
+ as described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:no_matching_function_for_call_to_clear_in_edges"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+In the algorithm 'clear_vertex_with_name' the 'boost::clear_vertex' algorithm
+ is used, as the graph used is undirectional:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "clear_vertex_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Clear a named vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+clear_vertex_with_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:clear_vertex_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clear_vertex_with_name_demo"
+
+\end_inset
+
+ shows the clearing of a named vertex.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "clear_vertex_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'clear_vertex_with_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+clear_vertex_with_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:clear_vertex_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Remove a named vertex
+\end_layout
+
+\begin_layout Standard
+remove_named_vertex
+\end_layout
+
+\begin_layout Subsection
+Remove a named edge
+\end_layout
+
+\begin_layout Standard
+remove_named_vertex
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
+ g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Itemize
+void remove_edge(edge_descriptor e, adjacency_list& g) .
+ Removes an edge from g 
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with named vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Save graph with name vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create .dot from graph with named vertices
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with named vertices, you can store these names additionally with
+ algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_named_vertices_graph_to_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with named vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_named_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_named_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_edges_and_vertices_k3_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named edges and vertices, you see that the .dot file does not
+ have stored the edge names:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_named_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_named_edges_and_vertices_k3_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, the 'save_named_vertices_graph_to_dot' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) saves only the structure of the graph and its vertex names.
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with named vertices and edges as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_named_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Save graph with name edges and vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create .dot from graph with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the create_named_edges_and_vertices_k3_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named edges and vertices, you can store these names additionally
+ with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_named_edges_and_vertices_graph_to_dot_cpp17.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with named edges and vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_named_edges_and_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this algorithm uses C++17
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+C++17
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k3_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_named_edges_and_vertices_k3_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the create_named_edges_and_vertices_k3_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you created a graph with edges more complex than just a name, you will
+ still just write these to the .dot file.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_custom_vertices_graph_to_dot"
+
+\end_inset
+
+ shows how to write custom vertices to a .dot file.
+\end_layout
+
+\begin_layout Standard
+So, the 'save_named_edges_and_vertices_graph_to_dot' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) saves only the structure of the graph and its edge and vertex names.
 \end_layout
 
 \begin_layout Section
@@ -6829,110 +8500,6 @@ It is useful to be able to modify every aspect of a graph.
 \end_layout
 
 \begin_layout Subsection
-Setting all vertices' names
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:set_vertex_names"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Set vertices names
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Vertices, set names
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When the vertices of a graph have named vertices
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: replace std::string as the hardcoded type of a vertex property
-\end_layout
-
-\end_inset
-
-, one set their names as such:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "set_vertex_names.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Setting the vertices' names
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-set_vertex_names
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:set_vertex_names"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-An impressive feature is that getting the property map holding the graph
- its names is not a copy, but a reference.
- Otherwise, modifying 'name_map' (obtained by non-reference) would only
- modify a copy.
-\end_layout
-
-\begin_layout Subsection
 Setting all vertices' my_vertex objects
 \begin_inset CommandInset label
 LatexCommand label
@@ -7028,82 +8595,6 @@ An impressive feature is that getting the property map holding the graph
 \end_layout
 
 \begin_layout Subsection
-Replace a vertex its name
-\end_layout
-
-\begin_layout Standard
-rename_vertex
-\end_layout
-
-\begin_layout Subsection
-Replace an edge its name
-\end_layout
-
-\begin_layout Standard
-rename_edge
-\end_layout
-
-\begin_layout Subsection
-Replace a my_vertex
-\end_layout
-
-\begin_layout Standard
-replace_my_vertex
-\end_layout
-
-\begin_layout Subsection
-Clear a named vertex
-\end_layout
-
-\begin_layout Standard
-clear_named_vertex
-\end_layout
-
-\begin_layout Itemize
-void clear_vertex(vertex_descriptor u, adjacency_list& g) .
- Removes all edges to and from u 
-\end_layout
-
-\begin_layout Itemize
-void clear_out_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all outgoing edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs) 
-\end_layout
-
-\begin_layout Itemize
-void clear_in_edges(vertex_descriptor u, adjacency_list& g) .
- Removes all incoming edges from vertex u in the directed graph g (not applicabl
-e for undirected graphs)
-\end_layout
-
-\begin_layout Subsection
-Remove a named vertex
-\end_layout
-
-\begin_layout Standard
-remove_named_vertex
-\end_layout
-
-\begin_layout Subsection
-Remove a named edge
-\end_layout
-
-\begin_layout Standard
-remove_named_vertex
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(vertex_descriptor u, vertex_descriptor v, adjacency_list&
- g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Itemize
-void remove_edge(edge_descriptor e, adjacency_list& g) .
- Removes an edge from g 
-\end_layout
-
-\begin_layout Subsection
 Remove a my_vertex
 \end_layout
 
@@ -7125,868 +8616,6 @@ Visualizing graphs
 \begin_layout Standard
 Before graphs are visualized, they are stored as a file first.
  Here, I use the .dot file format.
-\end_layout
-
-\begin_layout Subsection
-Storing a graph as a .dot
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:save_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Save graph as .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create .dot from graph
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Graph are easily saved to a .dot file:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "save_graph_to_dot.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Storing a graph as a .dot file
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-save_graph_to_dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_graph_to_dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Using the create_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-) to create a 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graph, the .dot file created is displayed in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot_test_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_graph_to_dot_test_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_graph_to_dot_test_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_graph_to_dot_test_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the create_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you used the create_named_vertices_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-) to produce a 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graph with named vertices, you see that the .dot file does not have stored
- the vertex names:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_graph_to_dot_test_named_vertices_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_named_vertices_k2_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_graph_to_dot_test_named_vertices_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-So, the 'save_graph_to_dot' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-) saves the structure of the graph.
-\end_layout
-
-\begin_layout Subsection
-Storing a graph with named vertices as a .dot
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:save_named_vertices_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Save graph with name vertices as .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Create .dot from graph with named vertices
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-If you used the create_named_vertices_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-) to produce a 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graph with named vertices, you can store these names additionally with
- algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_named_vertices_graph_to_dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "save_named_vertices_graph_to_dot.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Storing a graph with named vertices as a .dot file
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-save_named_vertices_graph_to_dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_vertices_graph_to_dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The .dot file created is displayed in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_named_vertices_k2_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the create_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_named_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you used the create_named_edges_and_vertices_k3_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3_graph"
-
-\end_inset
-
-) to produce a 
-\begin_inset Formula $K_{3}$
-\end_inset
-
- graph with named edges and vertices, you see that the .dot file does not
- have stored the edge names:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_named_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_named_edges_and_vertices_k3_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-So, the 'save_named_vertices_graph_to_dot' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-) saves only the structure of the graph and its vertex names.
-\end_layout
-
-\begin_layout Subsection
-Storing a graph with named vertices and edges as a .dot
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:save_named_edges_and_vertices_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Save graph with name edges and vertices as .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Create .dot from graph with named edges and vertices
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you used the create_named_edges_and_vertices_k3_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3_graph"
-
-\end_inset
-
-) to produce a 
-\begin_inset Formula $K_{3}$
-\end_inset
-
- graph with named edges and vertices, you can store these names additionally
- with algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_named_edges_and_vertices_graph_to_dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "save_named_edges_and_vertices_graph_to_dot_cpp17.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Storing a graph with named edges and vertices as a .dot file
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-save_named_edges_and_vertices_graph_to_dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_edges_and_vertices_graph_to_dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that this algorithm uses C++17
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++17
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The .dot file created is displayed in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k3_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_named_edges_and_vertices_k3_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k3_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the create_named_edges_and_vertices_k3_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you created a graph with edges more complex than just a name, you will
- still just write these to the .dot file.
- Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:save_custom_vertices_graph_to_dot"
-
-\end_inset
-
- shows how to write custom vertices to a .dot file.
-\end_layout
-
-\begin_layout Standard
-So, the 'save_named_edges_and_vertices_graph_to_dot' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-) saves only the structure of the graph and its edge and vertex names.
 \end_layout
 
 \begin_layout Subsection
@@ -8414,6 +9043,111 @@ reference "alg:formed_reference_to_void"
  read.
  If you want to read the names of the vertices, supply a graph that has
  this property.
+\end_layout
+
+\begin_layout Subsection
+No matching function for call to 'clear_out_edges'
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:no_matching_function_for_call_to_clear_out_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This compile-time error occurs when you want to clear the outward edges
+ from a vertex in an undirected graph.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "no_matching_function_for_call_to_clear_out_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the error 'formed reference to void'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+formed_reference_to_void
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:no_matching_function_for_call_to_clear_out_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:no_matching_function_for_call_to_clear_out_edges"
+
+\end_inset
+
+ an undirected graph is created, a vertex descriptor is obtained, then its
+ out edges are tried to be cleared.
+ Either use a directed graph (which has out edges), or use the 'boost::clear_ver
+tex' function instead.
+\end_layout
+
+\begin_layout Subsection
+No matching function for call to 'clear_in_edges'
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:no_matching_function_for_call_to_clear_in_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:no_matching_function_for_call_to_clear_out_edges"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

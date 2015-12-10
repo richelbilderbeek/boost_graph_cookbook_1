@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "save_graph_to_dot_demo.impl"
 #include "fileio.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
@@ -136,5 +137,7 @@ void save_graph_to_dot_test() noexcept
       ribi::fileio::CopyMode::allow_overwrite
     );
   }
+
+  save_graph_to_dot_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

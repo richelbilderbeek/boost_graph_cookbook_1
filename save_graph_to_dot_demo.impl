@@ -1,0 +1,12 @@
+#include "create_k2_graph.h"
+#include "create_named_vertices_k2_graph.h"
+#include "save_graph_to_dot.h"
+
+void save_graph_to_dot_demo() noexcept
+{
+  const auto g = create_k2_graph();
+  save_graph_to_dot(g,"save_graph_to_dot_k2_graph.dot");
+
+  const auto h = create_named_vertices_k2_graph();
+  save_graph_to_dot(h,"save_graph_to_dot_named_vertices_k2_graph.dot");
+}

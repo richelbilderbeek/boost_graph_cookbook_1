@@ -1,0 +1,6 @@
+#ifndef NO_MATCHING_FUNCTION_FOR_CALL_TO_CLEAR_OUT_EDGES_H
+#define NO_MATCHING_FUNCTION_FOR_CALL_TO_CLEAR_OUT_EDGES_H
+
+void no_matching_function_for_call_to_clear_out_edges() noexcept;
+
+#endif // NO_MATCHING_FUNCTION_FOR_CALL_TO_CLEAR_OUT_EDGES_H

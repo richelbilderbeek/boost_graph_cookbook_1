@@ -52,7 +52,13 @@ HEADERS += \
     get_vertices.h \
     get_edges.h \
     formed_reference_to_void.h \
-    get_type_name.h
+    get_type_name.h \
+    count_vertices_with_name.h \
+    find_first_vertex_with_name.h \
+    get_vertex_name.h \
+    set_vertex_name.h \
+    clear_vertex_with_name.h \
+    no_matching_function_for_call_to_clear_out_edges.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -112,7 +118,13 @@ SOURCES += \
     get_edges.cpp \
     formed_reference_to_void.cpp \
     get_type_name.cpp \
-    create_named_edges_and_vertices_k3_graph.cpp
+    create_named_edges_and_vertices_k3_graph.cpp \
+    count_vertices_with_name.cpp \
+    find_first_vertex_with_name.cpp \
+    get_vertex_name.cpp \
+    set_vertex_name.cpp \
+    clear_vertex_with_name.cpp \
+    no_matching_function_for_call_to_clear_out_edges.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -174,5 +186,17 @@ OTHER_FILES += \
     add_named_edge_demo.impl \
     get_edge_names_demo.impl \
     create_named_edges_and_vertices_k3_graph.impl \
-    create_named_edges_and_vertices_k3_graph_demo.impl
+    create_named_edges_and_vertices_k3_graph_demo.impl \
+    save_graph_to_dot_demo.impl \
+    count_vertices_with_name.impl \
+    count_vertices_with_name_demo.impl \
+    find_first_vertex_with_name_demo.impl \
+    find_first_vertex_with_name.impl \
+    get_vertex_name.impl \
+    get_vertex_name_demo.impl \
+    set_vertex_name_demo.impl \
+    set_vertex_name.impl \
+    clear_vertex_with_name.impl \
+    clear_vertex_with_name_demo.impl \
+    no_matching_function_for_call_to_clear_out_edges.impl
 
