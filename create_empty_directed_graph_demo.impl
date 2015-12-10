@@ -1,0 +1,6 @@
+#include "create_empty_directed_graph.h"
+
+void create_empty_directed_graph_demo() noexcept
+{
+  const auto g = create_empty_directed_graph();
+}

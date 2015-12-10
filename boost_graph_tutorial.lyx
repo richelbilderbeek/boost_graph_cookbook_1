@@ -113,7 +113,37 @@ key "siek2001boost"
 \end_layout
 
 \begin_layout Subsection
-Coding style used
+Code snippets
+\end_layout
+
+\begin_layout Standard
+For every concept, I will show
+\end_layout
+
+\begin_layout Itemize
+the 'do' function: a function that achieves a goal, for example 'create_empty_un
+directed_graph'
+\end_layout
+
+\begin_layout Itemize
+the 'demo' function: a function that demonstrates how to call the first,
+ for example 'demonstrate_create_empty_undirected_graph'
+\end_layout
+
+\begin_layout Standard
+I enjoy to show concepts by putting those in (long-named) functions.
+ These functions sometimes border the trivial, by, for example, only calling
+ a Boost.Graph function.
+ On the other hand, these functions have more English-sounding names, resulting
+ in demonstration code that is readable.
+\end_layout
+
+\begin_layout Standard
+All coding snippets are taken from compiled C++ code.
+\end_layout
+
+\begin_layout Subsection
+Coding style
 \end_layout
 
 \begin_layout Standard
@@ -123,12 +153,17 @@ I use the coding style from the Core C++ Guidelines.
 \begin_layout Standard
 I prefer to use the keyword auto over doubling the lines of code for using
  statements.
- There are plenty of algorithms that return an explicit data type, which
- can be used for reference.
-\end_layout
+ Because the 'do' functions return an explicit data type, these can be used
+ for reference.
+ If you really want to know a type, you can use the 'get_type_name' function
+ (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_type_name"
 
-\begin_layout Standard
-All coding snippets are taken from compiled C++ code.
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -405,7 +440,18 @@ Empty directed graph, create
 \end_layout
 
 \begin_layout Standard
-Let's create a trivial empty graph:
+Let's create a trivial empty graph!
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph"
+
+\end_inset
+
+ shows the function to create an empty (directed) graph.
 \end_layout
 
 \begin_layout Standard
@@ -461,6 +507,69 @@ name "alg:create_empty_directed_graph"
 \end_layout
 
 \begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph_demo"
+
+\end_inset
+
+ demonstrates the 'create_empty_directed_graph' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_empty_directed_graph'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_directed_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Congratulations, you've just created a boost::adjacency_list
 \begin_inset Index idx
 status collapsed
@@ -471,7 +580,9 @@ boost::adjacency_list
 
 \end_inset
 
- in which:
+ with its default template arguments.
+ For your reference, these default template argument denote that you've
+ just created a graph, in which:
 \end_layout
 
 \begin_layout Itemize
@@ -483,15 +594,15 @@ The vertices are stored in a std::vector
 \end_layout
 
 \begin_layout Itemize
-The graph is directed
+The edges have a direction
 \end_layout
 
 \begin_layout Itemize
-Vertices, edges and graph have no properties
+The vertices, edges and graph have no properties
 \end_layout
 
 \begin_layout Itemize
-Edges are stored in a std::list 
+The edges are stored in a std::list 
 \begin_inset Note Note
 status open
 
@@ -551,7 +662,19 @@ Empty graph, create
 \end_layout
 
 \begin_layout Standard
-Let's create a trivial empty graph:
+Let's create another trivial empty graph! This time, we make the graph undirecte
+d.
+\end_layout
+
+\begin_layout Standard
+Algorith 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_graph"
+
+\end_inset
+
+ shows how to create an undirected graph.
 \end_layout
 
 \begin_layout Standard
@@ -576,7 +699,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating an empty graph
+Creating an empty undirected graph
 \begin_inset Index idx
 status open
 
@@ -589,7 +712,7 @@ create_empty_undirected_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_graph-1"
+name "alg:create_empty_undirected_graph"
 
 \end_inset
 
@@ -607,29 +730,116 @@ name "alg:create_empty_graph-1"
 \end_layout
 
 \begin_layout Standard
-Congratulations, you've just created a boost::adjacency_list
-\begin_inset Index idx
-status collapsed
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_graph_demo"
+
+\end_inset
+
+ demonstrates the 'create_empty_undirected_graph' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
-boost::adjacency_list
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_empty_undirected_graph'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_undirected_graph_demo
 \end_layout
 
 \end_inset
 
- in which:
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Congratulations, you've just created an undirected graph in which:
 \end_layout
 
 \begin_layout Itemize
-The out edges are stored in a std::vector
+The out edges are stored in a std::vector.
+ This way to store out edges is selected by the first 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-The vertices are stored in a std::vector
+The vertices are stored in a std::vector.
+ This way to store vertices is selected by the second 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-The graph is undirected
+The graph is undirected.
+ This directionality is selected for by the third template argument, 'boost::und
+irectedS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -651,18 +861,11 @@ Why specify edge storage twice?
 \end_layout
 
 \begin_layout Standard
-The boost::adjacency_list is the most commonly used graph type, the other
- is the boost::adjacency_matrix
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-boost::adjacency_matrix
-\end_layout
-
-\end_inset
-
-.
+The difference between directed and undirected graphs is in the edges: in
+ an undirected graph, an edge connects two vertices without any directionality.
+ In a directed graph, an edge goes from a certain vertex, its source, to
+ another (which may actually be the same), its target.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -697,6 +900,10 @@ Vertex, add
 \end_layout
 
 \begin_layout Standard
+Empty graphs are nice, now its time to add a vertex!
+\end_layout
+
+\begin_layout Standard
 To add a vertex to a graph, the boost::add_vertex
 \begin_inset Index idx
 status collapsed
@@ -707,7 +914,14 @@ boost::add_vertex
 
 \end_inset
 
- function is used as such:
+ function is used as shows in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_vertex"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -715,7 +929,7 @@ boost::add_vertex
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -763,8 +977,71 @@ name "alg:add_vertex"
 \end_layout
 
 \begin_layout Standard
-Note that boost::add_vertex returns a vertex descriptor, which is ignored
- for now.
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_vertex_demo"
+
+\end_inset
+
+ shows how to add a vertex to a directed and undirected graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Adding a vertex to a graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_vertex_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that boost::add_vertex (in the 'add_vertex' function) returns a vertex
+ descriptor, which is ignored for now.
  Vertex descriptors are looked at in more details at the chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -918,6 +1195,13 @@ Vertex iterator pair
 
 \end_inset
 
+, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertices"
+
+\end_inset
+
 .
  The first vertex iterator
 \begin_inset Index idx
@@ -998,8 +1282,69 @@ name "alg:get_vertices"
 
 \begin_layout Standard
 These vertex iterators can be dereferenced to obtain the vertex descriptors.
- Note that this function will not be used often in isolation: usually one
+ Note that 'get_vertices' will not be used often in isolation: usually one
  obtains the vertex descriptors immediatly.
+ Just for your references, algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertices_demo"
+
+\end_inset
+
+ demonstrates of the 'get_vertices' function, by showing that the vertex
+ iterators of an empty graph point to the same location.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'get_vertices'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertices_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1024,7 +1369,20 @@ Vertex descriptors, get
 \end_layout
 
 \begin_layout Standard
-Vertex descriptors are obtained from dereferencing vertex iterators:
+Vertex descriptors are the way to manipulate those vertices.
+ Let's get the all!
+\end_layout
+
+\begin_layout Standard
+Vertex descriptors are obtained from dereferencing vertex iterators.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_descriptors"
+
+\end_inset
+
+ shows how to obtain all vertex descriptors from a graph.
 \end_layout
 
 \begin_layout Standard
@@ -1080,8 +1438,8 @@ name "alg:get_vertex_descriptors"
 \end_layout
 
 \begin_layout Standard
-This does show an important concept of the Boost.Graph library: boost::vertices
- returns two vertex iterators
+The 'get_vertex_descripors' function shows an important concept of the Boost.Grap
+h library: boost::vertices returns two vertex iterators
 \begin_inset Index idx
 status open
 
@@ -1091,7 +1449,67 @@ vertex iterator
 
 \end_inset
 
-, that can be dereferenced to obtain the vertex descriptors.
+, which in turn can be dereferenced to obtain the vertex descriptors.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_descriptors_demo"
+
+\end_inset
+
+ demonstrates that an empty graph has no vertex descriptors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_descriptors_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'get_vertex_descriptors'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_descriptors_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_descriptors_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5124,6 +5542,13 @@ count_vertices_with_name
 
 \begin_layout Subsection
 Find a vertex by its name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_vertex_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6608,6 +7033,77 @@ Measuring more complex graphs traits
 
 \begin_layout Subsection
 Count the number of self-loops
+\end_layout
+
+\begin_layout Section
+Misc functions
+\end_layout
+
+\begin_layout Subsection
+Getting a data type as a std::string
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_type_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function will only work under GCC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_type_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Getting a data type its name as a std::string
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_type_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_type_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

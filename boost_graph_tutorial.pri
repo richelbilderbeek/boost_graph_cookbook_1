@@ -152,5 +152,11 @@ OTHER_FILES += \
     get_edge_descriptors.impl \
     get_vertices.impl \
     get_edges.impl \
-    formed_reference_to_void.impl
+    formed_reference_to_void.impl \
+    get_type_name.impl \
+    create_empty_directed_graph_demo.impl \
+    create_empty_undirected_graph_demo.impl \
+    add_vertex_demo.impl \
+    get_vertices_demo.impl \
+    get_vertex_descriptors_demo.impl
 

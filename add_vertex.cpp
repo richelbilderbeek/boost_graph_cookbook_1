@@ -1,5 +1,7 @@
 #include "add_vertex.h"
 
+#include "add_vertex_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -8,6 +10,7 @@
 #include "create_empty_directed_graph.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
+
 
 void add_vertex_test() noexcept
 {
@@ -29,5 +32,6 @@ void add_vertex_test() noexcept
     assert(get_n_vertices(g) == 1);
     assert(get_n_edges(g) == 0);
   }
+  add_vertex_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

@@ -40,15 +40,23 @@ void get_type_name_test() noexcept
   );
   assert(get_type_name<decltype(boost::vertices(create_empty_undirected_graph()))>()
     == "std::pair<boost::range_detail::integer_iterator<unsigned int>, boost::range_detail::integer_iterator<unsigned int> >"
+    || get_type_name<decltype(boost::vertices(create_empty_undirected_graph()))>()
+    == "std::pair<boost::range_detail::integer_iterator<unsigned long>, boost::range_detail::integer_iterator<unsigned long> >"
   );
   assert(get_type_name<decltype(boost::vertices(create_empty_directed_graph()))>()
-    == "std::pair<boost::range_detail::integer_iterator<unsigned int>, boost::range_detail::integer_iterator<unsigned int> >"
+      == "std::pair<boost::range_detail::integer_iterator<unsigned int>, boost::range_detail::integer_iterator<unsigned int> >"
+    || get_type_name<decltype(boost::vertices(create_empty_directed_graph()))>()
+      == "std::pair<boost::range_detail::integer_iterator<unsigned long>, boost::range_detail::integer_iterator<unsigned long> >"
   );
   assert(get_type_name<decltype(boost::edges(create_empty_undirected_graph()))>()
     == "std::pair<boost::detail::undirected_edge_iter<std::_List_iterator<boost::list_edge<unsigned int, boost::no_property> >, boost::detail::edge_desc_impl<boost::undirected_tag, unsigned int>, int>, boost::detail::undirected_edge_iter<std::_List_iterator<boost::list_edge<unsigned int, boost::no_property> >, boost::detail::edge_desc_impl<boost::undirected_tag, unsigned int>, int> >"
+    || get_type_name<decltype(boost::edges(create_empty_undirected_graph()))>()
+    == "std::pair<boost::detail::undirected_edge_iter<std::_List_iterator<boost::list_edge<unsigned long, boost::no_property> >, boost::detail::edge_desc_impl<boost::undirected_tag, unsigned long>, long>, boost::detail::undirected_edge_iter<std::_List_iterator<boost::list_edge<unsigned long, boost::no_property> >, boost::detail::edge_desc_impl<boost::undirected_tag, unsigned long>, long> >"
   );
   assert(get_type_name<decltype(boost::edges(create_empty_directed_graph()))>()
     == "std::pair<boost::detail::adj_list_edge_iterator<boost::range_detail::integer_iterator<unsigned int>, boost::detail::out_edge_iter<__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned int, boost::no_property>*, std::vector<boost::detail::stored_edge_property<unsigned int, boost::no_property>, std::allocator<boost::detail::stored_edge_property<unsigned int, boost::no_property> > > >, unsigned int, boost::detail::edge_desc_impl<boost::directed_tag, unsigned int>, int>, boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS> >, boost::detail::adj_list_edge_iterator<boost::range_detail::integer_iterator<unsigned int>, boost::detail::out_edge_iter<__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned int, boost::no_property>*, std::vector<boost::detail::stored_edge_property<unsigned int, boost::no_property>, std::allocator<boost::detail::stored_edge_property<unsigned int, boost::no_property> > > >, unsigned int, boost::detail::edge_desc_impl<boost::directed_tag, unsigned int>, int>, boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS> > >"
+    || get_type_name<decltype(boost::edges(create_empty_directed_graph()))>()
+    == "std::pair<boost::detail::adj_list_edge_iterator<boost::range_detail::integer_iterator<unsigned long>, boost::detail::out_edge_iter<__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::no_property>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::no_property>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::no_property> > > >, unsigned long, boost::detail::edge_desc_impl<boost::directed_tag, unsigned long>, long>, boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS> >, boost::detail::adj_list_edge_iterator<boost::range_detail::integer_iterator<unsigned long>, boost::detail::out_edge_iter<__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::no_property>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::no_property>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::no_property> > > >, unsigned long, boost::detail::edge_desc_impl<boost::directed_tag, unsigned long>, long>, boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS> > >"
   );
   //std::cout
   //  <<  get_type_name<decltype(boost::vertices(create_empty_directed_graph()))>()
