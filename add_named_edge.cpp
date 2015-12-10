@@ -19,7 +19,7 @@ void add_named_edge_test() noexcept
     assert(get_n_vertices(g) == 0);
     assert(get_n_edges(g) == 0);
     const std::string edge_name{"X"};
-    add_named_edge(g,edge_name);
+    add_named_edge(edge_name, g);
     assert(get_n_vertices(g) == 2);
     assert(get_n_edges(g) == 1);
     const std::vector<std::string> edge_names{get_edge_names(g)};
@@ -33,8 +33,8 @@ void add_named_edge_test() noexcept
     assert(get_n_edges(g) == 0);
     const std::string edge_name_1{"A"};
     const std::string edge_name_2{"B"};
-    add_named_edge(g,edge_name_1);
-    add_named_edge(g,edge_name_2);
+    add_named_edge(edge_name_1, g);
+    add_named_edge(edge_name_2, g);
     assert(get_n_vertices(g) == 4);
     assert(get_n_edges(g) == 2);
     const std::vector<std::string> edge_names{get_edge_names(g)};

@@ -8,7 +8,7 @@
 void create_empty_named_edges_and_vertices_graph_demo() noexcept
 {
   auto g = create_empty_named_edges_and_vertices_graph();
-  add_named_edge(g,"Reed");
+  add_named_edge("Reed", g);
   const std::vector<std::string> expected_vertex_names{"",""};
   const std::vector<std::string> vertex_names = get_vertex_names(g);
   assert(expected_vertex_names == vertex_names);

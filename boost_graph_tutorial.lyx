@@ -110,7 +110,11 @@ key "siek2001boost"
 \end_inset
 
  and the Boost.Graph website, both did not satisfy these requirements.
- This tutorial is intended to take the reader to the level of understanding
+ 
+\end_layout
+
+\begin_layout Standard
+This tutorial is intended to take the reader to the level of understanding
  the book 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -119,6 +123,13 @@ key "siek2001boost"
 \end_inset
 
  and the Boost.Graph website require.
+\end_layout
+
+\begin_layout Standard
+The chapters of this tutorial are also like a well-connected graph.
+ To allow for quicker learners to skim chapters, or for beginners looking
+ to find the patterns, some chapters are repetitions of each other.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -5561,11 +5572,25 @@ reference "sub:remove_first_vertex_with_name"
 \end_layout
 
 \begin_layout Itemize
-Check if there exists an edge with a certain name: chapter
+Check if there exists an edge with a certain name: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:has_edge_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Find a (named) edge by its name: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:find_first_edge_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5833,7 +5858,8 @@ name "alg:find_first_vertex_with_name"
 \end_layout
 
 \begin_layout Standard
-With the vertex descriptor obtained, one can read and modify the graph.
+With the vertex descriptor obtained, one can read and modify the vertex
+ and the edges surrounding it.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6847,6 +6873,294 @@ name "alg:remove_first_vertex_with_name_demo"
 
 \begin_layout Standard
 Again, be sure that the vertex removed does not have any connections!
+\end_layout
+
+\begin_layout Subsection
+Check if there exists an edge with a certain name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:has_edge_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before modifying our edges, let's first determine if we can find an edge
+ by its name in a graph.
+ After obtaing a name map, we obtain the edge iterators, dereference these
+ to obtain the edge descriptors and then compare each edge its name with
+ the one desired.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find if there is an edge with a certain name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_edge_with_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function can be demonstrated as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:has_edge_with_name_demo"
+
+\end_inset
+
+, where a certain name cannot be found in an empty graph.
+ After adding the desired name, it is found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_edge_with_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_vertex_with_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this function only finds if there is at least one edge with that
+ name: it does not tell how many edges with that name exist in the graph.
+\end_layout
+
+\begin_layout Subsection
+Find an edge by its name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_first_edge_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where STL functions work with iterators, here we obtain an edge descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired edge.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_edge_with_name"
+
+\end_inset
+
+ shows how to obtain an edge descriptor to the first (name) edge found with
+ a specific name.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_edge_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first edge by its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_edge_by_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_edge_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the edge descriptor obtained, one can read and modify the graph.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_edge_with_name_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_edge_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_edge_by_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_edge_by_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_edge_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

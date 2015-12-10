@@ -1,0 +1,23 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+typename boost::graph_traits<graph>::edge_descriptor
+find_first_edge_with_name(
+  const std::string& name,
+  const graph& g
+)
+{
+  const auto edge_name_map = get(boost::edge_name,g);
+
+  for (auto p = edges(g);
+    p.first != p.second;
+    ++p.first) {
+    const std::string s{
+      get(edge_name_map, *p.first)
+    };
+    if (s == name) { return *p.first; }
+  }
+  return *edges(g).second;
+}

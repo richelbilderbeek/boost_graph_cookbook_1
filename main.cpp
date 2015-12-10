@@ -23,6 +23,7 @@
 #include "create_router_network_graph.h"
 #include "create_router_network.h"
 #include "create_tutorial_chapters_graph.h"
+#include "find_first_edge_with_name.h"
 #include "find_first_vertex_with_name.h"
 #include "get_edge_descriptors.h"
 #include "get_edge_my_edges.h"
@@ -38,6 +39,7 @@
 #include "get_vertex_names.h"
 #include "get_vertex_out_degrees.h"
 #include "get_vertices.h"
+#include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
@@ -84,6 +86,7 @@ int main()
   create_router_network_test();
   create_tutorial_chapters_graph_test();
   find_first_vertex_with_name_test();
+  find_first_edge_with_name_test();
   get_edge_descriptors_test();
   get_first_vertex_with_name_out_degree_test();
   get_edge_my_edges_test();
@@ -97,6 +100,7 @@ int main()
   get_vertex_name_test();
   get_vertex_out_degrees_test();
   get_vertices_test();
+  has_edge_with_name_test();
   has_vertex_with_name_test();
   is_self_loop_test();
   is_valid_dot_file_test();

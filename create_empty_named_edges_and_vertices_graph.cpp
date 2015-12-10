@@ -17,7 +17,7 @@ void create_empty_named_edges_and_vertices_graph_test() noexcept
 {
   {
     auto g = create_empty_named_edges_and_vertices_graph();
-    add_named_edge(g,"Eugene");
+    add_named_edge("Eugene", g);
     const std::vector<std::string> expected_vertex_names{"",""};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_vertex_names == vertex_names);
