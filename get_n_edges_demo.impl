@@ -1,0 +1,16 @@
+#include "get_n_edges.h"
+
+#include <cassert>
+
+#include "create_empty_directed_graph.h"
+#include "create_k2_graph.h"
+
+void get_n_edges_demo() noexcept
+{
+  const auto g = create_empty_directed_graph();
+  assert(get_n_edges(g) == 0);
+
+  const auto h = create_k2_graph();
+  assert(get_n_edges(h) == 1);
+}
+

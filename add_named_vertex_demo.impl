@@ -1,0 +1,12 @@
+#include <cassert>
+
+#include "add_named_vertex.h"
+#include "create_empty_named_vertices_graph.h"
+#include "get_vertex_descriptors.h"
+
+void add_named_vertex_demo() noexcept
+{
+  auto g = create_empty_named_vertices_graph();
+  add_named_vertex(g,"Lex");
+  assert(get_vertex_descriptors(g).size() == 1);
+}

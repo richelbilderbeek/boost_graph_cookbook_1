@@ -1,5 +1,7 @@
 #include "add_edge.h"
 
+#include "add_edge_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -29,5 +31,6 @@ void add_edge_test() noexcept
     assert(get_n_vertices(g) == 2);
     assert(get_n_edges(g) == 1);
   }
+  add_edge_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

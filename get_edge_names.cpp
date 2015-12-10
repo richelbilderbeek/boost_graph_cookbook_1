@@ -1,17 +1,27 @@
 #include "get_edge_names.h"
 
+#include "get_edge_names_demo.impl"
+
 #include <cassert>
 #include <iostream>
+#include "add_named_edge.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "create_k2_graph.h"
+#include "create_empty_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 
 void get_edge_names_test() noexcept
 {
-  //Unnamed K2 graph: should not compile, and it doesn't :-)
   {
-    //get_edge_names(create_k2_graph());
+    auto g = create_empty_named_edges_and_vertices_graph();
+    const std::string edge_name_1{"Eugene"};
+    const std::string edge_name_2{"Another Eugene"};
+    add_named_edge(g, edge_name_1);
+    add_named_edge(g, edge_name_2);
+    const std::vector<std::string> expected_names{edge_name_1, edge_name_2};
+    const std::vector<std::string> edge_names{get_edge_names(g)};
+    assert(expected_names == edge_names);
   }
   //Named K3 graph
   {
@@ -20,5 +30,6 @@ void get_edge_names_test() noexcept
     const std::vector<std::string> edge_names{get_edge_names(g)};
     assert(expected_names == edge_names);
   }
+  get_edge_names_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

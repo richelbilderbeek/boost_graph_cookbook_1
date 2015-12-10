@@ -121,13 +121,32 @@ For every concept, I will show
 \end_layout
 
 \begin_layout Itemize
-the 'do' function: a function that achieves a goal, for example 'create_empty_un
-directed_graph'
+the 'do' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+'do' function
+\end_layout
+
+\end_inset
+
+: a function that achieves a goal, for example 'create_empty_undirected_graph'
 \end_layout
 
 \begin_layout Itemize
-the 'demo' function: a function that demonstrates how to call the first,
- for example 'demonstrate_create_empty_undirected_graph'
+the 'demo' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+'demo' function
+\end_layout
+
+\end_inset
+
+: a function that demonstrates how to call the first, for example 'demonstrate_c
+reate_empty_undirected_graph'
 \end_layout
 
 \begin_layout Standard
@@ -148,6 +167,9 @@ Coding style
 
 \begin_layout Standard
 I use the coding style from the Core C++ Guidelines.
+ At the time of this writing, the Core C++ Guidelines were still in early
+ development, so I can only hope the conventions I then chose to follow
+ are still Good Ideas.
 \end_layout
 
 \begin_layout Standard
@@ -164,33 +186,32 @@ reference "sub:get_type_name"
 \end_inset
 
 ).
+ On the other hand, I am explicit of which data types I choose: I will prefix
+ the types by thir namespace, so to distinguish between types like 'std::array'
+ and 'boost::array'.
 \end_layout
 
 \begin_layout Subsection
-Pitfalls
+Feedback
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-The choice between 'boost::get', 'std::get' and 'get'.
- AFAIKS, when in doubt, use 'get'.
+I have tried hard to strictly follow the style as described above.
+ If you find I deviated from these decisions somewhere, I would be grateful
+ if you'd let know.
+ 
 \end_layout
 
 \begin_layout Section
-Building graphs and basic functions
+Building a graph without properties
 \end_layout
 
 \begin_layout Standard
 Boost.Graph is about creating graphs.
- In this chapter we create graphs, starting from simple to more complex:
+ In this chapter we create the simplest of graphs, in which edges and nodes
+ have no properties (e.g.
+ having a name).
+ We will build:
 \end_layout
 
 \begin_layout Itemize
@@ -223,110 +244,6 @@ reference "sub:create_empty_undirected_graph"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_k2"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-An empty (undirected) graph that allows for vertices with names: see chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_named_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{2}$
-\end_inset
-
-with named vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_named_vertices_k2"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-An empty (undirected) graph that allows for edges and vertices with names:
- see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_named_edges_and_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{3}$
-\end_inset
-
-with named edges and vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_named_edges_and_vertices_k3"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-An empty (undirected) graph that allows for custom vertices: see chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{2}$
-\end_inset
-
-with custom vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_custom_vertices_k2"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-An empty (undirected) graph that allows for custom edges and vertices: see
- chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_edges_and_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{3}$
-\end_inset
-
-with custom edges and vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_custom_edges_and_vertices_k3"
 
 \end_inset
 
@@ -1694,6 +1611,69 @@ assert
  allowed.
 \end_layout
 
+\begin_layout Standard
+A demonstration of add_edge is shown in algorith 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_demo"
+
+\end_inset
+
+, in which an edge is added to both a directed and undirected graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of add_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 boost::add_edge result
 \begin_inset CommandInset label
@@ -1754,7 +1734,7 @@ name "sub:get_edges"
 \end_layout
 
 \begin_layout Standard
-You cannot get the edges.
+You cannot get the edges directly.
  Working on the edges of a graph is done throught these steps:
 \end_layout
 
@@ -1869,6 +1849,70 @@ name "alg:get_edges"
 These edge iterators can be dereferenced to obtain the edge descriptors.
  Note that this function will not be used often in isolation: usually one
  obtains the edge descriptors immediatly.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_edges_demo"
+
+\end_inset
+
+ demonstrates 'get_edges' by showing that both iterators of the edge iterator
+ pair point to the same location, when the graph is empty.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edges_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of get_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edges_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edges_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2026,6 +2070,70 @@ vertex iterator
 , that can be dereferenced to obtain the vertex descriptors.
 \end_layout
 
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_edge_descriptors_demo"
+
+\end_inset
+
+ demonstrates the 'get_edge_descriptor', by showing that empty graphs do
+ not have any edge descriptors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_descriptors_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of get_edge_descriptors
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_descriptors_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_descriptors_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Creating 
 \begin_inset Formula $K_{2}$
@@ -2066,6 +2174,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Finally, we are going to create a graph!
 \end_layout
 
 \begin_layout Standard
@@ -2182,7 +2294,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_k2_graph.cpp"
+filename "create_k2_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2236,29 +2348,15 @@ name "alg:create_k2_graph"
 \end_layout
 
 \begin_layout Standard
-Note that this code has more lines of using statements than actual code!
- In this code, the third template argument of boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
+To save defining the type, we call the 'create_empty_undirected_graph' function.
+ The vertex descriptors (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
 
 \end_inset
 
- is boost::undirectedS
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-boost::undirectedS
-\end_layout
-
-\end_inset
-
-, to select (that is what the S means) for an undirected graph.
- Adding a vertex with boost::add_vertex
+) created by two boost::add_vertex
 \begin_inset Index idx
 status open
 
@@ -2268,19 +2366,8 @@ boost::add_vertex
 
 \end_inset
 
- results in a vertex descriptor
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Vertex descriptor
-\end_layout
-
-\end_inset
-
-, which is a handle to the vertex added to the graph.
- Two vertex descriptors are then used to add an edge to the graph.
- Adding an edge using boost::add_edge
+ calls are stored to add an edge to the graph.
+ From boost::add_edge
 \begin_inset Index idx
 status open
 
@@ -2290,13 +2377,778 @@ boost::add_edge
 
 \end_inset
 
- returns two things: an edge descriptor and a boolean indicating success.
- In the code example, we assume insertion is successfull.
+ its return type (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:boost::add_edge result"
+
+\end_inset
+
+), it is only checked that insertion has been successfull.
 \end_layout
 
 \begin_layout Standard
 Note that the graph lacks all properties: nodes do not have names, nor do
  edges.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph_demo"
+
+\end_inset
+
+ demonstrates how to 'create_k2_graph' and uses all functions currently
+ described by this tutorial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_k2_graph' 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_k2_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Measuring simple traits of a graph without properties
+\end_layout
+
+\begin_layout Standard
+Graphs without edge and vertex properties have plenty of things to measure.
+ Additionally, it allows you to test abd debug your code.
+\end_layout
+
+\begin_layout Subsection
+Counting the number of vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_vertices"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertices, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of vertices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use boost::num_vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_vertices
+\end_layout
+
+\end_inset
+
+, as shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the numbe of vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function 'get_n_vertices' is demonstrated in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_n_vertices_demo"
+
+\end_inset
+
+, to measure the number of vertices of an empty (zero) and 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ (two) graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_n_vertices' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_n_vertices_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Counting the number of edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_edges"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edges, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of edges
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use boost::num_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_edges
+\end_layout
+
+\end_inset
+
+, as shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the number of edges
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function 'get_n_edges' is demonstrated in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_n_edges_demo"
+
+\end_inset
+
+, to measure the number of vertices of an empty (zero) and 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ (one) graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_edges_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_n_edges' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_n_edges_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_edges_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting the vertices' out degree
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The out degree of a vertex is the number of edges that originate at it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_out_degrees.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the vertices' out degrees
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_out_degrees
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The out degrees of the vertices are obtained directly from the vertex descriptor
+ and then put into a std::vector.
+ Note that the std::vector has element type 'int', instead of 'graph::degree_siz
+e_type', as one should prefer using int (over unsigned int) in an interface
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lakos1996large"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 9.2.2
+\end_layout
+
+\end_inset
+
+.
+ Also, avoid using an unsigned an int for the sake of gaining that one more
+ bit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 4.4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Albeit 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ is a simple graph, we can use it to demonstrate 'get_vertex_out_degrees'
+ on, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_out_degrees_demo"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_out_degrees_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_vertex_out_degrees' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_out_degrees_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_out_degrees_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Building graphs with built-in properties
+\end_layout
+
+\begin_layout Standard
+Up until now, the graphs created have had edges and vertices without any
+ propery.
+ In this chapter, graphs will be created, in which edges vertices can have
+ a (std::string) name and/or are of a custom type.
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for vertices with names: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with named vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for edges and vertices with names:
+ see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with named edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom vertices: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom edges and vertices: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with custom edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Adding a named vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_named_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting the vertices' names: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding an named edge: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_named_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a custom vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a custom edge: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
 \end_layout
 
 \begin_layout Subsection
@@ -2539,6 +3391,71 @@ vertices have a name that is stored as a std::string
 .
 \end_layout
 
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_named_vertices_graph_demo"
+
+\end_inset
+
+ shows how to create this graph.
+ Note that all the earlier functions defined in this tutorial keep working
+ as expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_named_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'create_empty_named_vertices_graph' function 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_named_vertices_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_named_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Add a vertex with a name
 \begin_inset CommandInset label
@@ -2646,8 +3563,29 @@ name "alg:add_named_vertex"
 
 \begin_layout Standard
 Instead of calling 'boost::add_vertex' with an additional argument containing
- the name of the vertex, multiple things need to be done.
- When adding a new vertex to the graph, the vertex descriptor is stored.
+ the name of the vertex
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I am unsure if this would have been a good interface.
+ I am sure I expected this interface myself.
+ I do see a problem with multiple properties and the order of initialization,
+ but initialization can follow the same order as the the property list.
+\end_layout
+
+\end_inset
+
+ , multiple things need to be done.
+ When adding a new vertex to the graph, the vertex descriptor (as describes
+ in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+) is stored.
  After obtaining the name map from the graph (using 'boost::get(boost::vertex_na
 me,g)
 \begin_inset Index idx
@@ -2670,6 +3608,250 @@ boost::vertex_name
 \end_inset
 
 '), the name of the vertex is set using that vertex descriptor.
+\end_layout
+
+\begin_layout Standard
+Using add_named_vertex is straightforward, as demonstrated by algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_named_vertex_demo"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'add_named_vertex'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_named_vertex_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Reference to Superman
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting the vertices' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+, one can extract them as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_names.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the vertices' names
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_names
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The names of the vertices are obtained from a boost::property_map and then
+ put into a std::vector.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+Note that the std::vector has element type 'std::string', instead of extracting
+ the type from the graph.
+ If you know how to do so, please email me.
+\end_layout
+
+\begin_layout Standard
+When trying to get the vertices' names from a graph without vertices with
+ names, you will get the error 'formed reference to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_names_demo"
+
+\end_inset
+
+ shows how to add two named vertices and how to get their names.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_names_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'get_vertex_names'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_names_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_names_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2852,7 +4034,7 @@ reference "fig:named_vertices_k2_graph"
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 create_named_vertices_k2_graph
@@ -2890,6 +4072,63 @@ reference "alg:create_k2_graph"
 
 .
  In the end, the names are obtained as a boost::property_map and set.
+\end_layout
+
+\begin_layout Standard
+Also the demonstration code (algorithm ) is very similar to the demonstration
+ code of the create_k2_graph function ().
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstrating the 'create_k2_graph' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_named_vertices_k2_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3157,8 +4396,84 @@ edges have a name that is stored as a std::string
 .
 \end_layout
 
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_named_edges_and_vertices_graph_demo"
+
+\end_inset
+
+ shows how to create this graph.
+ Note that all the earlier functions defined in this tutorial keep working
+ as expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_named_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'create_empty_named_edges_and_vertices_graph' function
+ 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_named_edges_and_vertices_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Reference to Fantastic Four
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_named_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Add an edge with a name
+Adding a named edge
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:add_named_edge"
@@ -3245,17 +4560,14 @@ name "alg:add_named_edge"
 \end_layout
 
 \begin_layout Standard
-In this code snippet, the edge descriptor
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-edge descriptor
-\end_layout
+In this code snippet, the edge descriptor (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
 
 \end_inset
 
- when using 'boost::add_edge
+ if you need to refresh your memory) when using 'boost::add_edge
 \begin_inset Index idx
 status open
 
@@ -3265,7 +4577,245 @@ boost::add_edge
 
 \end_inset
 
-' is used as a key to change the edge name map.
+' is used as a key to change the edge its name map.
+\end_layout
+
+\begin_layout Standard
+The algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_named_edge_demo"
+
+\end_inset
+
+ shows how to add a named edge to an empty graph.
+ When trying to add named vertices to graph without this property, you will
+ get the error 'formed reference to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'add_named_edge' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+add_named_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Reference to Fantastic Four
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting the edges' names
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_names"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the edges of a graph have named vertices
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: replace std::string as the hardcoded type of a vertex property
+\end_layout
+
+\end_inset
+
+, one can extract them as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_names.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the edges' names
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_edge_names
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_names"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The names of the edges are obtained from a boost::property_map and then
+ put into a std::vector.
+ The algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_edge_names_demo"
+
+\end_inset
+
+ shows how to apply this function.
+ 
+\end_layout
+
+\begin_layout Standard
+Would you dare to try to get the edges' names from a graph without vertices
+ with names, you will get the error 'formed reference to void' (see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_names_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_edge_names' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_names_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_names_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3447,7 +4997,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_named_edges_and_vertices_k3_graph.cpp"
+filename "create_named_edges_and_vertices_k3_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -3472,10 +5022,10 @@ reference "fig:named_edges_and_vertices_k3"
 
 
 \begin_inset Index idx
-status open
+status collapsed
 
 \begin_layout Plain Layout
-create_named_edges_and_vertices_k3
+create_named_edges_and_vertices_k3_graph
 \end_layout
 
 \end_inset
@@ -3483,7 +5033,7 @@ create_named_edges_and_vertices_k3
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_named_edges_and_vertices_k3"
+name "alg:create_named_edges_and_vertices_k3_graph"
 
 \end_inset
 
@@ -3510,6 +5060,229 @@ reference "alg:create_named_vertices_k2_graph"
 
 .
  In the end, the edge names are obtained as a boost::property_map and set.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3_graph_demo"
+
+\end_inset
+
+ shows how to create the graph and measure its edge and vertex names.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_k3_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_named_edges_and_vertices_k3' function
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_named_edges_and_vertices_k3_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k3_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Measuring simple graphs traits of a graph with named edges and vertices
+\end_layout
+
+\begin_layout Standard
+Measuring simple traits of the graphs created allows
+\end_layout
+
+\begin_layout Subsection
+Count vertex name
+\end_layout
+
+\begin_layout Standard
+count_vertices_with_name
+\end_layout
+
+\begin_layout Subsection
+Find a vertex by its name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_vertex_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+find_vertex_with_name
+\end_layout
+
+\begin_layout Subsection
+Get a named vertex its in-degree
+\end_layout
+
+\begin_layout Standard
+get_named_vertex_in_degree
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Subsection
+Get a named vertex its out-degree
+\end_layout
+
+\begin_layout Standard
+get_named_vertex_out_degree
+\end_layout
+
+\begin_layout Itemize
+degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
+ .
+ Returns the in-degree of a vertex
+\end_layout
+
+\begin_layout Section
+Building graphs with custom properties
+\end_layout
+
+\begin_layout Standard
+Up until now, the graphs created have had edges and vertices with the built-in
+ name propery.
+ In this chapter, graphs will be created, in which the edges and vertices
+ can have a custom 'my_edge' and 'my_edge' type
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I do not intend to be original in naming my data types
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom vertices: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty (undirected) graph that allows for custom edges and vertices: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with custom edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Adding a custom vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a custom edge: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
 \end_layout
 
 \begin_layout Subsection
@@ -4089,6 +5862,103 @@ boost::get
 \end_inset
 
 ').
+\end_layout
+
+\begin_layout Subsection
+Getting the vertices' my_vertexes
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+the name 'my_vertexes' is chosen to indicate this function returns a container
+ of my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have any associated my_vertex, one can extract
+ these as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_vertex_my_vertexes.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the vertices' my_vertexes
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_vertex_my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The my_vertex object associated with the vertices are obtained from a boost::pro
+perty_map and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+When trying to get the vertices' my_vertex from a graph without my_vertex
+ objects associated, you will get the error 'formed reference to void' (see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -4912,7 +6782,7 @@ name "alg:create_custom_edges_and_vertices_k3_graph"
 Most of the code is a slight modification of algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
+reference "alg:create_named_edges_and_vertices_k3_graph"
 
 \end_inset
 
@@ -4922,665 +6792,7 @@ reference "alg:create_named_edges_and_vertices_k3"
 \end_layout
 
 \begin_layout Section
-Measuring simple graphs traits
-\end_layout
-
-\begin_layout Standard
-Measuring simple traits of the graphs created allows you to debug your code.
-\end_layout
-
-\begin_layout Subsection
-Counting the number of vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_n_vertices"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Vertices, counting
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Counting the number of vertices
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Use boost::num_vertices
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::num_vertices
-\end_layout
-
-\end_inset
-
-, as shown here:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_vertices.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Count the numbe of vertices
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-get_n_vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_vertices"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Counting the number of edges
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_n_edges"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Edges, counting
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Counting the number of edges
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Use boost::num_edges
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::num_edges
-\end_layout
-
-\end_inset
-
-, as shown here:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_edges.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Count the number of edges
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-get_n_edges
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_edges"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Getting the vertices' out degree
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_vertex_out_degrees"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The out degree of a vertex is the number of edges that originate at it.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_vertex_out_degrees.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Get the vertices' out degrees
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-get_vertex_out_degrees
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_vertex_out_degrees"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The out degrees of the vertices are obtained directly from the vertex descriptor
- and then put into a std::vector.
- Note that the std::vector has element type 'int', instead of 'graph::degree_siz
-e_type', as one should prefer using int (over unsigned int) in an interface
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lakos1996large"
-
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Chapter 9.2.2
-\end_layout
-
-\end_inset
-
-.
- Also, avoid using an unsigned an int for the sake of gaining that one more
- bit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroustrup1997"
-
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Chapter 4.4
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Getting the vertices' names
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_vertex_names"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When the vertices of a graph have named vertices
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: replace std::string as the hardcoded type of a vertex property
-\end_layout
-
-\end_inset
-
-, one can extract them as such:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_vertex_names.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Get the vertices' names
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-get_vertex_names
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_vertex_names"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The names of the vertices are obtained from a boost::property_map and then
- put into a std::vector.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-Note that the std::vector has element type 'std::string', instead of extracting
- the type from the graph.
- If you know how to do so, please email me.
-\end_layout
-
-\begin_layout Standard
-When trying to get the vertices' names from a graph without vertices with
- names, you will get the error 'formed reference to void' (see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:formed_reference_to_void"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
-Getting the edges' names
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_edge_names"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When the edges of a graph have named vertices
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: replace std::string as the hardcoded type of a vertex property
-\end_layout
-
-\end_inset
-
-, one can extract them as such:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_edge_names.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Get the edges' names
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-get_edge_names
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_edge_names"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The names of the edges are obtained from a boost::property_map and then
- put into a std::vector.
-\end_layout
-
-\begin_layout Standard
-When trying to get the edges' names from a graph without vertices with names,
- you will get the error 'formed reference to void' (see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:formed_reference_to_void"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
-Getting the vertices' my_vertexes
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-the name 'my_vertexes' is chosen to indicate this function returns a container
- of my_vertex
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_vertex_my_vertexes"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When the vertices of a graph have any associated my_vertex, one can extract
- these as such:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_vertex_my_vertexes.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Get the vertices' my_vertexes
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-get_vertex_my_vertexes
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_vertex_my_vertexes"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The my_vertex object associated with the vertices are obtained from a boost::pro
-perty_map and then put into a std::vector.
-\end_layout
-
-\begin_layout Standard
-When trying to get the vertices' my_vertex from a graph without my_vertex
- objects associated, you will get the error 'formed reference to void' (see
- chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:formed_reference_to_void"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
-Count vertex name
-\end_layout
-
-\begin_layout Standard
-count_vertices_with_name
-\end_layout
-
-\begin_layout Subsection
-Find a vertex by its name
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:find_vertex_with_name"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-find_vertex_with_name
-\end_layout
-
-\begin_layout Subsection
-Get a named vertex its in-degree
-\end_layout
-
-\begin_layout Standard
-get_named_vertex_in_degree
-\end_layout
-
-\begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
-\end_layout
-
-\begin_layout Subsection
-Get a named vertex its out-degree
-\end_layout
-
-\begin_layout Standard
-get_named_vertex_out_degree
-\end_layout
-
-\begin_layout Itemize
-degree_size_type in_degree(vertex_descriptor u, const adjacency_list& g)
- .
- Returns the in-degree of a vertex
+Measuring simple graphs traits of a graph with custom edges and vertices
 \end_layout
 
 \begin_layout Subsection
@@ -6438,7 +7650,7 @@ If you used the create_named_edges_and_vertices_k3_graph function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
+reference "alg:create_named_edges_and_vertices_k3_graph"
 
 \end_inset
 
@@ -6476,7 +7688,7 @@ lstparams "breaklines=true,language={C++}"
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
+reference "alg:create_named_edges_and_vertices_k3_graph"
 
 \end_inset
 
@@ -6547,7 +7759,7 @@ If you used the create_named_edges_and_vertices_k3_graph function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_k3"
+reference "alg:create_named_edges_and_vertices_k3_graph"
 
 \end_inset
 

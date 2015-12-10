@@ -1,5 +1,7 @@
 #include "get_n_edges.h"
 
+#include "get_n_edges_demo.impl"
+
 #include <iostream>
 
 #include "create_empty_directed_graph.h"
@@ -30,6 +32,7 @@ void get_n_edges_test() noexcept
     assert(get_n_edges(g) == 3);
   }
   */
+  get_n_edges_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
 

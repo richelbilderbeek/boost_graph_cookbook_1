@@ -1,5 +1,8 @@
 #include "get_edge_descriptors.h"
 
+#include "get_edge_descriptors_demo.impl"
+
+#include <cassert>
 #include <iostream>
 
 #include "create_empty_directed_graph.h"
@@ -11,6 +14,18 @@
 
 void get_edge_descriptors_test() noexcept
 {
+  //Empty directed graph
+  {
+    const auto g = create_empty_directed_graph();
+    const auto eds = get_edge_descriptors(g);
+    assert(eds.empty());
+  }
+  //Empty undirected graph
+  {
+    const auto g = create_empty_undirected_graph();
+    const auto eds = get_edge_descriptors(g);
+    assert(eds.empty());
+  }
   //Undirected K2 graph
   {
     const auto g = create_k2_graph();
@@ -28,5 +43,6 @@ void get_edge_descriptors_test() noexcept
     assert(!is_self_loop(eds[2], g));
     //assert(target(eds[0], g) == source(eds[1], g));
   }
+  get_edge_descriptors_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

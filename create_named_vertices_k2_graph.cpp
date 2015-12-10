@@ -1,5 +1,6 @@
 #include "create_named_vertices_k2_graph.h"
 #include "create_empty_named_vertices_graph.h"
+
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

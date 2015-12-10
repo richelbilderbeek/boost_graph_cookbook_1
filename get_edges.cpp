@@ -1,5 +1,8 @@
 #include "get_edges.h"
 
+#include "get_edges_demo.impl"
+
+#include <cassert>
 #include <iostream>
 
 #include "create_empty_directed_graph.h"
@@ -34,6 +37,7 @@ void get_edges_test() noexcept
     const auto eip_a = get_edges(g);
     assert(eip_a.first != eip_a.second);
   }
+  get_edges_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
 

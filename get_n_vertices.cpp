@@ -1,5 +1,8 @@
 #include "get_n_vertices.h"
 
+#include "get_n_vertices_demo.impl"
+
+#include <cassert>
 #include <iostream>
 
 #include "create_empty_directed_graph.h"
@@ -24,6 +27,7 @@ void get_n_vertices_test() noexcept
     const auto g = create_k2_graph();
     assert(get_n_vertices(g) == 2);
   }
+  get_n_vertices_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
 

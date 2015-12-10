@@ -1,0 +1,12 @@
+#include <cassert>
+
+#include "add_named_edge.h"
+#include "create_empty_named_edges_and_vertices_graph.h"
+#include "get_n_edges.h"
+
+void add_named_edge_demo() noexcept
+{
+  auto g = create_empty_named_edges_and_vertices_graph();
+  add_named_edge(g,"Richards");
+  assert(get_n_edges(g) == 1);
+}

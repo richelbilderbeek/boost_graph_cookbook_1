@@ -1,5 +1,7 @@
 #include "get_vertex_out_degrees.h"
 
+#include "get_vertex_out_degrees_demo.impl"
+
 #include <cassert>
 #include <iostream>
 #include "get_n_edges.h"
@@ -25,5 +27,6 @@ void get_vertex_out_degrees_test() noexcept
     const std::vector<int> vertex_out_degrees{get_vertex_out_degrees(g)};
     assert(expected_out_degrees == vertex_out_degrees);
   }
+  get_vertex_out_degrees_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

@@ -70,8 +70,6 @@ SOURCES += \
   create_empty_named_vertices_graph_test.cpp \
   create_k2_graph.cpp \
   create_k2_graph_test.cpp \
-  create_named_edges_and_vertices_k3_graph.cpp \
-  create_named_edges_and_vertices_k3_graph_test.cpp \
   create_named_vertices_k2_graph.cpp \
   create_named_vertices_k2_graph_test.cpp \
   create_router_network.cpp \
@@ -113,7 +111,8 @@ SOURCES += \
     get_vertices.cpp \
     get_edges.cpp \
     formed_reference_to_void.cpp \
-    get_type_name.cpp
+    get_type_name.cpp \
+    create_named_edges_and_vertices_k3_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -158,5 +157,22 @@ OTHER_FILES += \
     create_empty_undirected_graph_demo.impl \
     add_vertex_demo.impl \
     get_vertices_demo.impl \
-    get_vertex_descriptors_demo.impl
+    get_vertex_descriptors_demo.impl \
+    add_edge_demo.impl \
+    get_edges_demo.impl \
+    get_edge_descriptors_demo.impl \
+    create_k2_graph_demo.impl \
+    create_k2_graph.impl \
+    create_empty_named_vertices_graph_demo.impl \
+    add_named_vertex_demo.impl \
+    create_named_vertices_k2_graph_demo.impl \
+    get_n_vertices_demo.impl \
+    get_n_edges_demo.impl \
+    get_vertex_out_degrees_demo.impl \
+    get_vertex_names_demo.impl \
+    create_empty_named_edges_and_vertices_graph_demo.impl \
+    add_named_edge_demo.impl \
+    get_edge_names_demo.impl \
+    create_named_edges_and_vertices_k3_graph.impl \
+    create_named_edges_and_vertices_k3_graph_demo.impl
 

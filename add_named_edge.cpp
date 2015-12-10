@@ -1,5 +1,7 @@
 #include "add_named_edge.h"
 
+#include "add_named_edge_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -39,7 +41,6 @@ void add_named_edge_test() noexcept
     const std::vector<std::string> expected_names{edge_name_1,edge_name_2};
     assert(edge_names == expected_names);
   }
+  add_named_edge_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
-
-
