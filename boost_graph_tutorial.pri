@@ -57,8 +57,8 @@ HEADERS += \
     find_first_vertex_with_name.h \
     get_vertex_name.h \
     set_vertex_name.h \
-    clear_vertex_with_name.h \
-    no_matching_function_for_call_to_clear_out_edges.h
+    no_matching_function_for_call_to_clear_out_edges.h \
+    clear_first_vertex_with_name.h
 
 SOURCES += \
   add_custom_vertex.cpp \
@@ -123,8 +123,8 @@ SOURCES += \
     find_first_vertex_with_name.cpp \
     get_vertex_name.cpp \
     set_vertex_name.cpp \
-    clear_vertex_with_name.cpp \
-    no_matching_function_for_call_to_clear_out_edges.cpp
+    no_matching_function_for_call_to_clear_out_edges.cpp \
+    clear_first_vertex_with_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -196,7 +196,7 @@ OTHER_FILES += \
     get_vertex_name_demo.impl \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
-    clear_vertex_with_name.impl \
-    clear_vertex_with_name_demo.impl \
-    no_matching_function_for_call_to_clear_out_edges.impl
+    no_matching_function_for_call_to_clear_out_edges.impl \
+    clear_first_vertex_with_name.impl \
+    clear_first_vertex_with_name_demo.impl
 

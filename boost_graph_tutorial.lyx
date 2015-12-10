@@ -6137,8 +6137,8 @@ reference "sub:no_matching_function_for_call_to_clear_in_edges"
 \end_layout
 
 \begin_layout Standard
-In the algorithm 'clear_vertex_with_name' the 'boost::clear_vertex' algorithm
- is used, as the graph used is undirectional:
+In the algorithm 'clear_first_vertex_with_name' the 'boost::clear_vertex'
+ algorithm is used, as the graph used is undirectional:
 \end_layout
 
 \begin_layout Standard
@@ -6151,7 +6151,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "clear_vertex_with_name.impl"
+filename "clear_first_vertex_with_name.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -6163,12 +6163,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Clear a named vertex
+Clear the first vertex with a certain name
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-clear_vertex_with_name
+clear_first_vertex_with_name
 \end_layout
 
 \end_inset
@@ -6176,7 +6176,7 @@ clear_vertex_with_name
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:clear_vertex_with_name"
+name "alg:clear_first_vertex_with_name"
 
 \end_inset
 
@@ -6197,11 +6197,11 @@ name "alg:clear_vertex_with_name"
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:clear_vertex_with_name_demo"
+reference "alg:clear_first_vertex_with_name_demo"
 
 \end_inset
 
- shows the clearing of a named vertex.
+ shows the clearing of the first named vertex found.
 \end_layout
 
 \begin_layout Standard
@@ -6214,7 +6214,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "clear_vertex_with_name_demo.impl"
+filename "clear_first_vertex_with_name_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -6226,12 +6226,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'clear_vertex_with_name' function
+Demonstration of the 'clear_first_vertex_with_name' function
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-clear_vertex_with_name_demo
+clear_first_vertex_with_name_demo
 \end_layout
 
 \end_inset
@@ -6239,7 +6239,7 @@ clear_vertex_with_name_demo
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:clear_vertex_with_name_demo"
+name "alg:clear_first_vertex_with_name_demo"
 
 \end_inset
 
@@ -6261,7 +6261,7 @@ Remove a named vertex
 \end_layout
 
 \begin_layout Standard
-remove_named_vertex
+remove_first_named_vertex
 \end_layout
 
 \begin_layout Subsection

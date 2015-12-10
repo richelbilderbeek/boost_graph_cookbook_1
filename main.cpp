@@ -6,7 +6,7 @@
 #include "add_vertex.h"
 #include "bfs_name_printer.h"
 #include "build_router_network.h"
-#include "clear_vertex_with_name.h"
+#include "clear_first_vertex_with_name.h"
 #include "count_vertices_with_name.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "create_custom_vertices_k2_graph.h"
@@ -64,7 +64,7 @@ int main()
   add_vertex_test();
   bfs_name_printer_test();
   build_router_network_test();
-  clear_vertex_with_name_test();
+  clear_first_vertex_with_name_test();
   count_vertices_with_name_test();
   create_custom_edges_and_vertices_k3_graph_test();
   create_custom_vertices_k2_graph_test();

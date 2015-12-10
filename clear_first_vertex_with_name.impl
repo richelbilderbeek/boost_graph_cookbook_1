@@ -3,7 +3,7 @@
 #include "find_first_vertex_with_name.h"
 
 template <class graph>
-void clear_vertex_with_name(
+void clear_first_vertex_with_name(
   const std::string& name,
   graph& g
 )
