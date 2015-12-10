@@ -7,6 +7,6 @@
 void add_named_vertex_demo() noexcept
 {
   auto g = create_empty_named_vertices_graph();
-  add_named_vertex(g,"Lex");
+  add_named_vertex("Lex", g);
   assert(get_vertex_descriptors(g).size() == 1);
 }

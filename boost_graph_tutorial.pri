@@ -1,4 +1,5 @@
 HEADERS += \
+  add_custom_edge.h \
   add_custom_vertex.h \
   add_edge.h \
   add_named_edge.h \
@@ -6,25 +7,46 @@ HEADERS += \
   add_vertex.h \
   bfs_name_printer.h \
   build_router_network.h \
+  clear_first_vertex_with_name.h \
   convert_dot_to_svg.h \
+  count_vertices_with_name.h \
+  create_custom_edges_and_vertices_k3_graph.h \
   create_custom_vertices_k2_graph.h \
+  create_empty_custom_edges_and_vertices_graph.h \
   create_empty_custom_vertices_graph.h \
+  create_empty_directed_graph.h \
   create_empty_named_edges_and_vertices_graph.h \
   create_empty_named_vertices_graph.h \
+  create_empty_undirected_graph.h \
   create_k2_graph.h \
   create_named_edges_and_vertices_k3_graph.h \
   create_named_vertices_k2_graph.h \
   create_router_network_graph.h \
   create_router_network.h \
   create_tutorial_chapters_graph.h \
+  find_first_vertex_with_name.h \
+  formed_reference_to_void.h \
+  get_edge_descriptors.h \
+  get_edge_my_edges.h \
   get_edge_names.h \
+  get_edges.h \
   get_n_edges.h \
   get_n_vertices.h \
+  get_type_name.h \
+  get_vertex_descriptors.h \
   get_vertex_my_vertexes.h \
+  get_vertex_name.h \
   get_vertex_names.h \
+  get_vertex_out_degrees.h \
+  get_vertices.h \
+  has_dot.h \
+  install_edge_custom_type.h \
   install_vertex_custom_type.h \
   is_self_loop.h \
+  is_valid_dot_file.h \
+  my_edge.h \
   my_vertex.h \
+  no_matching_function_for_call_to_clear_out_edges.h \
   print_trans_delay.h \
   print_trans_delays.h \
   print_vertex_name.h \
@@ -34,33 +56,13 @@ HEADERS += \
   save_named_edges_and_vertices_graph_to_dot.h \
   save_named_vertices_graph_to_dot.h \
   set_vertex_my_vertexes.h \
+  set_vertex_name.h \
   set_vertex_names.h \
   show_dot.h \
-  has_dot.h \
-  is_valid_dot_file.h \
-  create_empty_directed_graph.h \
-  create_empty_undirected_graph.h \
-    install_edge_custom_type.h \
-    create_empty_custom_edges_and_vertices_graph.h \
-    my_edge.h \
-    add_custom_edge.h \
-    get_edge_my_edges.h \
-    create_custom_edges_and_vertices_k3_graph.h \
-    get_vertex_out_degrees.h \
-    get_vertex_descriptors.h \
-    get_edge_descriptors.h \
-    get_vertices.h \
-    get_edges.h \
-    formed_reference_to_void.h \
-    get_type_name.h \
-    count_vertices_with_name.h \
-    find_first_vertex_with_name.h \
-    get_vertex_name.h \
-    set_vertex_name.h \
-    no_matching_function_for_call_to_clear_out_edges.h \
-    clear_first_vertex_with_name.h
+  has_vertex_with_name.h
 
 SOURCES += \
+  add_custom_edge.cpp \
   add_custom_vertex.cpp \
   add_edge.cpp \
   add_named_edge.cpp \
@@ -68,27 +70,50 @@ SOURCES += \
   add_vertex.cpp \
   bfs_name_printer.cpp \
   build_router_network.cpp \
+  clear_first_vertex_with_name.cpp \
   convert_dot_to_svg.cpp \
+  count_vertices_with_name.cpp \
+  create_custom_edges_and_vertices_k3_graph.cpp \
   create_custom_vertices_k2_graph.cpp \
+  create_empty_custom_edges_and_vertices_graph.cpp \
   create_empty_custom_vertices_graph.cpp \
+  create_empty_directed_graph.cpp \
+  create_empty_directed_graph_test.cpp \
   create_empty_named_edges_and_vertices_graph.cpp \
   create_empty_named_vertices_graph.cpp \
   create_empty_named_vertices_graph_test.cpp \
+  create_empty_undirected_graph.cpp \
+  create_empty_undirected_graph_test.cpp \
   create_k2_graph.cpp \
   create_k2_graph_test.cpp \
+  create_named_edges_and_vertices_k3_graph.cpp \
   create_named_vertices_k2_graph.cpp \
   create_named_vertices_k2_graph_test.cpp \
   create_router_network.cpp \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
   create_tutorial_chapters_graph.cpp \
+  find_first_vertex_with_name.cpp \
+  formed_reference_to_void.cpp \
+  get_edge_descriptors.cpp \
+  get_edge_my_edges.cpp \
   get_edge_names.cpp \
+  get_edges.cpp \
   get_n_edges.cpp \
   get_n_vertices.cpp \
+  get_type_name.cpp \
+  get_vertex_descriptors.cpp \
   get_vertex_my_vertexes.cpp \
+  get_vertex_name.cpp \
   get_vertex_names.cpp \
+  get_vertex_out_degrees.cpp \
+  get_vertices.cpp \
+  has_dot.cpp \
   is_self_loop_test.cpp \
+  is_valid_dot_file.cpp \
+  my_edge.cpp \
   my_vertex.cpp \
+  no_matching_function_for_call_to_clear_out_edges.cpp \
   print_trans_delay.cpp \
   print_trans_delays.cpp \
   print_vertex_name.cpp \
@@ -98,105 +123,84 @@ SOURCES += \
   save_named_edges_and_vertices_graph_to_dot.cpp \
   save_named_vertices_graph_to_dot.cpp \
   set_vertex_my_vertexes.cpp \
+  set_vertex_name.cpp \
   set_vertex_names.cpp \
   show_dot.cpp \
-  has_dot.cpp \
-  is_valid_dot_file.cpp \
-  create_empty_directed_graph.cpp \
-  create_empty_directed_graph_test.cpp \
-  create_empty_undirected_graph.cpp \
-  create_empty_undirected_graph_test.cpp \
-    create_empty_custom_edges_and_vertices_graph.cpp \
-    my_edge.cpp \
-    add_custom_edge.cpp \
-    get_edge_my_edges.cpp \
-    create_custom_edges_and_vertices_k3_graph.cpp \
-    get_vertex_out_degrees.cpp \
-    get_vertex_descriptors.cpp \
-    get_edge_descriptors.cpp \
-    get_vertices.cpp \
-    get_edges.cpp \
-    formed_reference_to_void.cpp \
-    get_type_name.cpp \
-    create_named_edges_and_vertices_k3_graph.cpp \
-    count_vertices_with_name.cpp \
-    find_first_vertex_with_name.cpp \
-    get_vertex_name.cpp \
-    set_vertex_name.cpp \
-    no_matching_function_for_call_to_clear_out_edges.cpp \
-    clear_first_vertex_with_name.cpp
+  has_vertex_with_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
 # other housekeeping
 OTHER_FILES += \
+  add_custom_edge.impl \
   add_custom_vertex.impl \
+  add_edge_demo.impl \
   add_edge.impl \
+  add_named_edge_demo.impl \
   add_named_edge.impl \
+  add_named_vertex_demo.impl \
   add_named_vertex.impl \
+  add_vertex_demo.impl \
   add_vertex.impl \
+  clear_first_vertex_with_name.impl \
+  count_vertices_with_name_demo.impl \
+  count_vertices_with_name.impl \
+  create_custom_edges_and_vertices_k3_graph.impl \
   create_custom_vertices_k2_graph.impl \
+  create_empty_custom_edges_and_vertices_graph.impl \
   create_empty_custom_vertices_graph.impl \
+  create_empty_directed_graph_demo.impl \
+  create_empty_directed_graph.impl \
+  create_empty_named_edges_and_vertices_graph_demo.impl \
   create_empty_named_edges_and_vertices_graph.impl \
+  create_empty_named_vertices_graph_demo.impl \
   create_empty_named_vertices_graph.impl \
+  create_empty_undirected_graph_demo.impl \
+  create_empty_undirected_graph.impl \
+  create_k2_graph_demo.impl \
+  create_k2_graph.impl \
+  create_named_edges_and_vertices_k3_graph_demo.impl \
+  create_named_edges_and_vertices_k3_graph.impl \
+  create_named_vertices_k2_graph_demo.impl \
+  find_first_vertex_with_name_demo.impl \
+  find_first_vertex_with_name.impl \
+  formed_reference_to_void.impl \
+  get_edge_descriptors_demo.impl \
+  get_edge_descriptors.impl \
+  get_edge_my_edges.impl \
+  get_edge_names_demo.impl \
   get_edge_names.impl \
+  get_edges_demo.impl \
+  get_edges.impl \
+  get_n_edges_demo.impl \
   get_n_edges.impl \
+  get_n_vertices_demo.impl \
   get_n_vertices.impl \
+  get_type_name.impl \
+  get_vertex_descriptors_demo.impl \
+  get_vertex_descriptors.impl \
   get_vertex_my_vertexes.impl \
+  get_vertex_name_demo.impl \
+  get_vertex_name.impl \
+  get_vertex_names_demo.impl \
   get_vertex_names.impl \
+  get_vertex_out_degrees_demo.impl \
+  get_vertex_out_degrees.impl \
+  get_vertices_demo.impl \
+  get_vertices.impl \
+  install_edge_custom_type.impl \
   install_vertex_custom_type.impl \
+  no_matching_function_for_call_to_clear_out_edges.impl \
   save_custom_vertices_graph_to_dot.impl \
+  save_graph_to_dot_demo.impl \
   save_graph_to_dot.impl \
   save_named_edges_and_vertices_graph_to_dot.impl \
   save_named_vertices_graph_to_dot.impl \
   set_vertex_my_vertexes.impl \
+  set_vertex_name_demo.impl \
+  set_vertex_name.impl \
   set_vertex_names.impl \
-  create_empty_directed_graph.impl \
-  create_empty_undirected_graph.impl \
-    install_edge_custom_type.impl \
-    create_empty_custom_edges_and_vertices_graph.impl \
-    add_custom_edge.impl \
-    get_edge_my_edges.impl \
-    create_custom_edges_and_vertices_k3_graph.impl \
-    get_vertex_out_degrees.impl \
-    get_vertex_descriptors.impl \
-    get_edge_descriptors.impl \
-    get_vertices.impl \
-    get_edges.impl \
-    formed_reference_to_void.impl \
-    get_type_name.impl \
-    create_empty_directed_graph_demo.impl \
-    create_empty_undirected_graph_demo.impl \
-    add_vertex_demo.impl \
-    get_vertices_demo.impl \
-    get_vertex_descriptors_demo.impl \
-    add_edge_demo.impl \
-    get_edges_demo.impl \
-    get_edge_descriptors_demo.impl \
-    create_k2_graph_demo.impl \
-    create_k2_graph.impl \
-    create_empty_named_vertices_graph_demo.impl \
-    add_named_vertex_demo.impl \
-    create_named_vertices_k2_graph_demo.impl \
-    get_n_vertices_demo.impl \
-    get_n_edges_demo.impl \
-    get_vertex_out_degrees_demo.impl \
-    get_vertex_names_demo.impl \
-    create_empty_named_edges_and_vertices_graph_demo.impl \
-    add_named_edge_demo.impl \
-    get_edge_names_demo.impl \
-    create_named_edges_and_vertices_k3_graph.impl \
-    create_named_edges_and_vertices_k3_graph_demo.impl \
-    save_graph_to_dot_demo.impl \
-    count_vertices_with_name.impl \
-    count_vertices_with_name_demo.impl \
-    find_first_vertex_with_name_demo.impl \
-    find_first_vertex_with_name.impl \
-    get_vertex_name.impl \
-    get_vertex_name_demo.impl \
-    set_vertex_name_demo.impl \
-    set_vertex_name.impl \
-    no_matching_function_for_call_to_clear_out_edges.impl \
-    clear_first_vertex_with_name.impl \
-    clear_first_vertex_with_name_demo.impl
+  clear_first_vertex_with_name_demo.impl \
+    has_vertex_with_name.impl \
+    has_vertex_with_name_demo.impl
 

@@ -37,6 +37,7 @@
 #include "get_vertex_names.h"
 #include "get_vertex_out_degrees.h"
 #include "get_vertices.h"
+#include "has_vertex_with_name.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
 #include "print_trans_delay.h"
@@ -93,6 +94,7 @@ int main()
   get_vertex_name_test();
   get_vertex_out_degrees_test();
   get_vertices_test();
+  has_vertex_with_name_test();
   is_self_loop_test();
   is_valid_dot_file_test();
   print_trans_delays_test();

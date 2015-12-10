@@ -9,7 +9,7 @@ void get_vertex_name_demo() noexcept
 {
   auto g = create_empty_named_vertices_graph();
   const std::string name{"Dex"};
-  add_named_vertex(g,name);
+  add_named_vertex(name, g);
   const auto vd = find_first_vertex_with_name(name,g);
   assert(get_vertex_name(vd,g) == name);
 }

@@ -9,8 +9,8 @@ void get_vertex_names_demo() noexcept
   auto g = create_empty_named_vertices_graph();
   const std::string vertex_name_1{"Chip"};
   const std::string vertex_name_2{"Chap"};
-  add_named_vertex(g,vertex_name_1);
-  add_named_vertex(g,vertex_name_2);
+  add_named_vertex(vertex_name_1, g);
+  add_named_vertex(vertex_name_2, g);
   const std::vector<std::string> expected_names{vertex_name_1, vertex_name_2};
   const std::vector<std::string> vertex_names{get_vertex_names(g)};
   assert(expected_names == vertex_names);

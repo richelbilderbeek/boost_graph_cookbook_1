@@ -5596,6 +5596,131 @@ name "sub:has_vertex_with_name"
 \begin_layout Standard
 Before modifying our vertices, let's first determine if we can find a vertex
  by its name in a graph.
+ After obtaing a name map, we obtain the vertex iterators, dereference these
+ to obtain the vertex descriptors and then compare each vertex its name
+ with the one desired.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_vertex_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find if there is vertex with a certain name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_vertex_with_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_vertex_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function can be demonstrated as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:has_vertex_with_name_demo"
+
+\end_inset
+
+, where a certain name cannot be found in an empty graph.
+ After adding the desired name, it is found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_vertex_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_vertex_with_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_vertex_with_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_vertex_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this function only finds if there is at least one vertex with
+ that name: it does not tell how many vertices with that name exist in the
+ graph.
 \end_layout
 
 \begin_layout Subsection
@@ -5652,7 +5777,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Find a vertex by its name
+Find the first vertex by its name
 \begin_inset Index idx
 status open
 

@@ -23,7 +23,7 @@ void add_named_vertex_test() noexcept
     assert(get_n_vertices(g) == 0);
     assert(get_n_edges(g) == 0);
     const std::string vertex_name{"X"};
-    add_named_vertex(g,vertex_name);
+    add_named_vertex(vertex_name, g);
     assert(get_vertex_descriptors(g).size() == 1);
     assert(get_edge_descriptors(g).size() == 0);
     assert(get_n_vertices(g) == 1);
@@ -39,8 +39,8 @@ void add_named_vertex_test() noexcept
     assert(get_n_edges(g) == 0);
     const std::string vertex_name_1{"A"};
     const std::string vertex_name_2{"B"};
-    add_named_vertex(g,vertex_name_1);
-    add_named_vertex(g,vertex_name_2);
+    add_named_vertex(vertex_name_1, g);
+    add_named_vertex(vertex_name_2, g);
     assert(get_n_vertices(g) == 2);
     assert(get_n_edges(g) == 0);
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
