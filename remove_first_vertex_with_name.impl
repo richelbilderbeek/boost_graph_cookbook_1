@@ -4,14 +4,15 @@
 #include "has_vertex_with_name.h"
 
 template <class graph>
-void clear_first_vertex_with_name(
+void remove_first_vertex_with_name(
   const std::string& name,
   graph& g
 )
 {
   assert(has_vertex_with_name(name,g));
   const auto vd = find_first_vertex_with_name(name,g);
-  boost::clear_vertex(vd,g);
+  assert(boost::degree(vd,g) == 0);
+  boost::remove_vertex(vd,g);
 }
 
 

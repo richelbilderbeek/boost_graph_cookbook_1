@@ -5473,7 +5473,14 @@ Measuring simple traits of the graphs created allows
 \end_layout
 
 \begin_layout Itemize
-Check if there exists a vertex with a certain name: chapter
+Check if there exists a vertex with a certain name: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:has_vertex_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5481,6 +5488,17 @@ Find a (named) vertex by its name: chapter
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_vertex_first_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Get a (named) vertex its degree, in degree and out degree: chapter: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_first_vertex_with_name_out_degree"
 
 \end_inset
 
@@ -5533,6 +5551,13 @@ reference "sub:clear_first_vertex_with_name"
 
 \begin_layout Itemize
 Remove a named vertex: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:remove_first_vertex_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5855,6 +5880,203 @@ find_first_vertex_by_name_demo
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_vertex_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Get a (named) vertex its degree, in degree and out degree
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_first_vertex_with_name_out_degree"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We already obtained all out degrees of all vertices in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_out_degrees"
+
+\end_inset
+
+ by just collecting all vertex descriptors.
+ Here, we will search for a vertex with a certain name, obtain its vertex
+ descriptor and find the number of connections it has.
+ The number of connections is called the 'degree' of the vertex.
+ There are three types of degrees:
+\end_layout
+
+\begin_layout Itemize
+in degree: the number of incoming connections, using boost::in_degree
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::in_degree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+out degree: the number of outgoing connections, using boost::in_degree
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::out_degree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+degree: sum of the in degree and out degree, using boost::in_degree
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::degree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With a vertex descriptor, we can read a vertex its types of degrees.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_out_degrees"
+
+\end_inset
+
+ shows how to find a vertex, obtain its vertex descriptor and then obtain
+ the out degree from it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_first_vertex_with_name_out_degree.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the first vertex with a certain name its out degree from its vertex
+ descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_first_vertex_with_name_out_degree
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_first_vertex_with_name_out_degree"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_names_demo"
+
+\end_inset
+
+ shows how to use this function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_first_vertex_with_name_out_degree_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_first_vertex_with_name_out_degree' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_first_vertex_with_name_out_degree_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_first_vertex_with_name_out_degree_demo"
 
 \end_inset
 
@@ -6463,10 +6685,168 @@ name "alg:clear_first_vertex_with_name_demo"
 
 \begin_layout Subsection
 Remove a named vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:remove_first_vertex_with_name"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-remove_first_named_vertex
+A vertex descriptor can be used to remove a vertex from a graph.
+ It is necessary to remove these connections (e.g.
+ using clear_first_vertex_with_name', algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clear_first_vertex_with_name"
+
+\end_inset
+
+) before the vertex itself can be removed.
+ 
+\end_layout
+
+\begin_layout Standard
+Removing a named vertex goes as follows: use the name of the vertex to get
+ a first vertex descriptor, then call 'boost::remove_vertex'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::remove_vertex
+\end_layout
+
+\end_inset
+
+, shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clear_first_vertex_with_name"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "remove_first_vertex_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Remove the first vertex with a certain name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+remove_first_vertex_with_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:remove_first_vertex_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:remove_first_vertex_with_name_demo"
+
+\end_inset
+
+ shows the removal of the first named vertex found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "clear_first_vertex_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'remove_first_vertex_with_name' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+remove_first_vertex_with_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:remove_first_vertex_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again, be sure that the vertex removed does not have any connections!
 \end_layout
 
 \begin_layout Subsection

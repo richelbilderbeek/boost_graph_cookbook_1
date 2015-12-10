@@ -59,7 +59,9 @@ HEADERS += \
   set_vertex_name.h \
   set_vertex_names.h \
   show_dot.h \
-  has_vertex_with_name.h
+  has_vertex_with_name.h \
+    remove_first_vertex_with_name.h \
+    get_first_vertex_with_name_out_degree.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -126,7 +128,9 @@ SOURCES += \
   set_vertex_name.cpp \
   set_vertex_names.cpp \
   show_dot.cpp \
-  has_vertex_with_name.cpp
+  has_vertex_with_name.cpp \
+    remove_first_vertex_with_name.cpp \
+    get_first_vertex_with_name_out_degree.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -202,5 +206,9 @@ OTHER_FILES += \
   set_vertex_names.impl \
   clear_first_vertex_with_name_demo.impl \
     has_vertex_with_name.impl \
-    has_vertex_with_name_demo.impl
+    has_vertex_with_name_demo.impl \
+    remove_first_vertex_with_name.impl \
+    remove_first_vertex_with_name_demo.impl \
+    get_first_vertex_with_name_out_degree_demo.impl \
+    get_first_vertex_with_name_out_degree.impl
 

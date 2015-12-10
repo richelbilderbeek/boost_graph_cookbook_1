@@ -28,6 +28,7 @@
 #include "get_edge_my_edges.h"
 #include "get_edge_names.h"
 #include "get_edges.h"
+#include "get_first_vertex_with_name_out_degree.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_type_name.h"
@@ -44,6 +45,7 @@
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
 #include "print_vertex_names.h"
+#include "remove_first_vertex_with_name.h"
 #include "save_custom_vertices_graph_to_dot.h"
 #include "save_graph_to_dot.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
@@ -83,6 +85,7 @@ int main()
   create_tutorial_chapters_graph_test();
   find_first_vertex_with_name_test();
   get_edge_descriptors_test();
+  get_first_vertex_with_name_out_degree_test();
   get_edge_my_edges_test();
   get_edge_names_test();
   get_edges_test();
@@ -101,6 +104,7 @@ int main()
   print_trans_delay_test();
   print_vertex_names_test();
   print_vertex_name_test();
+  remove_first_vertex_with_name_test();
   save_custom_vertices_graph_to_dot_test();
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
