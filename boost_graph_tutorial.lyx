@@ -130,11 +130,21 @@ The chapters of this tutorial are also like a well-connected graph.
  To allow for quicker learners to skim chapters, or for beginners looking
  to find the patterns, some chapters are repetitions of each other (for
  example, getting an edge its name is very similar to getting a vertex its
- name).
+ name)
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There was even copy-pasting involved
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-A pivorial chapter is chapter 
+A pivotal chapter is chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_first_vertex_with_name"
@@ -185,7 +195,7 @@ reate_empty_undirected_graph'
 \begin_layout Standard
 I enjoy to show concepts by putting those in (long-named) functions.
  These functions sometimes border the trivial, by, for example, only calling
- a Boost.Graph function.
+ a single Boost.Graph function.
  On the other hand, these functions have more English-sounding names, resulting
  in demonstration code that is readable.
 \end_layout
@@ -425,6 +435,34 @@ reference "alg:create_empty_directed_graph"
 \end_inset
 
  shows the function to create an empty (directed) graph.
+ The function should not throw, so it is preferred to mark it noexcept
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+noexcept
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+, chapter 13.7, page 387
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -488,6 +526,20 @@ reference "alg:create_empty_directed_graph_demo"
 \end_inset
 
  demonstrates the 'create_empty_directed_graph' function.
+ Auto is used, as this is preferred over explicit type declarations
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Scott Meyers.
+ C++ And Beyond 2012 session: 'Initial thoughts on Effective C++11'.
+ 2012.
+ 'Prefer auto to Explicit Type Declarations'
+\end_layout
+
+\end_inset
+
+, 
 \end_layout
 
 \begin_layout Standard
@@ -11312,7 +11364,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_vertices_graph_to_dot_cpp17.impl"
+filename "save_custom_vertices_graph_to_dot_cpp14.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -11355,12 +11407,12 @@ name "alg:save_custom_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-Note that this algorithm uses C++17
+Note that this algorithm uses C++14
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-C++17
+C++14
 \end_layout
 
 \end_inset
@@ -11498,12 +11550,280 @@ name "fig:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg"
 
 \end_layout
 
+\begin_layout Subsection
+Storing a graph with custom edges and vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_custom_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save graph with custom edges and vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create .dot from graph with custom edges and vertices
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+If you used the create_custom_edges_and_vertices_k3_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_k3_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with edges and vertices associated with my_edge and my_vertex objects,
+ you can store these my_edges and my_vertexes additionally with algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_custom_edges_and_vertices_graph_to_dot_cpp14.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with custom vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_custom_vertices_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_custom_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this algorithm uses C++14
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+C++14
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_custom_edges_and_vertices_k3_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k3_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the create_custom_edges_and_vertices_k3_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_k3_graph"
+
+\end_inset
+
+)
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+pi
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Measuring more complex graphs traits
+Other graph functions
 \end_layout
 
 \begin_layout Subsection
-Count the number of self-loops
+Create an empty graph with a graph name property
+\end_layout
+
+\begin_layout Subsection
+Set a graph its name property
+\end_layout
+
+\begin_layout Subsection
+Get a graph its name property
+\end_layout
+
+\begin_layout Subsection
+Create a K2 graph with a graph name property
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with a graph name property as a .dot
 \end_layout
 
 \begin_layout Section

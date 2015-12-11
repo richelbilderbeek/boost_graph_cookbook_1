@@ -5,9 +5,11 @@
 
 #include "get_vertex_my_vertexes.h"
 
+#error check this with a C++14 compiler
+
 ///Save a graph with named vertices to a .dot file
 template <typename graph>
-void save_custom_vertices_graph_to_dot(const graph& g, const std::string& filename)
+void save_custom_edges_and_vertices_graph_to_dot(const graph& g, const std::string& filename)
 {
   std::ofstream f(filename);
   const auto my_vertexes = get_vertex_my_vertexes(g);

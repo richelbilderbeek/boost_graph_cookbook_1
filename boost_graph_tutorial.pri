@@ -76,7 +76,8 @@ HEADERS += \
     find_first_edge_with_my_edge.h \
     has_edge_between_vertices.h \
     get_edge_my_edge.h \
-    set_edge_my_edge.h
+    set_edge_my_edge.h \
+    save_custom_edges_and_vertices_graph_to_dot.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -160,7 +161,8 @@ SOURCES += \
     find_first_edge_with_my_edge.cpp \
     has_edge_between_vertices.cpp \
     get_edge_my_edge.cpp \
-    set_edge_my_edge.cpp
+    set_edge_my_edge.cpp \
+    save_custom_edges_and_vertices_graph_to_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -268,5 +270,7 @@ OTHER_FILES += \
     get_edge_my_edge.impl \
     get_edge_my_edge_demo.impl \
     set_edge_my_edge.impl \
-    set_edge_my_edge_demo.impl
+    set_edge_my_edge_demo.impl \
+    save_custom_edges_and_vertices_graph_to_dot_cpp11.impl \
+    save_custom_edges_and_vertices_graph_to_dot_cpp14.impl
 

@@ -57,6 +57,7 @@
 #include "remove_edge_between_vertices_with_names.h"
 #include "remove_first_edge_with_name.h"
 #include "remove_first_vertex_with_name.h"
+#include "save_custom_edges_and_vertices_graph_to_dot.h"
 #include "save_custom_vertices_graph_to_dot.h"
 #include "save_graph_to_dot.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
@@ -131,6 +132,7 @@ int main()
   remove_edge_between_vertices_with_names_test();
   remove_first_edge_with_name_test();
   remove_first_vertex_with_name_test();
+  save_custom_edges_and_vertices_graph_to_dot_test();
   save_custom_vertices_graph_to_dot_test();
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
