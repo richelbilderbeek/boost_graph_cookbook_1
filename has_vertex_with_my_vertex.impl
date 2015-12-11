@@ -8,7 +8,7 @@ template <typename graph>
 bool has_vertex_with_my_vertex(
   const my_vertex& v,
   const graph& g
-)
+) noexcept
 {
   const auto my_vertexes_map = get(boost::vertex_custom_type, g);
 

@@ -1,0 +1,27 @@
+#include <cassert>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "has_edge_with_my_edge.h"
+#include "install_edge_custom_type.h"
+#include "my_edge.h"
+
+template <typename graph>
+typename boost::graph_traits<graph>::edge_descriptor
+find_first_edge_with_my_edge(
+  const my_edge& e,
+  const graph& g
+) noexcept
+{
+  assert(has_edge_with_my_edge(e, g));
+  const auto my_edges_map = get(boost::edge_custom_type, g);
+
+  for (auto p = edges(g);
+    p.first != p.second;
+    ++p.first) {
+
+    if (get(my_edges_map, *p.first) == e) {
+      return *p.first;
+    }
+  }
+  return *edges(g).second;
+}

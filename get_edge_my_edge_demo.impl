@@ -1,0 +1,15 @@
+#include <cassert>
+
+#include "add_custom_edge.h"
+#include "create_empty_custom_edges_and_vertices_graph.h"
+#include "find_first_edge_with_my_edge.h"
+#include "get_edge_my_edge.h"
+
+void get_edge_my_edge_demo() noexcept
+{
+  auto g = create_empty_custom_edges_and_vertices_graph();
+  const my_edge name{"Dex"};
+  add_custom_edge(name, g);
+  const auto ed = find_first_edge_with_my_edge(name,g);
+  assert(get_edge_my_edge(ed,g) == name);
+}

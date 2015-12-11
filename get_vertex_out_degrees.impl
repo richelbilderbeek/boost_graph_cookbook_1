@@ -1,7 +1,7 @@
 #include <vector>
 
 template <typename graph>
-std::vector<int> get_vertex_out_degrees(const graph& g)
+std::vector<int> get_vertex_out_degrees(const graph& g) noexcept
 {
   std::vector<int> v;
   for (auto p = vertices(g);

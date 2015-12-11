@@ -4,7 +4,7 @@
 #include <cassert>
 
 template <typename graph>
-void add_named_edge(const std::string& edge_name, graph& g)
+void add_named_edge(const std::string& edge_name, graph& g) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);

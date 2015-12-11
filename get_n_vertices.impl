@@ -2,7 +2,7 @@
 
 ///Get the number of vertices a graph has
 template <class graph>
-int get_n_vertices(const graph& g)
+int get_n_vertices(const graph& g) noexcept
 {
   return static_cast<int>(boost::num_vertices(g));
 }

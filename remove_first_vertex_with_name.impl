@@ -7,7 +7,7 @@ template <class graph>
 void remove_first_vertex_with_name(
   const std::string& name,
   graph& g
-)
+) noexcept
 {
   assert(has_vertex_with_name(name,g));
   const auto vd = find_first_vertex_with_name(name,g);

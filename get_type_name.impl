@@ -6,7 +6,7 @@
 //From http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
 //Thanks to m-dudley ( http://stackoverflow.com/users/111327/m-dudley )
 template<typename T>
-std::string get_type_name()
+std::string get_type_name() noexcept
 {
   std::string tname = typeid(T).name();
   int status = -1;

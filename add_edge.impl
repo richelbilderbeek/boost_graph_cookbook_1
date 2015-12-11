@@ -3,7 +3,7 @@
 #include <cassert>
 
 template <typename graph>
-void add_edge(graph& g)
+void add_edge(graph& g) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);

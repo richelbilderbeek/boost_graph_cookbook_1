@@ -6,7 +6,7 @@
 
 //TODO: generalize to return any type
 template <typename graph>
-std::vector<my_edge> get_edge_my_edges(const graph& g)
+std::vector<my_edge> get_edge_my_edges(const graph& g) noexcept
 {
   std::vector<my_edge> v;
 

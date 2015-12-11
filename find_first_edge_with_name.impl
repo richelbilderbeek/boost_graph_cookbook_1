@@ -7,7 +7,7 @@ typename boost::graph_traits<graph>::edge_descriptor
 find_first_edge_with_name(
   const std::string& name,
   const graph& g
-)
+) noexcept
 {
   const auto edge_name_map = get(boost::edge_name,g);
 

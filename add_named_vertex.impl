@@ -1,7 +1,7 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void add_named_vertex(const std::string& name, graph& g)
+void add_named_vertex(const std::string& name, graph& g) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   auto vertex_name_map = get(boost::vertex_name,g);

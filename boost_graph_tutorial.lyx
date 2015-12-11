@@ -10567,7 +10567,7 @@ Demonstration if the 'set_vertex_my_vertex' function
 status open
 
 \begin_layout Plain Layout
-set_vertex_name_demo
+set_vertex_my_vertex_demo
 \end_layout
 
 \end_inset
@@ -10689,22 +10689,563 @@ An impressive feature is that getting the property map holding the graph
 
 \begin_layout Subsection
 Has a my_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:has_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before modifying our edges, let's first determine if we can find an edge
+ by its custom type ('my_edge') in a graph.
+ After obtaing a my_edge map, we obtain the edge iterators, dereference
+ these to obtain the edge descriptors and then compare each edge its my_edge
+ with the one desired.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_with_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find if there is an edge with a certain my_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_edge_with_my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function can be demonstrated as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:has_edge_with_my_edge_demo"
+
+\end_inset
+
+, where a certain my_edge cannot be found in an empty graph.
+ After adding the desired my_edge, it is found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_with_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_edge_with_my_edge' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+has_edge_with_my_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_with_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this function only finds if there is at least one edge with that
+ my_edge: it does not tell how many edges with that my_edge exist in the
+ graph.
 \end_layout
 
 \begin_layout Subsection
 Find a my_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_first_edge_with_my_edge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-find_my_vertex
+Where STL functions work with iterators, here we obtain an edge descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired edge.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_edge_with_my_edeg"
+
+\end_inset
+
+ shows how to obtain an edge descriptor to the first edge found with a specific
+ my_edge value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_edge_with_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first edge with a certain my_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_edge_with_my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_edge_with_my_edeg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the edge descriptor obtained, one can read and modify the edge and
+ the vertices surrounding it.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_edge_with_my_edge_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_edge_with_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_edge_with_my_edge' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+find_first_edge_with_my_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_edge_with_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Get an edge its my_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To obtain the my_edeg from an edge descriptor, one needs to pull out the
+ my_edges map and then look up the my_edge of interest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get a vertex its my_vertex from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'get_edge_my_edge', one first needs to obtain an edgedescriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_edge_my_edge_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'get_edge_my_edge' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_edge_my_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Set an edge its my_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know how to get the my_edge from an edge descriptor, setting it is
+ just as easy, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_edge_my_edge"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_edge_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set an edge its my_edge from its edge descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_edge_my_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'set_edge_my_edge', one first needs to obtain an edgedescriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_edge_my_edge_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_edge_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'set_edge_my_edge' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_edge_my_edge_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_edge_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

@@ -5,7 +5,7 @@ std::pair<
   typename graph::edge_iterator,
   typename graph::edge_iterator
 >
-get_edges(const graph& g)
+get_edges(const graph& g) noexcept
 {
   return boost::edges(g);
 }

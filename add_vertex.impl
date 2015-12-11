@@ -1,7 +1,7 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void add_vertex(graph& g)
+void add_vertex(graph& g) noexcept
 {
   boost::add_vertex(g);
 }

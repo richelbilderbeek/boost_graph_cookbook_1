@@ -5,7 +5,7 @@ template <typename graph>
 int count_vertices_with_name(
   const graph& g,
   const std::string& name
-)
+) noexcept
 {
   int cnt{0};
   const auto vertex_name_map = get(boost::vertex_name,g);

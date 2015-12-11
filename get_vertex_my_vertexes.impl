@@ -6,7 +6,7 @@
 
 //TODO: generalize to return any type
 template <typename graph>
-std::vector<my_vertex> get_vertex_my_vertexes(const graph& g)
+std::vector<my_vertex> get_vertex_my_vertexes(const graph& g) noexcept
 {
   std::vector<my_vertex> v;
 

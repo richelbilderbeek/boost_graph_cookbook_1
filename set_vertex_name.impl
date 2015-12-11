@@ -7,7 +7,7 @@ void set_vertex_name(
   const std::string& name,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
   graph& g
-)
+) noexcept
 {
   auto vertex_name_map = get(boost::vertex_name,g);
   vertex_name_map[vd] = name;

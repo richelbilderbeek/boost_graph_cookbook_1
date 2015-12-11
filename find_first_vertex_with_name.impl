@@ -7,7 +7,7 @@ typename boost::graph_traits<graph>::vertex_descriptor
 find_first_vertex_with_name(
   const std::string& name,
   const graph& g
-)
+) noexcept
 {
   const auto vertex_name_map = get(boost::vertex_name,g);
 

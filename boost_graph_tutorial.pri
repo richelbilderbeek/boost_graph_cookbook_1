@@ -71,7 +71,12 @@ HEADERS += \
     find_first_vertex_with_my_vertex.h \
     has_vertex_with_my_vertex.h \
     set_vertex_my_vertex.h \
-    get_vertex_my_vertex.h
+    get_vertex_my_vertex.h \
+    has_edge_with_my_edge.h \
+    find_first_edge_with_my_edge.h \
+    has_edge_between_vertices.h \
+    get_edge_my_edge.h \
+    set_edge_my_edge.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -150,7 +155,12 @@ SOURCES += \
     find_first_vertex_with_my_vertex.cpp \
     has_vertex_with_my_vertex.cpp \
     set_vertex_my_vertex.cpp \
-    get_vertex_my_vertex.cpp
+    get_vertex_my_vertex.cpp \
+    has_edge_with_my_edge.cpp \
+    find_first_edge_with_my_edge.cpp \
+    has_edge_between_vertices.cpp \
+    get_edge_my_edge.cpp \
+    set_edge_my_edge.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -250,5 +260,13 @@ OTHER_FILES += \
     set_vertex_my_vertex.impl \
     set_vertex_my_vertex_demo.impl \
     get_vertex_my_vertex.impl \
-    get_vertex_my_vertex_demo.impl
+    get_vertex_my_vertex_demo.impl \
+    has_edge_with_my_edge.impl \
+    has_edge_with_my_edge_demo.impl \
+    find_first_edge_with_my_edge.impl \
+    find_first_edge_with_my_edge_demo.impl \
+    get_edge_my_edge.impl \
+    get_edge_my_edge_demo.impl \
+    set_edge_my_edge.impl \
+    set_edge_my_edge_demo.impl
 

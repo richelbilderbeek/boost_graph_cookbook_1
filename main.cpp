@@ -24,9 +24,11 @@
 #include "create_router_network.h"
 #include "create_tutorial_chapters_graph.h"
 #include "find_first_edge_with_name.h"
+#include "find_first_edge_with_my_edge.h"
 #include "find_first_vertex_with_my_vertex.h"
 #include "find_first_vertex_with_name.h"
 #include "get_edge_descriptors.h"
+#include "get_edge_my_edge.h"
 #include "get_edge_my_edges.h"
 #include "get_edge_name.h"
 #include "get_edge_names.h"
@@ -36,12 +38,15 @@
 #include "get_n_vertices.h"
 #include "get_type_name.h"
 #include "get_vertex_descriptors.h"
+#include "get_vertex_my_vertex.h"
 #include "get_vertex_my_vertexes.h"
 #include "get_vertex_name.h"
 #include "get_vertex_names.h"
 #include "get_vertex_out_degrees.h"
 #include "get_vertices.h"
+#include "has_edge_between_vertices.h"
 #include "has_edge_with_name.h"
+#include "has_edge_with_my_edge.h"
 #include "has_vertex_with_name.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
@@ -57,7 +62,7 @@
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "set_edge_name.h"
-//#include "set_edge_my_edges.h"
+#include "set_edge_my_edge.h"
 #include "set_vertex_my_vertex.h"
 #include "set_vertex_my_vertexes.h"
 #include "set_vertex_name.h"
@@ -70,6 +75,7 @@ int main()
   add_custom_edge_test();
   add_custom_vertex_test();
   add_edge_test();
+  add_custom_edge_test();
   add_named_edge_test();
   add_named_vertex_test();
   add_vertex_test();
@@ -91,10 +97,12 @@ int main()
   create_router_network_graph_test();
   create_router_network_test();
   create_tutorial_chapters_graph_test();
+  find_first_edge_with_my_edge_test();
   find_first_edge_with_name_test();
   find_first_vertex_with_my_vertex_test();
   find_first_vertex_with_name_test();
   get_edge_descriptors_test();
+  get_edge_my_edge_test();
   get_edge_my_edges_test();
   get_edge_names_test();
   get_edge_name_test();
@@ -103,12 +111,16 @@ int main()
   get_n_vertices_test();
   get_type_name_test();
   get_vertex_descriptors_test();
+  get_vertex_my_vertex_test();
   get_vertex_my_vertexes_test();
   get_vertex_names_test();
   get_vertex_name_test();
   get_vertex_out_degrees_test();
   get_vertices_test();
+  has_edge_between_vertices_test();
+  has_edge_with_my_edge_test();
   has_edge_with_name_test();
+  has_vertex_with_my_vertex_test();
   has_vertex_with_name_test();
   is_self_loop_test();
   is_valid_dot_file_test();
@@ -124,6 +136,7 @@ int main()
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
   set_edge_name_test();
+  set_edge_my_edge_test();
   set_vertex_my_vertex_test();
   set_vertex_my_vertexes_test();
   set_vertex_names_test();

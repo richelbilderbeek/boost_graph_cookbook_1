@@ -9,7 +9,7 @@ template <typename graph>
 void set_vertex_names(
   graph& g,
   const std::vector<std::string>& names
-)
+) noexcept
 {
   const auto vertex_name_map = get(boost::vertex_name,g);
 

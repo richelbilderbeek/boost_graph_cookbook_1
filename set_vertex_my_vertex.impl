@@ -9,7 +9,7 @@ void set_vertex_my_vertex(
   const my_vertex& v,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
   graph& g
-)
+) noexcept
 {
   const auto my_vertexes_map = get(boost::vertex_custom_type, g);
   my_vertexes_map[vd] = v;
