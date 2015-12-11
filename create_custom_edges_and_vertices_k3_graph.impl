@@ -28,7 +28,7 @@ create_custom_edges_and_vertices_k3_graph() noexcept
   assert(aer_b.second);
   assert(aer_c.second);
 
-  auto my_vertex_map = boost::get(boost::vertex_custom_type,g);
+  auto my_vertex_map = get(boost::vertex_custom_type,g);
   my_vertex_map[vd_a]
     = my_vertex("top","source",0.0,0.0);
   my_vertex_map[vd_b]
@@ -36,7 +36,7 @@ create_custom_edges_and_vertices_k3_graph() noexcept
   my_vertex_map[vd_c]
     = my_vertex("left","target",0,3.14);
 
-  auto my_edge_map = boost::get(boost::edge_custom_type,g);
+  auto my_edge_map = get(boost::edge_custom_type,g);
   my_edge_map[aer_a.first]
     = my_edge("AB","first",0.0,0.0);
   my_edge_map[aer_b.first]

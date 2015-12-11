@@ -24,8 +24,8 @@ create_router_network_graph() noexcept
 
   graph g;
 
-  name_map_t name_map{boost::get(boost::vertex_name,g)};
-  edge_weight_t delay_map{boost::get(boost::edge_weight,g)};
+  name_map_t name_map{get(boost::vertex_name,g)};
+  edge_weight_t delay_map{get(boost::edge_weight,g)};
 
   //9a
   const my_vertex_descriptor va = add_vertex(g); name_map[va] = "a";

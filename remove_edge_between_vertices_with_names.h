@@ -1,0 +1,8 @@
+#ifndef REMOVE_EDGE_BETWEEN_VERTICES_WITH_NAMES_H
+#define REMOVE_EDGE_BETWEEN_VERTICES_WITH_NAMES_H
+
+#include "remove_edge_between_vertices_with_names.impl"
+
+void remove_edge_between_vertices_with_names_test() noexcept;
+
+#endif // REMOVE_EDGE_BETWEEN_VERTICES_WITH_NAMES_H

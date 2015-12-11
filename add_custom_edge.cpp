@@ -18,7 +18,7 @@ void add_custom_edge_test() noexcept
     assert(get_n_vertices(g) == 0);
     assert(get_n_edges(g) == 0);
     const my_edge edge("X");
-    add_custom_edge(g,edge);
+    add_custom_edge(edge, g);
     assert(get_n_vertices(g) == 2);
     assert(get_n_edges(g) == 1);
     const std::vector<my_edge> edges{get_edge_my_edges(g)};
@@ -32,8 +32,8 @@ void add_custom_edge_test() noexcept
     assert(get_n_edges(g) == 0);
     const my_edge edge_1("X");
     const my_edge edge_2("Y");
-    add_custom_edge(g,edge_1);
-    add_custom_edge(g,edge_2);
+    add_custom_edge(edge_1, g);
+    add_custom_edge(edge_2, g);
     assert(get_n_vertices(g) == 4);
     assert(get_n_edges(g) == 2);
     const std::vector<my_edge> edges{get_edge_my_edges(g)};

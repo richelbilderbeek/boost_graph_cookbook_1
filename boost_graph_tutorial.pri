@@ -24,12 +24,15 @@ HEADERS += \
   create_router_network_graph.h \
   create_router_network.h \
   create_tutorial_chapters_graph.h \
+  find_first_edge_with_name.h \
   find_first_vertex_with_name.h \
   formed_reference_to_void.h \
   get_edge_descriptors.h \
   get_edge_my_edges.h \
+  get_edge_name.h \
   get_edge_names.h \
   get_edges.h \
+  get_first_vertex_with_name_out_degree.h \
   get_n_edges.h \
   get_n_vertices.h \
   get_type_name.h \
@@ -40,6 +43,8 @@ HEADERS += \
   get_vertex_out_degrees.h \
   get_vertices.h \
   has_dot.h \
+  has_edge_with_name.h \
+  has_vertex_with_name.h \
   install_edge_custom_type.h \
   install_vertex_custom_type.h \
   is_self_loop.h \
@@ -51,21 +56,22 @@ HEADERS += \
   print_trans_delays.h \
   print_vertex_name.h \
   print_vertex_names.h \
+  remove_first_edge_with_name.h \
+  remove_first_vertex_with_name.h \
   save_custom_vertices_graph_to_dot.h \
   save_graph_to_dot.h \
   save_named_edges_and_vertices_graph_to_dot.h \
   save_named_vertices_graph_to_dot.h \
+  set_edge_name.h \
   set_vertex_my_vertexes.h \
   set_vertex_name.h \
   set_vertex_names.h \
   show_dot.h \
-  has_vertex_with_name.h \
-    remove_first_vertex_with_name.h \
-    get_first_vertex_with_name_out_degree.h \
-    has_edge_with_name.h \
-    find_first_edge_with_name.h \
-    get_edge_name.h \
-    set_edge_name.h
+    remove_edge_between_vertices_with_names.h \
+    find_first_vertex_with_my_vertex.h \
+    has_vertex_with_my_vertex.h \
+    set_vertex_my_vertex.h \
+    get_vertex_my_vertex.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -99,12 +105,15 @@ SOURCES += \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
   create_tutorial_chapters_graph.cpp \
+  find_first_edge_with_name.cpp \
   find_first_vertex_with_name.cpp \
   formed_reference_to_void.cpp \
   get_edge_descriptors.cpp \
   get_edge_my_edges.cpp \
+  get_edge_name.cpp \
   get_edge_names.cpp \
   get_edges.cpp \
+  get_first_vertex_with_name_out_degree.cpp \
   get_n_edges.cpp \
   get_n_vertices.cpp \
   get_type_name.cpp \
@@ -115,6 +124,8 @@ SOURCES += \
   get_vertex_out_degrees.cpp \
   get_vertices.cpp \
   has_dot.cpp \
+  has_edge_with_name.cpp \
+  has_vertex_with_name.cpp \
   is_self_loop_test.cpp \
   is_valid_dot_file.cpp \
   my_edge.cpp \
@@ -124,21 +135,22 @@ SOURCES += \
   print_trans_delays.cpp \
   print_vertex_name.cpp \
   print_vertex_names.cpp \
+  remove_first_edge_with_name.cpp \
+  remove_first_vertex_with_name.cpp \
   save_custom_vertices_graph_to_dot.cpp \
   save_graph_to_dot.cpp \
   save_named_edges_and_vertices_graph_to_dot.cpp \
   save_named_vertices_graph_to_dot.cpp \
+  set_edge_name.cpp \
   set_vertex_my_vertexes.cpp \
   set_vertex_name.cpp \
   set_vertex_names.cpp \
   show_dot.cpp \
-  has_vertex_with_name.cpp \
-    remove_first_vertex_with_name.cpp \
-    get_first_vertex_with_name_out_degree.cpp \
-    has_edge_with_name.cpp \
-    find_first_edge_with_name.cpp \
-    get_edge_name.cpp \
-    set_edge_name.cpp
+    remove_edge_between_vertices_with_names.cpp \
+    find_first_vertex_with_my_vertex.cpp \
+    has_vertex_with_my_vertex.cpp \
+    set_vertex_my_vertex.cpp \
+    get_vertex_my_vertex.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -154,6 +166,7 @@ OTHER_FILES += \
   add_named_vertex.impl \
   add_vertex_demo.impl \
   add_vertex.impl \
+  clear_first_vertex_with_name_demo.impl \
   clear_first_vertex_with_name.impl \
   count_vertices_with_name_demo.impl \
   count_vertices_with_name.impl \
@@ -174,16 +187,22 @@ OTHER_FILES += \
   create_named_edges_and_vertices_k3_graph_demo.impl \
   create_named_edges_and_vertices_k3_graph.impl \
   create_named_vertices_k2_graph_demo.impl \
+  find_first_edge_with_name_demo.impl \
+  find_first_edge_with_name.impl \
   find_first_vertex_with_name_demo.impl \
   find_first_vertex_with_name.impl \
   formed_reference_to_void.impl \
   get_edge_descriptors_demo.impl \
   get_edge_descriptors.impl \
   get_edge_my_edges.impl \
+  get_edge_name_demo.impl \
+  get_edge_name.impl \
   get_edge_names_demo.impl \
   get_edge_names.impl \
   get_edges_demo.impl \
   get_edges.impl \
+  get_first_vertex_with_name_out_degree_demo.impl \
+  get_first_vertex_with_name_out_degree.impl \
   get_n_edges_demo.impl \
   get_n_edges.impl \
   get_n_vertices_demo.impl \
@@ -200,31 +219,36 @@ OTHER_FILES += \
   get_vertex_out_degrees.impl \
   get_vertices_demo.impl \
   get_vertices.impl \
+  has_edge_with_name_demo.impl \
+  has_edge_with_name.impl \
+  has_vertex_with_name_demo.impl \
+  has_vertex_with_name.impl \
   install_edge_custom_type.impl \
   install_vertex_custom_type.impl \
   no_matching_function_for_call_to_clear_out_edges.impl \
+  remove_first_edge_with_name_demo.impl \
+  remove_first_edge_with_name.impl \
+  remove_first_vertex_with_name_demo.impl \
+  remove_first_vertex_with_name.impl \
   save_custom_vertices_graph_to_dot.impl \
   save_graph_to_dot_demo.impl \
   save_graph_to_dot.impl \
   save_named_edges_and_vertices_graph_to_dot.impl \
   save_named_vertices_graph_to_dot.impl \
+  set_edge_name_demo.impl \
+  set_edge_name.impl \
   set_vertex_my_vertexes.impl \
   set_vertex_name_demo.impl \
   set_vertex_name.impl \
   set_vertex_names.impl \
-  clear_first_vertex_with_name_demo.impl \
-    has_vertex_with_name.impl \
-    has_vertex_with_name_demo.impl \
-    remove_first_vertex_with_name.impl \
-    remove_first_vertex_with_name_demo.impl \
-    get_first_vertex_with_name_out_degree_demo.impl \
-    get_first_vertex_with_name_out_degree.impl \
-    has_edge_with_name.impl \
-    has_edge_with_name_demo.impl \
-    find_first_edge_with_name.impl \
-    find_first_edge_with_name_demo.impl \
-    get_edge_name.impl \
-    get_edge_name_demo.impl \
-    set_edge_name.impl \
-    set_edge_name_demo.impl
+    remove_edge_between_vertices_with_names.impl \
+    remove_edge_between_vertices_with_names_demo.impl \
+    find_first_vertex_with_my_vertex.impl \
+    find_first_vertex_with_my_vertex_demo.impl \
+    has_vertex_with_my_vertex.impl \
+    has_vertex_with_my_vertex_demo.impl \
+    set_vertex_my_vertex.impl \
+    set_vertex_my_vertex_demo.impl \
+    get_vertex_my_vertex.impl \
+    get_vertex_my_vertex_demo.impl
 

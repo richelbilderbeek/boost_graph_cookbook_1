@@ -1,0 +1,17 @@
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "find_first_edge_with_name.h"
+#include "has_edge_with_name.h"
+
+template <class graph>
+void remove_first_edge_with_name(
+  const std::string& name,
+  graph& g
+)
+{
+  assert(has_edge_with_name(name,g));
+  const auto vd = find_first_edge_with_name(name,g);
+  boost::remove_edge(vd,g);
+}
+
+

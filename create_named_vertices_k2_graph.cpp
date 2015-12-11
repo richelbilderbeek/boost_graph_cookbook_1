@@ -19,7 +19,7 @@ create_named_vertices_k2_graph() noexcept
   );
   assert(aer.second);
 
-  auto name_map = boost::get(boost::vertex_name,g);
+  auto name_map = get(boost::vertex_name,g);
   name_map[vd_a] = "from";
   name_map[vd_b] = "to";
 

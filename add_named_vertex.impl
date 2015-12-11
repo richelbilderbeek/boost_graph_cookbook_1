@@ -4,7 +4,7 @@ template <typename graph>
 void add_named_vertex(const std::string& name, graph& g)
 {
   const auto vd_a = boost::add_vertex(g);
-  auto vertex_name_map = boost::get(boost::vertex_name,g);
+  auto vertex_name_map = get(boost::vertex_name,g);
   vertex_name_map[vd_a] = name;
 }
 

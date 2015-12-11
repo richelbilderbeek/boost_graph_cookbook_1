@@ -5,9 +5,9 @@ template <typename graph>
 bool has_vertex_with_name(
   const std::string& name,
   const graph& g
-)
+) noexcept
 {
-  const auto vertex_name_map = get(boost::vertex_name,g);
+  const auto vertex_name_map = get(boost::vertex_name, g);
 
   for (auto p = vertices(g);
     p.first != p.second;

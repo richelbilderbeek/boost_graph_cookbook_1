@@ -1,0 +1,23 @@
+#include <string>
+#include <boost/graph/properties.hpp>
+#include "install_vertex_custom_type.h"
+#include "my_vertex.h"
+
+
+template <typename graph>
+bool has_vertex_with_my_vertex(
+  const my_vertex& v,
+  const graph& g
+)
+{
+  const auto my_vertexes_map = get(boost::vertex_custom_type, g);
+
+  for (auto p = vertices(g);
+    p.first != p.second;
+    ++p.first) {
+    if (get(my_vertexes_map, *p.first) == v) {
+      return true;
+    }
+  }
+  return false;
+}

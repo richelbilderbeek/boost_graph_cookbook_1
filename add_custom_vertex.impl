@@ -3,9 +3,9 @@
 #include "my_vertex.h"
 
 template <typename graph>
-void add_custom_vertex(graph& g, const my_vertex& v)
+void add_custom_vertex(const my_vertex& v, graph& g)
 {
   const auto vd_a = boost::add_vertex(g);
-  const auto my_vertex_map = boost::get(boost::vertex_custom_type,g);
+  const auto my_vertex_map = get(boost::vertex_custom_type,g);
   my_vertex_map[vd_a] = v;
 }

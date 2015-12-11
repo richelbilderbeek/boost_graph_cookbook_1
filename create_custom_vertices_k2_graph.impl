@@ -21,10 +21,10 @@ create_custom_vertices_k2_graph() noexcept
   assert(aer.second);
 
   //Add names
-  auto my_vertex_name_map = boost::get(boost::vertex_custom_type,g);
-  my_vertex_name_map[vd_a]
+  auto my_vertexes_map = get(boost::vertex_custom_type,g);
+  my_vertexes_map[vd_a]
     = my_vertex("from","source",0.0,0.0);
-  my_vertex_name_map[vd_b]
+  my_vertexes_map[vd_b]
     = my_vertex("to","target",3.14,3.14);
 
   return g;

@@ -1,0 +1,18 @@
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "find_first_vertex_with_name.h"
+#include "has_vertex_with_name.h"
+
+template <typename graph>
+void remove_edge_between_vertices_with_names(
+  const std::string& name_1,
+  const std::string& name_2,
+  graph& g
+)
+{
+  assert(has_vertex_with_name(name_1, g));
+  assert(has_vertex_with_name(name_2, g));
+  const auto vd_1 = find_first_vertex_with_name(name_1, g);
+  const auto vd_2 = find_first_vertex_with_name(name_2, g);
+  boost::remove_edge(vd_1, vd_2, g);
+}

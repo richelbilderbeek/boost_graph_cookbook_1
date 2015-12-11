@@ -23,9 +23,9 @@ void print_trans_delay(
 
   std::cout
     << "trans_delay("
-    << boost::get(name_map,std::source(e,g)) << ","
-    << boost::get(name_map,std::target(e,g)) << ") = "
-    << boost::get(delay_map,e)
+    << get(name_map,std::source(e,g)) << ","
+    << get(name_map,std::target(e,g)) << ") = "
+    << get(delay_map,e)
   ;
 }
 

@@ -121,7 +121,7 @@ create_tutorial_chapters_graph() noexcept
   //
   // NAMES OF VERTICES
   //
-  vertex_name_map_t vertex_name_map{boost::get(boost::vertex_name,g)};
+  vertex_name_map_t vertex_name_map{get(boost::vertex_name,g)};
 
   //Create graph
   vertex_name_map[ceg     ] = "create_empty_graph";
@@ -161,7 +161,7 @@ create_tutorial_chapters_graph() noexcept
 
   //NAMES OF EDGES
   /*
-  edge_name_map_t edge_name_map{boost::get(boost::edge_name,g)};
+  edge_name_map_t edge_name_map{get(boost::edge_name,g)};
   edge_name_map[ceg_to_cenvg.first] = "std::string vertex type";
   edge_name_map[cenvg_to_ceneavg.first] = "std::string edge type";
   edge_name_map[ceg_to_cecvg.first] = "custom vertex type";

@@ -27,10 +27,10 @@ void print_vertex_names(const graph& g)
   print_vertex_names(g,get(boost::vertex_name,g));
 
   //using name_map_t = typename boost::property_map<Graph,boost::vertex_name_t>::type;
-  //const name_map_t name_map{boost::get(boost::vertex_name,g)};
+  //const name_map_t name_map{get(boost::vertex_name,g)};
 
   //using name_map_t = typename boost::property_map<graph,boost::vertex_name_t>::type;
-  //name_map_t name_map = boost::get(boost::vertex_name,g);
+  //name_map_t name_map = get(boost::vertex_name,g);
   //print_vertex_names(g,name_map);
 
 

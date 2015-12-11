@@ -6,13 +6,13 @@
 #include "my_edge.h"
 
 template <typename graph>
-void add_custom_edge(graph& g, const my_edge& v)
+void add_custom_edge(const my_edge& v, graph& g) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
 
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-  const auto my_edge_map = boost::get(boost::edge_custom_type,g);
+  const auto my_edge_map = get(boost::edge_custom_type, g);
   my_edge_map[aer.first] = v;
 }

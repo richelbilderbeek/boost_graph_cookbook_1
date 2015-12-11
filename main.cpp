@@ -24,6 +24,7 @@
 #include "create_router_network.h"
 #include "create_tutorial_chapters_graph.h"
 #include "find_first_edge_with_name.h"
+#include "find_first_vertex_with_my_vertex.h"
 #include "find_first_vertex_with_name.h"
 #include "get_edge_descriptors.h"
 #include "get_edge_my_edges.h"
@@ -48,6 +49,8 @@
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
 #include "print_vertex_names.h"
+#include "remove_edge_between_vertices_with_names.h"
+#include "remove_first_edge_with_name.h"
 #include "remove_first_vertex_with_name.h"
 #include "save_custom_vertices_graph_to_dot.h"
 #include "save_graph_to_dot.h"
@@ -55,6 +58,7 @@
 #include "save_named_vertices_graph_to_dot.h"
 #include "set_edge_name.h"
 //#include "set_edge_my_edges.h"
+#include "set_vertex_my_vertex.h"
 #include "set_vertex_my_vertexes.h"
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
@@ -88,6 +92,7 @@ int main()
   create_router_network_test();
   create_tutorial_chapters_graph_test();
   find_first_edge_with_name_test();
+  find_first_vertex_with_my_vertex_test();
   find_first_vertex_with_name_test();
   get_edge_descriptors_test();
   get_edge_my_edges_test();
@@ -111,12 +116,15 @@ int main()
   print_trans_delay_test();
   print_vertex_names_test();
   print_vertex_name_test();
+  remove_edge_between_vertices_with_names_test();
+  remove_first_edge_with_name_test();
   remove_first_vertex_with_name_test();
   save_custom_vertices_graph_to_dot_test();
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
   set_edge_name_test();
+  set_vertex_my_vertex_test();
   set_vertex_my_vertexes_test();
   set_vertex_names_test();
   set_vertex_name_test();
