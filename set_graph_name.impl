@@ -1,0 +1,15 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+void set_graph_name(
+  const std::string& name,
+  graph& g
+) noexcept
+{
+  assert(!"TODO");
+  //get(boost::graph_name, g) = name;
+  //get(boost::graph_name, g)[g] = name;
+  //put(name, boost::graph_name, g);
+}

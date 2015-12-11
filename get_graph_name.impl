@@ -1,0 +1,10 @@
+#include <string>
+#include <boost/graph/properties.hpp>
+
+template <typename graph>
+std::string get_graph_name(
+  const graph& g
+) noexcept
+{
+  return get(boost::graph_name,g);
+}

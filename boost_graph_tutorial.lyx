@@ -11808,22 +11808,415 @@ Other graph functions
 
 \begin_layout Subsection
 Create an empty graph with a graph name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_graph_with_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph_with_graph_name"
+
+\end_inset
+
+ shows the function to create an empty (directed) graph with a graph name.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_graph_with_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with a graph name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_directed_graph_with_graph_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_graph_with_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph_with_graph_name_demo"
+
+\end_inset
+
+ demonstrates the 'create_empty_directed_graph_with_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_graph_with_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_empty_directed_graph_with_graph_name'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_directed_graph_with_graph_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_graph_with_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Set a graph its name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know, please email me.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set a graph its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_graph_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_graph_name_demo"
+
+\end_inset
+
+ demonstrates the 'set_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'set_graph_name'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+set_graph_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Get a graph its name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know, please email me.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get a graph its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_graph_name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_graph_name_demo"
+
+\end_inset
+
+ demonstrates the 'get_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'get_graph_name'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_graph_name_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Create a K2 graph with a graph name property
 \end_layout
 
+\begin_layout Standard
+If you know, please email me.
+\end_layout
+
 \begin_layout Subsection
 Storing a graph with a graph name property as a .dot
+\end_layout
+
+\begin_layout Standard
+If you know, please email me.
 \end_layout
 
 \begin_layout Section

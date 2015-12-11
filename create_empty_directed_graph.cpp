@@ -6,6 +6,7 @@
 
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
+#include "get_graph_name.h"
 
 #include "create_empty_directed_graph_demo.impl"
 

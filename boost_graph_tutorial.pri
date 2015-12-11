@@ -77,7 +77,10 @@ HEADERS += \
     has_edge_between_vertices.h \
     get_edge_my_edge.h \
     set_edge_my_edge.h \
-    save_custom_edges_and_vertices_graph_to_dot.h
+    save_custom_edges_and_vertices_graph_to_dot.h \
+    create_empty_directed_graph_with_graph_name.h \
+    set_graph_name.h \
+    get_graph_name.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -96,7 +99,6 @@ SOURCES += \
   create_empty_custom_edges_and_vertices_graph.cpp \
   create_empty_custom_vertices_graph.cpp \
   create_empty_directed_graph.cpp \
-  create_empty_directed_graph_test.cpp \
   create_empty_named_edges_and_vertices_graph.cpp \
   create_empty_named_vertices_graph.cpp \
   create_empty_named_vertices_graph_test.cpp \
@@ -162,7 +164,10 @@ SOURCES += \
     has_edge_between_vertices.cpp \
     get_edge_my_edge.cpp \
     set_edge_my_edge.cpp \
-    save_custom_edges_and_vertices_graph_to_dot.cpp
+    save_custom_edges_and_vertices_graph_to_dot.cpp \
+    create_empty_directed_graph_with_graph_name.cpp \
+    set_graph_name.cpp \
+    get_graph_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -272,5 +277,11 @@ OTHER_FILES += \
     set_edge_my_edge.impl \
     set_edge_my_edge_demo.impl \
     save_custom_edges_and_vertices_graph_to_dot_cpp11.impl \
-    save_custom_edges_and_vertices_graph_to_dot_cpp14.impl
+    save_custom_edges_and_vertices_graph_to_dot_cpp14.impl \
+    create_empty_directed_graph_with_graph_name.impl \
+    set_graph_name.impl \
+    set_graph_name_demo.impl \
+    get_graph_name.impl \
+    get_graph_name_demo.impl \
+    create_empty_directed_graph_with_graph_name_demo.impl
 
