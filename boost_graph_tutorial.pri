@@ -80,7 +80,10 @@ HEADERS += \
     save_custom_edges_and_vertices_graph_to_dot.h \
     create_empty_directed_graph_with_graph_name.h \
     set_graph_name.h \
-    get_graph_name.h
+    get_graph_name.h \
+    load_undirected_graph_from_dot.h \
+    is_regular_file.h \
+    property_not_found_node_id.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -167,7 +170,10 @@ SOURCES += \
     save_custom_edges_and_vertices_graph_to_dot.cpp \
     create_empty_directed_graph_with_graph_name.cpp \
     set_graph_name.cpp \
-    get_graph_name.cpp
+    get_graph_name.cpp \
+    load_undirected_graph_from_dot.cpp \
+    is_regular_file.cpp \
+    property_not_found_node_id.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and

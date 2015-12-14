@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{tikz}
+\usepackage{tkz-graph}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -64,7 +65,7 @@
 \begin_body
 
 \begin_layout Title
-Boost.Graph tutorial
+A well-connected C++14 Boost.Graph tutorial
 \end_layout
 
 \begin_layout Author
@@ -85,7 +86,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-I needed this tutorial in 2006, when I started experimenting with Boost.Graph.
+I needed this tutorial already in 2006 , when I started experimenting with
+ Boost.Graph.
  More specifically, I needed a tutorial that:
 \end_layout
 
@@ -135,7 +137,18 @@ The chapters of this tutorial are also like a well-connected graph.
 status collapsed
 
 \begin_layout Plain Layout
-There was even copy-pasting involved
+There was even copy-pasting involved!
+\end_layout
+
+\end_inset
+
+.
+ This tutorial is not about being short, but being complete
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+at the risk of being called bloated
 \end_layout
 
 \end_inset
@@ -202,6 +215,19 @@ I enjoy to show concepts by putting those in (long-named) functions.
 
 \begin_layout Standard
 All coding snippets are taken from compiled C++ code.
+ The code, as well as this tutorial, can be downloaded from the GitHub at
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.github.com/richelbilderbeek/BoostGraphTutorial
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -321,6 +347,28 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
+Counting the number of vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_n_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Counting the number of edges: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_n_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 Adding a vertex: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -386,9 +434,57 @@ reference "sub:get_edge_descriptors"
 
 \end_layout
 
+\begin_layout Itemize
+Getting the vertices' out degrees: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
+\end_layout
+
+\begin_layout Standard
+The chapter also introduces some important concepts:
+\end_layout
+
+\begin_layout Itemize
+Vertex descriptors: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Edge insertion result: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:boost::add_edge result"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Edge descriptors: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -435,33 +531,6 @@ reference "alg:create_empty_directed_graph"
 \end_inset
 
  shows the function to create an empty (directed) graph.
- The function should not throw, so it is preferred to mark it noexcept
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-noexcept
-\end_layout
-
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroustrup2013"
-
-\end_inset
-
-, chapter 13.7, page 387
-\end_layout
-
-\end_inset
-
-.
  
 \end_layout
 
@@ -515,6 +584,87 @@ name "alg:create_empty_directed_graph"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The code consists out of an #include and a function definition.
+ The #include includes the header file for the boost::adjacency_list class.
+ Without including this file, you will get compile errors like 'definition
+ of boost::adjacency_list unknown'
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In practice, these compiler error messages will be longer, bordering the
+ unreadable
+\end_layout
+
+\end_inset
+
+.
+ The function 'create_empty_directed_graph' has:
+\end_layout
+
+\begin_layout Itemize
+a return type: The return type is 'boost::adjacency_list<>', that is a 'boost::a
+djacency_list with all template arguments set at their defaults
+\end_layout
+
+\begin_layout Itemize
+a noexcept specification
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+noexcept specification
+\end_layout
+
+\end_inset
+
+: the function should not throw
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+if the function would throw because it cannot allocate this little piece
+ of memory, you are in already in big trouble
+\end_layout
+
+\end_inset
+
+, so it is preferred to mark it noexcept
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+noexcept
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+, chapter 13.7, page 387
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+a function body: all the function body does is create a 'boost::adjacency_list<>
+' by calling its constructor, by using the round brackets
 \end_layout
 
 \begin_layout Standard
@@ -606,8 +756,8 @@ boost::adjacency_list
 \end_inset
 
  with its default template arguments.
- For your reference, these default template argument denote that you've
- just created a graph, in which:
+ We do not do anything with it yet, but still, you've just created a graph,
+ in which:
 \end_layout
 
 \begin_layout Itemize
@@ -627,17 +777,7 @@ The vertices, edges and graph have no properties
 \end_layout
 
 \begin_layout Itemize
-The edges are stored in a std::list 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Why specify edge storage twice?
-\end_layout
-
-\end_inset
-
-
+The edges are stored in a std::list
 \end_layout
 
 \begin_layout Standard
@@ -653,6 +793,161 @@ boost::adjacency_matrix
 \end_inset
 
 .
+ It stores its edges, out edges and vertices in a two different STL
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+STL
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Standard Template Library, the standard library
+\end_layout
+
+\end_inset
+
+ containers.
+ std::vector
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::vector
+\end_layout
+
+\end_inset
+
+ is the container you should use by default (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 31.6, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sutter_and_alexandrescu2004"
+
+\end_inset
+
+ chapter 76), as it has constant time look-up and back insertion.
+ The std::list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::list
+\end_layout
+
+\end_inset
+
+ is used for storing the edges, as it is better suited at inserting elements
+ at any position.
+\end_layout
+
+\begin_layout Standard
+I use const
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+const
+\end_layout
+
+\end_inset
+
+ to store the empty graph as we do not modify it.
+ Correct use of const is called const-correct.
+ Prefer to be const-correct
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+const-correctness
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+ chapter 7.9.3, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 12.7, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "meyers2005effective"
+
+\end_inset
+
+ item 3, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hollingworth2000cpp_builder_dev_guide"
+
+\end_inset
+
+ chapter 3, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sutter_and_alexandrescu2004"
+
+\end_inset
+
+ item 15, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cline1998cpp_faqs"
+
+\end_inset
+
+ FAQ 14.05, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "eckel2002thinking_cpp"
+
+\end_inset
+
+ item 8, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lakos1996large"
+
+\end_inset
+
+ 9.1.6).
+ 
+\end_layout
+
+\begin_layout Standard
+I use auto...
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -873,11 +1168,98 @@ Vertices, edges and graph have no properties
 
 \begin_layout Itemize
 Edges are stored in a std::list 
-\begin_inset Note Note
+\end_layout
+
+\begin_layout Standard
+The difference between directed and undirected graphs is in the edges: in
+ an undirected graph, an edge connects two vertices without any directionality,
+ as displayed in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:undirected_graph_example"
+
+\end_inset
+
+.
+ In a directed graph, an edge goes from a certain vertex, its source, to
+ another (which may actually be the same), its target.
+ A directed graph is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:directed_graph_example"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Why specify edge storage twice?
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,2) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (10,1) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of an undirected graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:undirected_graph_example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -886,11 +1268,643 @@ Why specify edge storage twice?
 \end_layout
 
 \begin_layout Standard
-The difference between directed and undirected graphs is in the edges: in
- an undirected graph, an edge connects two vertices without any directionality.
- In a directed graph, an edge goes from a certain vertex, its source, to
- another (which may actually be the same), its target.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = { fill=black,shape=circle },
+\end_layout
+
+\begin_layout Plain Layout
+
+  EdgeStyle/.append style = {->, bend left} }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(A)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Loop[dist = 4cm, dir = NO](A.west)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{EdgeStyle/.append style = {bend left = 0}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of a directed graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:directed_graph_example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Counting the number of vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_vertices"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertices, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of vertices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's count all zero vertices of an empty graph!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the numbe of vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function 'get_n_vertices' takes the result of boost::num_vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_vertices
+\end_layout
+
+\end_inset
+
+, converts it to int and checks if there was no range overflow.
+ We do so, as one should prefer using int (over unsigned int) in an interface
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lakos1996large"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 9.2.2
+\end_layout
+
+\end_inset
+
+.
+ To do so, in the function body its first stament, the unsigned int
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+unsigned int
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+or '[some type]' to be precise
+\end_layout
+
+\end_inset
+
+ produced by boost::num_vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_vertices
+\end_layout
+
+\end_inset
+
+ get converted to an int using a static_cast
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+static_cast
+\end_layout
+
+\end_inset
+
+.
+ This static_cast cannot always be correct, as an unsigned int can have
+ twice as high (but only positive) values.
+ Luckily, this can be detected: if an unsigned int produces a negative int,
+ it was too big to be stored as such.
+ Using an unsigned int over a (signed) int for the sake of gaining that
+ one more bit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Chapter 4.4
+\end_layout
+
+\end_inset
+
+ should be avoided.
+ The integer 'n' is initialized using list-initialization, which is preferred
+ over the other initialization syntaxes (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 17.7.6).
+ 
+\end_layout
+
+\begin_layout Standard
+The assert statement checks if the conversion from unsigned int to int was
+ successfull.
+ If it was not, the program crashes.
+ Use assert
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+assert
+\end_layout
+
+\end_inset
+
+ extensively (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+ chapter 24.5.18, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 30.5, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sutter_and_alexandrescu2004"
+
+\end_inset
+
+ chapter 68, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mcconnell2004code"
+
+\end_inset
+
+ chapter 8.2, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liberty2001sams"
+
+\end_inset
+
+ hour 24, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lakos1996large"
+
+\end_inset
+
+ chapter 2.6).
+\end_layout
+
+\begin_layout Standard
+The function 'get_n_vertices' is demonstrated in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_n_vertices_demo"
+
+\end_inset
+
+, to measure the number of vertices of both the directed and undirected
+ graph we are already able to create.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_n_vertices' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_n_vertices_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the type of graph does not matter here.
+ One can count the number of vertices of every graph, as all graphs have
+ vertices.
+ Boost.Graph is very good at detecting operations that are not allowed, during
+ compile time.
+\end_layout
+
+\begin_layout Subsection
+Counting the number of edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_n_edges"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Edges, counting
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Counting the number of edges
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's count all zero edges of an empty graph!
+\end_layout
+
+\begin_layout Standard
+This is very similar to the previous chapter, only it uses boost::num_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_edges
+\end_layout
+
+\end_inset
+
+ instead.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the number of edges
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+get_n_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the rationale behind this, see the previous chapter.
+\end_layout
+
+\begin_layout Standard
+The function 'get_n_edges' is demonstrated in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_n_edges_demo"
+
+\end_inset
+
+, to measure the number of edges of an empty directed and undirected graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_n_edges_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_n_edges' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get_n_edges_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_n_edges_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1002,7 +2016,17 @@ name "alg:add_vertex"
 \end_layout
 
 \begin_layout Standard
-Algorithm 
+Note that boost::add_vertex (in the 'add_vertex' function) returns a vertex
+ descriptor, which is ignored for now.
+ Vertex descriptors are looked at in more details at the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+, as we need these to add an edge.
+ Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:add_vertex_demo"
@@ -1065,16 +2089,9 @@ name "alg:add_vertex_demo"
 \end_layout
 
 \begin_layout Standard
-Note that boost::add_vertex (in the 'add_vertex' function) returns a vertex
- descriptor, which is ignored for now.
- Vertex descriptors are looked at in more details at the chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Vertex-descriptors"
-
-\end_inset
-
-.
+This demonstration code creates two empty graphs, adds one vertex to each
+ and then asserts that the number of vertices in each graph is one.
+ This works for both types of graphs, as all graphs have vertices.
 \end_layout
 
 \begin_layout Subsection
@@ -1115,7 +2132,7 @@ reference "sub:get_vertex_descriptors"
 
 \end_inset
 
-
+ (vetrex iterators are obtained in chapter 
 \end_layout
 
 \begin_layout Standard
@@ -1306,6 +2323,11 @@ name "alg:get_vertices"
 \end_layout
 
 \begin_layout Standard
+This is a somewhat trivial function, as it forwards the function call to
+ boost::vertices.
+\end_layout
+
+\begin_layout Standard
 These vertex iterators can be dereferenced to obtain the vertex descriptors.
  Note that 'get_vertices' will not be used often in isolation: usually one
  obtains the vertex descriptors immediatly.
@@ -1395,7 +2417,7 @@ Vertex descriptors, get
 
 \begin_layout Standard
 Vertex descriptors are the way to manipulate those vertices.
- Let's get the all!
+ Let's go get the all!
 \end_layout
 
 \begin_layout Standard
@@ -1463,19 +2485,48 @@ name "alg:get_vertex_descriptors"
 \end_layout
 
 \begin_layout Standard
-The 'get_vertex_descripors' function shows an important concept of the Boost.Grap
-h library: boost::vertices returns two vertex iterators
+This is the first more complex piece of code.
+ In the first lines, some 'using' statements allow for shorter type names.
+ The function 'vertices'
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-vertex iterator
+vertices
 \end_layout
 
 \end_inset
 
-, which in turn can be dereferenced to obtain the vertex descriptors.
- Algorithm 
+ (not boost::vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertices does not exist
+\end_layout
+
+\end_inset
+
+!) returns a vertex iterator pair.
+ The two iterators are extracted, of which the first iterator, 'i', points
+ to the first vertex, and the second, 'j', points to beyond the last vertex.
+ In the for-loop, 'i' loops from begin to end.
+ Dereferencing it produces a vertex descriptor, which is stored in the std::vect
+or using emplace_back.
+ Prefer using emplace_back (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 31.6, items 25 and 27).
+ 
+\end_layout
+
+\begin_layout Standard
+The 'get_vertex_descriptors' function shows an important concept of the
+ Boost.Graph library: boost::verticesAlgorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_descriptors_demo"
@@ -1535,6 +2586,11 @@ name "alg:get_vertex_descriptors_demo"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Because all graphs have (vertices and thus) vertex descriptors, the type
+ of graph is unimportant for this code to compile.
 \end_layout
 
 \begin_layout Subsection
@@ -1662,10 +2718,17 @@ name "alg:add_edge"
 \end_layout
 
 \begin_layout Standard
-This algorithm only shows how to add an isolated edge to a graph, instead
- of allowing for graphs with higher connectivities.
- The function boost::add_vertex returns a vertex descriptor, which I prefix
- with 'vd'
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge"
+
+\end_inset
+
+ shows how to add an isolated edge to a graph (instead of allowing for graphs
+ with higher connectivities).
+ First, two vertices are created, using the function 'boost::add_vertex'.
+ 'boost::add_vertex' returns a vertex descriptor (which I prefix with 'vd'
 \begin_inset Index idx
 status open
 
@@ -1675,8 +2738,9 @@ vd
 
 \end_inset
 
-.
- The function boost::add_edge
+), both of which are stored.
+ The vertex descriptors are used to add an edge to the graph, using 'boost::add_
+edge'
 \begin_inset Index idx
 status open
 
@@ -1686,7 +2750,18 @@ boost::add_edge
 
 \end_inset
 
- returns a std::pair
+.
+ 'boost::add_edge'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ returns returns a std::pair
 \begin_inset Index idx
 status open
 
@@ -1697,14 +2772,8 @@ std::pair
 \end_inset
 
 , consisting of an edge descriptor and a boolean success indicator.
- In algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:add_edge"
-
-\end_inset
-
- we assert
+ The success of adding the edge is checked by an assert statement.
+ Here we assert
 \begin_inset Index idx
 status open
 
@@ -1782,6 +2851,11 @@ name "alg:add_edge_demo"
 
 \end_layout
 
+\begin_layout Standard
+The graph type is unimportant: as all graph types have vertices and edges,
+ edges can be added without possible compile problems.
+\end_layout
+
 \begin_layout Subsection
 boost::add_edge result
 \begin_inset CommandInset label
@@ -1843,7 +2917,7 @@ name "sub:get_edges"
 
 \begin_layout Standard
 You cannot get the edges directly.
- Working on the edges of a graph is done throught these steps:
+ Instead, working on the edges of a graph is done throught these steps:
 \end_layout
 
 \begin_layout Itemize
@@ -1887,7 +2961,7 @@ Edge iterator
 \end_inset
 
  points to the first edge (its descriptor, to be precise), the second points
- to beyond the last edge.
+ to beyond the last edge (its descriptor, to be precise).
  In this tutorial, edge iterator pairs have named prefixed with 'eip_'
 \begin_inset Index idx
 status open
@@ -1899,6 +2973,14 @@ eip_
 \end_inset
 
 , for example 'eip_1'.
+ Algoritm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_edges"
+
+\end_inset
+
+ shows how to obtain these:
 \end_layout
 
 \begin_layout Standard
@@ -1954,7 +3036,18 @@ name "alg:get_edges"
 \end_layout
 
 \begin_layout Standard
-These edge iterators can be dereferenced to obtain the edge descriptors.
+This is a somewhat trivial function, as all it does is forward to function
+ call to 'edges' (not boost::edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edges does not exist
+\end_layout
+
+\end_inset
+
+!) These edge iterators can be dereferenced to obtain the edge descriptors.
  Note that this function will not be used often in isolation: usually one
  obtains the edge descriptors immediatly.
 \end_layout
@@ -2155,27 +3248,36 @@ name "alg:get_edge_descriptors"
 \end_layout
 
 \begin_layout Standard
-This does show an important concept of the Boost.Graph library: boost::edges
+This function is a repeat of getting all the vertex descriptors (see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_descriptors"
+
+\end_inset
+
+), but using 'edges'
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::edges
+edges
 \end_layout
 
 \end_inset
 
- returns to vertex iterators
+ (not boost::edges
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-vertex iterator
+boost::edges does not exist
 \end_layout
 
 \end_inset
 
-, that can be dereferenced to obtain the vertex descriptors.
+!) instead.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2564,377 +3666,6 @@ name "alg:create_k2_graph_demo"
 
 \end_layout
 
-\begin_layout Section
-Working on a graph without properties
-\end_layout
-
-\begin_layout Standard
-Graphs without edge and vertex properties have plenty of things to measure.
- These simple getters and setters will allow you to work with, test and
- debug your code:
-\end_layout
-
-\begin_layout Itemize
-Counting the number of vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_n_vertices"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Counting the number of edges: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_n_edges"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Getting the vertices' out degrees: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_vertex_out_degrees"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Counting the number of vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_n_vertices"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Vertices, counting
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Counting the number of vertices
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Use boost::num_vertices
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::num_vertices
-\end_layout
-
-\end_inset
-
-, as shown here:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_vertices.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Count the numbe of vertices
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-get_n_vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_vertices"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The function 'get_n_vertices' is demonstrated in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:get_n_vertices_demo"
-
-\end_inset
-
-, to measure the number of vertices of an empty (zero) and 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- (two) graph.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_vertices_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of the 'get_n_vertices' function
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-get_n_vertices_demo
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_vertices_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Counting the number of edges
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_n_edges"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Edges, counting
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Counting the number of edges
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Use boost::num_edges
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::num_edges
-\end_layout
-
-\end_inset
-
-, as shown here:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_edges.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Count the number of edges
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-get_n_edges
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_edges"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The function 'get_n_edges' is demonstrated in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:get_n_edges_demo"
-
-\end_inset
-
-, to measure the number of vertices of an empty (zero) and 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- (one) graph.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_n_edges_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of the 'get_n_edges' function
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-get_n_edges_demo
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_n_edges_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Getting the vertices' out degree
 \begin_inset CommandInset label
@@ -2947,7 +3678,8 @@ name "sub:get_vertex_out_degrees"
 \end_layout
 
 \begin_layout Standard
-The out degree of a vertex is the number of edges that originate at it.
+As a bonus chapter, let's measure the out degree of all vertices in a graph.
+ The out degree of a vertex is the number of edges that originate at it.
 \end_layout
 
 \begin_layout Standard
@@ -3003,47 +3735,37 @@ name "alg:get_vertex_out_degrees"
 \end_layout
 
 \begin_layout Standard
-The out degrees of the vertices are obtained directly from the vertex descriptor
- and then put into a std::vector.
- Note that the std::vector has element type 'int', instead of 'graph::degree_siz
-e_type', as one should prefer using int (over unsigned int) in an interface
+The structure of this algorithm is similar to get_vertex_descriptors (algorithm
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lakos1996large"
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_descriptors"
 
 \end_inset
 
-
-\begin_inset Foot
+), except that the out degrees from the vertex descriptors are stored.
+ The out degree of a vertex iterator is obtained from the function 'out_degree'
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Chapter 9.2.2
+out_degree
 \end_layout
 
 \end_inset
 
-.
- Also, avoid using an unsigned an int for the sake of gaining that one more
- bit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroustrup1997"
-
-\end_inset
-
-
-\begin_inset Foot
+ (not boost::out_degree
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Chapter 4.4
+boost::out_degree does not exist
 \end_layout
 
 \end_inset
 
-.
+!).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3146,7 +3868,11 @@ Create .dot from graph
 \end_layout
 
 \begin_layout Standard
-Graph are easily saved to a .dot file:
+Graph are easily saved to a file, thanks to Graphviz.
+ Graphviz (short for Graph Visualization Software) is a package of open-source
+ tools for drawing graphs.
+ It uses the DOT language for describing graphs, and these are commonly
+ stored in (plain-text) .dot files:
 \end_layout
 
 \begin_layout Standard
@@ -3202,6 +3928,41 @@ name "alg:save_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
+All the code does is create an std::ofstream
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::ofstream
+\end_layout
+
+\end_inset
+
+ (an output-to-file stream) and use boost::write_graphviz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::write_graphviz
+\end_layout
+
+\end_inset
+
+ to write the DOT description of our graph to that stream.
+ Instead of 'std::ofstream', one could use std::cout
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::cout
+\end_layout
+
+\end_inset
+
+ (a related output stream) to display the DOT language on screen directly.
+\end_layout
+
+\begin_layout Standard
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3209,7 +3970,7 @@ reference "alg:save_graph_to_dot_demo"
 
 \end_inset
 
- shows how to use this function.
+ shows how to use the 'save_graph_to_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -3265,7 +4026,7 @@ name "alg:save_graph_to_dot_demo"
 \end_layout
 
 \begin_layout Standard
-When using the 'create_k2_graph function' (algorithm 
+When using the 'create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
@@ -3336,6 +4097,20 @@ name "alg:save_graph_to_dot_test_k2_graph.dot"
 \end_layout
 
 \begin_layout Standard
+From the .dot file one can already see that the graph is undirected, because:
+\end_layout
+
+\begin_layout Itemize
+The first word, 'graph', denotes an undirected graph (where 'digraph' would
+ have indicated a directional graph)
+\end_layout
+
+\begin_layout Itemize
+The edge between 0 and 1 is written as '--' (where directed connections
+ would be written as '->', '<-' or '<>')
+\end_layout
+
+\begin_layout Standard
 This .dot file corresponds to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3391,6 +4166,11 @@ name "fig:save_graph_to_dot_test_k2_graph.svg"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Also this figure shows that the graph in undirected, otherwise the edge
+ would have one or two arrow heads.
 \end_layout
 
 \begin_layout Standard
@@ -3470,6 +4250,37 @@ reference "alg:save_graph_to_dot"
 ) saves only the structure of the graph.
 \end_layout
 
+\begin_layout Subsection
+Loading a graph from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_graph_from_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load graph from .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create graph from .dot
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Section
 Building graphs with built-in properties
 \end_layout
@@ -3478,7 +4289,9 @@ Building graphs with built-in properties
 Up until now, the graphs created have had edges and vertices without any
  propery.
  In this chapter, graphs will be created, in which edges vertices can have
- a (std::string) name.
+ a name.
+ This name will be of the std::string data type, but other types are possible
+ as well.
  There are many more built-in properties edges and nodes can have (see the
  boost/graph/properties.hpp file for these).
 \end_layout
@@ -12220,6 +13033,14 @@ If you know, please email me.
 \end_layout
 
 \begin_layout Section
+Graph gallery
+\end_layout
+
+\begin_layout Subsection
+Markov chain
+\end_layout
+
+\begin_layout Section
 Misc functions
 \end_layout
 
@@ -12491,6 +13312,933 @@ reference "sub:no_matching_function_for_call_to_clear_out_edges"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+Undefined reference to boost::detail::graph::read_graphviz_new
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:undefined_reference_to_read_graphviz_new"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+read_graphviz_new
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You will have to link agains the Boost.Graph and Boost.Regex libraries.
+ In Qt Creator, this is achieved by adding these lines to your Qt Creator
+ project file:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+LIBS += -lboost_graph -lboost_regex 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Property not found: node_id
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:property_not_found_node_id"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appendix
+\end_layout
+
+\begin_layout Subsection
+List of all edge, graph and vertex properties
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:all_properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following list is obtained from the file 'boost/graph/properties.hpp'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="29" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edge
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Graph
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertex
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_all
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+graph_all
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_all
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_bundle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+graph_bundle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_bundle
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_capacity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+graph_name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_centrality
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_centrality
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+graph_visitor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_color
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_color
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_current_degree
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_discover_time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_degree
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_finished
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_discover_time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_distance
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_global
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_distance2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_finish_time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_local
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_global
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_local_index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_in_degree
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_index
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_owner
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_index1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_residual_capacity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_index2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_reverse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_local
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_underlying
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_local_index
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_lowpoint
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_name
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+edge_weight2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_out_degree
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_owner
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_potential
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_predecessor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_priority
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_rank
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_root
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_underlying
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vertex_update
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

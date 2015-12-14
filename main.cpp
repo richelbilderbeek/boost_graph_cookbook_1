@@ -52,6 +52,7 @@
 #include "has_vertex_with_name.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
+#include "load_undirected_graph_from_dot.h"
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
@@ -130,6 +131,7 @@ int main()
   has_vertex_with_name_test();
   is_self_loop_test();
   is_valid_dot_file_test();
+  load_undirected_graph_from_dot_test();
   print_trans_delays_test();
   print_trans_delay_test();
   print_vertex_names_test();

@@ -7,14 +7,14 @@ std::vector<
 > get_vertex_descriptors(const graph& g) noexcept
 {
   using boost::graph_traits;
-  std::vector<
-    typename graph_traits<graph>::vertex_descriptor
-  > v;
-  for (auto vi = vertices(g);
-    vi.first != vi.second;
-    ++vi.first)
-  {
-    v.emplace_back(*vi.first);
+  using vd = typename graph_traits<graph>::vertex_descriptor;
+
+  std::vector<vd> vds;
+  const auto vis = vertices(g); //No boost::vertices
+  auto i = vis.first;
+  const auto j = vis.second;
+  for ( ; i!=j; ++i) {
+    vds.emplace_back(*i);
   }
-  return v;
+  return vds;
 }

@@ -6,7 +6,9 @@ void add_vertex_demo() noexcept
 {
   auto g = create_empty_undirected_graph();
   add_vertex(g);
+  assert(boost::num_vertices(g) == 1);
 
   auto h = create_empty_directed_graph();
   add_vertex(h);
+  assert(boost::num_vertices(h) == 1);
 }

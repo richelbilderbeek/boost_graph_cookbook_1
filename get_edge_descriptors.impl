@@ -7,14 +7,15 @@ std::vector<
 > get_edge_descriptors(const graph& g) noexcept
 {
   using boost::graph_traits;
-  std::vector<
-    typename graph_traits<graph>::edge_descriptor
-  > v;
-  for (auto vi = edges(g);
-    vi.first != vi.second;
-    ++vi.first)
-  {
-    v.emplace_back(*vi.first);
+  using ed = typename graph_traits<graph>::edge_descriptor;
+
+  std::vector<ed> eds;
+  const auto ei = edges(g); //Not boost::edges
+  auto i = ei.first;
+  const auto j = ei.second;
+
+  for ( ; i!=j; ++i) {
+    eds.emplace_back(*i);
   }
-  return v;
+  return eds;
 }

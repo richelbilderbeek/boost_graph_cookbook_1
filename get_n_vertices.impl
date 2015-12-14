@@ -1,8 +1,13 @@
+#include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 
 ///Get the number of vertices a graph has
 template <class graph>
 int get_n_vertices(const graph& g) noexcept
 {
-  return static_cast<int>(boost::num_vertices(g));
+  const int n{
+    static_cast<int>(boost::num_vertices(g))
+  };
+  assert(n >= 0);
+  return n;
 }
