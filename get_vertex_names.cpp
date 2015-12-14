@@ -8,7 +8,7 @@
 #include "get_n_vertices.h"
 #include "create_k2_graph.h"
 #include "add_named_vertex.h"
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_undirected_named_vertices_graph.h"
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 
@@ -20,7 +20,7 @@ void get_vertex_names_test() noexcept
   }
   //Named K2 graph
   {
-    auto g = create_empty_named_vertices_graph();
+    auto g = create_empty_undirected_named_vertices_graph();
     const std::string vertex_name_1{"Chip"};
     const std::string vertex_name_2{"Chap"};
     add_named_vertex(vertex_name_1, g);

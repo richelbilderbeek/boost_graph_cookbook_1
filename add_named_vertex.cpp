@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include <boost/graph/adjacency_list.hpp>
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_undirected_named_vertices_graph.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_vertex_names.h"
@@ -17,7 +17,7 @@ void add_named_vertex_test() noexcept
 {
   //Add 1
   {
-    auto g = create_empty_named_vertices_graph();
+    auto g = create_empty_undirected_named_vertices_graph();
     assert(get_vertex_descriptors(g).size() == 0);
     assert(get_edge_descriptors(g).size() == 0);
     assert(get_n_vertices(g) == 0);
@@ -34,7 +34,7 @@ void add_named_vertex_test() noexcept
   }
   //Add 2
   {
-    auto g = create_empty_named_vertices_graph();
+    auto g = create_empty_undirected_named_vertices_graph();
     assert(get_n_vertices(g) == 0);
     assert(get_n_edges(g) == 0);
     const std::string vertex_name_1{"A"};

@@ -126,7 +126,7 @@ create_tutorial_chapters_graph() noexcept
   //Create graph
   vertex_name_map[ceg     ] = "create_empty_graph";
   vertex_name_map[cenvg   ] = "create_empty_named_vertices_graph";
-  vertex_name_map[ceneavg ] = "create_empty_named_edges_and_vertices_graph";
+  vertex_name_map[ceneavg ] = "create_empty_undirected_named_edges_and_vertices_graph";
   vertex_name_map[cecvg   ] = "create_empty_custom_vertices_graph";
   vertex_name_map[ceceavg ] = "create_empty_custom_edges_and_vertices_graph";
   vertex_name_map[ck2g    ] = "create_k2_graph";

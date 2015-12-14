@@ -1,12 +1,12 @@
 #include <cassert>
 
 #include "add_named_edge.h"
-#include "create_empty_named_edges_and_vertices_graph.h"
+#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "get_edge_names.h"
 
 void get_edge_names_demo() noexcept
 {
-  auto g = create_empty_named_edges_and_vertices_graph();
+  auto g = create_empty_undirected_named_edges_and_vertices_graph();
   const std::string edge_name_1{"Eugene"};
   const std::string edge_name_2{"Another Eugene"};
   add_named_edge(edge_name_1, g);

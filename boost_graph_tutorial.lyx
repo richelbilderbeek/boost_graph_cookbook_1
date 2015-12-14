@@ -3349,7 +3349,7 @@ Creating
 \begin_inset Formula $K_{2}$
 \end_inset
 
-, a fully connected graph with two vertices
+, a fully connected undirected graph with two vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:create_k2"
@@ -3610,8 +3610,8 @@ reference "alg:create_k2_graph_demo"
 
 \end_inset
 
- demonstrates how to 'create_k2_graph' and uses all functions currently
- described by this tutorial.
+ demonstrates how to 'create_k2_graph' and checks if it has the correct
+ amount of edges and vertices.
 \end_layout
 
 \begin_layout Standard
@@ -3619,7 +3619,7 @@ reference "alg:create_k2_graph_demo"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -3650,6 +3650,625 @@ create_k2_graph_demo
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Running a bit ahead, this graph can be converted to a .dot file (using algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .svg file of this graph is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_k2_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating a directed graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_markov_chain_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create directed graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Directed graph, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, we are going to create a directed graph! 
+\end_layout
+
+\begin_layout Standard
+This directed graph is a two-state Markov chain, with two vertices and four
+ edges, as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_markov_chain_graph"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = { fill=black,shape=circle },
+\end_layout
+
+\begin_layout Plain Layout
+
+  EdgeStyle/.append style = {->, bend left} }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(A)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Loop[dist = 4cm, dir = NO](A.west)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Loop[dist = 4cm, dir = SO](B.east)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The two-state Markov chain
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_markov_chain_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that directed graphs can have edges that start and end in the same
+ vertex.
+ These are called self-loops.
+\end_layout
+
+\begin_layout Standard
+To create this two-state Markov chain, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_markov_chain_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_markov_chain_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_markov_chain_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_markov_chain_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To save defining the type, we call the 'create_empty_directed_graph' function.
+ The vertex descriptors (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+) created by two boost::add_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_vertex
+\end_layout
+
+\end_inset
+
+ calls are stored to add an edge to the graph.
+ From boost::add_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ its return type (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:boost::add_edge result"
+
+\end_inset
+
+), it is only checked that insertion has been successfull.
+\end_layout
+
+\begin_layout Standard
+Note that the graph lacks all properties: nodes do not have names, nor do
+ edges.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "create_markov_chain_graph_demo"
+
+\end_inset
+
+ demonstrates the 'create_markov_chain_graph' function and checks if it
+ has the correct amount of edges and vertices.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_markov_chain_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_markov_chain_graph' 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_markov_chain_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "create_markov_chain_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Running a bit ahead, this graph can be converted to a .dot file (using algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+) created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_markov_chain_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_markov_chain_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_markov_chain_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_markov_chain_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_markov_chain_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .svg file of this graph is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_markov_chain_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_markov_chain_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_markov_chain_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_markov_chain_graph"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_markov_chain_graph.svg"
 
 \end_inset
 
@@ -4141,10 +4760,18 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the create_k2_graph function (algorithm 
+.svg file created from the 'create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
 
 \end_inset
 
@@ -4263,7 +4890,7 @@ name "sub:load_undirected_graph_from_dot"
 status open
 
 \begin_layout Plain Layout
-Load graph from .dot
+Load undirected graph from .dot
 \end_layout
 
 \end_inset
@@ -4273,7 +4900,7 @@ Load graph from .dot
 status open
 
 \begin_layout Plain Layout
-Create graph from .dot
+Create undirected graph from .dot
 \end_layout
 
 \end_inset
@@ -4520,10 +5147,309 @@ reference "alg:load_undirected_graph_from_dot_demo"
 
 \end_inset
 
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
 )
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:load_undirected_graph_from_dot_test_k2.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Loading an directed graph from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_directed_graph_from_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load directed graph from .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create directed graph from .dot
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph is loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading a directed graph from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_directed_graph_from_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with the 'boost::ignore_other_properties'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::ignore_other_properties
+\end_layout
+
+\end_inset
+
+ in its constructor (using a default constructor here results in the run-time
+ error 'property not found: node_id', see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:property_not_found_node_id"
+
+\end_inset
+
+).
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_graph_from_dot' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_directed_graph_from_dot_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_marko
+v_chain_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_markov_chain_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph should be a directed graph similar to the Markov chain.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:load_directed_graph_from_dot_test_markov_chain.svg"
+
+\end_inset
+
+ shows that the graph loaded can be converted to the correct graph (which
+ should be identical to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_graph_to_dot_test_k2_graph.svg"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename load_directed_graph_from_dot_test_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'load_directed_graph_from_dot_demo' function (algorith
+m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_graph_from_dot_demo"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:load_directed_graph_from_dot_test_markov_chain.svg"
 
 \end_inset
 
@@ -4564,7 +5490,7 @@ An empty (undirected) graph that allows for vertices with names: see chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_empty_named_vertices_graph"
+reference "sub:create_empty_undirected_named_vertices_graph"
 
 \end_inset
 
@@ -4575,7 +5501,7 @@ reference "sub:create_empty_named_vertices_graph"
 \begin_inset Formula $K_{2}$
 \end_inset
 
-with named vertices: see chapter 
+ with named vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_named_vertices_k2"
@@ -4665,10 +5591,10 @@ These functions are mostly there for completion and showing which data types
 \end_layout
 
 \begin_layout Subsection
-Creating an empty graph with named vertices
+Creating an empty undirected graph with named vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_empty_named_vertices_graph"
+name "sub:create_empty_undirected_named_vertices_graph"
 
 \end_inset
 
@@ -4677,7 +5603,7 @@ name "sub:create_empty_named_vertices_graph"
 status open
 
 \begin_layout Plain Layout
-Create an empty graph with named vertices
+Create an empty undirected graph with named vertices
 \end_layout
 
 \end_inset
@@ -4687,7 +5613,7 @@ Create an empty graph with named vertices
 status open
 
 \begin_layout Plain Layout
-Named vertices, create empty graph
+Named vertices, create empty undirected graph
 \end_layout
 
 \end_inset
@@ -4697,7 +5623,7 @@ Named vertices, create empty graph
 status open
 
 \begin_layout Plain Layout
-Empty graph with named vertices, create
+Empty undirected graph with named vertices, create
 \end_layout
 
 \end_inset
@@ -4706,7 +5632,8 @@ Empty graph with named vertices, create
 \end_layout
 
 \begin_layout Standard
-Let's create a trivial empty graph, in which the vertices can have a name:
+Let's create a trivial empty undirected graph, in which the vertices can
+ have a name:
 \end_layout
 
 \begin_layout Standard
@@ -4719,7 +5646,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_named_vertices_graph.impl"
+filename "create_empty_undirected_named_vertices_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -4731,12 +5658,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating an empty graph with named vertices
+Creating an empty undirected graph with named vertices
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-create_empty_named_vertices_graph
+create_empty_undirected_named_vertices_graph
 \end_layout
 
 \end_inset
@@ -4744,7 +5671,7 @@ create_empty_named_vertices_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_named_vertices_graph"
+name "alg:create_empty_undirected_named_vertices_graph"
 
 \end_inset
 
@@ -4908,7 +5835,7 @@ vertices have a name that is stored as a std::string
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_empty_named_vertices_graph_demo"
+reference "alg:create_empty_undirected_named_vertices_graph_demo"
 
 \end_inset
 
@@ -4927,7 +5854,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_named_vertices_graph_demo.impl"
+filename "create_empty_undirected_named_vertices_graph_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -4939,12 +5866,13 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_named_vertices_graph' function 
+Demonstration if the 'create_empty_undirected_named_vertices_graph' function
+ 
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-create_empty_named_vertices_graph_demo
+create_empty_named_undirected_vertices_graph_demo
 \end_layout
 
 \end_inset
@@ -4952,7 +5880,7 @@ create_empty_named_vertices_graph_demo
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_named_vertices_graph_demo"
+name "alg:create_empty_undirected_named_vertices_graph_demo"
 
 \end_inset
 
@@ -5645,7 +6573,7 @@ name "alg:create_named_vertices_k2_graph_demo"
 \end_layout
 
 \begin_layout Subsection
-Creating an empty graph with named edges and vertices
+Creating an empty undirected graph with named edges and vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:create_empty_named_edges_and_vertices_graph"
@@ -5686,8 +6614,8 @@ Empty graph with named edges and vertices, create
 \end_layout
 
 \begin_layout Standard
-Let's create a trivial empty graph, in which the both the edges and vertices
- can have a name:
+Let's create a trivial empty undirected graph, in which the both the edges
+ and vertices can have a name:
 \end_layout
 
 \begin_layout Standard
@@ -5700,7 +6628,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_named_edges_and_vertices_graph.impl"
+filename "create_empty_undirected_named_edges_and_vertices_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -5714,10 +6642,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_layout Plain Layout
 Creating an empty graph with named edges and vertices
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-create_empty_named_edges_and_vertices_graph
+create_empty_undirected_named_edges_and_vertices_graph
 \end_layout
 
 \end_inset
@@ -5725,7 +6653,7 @@ create_empty_named_edges_and_vertices_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_named_edges_and_vertices_graph"
+name "alg:create_empty_undirected_named_edges_and_vertices_graph"
 
 \end_inset
 
@@ -5843,17 +6771,7 @@ The graph has no properties
 \end_layout
 
 \begin_layout Itemize
-Edges are stored in a std::list 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Why specify edge storage twice?
-\end_layout
-
-\end_inset
-
-
+Edges are stored in a std::list
 \end_layout
 
 \begin_layout Standard
@@ -5913,7 +6831,7 @@ edges have a name that is stored as a std::string
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_empty_named_edges_and_vertices_graph_demo"
+reference "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
 
 \end_inset
 
@@ -5932,7 +6850,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_named_edges_and_vertices_graph_demo.impl"
+filename "create_empty_undirected_named_edges_and_vertices_graph_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -5944,23 +6862,13 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_named_edges_and_vertices_graph' function
- 
+Demonstration if the 'create_empty_undirected_named_edges_and_vertices_graph'
+ function 
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-create_empty_named_edges_and_vertices_graph_demo
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Reference to Fantastic Four
+create_empty_undirected_named_edges_and_vertices_graph_demo
 \end_layout
 
 \end_inset
@@ -5968,7 +6876,7 @@ Reference to Fantastic Four
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_named_edges_and_vertices_graph_demo"
+name "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
 
 \end_inset
 
@@ -6766,7 +7674,7 @@ Remove a named edge: chapter
 \end_layout
 
 \begin_layout Itemize
-Storing a graph with named vertices as a .dot: chapter 
+Storing an undirected graph with named vertices as a .dot: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:save_named_vertices_graph_to_dot"
@@ -6777,10 +7685,18 @@ reference "sub:save_named_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Itemize
+Loading an undirected graph with named vertices as a .dot: chapter 
+\end_layout
+
+\begin_layout Itemize
+Storing an directed graph with named vertices as a .dot: chapter 
+\end_layout
+
+\begin_layout Itemize
 Storing a graph with named edges and vertices as a .dot: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:save_named_edges_and_vertices_graph_to_dot"
+reference "sub:save_named_edges_and_vertices_undirected_graph_to_dot"
 
 \end_inset
 
@@ -8962,7 +9878,7 @@ name "alg:remove_edge_between_vertices_with_names_demo"
 \end_layout
 
 \begin_layout Subsection
-Storing a graph with named vertices as a .dot
+Storing an directed/undirected graph with named vertices as a .dot
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:save_named_vertices_graph_to_dot"
@@ -9166,6 +10082,14 @@ reference "alg:create_named_vertices_k2_graph"
 
 \end_inset
 
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
 )
 \begin_inset CommandInset label
 LatexCommand label
@@ -9265,10 +10189,10 @@ reference "alg:save_graph_to_dot"
 \end_layout
 
 \begin_layout Subsection
-Storing a graph with named vertices and edges as a .dot
+Storing an undirected graph with named vertices and edges as a .dot
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:save_named_edges_and_vertices_graph_to_dot"
+name "sub:save_named_edges_and_vertices_undirected_graph_to_dot"
 
 \end_inset
 
@@ -9482,6 +10406,14 @@ status open
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
 
 \end_inset
 
@@ -12592,17 +13524,15 @@ reference "alg:create_custom_vertices_k2_graph"
 
 \end_inset
 
-)
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-pi
-\end_layout
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
 
 \end_inset
 
-
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg"
@@ -12844,17 +13774,15 @@ reference "alg:create_custom_edges_and_vertices_k3_graph"
 
 \end_inset
 
-)
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-pi
-\end_layout
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
 
 \end_inset
 
-
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.svg"
@@ -13303,6 +14231,13 @@ Markov chain
 Misc functions
 \end_layout
 
+\begin_layout Standard
+These are some function I needed for creating this tutorial.
+ Although they are not important for working with graphs, I used these heavily.
+ These functions may be compiler-dependent or platform-dependent.
+ I just add them for 
+\end_layout
+
 \begin_layout Subsection
 Getting a data type as a std::string
 \begin_inset CommandInset label
@@ -13368,6 +14303,81 @@ name "alg:get_type_name"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Convert a .dot to .svg
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:convert_dot_to_svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All illustrations in this tutorial are created by converting .dot to a .svg
+ ('Scalable Vector Graphic') file.
+ This function assumes the program 'dot' is installed, which is part of
+ GraphViz.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_type_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Convert a .dot file to a .svg
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+convert_dot_to_svg
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+'convert_dot_to_svg' makes a system call to the prgram 'dot' to convert
+ the .dot file to an .svg file.
 \end_layout
 
 \begin_layout Section

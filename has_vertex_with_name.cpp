@@ -6,11 +6,11 @@
 #include <iostream>
 
 #include "add_named_vertex.h"
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_undirected_named_vertices_graph.h"
 
 void has_vertex_with_name_test() noexcept
 {
-  auto g = create_empty_named_vertices_graph();
+  auto g = create_empty_undirected_named_vertices_graph();
   assert(!has_vertex_with_name("Felix",g));
   add_named_vertex("Felix",g);
   assert(has_vertex_with_name("Felix",g));

@@ -15,8 +15,6 @@ HEADERS += \
   create_empty_custom_edges_and_vertices_graph.h \
   create_empty_custom_vertices_graph.h \
   create_empty_directed_graph.h \
-  create_empty_named_edges_and_vertices_graph.h \
-  create_empty_named_vertices_graph.h \
   create_empty_undirected_graph.h \
   create_k2_graph.h \
   create_named_edges_and_vertices_k3_graph.h \
@@ -61,7 +59,6 @@ HEADERS += \
   save_custom_vertices_graph_to_dot.h \
   save_graph_to_dot.h \
   save_named_edges_and_vertices_graph_to_dot.h \
-  save_named_vertices_graph_to_dot.h \
   set_edge_name.h \
   set_vertex_my_vertexes.h \
   set_vertex_name.h \
@@ -83,7 +80,14 @@ HEADERS += \
     get_graph_name.h \
     load_undirected_graph_from_dot.h \
     is_regular_file.h \
-    property_not_found_node_id.h
+    property_not_found_node_id.h \
+    create_markov_chain_graph.h \
+    load_directed_graph_from_dot.h \
+    save_named_vertices_graph_to_dot.h \
+    create_empty_undirected_named_vertices_graph.h \
+    create_named_vertices_markov_chain_graph.h \
+    create_empty_directed_named_vertices_graph.h \
+    create_empty_undirected_named_edges_and_vertices_graph.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -102,16 +106,10 @@ SOURCES += \
   create_empty_custom_edges_and_vertices_graph.cpp \
   create_empty_custom_vertices_graph.cpp \
   create_empty_directed_graph.cpp \
-  create_empty_named_edges_and_vertices_graph.cpp \
-  create_empty_named_vertices_graph.cpp \
-  create_empty_named_vertices_graph_test.cpp \
   create_empty_undirected_graph.cpp \
-  create_empty_undirected_graph_test.cpp \
   create_k2_graph.cpp \
-  create_k2_graph_test.cpp \
   create_named_edges_and_vertices_k3_graph.cpp \
   create_named_vertices_k2_graph.cpp \
-  create_named_vertices_k2_graph_test.cpp \
   create_router_network.cpp \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
@@ -151,7 +149,6 @@ SOURCES += \
   save_custom_vertices_graph_to_dot.cpp \
   save_graph_to_dot.cpp \
   save_named_edges_and_vertices_graph_to_dot.cpp \
-  save_named_vertices_graph_to_dot.cpp \
   set_edge_name.cpp \
   set_vertex_my_vertexes.cpp \
   set_vertex_name.cpp \
@@ -173,7 +170,15 @@ SOURCES += \
     get_graph_name.cpp \
     load_undirected_graph_from_dot.cpp \
     is_regular_file.cpp \
-    property_not_found_node_id.cpp
+    property_not_found_node_id.cpp \
+    create_markov_chain_graph.cpp \
+    load_directed_graph_from_dot.cpp \
+    save_named_vertices_graph_to_dot.cpp \
+    create_empty_undirected_named_vertices_graph.cpp \
+    create_named_vertices_markov_chain_graph.cpp \
+    create_named_vertices_markov_chain_graph_test.cpp \
+    create_empty_directed_named_vertices_graph.cpp \
+    create_empty_undirected_named_edges_and_vertices_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -199,10 +204,6 @@ OTHER_FILES += \
   create_empty_custom_vertices_graph.impl \
   create_empty_directed_graph_demo.impl \
   create_empty_directed_graph.impl \
-  create_empty_named_edges_and_vertices_graph_demo.impl \
-  create_empty_named_edges_and_vertices_graph.impl \
-  create_empty_named_vertices_graph_demo.impl \
-  create_empty_named_vertices_graph.impl \
   create_empty_undirected_graph_demo.impl \
   create_empty_undirected_graph.impl \
   create_k2_graph_demo.impl \
@@ -257,7 +258,6 @@ OTHER_FILES += \
   save_graph_to_dot_demo.impl \
   save_graph_to_dot.impl \
   save_named_edges_and_vertices_graph_to_dot.impl \
-  save_named_vertices_graph_to_dot.impl \
   set_edge_name_demo.impl \
   set_edge_name.impl \
   set_vertex_my_vertexes.impl \
@@ -292,5 +292,18 @@ OTHER_FILES += \
     create_empty_directed_graph_with_graph_name_demo.impl \
     property_not_found_node_id.impl \
     load_undirected_graph_from_dot.impl \
-    load_undirected_graph_from_dot_demo.impl
+    load_undirected_graph_from_dot_demo.impl \
+    create_markov_chain_graph.impl \
+    create_markov_chain_graph_demo.impl \
+    load_directed_graph_from_dot.impl \
+    load_directed_graph_from_dot_demo.impl \
+    save_named_vertices_graph_to_dot.impl \
+    create_empty_undirected_named_vertices_graph.impl \
+    create_empty_undirected_named_vertices_graph_demo.impl \
+    create_named_vertices_markov_chain_graph_demo.impl \
+    create_empty_directed_named_vertices_graph.impl \
+    create_empty_directed_named_vertices_graph_demo.impl \
+    create_empty_undirected_named_edges_and_vertices_graph.impl \
+    create_empty_undirected_named_edges_and_vertices_graph_demo.impl \
+    create_named_vertices_k2_graph.impl
 

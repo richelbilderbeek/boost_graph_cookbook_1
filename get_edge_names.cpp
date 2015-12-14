@@ -8,13 +8,13 @@
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "create_k2_graph.h"
-#include "create_empty_named_edges_and_vertices_graph.h"
+#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 
 void get_edge_names_test() noexcept
 {
   {
-    auto g = create_empty_named_edges_and_vertices_graph();
+    auto g = create_empty_undirected_named_edges_and_vertices_graph();
     const std::string edge_name_1{"Eugene"};
     const std::string edge_name_2{"Another Eugene"};
     add_named_edge(edge_name_1, g);

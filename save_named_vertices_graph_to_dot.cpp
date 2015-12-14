@@ -1,5 +1,18 @@
 #include "save_named_vertices_graph_to_dot.h"
 
+#include "create_named_vertices_k2_graph.h"
+#include "create_named_vertices_markov_chain_graph.h"
+#include "save_named_vertices_graph_to_dot.h"
+
+void save_named_vertices_graph_to_dot_demo() noexcept
+{
+  const auto g = create_named_vertices_k2_graph();
+  save_named_vertices_graph_to_dot(g, "create_named_vertices_k2_graph.dot");
+
+  const auto h = create_named_vertices_markov_chain_graph();
+  save_named_vertices_graph_to_dot(h, "create_named_vertices_markov_chain_graph.dot");
+}
+
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -7,6 +20,7 @@
 #include "fileio.h"
 #include "create_k2_graph.h"
 #include "create_named_vertices_k2_graph.h"
+#include "create_named_vertices_markov_chain_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_router_network_graph.h"
 #include "show_dot.h"
@@ -15,11 +29,43 @@
 
 void save_named_vertices_graph_to_dot_test() noexcept
 {
-  //Should not compile on graphs without named vertices. It does not :-)
+  //Create figure of named K2 graph
   {
-    //const auto g = create_k2_graph();
-    //const std::string filename{"save_named_vertices_graph_to_dot_test_k2_graph.dot"};
-    //save_named_vertices_graph_to_dot(g,filename);
+    const auto g = create_named_vertices_k2_graph();
+    const std::string base_filename{"create_named_vertices_k2_graph"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
+    save_named_vertices_graph_to_dot(g,dot_filename);
+    convert_dot_to_svg(dot_filename,svg_filename);
+    ribi::FileIo().CopyFile(
+      dot_filename,
+      "../BoostGraphTutorial/" + dot_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
+    ribi::FileIo().CopyFile(
+      svg_filename,
+      "../BoostGraphTutorial/" + svg_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
+  }
+  //Create figure of named Markov chain graph
+  {
+    const auto g = create_named_vertices_markov_chain_graph();
+    const std::string base_filename{"create_named_vertices_markov_chain_graph"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
+    save_named_vertices_graph_to_dot(g,dot_filename);
+    convert_dot_to_svg(dot_filename,svg_filename);
+    ribi::FileIo().CopyFile(
+      dot_filename,
+      "../BoostGraphTutorial/" + dot_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
+    ribi::FileIo().CopyFile(
+      svg_filename,
+      "../BoostGraphTutorial/" + svg_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
   }
   //Show it does store the vertex names
   {
@@ -128,5 +174,6 @@ void save_named_vertices_graph_to_dot_test() noexcept
       ribi::fileio::CopyMode::allow_overwrite
     );
   }
+  save_named_vertices_graph_to_dot_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

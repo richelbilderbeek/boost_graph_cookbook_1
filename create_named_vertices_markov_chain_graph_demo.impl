@@ -1,0 +1,13 @@
+#include <cassert>
+
+#include "create_named_vertices_markov_chain_graph.h"
+#include "get_vertex_names.h"
+
+void create_named_vertices_markov_chain_graph_demo() noexcept
+{
+  const auto g = create_named_vertices_markov_chain_graph();
+  const std::vector<std::string> expected_names{"Sunny", "Rainy"};
+  const std::vector<std::string> vertex_names = get_vertex_names(g);
+  assert(expected_names == vertex_names);
+}
+

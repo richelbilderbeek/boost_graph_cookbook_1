@@ -4,13 +4,13 @@
 
 #include <cassert>
 
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_undirected_named_vertices_graph.h"
 #include "add_named_vertex.h"
 #include "find_first_vertex_with_name.h"
 
 void set_vertex_name_test() noexcept
 {
-  auto g = create_empty_named_vertices_graph();
+  auto g = create_empty_undirected_named_vertices_graph();
   const std::string old_name{"Dex"};
   add_named_vertex(old_name, g);
   const auto vd = find_first_vertex_with_name(old_name, g);

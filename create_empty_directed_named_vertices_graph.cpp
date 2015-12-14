@@ -1,6 +1,10 @@
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_directed_named_vertices_graph.h"
 
-#include "create_empty_named_vertices_graph_demo.impl"
+#include "create_empty_directed_named_vertices_graph.impl"
+
+#include "create_empty_directed_named_vertices_graph.h"
+
+#include "create_empty_directed_named_vertices_graph_demo.impl"
 
 #include <cassert>
 #include <iostream>
@@ -12,9 +16,9 @@
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
 
-void create_empty_named_vertices_graph_test() noexcept
+void create_empty_directed_named_vertices_graph_test() noexcept
 {
-  const auto g = create_empty_named_vertices_graph();
+  const auto g = create_empty_directed_named_vertices_graph();
   const auto vip = get_vertices(g);
   assert(vip.first == vip.second);
   const auto vds = get_vertex_descriptors(g);
@@ -30,6 +34,6 @@ void create_empty_named_vertices_graph_test() noexcept
   //Sure, can
   //add_vertex(g);
 
-  create_empty_named_vertices_graph_demo();
+  create_empty_named_directed_vertices_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

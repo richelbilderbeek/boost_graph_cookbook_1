@@ -1,0 +1,12 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include <iostream>
+
+#include "create_markov_chain_graph.h"
+
+void create_markov_chain_graph_demo() noexcept
+{
+  const auto g = create_markov_chain_graph();
+  assert(boost::num_vertices(g) == 2);
+  assert(boost::num_edges(g) == 4);
+}

@@ -6,11 +6,11 @@
 #include <iostream>
 
 #include "add_named_edge.h"
-#include "create_empty_named_edges_and_vertices_graph.h"
+#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 
 void has_edge_with_name_test() noexcept
 {
-  auto g = create_empty_named_edges_and_vertices_graph();
+  auto g = create_empty_undirected_named_edges_and_vertices_graph();
   assert(!has_edge_with_name("Felix",g));
   add_named_edge("Felix",g);
   assert(has_edge_with_name("Felix",g));

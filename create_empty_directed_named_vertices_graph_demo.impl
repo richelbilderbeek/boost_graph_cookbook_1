@@ -1,14 +1,14 @@
 #include <cassert>
 
-#include "create_empty_named_vertices_graph.h"
+#include "create_empty_directed_named_vertices_graph.h"
 #include "get_edge_descriptors.h"
 #include "get_edges.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertices.h"
 
-void create_empty_named_vertices_graph_demo() noexcept
+void create_empty_named_directed_vertices_graph_demo() noexcept
 {
-  const auto g = create_empty_named_vertices_graph();
+  const auto g = create_empty_directed_named_vertices_graph();
   const auto vip = get_vertices(g);
   assert(vip.first == vip.second);
   const auto vds = get_vertex_descriptors(g);
