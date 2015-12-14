@@ -57,6 +57,7 @@
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
 #include "print_vertex_names.h"
+#include "property_not_found_node_id.h"
 #include "remove_edge_between_vertices_with_names.h"
 #include "remove_first_edge_with_name.h"
 #include "remove_first_vertex_with_name.h"
@@ -136,6 +137,7 @@ int main()
   print_trans_delay_test();
   print_vertex_names_test();
   print_vertex_name_test();
+  property_not_found_node_id();
   remove_edge_between_vertices_with_names_test();
   remove_first_edge_with_name_test();
   remove_first_vertex_with_name_test();

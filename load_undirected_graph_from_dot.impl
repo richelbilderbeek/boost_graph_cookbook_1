@@ -1,0 +1,22 @@
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graphviz.hpp>
+
+#include "create_empty_undirected_graph.h"
+#include "is_regular_file.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS
+>
+load_undirected_graph_from_dot(
+  const std::string& dot_filename
+)
+{
+  assert(is_regular_file(dot_filename));
+  std::ifstream f(dot_filename.c_str());
+  auto g = create_empty_undirected_graph();
+  boost::dynamic_properties p(boost::ignore_other_properties);
+  boost::read_graphviz(f,g,p);
+  return g;
+}

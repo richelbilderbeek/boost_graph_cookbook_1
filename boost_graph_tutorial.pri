@@ -289,5 +289,8 @@ OTHER_FILES += \
     set_graph_name_demo.impl \
     get_graph_name.impl \
     get_graph_name_demo.impl \
-    create_empty_directed_graph_with_graph_name_demo.impl
+    create_empty_directed_graph_with_graph_name_demo.impl \
+    property_not_found_node_id.impl \
+    load_undirected_graph_from_dot.impl \
+    load_undirected_graph_from_dot_demo.impl
 

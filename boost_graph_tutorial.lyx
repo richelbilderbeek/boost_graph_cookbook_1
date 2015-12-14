@@ -4251,10 +4251,10 @@ reference "alg:save_graph_to_dot"
 \end_layout
 
 \begin_layout Subsection
-Loading a graph from a .dot
+Loading an undirected graph from a .dot
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:load_graph_from_dot"
+name "sub:load_undirected_graph_from_dot"
 
 \end_inset
 
@@ -4279,6 +4279,265 @@ Create graph from .dot
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+Before loading a graph from file, one needs to specify a type of graph.
+ In this example, an undirected graph is loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading an undirected graph from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_undirected_graph_from_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty undirected graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with the 'boost::ignore_other_properties'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::ignore_other_properties
+\end_layout
+
+\end_inset
+
+ in its constructor (using a default constructor here results in the run-time
+ error 'property not found: node_id', see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:property_not_found_node_id"
+
+\end_inset
+
+).
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_undirected_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_undirected_graph_from_dot' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_undirected_graph_from_dot_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph is created using the 'create_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph should be a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:load_undirected_graph_from_dot_test_k2.svg"
+
+\end_inset
+
+ shows that the graph loaded can be converted to the correct graph (which
+ should be identical to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_graph_to_dot_test_k2_graph.svg"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename load_undirected_graph_from_dot_test_k2.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'load_undirected_graph_from_dot_demo' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_graph_from_dot_demo"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:load_undirected_graph_from_dot_test_k2.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -13361,6 +13620,140 @@ Property not found: node_id
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:property_not_found_node_id"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+node_id
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Propery not found
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file (as in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_undirected_graph_from_dot"
+
+\end_inset
+
+) you will be using boost::read_graphviz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+.
+ boost::read_graphviz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ needs a third argument, of type boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+.
+ When a graph does not have properties, do not use a default constructed
+ version, but initializate with 'boost::ignore_other_properties'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::ignore_other_properties
+\end_layout
+
+\end_inset
+
+ as a constructor argument instead.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:property_not_found_node_id"
+
+\end_inset
+
+ shows how to trigger this run-time error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "property_not_found_node_id.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+save_graph_to_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:property_not_found_node_id"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
