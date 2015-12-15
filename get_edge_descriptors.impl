@@ -1,6 +1,7 @@
 #include <vector>
 #include "boost/graph/graph_traits.hpp"
 
+///Get all edge descriptors of a graph
 template <class graph>
 std::vector<
   typename boost::graph_traits<graph>::edge_descriptor
@@ -10,11 +11,11 @@ std::vector<
   using ed = typename graph_traits<graph>::edge_descriptor;
 
   std::vector<ed> eds;
-  const auto ei = edges(g); //Not boost::edges
-  auto i = ei.first;
+
+  const auto ei = edges(g); //_not_ boost::edges!
   const auto j = ei.second;
 
-  for ( ; i!=j; ++i) {
+  for (auto i = ei.first; i!=j; ++i) {
     eds.emplace_back(*i);
   }
   return eds;

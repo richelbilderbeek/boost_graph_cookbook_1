@@ -10,7 +10,7 @@ void set_graph_name_demo() noexcept
   //No idea
   /*
   auto g = create_empty_directed_graph_with_graph_name();
-  boost::edges(
+  edges(
   const std::string old_name{"Gramps"};
   //g[boost::graph_name] = old_name;
   auto m = get(boost::graph_name, g);

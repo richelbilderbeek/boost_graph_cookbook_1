@@ -1,5 +1,6 @@
 #include <boost/graph/adjacency_list.hpp>
 
+///Get the edge iterators of a graph
 template <class graph>
 std::pair<
   typename graph::edge_iterator,
@@ -7,5 +8,5 @@ std::pair<
 >
 get_edges(const graph& g) noexcept
 {
-  return boost::edges(g);
+  return edges(g); //_not_ boost::edges!
 }

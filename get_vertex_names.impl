@@ -2,6 +2,7 @@
 #include <vector>
 #include <boost/graph/properties.hpp>
 
+///Get all vertex names
 //TODO: generalize to return any type
 template <typename graph>
 std::vector<std::string> get_vertex_names(const graph& g) noexcept
@@ -9,11 +10,16 @@ std::vector<std::string> get_vertex_names(const graph& g) noexcept
   std::vector<std::string> v;
 
   const auto vertex_name_map = get(boost::vertex_name,g);
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i = vip.first; i!=j; ++i) {
 
-  for (auto p = vertices(g);
-    p.first != p.second;
-    ++p.first) {
-    v.emplace_back(get(vertex_name_map, *p.first));
+    v.emplace_back(
+      get( //_not_ boost::get!
+        vertex_name_map,
+        *i
+      )
+    );
   }
   return v;
 }

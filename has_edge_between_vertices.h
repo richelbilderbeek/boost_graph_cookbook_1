@@ -14,7 +14,7 @@ bool has_edge_between_vertices(
 {
   if (boost::degree(vd_1, g) == 0) return false;
   if (boost::degree(vd_2, g) == 0) return false;
-  for (auto eip = boost::edges(g);
+  for (auto eip = edges(g);
     eip.first != eip.second;
     ++eip.first) {
     const auto vd_3 = source(*eip.first, g);

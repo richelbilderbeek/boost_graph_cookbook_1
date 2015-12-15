@@ -12,7 +12,7 @@ std::vector<std::string> get_edge_names(const graph& g) noexcept
 
   const auto edge_name_map = get(boost::edge_name,g);
 
-  for (auto p = boost::edges(g);
+  for (auto p = edges(g);
     p.first != p.second;
     ++p.first) {
     v.emplace_back(get(edge_name_map, *p.first));

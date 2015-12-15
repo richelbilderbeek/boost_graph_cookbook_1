@@ -23,7 +23,6 @@ void print_vertex_names(const Graph& g, const VertexNameMap& name_map)
 template <typename graph>
 void print_vertex_names(const graph& g)
 {
-  //NOTE: Use 'get', not 'boost::get', nor 'std::get'?
   print_vertex_names(g,get(boost::vertex_name,g));
 
   //using name_map_t = typename boost::property_map<Graph,boost::vertex_name_t>::type;

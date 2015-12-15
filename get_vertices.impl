@@ -1,5 +1,6 @@
 #include <boost/graph/adjacency_list.hpp>
 
+///Get the vertex iterators of a graph
 template <class graph>
 std::pair<
   typename graph::vertex_iterator,
@@ -7,5 +8,5 @@ std::pair<
 >
 get_vertices(const graph& g) noexcept
 {
-  return boost::vertices(g);
+  return vertices(g); //_not_ boost::vertices!
 }

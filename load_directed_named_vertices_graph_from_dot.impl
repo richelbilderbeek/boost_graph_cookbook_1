@@ -24,9 +24,8 @@ load_directed_named_vertices_graph_from_dot(
   boost::dynamic_properties p(boost::ignore_other_properties);
   #else
   boost::dynamic_properties p;
-  //p.property("vertex_name", boost::get(boost::vertex_name, g));
-  p.property("node_id", boost::get(boost::vertex_name, g));
-  p.property("label", boost::get(boost::vertex_name, g));
+  p.property("node_id", get(boost::vertex_name, g));
+  p.property("label", get(boost::vertex_name, g));
   #endif
   boost::read_graphviz(f,g,p);
   return g;

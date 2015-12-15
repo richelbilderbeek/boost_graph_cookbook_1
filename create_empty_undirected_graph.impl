@@ -1,5 +1,6 @@
 #include <boost/graph/adjacency_list.hpp>
 
+///Create an empty undirected graph
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

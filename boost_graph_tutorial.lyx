@@ -86,6 +86,10 @@ LatexCommand tableofcontents
 Introduction
 \end_layout
 
+\begin_layout Subsection
+Why this tutorial
+\end_layout
+
 \begin_layout Standard
 I needed this tutorial already in 2006 , when I started experimenting with
  Boost.Graph.
@@ -144,17 +148,8 @@ There was even copy-pasting involved!
 \end_inset
 
 .
- This tutorial is not about being short, but being complete
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-at the risk of being called bloated
-\end_layout
-
-\end_inset
-
-.
+ This tutorial is not about being short, but being complete, at the risk
+ of being called bloated.
 \end_layout
 
 \begin_layout Standard
@@ -202,8 +197,8 @@ status open
 
 \end_inset
 
-: a function that demonstrates how to call the first, for example 'demonstrate_c
-reate_empty_undirected_graph'
+: a function that demonstrates how to call the first, for example 'create_empty_
+undirected_graph_demo'
 \end_layout
 
 \begin_layout Standard
@@ -212,6 +207,8 @@ I enjoy to show concepts by putting those in (long-named) functions.
  a single Boost.Graph function.
  On the other hand, these functions have more English-sounding names, resulting
  in demonstration code that is readable.
+ Additionally, they explicitly mention their return type (in a simpler way),
+ which may be considered informative.
 \end_layout
 
 \begin_layout Standard
@@ -246,7 +243,17 @@ I use the coding style from the Core C++ Guidelines.
 I prefer to use the keyword auto over doubling the lines of code for using
  statements.
  Because the 'do' functions return an explicit data type, these can be used
- for reference.
+ for reference (until 'decltype(auto)'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+decltype(auto)
+\end_layout
+
+\end_inset
+
+ gets into fashion as a return type).
  If you really want to know a type, you can use the 'get_type_name' function
  (chapter 
 \begin_inset CommandInset ref
@@ -304,7 +311,264 @@ Boost.Graph is about creating graphs.
  In this chapter we create the simplest of graphs, in which edges and nodes
  have no properties (e.g.
  having a name).
- We will build:
+ 
+\end_layout
+
+\begin_layout Standard
+Still, there are two types of graphs that can be constructed: undirected
+ and directed graphs.
+ The difference between directed and undirected graphs is in the edges:
+ in an undirected graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+undirected graph
+\end_layout
+
+\end_inset
+
+, an edge connects two vertices without any directionality, as displayed
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:undirected_graph_example"
+
+\end_inset
+
+.
+ In a directed graph
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+directed graph
+\end_layout
+
+\end_inset
+
+, an edge goes from a certain vertex, its source, to another (which may
+ actually be the same), its target.
+ A directed graph is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:directed_graph_example"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,2) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (10,1) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of an undirected graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:undirected_graph_example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = { fill=black,shape=circle },
+\end_layout
+
+\begin_layout Plain Layout
+
+  EdgeStyle/.append style = {->, bend left} }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(A)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Loop[dist = 4cm, dir = NO](A.west)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{EdgeStyle/.append style = {bend left = 0}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of a directed graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:directed_graph_example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this chapter, we will build two directed and two undirected graphs:
 \end_layout
 
 \begin_layout Itemize
@@ -343,8 +607,26 @@ reference "sub:create_k2"
 
 \end_layout
 
+\begin_layout Itemize
+A two-state Markov chain, a directed graph with two vertices and four edges,
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_markov_chain_graph"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-In the process, some basic (sometimes bordering trivial) functions are shown:
+Creating an empty graph may sound trivial, it is not, thanks to the versatility
+ of the Boost.Graph library.
+\end_layout
+
+\begin_layout Standard
+In the process of creating graphs, some basic (sometimes bordering trivial)
+ functions are encountered:
 \end_layout
 
 \begin_layout Itemize
@@ -435,17 +717,6 @@ reference "sub:get_edge_descriptors"
 
 \end_layout
 
-\begin_layout Itemize
-Getting the vertices' out degrees: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_vertex_out_degrees"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
@@ -520,7 +791,7 @@ Empty directed graph, create
 \end_layout
 
 \begin_layout Standard
-Let's create a trivial empty graph!
+Let's create an empty graph!
 \end_layout
 
 \begin_layout Standard
@@ -531,7 +802,7 @@ reference "alg:create_empty_directed_graph"
 
 \end_inset
 
- shows the function to create an empty (directed) graph.
+ shows the function to create an empty graph.
  
 \end_layout
 
@@ -589,7 +860,31 @@ name "alg:create_empty_directed_graph"
 
 \begin_layout Standard
 The code consists out of an #include and a function definition.
- The #include includes the header file for the boost::adjacency_list class.
+ The #include
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+#include
+\end_layout
+
+\end_inset
+
+ tells the compiler to read the header file 'adjacency_list.hpp'.
+ A header file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+header file
+\end_layout
+
+\end_inset
+
+ (often with a '.h' or '.hpp' extension) contains class and functions declarations
+ and/or definitions.
+ The header file 'adjacency_list.hpp' contains the boost::adjacency_list
+ class definition.
  Without including this file, you will get compile errors like 'definition
  of boost::adjacency_list unknown'
 \begin_inset Foot
@@ -624,11 +919,11 @@ noexcept specification
 
 : the function should not throw
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 if the function would throw because it cannot allocate this little piece
- of memory, you are in already in big trouble
+ of memory, you are already in big trouble
 \end_layout
 
 \end_inset
@@ -643,24 +938,14 @@ noexcept
 
 \end_inset
 
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
+ (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroustrup2013"
 
 \end_inset
 
-, chapter 13.7, page 387
-\end_layout
-
-\end_inset
-
-.
- 
+ chapter 13.7).
 \end_layout
 
 \begin_layout Itemize
@@ -677,20 +962,46 @@ reference "alg:create_empty_directed_graph_demo"
 \end_inset
 
  demonstrates the 'create_empty_directed_graph' function.
- Auto is used, as this is preferred over explicit type declarations
+ Note that it includes a header file with the same name as the function
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Scott Meyers.
- C++ And Beyond 2012 session: 'Initial thoughts on Effective C++11'.
- 2012.
- 'Prefer auto to Explicit Type Declarations'
+I do not think it is important to have creative names
 \end_layout
 
 \end_inset
 
-, 
+ first, to be able to use it.
+ 'auto' is used, as this is preferred over explicit type declarations (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 31.6).
+ The keyword 'auto'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+auto
+\end_layout
+
+\end_inset
+
+ lets the compiler figure aut
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Pun intended
+\end_layout
+
+\end_inset
+
+ the type itself.
 \end_layout
 
 \begin_layout Standard
@@ -937,20 +1248,6 @@ key "lakos1996large"
  
 \end_layout
 
-\begin_layout Standard
-I use auto...
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Creating an empty undirected graph
 \begin_inset CommandInset label
@@ -983,8 +1280,7 @@ Empty graph, create
 \end_layout
 
 \begin_layout Standard
-Let's create another trivial empty graph! This time, we make the graph undirecte
-d.
+Let's create another empty graph! This time, we even make it undirected!
 \end_layout
 
 \begin_layout Standard
@@ -1114,7 +1410,14 @@ name "alg:create_empty_undirected_graph_demo"
 \end_layout
 
 \begin_layout Standard
-Congratulations, you've just created an undirected graph in which:
+Congratulations, with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_graph_demo"
+
+\end_inset
+
+, you've just created an undirected graph in which:
 \end_layout
 
 \begin_layout Itemize
@@ -1169,241 +1472,6 @@ Vertices, edges and graph have no properties
 
 \begin_layout Itemize
 Edges are stored in a std::list 
-\end_layout
-
-\begin_layout Standard
-The difference between directed and undirected graphs is in the edges: in
- an undirected graph, an edge connects two vertices without any directionality,
- as displayed in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:undirected_graph_example"
-
-\end_inset
-
-.
- In a directed graph, an edge goes from a certain vertex, its source, to
- another (which may actually be the same), its target.
- A directed graph is shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:directed_graph_example"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikz 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[thick] 
-\end_layout
-
-\begin_layout Plain Layout
-
-  (0,0) node[fill=black,shape=circle,text=white] {} 
-\end_layout
-
-\begin_layout Plain Layout
-
-    -- (5,2) node[fill=black,shape=circle,text=white] {} 
-\end_layout
-
-\begin_layout Plain Layout
-
-    -- (10,1) node[fill=black,shape=circle,text=white] {} 
-\end_layout
-
-\begin_layout Plain Layout
-
-;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Example of an undirected graph
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:undirected_graph_example"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tikzpicture}   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikzset{ 
-\end_layout
-
-\begin_layout Plain Layout
-
-  VertexStyle/.append style = { fill=black,shape=circle },
-\end_layout
-
-\begin_layout Plain Layout
-
-  EdgeStyle/.append style = {->, bend left} }
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-SetGraphUnit{5}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Vertex{A}   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-EA(A){B}   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-EA(B){C}   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Edge[](A)(B)   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Edge[](B)(A)   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Loop[dist = 4cm, dir = NO](A.west)
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikzset{EdgeStyle/.append style = {bend left = 0}}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Edge[](C)(B)   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Example of a directed graph
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:directed_graph_example"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1463,7 +1531,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Count the numbe of vertices
+Count the number of vertices
 \begin_inset Index idx
 status collapsed
 
@@ -1506,24 +1574,14 @@ boost::num_vertices
 
 , converts it to int and checks if there was no range overflow.
  We do so, as one should prefer using int (over unsigned int) in an interface
- 
+ (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lakos1996large"
 
 \end_inset
 
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Chapter 9.2.2
-\end_layout
-
-\end_inset
-
-.
+ chapter 9.2.2).
  To do so, in the function body its first stament, the unsigned int
 \begin_inset Index idx
 status open
@@ -1579,24 +1637,14 @@ static_cast
  Luckily, this can be detected: if an unsigned int produces a negative int,
  it was too big to be stored as such.
  Using an unsigned int over a (signed) int for the sake of gaining that
- one more bit 
+ one more bit (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroustrup1997"
 
 \end_inset
 
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Chapter 4.4
-\end_layout
-
-\end_inset
-
- should be avoided.
+ chapter 4.4) should be avoided.
  The integer 'n' is initialized using list-initialization, which is preferred
  over the other initialization syntaxes (
 \begin_inset CommandInset citation
@@ -1786,7 +1834,7 @@ boost::num_edges
 
 \end_inset
 
- instead.
+ instead:
 \end_layout
 
 \begin_layout Standard
@@ -1961,7 +2009,7 @@ reference "alg:add_vertex"
 
 \end_inset
 
-.
+:
 \end_layout
 
 \begin_layout Standard
@@ -2122,18 +2170,24 @@ A vertex descriptor is a handle to a vertex within a graph.
 \end_layout
 
 \begin_layout Standard
-Vertex descriptors can be obtained by:
-\end_layout
-
-\begin_layout Itemize
-dereference a vertex iterator, see chapter 
+Vertex descriptors can be obtained by dereferencing a vertex iterator (see
+ chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_vertex_descriptors"
 
 \end_inset
 
- (vetrex iterators are obtained in chapter 
+).
+ To do so, we first obtain some vertex iterators in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertices"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2156,21 +2210,21 @@ obtain properties of vertex a vertex, for example the vertex its out degrees
  (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertex_out_degrees"
+reference "sub:get_vertex_out_degrees"
 
 \end_inset
 
 ), the vertex its name (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertex_names"
+reference "sub:get_vertex_names"
 
 \end_inset
 
 ), or a custom vertex property (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertex_my_vertexes"
+reference "sub:get_vertex_my_vertexes"
 
 \end_inset
 
@@ -2214,7 +2268,7 @@ Obtain a vertex iterator pair from the graph
 \end_layout
 
 \begin_layout Itemize
-Dereference a vertex iterator to obtain a vertex descriptor
+Dereferencing a vertex iterator to obtain a vertex descriptor
 \end_layout
 
 \begin_layout Standard
@@ -2257,7 +2311,7 @@ Vertex iterator
 \end_inset
 
  points to the first vertex (its descriptor, to be precise), the second
- points to beyond the last vertex.
+ points to beyond the last vertex (its descriptor, to be precise).
  In this tutorial, vertex iterator pairs have named prefixed with 'vip_'
 \begin_inset Index idx
 status open
@@ -2332,7 +2386,7 @@ This is a somewhat trivial function, as it forwards the function call to
 These vertex iterators can be dereferenced to obtain the vertex descriptors.
  Note that 'get_vertices' will not be used often in isolation: usually one
  obtains the vertex descriptors immediatly.
- Just for your references, algorithm 
+ Just for your reference, algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertices_demo"
@@ -2526,15 +2580,14 @@ key "stroustrup2013"
 \end_layout
 
 \begin_layout Standard
-The 'get_vertex_descriptors' function shows an important concept of the
- Boost.Graph library: boost::verticesAlgorithm 
+Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_descriptors_demo"
 
 \end_inset
 
- demonstrates that an empty graph has no vertex descriptors.
+ demonstrates that an empty graph has no vertex descriptors:
 \end_layout
 
 \begin_layout Standard
@@ -2637,7 +2690,7 @@ Vertex descriptor
 
 \end_inset
 
- is a handle to the vertex with in graph (vertex descriptors are looked
+ is a handle to the vertex within a graph (vertex descriptors are looked
  at in more details in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2930,17 +2983,27 @@ Dereference an edge iterator to obtain an edge descriptor
 \end_layout
 
 \begin_layout Standard
-boost::edges
+'edges
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::edges
+edges
 \end_layout
 
 \end_inset
 
- is used to obtain an edge iterator pair
+' (not boost::edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edges does not exist
+\end_layout
+
+\end_inset
+
+!) is used to obtain an edge iterator pair
 \begin_inset Index idx
 status open
 
@@ -3140,11 +3203,20 @@ Edge descriptor
 
 \begin_layout Standard
 An edge descriptor is a handle to an edge within a graph.
- Edge descriptors are used to:
+ They are similar to vertex descriptors (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+).
+ 
 \end_layout
 
-\begin_layout Itemize
-obtain the name, or other properties, of an edge
+\begin_layout Standard
+Edge descriptors are used to obtain the name, or other properties, of an
+ edge
 \end_layout
 
 \begin_layout Standard
@@ -3193,7 +3265,15 @@ Get edge descriptors
 \end_layout
 
 \begin_layout Standard
-Obtaining all edge descriptors is not as simple of a function as you'd guess:
+Obtaining all edge descriptors is similar to getting all vertex descriptors
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_descriptors"
+
+\end_inset
+
+):
 \end_layout
 
 \begin_layout Standard
@@ -3249,15 +3329,18 @@ name "alg:get_edge_descriptors"
 \end_layout
 
 \begin_layout Standard
-This function is a repeat of getting all the vertex descriptors (see chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_vertex_descriptors"
+The only difference is that instead of the function 'vertices' (not boost::verti
+ces
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertices does not exist
+\end_layout
 
 \end_inset
 
-), but using 'edges'
+!), 'edges'
 \begin_inset Index idx
 status open
 
@@ -3277,7 +3360,7 @@ boost::edges does not exist
 
 \end_inset
 
-!) instead.
+!) is used.
  
 \end_layout
 
@@ -3392,7 +3475,8 @@ Finally, we are going to create a graph!
 \end_layout
 
 \begin_layout Standard
-To create a fully connected graph with two vertices (also called 
+To create a fully connected undirected graph with two vertices (also called
+ 
 \begin_inset Formula $K_{2}$
 \end_inset
 
@@ -3434,12 +3518,12 @@ draw[thick]
 
 \begin_layout Plain Layout
 
-  (0,0) node[fill=black,shape=circle,text=white] {$a$} 
+  (0,0) node[fill=black,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (5,1) node[fill=black,shape=circle,text=white] {$b$} 
+    -- (5,1) node[fill=black,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3459,15 +3543,7 @@ draw[thick]
 \begin_inset Formula $K_{2}$
 \end_inset
 
-: a fully connected graph with two vertices named 
-\begin_inset Formula $a$
-\end_inset
-
- and 
-\begin_inset Formula $b$
-\end_inset
-
-
+: a fully connected undirected graph with two vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:k2_graph"
@@ -3559,7 +3635,16 @@ name "alg:create_k2_graph"
 \end_layout
 
 \begin_layout Standard
-To save defining the type, we call the 'create_empty_undirected_graph' function.
+This code is very similar to the 'add_edge' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge"
+
+\end_inset
+
+).
+ To save defining the type, we call the 'create_empty_undirected_graph'
+ function.
  The vertex descriptors (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3620,7 +3705,7 @@ reference "alg:create_k2_graph_demo"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -3667,16 +3752,24 @@ name "alg:create_k2_graph_demo"
 
 \end_layout
 
-\begin_layout Standard
-Running a bit ahead, this graph can be converted to a .dot file (using algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
+\begin_layout Subsubsection
+The .dot file of 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ , a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2.dot"
 
 \end_inset
 
-) created is displayed in algorithm 
+
+\end_layout
+
+\begin_layout Standard
+Running a bit ahead, this graph can be converted to the .dot file as shown
+ in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph.dot"
@@ -3708,14 +3801,21 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the create_k2_graph function (algorithm 
+.dot file created from the 'create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
 
 \end_inset
 
-)
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k2_graph.dot"
@@ -3736,7 +3836,37 @@ name "alg:create_k2_graph.dot"
 \end_layout
 
 \begin_layout Standard
-The .svg file of this graph is shown in figure 
+From the .dot file one can already see that the graph is undirected, because:
+\end_layout
+
+\begin_layout Itemize
+The first word, 'graph', denotes an undirected graph (where 'digraph' would
+ have indicated a directional graph)
+\end_layout
+
+\begin_layout Itemize
+The edge between 0 and 1 is written as '--' (where directed connections
+ would be written as '->', '<-' or '<>')
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file of 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ , a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Continuing to running a bit ahead, this .dot file can be converted to the
+ .svg as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:create_k2_graph.svg"
@@ -3773,15 +3903,14 @@ reference "alg:create_k2_graph"
 
 \end_inset
 
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
+) its .dot file, converted from .dot file to .svg using algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:convert_dot_to_svg"
 
 \end_inset
 
-)
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_k2_graph.svg"
@@ -3799,6 +3928,13 @@ name "fig:create_k2_graph.svg"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Also this figure shows that the graph in undirected, otherwise the edge
+ would have one or two arrow heads.
+ Note that the .svg is displayed as if the nodes have names.
+ This is not the case: here, the node indices are shown.
 \end_layout
 
 \begin_layout Subsection
@@ -4000,11 +4136,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- as depicted in figure 
+Creating the two-state Markov chain as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:create_markov_chain_graph"
@@ -4061,7 +4193,7 @@ boost::add_vertex
 \end_inset
 
  calls are stored to add an edge to the graph.
- From boost::add_edge
+ Then boost::add_edge
 \begin_inset Index idx
 status open
 
@@ -4071,14 +4203,15 @@ boost::add_edge
 
 \end_inset
 
- its return type (see chapter 
+ is called four times.
+ Every time, its return type (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:boost::add_edge result"
 
 \end_inset
 
-), it is only checked that insertion has been successfull.
+) is checked for a successfull insertion.
 \end_layout
 
 \begin_layout Standard
@@ -4150,6 +4283,17 @@ name "create_markov_chain_graph_demo"
 
 \end_layout
 
+\begin_layout Subsubsection
+The .dot file of a two-state Markov chain
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_markov_chain_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Running a bit ahead, this graph can be converted to a .dot file (using algorithm
  
@@ -4199,7 +4343,14 @@ reference "alg:create_markov_chain_graph"
 
 \end_inset
 
-)
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_markov_chain_graph.dot"
@@ -4213,6 +4364,31 @@ name "alg:create_markov_chain_graph.dot"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the .dot file one can already see that the graph is directed, because:
+\end_layout
+
+\begin_layout Itemize
+The first word, 'digraph', denotes a directed graph (where 'graph' would
+ have indicated an undirectional graph)
+\end_layout
+
+\begin_layout Itemize
+The edges are written as '->' (where undirected connections would be written
+ as '--')
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file of a two-state Markov chain
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_markov_chain_graph.svg"
 
 \end_inset
 
@@ -4258,15 +4434,14 @@ reference "alg:create_markov_chain_graph"
 
 \end_inset
 
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
+) its .dot file and converted from .dot file to .svg using algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:convert_dot_to_svg"
 
 \end_inset
 
-)
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_markov_chain_graph.svg"
@@ -4280,6 +4455,66 @@ name "fig:create_markov_chain_graph.svg"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also this figure shows that the graph in directed, as the edges have arrow
+ heads.
+ Note that the .svg is displayed as if the nodes have names.
+ This is not the case: here, the node indices are shown.
+\end_layout
+
+\begin_layout Section
+Working with graphs without vertices
+\end_layout
+
+\begin_layout Standard
+Here we'll do some basic stuff:
+\end_layout
+
+\begin_layout Itemize
+Getting the vertices' out degrees: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_out_degrees"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Saving a graph without properties to .dot file: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading an undirected graph without properties from .dot file: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_undirected_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading a directed graph without properties from .dot file: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_graph_from_dot"
 
 \end_inset
 
@@ -4300,6 +4535,14 @@ name "sub:get_vertex_out_degrees"
 \begin_layout Standard
 As a bonus chapter, let's measure the out degree of all vertices in a graph.
  The out degree of a vertex is the number of edges that originate at it.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_vertex_out_degrees"
+
+\end_inset
+
+ shows how to obtain these:
 \end_layout
 
 \begin_layout Standard
@@ -4389,12 +4632,12 @@ boost::out_degree does not exist
 \end_layout
 
 \begin_layout Standard
-Albeit 
+Albeit that the 
 \begin_inset Formula $K_{2}$
 \end_inset
 
- is a simple graph, we can use it to demonstrate 'get_vertex_out_degrees'
- on, as shown in algorithm 
+ graph and the two-state Markov chain are rather simple, we can use it to
+ demonstrate 'get_vertex_out_degrees' on, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_out_degrees_demo"
@@ -4454,6 +4697,15 @@ name "alg:get_vertex_out_degrees_demo"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+It is expected that 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ has one out-degree for every vertex, where the two-state Markov chain is
+ expected to have two out-degrees per vertex.
 \end_layout
 
 \begin_layout Subsection
@@ -4646,236 +4898,23 @@ name "alg:save_graph_to_dot_demo"
 \end_layout
 
 \begin_layout Standard
-When using the 'create_k2_graph' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-) to create a 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graph, the .dot file created is displayed in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot_test_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_graph_to_dot_test_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_graph_to_dot_test_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-From the .dot file one can already see that the graph is undirected, because:
-\end_layout
-
-\begin_layout Itemize
-The first word, 'graph', denotes an undirected graph (where 'digraph' would
- have indicated a directional graph)
-\end_layout
-
-\begin_layout Itemize
-The edge between 0 and 1 is written as '--' (where directed connections
- would be written as '->', '<-' or '<>')
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_graph_to_dot_test_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'create_k2_graph' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Also this figure shows that the graph in undirected, otherwise the edge
- would have one or two arrow heads.
-\end_layout
-
-\begin_layout Standard
-If you used the create_named_vertices_k2_graph function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-) to produce a 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graph with named vertices, you see that the .dot file does not have stored
- the vertex names:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_graph_to_dot_test_named_vertices_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_named_vertices_k2_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_graph_to_dot_test_named_vertices_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-So, the 'save_graph_to_dot' function (algorithm 
+When using the 'save_graph_to_dot' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_graph_to_dot"
 
 \end_inset
 
-) saves only the structure of the graph.
+), only the structure of the graph is saved: all other properties like names
+ are not stored.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+ shows how to do so.
 \end_layout
 
 \begin_layout Subsection
@@ -4974,7 +5013,25 @@ name "alg:load_undirected_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
+In this algorithm, first it is checked if the file to load exists, using
+ the 'is_regular_file' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:is_regular_file"
+
+\end_inset
+
+), after which a std::ifstream
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::ifstream
+\end_layout
+
+\end_inset
+
+ (input-file-stream) is opened.
  Then an empty undirected graph is created.
  Next to this, a boost::dynamic_properties
 \begin_inset Index idx
@@ -5094,86 +5151,11 @@ reference "alg:create_k2_graph"
 \end_inset
 
 ), saved and then loaded.
- The loaded graph should be a 
+ The loaded graph is checked to be a 
 \begin_inset Formula $K_{2}$
 \end_inset
 
  graph.
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:load_undirected_graph_from_dot_test_k2.svg"
-
-\end_inset
-
- shows that the graph loaded can be converted to the correct graph (which
- should be identical to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-):
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename load_undirected_graph_from_dot_test_k2.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'load_undirected_graph_from_dot_demo' function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:load_undirected_graph_from_dot_demo"
-
-\end_inset
-
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:load_undirected_graph_from_dot_test_k2.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -5272,7 +5254,25 @@ name "alg:load_directed_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
+In this algorithm, first it is checked if the file to load exists, using
+ the 'is_regular_file' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:is_regular_file"
+
+\end_inset
+
+), after which an std::ifstream
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::ifstream
+\end_layout
+
+\end_inset
+
+ is opened.
  Then an empty directed graph is created.
  Next to this, a boost::dynamic_properties
 \begin_inset Index idx
@@ -5389,82 +5389,7 @@ reference "alg:create_markov_chain_graph"
 \end_inset
 
 ), saved and then loaded.
- The loaded graph should be a directed graph similar to the Markov chain.
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:load_directed_graph_from_dot_test_markov_chain.svg"
-
-\end_inset
-
- shows that the graph loaded can be converted to the correct graph (which
- should be identical to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_graph_to_dot_test_k2_graph.svg"
-
-\end_inset
-
-):
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename load_directed_graph_from_dot_test_markov_chain.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'load_directed_graph_from_dot_demo' function (algorith
-m 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:load_directed_graph_from_dot_demo"
-
-\end_inset
-
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:load_directed_graph_from_dot_test_markov_chain.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ The loaded graph is then checked to be a two-state Markov chain.
 \end_layout
 
 \begin_layout Section
@@ -5478,8 +5403,15 @@ Up until now, the graphs created have had edges and vertices without any
  a name.
  This name will be of the std::string data type, but other types are possible
  as well.
- There are many more built-in properties edges and nodes can have (see the
- boost/graph/properties.hpp file for these).
+ There are many more built-in properties edges and nodes can have (see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:all_properties"
+
+\end_inset
+
+ for a list).
 \end_layout
 
 \begin_layout Standard
@@ -5525,7 +5457,14 @@ reference "sub:create_named_vertices_k2"
 \end_layout
 
 \begin_layout Itemize
-Two-node Markov chain with named vertices: see chapter 
+Two-state Markov chain with named vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_markov_chain"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5803,8 +5742,7 @@ reference "alg:create_empty_undirected_named_vertices_graph_demo"
 
 \end_inset
 
- shows how to create this graph.
- 
+ shows how to create this graph:
 \end_layout
 
 \begin_layout Standard
@@ -5829,7 +5767,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_undirected_named_vertices_graph' function
+Demonstration of the 'create_empty_undirected_named_vertices_graph' function
  
 \begin_inset Index idx
 status open
@@ -5991,7 +5929,7 @@ boost::vecS
 \end_layout
 
 \begin_layout Itemize
-is directed (due to the boost::undirectedS
+is directed (due to the boost::directedS
 \begin_inset Index idx
 status open
 
@@ -6126,7 +6064,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_directed_named_vertices_graph' function
+Demonstration of the 'create_empty_directed_named_vertices_graph' function
  
 \begin_inset Index idx
 status open
@@ -6202,7 +6140,7 @@ Vertex, add named
 Adding a vertex without a name was trivially easy (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:add_vertex"
+reference "sub:add_vertex"
 
 \end_inset
 
@@ -6240,7 +6178,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Add a vertex with a name
+Adding a vertex with a name
 \begin_inset Index idx
 status collapsed
 
@@ -6533,7 +6471,8 @@ reference "alg:get_vertex_names_demo"
 
 \end_inset
 
- shows how to add two named vertices and how to get their names.
+ shows how to add two named vertices, and check if the added names are retrieved
+ as expected.
 \end_layout
 
 \begin_layout Standard
@@ -9119,9 +9058,12 @@ reference "fig:load_directed_named_vertices_graph_from_dot_test_markov_chain.svg
 
  shows that the graph loaded can be converted to the correct graph (which
  should be identical to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:save_graph_to_dot_test_k2_graph.svg"
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
 
 \end_inset
 
@@ -15351,8 +15293,9 @@ Misc functions
 \begin_layout Standard
 These are some function I needed for creating this tutorial.
  Although they are not important for working with graphs, I used these heavily.
- These functions may be compiler-dependent or platform-dependent.
- I just add them for 
+ These functions may be compiler-dependent, platform-dependent and/or there
+ may be superior alternatives.
+ I just add them for completeness.
 \end_layout
 
 \begin_layout Subsection
@@ -15495,6 +15438,73 @@ name "alg:convert_dot_to_svg"
 \begin_layout Standard
 'convert_dot_to_svg' makes a system call to the prgram 'dot' to convert
  the .dot file to an .svg file.
+\end_layout
+
+\begin_layout Subsection
+Check if a file exists
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_regular_file"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Not the most smart way perhaps, but it does only use the STL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_regular_file.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if a file exists
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+is_regular_file
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_regular_file"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

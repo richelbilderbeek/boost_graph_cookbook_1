@@ -1,6 +1,7 @@
 #include <vector>
 #include "boost/graph/graph_traits.hpp"
 
+///Collect all vertex descriptors of a graph
 template <class graph>
 std::vector<
   typename boost::graph_traits<graph>::vertex_descriptor
@@ -10,10 +11,9 @@ std::vector<
   using vd = typename graph_traits<graph>::vertex_descriptor;
 
   std::vector<vd> vds;
-  const auto vis = vertices(g); //No boost::vertices
-  auto i = vis.first;
+  const auto vis = vertices(g); //_not_ boost::vertices!
   const auto j = vis.second;
-  for ( ; i!=j; ++i) {
+  for (auto i = vis.first; i!=j; ++i) {
     vds.emplace_back(*i);
   }
   return vds;

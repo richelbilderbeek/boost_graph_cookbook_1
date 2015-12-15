@@ -13,6 +13,7 @@
 
 void create_markov_chain_graph_test() noexcept
 {
+  //Create the .dot and .svg of the 'create_markov_chain_graph' chapter
   {
     const auto g = create_markov_chain_graph();
     const std::string dot_filename{"create_markov_chain_graph.dot"};

@@ -6,7 +6,9 @@ void add_edge_demo() noexcept
 {
   auto g = create_empty_undirected_graph();
   add_edge(g);
+  assert(boost::num_edges(g) == 1);
 
   auto h = create_empty_directed_graph();
   add_edge(h);
+  assert(boost::num_edges(h) == 1);
 }

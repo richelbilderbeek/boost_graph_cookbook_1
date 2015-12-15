@@ -1,15 +1,15 @@
 #include <vector>
 
+///Get the out degrees of all vertices
 template <typename graph>
 std::vector<int> get_vertex_out_degrees(const graph& g) noexcept
 {
   std::vector<int> v;
   const auto vis = vertices(g);
-  auto i = vis.first;
   const auto j = vis.second;
-  for ( ; i!=j; ++i) {
+  for (auto i = vis.first; i!=j; ++i) {
     v.emplace_back(
-      out_degree(*i,g) //Not boost::out_degree
+      out_degree(*i,g) //_not_ boost::out_degree!
     );
   }
   return v;

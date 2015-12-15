@@ -6,28 +6,55 @@
 
 #include <cassert>
 #include <iostream>
+#include "fileio.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_edges.h"
 #include "get_vertices.h"
 #include "get_vertex_descriptors.h"
 #include "get_edge_descriptors.h"
+#include "save_graph_to_dot.h"
+#include "convert_dot_to_svg.h"
 
 void create_k2_graph_test() noexcept
 {
-  const auto g = create_k2_graph();
-  const auto vip = get_vertices(g);
-  assert(vip.first != vip.second);
-  const auto vds = get_vertex_descriptors(g);
-  assert(vds.size() == 2);
-  const auto eip = get_edges(g);
-  assert(eip.first != eip.second);
-  const auto eds = get_edge_descriptors(g);
-  assert(eds.size() == 1);
+  //Basic tests
+  {
+    const auto g = create_k2_graph();
+    const auto vip = get_vertices(g);
+    assert(vip.first != vip.second);
+    const auto vds = get_vertex_descriptors(g);
+    assert(vds.size() == 2);
+    const auto eip = get_edges(g);
+    assert(eip.first != eip.second);
+    const auto eds = get_edge_descriptors(g);
+    assert(eds.size() == 1);
+    assert(get_n_edges(g) == 1);
+    assert(get_n_vertices(g) == 2);
+  }
+  //Create the .dot and .svg of the 'create_k2_graph' chapter
+  {
+    ribi::FileIo f;
+    const auto g = create_k2_graph();
+    const std::string base_filename{"create_k2_graph"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
+    save_graph_to_dot(g,dot_filename);
+    assert(f.IsRegularFile(dot_filename));
+    convert_dot_to_svg(dot_filename,svg_filename);
+    assert(f.IsRegularFile(svg_filename));
+    f.CopyFile(
+      dot_filename,
+      "../BoostGraphTutorial/" + dot_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
+    f.CopyFile(
+      svg_filename,
+      "../BoostGraphTutorial/" + svg_filename,
+      ribi::fileio::CopyMode::allow_overwrite
+    );
 
-  assert(get_n_edges(g) == 1);
-  assert(get_n_vertices(g) == 2);
-
+  }
   create_k2_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

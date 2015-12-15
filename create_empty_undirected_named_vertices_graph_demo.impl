@@ -4,7 +4,8 @@
 
 void create_empty_undirected_named_vertices_graph_demo() noexcept
 {
-  const auto g = create_empty_undirected_named_vertices_graph();
+  const auto g
+    = create_empty_undirected_named_vertices_graph();
   assert(boost::num_vertices(g) == 0);
   assert(boost::num_edges(g) == 0);
 }

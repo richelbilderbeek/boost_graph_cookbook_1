@@ -310,5 +310,6 @@ OTHER_FILES += \
     create_named_vertices_k2_graph.impl \
     load_directed_named_vertices_graph_from_dot.impl \
     load_directed_named_vertices_graph_from_dot_demo.impl \
-    create_named_vertices_markov_chain_graph.impl
+    create_named_vertices_markov_chain_graph.impl \
+    is_regular_file.impl
 

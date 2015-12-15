@@ -4,6 +4,7 @@
 #include "create_empty_directed_graph.h"
 #include "is_regular_file.h"
 
+///Load a directed graph from a .dot file
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
@@ -16,7 +17,9 @@ load_directed_graph_from_dot(
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_graph();
-  boost::dynamic_properties p(boost::ignore_other_properties);
+  boost::dynamic_properties p(
+    boost::ignore_other_properties
+  );
   boost::read_graphviz(f,g,p);
   return g;
 }
