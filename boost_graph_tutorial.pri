@@ -311,5 +311,6 @@ OTHER_FILES += \
     load_directed_named_vertices_graph_from_dot.impl \
     load_directed_named_vertices_graph_from_dot_demo.impl \
     create_named_vertices_markov_chain_graph.impl \
-    is_regular_file.impl
+    is_regular_file.impl \
+    convert_dot_to_svg.impl
 
