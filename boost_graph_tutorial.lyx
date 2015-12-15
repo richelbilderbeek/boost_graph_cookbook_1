@@ -10189,6 +10189,298 @@ reference "alg:save_graph_to_dot"
 \end_layout
 
 \begin_layout Subsection
+Loading a directed graph with named vertices from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_directed_graph_from_dot-1"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load directed graph with named vertices from .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create directed graph with named vertices from .dot
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph with named vertices is loaded, as shown
+ in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_named_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_named_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading a directed graph with named vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_directed_named_vertices_graph_from_dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_named_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with the 'boost::ignore_other_properties'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::ignore_other_properties
+\end_layout
+
+\end_inset
+
+ in its constructor (using a default constructor here results in the run-time
+ error 'property not found: node_id', see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:property_not_found_node_id"
+
+\end_inset
+
+).
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_named_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_named_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_graph_from_dot' function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+load_directed_named_vertices_graph_from_dot_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_named_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_marko
+v_chain_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_markov_chain_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph should be a directed graph similar to the Markov chain.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:load_directed_named_vertices_graph_from_dot_test_markov_chain.svg"
+
+\end_inset
+
+ shows that the graph loaded can be converted to the correct graph (which
+ should be identical to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:save_graph_to_dot_test_k2_graph.svg"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename load_directed_named_vertices_graph_from_dot_test_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'load_directed_named_vertices_graph_from_dot_demo'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_named_vertices_graph_from_dot_demo"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:load_directed_named_vertices_graph_from_dot_test_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Storing an undirected graph with named vertices and edges as a .dot
 \begin_inset CommandInset label
 LatexCommand label
