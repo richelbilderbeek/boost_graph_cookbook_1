@@ -23,9 +23,9 @@ create_custom_vertices_k2_graph() noexcept
   //Add names
   auto my_vertexes_map = get(boost::vertex_custom_type,g);
   my_vertexes_map[vd_a]
-    = my_vertex("from","source",0.0,0.0);
+    = my_vertex("A","source",0.0,0.0);
   my_vertexes_map[vd_b]
-    = my_vertex("to","target",3.14,3.14);
+    = my_vertex("B","target",3.14,3.14);
 
   return g;
 }

@@ -8,6 +8,6 @@ void clear_first_vertex_with_name_demo() noexcept
 {
   auto g = create_named_vertices_k2_graph();
   assert(get_n_edges(g) == 1);
-  clear_first_vertex_with_name("from",g);
+  clear_first_vertex_with_name("A",g);
   assert(get_n_edges(g) == 0);
 }

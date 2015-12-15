@@ -21,8 +21,11 @@ void load_directed_named_vertices_graph_from_dot_test() noexcept
     const std::string dot_filename{"load_directed_named_vertices_graph_from_dot_test_markov_chain.dot"};
     const std::string svg_filename{"load_directed_named_vertices_graph_from_dot_test_markov_chain.svg"};
     save_named_vertices_graph_to_dot(g, dot_filename);
+    const auto old_text = ribi::FileIo().FileToVector(dot_filename);
     const auto h = load_directed_named_vertices_graph_from_dot(dot_filename);
     save_named_vertices_graph_to_dot(h, dot_filename);
+    const auto new_text = ribi::FileIo().FileToVector(dot_filename);
+    assert(old_text == new_text);
     convert_dot_to_svg(dot_filename, svg_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));

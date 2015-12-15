@@ -10,8 +10,8 @@ void get_vertex_my_vertexes_test() noexcept
 {
   const auto g = create_custom_vertices_k2_graph();
   const std::vector<my_vertex> expected_my_vertexes{
-    my_vertex("from","source",0.0,0.0),
-    my_vertex("to","target",3.14,3.14)
+    my_vertex("A","source",0.0,0.0),
+    my_vertex("B","target",3.14,3.14)
   };
   const std::vector<my_vertex> vertexes{
     get_vertex_my_vertexes(g)

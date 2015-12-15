@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
 //TODO: generalize to return any type

@@ -309,5 +309,6 @@ OTHER_FILES += \
     create_empty_undirected_named_edges_and_vertices_graph_demo.impl \
     create_named_vertices_k2_graph.impl \
     load_directed_named_vertices_graph_from_dot.impl \
-    load_directed_named_vertices_graph_from_dot_demo.impl
+    load_directed_named_vertices_graph_from_dot_demo.impl \
+    create_named_vertices_markov_chain_graph.impl
 

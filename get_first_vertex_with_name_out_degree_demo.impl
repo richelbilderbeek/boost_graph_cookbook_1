@@ -5,6 +5,6 @@
 void get_first_vertex_with_name_out_degree_demo() noexcept
 {
   const auto g = create_named_vertices_k2_graph();
-  assert(get_first_vertex_with_name_out_degree("from", g) == 1);
-  assert(get_first_vertex_with_name_out_degree("to", g) == 1);
+  assert(get_first_vertex_with_name_out_degree("A", g) == 1);
+  assert(get_first_vertex_with_name_out_degree("B", g) == 1);
 }

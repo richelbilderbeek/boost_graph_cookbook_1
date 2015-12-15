@@ -16,8 +16,8 @@ void remove_first_vertex_with_name_test() noexcept
     auto g = create_named_vertices_k2_graph();
     assert(get_n_edges(g) == 1);
     assert(get_n_vertices(g) == 2);
-    clear_first_vertex_with_name("from",g);
-    remove_first_vertex_with_name("from",g);
+    clear_first_vertex_with_name("A",g);
+    remove_first_vertex_with_name("A",g);
     assert(get_n_edges(g) == 0);
     assert(get_n_vertices(g) == 1);
   }
@@ -27,8 +27,8 @@ void remove_first_vertex_with_name_test() noexcept
     auto g = create_named_vertices_k2_graph();
     assert(get_n_edges(g) == 1);
     assert(get_n_vertices(g) == 2);
-    remove_first_vertex_with_name("from",g); //Will keep the edge??? Will be checked by assert
-    assert(!has_vertex_with_name("from",g));
+    remove_first_vertex_with_name("A",g); //Will keep the edge??? Will be checked by assert
+    assert(!has_vertex_with_name("A",g));
     assert(get_n_edges(g) == 1);
     assert(get_n_vertices(g) == 1);
   }

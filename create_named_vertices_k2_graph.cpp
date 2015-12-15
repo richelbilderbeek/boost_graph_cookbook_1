@@ -29,7 +29,7 @@ void create_named_vertices_k2_graph_test() noexcept
 
   assert(get_n_edges(g) == 1);
   assert(get_n_vertices(g) == 2);
-  const std::vector<std::string> expected_names{"from", "to"};
+  const std::vector<std::string> expected_names{"A", "B"};
   const std::vector<std::string> vertex_names = get_vertex_names(g);
   assert(expected_names == vertex_names);
 

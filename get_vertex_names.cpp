@@ -32,7 +32,7 @@ void get_vertex_names_test() noexcept
   //Named K2 graph
   {
     const auto g = create_named_vertices_k2_graph();
-    const std::vector<std::string> expected_names{"from", "to"};
+    const std::vector<std::string> expected_names{"A", "B"};
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
     assert(expected_names == vertex_names);
   }
