@@ -81,14 +81,15 @@ HEADERS += \
     load_undirected_graph_from_dot.h \
     is_regular_file.h \
     property_not_found_node_id.h \
-    create_markov_chain_graph.h \
+    create_markov_chain.h \
     load_directed_graph_from_dot.h \
     save_named_vertices_graph_to_dot.h \
     create_empty_undirected_named_vertices_graph.h \
-    create_named_vertices_markov_chain_graph.h \
+    create_named_vertices_markov_chain.h \
     create_empty_directed_named_vertices_graph.h \
     create_empty_undirected_named_edges_and_vertices_graph.h \
-    load_directed_named_vertices_graph_from_dot.h
+    load_directed_named_vertices_graph_from_dot.h \
+    load_undirected_named_vertices_graph_from_dot.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -172,15 +173,16 @@ SOURCES += \
     load_undirected_graph_from_dot.cpp \
     is_regular_file.cpp \
     property_not_found_node_id.cpp \
-    create_markov_chain_graph.cpp \
+    create_markov_chain.cpp \
     load_directed_graph_from_dot.cpp \
     save_named_vertices_graph_to_dot.cpp \
     create_empty_undirected_named_vertices_graph.cpp \
-    create_named_vertices_markov_chain_graph.cpp \
-    create_named_vertices_markov_chain_graph_test.cpp \
+    create_named_vertices_markov_chain.cpp \
+    create_named_vertices_markov_chain_test.cpp \
     create_empty_directed_named_vertices_graph.cpp \
     create_empty_undirected_named_edges_and_vertices_graph.cpp \
-    load_directed_named_vertices_graph_from_dot.cpp
+    load_directed_named_vertices_graph_from_dot.cpp \
+    load_undirected_named_vertices_graph_from_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -295,14 +297,14 @@ OTHER_FILES += \
     property_not_found_node_id.impl \
     load_undirected_graph_from_dot.impl \
     load_undirected_graph_from_dot_demo.impl \
-    create_markov_chain_graph.impl \
-    create_markov_chain_graph_demo.impl \
+    create_markov_chain.impl \
+    create_markov_chain_demo.impl \
     load_directed_graph_from_dot.impl \
     load_directed_graph_from_dot_demo.impl \
     save_named_vertices_graph_to_dot.impl \
     create_empty_undirected_named_vertices_graph.impl \
     create_empty_undirected_named_vertices_graph_demo.impl \
-    create_named_vertices_markov_chain_graph_demo.impl \
+    create_named_vertices_markov_chain_demo.impl \
     create_empty_directed_named_vertices_graph.impl \
     create_empty_directed_named_vertices_graph_demo.impl \
     create_empty_undirected_named_edges_and_vertices_graph.impl \
@@ -310,7 +312,11 @@ OTHER_FILES += \
     create_named_vertices_k2_graph.impl \
     load_directed_named_vertices_graph_from_dot.impl \
     load_directed_named_vertices_graph_from_dot_demo.impl \
-    create_named_vertices_markov_chain_graph.impl \
+    create_named_vertices_markov_chain.impl \
     is_regular_file.impl \
-    convert_dot_to_svg.impl
+    convert_dot_to_svg.impl \
+    save_named_vertices_graph_to_dot_using_lambda_cpp11.impl \
+    save_named_vertices_graph_to_dot_using_lambda_cpp14.impl \
+    load_undirected_named_vertices_graph_from_dot.impl \
+    load_undirected_named_vertices_graph_from_dot_demo.impl
 

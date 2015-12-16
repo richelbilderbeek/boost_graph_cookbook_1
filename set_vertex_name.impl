@@ -9,6 +9,7 @@ void set_vertex_name(
   graph& g
 ) noexcept
 {
-  auto vertex_name_map = get(boost::vertex_name,g);
+  auto vertex_name_map
+    = get(boost::vertex_name,g);
   vertex_name_map[vd] = name;
 }

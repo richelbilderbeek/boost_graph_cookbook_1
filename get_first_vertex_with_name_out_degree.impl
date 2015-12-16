@@ -10,6 +10,13 @@ int get_first_vertex_with_name_out_degree(
   const graph& g) noexcept
 {
   assert(has_vertex_with_name(name, g));
-  const auto vd = find_first_vertex_with_name(name, g);
-  return static_cast<int>(out_degree(vd, g)); //_not_ boost::out_degree!
+  const auto vd
+    = find_first_vertex_with_name(name, g);
+  const int od {
+    static_cast<int>(
+      out_degree(vd, g) //_not_ boost::out_degree!
+    )
+  };
+  assert(od >= 0);
+  return od;
 }

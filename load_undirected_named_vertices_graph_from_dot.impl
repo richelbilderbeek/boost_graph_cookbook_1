@@ -1,24 +1,24 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 
-#include "create_empty_directed_named_vertices_graph.h"
+#include "create_empty_undirected_named_vertices_graph.h"
 #include "is_regular_file.h"
 
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
-  boost::directedS,
+  boost::undirectedS,
   boost::property<
     boost::vertex_name_t,std::string
   >
 >
-load_directed_named_vertices_graph_from_dot(
+load_undirected_named_vertices_graph_from_dot(
   const std::string& dot_filename
 )
 {
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
-  auto g = create_empty_directed_named_vertices_graph();
+  auto g = create_empty_undirected_named_vertices_graph();
   boost::dynamic_properties p; //_do_ default construct
   p.property("node_id", get(boost::vertex_name, g));
   p.property("label", get(boost::vertex_name, g));

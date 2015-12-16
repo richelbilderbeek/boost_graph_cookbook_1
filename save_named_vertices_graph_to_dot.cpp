@@ -1,16 +1,23 @@
 #include "save_named_vertices_graph_to_dot.h"
 
+#if __cplusplus >= 201402L //C++14
+#include "save_named_vertices_graph_to_dot_using_lambda_cpp14.impl"
+#else
+#include "save_named_vertices_graph_to_dot_using_lambda_cpp11.impl"
+#endif
+
 #include "create_named_vertices_k2_graph.h"
-#include "create_named_vertices_markov_chain_graph.h"
+#include "create_named_vertices_markov_chain.h"
 #include "save_named_vertices_graph_to_dot.h"
+
 
 void save_named_vertices_graph_to_dot_demo() noexcept
 {
   const auto g = create_named_vertices_k2_graph();
   save_named_vertices_graph_to_dot(g, "create_named_vertices_k2_graph.dot");
 
-  const auto h = create_named_vertices_markov_chain_graph();
-  save_named_vertices_graph_to_dot(h, "create_named_vertices_markov_chain_graph.dot");
+  const auto h = create_named_vertices_markov_chain();
+  save_named_vertices_graph_to_dot(h, "create_named_vertices_markov_chain.dot");
 }
 
 #include <cassert>
@@ -20,15 +27,18 @@ void save_named_vertices_graph_to_dot_demo() noexcept
 #include "fileio.h"
 #include "create_k2_graph.h"
 #include "create_named_vertices_k2_graph.h"
-#include "create_named_vertices_markov_chain_graph.h"
+#include "create_named_vertices_markov_chain.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_router_network_graph.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "set_vertex_names.h"
 
+
+
 void save_named_vertices_graph_to_dot_test() noexcept
 {
+  const ribi::FileIo f;
   //Create figure of named K2 graph
   {
     const auto g = create_named_vertices_k2_graph();
@@ -37,12 +47,12 @@ void save_named_vertices_graph_to_dot_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g,dot_filename);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
@@ -50,18 +60,18 @@ void save_named_vertices_graph_to_dot_test() noexcept
   }
   //Create figure of named Markov chain graph
   {
-    const auto g = create_named_vertices_markov_chain_graph();
-    const std::string base_filename{"create_named_vertices_markov_chain_graph"};
+    const auto g = create_named_vertices_markov_chain();
+    const std::string base_filename{"create_named_vertices_markov_chain"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g,dot_filename);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
@@ -77,7 +87,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      f.FileToVector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -89,12 +99,12 @@ void save_named_vertices_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
@@ -110,7 +120,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      f.FileToVector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -125,12 +135,12 @@ void save_named_vertices_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
@@ -151,7 +161,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      f.FileToVector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -163,17 +173,46 @@ void save_named_vertices_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    f.CopyFile(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
       ribi::fileio::CopyMode::allow_overwrite
     );
   }
+  //Compare ways of save_named_vertices_graph_to_dot to be equivalent:
+  // - use boost::make_label_writes
+  // - use lambda in C++11
+  // - use lambda in C++14
+  #if __cplusplus >= 201402L //C++14
+  {
+    const auto g = create_named_vertices_k2_graph();
+    const auto h = create_named_vertices_markov_chain();
+    save_named_vertices_graph_to_dot(g,"g1.dot");
+    save_named_vertices_graph_to_dot_using_lambda_cpp14(g,"g2.dot");
+    save_named_vertices_graph_to_dot(h,"h1.dot");
+    save_named_vertices_graph_to_dot_using_lambda_cpp14(h,"h2.dot");
+    assert(f.FileToVector("g1.dot") == f.FileToVector("g2.dot"));
+    assert(f.FileToVector("h1.dot") == f.FileToVector("h2.dot"));
+    assert(f.FileToVector("g1.dot") != f.FileToVector("h2.dot"));
+  }
+  #else
+  {
+    const auto g = create_named_vertices_k2_graph();
+    const auto h = create_named_vertices_markov_chain();
+    save_named_vertices_graph_to_dot(g,"g1.dot");
+    save_named_vertices_graph_to_dot_using_lambda_cpp11(g,"g2.dot");
+    save_named_vertices_graph_to_dot(h,"h1.dot");
+    save_named_vertices_graph_to_dot_using_lambda_cpp11(h,"h2.dot");
+    assert(f.FileToVector("g1.dot") == f.FileToVector("g2.dot"));
+    assert(f.FileToVector("h1.dot") == f.FileToVector("h2.dot"));
+    assert(f.FileToVector("g1.dot") != f.FileToVector("h2.dot"));
+  }
+  #endif
   save_named_vertices_graph_to_dot_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

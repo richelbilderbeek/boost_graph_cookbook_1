@@ -1,7 +1,7 @@
 #include <cassert>
 
 #include "create_k2_graph.h"
-#include "create_markov_chain_graph.h"
+#include "create_markov_chain.h"
 #include "get_vertex_out_degrees.h"
 
 void get_vertex_out_degrees_demo() noexcept
@@ -11,7 +11,7 @@ void get_vertex_out_degrees_demo() noexcept
   const std::vector<int> vertex_out_degrees_g{get_vertex_out_degrees(g)};
   assert(expected_out_degrees_g == vertex_out_degrees_g);
 
-  const auto h = create_markov_chain_graph();
+  const auto h = create_markov_chain();
   const std::vector<int> expected_out_degrees_h{2,2};
   const std::vector<int> vertex_out_degrees_h{get_vertex_out_degrees(h)};
   assert(expected_out_degrees_h == vertex_out_degrees_h);

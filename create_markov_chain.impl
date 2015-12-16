@@ -1,0 +1,21 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_graph.h"
+
+///Create a two-state Markov chain
+boost::adjacency_list<>
+create_markov_chain() noexcept
+{
+  auto g = create_empty_directed_graph();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
+  assert(aer_aa.second);
+  const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
+  assert(aer_ab.second);
+  const auto aer_ba = boost::add_edge(vd_b, vd_a, g);
+  assert(aer_ba.second);
+  const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
+  assert(aer_bb.second);
+  return g;
+}

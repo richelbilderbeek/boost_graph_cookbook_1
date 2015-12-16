@@ -19,10 +19,10 @@
 #include "create_empty_undirected_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "create_k2_graph.h"
-#include "create_markov_chain_graph.h"
+#include "create_markov_chain.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_named_vertices_k2_graph.h"
-#include "create_named_vertices_markov_chain_graph.h"
+#include "create_named_vertices_markov_chain.h"
 #include "create_router_network_graph.h"
 #include "create_router_network.h"
 #include "create_tutorial_chapters_graph.h"
@@ -55,8 +55,9 @@
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
 #include "load_directed_graph_from_dot.h"
-#include "load_undirected_graph_from_dot.h"
 #include "load_directed_named_vertices_graph_from_dot.h"
+#include "load_undirected_graph_from_dot.h"
+#include "load_undirected_named_vertices_graph_from_dot.h"
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
 #include "print_vertex_name.h"
@@ -103,10 +104,10 @@ int main()
   create_empty_undirected_named_vertices_graph_test();
   create_empty_undirected_graph_test();
   create_k2_graph_test();
-  create_markov_chain_graph_test();
+  create_markov_chain_test();
   create_named_edges_and_vertices_k3_graph_test();
   create_named_vertices_k2_graph_test();
-  create_named_vertices_markov_chain_graph_test();
+  create_named_vertices_markov_chain_test();
   create_router_network_graph_test();
   create_router_network_test();
   create_tutorial_chapters_graph_test();
@@ -141,6 +142,7 @@ int main()
   load_directed_graph_from_dot_test();
   load_directed_named_vertices_graph_from_dot_test();
   load_undirected_graph_from_dot_test();
+  load_undirected_named_vertices_graph_from_dot_test();
   print_trans_delays_test();
   print_trans_delay_test();
   print_vertex_names_test();

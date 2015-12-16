@@ -12,14 +12,14 @@ void set_vertex_names(
 ) noexcept
 {
   const auto vertex_name_map = get(boost::vertex_name,g);
-
-  auto names_begin = std::begin(names);
+  auto ni = std::begin(names);
   const auto names_end = std::end(names);
-  for (auto vi = vertices(g);
-    vi.first != vi.second;
-    ++vi.first, ++names_begin)
+  const auto vip
+    = vertices(g); //_not_ boost::vertices!
+  const auto j = vip.second;
+  for (auto i = vip.first; i!=j; ++i, ++ni)
   {
-    assert(names_begin != names_end);
-    put(vertex_name_map, *vi.first,*names_begin);
+    assert(ni != names_end);
+    put(vertex_name_map, *i,*ni);
   }
 }

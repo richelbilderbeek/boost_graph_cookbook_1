@@ -7,12 +7,19 @@ bool has_vertex_with_name(
   const graph& g
 ) noexcept
 {
-  const auto vertex_name_map = get(boost::vertex_name, g);
+  const auto vertex_name_map
+    = get(boost::vertex_name, g);
+  const auto vip
+    = vertices(g); //_not_ boost::vertices!
+  const auto j = vip.second;
 
-  for (auto p = vertices(g);
-    p.first != p.second;
-    ++p.first) {
-    if (get(vertex_name_map, *p.first) == name) {
+  for (auto i = vip.first; i!=j; ++i) {
+    if (
+      get( //_not_ boost::get!
+        vertex_name_map,
+        *i
+      ) == name
+    ) {
       return true;
     }
   }
