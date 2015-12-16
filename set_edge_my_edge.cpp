@@ -4,13 +4,13 @@
 
 #include <cassert>
 
-#include "create_empty_custom_edges_and_vertices_graph.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 #include "add_custom_edge.h"
 #include "find_first_edge_with_my_edge.h"
 
 void set_edge_my_edge_test() noexcept
 {
-  auto g = create_empty_custom_edges_and_vertices_graph();
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
   const std::string old_name{"Dex"};
   add_custom_edge(old_name, g);
   const auto vd = find_first_edge_with_my_edge(old_name, g);

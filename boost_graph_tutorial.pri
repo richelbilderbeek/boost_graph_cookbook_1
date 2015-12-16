@@ -9,44 +9,68 @@ HEADERS += \
   build_router_network.h \
   clear_first_vertex_with_name.h \
   convert_dot_to_svg.h \
+  copy_file.h \
   count_vertices_with_name.h \
   create_custom_edges_and_vertices_k3_graph.h \
   create_custom_vertices_k2_graph.h \
-  create_empty_custom_edges_and_vertices_graph.h \
-  create_empty_custom_vertices_graph.h \
   create_empty_directed_graph.h \
+  create_empty_directed_graph_with_graph_name.h \
+  create_empty_directed_named_edges_and_vertices_graph.h \
+  create_empty_directed_named_vertices_graph.h \
+  create_empty_undirected_custom_edges_and_vertices_graph.h \
+  create_empty_undirected_custom_vertices_graph.h \
   create_empty_undirected_graph.h \
+  create_empty_undirected_named_edges_and_vertices_graph.h \
+  create_empty_undirected_named_vertices_graph.h \
   create_k2_graph.h \
+  create_markov_chain.h \
   create_named_edges_and_vertices_k3_graph.h \
+  create_named_edges_and_vertices_markov_chain.h \
   create_named_vertices_k2_graph.h \
+  create_named_vertices_markov_chain.h \
   create_router_network_graph.h \
   create_router_network.h \
   create_tutorial_chapters_graph.h \
+  find_first_edge_with_my_edge.h \
   find_first_edge_with_name.h \
+  find_first_vertex_with_my_vertex.h \
   find_first_vertex_with_name.h \
   formed_reference_to_void.h \
   get_edge_descriptors.h \
+  get_edge_my_edge.h \
   get_edge_my_edges.h \
   get_edge_name.h \
   get_edge_names.h \
   get_edges.h \
   get_first_vertex_with_name_out_degree.h \
+  get_graph_name.h \
   get_n_edges.h \
   get_n_vertices.h \
   get_type_name.h \
   get_vertex_descriptors.h \
   get_vertex_my_vertexes.h \
+  get_vertex_my_vertex.h \
   get_vertex_name.h \
   get_vertex_names.h \
   get_vertex_out_degrees.h \
   get_vertices.h \
   has_dot.h \
+  has_edge_between_vertices.h \
+  has_edge_with_my_edge.h \
   has_edge_with_name.h \
+  has_vertex_with_my_vertex.h \
   has_vertex_with_name.h \
   install_edge_custom_type.h \
   install_vertex_custom_type.h \
+  is_regular_file.h \
   is_self_loop.h \
   is_valid_dot_file.h \
+  load_directed_graph_from_dot.h \
+  load_directed_named_edges_and_vertices_graph_from_dot.h \
+  load_directed_named_vertices_graph_from_dot.h \
+  load_undirected_graph_from_dot.h \
+  load_undirected_named_edges_and_vertices_graph_from_dot.h \
+  load_undirected_named_vertices_graph_from_dot.h \
   my_edge.h \
   my_vertex.h \
   no_matching_function_for_call_to_clear_out_edges.h \
@@ -54,47 +78,24 @@ HEADERS += \
   print_trans_delays.h \
   print_vertex_name.h \
   print_vertex_names.h \
+  property_not_found_node_id.h \
+  remove_edge_between_vertices_with_names.h \
   remove_first_edge_with_name.h \
   remove_first_vertex_with_name.h \
+  save_custom_edges_and_vertices_graph_to_dot.h \
   save_custom_vertices_graph_to_dot.h \
   save_graph_to_dot.h \
   save_named_edges_and_vertices_graph_to_dot.h \
+  save_named_vertices_graph_to_dot.h \
+  set_edge_my_edge.h \
   set_edge_name.h \
+  set_graph_name.h \
   set_vertex_my_vertexes.h \
+  set_vertex_my_vertex.h \
   set_vertex_name.h \
   set_vertex_names.h \
   show_dot.h \
-    remove_edge_between_vertices_with_names.h \
-    find_first_vertex_with_my_vertex.h \
-    has_vertex_with_my_vertex.h \
-    set_vertex_my_vertex.h \
-    get_vertex_my_vertex.h \
-    has_edge_with_my_edge.h \
-    find_first_edge_with_my_edge.h \
-    has_edge_between_vertices.h \
-    get_edge_my_edge.h \
-    set_edge_my_edge.h \
-    save_custom_edges_and_vertices_graph_to_dot.h \
-    create_empty_directed_graph_with_graph_name.h \
-    set_graph_name.h \
-    get_graph_name.h \
-    load_undirected_graph_from_dot.h \
-    is_regular_file.h \
-    property_not_found_node_id.h \
-    create_markov_chain.h \
-    load_directed_graph_from_dot.h \
-    save_named_vertices_graph_to_dot.h \
-    create_empty_undirected_named_vertices_graph.h \
-    create_named_vertices_markov_chain.h \
-    create_empty_directed_named_vertices_graph.h \
-    create_empty_undirected_named_edges_and_vertices_graph.h \
-    load_directed_named_vertices_graph_from_dot.h \
-    load_undirected_named_vertices_graph_from_dot.h \
-    copy_file.h \
-    create_named_edges_and_vertices_markov_chain.h \
-    create_empty_directed_named_edges_and_vertices_graph.h \
-    load_directed_named_edges_and_vertices_graph_from_dot.h \
-    load_undirected_named_edges_and_vertices_graph_from_dot.h
+    create_empty_directed_custom_vertices_graph.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -107,43 +108,68 @@ SOURCES += \
   build_router_network.cpp \
   clear_first_vertex_with_name.cpp \
   convert_dot_to_svg.cpp \
+  copy_file.cpp \
   count_vertices_with_name.cpp \
   create_custom_edges_and_vertices_k3_graph.cpp \
   create_custom_vertices_k2_graph.cpp \
-  create_empty_custom_edges_and_vertices_graph.cpp \
-  create_empty_custom_vertices_graph.cpp \
   create_empty_directed_graph.cpp \
+  create_empty_directed_graph_with_graph_name.cpp \
+  create_empty_directed_named_edges_and_vertices_graph.cpp \
+  create_empty_directed_named_vertices_graph.cpp \
+  create_empty_undirected_custom_edges_and_vertices_graph.cpp \
+  create_empty_undirected_custom_vertices_graph.cpp \
   create_empty_undirected_graph.cpp \
+  create_empty_undirected_named_edges_and_vertices_graph.cpp \
+  create_empty_undirected_named_vertices_graph.cpp \
   create_k2_graph.cpp \
+  create_markov_chain.cpp \
   create_named_edges_and_vertices_k3_graph.cpp \
+  create_named_edges_and_vertices_markov_chain.cpp \
   create_named_vertices_k2_graph.cpp \
+  create_named_vertices_markov_chain.cpp \
+  create_named_vertices_markov_chain_test.cpp \
   create_router_network.cpp \
   create_router_network_graph.cpp \
   create_router_network_graph_test.cpp \
   create_tutorial_chapters_graph.cpp \
+  find_first_edge_with_my_edge.cpp \
   find_first_edge_with_name.cpp \
+  find_first_vertex_with_my_vertex.cpp \
   find_first_vertex_with_name.cpp \
   formed_reference_to_void.cpp \
   get_edge_descriptors.cpp \
+  get_edge_my_edge.cpp \
   get_edge_my_edges.cpp \
   get_edge_name.cpp \
   get_edge_names.cpp \
   get_edges.cpp \
   get_first_vertex_with_name_out_degree.cpp \
+  get_graph_name.cpp \
   get_n_edges.cpp \
   get_n_vertices.cpp \
   get_type_name.cpp \
   get_vertex_descriptors.cpp \
+  get_vertex_my_vertex.cpp \
   get_vertex_my_vertexes.cpp \
   get_vertex_name.cpp \
   get_vertex_names.cpp \
   get_vertex_out_degrees.cpp \
   get_vertices.cpp \
   has_dot.cpp \
+  has_edge_between_vertices.cpp \
+  has_edge_with_my_edge.cpp \
   has_edge_with_name.cpp \
+  has_vertex_with_my_vertex.cpp \
   has_vertex_with_name.cpp \
+  is_regular_file.cpp \
   is_self_loop_test.cpp \
   is_valid_dot_file.cpp \
+  load_directed_graph_from_dot.cpp \
+  load_directed_named_edges_and_vertices_graph_from_dot.cpp \
+  load_directed_named_vertices_graph_from_dot.cpp \
+  load_undirected_graph_from_dot.cpp \
+  load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
+  load_undirected_named_vertices_graph_from_dot.cpp \
   my_edge.cpp \
   my_vertex.cpp \
   no_matching_function_for_call_to_clear_out_edges.cpp \
@@ -151,48 +177,24 @@ SOURCES += \
   print_trans_delays.cpp \
   print_vertex_name.cpp \
   print_vertex_names.cpp \
+  property_not_found_node_id.cpp \
+  remove_edge_between_vertices_with_names.cpp \
   remove_first_edge_with_name.cpp \
   remove_first_vertex_with_name.cpp \
+  save_custom_edges_and_vertices_graph_to_dot.cpp \
   save_custom_vertices_graph_to_dot.cpp \
   save_graph_to_dot.cpp \
   save_named_edges_and_vertices_graph_to_dot.cpp \
+  save_named_vertices_graph_to_dot.cpp \
+  set_edge_my_edge.cpp \
   set_edge_name.cpp \
+  set_graph_name.cpp \
+  set_vertex_my_vertex.cpp \
   set_vertex_my_vertexes.cpp \
   set_vertex_name.cpp \
   set_vertex_names.cpp \
   show_dot.cpp \
-    remove_edge_between_vertices_with_names.cpp \
-    find_first_vertex_with_my_vertex.cpp \
-    has_vertex_with_my_vertex.cpp \
-    set_vertex_my_vertex.cpp \
-    get_vertex_my_vertex.cpp \
-    has_edge_with_my_edge.cpp \
-    find_first_edge_with_my_edge.cpp \
-    has_edge_between_vertices.cpp \
-    get_edge_my_edge.cpp \
-    set_edge_my_edge.cpp \
-    save_custom_edges_and_vertices_graph_to_dot.cpp \
-    create_empty_directed_graph_with_graph_name.cpp \
-    set_graph_name.cpp \
-    get_graph_name.cpp \
-    load_undirected_graph_from_dot.cpp \
-    is_regular_file.cpp \
-    property_not_found_node_id.cpp \
-    create_markov_chain.cpp \
-    load_directed_graph_from_dot.cpp \
-    save_named_vertices_graph_to_dot.cpp \
-    create_empty_undirected_named_vertices_graph.cpp \
-    create_named_vertices_markov_chain.cpp \
-    create_named_vertices_markov_chain_test.cpp \
-    create_empty_directed_named_vertices_graph.cpp \
-    create_empty_undirected_named_edges_and_vertices_graph.cpp \
-    load_directed_named_vertices_graph_from_dot.cpp \
-    load_undirected_named_vertices_graph_from_dot.cpp \
-    copy_file.cpp \
-    create_named_edges_and_vertices_markov_chain.cpp \
-    create_empty_directed_named_edges_and_vertices_graph.cpp \
-    load_directed_named_edges_and_vertices_graph_from_dot.cpp \
-    load_undirected_named_edges_and_vertices_graph_from_dot.cpp
+    create_empty_directed_custom_vertices_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -214,8 +216,6 @@ OTHER_FILES += \
   count_vertices_with_name.impl \
   create_custom_edges_and_vertices_k3_graph.impl \
   create_custom_vertices_k2_graph.impl \
-  create_empty_custom_edges_and_vertices_graph.impl \
-  create_empty_custom_vertices_graph.impl \
   create_empty_directed_graph_demo.impl \
   create_empty_directed_graph.impl \
   create_empty_undirected_graph_demo.impl \
@@ -337,5 +337,8 @@ OTHER_FILES += \
     load_directed_named_edges_and_vertices_graph_from_dot.impl \
     load_directed_named_edges_and_vertices_graph_from_dot_demo.impl \
     load_undirected_named_edges_and_vertices_graph_from_dot.impl \
-    load_undirected_named_edges_and_vertices_graph_from_dot_demo.impl
+    load_undirected_named_edges_and_vertices_graph_from_dot_demo.impl \
+    create_empty_undirected_custom_vertices_graph.impl \
+    create_empty_undirected_custom_edges_and_vertices_graph.impl \
+    create_empty_directed_custom_vertices_graph.impl
 

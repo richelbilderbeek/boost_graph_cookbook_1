@@ -3,12 +3,12 @@
 #include <cassert>
 #include <vector>
 
-#include "create_empty_custom_vertices_graph.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
-#include "create_empty_custom_edges_and_vertices_graph.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 
 void get_type_name_test() noexcept
 {
@@ -32,10 +32,10 @@ void get_type_name_test() noexcept
   assert(get_type_name<decltype(create_empty_undirected_named_edges_and_vertices_graph())>()
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_name_t, std::string, boost::no_property>, boost::property<boost::edge_name_t, std::string, boost::no_property>, boost::no_property, boost::listS>"
   );
-  assert(get_type_name<decltype(create_empty_custom_vertices_graph())>()
+  assert(get_type_name<decltype(create_empty_undirected_custom_vertices_graph())>()
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_custom_type_t, my_vertex, boost::no_property>, boost::no_property, boost::no_property, boost::listS>"
   );
-  assert(get_type_name<decltype(create_empty_custom_edges_and_vertices_graph())>()
+  assert(get_type_name<decltype(create_empty_undirected_custom_edges_and_vertices_graph())>()
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_custom_type_t, my_vertex, boost::no_property>, boost::property<boost::edge_custom_type_t, my_edge, boost::no_property>, boost::no_property, boost::listS>"
   );
   assert(get_type_name<decltype(vertices(create_empty_undirected_graph()))>()

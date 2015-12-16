@@ -6,12 +6,12 @@
 #include <iostream>
 
 #include "add_named_vertex.h"
-#include "create_empty_custom_vertices_graph.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
 #include "get_vertex_my_vertexes.h"
 
 void has_vertex_with_my_vertex_test() noexcept
 {
-  auto g = create_empty_custom_vertices_graph();
+  auto g = create_empty_undirected_custom_vertices_graph();
   assert(get_vertex_my_vertexes(g).empty());
   assert(!has_vertex_with_my_vertex(my_vertex("Felix"),g));
   add_custom_vertex(my_vertex("Felix"),g);

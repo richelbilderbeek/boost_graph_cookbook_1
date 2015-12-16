@@ -601,13 +601,11 @@ reference "sub:create_empty_undirected_graph"
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, an undirected graph with two vertices and one edge, chapter 
+A two-state Markov chain, a directed graph with two vertices and four edges,
+ chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_k2_graph"
+reference "sub:create_markov_chain_graph"
 
 \end_inset
 
@@ -615,11 +613,13 @@ reference "sub:create_k2_graph"
 \end_layout
 
 \begin_layout Itemize
-A two-state Markov chain, a directed graph with two vertices and four edges,
- chapter 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, an undirected graph with two vertices and one edge, chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_markov_chain_graph"
+reference "sub:create_k2_graph"
 
 \end_inset
 
@@ -3336,505 +3336,6 @@ name "alg:get_edge_descriptors_demo"
 \end_layout
 
 \begin_layout Subsection
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, a fully connected undirected graph with two vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_k2_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, create
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Finally, we are going to create a graph!
-\end_layout
-
-\begin_layout Standard
-To create a fully connected undirected graph with two vertices (also called
- 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-), one needs two vertices and one (undirected) edge, as depicted in figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:k2_graph"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikz 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[thick] 
-\end_layout
-
-\begin_layout Plain Layout
-
-  (0,0) node[fill=black,shape=circle,text=white] {} 
-\end_layout
-
-\begin_layout Plain Layout
-
-    -- (5,1) node[fill=black,shape=circle,text=white] {} 
-\end_layout
-
-\begin_layout Plain Layout
-
-;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2}$
-\end_inset
-
-: a fully connected undirected graph with two vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:k2_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To create 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, the following code can be used:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_k2_graph.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- as depicted in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:k2_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-create_k2_graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_k2_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This code is very similar to the 'add_edge' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:add_edge"
-
-\end_inset
-
-).
- To save defining the type, we call the 'create_empty_undirected_graph'
- function.
- The vertex descriptors (see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Vertex-descriptors"
-
-\end_inset
-
-) created by two boost::add_vertex
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::add_vertex
-\end_layout
-
-\end_inset
-
- calls are stored to add an edge to the graph.
- From boost::add_edge
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::add_edge
-\end_layout
-
-\end_inset
-
- its return type (see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:boost::add_edge result"
-
-\end_inset
-
-), it is only checked that insertion has been successfull.
-\end_layout
-
-\begin_layout Standard
-Note that the graph lacks all properties: nodes do not have names, nor do
- edges.
-\end_layout
-
-\begin_layout Standard
-Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph_demo"
-
-\end_inset
-
- demonstrates how to 'create_k2_graph' and checks if it has the correct
- amount of edges and vertices.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_k2_graph_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of 'create_k2_graph' 
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_k2_graph_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-The .dot file of 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- , a fully connected undirected graph with two vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_k2.dot"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Running a bit ahead, this graph can be converted to the .dot file as shown
- in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "create_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the 'create_k2_graph' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-), converted from graph to .dot file using algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-From the .dot file one can already see that the graph is undirected, because:
-\end_layout
-
-\begin_layout Itemize
-The first word, 'graph', denotes an undirected graph (where 'digraph' would
- have indicated a directional graph)
-\end_layout
-
-\begin_layout Itemize
-The edge between 0 and 1 is written as '--' (where directed connections
- would be written as '->', '<-' or '<>')
-\end_layout
-
-\begin_layout Subsubsection
-The .svg file of 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- , a fully connected undirected graph with two vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_k2.svg"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Continuing to running a bit ahead, this .dot file can be converted to the
- .svg as shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:create_k2_graph.svg"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'create_k2_graph' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:create_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Also this figure shows that the graph in undirected, otherwise the edge
- would have one or two arrow heads.
- Note that the .svg is displayed as if the nodes have names.
- This is not the case: here, the node indices are shown.
-\end_layout
-
-\begin_layout Subsection
 Creating a directed graph
 \begin_inset CommandInset label
 LatexCommand label
@@ -4350,6 +3851,505 @@ name "fig:create_markov_chain.svg"
 \begin_layout Standard
 Also this figure shows that the graph in directed, as the edges have arrow
  heads.
+ Note that the .svg is displayed as if the nodes have names.
+ This is not the case: here, the node indices are shown.
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, we are going to create a graph!
+\end_layout
+
+\begin_layout Standard
+To create a fully connected undirected graph with two vertices (also called
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+), one needs two vertices and one (undirected) edge, as depicted in figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k2_graph"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,1) node[fill=black,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+: a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_k2_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code is very similar to the 'add_edge' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge"
+
+\end_inset
+
+).
+ To save defining the type, we call the 'create_empty_undirected_graph'
+ function.
+ The vertex descriptors (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+) created by two boost::add_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_vertex
+\end_layout
+
+\end_inset
+
+ calls are stored to add an edge to the graph.
+ From boost::add_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ its return type (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:boost::add_edge result"
+
+\end_inset
+
+), it is only checked that insertion has been successfull.
+\end_layout
+
+\begin_layout Standard
+Note that the graph lacks all properties: nodes do not have names, nor do
+ edges.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph_demo"
+
+\end_inset
+
+ demonstrates how to 'create_k2_graph' and checks if it has the correct
+ amount of edges and vertices.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_k2_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file of 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ , a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Running a bit ahead, this graph can be converted to the .dot file as shown
+ in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the .dot file one can already see that the graph is undirected, because:
+\end_layout
+
+\begin_layout Itemize
+The first word, 'graph', denotes an undirected graph (where 'digraph' would
+ have indicated a directional graph)
+\end_layout
+
+\begin_layout Itemize
+The edge between 0 and 1 is written as '--' (where directed connections
+ would be written as '->', '<-' or '<>')
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file of 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ , a fully connected undirected graph with two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k2.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Continuing to running a bit ahead, this .dot file can be converted to the
+ .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_k2_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also this figure shows that the graph in undirected, otherwise the edge
+ would have one or two arrow heads.
  Note that the .svg is displayed as if the nodes have names.
  This is not the case: here, the node indices are shown.
 \end_layout
@@ -5356,6 +5356,18 @@ In this chapter, we will build the following graphs:
 \end_layout
 
 \begin_layout Itemize
+An empty directed graph that allows for vertices with names: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 An empty undirected graph that allows for vertices with names: see chapter
  
 \begin_inset CommandInset ref
@@ -5368,11 +5380,10 @@ reference "sub:create_empty_undirected_named_vertices_graph"
 \end_layout
 
 \begin_layout Itemize
-An empty directed graph that allows for vertices with names: see chapter
- 
+Two-state Markov chain with named vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_empty_directed_named_vertices_graph"
+reference "sub:create_named_vertices_markov_chain"
 
 \end_inset
 
@@ -5387,17 +5398,6 @@ reference "sub:create_empty_directed_named_vertices_graph"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_named_vertices_k2_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Two-state Markov chain with named vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_named_vertices_markov_chain"
 
 \end_inset
 
@@ -5433,6 +5433,303 @@ reference "sub:get_vertex_names"
 \begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
+\end_layout
+
+\begin_layout Subsection
+Creating an empty directed graph with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_named_vertices_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create an empty directed graph with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Named vertices, create empty directed graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Empty directed graph with named vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's create a trivial empty directed graph, in which the vertices can have
+ a name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_named_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with named vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_directed_named_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_named_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is directed (due to the boost::directedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a name, that is of data type std::stri
+ng (due to the boost::property< boost::vertex_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+Edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'boost::property< boost::vertex_name_t,std:
+:string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the property 'boost::vertex_name_t', that is of data type
+ 'std::string'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a name that is stored as a std::string
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_named_vertices_graph_demo"
+
+\end_inset
+
+ shows how to create this graph.
+ Note that all the earlier functions defined in this tutorial keep working
+ as expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_named_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_empty_directed_named_vertices_graph' function
+ 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_named_directed_vertices_graph_demo
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_named_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5719,303 +6016,6 @@ create_empty_named_undirected_vertices_graph_demo
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_named_vertices_graph_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Creating an empty directed graph with named vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_empty_directed_named_vertices_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create an empty directed graph with named vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Named vertices, create empty directed graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Empty directed graph with named vertices, create
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Let's create a trivial empty directed graph, in which the vertices can have
- a name:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_empty_directed_named_vertices_graph.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Creating an empty directed graph with named vertices
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-create_empty_directed_named_vertices_graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_empty_directed_named_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is directed (due to the boost::directedS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::directedS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a name, that is of data type std::stri
-ng (due to the boost::property< boost::vertex_name_t,std::string>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_name_t
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-Edges and graph have no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'boost::property< boost::vertex_name_t,std:
-:string>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_name_t
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have the property 'boost::vertex_name_t', that is of data type
- 'std::string'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have a name that is stored as a std::string
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_empty_directed_named_vertices_graph_demo"
-
-\end_inset
-
- shows how to create this graph.
- Note that all the earlier functions defined in this tutorial keep working
- as expected.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_empty_directed_named_vertices_graph_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_named_vertices_graph' function
- 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-create_empty_named_directed_vertices_graph_demo
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_empty_directed_named_vertices_graph_demo"
 
 \end_inset
 
@@ -6465,437 +6465,6 @@ name "alg:get_vertex_names_demo"
 \end_layout
 
 \begin_layout Subsection
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- with named vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_named_vertices_k2_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- with named vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2}$
-\end_inset
-
- with named vertices, create
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We extend 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- of chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_k2_graph"
-
-\end_inset
-
- by naming the vertices 
-\begin_inset Formula $A$
-\end_inset
-
- and 
-\begin_inset Formula $B$
-\end_inset
-
-, as depicted in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:named_vertices_k2_graph"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikz 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[thick] 
-\end_layout
-
-\begin_layout Plain Layout
-
-  (0,0) node[fill=black,shape=circle,text=white] {$A$} 
-\end_layout
-
-\begin_layout Plain Layout
-
-    -- (5,0) node[fill=black,shape=circle,text=white] {$B$} 
-\end_layout
-
-\begin_layout Plain Layout
-
-;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2}$
-\end_inset
-
-: a fully connected graph with two vertices with the text 
-\begin_inset Formula $A$
-\end_inset
-
- and 
-\begin_inset Formula $B$
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:named_vertices_k2_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To create 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, the following code can be used:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_named_vertices_k2_graph.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- with named vertices as depicted in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:named_vertices_k2_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-create_named_vertices_k2_graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Most of the code is a repeat of algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-.
- In the end, the names are obtained as a boost::property_map and set to
- the desired names.
-\end_layout
-
-\begin_layout Standard
-Also the demonstration code (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph_demo"
-
-\end_inset
-
-) is very similar to the demonstration code of the create_k2_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_k2_graph"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_named_vertices_k2_graph_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstrating the 'create_k2_graph' function
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_vertices_k2_graph_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-The .dot file
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_named_vertices_k2.dot"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "create_named_vertices_k2.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the 'create_named_vertices_k2' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-), converted from graph to .dot file using algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_vertices_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-The .svg file
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_named_vertices_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_named_vertices_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'create_named_vertices_k2_graph' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_markov_chain"
-
-\end_inset
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:create_named_vertices_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 Creating a Markov chain with named vertices
 \begin_inset CommandInset label
 LatexCommand label
@@ -7313,6 +6882,437 @@ reference "alg:convert_dot_to_svg"
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_named_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We extend 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_k2_graph"
+
+\end_inset
+
+ by naming the vertices 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+, as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[fill=black,shape=circle,text=white] {$A$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,0) node[fill=black,shape=circle,text=white] {$B$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+: a fully connected graph with two vertices with the text 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:named_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_named_vertices_k2_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a repeat of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+.
+ In the end, the names are obtained as a boost::property_map and set to
+ the desired names.
+\end_layout
+
+\begin_layout Standard
+Also the demonstration code (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph_demo"
+
+\end_inset
+
+) is very similar to the demonstration code of the create_k2_graph function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k2_graph"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstrating the 'create_k2_graph' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k2.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_vertices_k2.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_named_vertices_k2' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_named_vertices_k2_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_k2_graph.svg"
 
 \end_inset
 
@@ -9627,6 +9627,18 @@ In this chapter, we will build the following graphs:
 \end_layout
 
 \begin_layout Itemize
+An empty directed graph that allows for edges and vertices with names: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 An empty undirected graph that allows for edges and vertices with names:
  see chapter 
 \begin_inset CommandInset ref
@@ -9639,11 +9651,10 @@ reference "sub:create_empty_undirected_named_edges_and_vertices_graph"
 \end_layout
 
 \begin_layout Itemize
-An empty directed graph that allows for edges and vertices with names: see
- chapter 
+Markov chain with named edges and vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_empty_directed_named_edges_and_vertices_graph"
+reference "sub:create_named_edges_and_vertices_markov_chain"
 
 \end_inset
 
@@ -9658,17 +9669,6 @@ with named edges and vertices: see chapter
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_named_edges_and_vertices_k3"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Markov chain with named edges and vertices: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_named_edges_and_vertices_markov_chain"
 
 \end_inset
 
@@ -9704,317 +9704,6 @@ reference "sub:get_edge_names"
 \begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
-\end_layout
-
-\begin_layout Subsection
-Creating an empty undirected graph with named edges and vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_empty_undirected_named_edges_and_vertices_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Create an empty graph with named edges and vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Named edges and vertices, create empty graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Empty graph with named edges and vertices, create
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Let's create a trivial empty undirected graph, in which the both the edges
- and vertices can have a name:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_empty_undirected_named_edges_and_vertices_graph.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Creating an empty undirected graph with named edges and vertices
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-create_empty_undirected_named_edges_and_vertices_graph
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_empty_undirected_named_edges_and_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::undirectedS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a name, that is of data type std::stri
-ng (due to the boost::property< boost::vertex_name_t,std::string>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_name_t
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges have one property: they have a name, that is of data type std::string
- (due to the boost::property< boost::edge_name_t,std::string>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_name_t
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The graph has no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fifth template argument 'boost::property< boost::edge_name_t,std::st
-ring>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_name_t
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have the property 'boost::edge_name_t', that is of data type 'std::string'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have a name that is stored as a std::string
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
-
-\end_inset
-
- shows how to create this graph.
- Note that all the earlier functions defined in this tutorial keep working
- as expected.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_empty_undirected_named_edges_and_vertices_graph_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration if the 'create_empty_undirected_named_edges_and_vertices_graph'
- function 
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -10312,6 +10001,317 @@ Demonstration if the 'create_empty_directed_named_edges_and_vertices_graph'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_named_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating an empty undirected graph with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Create an empty graph with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Named edges and vertices, create empty graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Empty graph with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's create a trivial empty undirected graph, in which the both the edges
+ and vertices can have a name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_named_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with named edges and vertices
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+create_empty_undirected_named_edges_and_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_named_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a name, that is of data type std::stri
+ng (due to the boost::property< boost::vertex_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_name_t
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges have one property: they have a name, that is of data type std::string
+ (due to the boost::property< boost::edge_name_t,std::string>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_name_t
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The graph has no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fifth template argument 'boost::property< boost::edge_name_t,std::st
+ring>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_name_t
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have the property 'boost::edge_name_t', that is of data type 'std::string'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have a name that is stored as a std::string
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
+
+\end_inset
+
+ shows how to create this graph.
+ Note that all the earlier functions defined in this tutorial keep working
+ as expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_named_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'create_empty_undirected_named_edges_and_vertices_graph'
+ function 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_named_edges_and_vertices_graph_demo"
 
 \end_inset
 
@@ -10638,6 +10638,394 @@ get_edge_names_demo
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_names_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating Markov chain with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create Markov chain with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Markov chain with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We build this graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A)              {$Sunny$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] {$Rainy$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop  left] node {$Sometimes$} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {    $Often$} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {   $Rarely$} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop right] node {   $Mostly$} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the vertices have texts 
+\begin_inset Formula $Sunny$
+\end_inset
+
+ and 
+\begin_inset Formula $Rainy$
+\end_inset
+
+, and the edges have texts 
+\begin_inset Formula $Sometimes$
+\end_inset
+
+, 
+\begin_inset Formula $Often$
+\end_inset
+
+, 
+\begin_inset Formula $Rarely$
+\end_inset
+
+ and 
+\begin_inset Formula $Mostly$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here is the code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_named_edges_and_vertices_markov_chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_named_edges_and_vertices_markov_chain' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+.dot file
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_edges_and_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_named_edges_and_vertices_markov_chain'
+ function (algorithm XXX), converted from graph to .dot file using algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k3_graph.dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+.svg file
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_edges_and_vertices_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_named_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_edges_and_vertices_markov_chain.svg"
 
 \end_inset
 
@@ -11066,394 +11454,6 @@ reference "alg:convert_dot_to_svg"
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_named_edges_and_vertices_k3_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Creating Markov chain with named edges and vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create Markov chain with named edges and vertices
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Markov chain with named edges and vertices, create
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We build this graph:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick
-]   
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-tikzstyle{every state}=[]
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-node[state] (A)              {$Sunny$};   
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-node[state] (B) [right of=A] {$Rainy$};   
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-path (A) edge [loop  left] node {$Sometimes$} (A)
-\end_layout
-
-\begin_layout Plain Layout
-
-        (A) edge [bend  left] node {    $Often$} (B)
-\end_layout
-
-\begin_layout Plain Layout
-
-        (B) edge [bend  left] node {   $Rarely$} (A)
-\end_layout
-
-\begin_layout Plain Layout
-
-        (B) edge [loop right] node {   $Mostly$} (B); 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-A two-state Markov chain where the vertices have texts 
-\begin_inset Formula $Sunny$
-\end_inset
-
- and 
-\begin_inset Formula $Rainy$
-\end_inset
-
-, and the edges have texts 
-\begin_inset Formula $Sometimes$
-\end_inset
-
-, 
-\begin_inset Formula $Often$
-\end_inset
-
-, 
-\begin_inset Formula $Rarely$
-\end_inset
-
- and 
-\begin_inset Formula $Mostly$
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Here is the code:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_named_edges_and_vertices_markov_chain.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Creating the two-state Markov chain as depicted in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-create_named_edges_and_vertices_markov_chain
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Here is the demo:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "create_named_edges_and_vertices_markov_chain_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demo of the 'create_named_edges_and_vertices_markov_chain' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_edges_and_vertices_markov_chain_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-.dot file
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "create_named_edges_and_vertices_markov_chain.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the 'create_named_edges_and_vertices_markov_chain'
- function (algorithm XXX), converted from graph to .dot file using algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_graph_to_dot"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:create_named_edges_and_vertices_k3_graph.dot-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-.svg file
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_named_edges_and_vertices_markov_chain.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the 'create_named_edges_and_vertices_markov_chain'
- function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_edges_and_vertices_markov_chain"
-
-\end_inset
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:create_named_edges_and_vertices_markov_chain.svg"
 
 \end_inset
 
@@ -12971,18 +12971,19 @@ I do not intend to be original in naming my data types
 \end_inset
 
 .
+ The following graphs will be created:
 \end_layout
 
 \begin_layout Itemize
-An empty (undirected) graph that allows for custom vertices: see chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_vertices_graph"
+An empty directed graph that allows for custom vertices: see chapter 
+\end_layout
 
-\end_inset
+\begin_layout Itemize
+An empty undirected graph that allows for custom vertices: see chapter 
+\end_layout
 
-
+\begin_layout Itemize
+A two-state Markov chain with custom vertices: see chapter 
 \end_layout
 
 \begin_layout Itemize
@@ -12992,7 +12993,7 @@ reference "sub:create_empty_custom_vertices_graph"
 with custom vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_custom_vertices_k2"
+reference "sub:create_custom_vertices_k2_graph"
 
 \end_inset
 
@@ -13001,6 +13002,24 @@ reference "sub:create_custom_vertices_k2"
 
 \begin_layout Standard
 In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Create the custom vertex class, called 'my_vertex'
+\end_layout
+
+\begin_layout Itemize
+Installing the new vertex type as a vertex property, called 'vertex_custom_type
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex_custom_type
+\end_layout
+
+\end_inset
+
+'
 \end_layout
 
 \begin_layout Itemize
@@ -13015,15 +13034,19 @@ reference "sub:add_custom_vertex"
 \end_layout
 
 \begin_layout Standard
+Additionally, will will need to:
+\end_layout
+
+\begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
 \end_layout
 
 \begin_layout Subsection
-Create an empty graph with custom vertices
+Creating the custom vertex class
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_empty_custom_vertices_graph"
+name "sub:my_vertex"
 
 \end_inset
 
@@ -13031,38 +13054,8 @@ name "sub:create_empty_custom_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-Say we want to use our own vertex class as graph nodes.
- This is done in multiple steps:
-\end_layout
-
-\begin_layout Enumerate
-Create a custom vertex class, called 'my_vertex'
-\end_layout
-
-\begin_layout Enumerate
-Install a new property, called 'vertex_custom_type
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-vertex_custom_type
-\end_layout
-
-\end_inset
-
-'
-\end_layout
-
-\begin_layout Enumerate
-Use the new property in creating a boost::adjacency_list
-\end_layout
-
-\begin_layout Subsubsection
-Creating the custom vertex class
-\end_layout
-
-\begin_layout Standard
-In this example, I create a custom vertex class.
+Before creating an empty graph with custom vertices, that custom vertex
+ class must be created.
  Here I will show the header file of it, as the implementation of it is
  not important yet.
 \end_layout
@@ -13174,12 +13167,21 @@ member
  my_vertex is copyable, but cannot trivially be converted to a std::string.
 \end_layout
 
-\begin_layout Subsubsection
-Installing the new property
+\begin_layout Subsection
+Installing the new vertex property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:install_vertex_custom_type"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Installing a new property would have been easier, if 'more C++ compilers
+Before creating an empty graph with custom vertices, this type must be installed
+ as a vertex property.
+ Installing a new property would have been easier, if 'more C++ compilers
  were standards conformant' (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -13264,21 +13266,11 @@ name "alg:install_vertex_custom_type"
 \end_layout
 
 \begin_layout Standard
-The enum value 314
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-pi
+The enum value 314 must be unique.
 \end_layout
 
-\end_inset
-
- must be unique.
-\end_layout
-
-\begin_layout Subsubsection
-Create the empty graph with custom vertices
+\begin_layout Subsection
+Create the empty directed graph with custom vertices
 \end_layout
 
 \begin_layout Standard
@@ -13291,7 +13283,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_custom_vertices_graph.impl"
+filename "create_empty_custom_vertices_directed_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -13303,12 +13295,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating an empty graph with custom vertices
+Creating an empty directed graph with custom vertices
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-create_empty_custom_vertices_graph
+create_empty_directed_custom_vertices_graph
 \end_layout
 
 \end_inset
@@ -13316,7 +13308,217 @@ create_empty_custom_vertices_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_custom_vertices_graph"
+name "alg:create_empty_directed)custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is directed (due to the boost::directedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a custom type, that is of data
+ type my_vertex (due to the boost::property< boost::vertex_custom_type_t,my_vert
+ex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'boost::property< boost::vertex_custom_type
+_t,my_vertex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the property 'boost::vertex_custom_type_t', which is of data
+ type 'my_vertex'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a custom type called my_vertex
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Create the empty undirected graph with custom vertices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_custom_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with custom vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_empty_undirected_custom_vertices_graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_custom_vertices_graph"
 
 \end_inset
 
@@ -13420,17 +13622,7 @@ The edges and graph have no properties
 \end_layout
 
 \begin_layout Itemize
-Edges are stored in a std::list 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Why specify edge storage twice?
-\end_layout
-
-\end_inset
-
-
+Edges are stored in a std::list
 \end_layout
 
 \begin_layout Standard
@@ -13696,6 +13888,33 @@ reference "sub:formed_reference_to_void"
 \end_layout
 
 \begin_layout Subsection
+Creating a two-state Markov chain with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algo:
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Subsubsection
+.dot file
+\end_layout
+
+\begin_layout Subsubsection
+.svg file
+\end_layout
+
+\begin_layout Subsection
 Creating 
 \begin_inset Formula $K_{2}$
 \end_inset
@@ -13703,7 +13922,7 @@ Creating
  with custom vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_custom_vertices_k2"
+name "sub:create_custom_vertices_k2_graph"
 
 \end_inset
 
@@ -13800,6 +14019,18 @@ reference "alg:create_named_vertices_k2_graph"
 ).
  In the end, the my_vertices are obtained as a boost::property_map and set
  with two custom my_vertex objects.
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Subsubsection
+.dot file
+\end_layout
+
+\begin_layout Subsubsection
+.svg file
 \end_layout
 
 \begin_layout Section

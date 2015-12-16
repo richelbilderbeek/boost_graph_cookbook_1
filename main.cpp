@@ -11,8 +11,10 @@
 #include "count_vertices_with_name.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "create_custom_vertices_k2_graph.h"
-#include "create_empty_custom_edges_and_vertices_graph.h"
-#include "create_empty_custom_vertices_graph.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
+//#include "create_empty_directed_custom_edges_and_vertices_graph.h"
+#include "create_empty_directed_custom_vertices_graph.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_directed_graph_with_graph_name.h"
 #include "create_empty_directed_named_edges_and_vertices_graph.h"
@@ -101,8 +103,9 @@ int main()
   count_vertices_with_name_test();
   create_custom_edges_and_vertices_k3_graph_test();
   create_custom_vertices_k2_graph_test();
-  create_empty_custom_edges_and_vertices_graph_test();
-  create_empty_custom_vertices_graph_test();
+  create_empty_undirected_custom_edges_and_vertices_graph_test();
+  create_empty_undirected_custom_vertices_graph_test();
+  create_empty_directed_custom_vertices_graph_test();
   create_empty_directed_named_edges_and_vertices_graph_test();
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();

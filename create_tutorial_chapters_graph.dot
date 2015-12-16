@@ -2,8 +2,8 @@ graph G {
 0[label=create_empty_graph];
 1[label=create_empty_named_vertices_graph];
 2[label=create_empty_undirected_named_edges_and_vertices_graph];
-3[label=create_empty_custom_vertices_graph];
-4[label=create_empty_custom_edges_and_vertices_graph];
+3[label=create_empty_undirected_custom_vertices_graph];
+4[label=create_empty_undirected_custom_edges_and_vertices_graph];
 5[label=create_k2_graph];
 6[label=create_named_vertices_k2_graph];
 7[label=create_named_edges_and_vertices_k3_graph];

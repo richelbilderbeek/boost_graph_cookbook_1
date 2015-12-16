@@ -1,14 +1,14 @@
 #include <cassert>
 
 #include "add_custom_vertex.h"
-#include "create_empty_custom_vertices_graph.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
 #include "find_first_vertex_with_my_vertex.h"
 #include "get_vertex_my_vertex.h"
 #include "set_vertex_my_vertex.h"
 
 void set_vertex_my_vertex_demo() noexcept
 {
-  auto g = create_empty_custom_vertices_graph();
+  auto g = create_empty_undirected_custom_vertices_graph();
   const my_vertex old_name{"Dex"};
   add_custom_vertex(old_name, g);
   const auto vd = find_first_vertex_with_my_vertex(old_name,g);

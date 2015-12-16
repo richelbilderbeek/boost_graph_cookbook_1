@@ -6,11 +6,11 @@
 #include <iostream>
 
 #include "add_custom_edge.h"
-#include "create_empty_custom_edges_and_vertices_graph.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 
 void has_edge_with_my_edge_test() noexcept
 {
-  auto g = create_empty_custom_edges_and_vertices_graph();
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
   assert(!has_edge_with_my_edge(my_edge("Felix"),g));
   add_custom_edge(my_edge("Felix"),g);
   assert(has_edge_with_my_edge(my_edge("Felix"),g));

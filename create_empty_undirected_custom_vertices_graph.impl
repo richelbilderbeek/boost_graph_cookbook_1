@@ -10,7 +10,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t,my_vertex
   >
 >
-create_empty_custom_vertices_graph() noexcept
+create_empty_undirected_custom_vertices_graph() noexcept
 {
   return boost::adjacency_list<
     boost::vecS,
