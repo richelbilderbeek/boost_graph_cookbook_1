@@ -92,7 +92,9 @@ HEADERS += \
     load_undirected_named_vertices_graph_from_dot.h \
     copy_file.h \
     create_named_edges_and_vertices_markov_chain.h \
-    create_empty_directed_named_edges_and_vertices_graph.h
+    create_empty_directed_named_edges_and_vertices_graph.h \
+    load_directed_named_edges_and_vertices_graph_from_dot.h \
+    load_undirected_named_edges_and_vertices_graph_from_dot.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -188,7 +190,9 @@ SOURCES += \
     load_undirected_named_vertices_graph_from_dot.cpp \
     copy_file.cpp \
     create_named_edges_and_vertices_markov_chain.cpp \
-    create_empty_directed_named_edges_and_vertices_graph.cpp
+    create_empty_directed_named_edges_and_vertices_graph.cpp \
+    load_directed_named_edges_and_vertices_graph_from_dot.cpp \
+    load_undirected_named_edges_and_vertices_graph_from_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -329,5 +333,9 @@ OTHER_FILES += \
     create_named_edges_and_vertices_markov_chain.impl \
     create_named_edges_and_vertices_markov_chain_demo.impl \
     create_empty_directed_named_edges_and_vertices_graph.impl \
-    create_empty_directed_named_edges_and_vertices_graph_demo.impl
+    create_empty_directed_named_edges_and_vertices_graph_demo.impl \
+    load_directed_named_edges_and_vertices_graph_from_dot.impl \
+    load_directed_named_edges_and_vertices_graph_from_dot_demo.impl \
+    load_undirected_named_edges_and_vertices_graph_from_dot.impl \
+    load_undirected_named_edges_and_vertices_graph_from_dot_demo.impl
 

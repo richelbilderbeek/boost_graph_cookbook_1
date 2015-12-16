@@ -12629,7 +12629,8 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map.
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
  From this and the empty graph, 'boost::read_graphviz'
 \begin_inset Index idx
 status open
@@ -12641,10 +12642,6 @@ boost::read_graphviz
 \end_inset
 
  is called to build up the graph.
-\end_layout
-
-\begin_layout Standard
-XXX
 \end_layout
 
 \begin_layout Standard
@@ -12734,7 +12731,7 @@ reference "alg:get_vertex_names"
 Loading an undirected graph with named edges and vertices from a .dot
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:load_undirected_named_vertices_graph_from_dot-1"
+name "sub:load_undirected_named_edges_and_vertices_graph_from_dot"
 
 \end_inset
 
@@ -12850,7 +12847,8 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map.
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
  From this and the empty graph, 'boost::read_graphviz'
 \begin_inset Index idx
 status open
@@ -12862,10 +12860,6 @@ boost::read_graphviz
 \end_inset
 
  is called to build up the graph.
-\end_layout
-
-\begin_layout Standard
-XXX
 \end_layout
 
 \begin_layout Standard

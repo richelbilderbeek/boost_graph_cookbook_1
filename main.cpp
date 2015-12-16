@@ -58,8 +58,10 @@
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
 #include "load_directed_graph_from_dot.h"
+#include "load_directed_named_edges_and_vertices_graph_from_dot.h"
 #include "load_directed_named_vertices_graph_from_dot.h"
 #include "load_undirected_graph_from_dot.h"
+#include "load_undirected_named_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_named_vertices_graph_from_dot.h"
 #include "print_trans_delay.h"
 #include "print_trans_delays.h"
@@ -146,7 +148,9 @@ int main()
   is_valid_dot_file_test();
   load_directed_graph_from_dot_test();
   load_directed_named_vertices_graph_from_dot_test();
+  load_directed_named_edges_and_vertices_graph_from_dot_test();
   load_undirected_graph_from_dot_test();
+  load_undirected_named_edges_and_vertices_graph_from_dot_test();
   load_undirected_named_vertices_graph_from_dot_test();
   print_trans_delays_test();
   print_trans_delay_test();
