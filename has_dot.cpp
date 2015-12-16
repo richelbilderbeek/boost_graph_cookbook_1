@@ -18,7 +18,7 @@ bool has_dot() noexcept
   const auto v = ribi::FileIo().FileToVector(filename);
   const bool has_dot{v.size() > 1};
   if (!has_dot) {
-    std::cerr << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
+    std::cout << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
   }
   return has_dot;
 }

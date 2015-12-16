@@ -96,7 +96,11 @@ HEADERS += \
   set_vertex_names.h \
   show_dot.h \
     create_empty_directed_custom_vertices_graph.h \
-    create_custom_vertices_markov_chain.h
+    create_custom_vertices_markov_chain.h \
+    load_directed_custom_vertices_graph_from_dot.h \
+    load_undirected_custom_vertices_graph_from_dot.h \
+    seperate_string.h \
+    helper.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -195,7 +199,11 @@ SOURCES += \
   set_vertex_names.cpp \
   show_dot.cpp \
     create_empty_directed_custom_vertices_graph.cpp \
-    create_custom_vertices_markov_chain.cpp
+    create_custom_vertices_markov_chain.cpp \
+    load_directed_custom_vertices_graph_from_dot.cpp \
+    load_undirected_custom_vertices_graph_from_dot.cpp \
+    seperate_string.cpp \
+    helper.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -344,5 +352,9 @@ OTHER_FILES += \
     create_empty_directed_custom_vertices_graph.impl \
     create_custom_vertices_markov_chain.impl \
     create_custom_vertices_markov_chain_demo.impl \
-    create_custom_vertices_k2_graph_demo.impl
+    create_custom_vertices_k2_graph_demo.impl \
+    load_directed_custom_vertices_graph_from_dot_demo.impl \
+    load_directed_custom_vertices_graph_from_dot.impl \
+    load_undirected_custom_vertices_graph_from_dot.impl \
+    load_undirected_custom_vertices_graph_from_dot_demo.impl
 
