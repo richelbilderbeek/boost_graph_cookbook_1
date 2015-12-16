@@ -1,0 +1,20 @@
+#include <cassert>
+#include "create_custom_vertices_markov_chain.h"
+#include "get_vertex_my_vertexes.h"
+#include "install_vertex_custom_type.h"
+#include "my_vertex.h"
+
+void create_custom_vertices_markov_chain_demo() noexcept
+{
+  const auto g
+    = create_custom_vertices_markov_chain();
+  const std::vector<my_vertex> expected_my_vertexes{
+    my_vertex("Sunny","You can see the yellow thing",1.0,2.0),
+    my_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+  };
+  const std::vector<my_vertex> vertex_my_vertexes{
+    get_vertex_my_vertexes(g)
+  };
+  assert(expected_my_vertexes == vertex_my_vertexes);
+}
+

@@ -1,9 +1,9 @@
 #ifndef CREATE_CUSTOM_VERTICES_K2_GRAPH_H
 #define CREATE_CUSTOM_VERTICES_K2_GRAPH_H
 
+#include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "my_vertex.h"
-#include <boost/graph/adjacency_list.hpp>
 
 boost::adjacency_list<
   boost::vecS,

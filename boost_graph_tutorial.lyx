@@ -10955,8 +10955,14 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 .dot file created from the 'create_named_edges_and_vertices_markov_chain'
- function (algorithm XXX), converted from graph to .dot file using algorithm
- 
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_graph_to_dot"
@@ -10966,7 +10972,7 @@ reference "alg:save_graph_to_dot"
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_named_edges_and_vertices_k3_graph.dot-1"
+name "alg:create_named_edges_and_vertices_markov_chain.dot"
 
 \end_inset
 
@@ -12976,6 +12982,13 @@ I do not intend to be original in naming my data types
 
 \begin_layout Itemize
 An empty directed graph that allows for custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -13271,6 +13284,13 @@ The enum value 314 must be unique.
 
 \begin_layout Subsection
 Create the empty directed graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -13283,7 +13303,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_custom_vertices_directed_graph.impl"
+filename "create_empty_directed_custom_vertices_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -13308,7 +13328,7 @@ create_empty_directed_custom_vertices_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_directed)custom_vertices_graph"
+name "alg:create_empty_directed_custom_vertices_graph"
 
 \end_inset
 
@@ -13481,6 +13501,13 @@ vertices have a custom type called my_vertex
 
 \begin_layout Subsection
 Create the empty undirected graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_custom_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -13899,19 +13926,403 @@ name "sub:create_custom_vertices_markov_chain"
 \end_layout
 
 \begin_layout Standard
-Algo:
+We build this graph:
 \end_layout
 
 \begin_layout Standard
-Demo:
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Sunny, You [...], 1.0, 2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Rainy, Many [...], 3.0, 4.0}
+\end_layout
+
+\begin_layout Plain Layout
+
+  ;   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop  left] node {} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop right] node {} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the vertices have custom properies and the
+ edges have no properties.
+ The left vertex has (1) the text 
+\begin_inset Formula $Sunny$
+\end_inset
+
+ , (2) the description 'You can see the yellow thing' (which is abbreviated),
+ (3) an 
+\begin_inset Formula $x$
+\end_inset
+
+ of 
+\begin_inset Formula $1.0$
+\end_inset
+
+, and, (4) a 
+\begin_inset Formula $y$
+\end_inset
+
+ of 
+\begin_inset Formula $2.0$
+\end_inset
+
+.
+ The right vertex has (1) the text 
+\begin_inset Formula $Rainy$
+\end_inset
+
+ , (2) the description 'Many grey fluffy things' (which is abbreviated),
+ (3) an 
+\begin_inset Formula $x$
+\end_inset
+
+ of 
+\begin_inset Formula $3.0$
+\end_inset
+
+, and, (4) a 
+\begin_inset Formula $y$
+\end_inset
+
+ of 
+\begin_inset Formula $4.0$
+\end_inset
+
+.
+ The text is abbreviated to get a nicer figure.
+ The vertices' properties are nonsensical
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:custom_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here is the code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:custom_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+create_custom_vertices_markov_chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 .dot file
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_vertices_markov_chain' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_markov_chain.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 .svg file
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_vertices_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_vertices_markov_chain' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -14025,12 +14436,173 @@ reference "alg:create_named_vertices_k2_graph"
 Demo:
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_vertices_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_vertices_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 .dot file
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_vertices_k2_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 .svg file
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_vertices_k2_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -15238,7 +15810,7 @@ pi
 \end_layout
 
 \begin_layout Subsubsection
-Create the empty graph with custom edges and vertices
+Create the empty undirected graph with custom edges and vertices
 \end_layout
 
 \begin_layout Standard
@@ -15251,7 +15823,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_empty_custom_edges_and_vertices_graph.impl"
+filename "create_empty_undirected_custom_edges_and_vertices_graph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15263,12 +15835,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating an empty graph with custom vertices
+Creating an empty undirected graph with custom edges and vertices
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-create_empty_custom_vertices_graph
+create_empty_undirected_custom_vertices_graph
 \end_layout
 
 \end_inset
@@ -15276,7 +15848,7 @@ create_empty_custom_vertices_graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_empty_custom_edges_and_vertices_graph"
+name "alg:create_empty_undirected_custom_edges_and_vertices_graph"
 
 \end_inset
 
