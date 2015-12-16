@@ -4,7 +4,7 @@
 #include <sstream>
 
 #include "save_graph_to_dot_demo.impl"
-#include "fileio.h"
+#include "copy_file.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "create_k2_graph.h"
@@ -14,10 +14,11 @@
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "is_valid_dot_file.h"
+#include "fileio.h"
 
 void save_graph_to_dot_test() noexcept
 {
-  ribi::FileIo f;
+  
   //create_empty_directed_graph
   {
     const auto g = create_empty_directed_graph();
@@ -27,7 +28,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      f.FileToVector(dot_filename)
+      ribi::FileIo().FileToVector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "digraph G {",
@@ -35,15 +36,15 @@ void save_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    f.CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    f.CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
   }
   //create_empty_undirected_graph
@@ -55,7 +56,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      f.FileToVector(dot_filename)
+      ribi::FileIo().FileToVector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -63,15 +64,15 @@ void save_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    f.CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    f.CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
   }
   //create_k2_graph
@@ -83,7 +84,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      f.FileToVector(dot_filename)
+      ribi::FileIo().FileToVector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -94,15 +95,15 @@ void save_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    f.CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    f.CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
     //show_dot(filename);
   }
@@ -115,7 +116,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      f.FileToVector(dot_filename)
+      ribi::FileIo().FileToVector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -126,15 +127,15 @@ void save_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    f.CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    f.CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
   }
 

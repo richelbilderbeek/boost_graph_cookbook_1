@@ -4,6 +4,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "is_regular_file.h"
+#include "copy_file.h"
 #include "fileio.h"
 
 bool has_dot() noexcept
@@ -12,7 +14,7 @@ bool has_dot() noexcept
   std::stringstream cmd;
   cmd << "dot -? > " << filename;
   std::system(cmd.str().c_str());
-  assert(ribi::FileIo().IsRegularFile(filename));
+  assert(is_regular_file(filename));
   const auto v = ribi::FileIo().FileToVector(filename);
   const bool has_dot{v.size() > 1};
   if (!has_dot) {

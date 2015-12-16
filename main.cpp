@@ -8,6 +8,7 @@
 #include "build_router_network.h"
 #include "clear_first_vertex_with_name.h"
 #include "count_vertices_with_name.h"
+#include "copy_file.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "create_custom_vertices_k2_graph.h"
 #include "create_empty_custom_edges_and_vertices_graph.h"

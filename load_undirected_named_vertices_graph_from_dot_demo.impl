@@ -5,11 +5,18 @@
 
 void load_undirected_named_vertices_graph_from_dot_demo() noexcept
 {
-  const auto g = create_named_vertices_k2_graph();
-  const std::string filename{"create_named_vertices_k2_graph.dot"};
+  using boost::num_edges;
+  using boost::num_vertices;
+
+  const auto g
+    = create_named_vertices_k2_graph();
+  const std::string filename{
+    "create_named_vertices_k2_graph.dot"
+  };
   save_named_vertices_graph_to_dot(g, filename);
-  const auto h = load_undirected_named_vertices_graph_from_dot(filename);
-  assert(boost::num_edges(g) == boost::num_edges(h));
-  assert(boost::num_vertices(g) == boost::num_vertices(h));
+  const auto h
+    = load_undirected_named_vertices_graph_from_dot(filename);
+  assert(num_edges(g) == num_edges(h));
+  assert(num_vertices(g) == num_vertices(h));
   assert(get_vertex_names(g) == get_vertex_names(h));
 }

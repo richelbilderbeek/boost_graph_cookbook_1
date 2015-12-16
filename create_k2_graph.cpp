@@ -6,7 +6,7 @@
 
 #include <cassert>
 #include <iostream>
-#include "fileio.h"
+#include "copy_file.h"
 #include "get_n_edges.h"
 #include "get_n_vertices.h"
 #include "get_edges.h"
@@ -15,6 +15,7 @@
 #include "get_edge_descriptors.h"
 #include "save_graph_to_dot.h"
 #include "convert_dot_to_svg.h"
+#include "is_regular_file.h"
 
 void create_k2_graph_test() noexcept
 {
@@ -34,24 +35,24 @@ void create_k2_graph_test() noexcept
   }
   //Create the .dot and .svg of the 'create_k2_graph' chapter
   {
-    ribi::FileIo f;
+
     const auto g = create_k2_graph();
     const std::string base_filename{"create_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
-    assert(f.IsRegularFile(dot_filename));
+    assert(is_regular_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
-    assert(f.IsRegularFile(svg_filename));
-    f.CopyFile(
+    assert(is_regular_file(svg_filename));
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    f.CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
 
   }

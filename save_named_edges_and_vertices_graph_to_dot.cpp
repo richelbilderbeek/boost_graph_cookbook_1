@@ -4,12 +4,13 @@
 #include <iostream>
 #include <sstream>
 
-#include "fileio.h"
+#include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_router_network_graph.h"
 #include "show_dot.h"
+#include "fileio.h"
 
 void save_named_edges_and_vertices_graph_to_dot_test() noexcept
 {
@@ -42,15 +43,15 @@ void save_named_edges_and_vertices_graph_to_dot_test() noexcept
     };
     assert(text == expected_text);
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
     //show_dot(filename);
   }

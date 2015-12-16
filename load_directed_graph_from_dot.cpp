@@ -4,7 +4,7 @@
 
 #include "load_directed_graph_from_dot_demo.impl"
 
-#include "fileio.h"
+#include "copy_file.h"
 #include <iostream>
 
 #include "create_markov_chain.h"
@@ -25,10 +25,10 @@ void load_directed_graph_from_dot_test() noexcept
     convert_dot_to_svg(dot_filename, svg_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    ribi::FileIo().CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
   }
   load_directed_graph_from_dot_demo();

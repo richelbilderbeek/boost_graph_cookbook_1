@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "fileio.h"
+#include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "is_valid_dot_file.h"
 #include "create_named_vertices_k2_graph.h"
@@ -196,15 +196,15 @@ void create_tutorial_chapters_graph_test() noexcept
     save_named_edges_and_vertices_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
-    ribi::FileIo().CopyFile(
+    copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
-    ribi::FileIo().CopyFile(
+    copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
-      ribi::fileio::CopyMode::allow_overwrite
+      copy_file_mode::allow_overwrite
     );
     //show_dot(filename);
   }

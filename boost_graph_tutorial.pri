@@ -89,7 +89,8 @@ HEADERS += \
     create_empty_directed_named_vertices_graph.h \
     create_empty_undirected_named_edges_and_vertices_graph.h \
     load_directed_named_vertices_graph_from_dot.h \
-    load_undirected_named_vertices_graph_from_dot.h
+    load_undirected_named_vertices_graph_from_dot.h \
+    copy_file.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -182,7 +183,8 @@ SOURCES += \
     create_empty_directed_named_vertices_graph.cpp \
     create_empty_undirected_named_edges_and_vertices_graph.cpp \
     load_directed_named_vertices_graph_from_dot.cpp \
-    load_undirected_named_vertices_graph_from_dot.cpp
+    load_undirected_named_vertices_graph_from_dot.cpp \
+    copy_file.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
