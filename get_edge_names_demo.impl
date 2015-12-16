@@ -6,12 +6,17 @@
 
 void get_edge_names_demo() noexcept
 {
-  auto g = create_empty_undirected_named_edges_and_vertices_graph();
+  auto g
+    = create_empty_undirected_named_edges_and_vertices_graph();
   const std::string edge_name_1{"Eugene"};
   const std::string edge_name_2{"Another Eugene"};
   add_named_edge(edge_name_1, g);
   add_named_edge(edge_name_2, g);
-  const std::vector<std::string> expected_names{edge_name_1, edge_name_2};
-  const std::vector<std::string> edge_names{get_edge_names(g)};
+  const std::vector<std::string> expected_names{
+    edge_name_1, edge_name_2
+  };
+  const std::vector<std::string> edge_names{
+    get_edge_names(g)
+  };
   assert(expected_names == edge_names);
 }

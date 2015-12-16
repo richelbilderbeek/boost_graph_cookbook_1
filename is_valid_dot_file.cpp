@@ -8,15 +8,7 @@
 #include "fileio.h"
 #include "is_regular_file.h"
 
-bool is_valid_dot_file(const std::string& dot_filename) noexcept
-{
-
-  if (!is_regular_file(dot_filename)) { return false; }
-  const auto v = ribi::FileIo().FileToVector(dot_filename);
-  if (v.size() <= 1) return false;
-  assert(!v.back().empty());
-  return v.back()[0] == '}';
-}
+#include "is_valid_dot_file.impl"
 
 void is_valid_dot_file_test() noexcept
 {

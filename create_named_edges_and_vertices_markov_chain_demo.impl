@@ -1,18 +1,18 @@
 #include <cassert>
 #include <iostream>
-#include "create_named_edges_and_vertices_k3_graph.h"
+#include "create_named_edges_and_vertices_markov_chain.h"
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 
-void create_named_edges_and_vertices_k3_graph_demo() noexcept
+void create_named_edges_and_vertices_markov_chain_demo() noexcept
 {
   using strings = std::vector<std::string>;
 
   const auto g
-    = create_named_edges_and_vertices_k3_graph();
+    = create_named_edges_and_vertices_markov_chain();
 
   const strings expected_vertex_names{
-    "top", "right", "left"
+    "Sunny", "Rainy"
   };
   const strings vertex_names{
     get_vertex_names(g)
@@ -20,8 +20,9 @@ void create_named_edges_and_vertices_k3_graph_demo() noexcept
   assert(expected_vertex_names == vertex_names);
 
   const strings expected_edge_names{
-    "AB", "BC", "CA"
+    "Sometimes", "Often", "Rarely", "Mostly"
   };
+
   const strings edge_names{get_edge_names(g)};
   assert(expected_edge_names == edge_names);
 }

@@ -5,8 +5,10 @@
 
 void find_first_edge_with_name_demo() noexcept
 {
-  const auto g = create_named_edges_and_vertices_k3_graph();
-  const auto ed = find_first_edge_with_name("AB", g);
+  const auto g
+    = create_named_edges_and_vertices_k3_graph();
+  const auto ed
+    = find_first_edge_with_name("AB", g);
   assert(boost::source(ed,g) != boost::target(ed,g));
 }
 

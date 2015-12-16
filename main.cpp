@@ -7,21 +7,23 @@
 #include "bfs_name_printer.h"
 #include "build_router_network.h"
 #include "clear_first_vertex_with_name.h"
-#include "count_vertices_with_name.h"
 #include "copy_file.h"
+#include "count_vertices_with_name.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "create_custom_vertices_k2_graph.h"
 #include "create_empty_custom_edges_and_vertices_graph.h"
 #include "create_empty_custom_vertices_graph.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_directed_graph_with_graph_name.h"
+#include "create_empty_directed_named_edges_and_vertices_graph.h"
+#include "create_empty_undirected_graph.h"
+#include "create_empty_undirected_graph.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_empty_undirected_named_vertices_graph.h"
-#include "create_empty_undirected_graph.h"
-#include "create_empty_undirected_graph.h"
 #include "create_k2_graph.h"
 #include "create_markov_chain.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
+#include "create_named_edges_and_vertices_markov_chain.h"
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_vertices_markov_chain.h"
 #include "create_router_network_graph.h"
@@ -85,9 +87,9 @@
 int main()
 {
   add_custom_edge_test();
+  add_custom_edge_test();
   add_custom_vertex_test();
   add_edge_test();
-  add_custom_edge_test();
   add_named_edge_test();
   add_named_vertex_test();
   add_vertex_test();
@@ -99,14 +101,16 @@ int main()
   create_custom_vertices_k2_graph_test();
   create_empty_custom_edges_and_vertices_graph_test();
   create_empty_custom_vertices_graph_test();
+  create_empty_directed_named_edges_and_vertices_graph_test();
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();
+  create_empty_undirected_graph_test();
   create_empty_undirected_named_edges_and_vertices_graph_test();
   create_empty_undirected_named_vertices_graph_test();
-  create_empty_undirected_graph_test();
   create_k2_graph_test();
   create_markov_chain_test();
   create_named_edges_and_vertices_k3_graph_test();
+  create_named_edges_and_vertices_markov_chain_test();
   create_named_vertices_k2_graph_test();
   create_named_vertices_markov_chain_test();
   create_router_network_graph_test();
@@ -117,8 +121,8 @@ int main()
   find_first_vertex_with_my_vertex_test();
   find_first_vertex_with_name_test();
   get_edge_descriptors_test();
-  get_edge_my_edge_test();
   get_edge_my_edges_test();
+  get_edge_my_edge_test();
   get_edge_names_test();
   get_edge_name_test();
   get_edges_test();
@@ -127,8 +131,8 @@ int main()
   get_n_vertices_test();
   get_type_name_test();
   get_vertex_descriptors_test();
-  get_vertex_my_vertex_test();
   get_vertex_my_vertexes_test();
+  get_vertex_my_vertex_test();
   get_vertex_names_test();
   get_vertex_name_test();
   get_vertex_out_degrees_test();
@@ -157,11 +161,11 @@ int main()
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
-  set_edge_name_test();
   set_edge_my_edge_test();
+  set_edge_name_test();
   //set_graph_name_test(); //TODO
-  set_vertex_my_vertex_test();
   set_vertex_my_vertexes_test();
+  set_vertex_my_vertex_test();
   set_vertex_names_test();
   set_vertex_name_test();
   std::cout << "Done" << std::endl;

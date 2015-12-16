@@ -1,9 +1,9 @@
-#include "create_named_edges_and_vertices_k3_graph.h"
+#include "create_named_edges_and_vertices_markov_chain.h"
 
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 
-#include "create_named_edges_and_vertices_k3_graph.impl"
-#include "create_named_edges_and_vertices_k3_graph_demo.impl"
+#include "create_named_edges_and_vertices_markov_chain.impl"
+#include "create_named_edges_and_vertices_markov_chain_demo.impl"
 
 
 #include <cassert>
@@ -17,24 +17,26 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 
-void create_named_edges_and_vertices_k3_graph_test() noexcept
+void create_named_edges_and_vertices_markov_chain_test() noexcept
 {
   //Basic functions
   {
-    const auto g = create_named_edges_and_vertices_k3_graph();
-    assert(get_n_edges(g) == 3);
-    assert(get_n_vertices(g) == 3);
-    const std::vector<std::string> expected_vertex_names{"top", "right", "left"};
+    const auto g = create_named_edges_and_vertices_markov_chain();
+    assert(get_n_edges(g) == 4);
+    assert(get_n_vertices(g) == 2);
+    const std::vector<std::string> expected_vertex_names{"Sunny","Rainy"};
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
     assert(expected_vertex_names == vertex_names);
-    const std::vector<std::string> expected_edge_names{"AB", "BC", "CA"};
+    const std::vector<std::string> expected_edge_names{
+      "Sometimes", "Often", "Rarely", "Mostly"
+    };
     const std::vector<std::string> edge_names{get_edge_names(g)};
     assert(expected_edge_names == edge_names);
   }
-  //Create the create_named_edges_and_vertices_k3_graph .dot and .svg files
+  //Create the create_named_edges_and_vertices_markov_chain .dot and .svg files
   {
-    const auto g = create_named_edges_and_vertices_k3_graph();
-    const std::string base_filename{"create_named_edges_and_vertices_k3_graph"};
+    const auto g = create_named_edges_and_vertices_markov_chain();
+    const std::string base_filename{"create_named_edges_and_vertices_markov_chain"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_edges_and_vertices_graph_to_dot(g,dot_filename);
@@ -50,6 +52,6 @@ void create_named_edges_and_vertices_k3_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_named_edges_and_vertices_k3_graph_demo();
+  create_named_edges_and_vertices_markov_chain_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

@@ -1,0 +1,8 @@
+digraph G {
+0[label=Sunny];
+1[label=Rainy];
+0->0 [label="Sometimes"];
+0->1 [label="Often"];
+1->0 [label="Rarely"];
+1->1 [label="Mostly"];
+}

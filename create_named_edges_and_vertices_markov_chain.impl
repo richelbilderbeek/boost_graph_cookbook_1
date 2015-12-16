@@ -1,0 +1,42 @@
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_named_edges_and_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::directedS,
+  boost::property<boost::vertex_name_t,std::string>,
+  boost::property<boost::edge_name_t,std::string>
+>
+create_named_edges_and_vertices_markov_chain() noexcept
+{
+  auto g
+    = create_empty_directed_named_edges_and_vertices_graph();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
+  assert(aer_aa.second);
+  const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
+  assert(aer_ab.second);
+  const auto aer_ba = boost::add_edge(vd_b, vd_a, g);
+  assert(aer_ba.second);
+  const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
+  assert(aer_bb.second);
+
+  auto vertex_name_map = get( //_not_ boost::get!
+    boost::vertex_name,g
+  );
+  vertex_name_map[vd_a] = "Sunny";
+  vertex_name_map[vd_b] = "Rainy";
+
+  auto edge_name_map = get( //_not_ boost::get!
+    boost::edge_name,g
+  );
+  edge_name_map[aer_aa.first] = "Sometimes";
+  edge_name_map[aer_ab.first] = "Often";
+  edge_name_map[aer_ba.first] = "Rarely";
+  edge_name_map[aer_bb.first] = "Mostly";
+
+  return g;
+}
