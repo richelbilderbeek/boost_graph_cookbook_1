@@ -100,7 +100,8 @@ HEADERS += \
     load_directed_custom_vertices_graph_from_dot.h \
     load_undirected_custom_vertices_graph_from_dot.h \
     seperate_string.h \
-    helper.h
+    helper.h \
+    is_read_graphviz_correct.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -203,7 +204,8 @@ SOURCES += \
     load_directed_custom_vertices_graph_from_dot.cpp \
     load_undirected_custom_vertices_graph_from_dot.cpp \
     seperate_string.cpp \
-    helper.cpp
+    helper.cpp \
+    is_read_graphviz_correct.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -356,5 +358,6 @@ OTHER_FILES += \
     load_directed_custom_vertices_graph_from_dot_demo.impl \
     load_directed_custom_vertices_graph_from_dot.impl \
     load_undirected_custom_vertices_graph_from_dot.impl \
-    load_undirected_custom_vertices_graph_from_dot_demo.impl
+    load_undirected_custom_vertices_graph_from_dot_demo.impl \
+    is_read_graphviz_correct.impl
 

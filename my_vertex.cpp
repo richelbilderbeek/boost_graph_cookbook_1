@@ -5,6 +5,7 @@
 #include <boost/lexical_cast.hpp>
 #include "helper.h"
 #include "seperate_string.h"
+#include "is_read_graphviz_correct.h"
 
 my_vertex::my_vertex(
   const std::string& name,

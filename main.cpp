@@ -59,6 +59,7 @@
 #include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
 #include "helper.h"
+#include "is_read_graphviz_correct.h"
 #include "is_self_loop.h"
 #include "is_valid_dot_file.h"
 #include "load_directed_graph_from_dot.h"
@@ -154,6 +155,7 @@ int main()
   has_vertex_with_my_vertex_test();
   has_vertex_with_name_test();
   helper();
+  is_read_graphviz_correct_test();
   is_self_loop_test();
   is_valid_dot_file_test();
   load_directed_custom_vertices_graph_from_dot_test();
@@ -188,3 +190,14 @@ int main()
   set_vertex_name_test();
   std::cout << "Done" << std::endl;
 }
+
+
+/*
+
+  #ifndef NDEBUG
+  for (const auto a_vertex: get_vertex_my_vertexes(g)) {
+    assert(is_read_graphviz_correct<my_vertex>(a_vertex));
+  }
+  #endif
+
+*/

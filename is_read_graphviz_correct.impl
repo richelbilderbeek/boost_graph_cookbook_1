@@ -1,0 +1,30 @@
+#include <sstream>
+#include <string>
+
+///Determines if a class can be used with boost::read_graphviz
+template <class any_class>
+bool is_read_graphviz_correct(const any_class& in = any_class()) noexcept
+{
+  //any_class must be streamable, that is,
+  //when sent to stream, then read from stream,
+  //must result in an identical object
+  {
+    //any_class in;
+    std::stringstream s;
+    s << in;
+    any_class out;
+    s >> out;
+    if (in != out) return false;
+  }
+  //When converting any_class to a std::string,
+  //there may not be spaces
+  {
+    //any_class in;
+    std::stringstream s;
+    s << in;
+    const std::string t{s.str()};
+    if (t.find(' ') != std::string::npos) return false;
+  }
+  return true;
+}
+

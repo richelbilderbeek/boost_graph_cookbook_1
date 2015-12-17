@@ -20,20 +20,16 @@ void load_directed_custom_vertices_graph_from_dot_test() noexcept
   //Create the picture 'load_directed_custom_vertices_graph_from_dot_test_markov_chain.svg'
   //Create graphs, save it to dot
   //Create another graph by loading it, then save it to .dot, convert that .dot to .svg
-  try
   {
     const auto g = create_custom_vertices_markov_chain();
-    const std::string dot_filename{"load_directed_custom_vertices_graph_from_dot_test_markov_chain.dot"};
-    const std::string svg_filename{"load_directed_custom_vertices_graph_from_dot_test_markov_chain.svg"};
+    const std::string base_filename{"create_custom_vertices_markov_chain"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
     save_custom_vertices_graph_to_dot(g, dot_filename);
     const auto old_text = ribi::FileIo().FileToVector(dot_filename);
     const auto h = load_directed_custom_vertices_graph_from_dot(dot_filename);
     save_custom_vertices_graph_to_dot(h, dot_filename);
     const auto new_text = ribi::FileIo().FileToVector(dot_filename);
-    if (old_text != new_text)
-    {
-      //Too bad
-    }
     assert(old_text == new_text);
     convert_dot_to_svg(dot_filename, svg_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
@@ -43,10 +39,6 @@ void load_directed_custom_vertices_graph_from_dot_test() noexcept
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
-  }
-  catch (std::exception& e)
-  {
-    std::cout << __func__ << ": TODO: exception " << e.what() << std::endl;
   }
   load_directed_custom_vertices_graph_from_dot_demo();
   std::cout << __func__ << ": DONE" << '\n';
