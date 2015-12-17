@@ -6,8 +6,8 @@
 
 #include <cassert>
 #include <iostream>
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 #include "get_edges.h"
 #include "get_vertices.h"
 #include "get_edge_descriptors.h"
@@ -31,8 +31,8 @@ void create_named_vertices_k2_graph_test() noexcept
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 1);
 
-    assert(get_n_edges(g) == 1);
-    assert(get_n_vertices(g) == 2);
+    assert(boost::num_edges(g) == 1);
+    assert(boost::num_vertices(g) == 2);
     const std::vector<std::string> expected_names{"A", "B"};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_names == vertex_names);

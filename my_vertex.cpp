@@ -71,6 +71,7 @@ std::istream& operator>>(std::istream& is, my_vertex& v) noexcept
   std::string line;
   is >> line;
   const auto w = seperate_string(line,',');
+  if (w.size() != 4) { v = my_vertex(); return is; }
   assert(w.size() == 4);
   v.m_name = w[0];
   v.m_description = w[1];

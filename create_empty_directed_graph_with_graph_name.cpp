@@ -7,15 +7,15 @@
 #include <cassert>
 #include <iostream>
 
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 
 void create_empty_directed_graph_with_graph_name_test() noexcept
 {
   {
     auto g = create_empty_directed_graph_with_graph_name();
-    assert(get_n_edges(g) == 0);
-    assert(get_n_vertices(g) == 0);
+    assert(boost::num_edges(g) == 0);
+    assert(boost::num_vertices(g) == 0);
 
   }
   create_empty_directed_graph_with_graph_name_demo();

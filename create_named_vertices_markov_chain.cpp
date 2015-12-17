@@ -8,8 +8,8 @@
 #include <iostream>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 #include "get_edges.h"
 #include "get_vertices.h"
 #include "get_edge_descriptors.h"
@@ -25,8 +25,8 @@ void create_named_vertices_markov_chain_test() noexcept
     const auto g = create_named_vertices_markov_chain();
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 4);
-    assert(get_n_vertices(g) == 2);
-    assert(get_n_edges(g) == 4);
+    assert(boost::num_vertices(g) == 2);
+    assert(boost::num_edges(g) == 4);
     const auto vip = get_vertices(g);
     assert(vip.first != vip.second);
     const auto vds = get_vertex_descriptors(g);

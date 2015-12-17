@@ -3,6 +3,7 @@
 #include "find_first_edge_with_name_demo.impl"
 
 #include <cassert>
+#include <iostream>
 
 #include "create_named_edges_and_vertices_k3_graph.h"
 

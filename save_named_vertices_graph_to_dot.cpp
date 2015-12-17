@@ -195,9 +195,9 @@ void save_named_vertices_graph_to_dot_test() noexcept
     save_named_vertices_graph_to_dot_using_lambda_cpp14(g,"g2.dot");
     save_named_vertices_graph_to_dot(h,"h1.dot");
     save_named_vertices_graph_to_dot_using_lambda_cpp14(h,"h2.dot");
-    assert(f.FileToVector("g1.dot") == f.FileToVector("g2.dot"));
-    assert(f.FileToVector("h1.dot") == f.FileToVector("h2.dot"));
-    assert(f.FileToVector("g1.dot") != f.FileToVector("h2.dot"));
+    assert(ribi::FileIo().FileToVector("g1.dot") == ribi::FileIo().FileToVector("g2.dot"));
+    assert(ribi::FileIo().FileToVector("h1.dot") == ribi::FileIo().FileToVector("h2.dot"));
+    assert(ribi::FileIo().FileToVector("g1.dot") != ribi::FileIo().FileToVector("h2.dot"));
   }
   #else
   {

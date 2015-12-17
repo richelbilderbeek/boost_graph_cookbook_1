@@ -6,8 +6,8 @@
 #include <cassert>
 #include <iostream>
 #include "add_named_edge.h"
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 #include "print_vertex_names.h"
@@ -28,8 +28,8 @@ void create_empty_undirected_named_edges_and_vertices_graph_test() noexcept
 
   {
     const auto g = create_empty_undirected_named_edges_and_vertices_graph();
-    assert(get_n_edges(g) == 0);
-    assert(get_n_vertices(g) == 0);
+    assert(boost::num_edges(g) == 0);
+    assert(boost::num_vertices(g) == 0);
     const std::vector<std::string> expected_vertex_names{};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_vertex_names == vertex_names);

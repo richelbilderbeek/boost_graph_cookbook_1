@@ -14,21 +14,9 @@ void load_directed_custom_vertices_graph_from_dot_demo() noexcept
     "create_custom_vertices_markov_chain.dot"
   };
   save_custom_vertices_graph_to_dot(g, filename);
-  try
-  {
-    const auto h
-      = load_directed_custom_vertices_graph_from_dot(filename);
-    assert(num_edges(g) == num_edges(h));
-    assert(num_vertices(g) == num_vertices(h));
-    assert(get_vertex_my_vertexes(g) == get_vertex_my_vertexes(h));
-    assert(!"Fixed");
-  }
-  catch (std::exception& e)
-  {
-    std::cout
-      << __func__
-      << ": TODO, fix exception: "
-      << e.what()
-      << std::endl;
-  }
+  const auto h
+    = load_directed_custom_vertices_graph_from_dot(filename);
+  assert(num_edges(g) == num_edges(h));
+  assert(num_vertices(g) == num_vertices(h));
+  assert(get_vertex_my_vertexes(g) == get_vertex_my_vertexes(h));
 }

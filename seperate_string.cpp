@@ -45,5 +45,4 @@ void seperate_string_test() noexcept
     assert(v[1]==" ");
     assert(v[2]=="ccc");
   }
-  assert(!"Green");
 }

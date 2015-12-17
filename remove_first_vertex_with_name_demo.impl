@@ -2,8 +2,6 @@
 
 #include "clear_first_vertex_with_name.h"
 #include "create_named_vertices_k2_graph.h"
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
 #include "remove_first_vertex_with_name.h"
 
 void remove_first_vertex_with_name_demo() noexcept
@@ -11,6 +9,6 @@ void remove_first_vertex_with_name_demo() noexcept
   auto g = create_named_vertices_k2_graph();
   clear_first_vertex_with_name("A",g);
   remove_first_vertex_with_name("A",g);
-  assert(get_n_edges(g) == 0);
-  assert(get_n_vertices(g) == 1);
+  assert(boost::num_edges(g) == 0);
+  assert(boost::num_vertices(g) == 1);
 }

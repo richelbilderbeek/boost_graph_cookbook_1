@@ -8,18 +8,17 @@
 ///Save a graph with named vertices to a .dot file
 ///using a lambda and C++14
 template <typename graph>
-void save_named_vertices_graph_to_dot_using_lambda_cpp11(
+void save_named_vertices_graph_to_dot_using_lambda_cpp14(
   const graph& g,
   const std::string& filename
 ) noexcept
 {
+  const auto name_map = get(boost::vertex_name,g);
   std::ofstream f(filename);
   boost::write_graphviz(
     f,
     g,
-    [ //Not sure if this works
-      const auto name_map = get(boost::vertex_name,g)
-    ]
+    [name_map]
     (std::ostream& os, const auto& vd) {
       const std::string s{name_map[vd]};
       if (s.find(' ') == std::string::npos) {

@@ -3,8 +3,8 @@
 #include <iostream>
 
 #include "build_router_network.h"
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 
 router_network create_router_network() noexcept
 {
@@ -16,10 +16,10 @@ router_network create_router_network() noexcept
 void create_router_network_test() noexcept
 {
   const auto r = create_router_network();
-  assert(get_n_edges(r.m_graph) == 7);
-  assert(get_n_edges(r.m_graph) == static_cast<int>(r.m_delay_map.size()));
-  assert(get_n_vertices(r.m_graph) == 5);
-  assert(get_n_vertices(r.m_graph) == static_cast<int>(r.m_router_names.size()));
+  assert(boost::num_edges(r.m_graph) == 7);
+  assert(boost::num_edges(r.m_graph) == r.m_delay_map.size());
+  assert(boost::num_vertices(r.m_graph) == 5);
+  assert(boost::num_vertices(r.m_graph) == r.m_router_names.size());
 
   std::cout << __func__ << ": OK" << '\n';
 }

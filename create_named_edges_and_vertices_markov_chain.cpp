@@ -8,8 +8,8 @@
 
 #include <cassert>
 #include <iostream>
-#include "get_n_edges.h"
-#include "get_n_vertices.h"
+
+
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 #include "print_vertex_names.h"
@@ -22,8 +22,8 @@ void create_named_edges_and_vertices_markov_chain_test() noexcept
   //Basic functions
   {
     const auto g = create_named_edges_and_vertices_markov_chain();
-    assert(get_n_edges(g) == 4);
-    assert(get_n_vertices(g) == 2);
+    assert(boost::num_edges(g) == 4);
+    assert(boost::num_vertices(g) == 2);
     const std::vector<std::string> expected_vertex_names{"Sunny","Rainy"};
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
     assert(expected_vertex_names == vertex_names);
