@@ -1,0 +1,12 @@
+#include <cassert>
+
+#include "create_empty_undirected_graph_with_graph_name.h"
+
+
+
+void create_empty_undirected_graph_with_graph_name_demo() noexcept
+{
+  auto g = create_empty_undirected_graph_with_graph_name();
+  assert(boost::num_edges(g) == 0);
+  assert(boost::num_vertices(g) == 0);
+}

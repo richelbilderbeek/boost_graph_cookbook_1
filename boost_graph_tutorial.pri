@@ -101,7 +101,9 @@ HEADERS += \
     load_undirected_custom_vertices_graph_from_dot.h \
     seperate_string.h \
     helper.h \
-    is_read_graphviz_correct.h
+    is_read_graphviz_correct.h \
+    create_empty_directed_custom_edges_and_vertices_graph.h \
+    create_empty_undirected_graph_with_graph_name.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -205,7 +207,9 @@ SOURCES += \
     load_undirected_custom_vertices_graph_from_dot.cpp \
     seperate_string.cpp \
     helper.cpp \
-    is_read_graphviz_correct.cpp
+    is_read_graphviz_correct.cpp \
+    create_empty_directed_custom_edges_and_vertices_graph.cpp \
+    create_empty_undirected_graph_with_graph_name.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -359,5 +363,10 @@ OTHER_FILES += \
     load_directed_custom_vertices_graph_from_dot.impl \
     load_undirected_custom_vertices_graph_from_dot.impl \
     load_undirected_custom_vertices_graph_from_dot_demo.impl \
-    is_read_graphviz_correct.impl
+    is_read_graphviz_correct.impl \
+    create_empty_undirected_custom_edges_and_vertices_graph_demo.impl \
+    create_empty_directed_custom_edges_and_vertices_graph.impl \
+    create_empty_directed_custom_edges_and_vertices_graph_demo.impl \
+    create_empty_undirected_graph_with_graph_name.impl \
+    create_empty_undirected_graph_with_graph_name_demo.impl
 

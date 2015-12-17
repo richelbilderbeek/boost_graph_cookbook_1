@@ -214,6 +214,8 @@ I enjoy to show concepts by putting those in (long-named) functions.
 
 \begin_layout Standard
 All coding snippets are taken from compiled C++ code.
+ All code is tested to compile cleanly under GCC at the highest warning
+ level.
  The code, as well as this tutorial, can be downloaded from the GitHub at
  
 \begin_inset Flex URL
@@ -14032,51 +14034,6 @@ end{tikzpicture}
 \begin_layout Plain Layout
 A two-state Markov chain where the vertices have custom properies and the
  edges have no properties.
- The left vertex has (1) the text 
-\begin_inset Formula $Sunny$
-\end_inset
-
- , (2) the description 'You can see the yellow thing' (which is abbreviated),
- (3) an 
-\begin_inset Formula $x$
-\end_inset
-
- of 
-\begin_inset Formula $1.0$
-\end_inset
-
-, and, (4) a 
-\begin_inset Formula $y$
-\end_inset
-
- of 
-\begin_inset Formula $2.0$
-\end_inset
-
-.
- The right vertex has (1) the text 
-\begin_inset Formula $Rainy$
-\end_inset
-
- , (2) the description 'Many grey fluffy things' (which is abbreviated),
- (3) an 
-\begin_inset Formula $x$
-\end_inset
-
- of 
-\begin_inset Formula $3.0$
-\end_inset
-
-, and, (4) a 
-\begin_inset Formula $y$
-\end_inset
-
- of 
-\begin_inset Formula $4.0$
-\end_inset
-
-.
- The text is abbreviated to get a nicer figure.
  The vertices' properties are nonsensical
 \begin_inset CommandInset label
 LatexCommand label
@@ -16059,7 +16016,12 @@ I do not intend to be original in naming my data types
 \end_layout
 
 \begin_layout Itemize
-An empty (undirected) graph that allows for custom edges and vertices: see
+An empty directed graph that allows for custom edges and vertices: see chapter
+ 
+\end_layout
+
+\begin_layout Itemize
+An empty undirected graph that allows for custom edges and vertices: see
  chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16068,6 +16030,10 @@ reference "sub:create_empty_custom_edges_and_vertices_graph"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+A two-state Markov chain with custom edges and vertices: see chapter 
 \end_layout
 
 \begin_layout Itemize
@@ -16089,6 +16055,14 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
+Creating the custom edge class: see chapter 
+\end_layout
+
+\begin_layout Itemize
+Installing the new edge property: see chapter 
+\end_layout
+
+\begin_layout Itemize
 Adding a custom edge: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16105,44 +16079,6 @@ These functions are mostly there for completion and showing which data types
 \end_layout
 
 \begin_layout Subsection
-Create an empty graph with custom edges and vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:create_empty_custom_edges_and_vertices_graph"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Say we want to use our own edge class as graph nodes.
- This is done in multiple steps:
-\end_layout
-
-\begin_layout Enumerate
-Create a custom edge class, called 'my_edge'
-\end_layout
-
-\begin_layout Enumerate
-Install a new property, called 'edge_custom_type
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-edge_custom_type
-\end_layout
-
-\end_inset
-
-'
-\end_layout
-
-\begin_layout Enumerate
-Use the new property in creating a boost::adjacency_list
-\end_layout
-
-\begin_layout Subsubsection
 Creating the custom edge class
 \end_layout
 
@@ -16256,11 +16192,25 @@ member
 \end_inset
 
 ) and 'm_height', and two std::strings m_name and m_description.
- my_edge is copyable, but cannot trivially be converted to a std::string.
+ 'my_edge' is copyable, but cannot trivially be converted to a std::string.'
+ 'my_edge' is comparable for equality (that is, operator== is defined).
 \end_layout
 
-\begin_layout Subsubsection
-Installing the new property
+\begin_layout Standard
+For the class to be saved to file and/or read from file, one needs to define
+ both the in- and outstream operators.
+ One can use the 'is_read_graphviz_correct' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:is_read_graphviz_correct"
+
+\end_inset
+
+) to check this.
+\end_layout
+
+\begin_layout Subsection
+Installing the new edge property
 \end_layout
 
 \begin_layout Standard
@@ -16349,21 +16299,302 @@ name "alg:install_edge_custom_type"
 \end_layout
 
 \begin_layout Standard
-The enum value 3142
+The enum value 3142 must be unique.
+\end_layout
+
+\begin_layout Subsection
+Create an empty directed graph with custom edges and vertices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_custom_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with custom edges and vertices
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-pi
+Create empty directed custom edges and vertices graph
 \end_layout
 
 \end_inset
 
- must be unique.
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsubsection
-Create the empty undirected graph with custom edges and vertices
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is directed (due to the boost::directedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a custom type, that is of data
+ type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
+ my_vertex>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertex_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The edges have one property: they have a custom type, that is of data type
+ my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+')
+\end_layout
+
+\begin_layout Itemize
+The graph has no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list 
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
+ my_edge>
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_custom_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have the property 'boost::edge_custom_type_t', which is of data type
+ 'my_edge'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have a custom type called my_edge
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_custom_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the XXX function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_custom_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create an empty undirected graph with custom edges and vertices
 \end_layout
 
 \begin_layout Standard
@@ -16541,16 +16772,6 @@ The graph has no properties
 
 \begin_layout Itemize
 Edges are stored in a std::list 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Why specify edge storage twice?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -16615,6 +16836,52 @@ edges have a custom type called my_edge
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_custom_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the XXX function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_custom_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -16730,6 +16997,146 @@ name "sub:create_custom_edges_and_vertices_markov_chain"
 
 \begin_layout Subsubsection
 Graph
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+ shows the graph that will be reproduced:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Sunny, You [...], 1.0, 2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Rainy, Many [...], 3.0, 4.0}
+\end_layout
+
+\begin_layout Plain Layout
+
+  ;   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop above] node {AA,self,1,2} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {AB,nonself,3,4} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {BA,nonself,4,5} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop above] node {BB,self,6,7} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the edges and vertices have custom properies.
+ The edges' and vertices' properties are nonsensical
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+Having spaces in a vertex label is not supported (yet), and the spaces are
+ replaced by underscores.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -17723,6 +18130,10 @@ name "sec:Other-graph-functions"
 
 \end_layout
 
+\begin_layout Standard
+Some functions that did not fit in
+\end_layout
+
 \begin_layout Subsection
 Check if a custom class can be used with boost::read_graphviz
 \begin_inset CommandInset label
@@ -17823,7 +18234,7 @@ name "alg:is_read_graphviz_correct"
 \end_layout
 
 \begin_layout Subsection
-Create an empty graph with a graph name property
+Create an empty directed graph with a graph name property
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:create_empty_directed_graph_with_graph_name"
@@ -17841,7 +18252,7 @@ reference "alg:create_empty_directed_graph_with_graph_name"
 
 \end_inset
 
- shows the function to create an empty (directed) graph with a graph name.
+ shows the function to create an empty directed graph with a graph name.
 \end_layout
 
 \begin_layout Standard
@@ -17933,6 +18344,133 @@ Demonstration of 'create_empty_directed_graph_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_graph_with_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create an empty undirected graph with a graph name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_graph_with_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_graph_with_graph_name"
+
+\end_inset
+
+ shows the function to create an empty undirected graph with a graph name.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_graph_with_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with a graph name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty undirected graph with graph name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_graph_with_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_undirected_graph_with_graph_name_demo-1"
+
+\end_inset
+
+ demonstrates the 'create_empty_undirected_graph_with_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_graph_with_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_empty_undirected_graph_with_graph_name'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_graph_with_graph_name_demo-1"
 
 \end_inset
 
@@ -18179,14 +18717,6 @@ name "alg:get_graph_name_demo"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Create a directed graph with a graph name property
-\end_layout
-
-\begin_layout Standard
-[code]
 \end_layout
 
 \begin_layout Subsection

@@ -6,7 +6,7 @@
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
-  boost::undirectedS,
+  boost::directedS,
   boost::no_property,
   boost::no_property,
   boost::property<
