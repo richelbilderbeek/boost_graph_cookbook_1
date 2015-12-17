@@ -8,8 +8,7 @@ void set_graph_name(
   graph& g
 ) noexcept
 {
-  assert(!"TODO");
-  //get(boost::graph_name, g) = name;
-  //get(boost::graph_name, g)[g] = name;
-  //put(name, boost::graph_name, g);
+  get_property( //_not_ boost::get_property
+    g,boost::graph_name
+  ) = name;
 }

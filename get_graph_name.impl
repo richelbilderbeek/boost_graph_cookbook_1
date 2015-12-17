@@ -6,5 +6,8 @@ std::string get_graph_name(
   const graph& g
 ) noexcept
 {
-  return get(boost::graph_name,g);
+  return
+    get_property( //_not_ boost::get_property
+      g,boost::graph_name
+    );
 }

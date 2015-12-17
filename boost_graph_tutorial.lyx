@@ -322,55 +322,6 @@ I have tried hard to strictly follow the style as described above.
  
 \end_layout
 
-\begin_layout Subsection
-Help
-\end_layout
-
-\begin_layout Standard
-Next for feedback, I can use some additional help with coding the following
- sections:
-\end_layout
-
-\begin_layout Itemize
-Loading a directed with custom edges and vertices from a .dot file: chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:sub:load_directed_custom_edges_and_vertices_graph_from_dot"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Loading an undirected with custom edges vertices from a .dot file: chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:sub:load_undirected_custom_edges_and_vertices_graph_from_dot"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Creating and working on a graph with a graph name property: entire chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Other-graph-functions"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Please email me with your code suggestions.
-\end_layout
-
 \begin_layout Section
 Building a graph without properties
 \end_layout
@@ -18010,10 +17961,6 @@ name "sub:set_graph_name"
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float algorithm
 placement H
 wide false
@@ -18130,10 +18077,6 @@ name "sub:get_graph_name"
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float algorithm
 placement H
 wide false
@@ -18243,7 +18186,7 @@ Create a directed graph with a graph name property
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
+[code]
 \end_layout
 
 \begin_layout Subsection
@@ -18251,7 +18194,7 @@ Create an undirected graph with a graph name property
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
+[code]
 \end_layout
 
 \begin_layout Subsection
@@ -18259,7 +18202,7 @@ Storing a graph with a graph name property as a .dot file
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
+[code]
 \end_layout
 
 \begin_layout Subsection
@@ -18267,7 +18210,7 @@ Loading a graph with a graph name property from a .dot file
 \end_layout
 
 \begin_layout Standard
-If you know, please email me.
+[code]
 \end_layout
 
 \begin_layout Section
@@ -18723,10 +18666,30 @@ Undefined reference to read_graphviz_new
 \end_inset
 
 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+read_graphviz_new, undefined reference
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-You will have to link against the Boost.Graph and Boost.Regex libraries.
+You will have to link
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+link
+\end_layout
+
+\end_inset
+
+ against the Boost.Graph and Boost.Regex libraries.
  In Qt Creator, this is achieved by adding these lines to your Qt Creator
  project file:
 \end_layout

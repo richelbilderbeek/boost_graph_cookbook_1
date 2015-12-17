@@ -6,16 +6,8 @@
 
 void set_graph_name_demo() noexcept
 {
-  assert(!"TODO");
-  //No idea
-  /*
   auto g = create_empty_directed_graph_with_graph_name();
-  edges(
-  const std::string old_name{"Gramps"};
-  //g[boost::graph_name] = old_name;
-  auto m = get(boost::graph_name, g);
-  //m[&g] = name;
-  //set_graph_name(old_name, g);
-  //assert(get_graph_name(g) == old_name);
-  */
+  const std::string name{"Dex"};
+  set_graph_name(name, g);
+  assert(get_graph_name(g) == name);
 }

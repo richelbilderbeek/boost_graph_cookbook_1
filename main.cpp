@@ -139,7 +139,7 @@ int main()
   get_edge_name_test();
   get_edges_test();
   get_first_vertex_with_name_out_degree_test();
-  //get_graph_name_test(); //TODO
+  get_graph_name_test();
   get_n_vertices_test();
   get_type_name_test();
   get_vertex_descriptors_test();
@@ -183,7 +183,7 @@ int main()
   seperate_string_test();
   set_edge_my_edge_test();
   set_edge_name_test();
-  //set_graph_name_test(); //TODO
+  set_graph_name_test();
   set_vertex_my_vertexes_test();
   set_vertex_my_vertex_test();
   set_vertex_names_test();
