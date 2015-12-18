@@ -19,5 +19,10 @@ public:
 };
 
 bool operator==(const my_edge& lhs, const my_edge& rhs) noexcept;
+bool operator!=(const my_edge& lhs, const my_edge& rhs) noexcept;
+std::ostream& operator<<(std::ostream& os, const my_edge& v) noexcept;
+std::istream& operator>>(std::istream& os, my_edge& v) noexcept;
+
+void my_edge_test() noexcept;
 
 #endif // MY_EDGE_H

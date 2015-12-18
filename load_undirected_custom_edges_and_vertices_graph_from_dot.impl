@@ -1,0 +1,40 @@
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graphviz.hpp>
+
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include "get_vertex_my_vertexes.h"
+#include "install_edge_custom_type.h"
+#include "install_vertex_custom_type.h"
+#include "is_read_graphviz_correct.h"
+#include "is_regular_file.h"
+#include "my_edge.h"
+#include "my_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_vertex
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_edge
+  >
+>
+load_undirected_custom_edges_and_vertices_graph_from_dot(
+  const std::string& dot_filename
+)
+{
+  assert(is_regular_file(dot_filename));
+  assert(is_read_graphviz_correct<my_edge>());
+  assert(is_read_graphviz_correct<my_vertex>());
+  std::ifstream f(dot_filename.c_str());
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
+  boost::dynamic_properties p; //_do_ default construct
+  p.property("node_id", get(boost::vertex_custom_type, g));
+  p.property("label", get(boost::vertex_custom_type, g));
+  p.property("edge_id", get(boost::edge_custom_type, g));
+  p.property("label", get(boost::edge_custom_type, g));
+  boost::read_graphviz(f,g,p);
+  return g;
+}

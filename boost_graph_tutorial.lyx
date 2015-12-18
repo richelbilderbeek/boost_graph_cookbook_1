@@ -313,6 +313,24 @@ In the index, I did first put all my long-named functions there literally,
  literally in the index.
 \end_layout
 
+\begin_layout Standard
+TODO: In this stage, the tutorial is rather lengthy: as there has been a
+ lot of copy-pasting.
+ I intend to shorten this when the structure of it is completed.
+\end_layout
+
+\begin_layout Subsection
+Bundled properties
+\end_layout
+
+\begin_layout Standard
+Because I never got these to work, bundled properties are absent in this
+ tutorial.
+ Instead, I add custom edges and vertices, which I did get to work.
+ I would love additional chapters that follow the same structure as the
+ current tutorial that show 'The Bundled Properies Way'.
+\end_layout
+
 \begin_layout Subsection
 Feedback
 \end_layout
@@ -324,8 +342,36 @@ I have tried hard to strictly follow the style as described above.
  
 \end_layout
 
+\begin_layout Subsection
+Outline
+\end_layout
+
+\begin_layout Standard
+This tutorial is highly structured.
+ The starting point is chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-a-graph-without-properties"
+
+\end_inset
+
+, where a graph without properties is created.
+ All basic concepts are introduced where.
+\end_layout
+
+\begin_layout Standard
+[graph here]
+\end_layout
+
 \begin_layout Section
 Building a graph without properties
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-a-graph-without-properties"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -15777,7 +15823,7 @@ This demonstration shows how the Markov chain is created using the 'create_custo
 m_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_edges_and_vertices_markov_chain"
+reference "alg:create_custom_vertices_markov_chain"
 
 \end_inset
 
@@ -17148,7 +17194,67 @@ Function to create such a graph
 \end_layout
 
 \begin_layout Standard
-[function here]
+Here is the code creating a two-state Markov chain with custom edges and
+ vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_edges_and_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create custom edges and vertices Markov chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17156,7 +17262,57 @@ Creating such a graph
 \end_layout
 
 \begin_layout Standard
-[function here]
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_edges_and_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_edges_and_vertices_markov_chain' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17164,7 +17320,60 @@ The .dot file produced
 \end_layout
 
 \begin_layout Standard
-[.dot here]
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_edges_and_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_markov_chain.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17172,7 +17381,58 @@ The .svg file produced
 \end_layout
 
 \begin_layout Standard
-[.svg here]
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_edges_and_vertices_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_edges_and_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -17303,7 +17563,57 @@ Creating such a graph
 \end_layout
 
 \begin_layout Standard
-[function here]
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_edges_and_vertices_k3_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_edges_and_vertices_k3_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_k3_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_k3_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17311,7 +17621,60 @@ The .dot file produced
 \end_layout
 
 \begin_layout Standard
-[.dot here]
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_edges_and_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_k3_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_edges_and_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17319,7 +17682,58 @@ The .svg file produced
 \end_layout
 
 \begin_layout Standard
-[.svg here]
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_edges_and_vertices_k3_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_edges_and_vertices_k3_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_edges_and_vertices_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -18106,79 +18520,39 @@ name "sub:sub:load_directed_custom_edges_and_vertices_graph_from_dot"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Load an undirected graph with custom edges and vertices from a .dot file
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:sub:load_undirected_custom_edges_and_vertices_graph_from_dot"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Other graph functions
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Other-graph-functions"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Some functions that did not fit in
-\end_layout
-
-\begin_layout Subsection
-Check if a custom class can be used with boost::read_graphviz
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:is_read_graphviz_correct"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-For a custom class to be saved to a .dot file and then loaded from it, it
- needs to have these properties:
-\end_layout
-
-\begin_layout Itemize
-When the class is sent to a stream, and a copy is created from that stream,
- that copy must be identical
-\end_layout
-
-\begin_layout Itemize
-When the class is sent to a stream, and then converted to a std::string,
- there must not be spaces in the std::string
-\end_layout
-
-\begin_layout Standard
-To checks if a custom class can be used with boost::read_graphviz
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::read_graphviz
+Load directed graph with custom edges and vertices from .dot
 \end_layout
 
 \end_inset
 
-, see the function 'is_read_graphviz_correct' (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:is_read_graphviz_correct"
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create directed graph with custom edges and vertices from .dot
+\end_layout
 
 \end_inset
 
-):
+ 
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph with custom edges and vertices is loaded,
+ as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_custom_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -18191,7 +18565,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "is_read_graphviz_correct.impl"
+filename "load_directed_custom_edges_and_vertices_graph_from_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18203,12 +18577,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Check if a custom class can be used with boost::graph_viz
+Loading a directed graph with custom edges and vertices from a .dot file
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Is read_graphviz correct
+Load directed custom edges and vertices graph from dot
 \end_layout
 
 \end_inset
@@ -18216,7 +18590,7 @@ Is read_graphviz correct
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:is_read_graphviz_correct"
+name "alg:load_directed_custom_edges_and_vertices_graph_from_dot"
 
 \end_inset
 
@@ -18231,6 +18605,329 @@ name "alg:is_read_graphviz_correct"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which we direct the boost::dynam
+ic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_custom_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_custom_edges_and_vertices_graph_from_dot'
+ function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_custom_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_custom_edges_and_vertices_graph_from_dot'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_custom_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_custo
+m_edges_and_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph is checked to be a directed graph similar to the Markov
+ chain with the same vertex 'my_vertex' instances (using the 'get_vertex_my_vert
+exes' function) and the same edge 'my_edge' instances (using the 'get_edge_my_ed
+ges' function) 
+\end_layout
+
+\begin_layout Subsection
+Load an undirected graph with custom edges and vertices from a .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:sub:load_undirected_custom_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected graph with custom edges and vertices from .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create undirected graph with custom edges and vertices from .dot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an undirected graph with custom edges and vertices is
+ loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_custom_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_custom_edges_and_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading an undirected graph with custom edges and vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected custom edges and vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_custom_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which we direct the boost::dynam
+ic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_custom_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_custom_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_undirected_custom_edges_and_vertices_graph_from_dot'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_custom_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph is checked to be a graph similar to the original, with
+ the same vertex my_vertex instances (using the 'get_vertex_my_vertexes'
+ function) and with the same edge my_edge instances (using the 'get_edge_my_edge
+s' function).
+\end_layout
+
+\begin_layout Section
+Building graphs with a graph name
 \end_layout
 
 \begin_layout Subsection
@@ -18488,6 +19185,26 @@ name "alg:create_empty_undirected_graph_with_graph_name_demo-1"
 \end_layout
 
 \begin_layout Subsection
+Create a directed graph with a graph name property
+\end_layout
+
+\begin_layout Standard
+[code]
+\end_layout
+
+\begin_layout Subsection
+Create an undirected graph with a graph name property
+\end_layout
+
+\begin_layout Standard
+[code]
+\end_layout
+
+\begin_layout Section
+Working with graphs with a graph name
+\end_layout
+
+\begin_layout Subsection
 Set a graph its name property
 \begin_inset CommandInset label
 LatexCommand label
@@ -18720,14 +19437,6 @@ name "alg:get_graph_name_demo"
 \end_layout
 
 \begin_layout Subsection
-Create an undirected graph with a graph name property
-\end_layout
-
-\begin_layout Standard
-[code]
-\end_layout
-
-\begin_layout Subsection
 Storing a graph with a graph name property as a .dot file
 \end_layout
 
@@ -18736,11 +19445,141 @@ Storing a graph with a graph name property as a .dot file
 \end_layout
 
 \begin_layout Subsection
-Loading a graph with a graph name property from a .dot file
+Loading a directed graph with a graph name property from a .dot file
 \end_layout
 
 \begin_layout Standard
 [code]
+\end_layout
+
+\begin_layout Subsection
+Loading an undirected graph with a graph name property from a .dot file
+\end_layout
+
+\begin_layout Standard
+[code]
+\end_layout
+
+\begin_layout Section
+Building graphs with custom graph property
+\end_layout
+
+\begin_layout Section
+Working with graphs with a custom graph property
+\end_layout
+
+\begin_layout Section
+Other graph functions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Other-graph-functions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some functions that did not fit in
+\end_layout
+
+\begin_layout Subsection
+Check if a custom class can be used with boost::read_graphviz
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_read_graphviz_correct"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a custom class to be saved to a .dot file and then loaded from it, it
+ needs to have these properties:
+\end_layout
+
+\begin_layout Itemize
+When the class is sent to a stream, and a copy is created from that stream,
+ that copy must be identical
+\end_layout
+
+\begin_layout Itemize
+When the class is sent to a stream, and then converted to a std::string,
+ there must not be spaces in the std::string
+\end_layout
+
+\begin_layout Standard
+To checks if a custom class can be used with boost::read_graphviz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+, see the function 'is_read_graphviz_correct' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:is_read_graphviz_correct"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_read_graphviz_correct.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if a custom class can be used with boost::graph_viz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Is read_graphviz correct
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_read_graphviz_correct"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

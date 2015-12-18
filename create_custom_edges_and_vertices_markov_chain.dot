@@ -1,0 +1,8 @@
+digraph G {
+0[label="Sunny,You_can_see_the_yellow_thing,1,2"];
+1[label="Rainy,Many_grey_fluffy_things,3,4"];
+0->0 [label="Sometimes,20%,1,2"];
+0->1 [label="Often,80%,3,4"];
+1->0 [label="Rarely,10%,5,6"];
+1->1 [label="Mostly,90%,7,8"];
+}

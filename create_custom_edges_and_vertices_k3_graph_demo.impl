@@ -1,0 +1,14 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include "add_custom_edge.h"
+#include "add_custom_vertex.h"
+#include "create_custom_edges_and_vertices_k3_graph.h"
+
+void create_custom_edges_and_vertices_k3_graph_demo() noexcept
+{
+  auto g = create_custom_edges_and_vertices_k3_graph();
+  assert(boost::num_edges(g) == 3);
+  assert(boost::num_vertices(g) == 3);
+  add_custom_vertex(my_vertex("v"), g);
+  add_custom_edge(my_edge("e"), g);
+}
