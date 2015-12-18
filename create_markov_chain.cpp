@@ -16,8 +16,9 @@ void create_markov_chain_test() noexcept
   //Create the .dot and .svg of the 'create_markov_chain' chapter
   {
     const auto g = create_markov_chain();
-    const std::string dot_filename{"create_markov_chain.dot"};
-    const std::string svg_filename{"create_markov_chain.svg"};
+    const std::string base_filename{"create_markov_chain"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g, dot_filename);
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(

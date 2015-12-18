@@ -1,0 +1,12 @@
+#include <cassert>
+
+#include "create_k2_graph_with_graph_name.h"
+#include "get_graph_name.h"
+
+void create_k2_graph_with_graph_name_demo() noexcept
+{
+  const auto g = create_k2_graph_with_graph_name();
+  assert(boost::num_vertices(g) == 2);
+  assert(boost::num_edges(g) == 1);
+  assert(get_graph_name(g) == "K2");
+}

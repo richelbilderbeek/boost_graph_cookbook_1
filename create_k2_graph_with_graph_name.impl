@@ -1,0 +1,26 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_graph_with_graph_name.h"
+
+///Create K2 with a graph name
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::no_property,
+  boost::no_property,
+  boost::property<boost::graph_name_t,std::string>
+>
+create_k2_graph_with_graph_name() noexcept
+{
+  auto g = create_empty_undirected_graph_with_graph_name();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
+
+  get_property( //_not_ boost::get_property
+    g,boost::graph_name
+  ) = "K2";
+
+  return g;
+}

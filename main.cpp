@@ -25,6 +25,7 @@
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 #include "create_k2_graph.h"
+#include "create_k2_graph_with_graph_name.h"
 #include "create_markov_chain.h"
 #include "create_markov_chain_with_graph_name.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
@@ -85,6 +86,7 @@
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
 #include "save_custom_vertices_graph_to_dot.h"
 #include "save_graph_to_dot.h"
+#include "save_graph_with_graph_name_to_dot.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "seperate_string.h"
@@ -127,6 +129,7 @@ int main()
   create_empty_undirected_named_edges_and_vertices_graph_test();
   create_empty_undirected_named_vertices_graph_test();
   create_k2_graph_test();
+  create_k2_graph_with_graph_name_test();
   create_markov_chain_test();
   create_markov_chain_with_graph_name_test();
   create_named_edges_and_vertices_k3_graph_test();
@@ -188,6 +191,7 @@ int main()
   remove_first_vertex_with_name_test();
   save_custom_edges_and_vertices_graph_to_dot_test();
   save_custom_vertices_graph_to_dot_test();
+  save_graph_with_graph_name_to_dot_test();
   save_graph_to_dot_test();
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
