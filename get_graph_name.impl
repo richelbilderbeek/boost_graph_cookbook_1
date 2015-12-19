@@ -8,6 +8,6 @@ std::string get_graph_name(
 {
   return
     get_property( //_not_ boost::get_property
-      g,boost::graph_name
+      g, boost::graph_name
     );
 }

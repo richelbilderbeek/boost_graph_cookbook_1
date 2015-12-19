@@ -13,7 +13,7 @@
 #include "get_vertices.h"
 #include "get_vertex_descriptors.h"
 #include "get_edge_descriptors.h"
-#include "save_graph_to_dot.h"
+#include "save_graph_with_graph_name_to_dot.h"
 #include "convert_dot_to_svg.h"
 #include "is_regular_file.h"
 
@@ -41,7 +41,7 @@ void create_k2_graph_with_graph_name_test() noexcept
     const std::string base_filename{"create_k2_graph_with_graph_name"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
-    save_graph_to_dot(g,dot_filename);
+    save_graph_with_graph_name_to_dot(g,dot_filename);
     assert(is_regular_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
     assert(is_regular_file(svg_filename));

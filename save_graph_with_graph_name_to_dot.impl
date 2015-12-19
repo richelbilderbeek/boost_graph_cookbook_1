@@ -18,8 +18,13 @@ void save_graph_with_graph_name_to_dot(
     g,
     boost::default_writer(),
     boost::default_writer(),
-    //boost::make_label_writer(get_graph_name(g))
-    [g](std::ostream& os) { os << "label=\"" << get_graph_name(g) << "\""; }
-
+    //Unsure if this results in a graph
+    //that can be loaded correctly
+    //from a .dot file
+    [g](std::ostream& os) {
+      os << "name=\""
+        << get_graph_name(g)
+        << "\";\n";
+    }
   );
 }

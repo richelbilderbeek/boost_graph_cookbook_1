@@ -10,6 +10,7 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "save_graph_with_graph_name_to_dot.h"
+#include "load_directed_graph_with_graph_name_from_dot.h"
 
 void create_markov_chain_with_graph_name_test() noexcept
 {
@@ -20,6 +21,23 @@ void create_markov_chain_with_graph_name_test() noexcept
     assert(boost::num_edges(g) == 4);
     assert(get_graph_name(g) == "Two-state Markov chain");
 
+  }
+  //Check if saving and loading results in the graph with the same name
+  {
+    const auto g = create_markov_chain_with_graph_name();
+    const std::string base_filename{"create_markov_chain_with_graph_name"};
+    const std::string dot_filename{base_filename + ".dot"};
+    save_graph_with_graph_name_to_dot(g, dot_filename);
+    const auto h = load_directed_graph_with_graph_name_from_dot(dot_filename);
+    if (get_graph_name(g) == get_graph_name(h))
+    {
+      assert(!"Green");
+      assert(get_graph_name(g) == get_graph_name(h));
+    }
+    else
+    {
+      std::cout << __func__ << ": TODO: " << '\n';
+    }
   }
   //Create the .dot and .svg of the 'create_markov_chain' chapter
   {

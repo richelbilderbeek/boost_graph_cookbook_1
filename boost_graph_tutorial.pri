@@ -109,7 +109,9 @@ HEADERS += \
     load_undirected_custom_edges_and_vertices_graph_from_dot.h \
     create_markov_chain_with_graph_name.h \
     create_k2_graph_with_graph_name.h \
-    save_graph_with_graph_name_to_dot.h
+    save_graph_with_graph_name_to_dot.h \
+    load_directed_graph_with_graph_name_from_dot.h \
+    load_undirected_graph_with_graph_name_from_dot.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -221,7 +223,9 @@ SOURCES += \
     load_undirected_custom_edges_and_vertices_graph_from_dot.cpp \
     create_markov_chain_with_graph_name.cpp \
     create_k2_graph_with_graph_name.cpp \
-    save_graph_with_graph_name_to_dot.cpp
+    save_graph_with_graph_name_to_dot.cpp \
+    load_directed_graph_with_graph_name_from_dot.cpp \
+    load_undirected_graph_with_graph_name_from_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -392,6 +396,9 @@ OTHER_FILES += \
     create_markov_chain_with_graph_name_demo.impl \
     create_k2_graph_with_graph_name.impl \
     create_k2_graph_with_graph_name_demo.impl \
-    save_graph_with_graph_name_to_dot_cpp11.impl \
-    save_graph_with_graph_name_to_dot_cpp14.impl
+    load_directed_graph_with_graph_name_from_dot.impl \
+    load_directed_graph_with_graph_name_from_dot_demo.impl \
+    save_graph_with_graph_name_to_dot.impl \
+    load_undirected_graph_with_graph_name_from_dot.impl \
+    load_undirected_graph_with_graph_name_from_dot_demo.impl
 

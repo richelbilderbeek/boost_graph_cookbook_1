@@ -68,11 +68,13 @@
 #include "load_directed_custom_edges_and_vertices_graph_from_dot.h"
 #include "load_directed_custom_vertices_graph_from_dot.h"
 #include "load_directed_graph_from_dot.h"
+#include "load_directed_graph_with_graph_name_from_dot.h"
 #include "load_directed_named_edges_and_vertices_graph_from_dot.h"
 #include "load_directed_named_vertices_graph_from_dot.h"
 #include "load_undirected_custom_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_custom_vertices_graph_from_dot.h"
 #include "load_undirected_graph_from_dot.h"
+#include "load_undirected_graph_with_graph_name_from_dot.h"
 #include "load_undirected_named_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_named_vertices_graph_from_dot.h"
 #include "print_trans_delay.h"
@@ -122,6 +124,7 @@ int main()
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();
   create_empty_directed_named_edges_and_vertices_graph_test();
+
   create_empty_undirected_custom_edges_and_vertices_graph_test();
   create_empty_undirected_custom_vertices_graph_test();
   create_empty_undirected_graph_test();
@@ -172,11 +175,13 @@ int main()
   load_directed_custom_edges_and_vertices_graph_from_dot_test();
   load_directed_custom_vertices_graph_from_dot_test();
   load_directed_graph_from_dot_test();
+  load_directed_graph_with_graph_name_from_dot_test();
   load_directed_named_edges_and_vertices_graph_from_dot_test();
   load_directed_named_vertices_graph_from_dot_test();
   load_undirected_custom_edges_and_vertices_graph_from_dot_test();
   load_undirected_custom_vertices_graph_from_dot_test();
   load_undirected_graph_from_dot_test();
+  load_undirected_graph_with_graph_name_from_dot_test();
   load_undirected_named_edges_and_vertices_graph_from_dot_test();
   load_undirected_named_vertices_graph_from_dot_test();
   my_edge_test();

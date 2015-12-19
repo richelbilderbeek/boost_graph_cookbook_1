@@ -1,5 +1,6 @@
 digraph G {
-Two-state Markov chain0;
+name="Two-state Markov chain";
+0;
 1;
 0->0 ;
 0->1 ;
