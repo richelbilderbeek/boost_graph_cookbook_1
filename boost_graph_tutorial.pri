@@ -111,7 +111,9 @@ HEADERS += \
     create_k2_graph_with_graph_name.h \
     save_graph_with_graph_name_to_dot.h \
     load_directed_graph_with_graph_name_from_dot.h \
-    load_undirected_graph_with_graph_name_from_dot.h
+    load_undirected_graph_with_graph_name_from_dot.h \
+    create_tutorial_subchapters_graph.h \
+    add_edge_between_named_vertices.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -225,7 +227,9 @@ SOURCES += \
     create_k2_graph_with_graph_name.cpp \
     save_graph_with_graph_name_to_dot.cpp \
     load_directed_graph_with_graph_name_from_dot.cpp \
-    load_undirected_graph_with_graph_name_from_dot.cpp
+    load_undirected_graph_with_graph_name_from_dot.cpp \
+    create_tutorial_subchapters_graph.cpp \
+    add_edge_between_named_vertices.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and

@@ -71,7 +71,19 @@ A well-connected C++14 Boost.Graph tutorial
 \end_layout
 
 \begin_layout Author
-Richel Bilderbeek
+Richèl Bilderbeek
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename title_graph.svg
+	lyxscale 50
+	width 50text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -134,7 +146,15 @@ key "siek2001boost"
 \end_layout
 
 \begin_layout Standard
-The chapters of this tutorial are also like a well-connected graph.
+The chapters of this tutorial are also like a well-connected graph (as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-relations-between-chapters"
+
+\end_inset
+
+).
  To allow for quicker learners to skim chapters, or for beginners looking
  to find the patterns, some chapters are repetitions of each other (for
  example, getting an edge its name is very similar to getting a vertex its
@@ -382,27 +402,79 @@ Outline
 \end_layout
 
 \begin_layout Standard
-This tutorial is highly structured.
+This tutorial is highly connected.
  The starting point is chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Building-a-graph-without-properties"
+reference "sec:Building-graphs-without-properties"
 
 \end_inset
 
 , where a graph without properties is created.
- All basic concepts are introduced where.
+ All basic concepts are introduced there.
+ You can read the chapters in their order, but the transitions as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-relations-between-chapters"
+
+\end_inset
+
+ are also viable.
+ 
 \end_layout
 
 \begin_layout Standard
-[graph here]
+\begin_inset Float figure
+placement H
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_tutorial_chapters_graph.svg
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The relations between chapters
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-relations-between-chapters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Building a graph without properties
+Building graphs without properties
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Building-a-graph-without-properties"
+name "sec:Building-graphs-without-properties"
 
 \end_inset
 
@@ -4467,7 +4539,14 @@ Also this figure shows that the graph in undirected, otherwise the edge
 \end_layout
 
 \begin_layout Section
-Working with graphs without vertices
+Working on graphs without properties
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Working-on-graphs-without-properties"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5403,6 +5482,13 @@ reference "alg:create_markov_chain_graph"
 
 \begin_layout Section
 Building graphs with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-graphs-with-named-vertices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7376,7 +7462,14 @@ name "fig:create_named_vertices_k2_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working with graphs with named vertices
+Working on graphs with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Working-on-graphs-with-named-vertices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9597,6 +9690,13 @@ reference "alg:get_vertex_names"
 
 \begin_layout Section
 Building graphs with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-graphs-with-named-edges-and-vertices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11483,7 +11583,7 @@ name "fig:create_named_edges_and_vertices_k3_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working with graphs with named edges and vertices
+Working on graphs with named edges and vertices
 \end_layout
 
 \begin_layout Standard
@@ -14687,7 +14787,7 @@ name "fig:create_custom_vertices_k2_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working with graphs with custom vertices
+Working on graphs with custom vertices
 \end_layout
 
 \begin_layout Standard
@@ -17772,7 +17872,7 @@ name "fig:create_custom_edges_and_vertices_k3_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working with graphs with custom edges and vertices
+Working on graphs with custom edges and vertices
 \end_layout
 
 \begin_layout Subsection
@@ -19767,7 +19867,7 @@ name "fig:create_k2_graph_with_graph_name.svg"
 \end_layout
 
 \begin_layout Section
-Working with graphs with a graph name
+Working on graphs with a graph name
 \end_layout
 
 \begin_layout Subsection
@@ -20239,7 +20339,7 @@ http://www.boost.org/doc/libs/1_60_0/libs/graph/doc/read_graphviz.html
 \end_layout
 
 \begin_layout Section
-Building graphs with custom graph property
+Building graphs with custom graph properties
 \end_layout
 
 \begin_layout Standard
@@ -20255,7 +20355,7 @@ reference "sec:Building-graphs-with-a-graph-name"
 \end_layout
 
 \begin_layout Section
-Working with graphs with a custom graph property
+Working on graphs with custom graph properties
 \end_layout
 
 \begin_layout Standard
