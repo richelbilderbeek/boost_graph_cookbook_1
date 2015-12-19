@@ -53,7 +53,6 @@ HEADERS += \
   get_vertex_name.h \
   get_vertex_names.h \
   get_vertex_out_degrees.h \
-  get_vertices.h \
   has_dot.h \
   has_edge_between_vertices.h \
   has_edge_with_my_edge.h \
@@ -113,7 +112,8 @@ HEADERS += \
     load_directed_graph_with_graph_name_from_dot.h \
     load_undirected_graph_with_graph_name_from_dot.h \
     create_tutorial_subchapters_graph.h \
-    add_edge_between_named_vertices.h
+    add_edge_between_named_vertices.h \
+    get_vertex_iterators.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -171,7 +171,6 @@ SOURCES += \
   get_vertex_name.cpp \
   get_vertex_names.cpp \
   get_vertex_out_degrees.cpp \
-  get_vertices.cpp \
   has_dot.cpp \
   has_edge_between_vertices.cpp \
   has_edge_with_my_edge.cpp \
@@ -229,7 +228,8 @@ SOURCES += \
     load_directed_graph_with_graph_name_from_dot.cpp \
     load_undirected_graph_with_graph_name_from_dot.cpp \
     create_tutorial_subchapters_graph.cpp \
-    add_edge_between_named_vertices.cpp
+    add_edge_between_named_vertices.cpp \
+    get_vertex_iterators.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -290,8 +290,6 @@ OTHER_FILES += \
   get_vertex_names.impl \
   get_vertex_out_degrees_demo.impl \
   get_vertex_out_degrees.impl \
-  get_vertices_demo.impl \
-  get_vertices.impl \
   has_edge_with_name_demo.impl \
   has_edge_with_name.impl \
   has_vertex_with_name_demo.impl \
@@ -404,5 +402,7 @@ OTHER_FILES += \
     load_directed_graph_with_graph_name_from_dot_demo.impl \
     save_graph_with_graph_name_to_dot.impl \
     load_undirected_graph_with_graph_name_from_dot.impl \
-    load_undirected_graph_with_graph_name_from_dot_demo.impl
+    load_undirected_graph_with_graph_name_from_dot_demo.impl \
+    get_vertex_iterators.impl \
+    get_vertex_iterators_demo.impl
 

@@ -56,7 +56,7 @@
 #include "get_vertex_name.h"
 #include "get_vertex_names.h"
 #include "get_vertex_out_degrees.h"
-#include "get_vertices.h"
+#include "get_vertex_iterators.h"
 #include "has_edge_between_vertices.h"
 #include "has_edge_with_my_edge.h"
 #include "has_edge_with_name.h"
@@ -162,7 +162,7 @@ int main()
   get_vertex_names_test();
   get_vertex_name_test();
   get_vertex_out_degrees_test();
-  get_vertices_test();
+  get_vertex_iterators_test();
   has_edge_between_vertices_test();
   has_edge_with_my_edge_test();
   has_edge_with_name_test();

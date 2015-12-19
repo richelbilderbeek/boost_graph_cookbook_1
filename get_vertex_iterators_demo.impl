@@ -1,15 +1,15 @@
 #include <cassert>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
-#include "get_vertices.h"
+#include "get_vertex_iterators.h"
 
-void get_vertices_demo() noexcept
+void get_vertex_iterators_demo() noexcept
 {
   const auto g = create_empty_undirected_graph();
-  const auto vip_g = get_vertices(g);
+  const auto vip_g = get_vertex_iterators(g);
   assert(vip_g.first == vip_g.second);
 
   const auto h = create_empty_directed_graph();
-  const auto vip_h = get_vertices(h);
+  const auto vip_h = get_vertex_iterators(h);
   assert(vip_h.first == vip_h.second);
 }

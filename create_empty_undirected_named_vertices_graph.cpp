@@ -12,14 +12,14 @@
 
 
 #include "get_edges.h"
-#include "get_vertices.h"
+#include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
 
 void create_empty_undirected_named_vertices_graph_test() noexcept
 {
   const auto g = create_empty_undirected_named_vertices_graph();
-  const auto vip = get_vertices(g);
+  const auto vip = get_vertex_iterators(g);
   assert(vip.first == vip.second);
   const auto vds = get_vertex_descriptors(g);
   assert(vds.empty());

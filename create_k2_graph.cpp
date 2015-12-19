@@ -10,7 +10,7 @@
 
 
 #include "get_edges.h"
-#include "get_vertices.h"
+#include "get_vertex_iterators.h"
 #include "get_vertex_descriptors.h"
 #include "get_edge_descriptors.h"
 #include "save_graph_to_dot.h"
@@ -22,7 +22,7 @@ void create_k2_graph_test() noexcept
   //Basic tests
   {
     const auto g = create_k2_graph();
-    const auto vip = get_vertices(g);
+    const auto vip = get_vertex_iterators(g);
     assert(vip.first != vip.second);
     const auto vds = get_vertex_descriptors(g);
     assert(vds.size() == 2);

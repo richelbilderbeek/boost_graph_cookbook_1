@@ -3,6 +3,7 @@
 #include <cassert>
 #include <vector>
 
+#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_custom_vertices_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "create_empty_directed_graph.h"
@@ -16,6 +17,15 @@ void get_type_name_test() noexcept
   assert(get_type_name<int>() == "int");
   assert(get_type_name<std::vector<int>>()
     == "std::vector<int, std::allocator<int> >"
+  );
+  static_assert(sizeof(int) < sizeof(long),"");
+  assert(
+    get_type_name<decltype(boost::num_vertices(create_empty_directed_graph()))>()
+    == "unsigned long"
+  );
+  assert(
+    get_type_name<decltype(boost::num_edges(create_empty_directed_graph()))>()
+    == "unsigned long"
   );
   assert(get_type_name<decltype(boost::adjacency_list<>())>()
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS>"

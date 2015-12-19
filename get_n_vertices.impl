@@ -8,6 +8,8 @@ int get_n_vertices(const graph& g) noexcept
   const int n{
     static_cast<int>(boost::num_vertices(g))
   };
-  assert(n >= 0);
+  assert(static_cast<unsigned long>(n)
+    == boost::num_vertices(g)
+  );
   return n;
 }

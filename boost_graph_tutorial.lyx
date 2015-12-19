@@ -145,46 +145,6 @@ key "siek2001boost"
  and the Boost.Graph website require.
 \end_layout
 
-\begin_layout Standard
-The chapters of this tutorial are also like a well-connected graph (as shown
- in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:The-relations-between-chapters"
-
-\end_inset
-
-).
- To allow for quicker learners to skim chapters, or for beginners looking
- to find the patterns, some chapters are repetitions of each other (for
- example, getting an edge its name is very similar to getting a vertex its
- name)
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-There was even copy-pasting involved!
-\end_layout
-
-\end_inset
-
-.
- This tutorial is not about being short, but being complete, at the risk
- of being called bloated.
-\end_layout
-
-\begin_layout Standard
-A pivotal chapter is chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:find_first_vertex_with_name"
-
-\end_inset
-
-, 'Finding the first vertex with a name', as this opens up the door to finding
- a vertex and manipulating it.
-\end_layout
-
 \begin_layout Subsection
 Code snippets
 \end_layout
@@ -402,17 +362,7 @@ Outline
 \end_layout
 
 \begin_layout Standard
-This tutorial is highly connected.
- The starting point is chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Building-graphs-without-properties"
-
-\end_inset
-
-, where a graph without properties is created.
- All basic concepts are introduced there.
- You can read the chapters in their order, but the transitions as shown
+The chapters of this tutorial are also like a well-connected graph (as shown
  in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -420,8 +370,35 @@ reference "fig:The-relations-between-chapters"
 
 \end_inset
 
- are also viable.
- 
+).
+ To allow for quicker learners to skim chapters, or for beginners looking
+ to find the patterns, some chapters are repetitions of each other (for
+ example, getting an edge its name is very similar to getting a vertex its
+ name)
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There was even copy-pasting involved!
+\end_layout
+
+\end_inset
+
+.
+ This tutorial is not about being short, but being complete, at the risk
+ of being called bloated.
+\end_layout
+
+\begin_layout Standard
+A pivotal chapter is chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:find_first_vertex_with_name"
+
+\end_inset
+
+, 'Finding the first vertex with a name', as this opens up the door to finding
+ a vertex and manipulating it.
 \end_layout
 
 \begin_layout Standard
@@ -1238,11 +1215,7 @@ boost::adjacency_list
 \end_layout
 
 \begin_layout Itemize
-The out edges are stored in a std::vector
-\end_layout
-
-\begin_layout Itemize
-The vertices are stored in a std::vector
+The out edges and vertices are stored in a std::vector
 \end_layout
 
 \begin_layout Itemize
@@ -1512,6 +1485,85 @@ name "alg:create_empty_undirected_graph"
 \end_layout
 
 \begin_layout Standard
+This algorith differs from the 'create_empty_directed_graph' function (algoritm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph"
+
+\end_inset
+
+) in that there are three template arguments that need to be specified in
+ the creation of the boost::adjancency_list:
+\end_layout
+
+\begin_layout Itemize
+the first 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+: select (that is what the 'S
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+
+' means) that out edges are stored in a std::vector.
+ This is the default way.
+\end_layout
+
+\begin_layout Itemize
+the second 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+: select that the graph vertices are stored in a std::vector.
+ This is the default way.
+\end_layout
+
+\begin_layout Itemize
+'boost::undirectedS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+: select that the graph is undirected.
+ This is all we needed to change.
+ By default, this argument is boost::directed 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1576,49 +1628,11 @@ reference "alg:create_empty_undirected_graph_demo"
 \end_layout
 
 \begin_layout Itemize
-The out edges are stored in a std::vector.
- This way to store out edges is selected by the first 'boost::vecS'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-
+The out edges and vertices are stored in a std::vector
 \end_layout
 
 \begin_layout Itemize
-The vertices are stored in a std::vector.
- This way to store vertices is selected by the second 'boost::vecS'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The graph is undirected.
- This directionality is selected for by the third template argument, 'boost::und
-irectedS'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::undirectedS
-\end_layout
-
-\end_inset
-
-
+The graph is undirected
 \end_layout
 
 \begin_layout Itemize
@@ -1727,9 +1741,9 @@ boost::num_vertices
 
 \end_inset
 
-, converts it to int and checks if there was no range overflow.
- We do so, as one should prefer using int (over unsigned int) in an interface
- (
+, converts it to int and checks if there was conversion error.
+ We do so, as one should prefer using signed data types over unsigned ones
+ in an interface (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lakos1996large"
@@ -1737,31 +1751,12 @@ key "lakos1996large"
 \end_inset
 
  chapter 9.2.2).
- To do so, in the function body its first stament, the unsigned int
+ To do so, in the function body its first stament, the unsigned long
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-unsigned int
-\end_layout
-
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-or '[some type]' to be precise
+unsigned long
 \end_layout
 
 \end_inset
@@ -1787,12 +1782,8 @@ static_cast
 \end_inset
 
 .
- This static_cast cannot always be correct, as an unsigned int can have
- twice as high (but only positive) values.
- Luckily, this can be detected: if an unsigned int produces a negative int,
- it was too big to be stored as such.
- Using an unsigned int over a (signed) int for the sake of gaining that
- one more bit (
+ Using an unsigned integer over a (signed) integer for the sake of gaining
+ that one more bit (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroustrup1997"
@@ -1813,9 +1804,9 @@ key "stroustrup2013"
 \end_layout
 
 \begin_layout Standard
-The assert statement checks if the conversion from unsigned int to int was
- successfull.
- If it was not, the program crashes.
+The assert checks if the conversion back to unsigned long re-creates the
+ original value, to check if no information has been lost.
+ If information is lost, the program crashes.
  Use assert
 \begin_inset Index idx
 status open
@@ -2035,7 +2026,25 @@ name "alg:get_n_edges"
 \end_layout
 
 \begin_layout Standard
-For the rationale behind this, see the previous chapter.
+This code is similar to the 'get_n_vertices' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_n_vertices"
+
+\end_inset
+
+, see rationale there) except 'boost::num_edges'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::num_edges
+\end_layout
+
+\end_inset
+
+ is used, instead of 'boost::num_vertices', which also returns an unsigned
+ long.
 \end_layout
 
 \begin_layout Standard
@@ -2092,7 +2101,7 @@ name "alg:get_n_edges_demo"
 \end_layout
 
 \begin_layout Subsection
-Add a vertex
+Adding a vertex
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:add_vertex"
@@ -2371,7 +2380,7 @@ vd_
 \end_layout
 
 \begin_layout Subsection
-Get the vertices
+Get the vertex iterators
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:get_vertices"
@@ -2397,7 +2406,7 @@ Dereferencing a vertex iterator to obtain a vertex descriptor
 \end_layout
 
 \begin_layout Standard
-boost::vertices
+'boost::vertices'
 \begin_inset Index idx
 status collapsed
 
@@ -2420,7 +2429,7 @@ Vertex iterator pair
 , as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertices"
+reference "alg:get_vertex_iterators"
 
 \end_inset
 
@@ -2460,7 +2469,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertices.impl"
+filename "get_vertex_iterators.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2485,7 +2494,7 @@ Get vertices
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_vertices"
+name "alg:get_vertex_iterators"
 
 \end_inset
 
@@ -2504,17 +2513,17 @@ name "alg:get_vertices"
 
 \begin_layout Standard
 This is a somewhat trivial function, as it forwards the function call to
- boost::vertices.
+ 'boost::vertices'.
 \end_layout
 
 \begin_layout Standard
 These vertex iterators can be dereferenced to obtain the vertex descriptors.
- Note that 'get_vertices' will not be used often in isolation: usually one
- obtains the vertex descriptors immediatly.
+ Note that 'get_vertex_iterators' will not be used often in isolation: usually
+ one obtains the vertex descriptors immediatly.
  Just for your reference, algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertices_demo"
+reference "alg:get_vertex_iterators_demo"
 
 \end_inset
 
@@ -2532,7 +2541,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertices_demo.impl"
+filename "get_vertex_iterators_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -2544,10 +2553,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_vertices'
+Demonstration of 'get_vertex_iterators'
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_vertices_demo"
+name "alg:get_vertex_iterators_demo"
 
 \end_inset
 
@@ -2656,7 +2665,18 @@ name "alg:get_vertex_descriptors"
 
 \begin_layout Standard
 This is the first more complex piece of code.
- In the first lines, some 'using' statements allow for shorter type names.
+ In the first lines, some 'using' statements allow for shorter type names
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+which may be necessary just to create a tutorial with code snippets that
+ are readable
+\end_layout
+
+\end_inset
+
+.
  The function 'vertices'
 \begin_inset Index idx
 status open
@@ -2748,8 +2768,8 @@ name "alg:get_vertex_descriptors_demo"
 \end_layout
 
 \begin_layout Standard
-Because all graphs have (vertices and thus) vertex descriptors, the type
- of graph is unimportant for this code to compile.
+Because all graphs have vertices and thus vertex descriptors, the type of
+ graph is unimportant for this code to compile.
 \end_layout
 
 \begin_layout Subsection
@@ -2955,7 +2975,8 @@ reference "alg:add_edge_demo"
 
 \end_inset
 
-, in which an edge is added to both a directed and undirected graph.
+, in which an edge is added to both a directed and undirected graph, after
+ which the number of edges and vertices is checked.
 \end_layout
 
 \begin_layout Standard
@@ -3036,7 +3057,7 @@ reference "sub:Edge-descriptors"
 
 \end_inset
 
-) and a boolean indicating insertion success.
+) and a boolean, which indicates insertion success.
 \end_layout
 
 \begin_layout Standard

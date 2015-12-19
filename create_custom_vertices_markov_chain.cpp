@@ -11,7 +11,7 @@
 
 
 #include "get_edges.h"
-#include "get_vertices.h"
+#include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertex_names.h"
@@ -29,7 +29,7 @@ void create_custom_vertices_markov_chain_test() noexcept
     assert(boost::num_edges(g) == 4);
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 4);
-    const auto vip = get_vertices(g);
+    const auto vip = get_vertex_iterators(g);
     assert(vip.first != vip.second);
     const auto vds = get_vertex_descriptors(g);
     assert(vds.size() == 2);

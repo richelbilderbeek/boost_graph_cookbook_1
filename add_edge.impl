@@ -1,6 +1,7 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 
+///Add an edge to a graph
 template <typename graph>
 void add_edge(graph& g) noexcept
 {

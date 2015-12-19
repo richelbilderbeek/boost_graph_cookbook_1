@@ -6,7 +6,7 @@ std::pair<
   typename graph::vertex_iterator,
   typename graph::vertex_iterator
 >
-get_vertices(const graph& g) noexcept
+get_vertex_iterators(const graph& g) noexcept
 {
   return vertices(g); //_not_ boost::vertices!
 }
