@@ -5,7 +5,7 @@ A well-connected C++11 Boost.Graph tutorial is a C++ tutorial about Boost.Graph.
 Downloads:
 
  * Stable: [PDF](boost_graph_tutorial_v1_0.pdf) (v1.0)
- * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v1.1, work in progress)
+ * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v1.1, needs a readthrough, has bundled properties added)
 
 ![Title graph](BoostGraphTutorial/title_graph.png)
 
