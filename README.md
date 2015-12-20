@@ -1,8 +1,8 @@
 # Boost.Graph tutorial
 
-A [Boost.Graph tutorial (PDF)](boost_graph_tutorial.pdf).
+A [Boost.Graph tutorial (PDF)](BoostGraphTutorial/boost_graph_tutorial.pdf).
 
-![Title graph](title_graph.png)
+![Title graph](BoostGraphTutorial/title_graph.png)
 
 This tutorial offers examples to use Boost.Graph that are:
 
