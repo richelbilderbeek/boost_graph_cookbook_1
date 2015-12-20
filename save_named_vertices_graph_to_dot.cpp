@@ -29,11 +29,10 @@ void save_named_vertices_graph_to_dot_demo() noexcept
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_vertices_markov_chain.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
-#include "create_router_network_graph.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "set_vertex_names.h"
-#include "fileio.h"
+#include "helper.h"
 
 
 void save_named_vertices_graph_to_dot_test() noexcept
@@ -86,7 +85,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -119,7 +118,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -160,7 +159,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
 
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -195,9 +194,9 @@ void save_named_vertices_graph_to_dot_test() noexcept
     save_named_vertices_graph_to_dot_using_lambda_cpp14(g,"g2.dot");
     save_named_vertices_graph_to_dot(h,"h1.dot");
     save_named_vertices_graph_to_dot_using_lambda_cpp14(h,"h2.dot");
-    assert(ribi::FileIo().FileToVector("g1.dot") == ribi::FileIo().FileToVector("g2.dot"));
-    assert(ribi::FileIo().FileToVector("h1.dot") == ribi::FileIo().FileToVector("h2.dot"));
-    assert(ribi::FileIo().FileToVector("g1.dot") != ribi::FileIo().FileToVector("h2.dot"));
+    assert(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
+    assert(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
+    assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
   }
   #else
   {
@@ -207,9 +206,9 @@ void save_named_vertices_graph_to_dot_test() noexcept
     save_named_vertices_graph_to_dot_using_lambda_cpp11(g,"g2.dot");
     save_named_vertices_graph_to_dot(h,"h1.dot");
     save_named_vertices_graph_to_dot_using_lambda_cpp11(h,"h2.dot");
-    assert(ribi::FileIo().FileToVector("g1.dot") == ribi::FileIo().FileToVector("g2.dot"));
-    assert(ribi::FileIo().FileToVector("h1.dot") == ribi::FileIo().FileToVector("h2.dot"));
-    assert(ribi::FileIo().FileToVector("g1.dot") != ribi::FileIo().FileToVector("h2.dot"));
+    assert(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
+    assert(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
+    assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
   }
   #endif
   save_named_vertices_graph_to_dot_demo();

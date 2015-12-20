@@ -22,12 +22,12 @@ find_first_vertex_with_name(
   const auto vertex_name_map
     = get(boost::vertex_name,g);
   const auto vip
-    = vertices(g); //_not_ boost::vertices!
+    = vertices(g); //not boost::vertices
   const auto j = vip.second;
 
   for (auto i = vip.first; i!=j; ++i) {
     const std::string s{
-      get( //_not_ boost::get!
+      get( //not boost::get
         vertex_name_map,
         *i
       )

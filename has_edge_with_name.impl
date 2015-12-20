@@ -1,18 +1,29 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+///See if there is an edge with a certain name.
+///TODO: extract edge_name_type from the graph
+template <
+  typename graph,
+  typename edge_name_type
+>
 bool has_edge_with_name(
-  const std::string& name,
+  const edge_name_type& name,
   const graph& g
 ) noexcept
 {
-  const auto edge_name_map = get(boost::edge_name,g);
-
-  for (auto p = edges(g);
-    p.first != p.second;
-    ++p.first) {
-    if (get(edge_name_map, *p.first) == name) {
+  const auto edge_name_map
+    = get( //not boost::get
+      boost::edge_name,
+      g
+    );
+  const auto eip
+    = edges( //not boost::edges
+    g
+  );
+  const auto j = eip.second;
+  for (auto i = eip.first; i!=j; ++i) {
+    if (get(edge_name_map, *i) == name) {
       return true;
     }
   }

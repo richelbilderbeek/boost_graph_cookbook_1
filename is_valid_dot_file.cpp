@@ -5,7 +5,7 @@
 #include "create_k2_graph.h"
 #include "copy_file.h"
 #include "save_graph_to_dot.h"
-#include "fileio.h"
+#include "helper.h"
 #include "is_regular_file.h"
 
 #include "is_valid_dot_file.impl"

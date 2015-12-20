@@ -1,16 +1,12 @@
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
-
-#include "create_empty_undirected_named_edges_and_vertices_graph_demo.impl"
 #include "create_empty_undirected_named_edges_and_vertices_graph.impl"
+#include "create_empty_undirected_named_edges_and_vertices_graph_demo.impl"
 
 #include <cassert>
 #include <iostream>
 #include "add_named_edge.h"
-
-
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
-#include "print_vertex_names.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 
 void create_empty_undirected_named_edges_and_vertices_graph_test() noexcept

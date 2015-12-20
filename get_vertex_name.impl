@@ -13,7 +13,7 @@ std::string get_vertex_name(
 ) noexcept
 {
   const auto vertex_name_map
-    = get( //_not_ boost::get
+    = get( //not boost::get
       boost::vertex_name,
       g
     );

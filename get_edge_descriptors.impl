@@ -2,7 +2,7 @@
 #include "boost/graph/graph_traits.hpp"
 
 ///Get all edge descriptors of a graph
-template <class graph>
+template <typename graph>
 std::vector<
   typename boost::graph_traits<graph>::edge_descriptor
 > get_edge_descriptors(const graph& g) noexcept
@@ -12,7 +12,7 @@ std::vector<
 
   std::vector<ed> eds;
 
-  const auto ei = edges(g); //_not_ boost::edges!
+  const auto ei = edges(g); //not boost::edges
   const auto j = ei.second;
 
   for (auto i = ei.first; i!=j; ++i) {

@@ -24,13 +24,13 @@ create_named_edges_and_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto vertex_name_map = get( //_not_ boost::get!
+  auto vertex_name_map = get( //not boost::get
     boost::vertex_name,g
   );
   vertex_name_map[vd_a] = "Sunny";
   vertex_name_map[vd_b] = "Rainy";
 
-  auto edge_name_map = get( //_not_ boost::get!
+  auto edge_name_map = get( //not boost::get
     boost::edge_name,g
   );
   edge_name_map[aer_aa.first] = "Sometimes";

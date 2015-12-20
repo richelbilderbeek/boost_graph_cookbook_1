@@ -4,7 +4,8 @@
 #include "create_empty_undirected_graph.h"
 #include "is_regular_file.h"
 
-///Load an undirected graph from a .dot file
+///Load an undirected graph from a .dot file.
+///Assumes the file exists
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

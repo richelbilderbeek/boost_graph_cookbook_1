@@ -10,7 +10,7 @@
 #include "create_markov_chain_with_graph_name.h"
 #include "convert_dot_to_svg.h"
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
-#include "fileio.h"
+#include "helper.h"
 #include "my_vertex.h"
 #include "install_vertex_custom_type.h"
 
@@ -26,10 +26,10 @@ void load_directed_graph_with_graph_name_from_dot_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_with_graph_name_to_dot(g, dot_filename);
-    const auto old_text = ribi::FileIo().FileToVector(dot_filename);
+    const auto old_text = helper().file_to_vector(dot_filename);
     const auto h = load_directed_graph_with_graph_name_from_dot(dot_filename);
     save_graph_with_graph_name_to_dot(h, dot_filename);
-    const auto new_text = ribi::FileIo().FileToVector(dot_filename);
+    const auto new_text = helper().file_to_vector(dot_filename);
     if (old_text == new_text)
     {
       assert(!"Green");
@@ -45,7 +45,7 @@ void load_directed_graph_with_graph_name_from_dot_test() noexcept
     }
     else
     {
-      std::cout << __func__ << ": TODO: " << '\n';
+      std::cout << __func__ << ": TODO" << '\n';
     }
   }
   load_directed_graph_with_graph_name_from_dot_demo();

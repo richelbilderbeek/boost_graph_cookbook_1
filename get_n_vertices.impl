@@ -2,7 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 
 ///Get the number of vertices a graph has
-template <class graph>
+template <typename graph>
 int get_n_vertices(const graph& g) noexcept
 {
   const int n{

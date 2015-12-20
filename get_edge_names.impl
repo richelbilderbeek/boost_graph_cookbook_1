@@ -3,19 +3,20 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/properties.hpp>
 
-//TODO: generalize to return any type
+///Get all the vertices' names
+///TODO: remove the hard-coded std::string type
 template <typename graph>
 std::vector<std::string> get_edge_names(const graph& g) noexcept
 {
   std::vector<std::string> v;
 
   const auto edge_name_map = get(boost::edge_name,g);
-  const auto eip = edges(g); //_not_ boost::edges!
+  const auto eip = edges(g); //not boost::edges
   const auto j = eip.second;
 
   for (auto i = eip.first; i!=j; ++i) {
     v.emplace_back(
-      get( //_not_ boost::get!
+      get( //not boost::get
         edge_name_map,
         *i
       )

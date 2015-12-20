@@ -13,16 +13,16 @@ bool has_vertex_with_name(
 ) noexcept
 {
   const auto vertex_name_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::vertex_name,
       g
     );
   const auto vip
-    = vertices(g); //_not_ boost::vertices!
+    = vertices(g); //not boost::vertices
   const auto j = vip.second;
   for (auto i = vip.first; i!=j; ++i) {
     if (
-      get( //_not_ boost::get!
+      get( //not boost::get
         vertex_name_map,
         *i
       ) == vertex_name

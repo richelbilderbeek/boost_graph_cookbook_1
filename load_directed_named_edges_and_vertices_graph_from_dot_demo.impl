@@ -15,7 +15,9 @@ void load_directed_named_edges_and_vertices_graph_from_dot_demo() noexcept
   };
   save_named_edges_and_vertices_graph_to_dot(g, filename);
   const auto h
-    = load_directed_named_edges_and_vertices_graph_from_dot(filename);
+    = load_directed_named_edges_and_vertices_graph_from_dot(
+      filename
+     );
   assert(num_edges(g) == num_edges(h));
   assert(num_vertices(g) == num_vertices(h));
   assert(get_vertex_names(g) == get_vertex_names(h));

@@ -7,7 +7,7 @@
 #include "has_vertex_with_name.h"
 #include "find_first_vertex_with_name.h"
 
-template <class graph>
+template <typename graph>
 void add_edge_between_named_vertices(
   const std::string& vertex_name_1,
   const std::string& vertex_name_2,

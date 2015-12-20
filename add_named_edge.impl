@@ -1,11 +1,16 @@
-
+#include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 
-#include <cassert>
-
-template <typename graph>
+///Add an isolated named edge to the graph,
+///by adding two vertices to put
+///the new named edge in between.
+///TODO: extract edge_name_type from the graph
+template <
+  typename graph,
+  typename edge_name_type
+>
 void add_named_edge(
-  const std::string& edge_name,
+  const edge_name_type& edge_name,
   graph& g
 ) noexcept
 {
@@ -15,7 +20,7 @@ void add_named_edge(
   assert(aer.second);
 
   auto edge_name_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::edge_name,g
     );
   edge_name_map[aer.first] = edge_name;

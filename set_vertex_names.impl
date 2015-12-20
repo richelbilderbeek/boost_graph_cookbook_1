@@ -4,6 +4,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
+///Set all vertices' names
 //TODO: generalize 'names'
 template <typename graph>
 void set_vertex_names(
@@ -11,11 +12,12 @@ void set_vertex_names(
   const std::vector<std::string>& names
 ) noexcept
 {
-  const auto vertex_name_map = get(boost::vertex_name,g);
+  const auto vertex_name_map
+    = get(boost::vertex_name,g);
   auto ni = std::begin(names);
   const auto names_end = std::end(names);
   const auto vip
-    = vertices(g); //_not_ boost::vertices!
+    = vertices(g); //not boost::vertices
   const auto j = vip.second;
   for (auto i = vip.first; i!=j; ++i, ++ni)
   {

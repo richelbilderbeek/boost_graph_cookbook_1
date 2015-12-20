@@ -36,7 +36,7 @@ void create_markov_chain_with_graph_name_test() noexcept
     }
     else
     {
-      std::cout << __func__ << ": TODO: " << '\n';
+      std::cout << __func__ << ": TODO" << '\n';
     }
   }
   //Create the .dot and .svg of the 'create_markov_chain' chapter

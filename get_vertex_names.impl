@@ -18,10 +18,10 @@ std::vector<std::string> get_vertex_names(
   );
   const auto vip = vertices(g);
   const auto j = vip.second;
-  for (auto i = vip.first; i!=j; ++i) {
 
+  for (auto i = vip.first; i!=j; ++i) {
     v.emplace_back(
-      get( //_not_ boost::get!
+      get( //not boost::get
         vertex_name_map,
         *i
       )

@@ -8,6 +8,10 @@
 #include "is_read_graphviz_correct.h"
 #include "get_vertex_my_vertexes.h"
 
+///Load a directed graph with custom
+///vertices from a .dot file.
+///Assumes the file exists and that the
+///custom vertices can be read by Graphviz
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

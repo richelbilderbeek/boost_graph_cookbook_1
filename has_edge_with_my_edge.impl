@@ -2,18 +2,21 @@
 #include "install_edge_custom_type.h"
 #include "my_edge.h"
 
+///See if there is an edge with a certain my_edge
 template <typename graph>
 bool has_edge_with_my_edge(
   const my_edge& e,
   const graph& g
 ) noexcept
 {
-  const auto my_edges_map = get(boost::edge_custom_type,g);
+  const auto my_edges_map
+    = get(boost::edge_custom_type,g);
+  const auto eip
+    = edges(g); //not boost::edges
+  const auto j = eip.second;
 
-  for (auto p = edges(g);
-    p.first != p.second;
-    ++p.first) {
-    if (get(my_edges_map, *p.first) == e) {
+  for (auto i = eip.first; i!=j; ++i) {
+    if (get(my_edges_map, *i) == e) {
       return true;
     }
   }

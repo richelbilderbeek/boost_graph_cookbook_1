@@ -14,14 +14,18 @@ find_first_edge_with_my_edge(
 {
   assert(has_edge_with_my_edge(e, g));
   const auto my_edges_map = get(boost::edge_custom_type, g);
+  const auto eip = edges(g); //not boost::edges
+  const auto j = eip.second;
 
-  for (auto p = edges(g);
-    p.first != p.second;
-    ++p.first) {
-
-    if (get(my_edges_map, *p.first) == e) {
-      return *p.first;
+  for (auto i = eip.first; i!=j; ++i) {
+    if (
+      get( //not boost::get
+        my_edges_map,
+        *i
+      ) == e) {
+      return *i;
     }
   }
-  return *edges(g).second;
+  assert(!"Should not get here");
+  throw; //Will crash the program
 }

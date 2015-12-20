@@ -10,11 +10,10 @@
 #include "create_k2_graph.h"
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
-#include "create_router_network_graph.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "is_valid_dot_file.h"
-#include "fileio.h"
+#include "helper.h"
 
 void save_graph_to_dot_test() noexcept
 {
@@ -28,7 +27,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "digraph G {",
@@ -56,7 +55,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -84,7 +83,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -116,7 +115,7 @@ void save_graph_to_dot_test() noexcept
     save_graph_to_dot(g,dot_filename);
     assert(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",

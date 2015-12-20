@@ -1,8 +1,8 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
 #include "install_vertex_custom_type.h"
-#include "my_vertex.h"
 #include "my_edge.h"
+#include "my_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,

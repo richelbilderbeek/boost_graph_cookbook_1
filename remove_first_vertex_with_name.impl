@@ -1,17 +1,24 @@
-#include <string>
 #include <boost/graph/adjacency_list.hpp>
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
 
-template <class graph>
+///The the first vertex with a certain name.
+///Assumes that there exists a vertex
+///with that name.
+///TODO: extract vertex_name_type from the graph
+template <
+  typename graph,
+  typename vertex_name_type
+>
 void remove_first_vertex_with_name(
-  const std::string& name,
+  const vertex_name_type& name,
   graph& g
 ) noexcept
 {
   assert(has_vertex_with_name(name,g));
-  const auto vd = find_first_vertex_with_name(name,g);
-  assert(boost::degree(vd,g) == 0);
+  const auto vd
+    = find_first_vertex_with_name(name,g);
+  assert(degree(vd,g) == 0); //not boost::degree
   boost::remove_vertex(vd,g);
 }
 

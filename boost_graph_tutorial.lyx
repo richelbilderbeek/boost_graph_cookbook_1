@@ -67,7 +67,7 @@
 \begin_body
 
 \begin_layout Title
-A well-connected C++14 Boost.Graph tutorial
+A well-connected C++11 Boost.Graph tutorial
 \end_layout
 
 \begin_layout Author
@@ -97,6 +97,10 @@ LatexCommand tableofcontents
 
 \begin_layout Section
 Introduction
+\end_layout
+
+\begin_layout Standard
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.0.
 \end_layout
 
 \begin_layout Subsection
@@ -224,7 +228,7 @@ I use the coding style from the Core C++ Guidelines.
 
 \begin_layout Standard
 Most functions are documented by three slashes '///', which allows tools
- like Doxygen to create nice documentation from it.
+ like Doxygen to create documentation from it.
  
 \end_layout
 
@@ -4880,7 +4884,7 @@ It is expected that
 \end_layout
 
 \begin_layout Subsection
-Storing a graph as a .dot
+Saving a graph to a .dot file
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:save_graph_to_dot"
@@ -4956,7 +4960,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Storing a graph as a .dot file
+Saving a graph to a .dot file
 \begin_inset Index idx
 status open
 
@@ -7576,8 +7580,8 @@ reference "sub:remove_edge_between_vertices_with_names"
 \end_layout
 
 \begin_layout Itemize
-Storing an directed/undirected graph with named vertices as a .dot file:
- chapter 
+Saving an directed/undirected graph with named vertices to a .dot file: chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:save_named_vertices_graph_to_dot"
@@ -8883,7 +8887,7 @@ name "alg:remove_edge_between_vertices_with_names_demo"
 \end_layout
 
 \begin_layout Subsection
-Storing an directed/undirected graph with named vertices as a .dot
+Saving an directed/undirected graph with named vertices to a .dot file
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:save_named_vertices_graph_to_dot"
@@ -8963,7 +8967,8 @@ Using boost::make_label_writer
 \end_layout
 
 \begin_layout Standard
-additionally with algorithm 
+The first implemention uses boost::make_label_writer, as shown in algorithm
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_named_vertices_graph_to_dot"
@@ -8995,7 +9000,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Storing a graph with named vertices as a .dot file
+Saving a graph with named vertices to a .dot file
 \begin_inset Index idx
 status open
 
@@ -9088,7 +9093,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Storing a graph with named vertices as a .dot file using a lambda expression
+Saving a graph with named vertices to a .dot file using a lambda expression
  and C++11
 \begin_inset Index idx
 status open
@@ -9191,7 +9196,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Storing a graph with named vertices as a .dot file using a lambda expression
+Saving a graph with named vertices to a .dot file using a lambda expression
  and C++14
 \begin_inset Index idx
 status open
@@ -9751,7 +9756,7 @@ reference "sub:create_named_edges_and_vertices_markov_chain"
 \begin_inset Formula $K_{3}$
 \end_inset
 
-with named edges and vertices: see chapter 
+ with named edges and vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_named_edges_and_vertices_k3"
@@ -11644,7 +11649,7 @@ reference "sub:remove_first_edge_with_name"
 \end_layout
 
 \begin_layout Itemize
-Storing a graph with named edges and vertices as a .dot file: chapter 
+Saving a graph with named edges and vertices to a .dot file: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:save_named_edges_and_vertices_undirected_graph_to_dot"
@@ -12366,7 +12371,7 @@ name "alg:remove_first_edge_with_name_demo"
 \end_layout
 
 \begin_layout Subsection
-Storing an undirected graph with named edges and vertices as a .dot
+Saving an undirected graph with named edges and vertices as a .dot
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:save_named_edges_and_vertices_undirected_graph_to_dot"
@@ -12430,7 +12435,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_named_edges_and_vertices_graph_to_dot_cpp17.impl"
+filename "save_named_edges_and_vertices_graph_to_dot_cpp11.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -12442,7 +12447,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Storing a graph with named edges and vertices as a .dot file
+Saving an undirected graph with named edges and vertices to a .dot file
 \begin_inset Index idx
 status open
 
@@ -12473,17 +12478,17 @@ name "alg:save_named_edges_and_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-Note that this algorithm uses C++17
+This a C++11
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-C++17
+C++11
 \end_layout
 
 \end_inset
 
-.
+ implementation.
 \end_layout
 
 \begin_layout Standard

@@ -2,16 +2,18 @@
 #include "boost/graph/graph_traits.hpp"
 
 ///Collect all vertex descriptors of a graph
-template <class graph>
+template <typename graph>
 std::vector<
   typename boost::graph_traits<graph>::vertex_descriptor
-> get_vertex_descriptors(const graph& g) noexcept
+>
+get_vertex_descriptors(const graph& g) noexcept
 {
   using boost::graph_traits;
-  using vd = typename graph_traits<graph>::vertex_descriptor;
+  using vd
+    = typename graph_traits<graph>::vertex_descriptor;
 
   std::vector<vd> vds;
-  const auto vis = vertices(g); //_not_ boost::vertices!
+  const auto vis = vertices(g); //not boost::vertices
   const auto j = vis.second;
   for (auto i = vis.first; i!=j; ++i) {
     vds.emplace_back(*i);

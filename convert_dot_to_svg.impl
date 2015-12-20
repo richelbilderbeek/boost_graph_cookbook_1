@@ -1,11 +1,14 @@
 #include <cassert>
 #include <string>
 #include <sstream>
-
 #include "has_dot.h"
-#include "is_valid_dot_file.h"
 #include "is_regular_file.h"
+#include "is_valid_dot_file.h"
 
+///Convert a .dot file to a .svg file
+///Assumes that (1) the program 'dot'
+///can be called by a system call (2) the
+///.dot file is valid
 void convert_dot_to_svg(
   const std::string& dot_filename,
   const std::string& svg_filename

@@ -3,6 +3,6 @@
 void no_matching_function_for_call_to_clear_out_edges() noexcept
 {
   auto g = create_k2_graph();
-  const auto vd = *vertices(g).first; //_not_ boost::vertices!
+  const auto vd = *vertices(g).first; //not boost::vertices
   boost::clear_in_edges(vd,g);
 }

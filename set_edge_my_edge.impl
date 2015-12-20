@@ -3,6 +3,8 @@
 #include "install_edge_custom_type.h"
 #include "my_edge.h"
 
+///Set an edge its my_edge from its
+///edge descriptor
 template <typename graph>
 void set_edge_my_edge(
   const my_edge& name,

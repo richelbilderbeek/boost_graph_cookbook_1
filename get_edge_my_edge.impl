@@ -3,12 +3,17 @@
 #include "install_edge_custom_type.h"
 #include "my_edge.h"
 
+///Collect all my_edges from a graph
 template <typename graph>
 my_edge get_edge_my_edge(
   const typename boost::graph_traits<graph>::edge_descriptor& vd,
   const graph& g
 ) noexcept
 {
-  const auto my_edge_map = get(boost::edge_custom_type, g);
+  const auto my_edge_map
+    = get( //not boost::get
+      boost::edge_custom_type,
+      g
+    );
   return my_edge_map[vd];
 }

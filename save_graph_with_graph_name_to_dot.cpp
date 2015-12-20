@@ -8,7 +8,7 @@
 #include "create_k2_graph_with_graph_name.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
-#include "fileio.h"
+#include "helper.h"
 #include "is_regular_file.h"
 
 void save_graph_with_graph_name_to_dot_test() noexcept
@@ -24,7 +24,7 @@ void save_graph_with_graph_name_to_dot_test() noexcept
     save_graph_with_graph_name_to_dot(g,dot_filename);
     assert(is_regular_file(dot_filename));
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{
@@ -43,7 +43,7 @@ void save_graph_with_graph_name_to_dot_test() noexcept
 
     save_graph_with_graph_name_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      ribi::FileIo().FileToVector(dot_filename)
+      helper().file_to_vector(dot_filename)
     };
     assert(!text.empty());
     const std::vector<std::string> expected_text{

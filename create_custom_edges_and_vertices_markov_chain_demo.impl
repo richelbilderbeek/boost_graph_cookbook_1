@@ -9,8 +9,12 @@ void create_custom_edges_and_vertices_markov_chain_demo() noexcept
   const auto g
     = create_custom_edges_and_vertices_markov_chain();
   const std::vector<my_vertex> expected_my_vertexes{
-    my_vertex("Sunny","You can see the yellow thing",1.0,2.0),
-    my_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+    my_vertex("Sunny",
+      "You can see the yellow thing",1.0,2.0
+    ),
+    my_vertex("Rainy",
+      "Many grey fluffy things",3.0,4.0
+    )
   };
   const std::vector<my_vertex> vertex_my_vertexes{
     get_vertex_my_vertexes(g)

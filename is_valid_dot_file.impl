@@ -1,12 +1,13 @@
 #include <cassert>
-#include "fileio.h"
+#include "helper.h"
 #include "is_regular_file.h"
 
+///Check if a file is a valid .dot file
 bool is_valid_dot_file(const std::string& dot_filename) noexcept
 {
 
   if (!is_regular_file(dot_filename)) { return false; }
-  const auto v = ribi::FileIo().FileToVector(dot_filename);
+  const auto v = helper().file_to_vector(dot_filename);
   if (v.size() <= 1) return false;
   assert(!v.back().empty());
   return v.back()[0] == '}';

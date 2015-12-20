@@ -6,6 +6,8 @@
 #include "is_read_graphviz_correct.h"
 #include "is_regular_file.h"
 
+///Load an undirected graph with a graph name from file
+///TODO: fix this, as this code is not working correct
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

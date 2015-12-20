@@ -28,6 +28,6 @@ void load_directed_graph_with_graph_name_from_dot_demo() noexcept
   }
   else
   {
-    std::cout << __func__ << ": TODO: " << '\n';
+    std::cout << __func__ << ": TODO" << '\n';
   }
 }

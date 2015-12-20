@@ -13,7 +13,7 @@ void add_named_vertex(
 {
   const auto vd_a = boost::add_vertex(g);
   auto vertex_name_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::vertex_name,g
     );
   vertex_name_map[vd_a] = vertex_name;

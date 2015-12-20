@@ -4,6 +4,9 @@
 #include "create_empty_directed_named_vertices_graph.h"
 #include "is_regular_file.h"
 
+///Load a directed graph with named vertices
+///from a .dot file.
+///Assumes that this file exists
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

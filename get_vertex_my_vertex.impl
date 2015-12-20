@@ -3,6 +3,8 @@
 #include "install_vertex_custom_type.h"
 #include "my_vertex.h"
 
+///Get the my_vertex of a vertex
+///from its vertex descriptor
 template <typename graph>
 my_vertex get_vertex_my_vertex(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,

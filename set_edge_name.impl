@@ -1,10 +1,14 @@
-#include <string>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+///Set and edge its name from its edge descriptor.
+///TODO: extract edge_name_type from the graph
+template <
+  typename graph,
+  typename edge_name_type
+>
 void set_edge_name(
-  const std::string& name,
+  const edge_name_type& name,
   const typename boost::graph_traits<graph>::edge_descriptor& vd,
   graph& g
 ) noexcept

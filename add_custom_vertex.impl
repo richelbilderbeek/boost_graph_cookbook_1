@@ -2,12 +2,13 @@
 #include "install_vertex_custom_type.h"
 #include "my_vertex.h"
 
+///Add a custom vertex to a graph
 template <typename graph>
 void add_custom_vertex(const my_vertex& v, graph& g) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   const auto my_vertex_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::vertex_custom_type,g
     );
   my_vertex_map[vd_a] = v;

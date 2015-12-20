@@ -5,8 +5,12 @@
 #include "my_vertex.h"
 #include "my_edge.h"
 
+///Add a custom edge to a graph
 template <typename graph>
-void add_custom_edge(const my_edge& v, graph& g) noexcept
+void add_custom_edge(
+  const my_edge& v,
+  graph& g
+) noexcept
 {
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
@@ -14,7 +18,7 @@ void add_custom_edge(const my_edge& v, graph& g) noexcept
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
   const auto my_edge_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::edge_custom_type, g
     );
   my_edge_map[aer.first] = v;

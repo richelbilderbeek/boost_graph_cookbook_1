@@ -1,7 +1,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-///Get a vertex its name,
+///Set a vertex its name,
 ///when already having its vertex descriptor
 ///TODO: extract vertex_name_type from the graph
 template <
@@ -15,7 +15,7 @@ void set_vertex_name(
 ) noexcept
 {
   auto vertex_name_map
-    = get( //_not_ boost::get!
+    = get( //not boost::get
       boost::vertex_name,
       g
     );

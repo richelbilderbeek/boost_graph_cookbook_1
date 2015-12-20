@@ -1,7 +1,7 @@
 #include <cassert>
 
 #include "create_named_edges_and_vertices_k3_graph.h"
-
+#include "remove_edge_between_vertices_with_names.h"
 
 void remove_edge_between_vertices_with_names_demo() noexcept
 {

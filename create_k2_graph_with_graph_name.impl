@@ -18,7 +18,7 @@ create_k2_graph_with_graph_name() noexcept
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
 
-  get_property( //_not_ boost::get_property
+  get_property( //not boost::get_property
     g,boost::graph_name
   ) = "K2";
 

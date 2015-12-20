@@ -4,6 +4,9 @@
 #include "create_empty_directed_named_edges_and_vertices_graph.h"
 #include "is_regular_file.h"
 
+///Load a directed graph with named edges and vertices
+///from a .dot file.
+///Assumes that the .dot file exists.
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
@@ -23,15 +26,10 @@ load_directed_named_edges_and_vertices_graph_from_dot(
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_named_edges_and_vertices_graph();
   boost::dynamic_properties p; //_do_ default construct
-  #ifdef USE_FAILING
-  p.property("node_id", get(boost::vertex_name, g));
-  p.property("label", get(boost::vertex_name, g));
-  #else
   p.property("node_id", get(boost::vertex_name, g));
   p.property("label", get(boost::vertex_name, g));
   p.property("edge_id", get(boost::edge_name, g));
   p.property("label", get(boost::edge_name, g));
-  #endif
   boost::read_graphviz(f,g,p);
   return g;
 }

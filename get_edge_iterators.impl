@@ -1,12 +1,12 @@
 #include <boost/graph/adjacency_list.hpp>
 
 ///Get the edge iterators of a graph
-template <class graph>
+template <typename graph>
 std::pair<
   typename graph::edge_iterator,
   typename graph::edge_iterator
 >
 get_edge_iterators(const graph& g) noexcept
 {
-  return edges(g); //_not_ boost::edges!
+  return edges(g); //not boost::edges
 }
