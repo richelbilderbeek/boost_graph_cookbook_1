@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.0.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.1.
 \end_layout
 
 \begin_layout Subsection
@@ -13137,6 +13137,10 @@ reference "alg:get_vertex_names"
 \end_layout
 
 \begin_layout Section
+BELOW: NEW
+\end_layout
+
+\begin_layout Section
 Building graphs with bundled vertices
 \begin_inset CommandInset label
 LatexCommand label
@@ -13147,22 +13151,11 @@ name "sec:Building-graphs-with-bundled-vertices"
 
 \end_layout
 
-\begin_layout Section
-Building graphs with custom vertices
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Building-graphs-with-custom-properties"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 Up until now, the graphs created have had edges and vertices with the built-in
  name propery.
  In this chapter, graphs will be created, in which the vertices can have
- a custom 'my_vertex' type
+ a bundled 'my_vertex' type
 \begin_inset Foot
 status collapsed
 
@@ -13177,10 +13170,10 @@ I do not intend to be original in naming my data types
 \end_layout
 
 \begin_layout Itemize
-An empty directed graph that allows for custom vertices: see chapter 
+An empty directed graph that allows for bundled vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_empty_directed_custom_vertices_graph"
+reference "alg:create_empty_directed_bundled_vertices_graph"
 
 \end_inset
 
@@ -13188,10 +13181,11 @@ reference "alg:create_empty_directed_custom_vertices_graph"
 \end_layout
 
 \begin_layout Itemize
-An empty undirected graph that allows for custom vertices: see chapter 
+An empty undirected graph that allows for bundled vertices: see chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_empty_directed_custom_vertices_graph"
+reference "sub:create_empty_directed_bundled_vertices_graph"
 
 \end_inset
 
@@ -13199,10 +13193,10 @@ reference "sub:create_empty_directed_custom_vertices_graph"
 \end_layout
 
 \begin_layout Itemize
-A two-state Markov chain with custom vertices: see chapter 
+A two-state Markov chain with bundled vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_custom_vertices_markov_chain"
+reference "sub:create_bundled_vertices_markov_chain"
 
 \end_inset
 
@@ -13213,10 +13207,10 @@ reference "sub:create_custom_vertices_markov_chain"
 \begin_inset Formula $K_{2}$
 \end_inset
 
-with custom vertices: see chapter 
+with bundled vertices: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:create_custom_vertices_k2_graph"
+reference "sub:create_bundled_vertices_k2_graph"
 
 \end_inset
 
@@ -13228,10 +13222,10 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Create the custom vertex class, called 'my_vertex': see chapter 
+Create the vertex class, called 'my_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:my_vertex"
+reference "sub:my_vertex-1"
 
 \end_inset
 
@@ -13239,31 +13233,10 @@ reference "sub:my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Installing the new vertex type as a vertex property, called 'vertex_custom_type
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-vertex_custom_type
-\end_layout
-
-\end_inset
-
-': chapter 
+Adding a bundled vertex: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:install_vertex_custom_type"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Adding a custom vertex: see chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:add_custom_vertex"
+reference "sub:add_custom_vertex-1"
 
 \end_inset
 
@@ -13274,7 +13247,7 @@ reference "sub:add_custom_vertex"
 Getting the vertices my_vertex-es: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:get_vertex_my_vertexes"
+reference "sub:get_bundled_vertex_my_vertexes"
 
 \end_inset
 
@@ -13287,10 +13260,10 @@ These functions are mostly there for completion and showing which data types
 \end_layout
 
 \begin_layout Subsection
-Creating the custom vertex class
+Creating the vertex class
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:my_vertex"
+name "sub:my_vertex-1"
 
 \end_inset
 
@@ -13298,7 +13271,7 @@ name "sub:my_vertex"
 \end_layout
 
 \begin_layout Standard
-Before creating an empty graph with custom vertices, that custom vertex
+Before creating an empty graph with bundled vertices, that bundled vertex
  class must be created.
  In this tutorial, the 'my_vertex' class is nonsensical, but it can be replaced
  by any other class type.
@@ -13428,6 +13401,2668 @@ reference "alg:is_read_graphviz_correct"
 \end_inset
 
 ) to check this.
+\end_layout
+
+\begin_layout Subsection
+Create the empty directed graph with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_bundled_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_bundled_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with bundled vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty directed bundled vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_bundled_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is directed (due to the boost::directedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a bundled type, that is of data
+ type my_vertex
+\end_layout
+
+\begin_layout Itemize
+The edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'my_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the bundled property 'my_vertex'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a bundled type called my_vertex
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Create the empty undirected graph with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_custom_vertices_graph-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_bundled_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with bundled vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty undirected bundled vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_bundled_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph:
+\end_layout
+
+\begin_layout Itemize
+has its out edges stored in a std::vector (due to the first boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+has its vertices stored in a std::vector (due to the second boost::vecS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+is undirected (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+The vertices have one property: they have a bundled type my_vertex'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+'
+\end_layout
+
+\begin_layout Itemize
+The edges and graph have no properties
+\end_layout
+
+\begin_layout Itemize
+Edges are stored in a std::list
+\end_layout
+
+\begin_layout Standard
+The boost::adjacency_list
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::adjacency_list
+\end_layout
+
+\end_inset
+
+ has a new, fourth template argument 'my_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_vertex
+\end_layout
+
+\end_inset
+
+'.
+ This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have the bundled property 'my_vertex'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or: 
+\begin_inset Quotes eld
+\end_inset
+
+vertices have a bundled type called my_vertex
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Add a bundled vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_custom_vertex-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding a bundled vertex is very similar to adding a named vertex (chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_named_vertex"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_bundled_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add a bundled vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add bundled vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_bundled_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having added a new (abstract) vertex to the graph, the vertex descriptor
+ is used to set the my_vertex in the graph with [some bundled propery magic]
+\end_layout
+
+\begin_layout Subsection
+Getting the bundled vertices' my_vertexes
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+the name 'my_vertexes' is chosen to indicate this function returns a container
+ of my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_bundled_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph have any associated my_vertex, one can extract
+ these as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_bundled_vertex_my_vertexes.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the bundled vertices' my_vertexes
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get bundled vertex my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The my_vertex object associated with the vertices are obtained from a boost::pro
+perty_map and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+When trying to get the vertices' my_vertex from a graph without my_vertex
+ objects associated, you will get the error 'formed reference to void' (see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Creating a two-state Markov chain with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bundled_vertices_markov_chain-1"
+
+\end_inset
+
+ shows the graph that will be reproduced:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Sunny, You [...], 1.0, 2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Rainy, Many [...], 3.0, 4.0}
+\end_layout
+
+\begin_layout Plain Layout
+
+  ;   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop  left] node {} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop right] node {} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the vertices have bundled properies and the
+ edges have no properties.
+ The vertices' properties are nonsensical
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bundled_vertices_markov_chain-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+Having spaces in a vertex label is not supported (yet), and the spaces are
+ replaced by underscores.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the code creating a two-state Markov chain with bundled vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bundled_vertices_markov_chain-1"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create bundled vertices Markov chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_bundled_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_bundled_vertices_markov_chain' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_vertices_markov_chain.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_vertices_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_bundled_vertices_markov_chain' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_bundled_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+We reproduce the 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2_graph"
+
+\end_inset
+
+ , but with our bundled vertices intead.
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_vertices_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_vertices_k2_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create bundled vertices K2 graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a slight modification of the 'create_named_vertices_k2_graph
+' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+).
+ In the end, the my_vertices are obtained as a boost::property_map and set
+ with two bundled my_vertex objects.
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_bundled_vertices_k2_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_vertices_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_bundled_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_bundled_vertices_k2_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_vertices_k2_graph.dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_bundled_vertices_k2_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_bundled_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Working on graphs with bundled vertices
+\end_layout
+
+\begin_layout Standard
+When using graphs with bundled vertices, their state gives a way to find
+ a vertex and working with it.
+ This chapter shows some basic operations on graphs with bundled vertices.
+\end_layout
+
+\begin_layout Itemize
+Check if there exists a vertex with a certain 'my_vertex': chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:has_bundled_vertex_with_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Find a vertex with a certain 'my_vertex': chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:find_bundled_vertex_with_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Get a vertex its 'my_vertex' from its vertex descriptor: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Set a vertex its 'my_vertex' using its vertex descriptor: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:set_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Setting all vertices their 'my_vertex'es: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:set_bundled_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Storing an directed/undirected graph with bundled vertices as a .dot file:
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading a directed graph with bundled vertices from a .dot file: chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_custom_vertices_graph_from_dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading an undirected directed graph with bundled vertices from a .dot file:
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_undirected_custom_vertices_graph_from_dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Has a bundled vertex with a my_vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:has_bundled_vertex_with_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before modifying our vertices, let's first determine if we can find a vertex
+ by its bundled type ('my_vertex') in a graph.
+ After obtaing a my_vertex map, we obtain the vertex iterators, dereference
+ these to obtain the vertex descriptors and then compare each vertex its
+ my_vertex with the one desired.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_bundled_vertex_with_my_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find if there is vertex with a certain my_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Has bundled vertex with my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_bundled_vertex_with_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function can be demonstrated as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:has_bundled_vertex_with_my_vertex_demo"
+
+\end_inset
+
+, where a certain my_vertex cannot be found in an empty graph.
+ After adding the desired my_vertex, it is found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_bundled_vertex_with_my_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_bundled_vertex_with_my_vertex' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_bundled_vertex_with_my_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this function only finds if there is at least one bundled vertex
+ with that my_vertex: it does not tell how many bundled vertices with that
+ my_vertex exist in the graph.
+\end_layout
+
+\begin_layout Subsection
+Find a bundled vertex with a certain my_vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_bundled_vertex_with_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where STL functions work with iterators, here we obtain a vertex descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Vertex-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired vertex.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_bundled_vertex_with_my_vertex-1"
+
+\end_inset
+
+ shows how to obtain a vertex descriptor to the first vertex found with
+ a specific my_vertex value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_bundled_vertex_with_my_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first vertex with a certain my_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Find first bundled vertex with my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_bundled_vertex_with_my_vertex-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the vertex descriptor obtained, one can read and modify the vertex
+ and the edges surrounding it.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_bundled_vertex_with_my_vertex_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_bundled_vertex_with_my_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_bundled_vertex_with_my_vertex' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_bundled_vertex_with_my_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Get a bundled vertex its my_vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To obtain the name from a vertex descriptor, one needs to pull out the my_vertex
+es
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Bad English intended: my_vertexes = multiple my_vertex objects, vertices
+ = multiple graph nodes
+\end_layout
+
+\end_inset
+
+ map and then look up the vertex of interest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_bundled_vertex_my_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get a bundled vertex its my_vertex from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get bundled vertex my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'get_bundled_vertex_my_vertex', one first needs to obtain a vertex
+ descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_bundled_vertex_my_vertex_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_bundled_vertex_my_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'get_bundled_vertex_my_vertex' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_vertex_my_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Set a bundled vertex its my_vertex
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know how to get the my_vertex from a vertex descriptor, setting it
+ is just as easy, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_bundled_vertex_my_vertex"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_bundled_vertex_my_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set a bundled vertex its my_vertex from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set vertex my_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_bundled_vertex_my_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'set_vertex_my_vertex', one first needs to obtain a vertex descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_bundled_vertex_my_vertex_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_bundled_vertex_my_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'set_bundled_vertex_my_vertex' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_bundled_vertex_my_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Setting all bundled vertices' my_vertex objects
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_bundled_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the vertices of a graph are associated with my_vertex objects, one
+ can set these my_vertexes as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_bundled_vertex_my_vertexes.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Setting the bundled vertices' my_vertexes
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set bundled vertex my_vertexes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_bundled_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An impressive feature is that getting the property map holding the graph
+ its names is not a copy, but a reference.
+ Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
+ only modify a copy.
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with bundled vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the create_bundled_vertices_k2_graph function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with vertices associated with my_vertex objects, you can store these
+ my_vertexes additionally with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_bundled_vertices_graph_to_dot_cpp14.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with bundled vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save bundled vertices graph to dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this algorithm uses C++14
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+C++14
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The .dot file created is displayed in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the create_bundled_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file corresponds to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the create_bundled_vertices_k2_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Loading a directed graph with bundled vertices from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_directed_custom_vertices_graph_from_dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph with bundled vertices is loaded, as
+ shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_bundled_vertices_graph_from_dot-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_bundled_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading a directed graph with bundled vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load directed bundled vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_bundled_vertices_graph_from_dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which we direct the boost::dynam
+ic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_bundled_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_bundled_vertices_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_bundled_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_bundled_vertices_graph_from_dot' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_bundled_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_bundl
+ed_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_markov_chain"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph is checked to be a directed graph similar to the Markov
+ chain with the same vertex my_vertex instances (using the 'get_vertex_my_vertex
+es' function).
+\end_layout
+
+\begin_layout Subsection
+Loading an undirected graph with bundled vertices from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_undirected_custom_vertices_graph_from_dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an undirected graph with bundled vertices is loaded, as
+ shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_bundled_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_bundled_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading an undirected graph with bundled vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected bundled vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_bundled_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which we direct the boost::dynam
+ic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_bundled_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_undirected_bundled_vertices_graph_from_dot'
+ function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_bundled_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_undirected_bundled_vertices_graph_from_dot' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_bundled_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with bundled vertices is created using the 'create_bundled_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_vertices_k2_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph is checked to be a graph similar to the original, with
+ the same vertex my_vertex instances (using the 'get_vertex_my_vertexes'
+ function).
+\end_layout
+
+\begin_layout Section
+GOOD BELOW
+\end_layout
+
+\begin_layout Section
+Building graphs with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Up until now, the graphs created have had edges and vertices with the built-in
+ name propery.
+ In this chapter, graphs will be created, in which the vertices can have
+ a custom 'my_vertex' type
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I do not intend to be original in naming my data types
+\end_layout
+
+\end_inset
+
+.
+ The following graphs will be created:
+\end_layout
+
+\begin_layout Itemize
+An empty directed graph that allows for custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty undirected graph that allows for custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A two-state Markov chain with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{2}$
+\end_inset
+
+with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Create the custom vertex class, called 'my_vertex': already done in chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:my_vertex-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Installing the new vertex type as a vertex property, called 'vertex_custom_type
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex_custom_type
+\end_layout
+
+\end_inset
+
+': chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:install_vertex_custom_type"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a custom vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Getting the vertices my_vertex-es: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_my_vertexes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
 \end_layout
 
 \begin_layout Subsection
@@ -14481,7 +17116,7 @@ reference "alg:create_custom_vertices_markov_chain"
 ), converted from graph to .dot file using algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:save_graph_to_dot"
+reference "alg:save_custom_vertices_graph_to_dot"
 
 \end_inset
 

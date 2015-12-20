@@ -97,18 +97,24 @@
 #include "set_edge_name.h"
 #include "set_graph_name.h"
 #include "set_custom_vertex_my_vertexes.h"
+#include "load_directed_bundled_vertices_graph_from_dot.h"
 #include "set_custom_vertex_my_vertex.h"
 #include "set_vertex_name.h"
 #include "set_bundled_vertex_my_vertex.h"
+#include "load_undirected_bundled_vertices_graph_from_dot.h"
+#include "set_bundled_vertex_my_vertexes.h"
 #include "set_vertex_names.h"
 #include <iostream>
 
 int main()
 {
   add_bundled_vertex_test();
+  load_directed_bundled_vertices_graph_from_dot_test();
   add_custom_edge_test();
   add_custom_edge_test();
+  set_bundled_vertex_my_vertexes_test();
   add_custom_vertex_test();
+  load_undirected_bundled_vertices_graph_from_dot_test();
   set_bundled_vertex_my_vertex_test();
   add_edge_test();
   add_named_edge_test();

@@ -115,7 +115,10 @@ HEADERS += \
     find_first_bundled_vertex_with_my_vertex.h \
     set_custom_vertex_my_vertex.h \
     set_bundled_vertex_my_vertex.h \
-    set_custom_vertex_my_vertexes.h
+    set_custom_vertex_my_vertexes.h \
+    load_directed_bundled_vertices_graph_from_dot.h \
+    load_undirected_bundled_vertices_graph_from_dot.h \
+    set_bundled_vertex_my_vertexes.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -232,7 +235,10 @@ SOURCES += \
     find_first_bundled_vertex_with_my_vertex.cpp \
     set_custom_vertex_my_vertex.cpp \
     set_bundled_vertex_my_vertex.cpp \
-    set_custom_vertex_my_vertexes.cpp
+    set_custom_vertex_my_vertexes.cpp \
+    load_directed_bundled_vertices_graph_from_dot.cpp \
+    load_undirected_bundled_vertices_graph_from_dot.cpp \
+    set_bundled_vertex_my_vertexes.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -430,5 +436,10 @@ OTHER_FILES += \
     set_custom_vertex_my_vertex_demo.impl \
     set_bundled_vertex_my_vertex.impl \
     set_bundled_vertex_my_vertex_demo.impl \
-    set_custom_vertex_my_vertexes.impl
+    set_custom_vertex_my_vertexes.impl \
+    load_directed_bundled_vertices_graph_from_dot.impl \
+    load_directed_bundled_vertices_graph_from_dot_demo.impl \
+    load_undirected_bundled_vertices_graph_from_dot.impl \
+    load_undirected_bundled_vertices_graph_from_dot_demo.impl \
+    set_bundled_vertex_my_vertexes.impl
 
