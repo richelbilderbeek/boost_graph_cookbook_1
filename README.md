@@ -2,6 +2,8 @@
 
 A [Boost.Graph tutorial (PDF)](boost_graph_tutorial.pdf).
 
+![Title graph](title_graph.png)
+
 This tutorial offers examples to use Boost.Graph that are:
 
  * Orders concepts chronologically
