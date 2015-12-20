@@ -43,6 +43,17 @@ void get_vertex_names_test() noexcept
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
     assert(expected_names == vertex_names);
   }
+  //K2 graph with integer names
+  {
+    auto g = create_empty_undirected_named_vertices_graph<int>();
+    const int vertex_name_1{42};
+    const int vertex_name_2{314};
+    add_named_vertex(vertex_name_1, g);
+    add_named_vertex(vertex_name_2, g);
+    //const std::vector<int> expected_names{vertex_name_1, vertex_name_2};
+    //const std::vector<int> vertex_names{get_vertex_names(g)}; //Cannot do this yet
+    //assert(expected_names == vertex_names);
+  }
   get_vertex_names_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

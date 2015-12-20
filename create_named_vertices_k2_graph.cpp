@@ -8,7 +8,7 @@
 #include <iostream>
 
 
-#include "get_edges.h"
+#include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
@@ -26,7 +26,7 @@ void create_named_vertices_k2_graph_test() noexcept
     assert(vip.first != vip.second);
     const auto vds = get_vertex_descriptors(g);
     assert(vds.size() == 2);
-    const auto eip = get_edges(g);
+    const auto eip = get_edge_iterators(g);
     assert(eip.first != eip.second);
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 1);
@@ -40,8 +40,9 @@ void create_named_vertices_k2_graph_test() noexcept
   //Create the .dot and .svg of the 'create_named_vertices_markov_chain' chapter
   {
     const auto g = create_named_vertices_k2_graph();
-    const std::string dot_filename{"create_named_vertices_k2_graph.dot"};
-    const std::string svg_filename{"create_named_vertices_k2_graph.svg"};
+    const std::string base_filename{"create_named_vertices_k2_graph.dot"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g, dot_filename);
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(

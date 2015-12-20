@@ -1,7 +1,8 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_graph.h"
 
-///Create K2: a fully connected undirected graph with two vertices
+///Create K2:
+///a fully connected undirected graph with two vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

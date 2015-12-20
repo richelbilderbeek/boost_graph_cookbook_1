@@ -44,7 +44,7 @@
 #include "get_edge_my_edges.h"
 #include "get_edge_name.h"
 #include "get_edge_names.h"
-#include "get_edges.h"
+#include "get_edge_iterators.h"
 #include "get_first_vertex_with_name_out_degree.h"
 #include "get_graph_name.h"
 #include "get_n_edges.h"
@@ -151,7 +151,7 @@ int main()
   get_edge_my_edge_test();
   get_edge_names_test();
   get_edge_name_test();
-  get_edges_test();
+  get_edge_iterators_test();
   get_first_vertex_with_name_out_degree_test();
   get_graph_name_test();
   get_n_vertices_test();

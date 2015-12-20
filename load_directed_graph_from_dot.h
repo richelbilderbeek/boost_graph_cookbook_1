@@ -3,11 +3,7 @@
 
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS
->
+boost::adjacency_list<>
 load_directed_graph_from_dot(
   const std::string& dot_filename
 );

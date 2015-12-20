@@ -1,11 +1,18 @@
-#include <string>
 #include <boost/graph/adjacency_list.hpp>
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
 
-template <class graph>
+///Remove all edges connected to the
+///first vertex with a certain name.
+///Assumes that there exists a vertex
+///with the searched-for name.
+///TODO: extract vertex_name_type from the graph
+template <
+  typename graph,
+  typename vertex_name_type
+>
 void clear_first_vertex_with_name(
-  const std::string& name,
+  const vertex_name_type& name,
   graph& g
 ) noexcept
 {

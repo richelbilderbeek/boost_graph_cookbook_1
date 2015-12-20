@@ -8,5 +8,5 @@
 void is_read_graphviz_correct_test() noexcept
 {
   assert(is_read_graphviz_correct<my_vertex>());
-  std::cout << __func__ << ": DONE" << std::endl;
+  std::cout << __func__ << ": OK" << std::endl;
 }

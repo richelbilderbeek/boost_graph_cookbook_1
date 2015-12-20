@@ -1,15 +1,15 @@
 #include <cassert>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
-#include "get_edges.h"
+#include "get_edge_iterators.h"
 
-void get_edges_demo() noexcept
+void get_edge_iterators_demo() noexcept
 {
   const auto g = create_empty_undirected_graph();
-  const auto eip_g = get_edges(g);
+  const auto eip_g = get_edge_iterators(g);
   assert(eip_g.first == eip_g.second);
 
   auto h = create_empty_directed_graph();
-  const auto eip_h = get_edges(h);
+  const auto eip_h = get_edge_iterators(h);
   assert(eip_h.first == eip_h.second);
 }

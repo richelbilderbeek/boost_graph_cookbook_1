@@ -8,11 +8,19 @@ void get_vertex_out_degrees_demo() noexcept
 {
   const auto g = create_k2_graph();
   const std::vector<int> expected_out_degrees_g{1,1};
-  const std::vector<int> vertex_out_degrees_g{get_vertex_out_degrees(g)};
-  assert(expected_out_degrees_g == vertex_out_degrees_g);
+  const std::vector<int> vertex_out_degrees_g{
+    get_vertex_out_degrees(g)
+  };
+  assert(expected_out_degrees_g
+    == vertex_out_degrees_g
+  );
 
   const auto h = create_markov_chain();
   const std::vector<int> expected_out_degrees_h{2,2};
-  const std::vector<int> vertex_out_degrees_h{get_vertex_out_degrees(h)};
-  assert(expected_out_degrees_h == vertex_out_degrees_h);
+  const std::vector<int> vertex_out_degrees_h{
+    get_vertex_out_degrees(h)
+  };
+  assert(expected_out_degrees_h
+    == vertex_out_degrees_h
+  );
 }

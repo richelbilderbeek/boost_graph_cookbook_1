@@ -2,6 +2,10 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
+///Get a vertex its name,
+///when already having its vertex descriptor
+///TODO: return a 'vertex_name_type' (deduced from the
+///graph type), instead of a std::string
 template <typename graph>
 std::string get_vertex_name(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
@@ -9,6 +13,9 @@ std::string get_vertex_name(
 ) noexcept
 {
   const auto vertex_name_map
-    = get(boost::vertex_name,g);
+    = get( //_not_ boost::get
+      boost::vertex_name,
+      g
+    );
   return vertex_name_map[vd];
 }

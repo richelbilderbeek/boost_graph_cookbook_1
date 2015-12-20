@@ -1,6 +1,5 @@
 #include "create_empty_undirected_named_vertices_graph.h"
 
-#include "create_empty_undirected_named_vertices_graph.impl"
 
 #include "create_empty_undirected_named_vertices_graph.h"
 
@@ -11,7 +10,7 @@
 
 
 
-#include "get_edges.h"
+#include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
@@ -23,7 +22,7 @@ void create_empty_undirected_named_vertices_graph_test() noexcept
   assert(vip.first == vip.second);
   const auto vds = get_vertex_descriptors(g);
   assert(vds.empty());
-  const auto eip = get_edges(g);
+  const auto eip = get_edge_iterators(g);
   assert(eip.first == eip.second);
   const auto eds = get_edge_descriptors(g);
   assert(eds.empty());

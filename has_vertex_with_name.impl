@@ -1,24 +1,31 @@
-#include <string>
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+///See if a graph has a vertex
+///with a certain name
+///TODO: extract vertex_name_type from the graph
+template <
+  typename graph,
+  typename vertex_name_type
+>
 bool has_vertex_with_name(
-  const std::string& name,
+  const vertex_name_type& vertex_name,
   const graph& g
 ) noexcept
 {
   const auto vertex_name_map
-    = get(boost::vertex_name, g);
+    = get( //_not_ boost::get!
+      boost::vertex_name,
+      g
+    );
   const auto vip
     = vertices(g); //_not_ boost::vertices!
   const auto j = vip.second;
-
   for (auto i = vip.first; i!=j; ++i) {
     if (
       get( //_not_ boost::get!
         vertex_name_map,
         *i
-      ) == name
+      ) == vertex_name
     ) {
       return true;
     }

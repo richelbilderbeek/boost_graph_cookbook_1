@@ -41,7 +41,6 @@ HEADERS += \
   get_edge_my_edges.h \
   get_edge_name.h \
   get_edge_names.h \
-  get_edges.h \
   get_first_vertex_with_name_out_degree.h \
   get_graph_name.h \
   get_n_edges.h \
@@ -113,7 +112,8 @@ HEADERS += \
     load_undirected_graph_with_graph_name_from_dot.h \
     create_tutorial_subchapters_graph.h \
     add_edge_between_named_vertices.h \
-    get_vertex_iterators.h
+    get_vertex_iterators.h \
+    get_edge_iterators.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -272,8 +272,6 @@ OTHER_FILES += \
   get_edge_name.impl \
   get_edge_names_demo.impl \
   get_edge_names.impl \
-  get_edges_demo.impl \
-  get_edges.impl \
   get_first_vertex_with_name_out_degree_demo.impl \
   get_first_vertex_with_name_out_degree.impl \
   get_n_edges_demo.impl \
@@ -404,5 +402,7 @@ OTHER_FILES += \
     load_undirected_graph_with_graph_name_from_dot.impl \
     load_undirected_graph_with_graph_name_from_dot_demo.impl \
     get_vertex_iterators.impl \
-    get_vertex_iterators_demo.impl
+    get_vertex_iterators_demo.impl \
+    get_edge_iterators.impl \
+    get_edge_iterators_demo.impl
 

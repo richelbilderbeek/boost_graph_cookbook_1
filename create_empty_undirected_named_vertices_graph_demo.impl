@@ -8,4 +8,9 @@ void create_empty_undirected_named_vertices_graph_demo() noexcept
     = create_empty_undirected_named_vertices_graph();
   assert(boost::num_vertices(g) == 0);
   assert(boost::num_edges(g) == 0);
+
+  const auto h
+    = create_empty_undirected_named_vertices_graph<int>();
+  assert(boost::num_vertices(h) == 0);
+  assert(boost::num_edges(h) == 0);
 }

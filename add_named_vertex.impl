@@ -1,9 +1,13 @@
 #include <boost/graph/adjacency_list.hpp>
 
 ///Add a named vertex to the graph
-template <typename graph>
+///TODO: extract vertex_name_type from the graph
+template <
+  typename vertex_name_type,
+  typename graph
+>
 void add_named_vertex(
-  const std::string& name,
+  const vertex_name_type& vertex_name,
   graph& g
 ) noexcept
 {
@@ -12,6 +16,6 @@ void add_named_vertex(
     = get( //_not_ boost::get!
       boost::vertex_name,g
     );
-  vertex_name_map[vd_a] = name;
+  vertex_name_map[vd_a] = vertex_name;
 }
 

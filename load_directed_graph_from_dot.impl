@@ -5,11 +5,7 @@
 #include "is_regular_file.h"
 
 ///Load a directed graph from a .dot file
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS
->
+boost::adjacency_list<>
 load_directed_graph_from_dot(
   const std::string& dot_filename
 )
