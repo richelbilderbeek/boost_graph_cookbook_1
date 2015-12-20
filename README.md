@@ -1,6 +1,8 @@
-# Boost.Graph tutorial
+# A well-connected C++11 Boost.Graph tutorial
 
-A [Boost.Graph tutorial (PDF)](BoostGraphTutorial/boost_graph_tutorial.pdf).
+[A well-connected C++11 Boost.Graph tutorial (PDF)](BoostGraphTutorial/boost_graph_tutorial.pdf).
+
+Download the PDF [here](BoostGraphTutorial/boost_graph_tutorial.pdf).
 
 ![Title graph](BoostGraphTutorial/title_graph.png)
 
