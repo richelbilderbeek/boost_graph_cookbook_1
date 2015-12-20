@@ -2,7 +2,7 @@
 #include <boost/graph/graphviz.hpp>
 
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
-#include "get_vertex_my_vertexes.h"
+#include "get_custom_vertex_my_vertexes.h"
 #include "install_edge_custom_type.h"
 #include "install_vertex_custom_type.h"
 #include "is_read_graphviz_correct.h"

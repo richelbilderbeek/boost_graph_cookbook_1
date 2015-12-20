@@ -1,0 +1,8 @@
+digraph G {
+0[label="Sunny,You_can_see_the_yellow_thing,1,2"];
+1[label="Rainy,Many_grey_fluffy_things,3,4"];
+0->0 ;
+0->1 ;
+1->0 ;
+1->1 ;
+}

@@ -1,0 +1,15 @@
+#include <cassert>
+#include <iostream>
+
+#include "add_bundled_vertex.h"
+#include "create_empty_undirected_bundled_vertices_graph.h"
+#include "has_bundled_vertex_with_my_vertex.h"
+#include "my_vertex.h"
+
+void has_bundled_vertex_with_my_vertex_demo() noexcept
+{
+  auto g = create_empty_undirected_bundled_vertices_graph();
+  assert(!has_bundled_vertex_with_my_vertex(my_vertex("Felix"),g));
+  add_bundled_vertex(my_vertex("Felix"),g);
+  assert(has_bundled_vertex_with_my_vertex(my_vertex("Felix"),g));
+}

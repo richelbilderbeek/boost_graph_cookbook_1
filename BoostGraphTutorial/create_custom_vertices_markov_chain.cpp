@@ -38,7 +38,7 @@ void create_custom_vertices_markov_chain_test() noexcept
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
     const std::vector<my_vertex> vertex_my_vertexes{
-      get_vertex_my_vertexes(g)
+      get_custom_vertex_my_vertexes(g)
     };
     const std::vector<my_vertex> expected_my_vertexes{
       my_vertex("Sunny","You can see the yellow thing",1.0,2.0),

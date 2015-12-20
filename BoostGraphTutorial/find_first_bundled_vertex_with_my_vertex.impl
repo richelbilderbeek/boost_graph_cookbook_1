@@ -1,0 +1,26 @@
+#include <cassert>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "has_bundled_vertex_with_my_vertex.h"
+#include "my_vertex.h"
+
+///Find the first bundled vertex with a certain my_vertex.
+///Assumes that there exists that my_vertex.
+template <typename graph>
+typename boost::graph_traits<graph>::vertex_descriptor
+find_first_bundled_vertex_with_my_vertex(
+  const my_vertex& v,
+  const graph& g
+) noexcept
+{
+  assert(has_bundled_vertex_with_my_vertex(v, g));
+  const auto vip
+    = vertices(g); //not boost::vertices
+  const auto j = vip.second;
+
+  for (auto i = vip.first; i!=j; ++i) {
+    if (g[*i] == v) { return *i; }
+  }
+  assert(!"Should not get here");
+  throw; //Will crash the program
+}

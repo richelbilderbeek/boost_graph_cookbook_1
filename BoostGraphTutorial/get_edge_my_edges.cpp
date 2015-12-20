@@ -5,7 +5,7 @@
 
 
 #include "create_custom_edges_and_vertices_k3_graph.h"
-#include "get_vertex_my_vertexes.h"
+#include "get_custom_vertex_my_vertexes.h"
 
 void get_edge_my_edges_test() noexcept
 {
@@ -17,7 +17,7 @@ void get_edge_my_edges_test() noexcept
     my_vertex("left","target",0,3.14)
   };
   const std::vector<my_vertex> vertexes{
-    get_vertex_my_vertexes(g)
+    get_custom_vertex_my_vertexes(g)
   };
   assert(expected_my_vertexes == vertexes);
 

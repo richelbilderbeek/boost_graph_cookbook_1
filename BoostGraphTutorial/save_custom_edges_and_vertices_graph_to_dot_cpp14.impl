@@ -3,7 +3,7 @@
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
 
-#include "get_vertex_my_vertexes.h"
+#include "get_custom_vertex_my_vertexes.h"
 
 ///Save a graph with named vertices to a .dot file
 template <typename graph>

@@ -1,8 +1,11 @@
 # A well-connected C++11 Boost.Graph tutorial
 
-[A well-connected C++11 Boost.Graph tutorial (PDF)](boost_graph_tutorial_v1_0.pdf).
+A well-connected C++11 Boost.Graph tutorial is a C++ tutorial about Boost.Graph.
 
-Download the PDF [here](boost_graph_tutorial_v1_0.pdf).
+Downloads:
+
+ * Stable: [PDF](boost_graph_tutorial_v1_0.pdf) (v1.0)
+ * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v1.1, work in progress)
 
 ![Title graph](BoostGraphTutorial/title_graph.png)
 

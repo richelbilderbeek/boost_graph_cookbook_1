@@ -38,7 +38,6 @@ HEADERS += \
   create_tutorial_subchapters_graph.h \
   find_first_edge_with_my_edge.h \
   find_first_edge_with_name.h \
-  find_first_vertex_with_my_vertex.h \
   find_first_vertex_with_name.h \
   formed_reference_to_void.h \
   get_edge_descriptors.h \
@@ -54,16 +53,12 @@ HEADERS += \
   get_type_name.h \
   get_vertex_descriptors.h \
   get_vertex_iterators.h \
-  get_vertex_my_vertexes.h \
-  get_vertex_my_vertex.h \
   get_vertex_name.h \
   get_vertex_names.h \
-  get_vertex_out_degrees.h \
   has_dot.h \
   has_edge_between_vertices.h \
   has_edge_with_my_edge.h \
   has_edge_with_name.h \
-  has_vertex_with_my_vertex.h \
   has_vertex_with_name.h \
   helper.h \
   install_edge_custom_type.h \
@@ -100,11 +95,27 @@ HEADERS += \
   set_edge_my_edge.h \
   set_edge_name.h \
   set_graph_name.h \
-  set_vertex_my_vertexes.h \
-  set_vertex_my_vertex.h \
   set_vertex_name.h \
   set_vertex_names.h \
-  show_dot.h
+  show_dot.h \
+    create_empty_directed_bundled_vertices_graph.h \
+    create_empty_undirected_bundled_vertices_graph.h \
+    add_bundled_vertex.h \
+    create_bundled_vertices_markov_chain.h \
+    save_bundled_vertices_graph_to_dot.h \
+    get_custom_vertex_my_vertexes.h \
+    get_custom_vertex_my_vertex.h \
+    get_vertex_out_degrees.h \
+    get_bundled_vertex_my_vertexes.h \
+    create_bundled_vertices_k2_graph.h \
+    has_custom_vertex_with_my_vertex.h \
+    has_bundled_vertex_with_my_vertex.h \
+    find_first_custom_vertex_with_my_vertex.h \
+    get_bundled_vertex_my_vertex.h \
+    find_first_bundled_vertex_with_my_vertex.h \
+    set_custom_vertex_my_vertex.h \
+    set_bundled_vertex_my_vertex.h \
+    set_custom_vertex_my_vertexes.h
 
 SOURCES += \
   add_custom_edge.cpp \
@@ -146,7 +157,6 @@ SOURCES += \
   create_tutorial_subchapters_graph.cpp \
   find_first_edge_with_my_edge.cpp \
   find_first_edge_with_name.cpp \
-  find_first_vertex_with_my_vertex.cpp \
   find_first_vertex_with_name.cpp \
   formed_reference_to_void.cpp \
   get_edge_descriptors.cpp \
@@ -162,8 +172,6 @@ SOURCES += \
   get_type_name.cpp \
   get_vertex_descriptors.cpp \
   get_vertex_iterators.cpp \
-  get_vertex_my_vertex.cpp \
-  get_vertex_my_vertexes.cpp \
   get_vertex_name.cpp \
   get_vertex_names.cpp \
   get_vertex_out_degrees.cpp \
@@ -171,7 +179,6 @@ SOURCES += \
   has_edge_between_vertices.cpp \
   has_edge_with_my_edge.cpp \
   has_edge_with_name.cpp \
-  has_vertex_with_my_vertex.cpp \
   has_vertex_with_name.cpp \
   helper.cpp \
   is_read_graphviz_correct.cpp \
@@ -206,11 +213,26 @@ SOURCES += \
   set_edge_my_edge.cpp \
   set_edge_name.cpp \
   set_graph_name.cpp \
-  set_vertex_my_vertex.cpp \
-  set_vertex_my_vertexes.cpp \
   set_vertex_name.cpp \
   set_vertex_names.cpp \
-  show_dot.cpp
+  show_dot.cpp \
+    create_empty_directed_bundled_vertices_graph.cpp \
+    create_empty_undirected_bundled_vertices_graph.cpp \
+    add_bundled_vertex.cpp \
+    create_bundled_vertices_markov_chain.cpp \
+    save_bundled_vertices_graph_to_dot.cpp \
+    get_custom_vertex_my_vertexes.cpp \
+    get_bundled_vertex_my_vertexes.cpp \
+    create_bundled_vertices_k2_graph.cpp \
+    has_custom_vertex_with_my_vertex.cpp \
+    has_bundled_vertex_with_my_vertex.cpp \
+    find_first_custom_vertex_with_my_vertex.cpp \
+    get_custom_vertex_my_vertex.cpp \
+    get_bundled_vertex_my_vertex.cpp \
+    find_first_bundled_vertex_with_my_vertex.cpp \
+    set_custom_vertex_my_vertex.cpp \
+    set_bundled_vertex_my_vertex.cpp \
+    set_custom_vertex_my_vertexes.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -281,8 +303,6 @@ OTHER_FILES += \
   find_first_edge_with_my_edge.impl \
   find_first_edge_with_name_demo.impl \
   find_first_edge_with_name.impl \
-  find_first_vertex_with_my_vertex_demo.impl \
-  find_first_vertex_with_my_vertex.impl \
   find_first_vertex_with_name_demo.impl \
   find_first_vertex_with_name.impl \
   formed_reference_to_void.impl \
@@ -310,9 +330,6 @@ OTHER_FILES += \
   get_vertex_descriptors.impl \
   get_vertex_iterators_demo.impl \
   get_vertex_iterators.impl \
-  get_vertex_my_vertex_demo.impl \
-  get_vertex_my_vertexes.impl \
-  get_vertex_my_vertex.impl \
   get_vertex_name_demo.impl \
   get_vertex_name.impl \
   get_vertex_names_demo.impl \
@@ -323,8 +340,6 @@ OTHER_FILES += \
   has_edge_with_my_edge.impl \
   has_edge_with_name_demo.impl \
   has_edge_with_name.impl \
-  has_vertex_with_my_vertex_demo.impl \
-  has_vertex_with_my_vertex.impl \
   has_vertex_with_name_demo.impl \
   has_vertex_with_name.impl \
   install_edge_custom_type.impl \
@@ -368,6 +383,8 @@ OTHER_FILES += \
   save_custom_edges_and_vertices_graph_to_dot_cpp11.impl \
   save_custom_edges_and_vertices_graph_to_dot_cpp14.impl \
   save_custom_vertices_graph_to_dot.impl \
+  save_custom_vertices_graph_to_dot_cpp11.impl \
+  save_custom_vertices_graph_to_dot_cpp14.impl \
   save_graph_to_dot_demo.impl \
   save_graph_to_dot.impl \
   save_graph_with_graph_name_to_dot.impl \
@@ -383,10 +400,35 @@ OTHER_FILES += \
   set_edge_name.impl \
   set_graph_name_demo.impl \
   set_graph_name.impl \
-  set_vertex_my_vertex_demo.impl \
-  set_vertex_my_vertexes.impl \
-  set_vertex_my_vertex.impl \
   set_vertex_name_demo.impl \
   set_vertex_name.impl \
   set_vertex_names.impl \
+    create_empty_directed_bundled_vertices_graph.impl \
+    create_empty_undirected_bundled_vertices_graph.impl \
+    add_bundled_vertex.impl \
+    create_bundled_vertices_markov_chain.impl \
+    create_bundled_vertices_markov_chain_demo.impl \
+    save_bundled_vertices_graph_to_dot_cpp11.impl \
+    save_bundled_vertices_graph_to_dot_cpp14.impl \
+    get_custom_vertex_my_vertex_demo.impl \
+    get_custom_vertex_my_vertexes.impl \
+    get_bundled_vertex_my_vertexes.impl \
+    create_bundled_vertices_k2_graph.impl \
+    create_bundled_vertices_k2_graph_demo.impl \
+    has_custom_vertex_with_my_vertex.impl \
+    has_custom_vertex_with_my_vertex_demo.impl \
+    has_bundled_vertex_with_my_vertex.impl \
+    has_bundled_vertex_with_my_vertex_demo.impl \
+    find_first_custom_vertex_with_my_vertex.impl \
+    find_first_custom_vertex_with_my_vertex_demo.impl \
+    get_custom_vertex_my_vertex.impl \
+    get_bundled_vertex_my_vertex.impl \
+    get_bundled_vertex_my_vertex_demo.impl \
+    find_first_bundled_vertex_with_my_vertex.impl \
+    find_first_bundled_vertex_with_my_vertex_demo.impl \
+    set_custom_vertex_my_vertex.impl \
+    set_custom_vertex_my_vertex_demo.impl \
+    set_bundled_vertex_my_vertex.impl \
+    set_bundled_vertex_my_vertex_demo.impl \
+    set_custom_vertex_my_vertexes.impl
 

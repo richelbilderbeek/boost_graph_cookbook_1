@@ -5,10 +5,7 @@
 
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_custom_vertices_graph.h"
-
-
-
-#include "get_vertex_my_vertexes.h"
+#include "get_custom_vertex_my_vertexes.h"
 
 void add_custom_vertex_test() noexcept
 {
@@ -21,7 +18,7 @@ void add_custom_vertex_test() noexcept
     add_custom_vertex(vertex, g);
     assert(boost::num_vertices(g) == 1);
     assert(boost::num_edges(g) == 0);
-    const std::vector<my_vertex> vertices{get_vertex_my_vertexes(g)};
+    const std::vector<my_vertex> vertices{get_custom_vertex_my_vertexes(g)};
     const std::vector<my_vertex> expected_vertices{vertex};
     assert(vertices == expected_vertices);
   }
@@ -36,7 +33,7 @@ void add_custom_vertex_test() noexcept
     add_custom_vertex(vertex_2, g);
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 0);
-    const std::vector<my_vertex> vertices{get_vertex_my_vertexes(g)};
+    const std::vector<my_vertex> vertices{get_custom_vertex_my_vertexes(g)};
     const std::vector<my_vertex> expected_vertices{vertex_1, vertex_2};
     assert(vertices == expected_vertices);
   }

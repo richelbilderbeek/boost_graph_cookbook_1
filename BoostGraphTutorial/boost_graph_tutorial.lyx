@@ -423,6 +423,55 @@ There was even copy-pasting involved!
 \end_layout
 
 \begin_layout Standard
+The distinction between the chapter is in the type of edges and vertices.
+ They can have:
+\end_layout
+
+\begin_layout Itemize
+no properties: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-without-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+have a name: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-named-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+have a bundled property: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-bundled-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+have a custom property: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 A pivotal chapter is chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13088,7 +13137,25 @@ reference "alg:get_vertex_names"
 \end_layout
 
 \begin_layout Section
+Building graphs with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-graphs-with-bundled-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Building graphs with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -14037,7 +14104,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertex_my_vertexes.impl"
+filename "get_custom_vertex_my_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -14790,7 +14857,7 @@ name "fig:create_custom_vertices_k2_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working on graphs with custom vertices
+Working on graphs with custom vertices (as a custom property)
 \end_layout
 
 \begin_layout Standard
@@ -14803,7 +14870,7 @@ When using graphs with custom vertices, their state gives a way to find
 Check if there exists a vertex with a certain 'my_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:has_vertex_with_my_vertex"
+reference "sub:has_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -14814,7 +14881,7 @@ reference "sub:has_vertex_with_my_vertex"
 Find a vertex with a certain 'my_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:find_vertex_with_my_vertex"
+reference "sub:find_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -14825,7 +14892,7 @@ reference "sub:find_vertex_with_my_vertex"
 Get a vertex its 'my_vertex' from its vertex descriptor: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:get_vertex_my_vertex"
+reference "sub:get_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -14836,7 +14903,7 @@ reference "sub:get_vertex_my_vertex"
 Set a vertex its 'my_vertex' using its vertex descriptor: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:set_vertex_my_vertex"
+reference "sub:set_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -14847,7 +14914,7 @@ reference "sub:set_vertex_my_vertex"
 Setting all vertices their 'my_vertex'es: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:set_vertex_my_vertexes"
+reference "sub:set_custom_vertex_my_vertexes"
 
 \end_inset
 
@@ -14890,10 +14957,10 @@ reference "sub:load_undirected_custom_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Subsection
-Has a my_vertex
+Has a custom vertex with a my_vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:has_vertex_with_my_vertex"
+name "sub:has_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -14918,7 +14985,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_vertex_with_my_vertex.impl"
+filename "has_custom_vertex_with_my_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -14935,7 +15002,7 @@ Find if there is vertex with a certain my_vertex
 status open
 
 \begin_layout Plain Layout
-Has vertex with my_vertex
+Has custom vertex with my_vertex
 \end_layout
 
 \end_inset
@@ -14943,7 +15010,7 @@ Has vertex with my_vertex
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_vertex_with_my_vertex"
+name "alg:has_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -14982,7 +15049,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_vertex_with_my_vertex_demo.impl"
+filename "has_custom_vertex_with_my_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -14994,7 +15061,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_vertex_with_my_vertex' function
+Demonstration of the 'has_custom_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_vertex_with_my_vertex_demo"
@@ -15015,16 +15082,16 @@ name "alg:has_vertex_with_my_vertex_demo"
 \end_layout
 
 \begin_layout Standard
-Note that this function only finds if there is at least one vertex with
- that my_vertex: it does not tell how many vertices with that my_vertex
- exist in the graph.
+Note that this function only finds if there is at least one custom vertex
+ with that my_vertex: it does not tell how many custom vertices with that
+ my_vertex exist in the graph.
 \end_layout
 
 \begin_layout Subsection
-Find a vertex with a certain my_vertex
+Find a custom vertex with a certain my_vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:find_vertex_with_my_vertex"
+name "sub:find_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -15044,7 +15111,7 @@ reference "sub:Vertex-descriptors"
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:find_first_vertex_with_my_vertex"
+reference "alg:find_first_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -15062,7 +15129,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "find_first_vertex_with_my_vertex.impl"
+filename "find_first_custom_vertex_with_my_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15079,7 +15146,7 @@ Find the first vertex with a certain my_vertex
 status open
 
 \begin_layout Plain Layout
-Find first vertex with my_vertex
+Find first custom vertex with my_vertex
 \end_layout
 
 \end_inset
@@ -15087,7 +15154,7 @@ Find first vertex with my_vertex
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:find_first_vertex_with_my_vertex"
+name "alg:find_first_custom_vertex_with_my_vertex"
 
 \end_inset
 
@@ -15110,7 +15177,7 @@ With the vertex descriptor obtained, one can read and modify the vertex
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:find_first_vertex_with_my_vertex_demo"
+reference "alg:find_first_custom_vertex_with_my_vertex_demo"
 
 \end_inset
 
@@ -15127,7 +15194,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "find_first_vertex_with_my_vertex_demo.impl"
+filename "find_first_custom_vertex_with_my_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15139,10 +15206,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_vertex_with_my_vertex' function
+Demonstration of the 'find_first_custom_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:find_first_vertex_with_my_vertex_demo"
+name "alg:find_first_custom_vertex_with_my_vertex_demo"
 
 \end_inset
 
@@ -15160,10 +15227,10 @@ name "alg:find_first_vertex_with_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Get a vertex its my_vertex
+Get a custom vertex its my_vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:get_vertex_my_vertex"
+name "sub:get_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -15196,7 +15263,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertex_my_vertex.impl"
+filename "get_custom_vertex_my_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15208,12 +15275,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get a vertex its my_vertex from its vertex descriptor
+Get a custom vertex its my_vertex from its vertex descriptor
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Get vertex my_vertex
+Get custom vertex my_vertex
 \end_layout
 
 \end_inset
@@ -15239,7 +15306,8 @@ name "alg:get_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'get_vertex_my_vertex', one first needs to obtain a vertex descriptor.
+To use 'get_custom_vertex_my_vertex', one first needs to obtain a vertex
+ descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15260,7 +15328,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_vertex_my_vertex_demo.impl"
+filename "get_custom_vertex_my_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15272,7 +15340,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_vertex_my_vertex' function
+Demonstration if the 'get_custom_vertex_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_my_vertex_demo"
@@ -15293,10 +15361,10 @@ name "alg:get_vertex_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Set a vertex its my_vertex
+Set a custom vertex its my_vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:set_vertex_my_vertex"
+name "sub:set_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -15308,7 +15376,7 @@ If you know how to get the my_vertex from a vertex descriptor, setting it
  is just as easy, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:set_vertex_my_vertex"
+reference "alg:set_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -15325,7 +15393,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_vertex_my_vertex.impl"
+filename "set_custom_vertex_my_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15337,7 +15405,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Set a vertex its my_vertex from its vertex descriptor
+Set a custom vertex its my_vertex from its vertex descriptor
 \begin_inset Index idx
 status open
 
@@ -15350,7 +15418,7 @@ Set vertex my_vertex
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_vertex_my_vertex"
+name "alg:set_custom_vertex_my_vertex"
 
 \end_inset
 
@@ -15372,7 +15440,7 @@ To use 'set_vertex_my_vertex', one first needs to obtain a vertex descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:set_vertex_my_vertex_demo"
+reference "alg:set_custom_vertex_my_vertex_demo"
 
 \end_inset
 
@@ -15389,7 +15457,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_vertex_my_vertex_demo.impl"
+filename "set_custom_vertex_my_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15401,10 +15469,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_vertex_my_vertex' function
+Demonstration if the 'set_custom_vertex_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_vertex_my_vertex_demo"
+name "alg:set_custom_vertex_my_vertex_demo"
 
 \end_inset
 
@@ -15422,30 +15490,10 @@ name "alg:set_vertex_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Setting all vertices' my_vertex objects
+Setting all custom vertices' my_vertex objects
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:set_vertex_my_vertexes"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Set vertices my_vertexes
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Vertices, set my_vertexes
-\end_layout
+name "sub:set_custom_vertex_my_vertexes"
 
 \end_inset
 
@@ -15467,7 +15515,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_vertex_my_vertexes.impl"
+filename "set_custom_vertex_my_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -15479,12 +15527,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Setting the vertices' my_vertexes
+Setting the custom vertices' my_vertexes
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Set vertex my_vertexes
+Set custom vertex my_vertexes
 \end_layout
 
 \end_inset
@@ -15492,7 +15540,7 @@ Set vertex my_vertexes
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_vertex_my_vertexes"
+name "alg:set_custom_vertex_my_vertexes"
 
 \end_inset
 
@@ -15525,26 +15573,6 @@ name "sub:save_custom_vertices_graph_to_dot"
 \end_inset
 
 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Save graph with custom vertices as .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create .dot from graph with custom vertices
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -15777,26 +15805,6 @@ name "sub:load_directed_custom_vertices_graph_from_dot"
 \end_inset
 
 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Load directed graph with custom vertices from .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create directed graph with custom vertices from .dot
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -15980,26 +15988,6 @@ name "sub:load_undirected_custom_vertices_graph_from_dot"
 \end_inset
 
 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Load undirected graph with custom vertices from .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create undirected graph with custom vertices from .dot
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -16179,7 +16167,7 @@ reference "alg:create_custom_vertices_k2_graph"
 \end_layout
 
 \begin_layout Section
-Building graphs with custom edges and vertices
+Building graphs with custom edges and vertices (both as a custom property)
 \end_layout
 
 \begin_layout Standard
@@ -17875,7 +17863,7 @@ name "fig:create_custom_edges_and_vertices_k3_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working on graphs with custom edges and vertices
+Working on graphs with custom edges and vertices (both as a custom property)
 \end_layout
 
 \begin_layout Subsection
