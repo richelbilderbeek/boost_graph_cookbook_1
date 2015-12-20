@@ -47,6 +47,18 @@ void create_custom_edges_and_vertices_k3_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
+  {
+    boost::adjacency_list<
+      boost::vecS,
+      boost::vecS,
+      boost::undirectedS,
+      my_vertex,
+      my_edge
+    > g;
+    assert(boost::num_vertices(g) == 0);
+    assert(boost::num_edges(g) == 0);
+    assert(!"Green");
+  }
   create_custom_edges_and_vertices_k3_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
