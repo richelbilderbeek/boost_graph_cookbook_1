@@ -13137,10 +13137,6 @@ reference "alg:get_vertex_names"
 \end_layout
 
 \begin_layout Section
-BELOW: NEW
-\end_layout
-
-\begin_layout Section
 Building graphs with bundled vertices
 \begin_inset CommandInset label
 LatexCommand label
@@ -15919,10 +15915,6 @@ reference "alg:create_bundled_vertices_k2_graph"
  The loaded graph is checked to be a graph similar to the original, with
  the same vertex my_vertex instances (using the 'get_vertex_my_vertexes'
  function).
-\end_layout
-
-\begin_layout Section
-GOOD BELOW
 \end_layout
 
 \begin_layout Section
