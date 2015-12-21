@@ -147,6 +147,9 @@ key "siek2001boost"
 \end_inset
 
  and the Boost.Graph website require.
+ It is about basic graph manipulation, not the more advanced graph algorithms.
+ An analogy with std::vector: it teaches the std::vector member functions,
+ but not the algorithms that work on.
 \end_layout
 
 \begin_layout Subsection
@@ -13221,7 +13224,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 Create the vertex class, called 'my_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:my_vertex-1"
+reference "sub:my_vertex"
 
 \end_inset
 
@@ -13232,7 +13235,7 @@ reference "sub:my_vertex-1"
 Adding a bundled vertex: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:add_custom_vertex-1"
+reference "sub:add_bundled_vertex"
 
 \end_inset
 
@@ -13259,7 +13262,7 @@ These functions are mostly there for completion and showing which data types
 Creating the vertex class
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:my_vertex-1"
+name "sub:my_vertex"
 
 \end_inset
 
@@ -13567,7 +13570,7 @@ vertices have a bundled type called my_vertex
 Create the empty undirected graph with bundled vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_empty_undirected_custom_vertices_graph-1"
+name "sub:create_empty_undirected_bundled_vertices_graph"
 
 \end_inset
 
@@ -13627,39 +13630,15 @@ name "alg:create_empty_undirected_bundled_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_bundled_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -13669,78 +13648,14 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a bundled type my_vertex'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'
-\end_layout
-
-\begin_layout Itemize
-The edges and graph have no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'my_vertex
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have the bundled property 'my_vertex'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have a bundled type called my_vertex
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Subsection
 Add a bundled vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:add_custom_vertex-1"
+name "sub:add_bundled_vertex"
 
 \end_inset
 
@@ -14607,6 +14522,13 @@ name "fig:create_bundled_vertices_k2_graph.svg"
 
 \begin_layout Section
 Working on graphs with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Working-on-graphs-with-bundled-vertices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -15929,20 +15851,17 @@ name "sec:Building-graphs-with-custom-properties"
 \end_layout
 
 \begin_layout Standard
-Up until now, the graphs created have had edges and vertices with the built-in
- name propery.
- In this chapter, graphs will be created, in which the vertices can have
- a custom 'my_vertex' type
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-I do not intend to be original in naming my data types
-\end_layout
+Instead of using bundled properties, you can also add a new custom property.
+ The difference is that instead of having a 'my_vertex' for vertices, vertices
+ have an additional property where the 'my_vertex' is stored, next to properties
+ like vertex name, edge delay (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:all_properties"
 
 \end_inset
 
-.
+ for all properties).
  The following graphs will be created:
 \end_layout
 
@@ -15998,19 +15917,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Create the custom vertex class, called 'my_vertex': already done in chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:my_vertex-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Installing the new vertex type as a vertex property, called 'vertex_custom_type
+Installing a new vertex property, called 'vertex_custom_type
 \begin_inset Index idx
 status open
 
@@ -16042,7 +15949,7 @@ reference "sub:add_custom_vertex"
 \end_layout
 
 \begin_layout Itemize
-Getting the vertices my_vertex-es: see chapter 
+Getting the custom vertices my_vertex-es: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_vertex_my_vertexes"
@@ -16440,39 +16347,15 @@ name "alg:create_empty_undirected_custom_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -16482,115 +16365,7 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,my_vert
-ex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges and graph have no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'boost::property< boost::vertex_custom_type
-_t,my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have the property 'boost::vertex_custom_type_t', which is of data
- type 'my_vertex'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have a custom type called my_vertex
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Subsection
@@ -18794,7 +18569,7 @@ reference "alg:create_custom_vertices_k2_graph"
 \end_layout
 
 \begin_layout Section
-Building graphs with custom edges and vertices (both as a custom property)
+Building graphs with custom edges and vertices
 \end_layout
 
 \begin_layout Standard
@@ -19103,6 +18878,13 @@ The enum value 3142 must be unique.
 
 \begin_layout Subsection
 Create an empty directed graph with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19394,6 +19176,13 @@ name "alg:create_empty_directed_custom_edges_and_vertices_graph_demo"
 
 \begin_layout Subsection
 Create an empty undirected graph with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19449,39 +19238,15 @@ name "alg:create_empty_undirected_custom_edges_and_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_edges_and_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -19491,150 +19256,7 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
- my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges have one property: they have a custom type, that is of data type
- my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The graph has no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list 
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
- my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have the property 'boost::edge_custom_type_t', which is of data type
- 'my_edge'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have a custom type called my_edge
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Standard

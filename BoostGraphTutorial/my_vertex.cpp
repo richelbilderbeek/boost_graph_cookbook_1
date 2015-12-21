@@ -22,6 +22,26 @@ my_vertex::my_vertex(
   assert(m_description.find(' ') == std::string::npos);
 }
 
+const std::string& my_vertex::get_description() const noexcept
+{
+  return m_description;
+}
+
+const std::string& my_vertex::get_name() const noexcept
+{
+  return m_name;
+}
+
+double my_vertex::get_x() const noexcept
+{
+  return m_x;
+}
+
+double my_vertex::get_y() const noexcept
+{
+  return m_x;
+}
+
 void my_vertex_test() noexcept
 {
   {
@@ -49,10 +69,10 @@ void my_vertex_test() noexcept
 bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
 {
   return
-       lhs.m_description == rhs.m_description
-    && lhs.m_name == rhs.m_name
-    && lhs.m_x == rhs.m_x
-    && lhs.m_y == rhs.m_y
+       lhs.get_description() == rhs.get_description()
+    && lhs.get_name() == rhs.get_name()
+    && lhs.get_x() == rhs.get_x()
+    && lhs.get_y() == rhs.get_y()
   ;
 }
 
@@ -63,7 +83,11 @@ bool operator!=(const my_vertex& lhs, const my_vertex& rhs) noexcept
 
 std::ostream& operator<<(std::ostream& os, const my_vertex& v) noexcept
 {
-  os << v.m_name << "," << v.m_description << "," << v.m_x << "," << v.m_y;
+  os << v.get_name() << ","
+    << v.get_description() << ","
+    << v.get_x() << ","
+    << v.get_y()
+  ;
   return os;
 }
 
@@ -74,9 +98,12 @@ std::istream& operator>>(std::istream& is, my_vertex& v) noexcept
   const auto w = seperate_string(line,',');
   if (w.size() != 4) { v = my_vertex(); return is; }
   assert(w.size() == 4);
-  v.m_name = w[0];
-  v.m_description = w[1];
-  v.m_x = boost::lexical_cast<double>(w[2]);
-  v.m_y = boost::lexical_cast<double>(w[3]);
+  my_vertex new_vertex(
+    w[0],
+    w[1],
+    boost::lexical_cast<double>(w[2]),
+    boost::lexical_cast<double>(w[3])
+  );
+  v = new_vertex;
   return is;
 }
