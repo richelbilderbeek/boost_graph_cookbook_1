@@ -2,13 +2,13 @@
 #define CREATE_BUNDLED_VERTICES_MARKOV_CHAIN_H
 
 #include <boost/graph/adjacency_list.hpp>
-#include "my_vertex.h"
+#include "my_bundled_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
-  my_vertex
+  my_bundled_vertex
 >
 create_bundled_vertices_markov_chain() noexcept;
 

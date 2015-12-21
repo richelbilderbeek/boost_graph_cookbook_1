@@ -3,7 +3,7 @@
 
 #include "create_empty_undirected_bundled_vertices_graph.h"
 #include "is_regular_file.h"
-#include "my_vertex.h"
+#include "my_bundled_vertex.h"
 #include "is_read_graphviz_correct.h"
 
 ///Load an undirected graph with bundled
@@ -16,22 +16,22 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  my_vertex
+  my_bundled_vertex
 >
 load_undirected_bundled_vertices_graph_from_dot(
   const std::string& dot_filename
 )
 {
   assert(is_regular_file(dot_filename));
-  assert(is_read_graphviz_correct<my_vertex>());
+  assert(is_read_graphviz_correct<my_bundled_vertex>());
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_bundled_vertices_graph();
 
-  //Something like this...
-  //boost::dynamic_properties p; //_do_ default construct
-  //p.property("node_id",get(&my_vertex, g));
-  //p.property("label",get(&my_vertex, g));
-  //boost::read_graphviz(f,g,p);
+
+  boost::dynamic_properties p; //_do_ default construct
+  p.property("node_id",get(&my_bundled_vertex::m_name, g)); //m_name must be public
+  p.property("label",get(&my_bundled_vertex::m_name, g));
+  boost::read_graphviz(f,g,p);
 
   //boost::read_graphviz(f,g); //Also does not work
 

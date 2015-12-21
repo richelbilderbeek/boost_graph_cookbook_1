@@ -9,10 +9,7 @@
 
 #include "create_k2_graph_with_graph_name.h"
 #include "convert_dot_to_svg.h"
-#include "save_custom_edges_and_vertices_graph_to_dot.h"
 #include "helper.h"
-#include "my_vertex.h"
-#include "install_vertex_custom_type.h"
 
 
 void load_undirected_graph_with_graph_name_from_dot_test() noexcept

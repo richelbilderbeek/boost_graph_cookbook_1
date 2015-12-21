@@ -2,7 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_custom_edges_and_vertices_graph.h"
 #include "install_vertex_custom_type.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
 ///Create a two-state Markov chain
 ///with custom edges and vertices
@@ -11,7 +11,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_vertex
+    boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
     boost::edge_custom_type_t, my_edge
@@ -32,11 +32,11 @@ create_custom_edges_and_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto my_vertexes_map = get( //not boost::get
+  auto my_custom_vertexes_map = get( //not boost::get
     boost::vertex_custom_type,g
   );
-  my_vertexes_map[vd_a] = my_vertex("Sunny","You can see the yellow thing",1.0,2.0);
-  my_vertexes_map[vd_b] = my_vertex("Rainy","Many grey fluffy things",3.0,4.0);
+  my_custom_vertexes_map[vd_a] = my_custom_vertex("Sunny","You can see the yellow thing",1.0,2.0);
+  my_custom_vertexes_map[vd_b] = my_custom_vertex("Rainy","Many grey fluffy things",3.0,4.0);
 
   auto my_edges_map = get( //not boost::get
     boost::edge_custom_type,g

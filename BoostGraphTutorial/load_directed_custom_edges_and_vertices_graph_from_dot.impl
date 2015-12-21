@@ -8,7 +8,7 @@
 #include "is_read_graphviz_correct.h"
 #include "is_regular_file.h"
 #include "my_edge.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
 ///Load a directed graph with custom edges and
 ///vertices from a .dot file.
@@ -19,7 +19,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_vertex
+    boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
     boost::edge_custom_type_t, my_edge
@@ -31,7 +31,7 @@ load_directed_custom_edges_and_vertices_graph_from_dot(
 {
   assert(is_regular_file(dot_filename));
   assert(is_read_graphviz_correct<my_edge>());
-  assert(is_read_graphviz_correct<my_vertex>());
+  assert(is_read_graphviz_correct<my_custom_vertex>());
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_custom_edges_and_vertices_graph();
   boost::dynamic_properties p; //_do_ default construct

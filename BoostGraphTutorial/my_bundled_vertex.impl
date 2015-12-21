@@ -1,0 +1,24 @@
+#include <string>
+#include <iosfwd>
+#include <boost/property_map/dynamic_property_map.hpp>
+
+///Member variabled must be public, for boost::dynamic_properties to work on
+struct my_bundled_vertex
+{
+  my_bundled_vertex(
+    const std::string& name = "",
+    const std::string& description = "",
+    const double x = 0.0,
+    const double y = 0.0
+  ) noexcept;
+  std::string m_name;
+  std::string m_description;
+  double m_x;
+  double m_y;
+
+};
+
+bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& v) noexcept;
+std::istream& operator>>(std::istream& os, my_bundled_vertex& v) noexcept;

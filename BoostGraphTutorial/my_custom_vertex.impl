@@ -1,0 +1,29 @@
+#include <string>
+#include <iosfwd>
+#include <boost/property_map/dynamic_property_map.hpp>
+
+class my_custom_vertex
+{
+public:
+  my_custom_vertex(
+    const std::string& name = "",
+    const std::string& description = "",
+    const double x = 0.0,
+    const double y = 0.0
+  ) noexcept;
+  const std::string& get_description() const noexcept;
+  const std::string& get_name() const noexcept;
+  double get_x() const noexcept;
+  double get_y() const noexcept;
+  private:
+  std::string m_name;
+  std::string m_description;
+  double m_x;
+  double m_y;
+  friend class boost::dynamic_properties; //Needed as bundled property
+};
+
+bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept;
+std::istream& operator>>(std::istream& os, my_custom_vertex& v) noexcept;

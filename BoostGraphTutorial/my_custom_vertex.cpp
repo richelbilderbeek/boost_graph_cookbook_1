@@ -1,4 +1,4 @@
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
 #include <cassert>
 #include <sstream>
@@ -7,7 +7,7 @@
 #include "seperate_string.h"
 #include "is_read_graphviz_correct.h"
 
-my_vertex::my_vertex(
+my_custom_vertex::my_custom_vertex(
   const std::string& name,
   const std::string& description,
   const double x,
@@ -22,43 +22,43 @@ my_vertex::my_vertex(
   assert(m_description.find(' ') == std::string::npos);
 }
 
-const std::string& my_vertex::get_description() const noexcept
+const std::string& my_custom_vertex::get_description() const noexcept
 {
   return m_description;
 }
 
-const std::string& my_vertex::get_name() const noexcept
+const std::string& my_custom_vertex::get_name() const noexcept
 {
   return m_name;
 }
 
-double my_vertex::get_x() const noexcept
+double my_custom_vertex::get_x() const noexcept
 {
   return m_x;
 }
 
-double my_vertex::get_y() const noexcept
+double my_custom_vertex::get_y() const noexcept
 {
   return m_x;
 }
 
-void my_vertex_test() noexcept
+void my_custom_vertex_test() noexcept
 {
   {
-    const my_vertex in("A B","c d",1.0,2.0);
+    const my_custom_vertex in("A B","c d",1.0,2.0);
     std::stringstream s;
     s << in;
-    my_vertex out;
+    my_custom_vertex out;
     s >> out;
     assert(in == out);
   }
   {
-    const my_vertex a("A B","c d",1.0,2.0);
-    const my_vertex b("C","d",3.0,4.0);
+    const my_custom_vertex a("A B","c d",1.0,2.0);
+    const my_custom_vertex b("C","d",3.0,4.0);
     std::stringstream s;
     s << a << " " << b;
-    my_vertex c;
-    my_vertex d;
+    my_custom_vertex c;
+    my_custom_vertex d;
     s >> c >> d;
     assert(a == c);
     assert(b == d);
@@ -66,7 +66,7 @@ void my_vertex_test() noexcept
   std::cout << __func__ << ": OK" << '\n';
 }
 
-bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
+bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept
 {
   return
        lhs.get_description() == rhs.get_description()
@@ -76,12 +76,12 @@ bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
   ;
 }
 
-bool operator!=(const my_vertex& lhs, const my_vertex& rhs) noexcept
+bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept
 {
   return !(lhs == rhs);
 }
 
-std::ostream& operator<<(std::ostream& os, const my_vertex& v) noexcept
+std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept
 {
   os << v.get_name() << ","
     << v.get_description() << ","
@@ -91,14 +91,14 @@ std::ostream& operator<<(std::ostream& os, const my_vertex& v) noexcept
   return os;
 }
 
-std::istream& operator>>(std::istream& is, my_vertex& v) noexcept
+std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
 {
   std::string line;
   is >> line;
   const auto w = seperate_string(line,',');
-  if (w.size() != 4) { v = my_vertex(); return is; }
+  if (w.size() != 4) { v = my_custom_vertex(); return is; }
   assert(w.size() == 4);
-  my_vertex new_vertex(
+  my_custom_vertex new_vertex(
     w[0],
     w[1],
     boost::lexical_cast<double>(w[2]),
