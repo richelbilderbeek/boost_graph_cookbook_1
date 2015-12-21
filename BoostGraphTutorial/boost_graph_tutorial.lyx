@@ -15852,9 +15852,17 @@ name "sec:Building-graphs-with-custom-properties"
 
 \begin_layout Standard
 Instead of using bundled properties, you can also add a new custom property.
- The difference is that instead of having a 'my_vertex' for vertices, vertices
- have an additional property where the 'my_vertex' is stored, next to properties
- like vertex name, edge delay (see chapter 
+ The difference is that instead of having a 'my_vertex' (the class is described
+ in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:my_vertex"
+
+\end_inset
+
+) for vertices, vertices have an additional property where the 'my_vertex'
+ is stored, next to properties like vertex name, edge delay (see chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:all_properties"
@@ -18597,13 +18605,6 @@ An empty directed graph that allows for custom edges and vertices: see chapter
 \begin_layout Itemize
 An empty undirected graph that allows for custom edges and vertices: see
  chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_edges_and_vertices_graph"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -18940,143 +18941,29 @@ name "alg:create_empty_directed_custom_edges_and_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is directed (due to the boost::directedS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::directedS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
- my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges have one property: they have a custom type, that is of data type
- my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The graph has no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list 
+, except that there is a new, fifth template argument:
 \end_layout
 
 \begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
-boost::adjacency_list
+
+boost::property<boost::edge_custom_type_t, my_edge>
 \end_layout
 
 \end_inset
 
- has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
- my_edge>
+
 \begin_inset Index idx
 status open
 
@@ -19106,8 +18993,7 @@ my_edge
 
 \end_inset
 
-'.
- This can be read as: 
+This can be read as: 
 \begin_inset Quotes eld
 \end_inset
 
@@ -19154,7 +19040,8 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the XXX function
+Demonstration of the 'create_empty_directed_custom_edges_and_vertices_graph'
+ function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_custom_edges_and_vertices_graph_demo"
@@ -19285,7 +19172,8 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the XXX function
+Demonstration of the 'create_empty_undirected_custom_edges_and_vertices_graph'
+ function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_custom_edges_and_vertices_graph_demo"

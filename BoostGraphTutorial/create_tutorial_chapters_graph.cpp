@@ -29,6 +29,9 @@ create_tutorial_chapters_graph() noexcept
   add_named_vertex("Working on graphs with named vertices", g);
   add_named_vertex("Building graphs with named edges and vertices", g);
   add_named_vertex("Working on graphs with named edges and vertices", g);
+  add_named_vertex("Building graphs with bundled vertices", g);
+  add_named_vertex("Working on graphs with bundled vertices", g);
+
   add_named_vertex("Building graphs with custom vertices", g);
   add_named_vertex("Working on graphs with custom vertices", g);
   add_named_vertex("Building graphs with custom edges and vertices", g);
@@ -64,6 +67,7 @@ create_tutorial_chapters_graph() noexcept
   {
     const std::string s = "Working on graphs with named vertices";
     add_edge_between_named_vertices(s, "Building graphs with named edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
     add_edge_between_named_vertices(s, "Working on graphs with named edges and vertices", g);
@@ -84,8 +88,18 @@ create_tutorial_chapters_graph() noexcept
     add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
   }
   {
+    const std::string s = "Building graphs with bundled vertices";
+    add_edge_between_named_vertices(s, "Working on graphs with bundled vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
+  }
+
+  {
     const std::string s = "Building graphs with custom vertices";
     add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom edges and vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
@@ -99,6 +113,8 @@ create_tutorial_chapters_graph() noexcept
   {
     const std::string s = "Building graphs with custom edges and vertices";
     add_edge_between_named_vertices(s, "Working on graphs with custom edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
   {
@@ -108,14 +124,16 @@ create_tutorial_chapters_graph() noexcept
   {
     const std::string s = "Building graphs with a graph name";
     add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
-    add_edge_between_named_vertices(s, "Building graphs with custom graph properties", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom graph properties", g);
   }
   {
     const std::string s = "Working on graphs with a graph name";
     add_edge_between_named_vertices(s, "Building graphs with custom graph properties", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
   }
   {
@@ -125,6 +143,7 @@ create_tutorial_chapters_graph() noexcept
   {
     const std::string s = "Working on graphs with custom graph properties";
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
   }
   return g;
