@@ -1,12 +1,12 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_bundled_vertices_graph.h"
-#include "my_bundled_vertex.h"
+#include "my_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  my_bundled_vertex
+  my_vertex
 >
 create_bundled_vertices_k2_graph() noexcept
 {
@@ -15,7 +15,7 @@ create_bundled_vertices_k2_graph() noexcept
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-  g[vd_a] = my_bundled_vertex("A","source",0.0,0.0);
-  g[vd_b] = my_bundled_vertex("B","target",3.14,3.14);
+  g[vd_a] = my_vertex("A","source",0.0,0.0);
+  g[vd_b] = my_vertex("B","target",3.14,3.14);
   return g;
 }

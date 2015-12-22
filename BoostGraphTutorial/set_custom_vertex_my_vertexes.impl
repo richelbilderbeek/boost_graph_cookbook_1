@@ -5,31 +5,31 @@
 #include <boost/graph/properties.hpp>
 
 #include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+#include "my_vertex.h"
 
-///Set all vertices their my_custom_vertex objects
-//TODO: generalize 'my_custom_vertexes'
+///Set all vertices their my_vertex objects
+//TODO: generalize 'my_vertexes'
 template <typename graph>
-void set_custom_vertex_my_custom_vertexes(
+void set_custom_vertex_my_vertexes(
   graph& g,
-  const std::vector<my_custom_vertex>& my_custom_vertexes
+  const std::vector<my_vertex>& my_vertexes
 ) noexcept
 {
-  const auto my_custom_vertex_map
+  const auto my_vertex_map
     = get( //not boost::get
       boost::vertex_custom_type,g
     );
 
-  auto my_custom_vertexes_begin = std::begin(my_custom_vertexes);
-  const auto my_custom_vertexes_end = std::end(my_custom_vertexes);
+  auto my_vertexes_begin = std::begin(my_vertexes);
+  const auto my_vertexes_end = std::end(my_vertexes);
   const auto vip = vertices(g); //not boost::vertices
   const auto j = vip.second;
   for (
     auto i = vip.first;
     i!=j; ++i,
-    ++my_custom_vertexes_begin
+    ++my_vertexes_begin
   ) {
-    assert(my_custom_vertexes_begin != my_custom_vertexes_end);
-    put(my_custom_vertex_map, *i,*my_custom_vertexes_begin);
+    assert(my_vertexes_begin != my_vertexes_end);
+    put(my_vertex_map, *i,*my_vertexes_begin);
   }
 }

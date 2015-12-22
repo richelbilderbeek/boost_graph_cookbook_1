@@ -17,8 +17,7 @@ void load_undirected_bundled_vertices_graph_from_dot_demo() noexcept
   save_bundled_vertices_graph_to_dot(g, filename);
   const auto h
     = load_undirected_bundled_vertices_graph_from_dot(filename);
-  if (get_bundled_vertex_my_vertexes(g)
-      == get_bundled_vertex_my_vertexes(h))
+  if (num_edges(g) == num_edges(h))
   {
     assert(num_edges(g) == num_edges(h));
     assert(num_vertices(g) == num_vertices(h));

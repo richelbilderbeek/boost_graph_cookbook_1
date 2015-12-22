@@ -5,14 +5,14 @@
 #include "install_edge_custom_type.h"
 #include "install_vertex_custom_type.h"
 #include "my_edge.h"
-#include "my_custom_vertex.h"
+#include "my_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
+    boost::vertex_custom_type_t, my_vertex
   >,
   boost::property<
     boost::edge_custom_type_t, my_edge

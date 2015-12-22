@@ -1,14 +1,14 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_bundled_vertices_graph.h"
-#include "my_bundled_vertex.h"
+#include "my_vertex.h"
 
 ///Create a two-state Markov chain with custom vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
-  my_bundled_vertex
+  my_vertex
 >
 create_bundled_vertices_markov_chain() noexcept
 {
@@ -25,10 +25,10 @@ create_bundled_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  g[vd_a] = my_bundled_vertex("Sunny",
+  g[vd_a] = my_vertex("Sunny",
     "You can see the yellow thing",1.0,2.0
   );
-  g[vd_b] = my_bundled_vertex("Rainy",
+  g[vd_b] = my_vertex("Rainy",
     "Many grey fluffy things",3.0,4.0
   );
 

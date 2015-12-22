@@ -2,14 +2,14 @@
 #include <vector>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "my_bundled_vertex.h"
+#include "my_vertex.h"
 
 ///Set all bundled vertices their my_vertex objects
 //TODO: generalize 'my_vertexes'
 template <typename graph>
 void set_bundled_vertex_my_vertexes(
   graph& g,
-  const std::vector<my_bundled_vertex>& my_vertexes
+  const std::vector<my_vertex>& my_vertexes
 ) noexcept
 {
   auto my_vertexes_begin = std::begin(my_vertexes);

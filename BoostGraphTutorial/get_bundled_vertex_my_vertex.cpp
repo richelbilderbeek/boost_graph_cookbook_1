@@ -11,7 +11,7 @@
 void get_bundled_vertex_my_vertex_test() noexcept
 {
   auto g = create_empty_undirected_bundled_vertices_graph();
-  const my_bundled_vertex name{"Dex"};
+  const my_vertex name{"Dex"};
   add_bundled_vertex(name, g);
   const auto vd = find_first_bundled_vertex_with_my_vertex(name, g);
   assert(get_bundled_vertex_my_vertex(vd,g) == name);

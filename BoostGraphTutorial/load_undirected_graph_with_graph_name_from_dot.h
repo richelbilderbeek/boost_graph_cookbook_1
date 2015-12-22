@@ -2,6 +2,10 @@
 #define LOAD_UNDIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 
 #include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_custom_type.h"
+#include "install_edge_custom_type.h"
+#include "my_vertex.h"
+#include "my_edge.h"
 
 boost::adjacency_list<
   boost::vecS,

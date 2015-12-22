@@ -1,12 +1,12 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "my_bundled_vertex.h"
+#include "my_vertex.h"
 
-///Set the my_bundled_vertex of a bundled vertex
+///Set the my_vertex of a bundled vertex
 ///from its vertex descriptor
 template <typename graph>
 void set_bundled_vertex_my_vertex(
-  const my_bundled_vertex& v,
+  const my_vertex& v,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
   graph& g
 ) noexcept

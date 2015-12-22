@@ -1,5 +1,5 @@
 #include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+#include "my_vertex.h"
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 #include <boost/graph/adjacency_list.hpp>
 
@@ -8,7 +8,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_custom_type_t,my_custom_vertex
+    boost::vertex_custom_type_t,my_vertex
   >,
   boost::property<
     boost::edge_custom_type_t,my_edge
@@ -28,16 +28,16 @@ create_custom_edges_and_vertices_k3_graph() noexcept
   assert(aer_b.second);
   assert(aer_c.second);
 
-  auto my_custom_vertex_map
+  auto my_vertex_map
     = get(  //not boost::get
       boost::vertex_custom_type,g
     );
-  my_custom_vertex_map[vd_a]
-    = my_custom_vertex("top","source",0.0,0.0);
-  my_custom_vertex_map[vd_b]
-    = my_custom_vertex("right","target",3.14,0);
-  my_custom_vertex_map[vd_c]
-    = my_custom_vertex("left","target",0,3.14);
+  my_vertex_map[vd_a]
+    = my_vertex("top","source",0.0,0.0);
+  my_vertex_map[vd_b]
+    = my_vertex("right","target",3.14,0);
+  my_vertex_map[vd_c]
+    = my_vertex("left","target",0,3.14);
 
   auto my_edge_map = get(boost::edge_custom_type,g);
   my_edge_map[aer_a.first]

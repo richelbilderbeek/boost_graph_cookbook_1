@@ -2,7 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
 #include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+#include "my_vertex.h"
 #include "my_edge.h"
 
 ///Add a custom edge to a graph

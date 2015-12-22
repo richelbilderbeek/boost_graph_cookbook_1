@@ -9,6 +9,6 @@ void create_custom_edges_and_vertices_k3_graph_demo() noexcept
   auto g = create_custom_edges_and_vertices_k3_graph();
   assert(boost::num_edges(g) == 3);
   assert(boost::num_vertices(g) == 3);
-  add_custom_vertex(my_custom_vertex("v"), g);
+  add_custom_vertex(my_vertex("v"), g);
   add_custom_edge(my_edge("e"), g);
 }

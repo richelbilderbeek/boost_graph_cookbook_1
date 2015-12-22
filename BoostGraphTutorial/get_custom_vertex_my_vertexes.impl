@@ -2,17 +2,17 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 #include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+#include "my_vertex.h"
 
-///Collect all the my_custom_vertex objects from a graph
+///Collect all the my_vertex objects from a graph
 ///stored as a custom property of a vertex
 //TODO: generalize to return any type
 template <typename graph>
-std::vector<my_custom_vertex> get_custom_vertex_my_vertexes(const graph& g) noexcept
+std::vector<my_vertex> get_custom_vertex_my_vertexes(const graph& g) noexcept
 {
-  std::vector<my_custom_vertex> v;
+  std::vector<my_vertex> v;
 
-  const auto my_custom_vertexes_map
+  const auto my_vertexes_map
     = get( //not boost::get
       boost::vertex_custom_type,g
     );
@@ -23,7 +23,7 @@ std::vector<my_custom_vertex> get_custom_vertex_my_vertexes(const graph& g) noex
   for (auto i = vip.first; i!=j; ++i) {
     v.emplace_back(
       get( //not boost::get
-        my_custom_vertexes_map, *i
+        my_vertexes_map, *i
       )
     );
   }
