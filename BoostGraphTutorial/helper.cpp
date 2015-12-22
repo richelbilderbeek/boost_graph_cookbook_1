@@ -13,16 +13,6 @@ helper::helper()
   #endif
 }
 
-std::string helper::underscorify(const std::string& s) const noexcept
-{
-  return boost::algorithm::replace_all_copy(s," ","_");
-}
-
-std::string helper::deunderscorify(const std::string& s) const noexcept
-{
-  return boost::algorithm::replace_all_copy(s,"_"," ");
-}
-
 std::vector<std::string> helper::file_to_vector(
   const std::string& filename
 ) const noexcept
@@ -49,6 +39,16 @@ std::vector<std::string> helper::file_to_vector(
   return v;
 }
 
+std::string helper::graphviz_decode(const std::string& s) const noexcept
+{
+  return boost::algorithm::replace_all_copy(s,"_"," ");
+}
+
+std::string helper::graphviz_encode(const std::string& s) const noexcept
+{
+  return boost::algorithm::replace_all_copy(s," ","_");
+}
+
 void helper::test() noexcept
 {
   {
@@ -56,12 +56,13 @@ void helper::test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  //underscorify
+  //Graphviz encoding
   {
-    assert(helper().underscorify("A B") == "A_B");
-  }
-  //deunderscorify
-  {
-    assert(helper().deunderscorify("A_B") == "A B");
+    for (const auto s: { "A", "A B"} )
+    {
+      const auto t = helper().graphviz_encode(s);
+      const auto u = helper().graphviz_decode(t);
+      assert(s == u);
+    }
   }
 }

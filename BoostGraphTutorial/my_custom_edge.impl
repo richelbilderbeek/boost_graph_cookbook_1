@@ -1,6 +1,8 @@
 #include <string>
 #include <iosfwd>
 
+///my_custom_edge can have private member variables.
+///Interaction with Graphviz goes via the stream operators
 class my_custom_edge
 {
 public:
@@ -10,6 +12,11 @@ public:
     const double width = 1.0,
     const double height = 1.0
   ) noexcept;
+  const std::string& get_description() const noexcept;
+  const std::string& get_name() const noexcept;
+  double get_width() const noexcept;
+  double get_height() const noexcept;
+  private:
   std::string m_name;
   std::string m_description;
   double m_width;

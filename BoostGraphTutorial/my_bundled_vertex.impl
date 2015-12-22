@@ -2,7 +2,9 @@
 #include <iosfwd>
 #include <boost/property_map/dynamic_property_map.hpp>
 
-///Member variabled must be public, for boost::dynamic_properties to work on
+///Member variabled must be public,
+///for boost::dynamic_properties (used by Graphviz) to work on.
+///No need to define the stream operators for interaction with Graphviz.
 struct my_bundled_vertex
 {
   explicit my_bundled_vertex(
@@ -20,5 +22,3 @@ struct my_bundled_vertex
 
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
 bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
-std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& v) noexcept;
-std::istream& operator>>(std::istream& os, my_bundled_vertex& v) noexcept;

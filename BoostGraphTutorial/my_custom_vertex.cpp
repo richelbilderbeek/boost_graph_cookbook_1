@@ -13,13 +13,21 @@ my_custom_vertex::my_custom_vertex(
   const double x,
   const double y
 ) noexcept :
-  m_name{helper().underscorify(name)},
-  m_description{helper().underscorify(description)},
+  m_name{name},
+  m_description{description},
   m_x{x},
   m_y{y}
 {
-  assert(m_name.find(' ') == std::string::npos);
-  assert(m_description.find(' ') == std::string::npos);
+  assert(
+    helper().graphviz_decode(
+      helper().graphviz_encode(m_name)
+    ) == m_name
+  );
+  assert(
+    helper().graphviz_decode(
+      helper().graphviz_encode(m_description)
+    ) == m_description
+  );
 }
 
 const std::string& my_custom_vertex::get_description() const noexcept
@@ -44,6 +52,16 @@ double my_custom_vertex::get_y() const noexcept
 
 void my_custom_vertex_test() noexcept
 {
+  //Conversion to string
+  {
+    const my_custom_vertex in("A B","c d",1.0,2.0);
+    std::stringstream s;
+    s << in;
+    const std::string t{s.str()};
+    assert(t.find(' ') == std::string::npos);
+    assert(std::count(std::begin(t),std::end(t),',') == 3);
+  }
+  //Conversion to stream and back
   {
     const my_custom_vertex in("A B","c d",1.0,2.0);
     std::stringstream s;
@@ -52,6 +70,7 @@ void my_custom_vertex_test() noexcept
     s >> out;
     assert(in == out);
   }
+  //Conversion of two my_custom_vertex-es to stream and back
   {
     const my_custom_vertex a("A B","c d",1.0,2.0);
     const my_custom_vertex b("C","d",3.0,4.0);
@@ -83,9 +102,13 @@ bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexce
 
 std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept
 {
-  os << v.get_name() << ","
-    << v.get_description() << ","
-    << v.get_x() << ","
+  os
+    << helper().graphviz_encode(v.get_name())
+    << ","
+    << helper().graphviz_encode(v.get_description())
+    << ","
+    << v.get_x()
+    << ","
     << v.get_y()
   ;
   return os;
@@ -99,8 +122,8 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
   if (w.size() != 4) { v = my_custom_vertex(); return is; }
   assert(w.size() == 4);
   my_custom_vertex new_vertex(
-    w[0],
-    w[1],
+    helper().graphviz_decode(w[0]),
+    helper().graphviz_decode(w[1]),
     boost::lexical_cast<double>(w[2]),
     boost::lexical_cast<double>(w[3])
   );

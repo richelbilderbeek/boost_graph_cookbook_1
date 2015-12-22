@@ -22,15 +22,7 @@ void save_custom_vertices_graph_to_dot(
       const my_custom_vertex_descriptor& v
     ) {
       const my_custom_vertex m{my_custom_vertexes[v]};
-      out << "[label=\""
-        << m.get_name()
-        << ","
-        << m.get_description()
-        << ","
-        << m.get_x()
-        << ","
-        << m.get_y()
-        << "\"]";
+      out << "[label=\"" << m << "\"]";
     }
   );
 }

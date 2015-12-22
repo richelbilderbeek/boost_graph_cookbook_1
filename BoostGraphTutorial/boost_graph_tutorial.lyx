@@ -19491,21 +19491,6 @@ name "fig:custom_edges_and_vertices_markov_chain"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-Having spaces in a vertex label is not supported (yet), and the spaces are
- replaced by underscores.
- 
-\end_layout
-
 \begin_layout Subsubsection
 Function to create such a graph
 \end_layout
