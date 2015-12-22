@@ -17,11 +17,11 @@ public:
 
   ///Decode string to was encoded to be useable by Graphiv,
   ///Use graphviz_encode to encode the original string
-  std::string graphviz_decode(const std::string& s) const noexcept;
+  std::string graphviz_decode(std::string s) const noexcept;
 
   ///Encode string to be useable by Graphiv,
   ///Use graphviz_decode to recover the original string
-  std::string graphviz_encode(const std::string& s) const noexcept;
+  std::string graphviz_encode(std::string s) const noexcept;
 
 private:
   void test() noexcept;

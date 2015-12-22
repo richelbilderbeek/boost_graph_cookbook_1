@@ -55,6 +55,11 @@ double my_custom_edge::get_height() const noexcept
 
 void my_custom_edge_test() noexcept
 {
+  {
+    const my_custom_edge a("A B","c d",1.0,2.0);
+    const my_custom_edge b{a};
+    assert(a == b);
+  }
   //Conversion to string
   {
     const my_custom_edge in("A B","c d",1.0,2.0);
