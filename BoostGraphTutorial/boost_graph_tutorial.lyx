@@ -15956,16 +15956,7 @@ my_custom_vertex declaration
 \end_inset
 
 
-<<<<<<< HEAD
-\end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Creating an empty directed graph with custom vertices
-=======
->>>>>>> b78682d1979c1d38c50924777240a2cb60c8ce23
 \begin_inset Index idx
 status open
 
