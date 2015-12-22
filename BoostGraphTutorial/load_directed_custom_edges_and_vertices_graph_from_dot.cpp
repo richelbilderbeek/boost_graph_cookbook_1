@@ -11,7 +11,7 @@
 #include "convert_dot_to_svg.h"
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
 #include "helper.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
 
 

@@ -28,10 +28,8 @@ load_directed_graph_with_graph_name_from_dot(
 
   #ifdef TODO_KNOW_HOW_TO_LOAD_A_GRAPH_ITS_NAME
   boost::dynamic_properties p; //_do_ default construct
-  p.property("name",get_property(g,boost::graph_name)); //something like this should work
-  //p.property("name",get(boost::graph_name, g)); //something like this should work
+  p.property("name",get_property(g,boost::graph_name)); //AFAIK, this should work
   #else
-  //TODO: replace this by something that does work
   boost::dynamic_properties p(
     boost::ignore_other_properties
   );

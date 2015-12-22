@@ -2,14 +2,14 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 #include "has_bundled_vertex_with_my_vertex.h"
-#include "my_vertex.h"
+#include "my_bundled_vertex.h"
 
 ///Find the first bundled vertex with a certain my_vertex.
 ///Assumes that there exists that my_vertex.
 template <typename graph>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_bundled_vertex_with_my_vertex(
-  const my_vertex& v,
+  const my_bundled_vertex& v,
   const graph& g
 ) noexcept
 {

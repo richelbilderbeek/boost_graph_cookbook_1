@@ -1,17 +1,17 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 #include "install_vertex_custom_type.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
 ///See if the graph with custom vertices
-///contains a vertex with a certain my_vertex
+///contains a vertex with a certain my_custom_vertex
 template <typename graph>
-bool has_custom_vertex_with_my_vertex(
-  const my_vertex& v,
+bool has_custom_vertex_with_my_custom_vertex(
+  const my_custom_vertex& v,
   const graph& g
 ) noexcept
 {
-  const auto my_vertexes_map
+  const auto my_custom_vertexes_map
     = get(boost::vertex_custom_type, g);
   const auto vip
     = vertices(g); //not boost::vertices
@@ -19,7 +19,7 @@ bool has_custom_vertex_with_my_vertex(
   for (auto i = vip.first; i!=j; ++i) {
     if (
       get( //not boost::get
-        my_vertexes_map,
+        my_custom_vertexes_map,
         *i
       ) == v) {
       return true;
