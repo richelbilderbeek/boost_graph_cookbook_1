@@ -5,7 +5,7 @@
 class my_custom_vertex
 {
 public:
-  my_custom_vertex(
+  explicit my_custom_vertex(
     const std::string& name = "",
     const std::string& description = "",
     const double x = 0.0,

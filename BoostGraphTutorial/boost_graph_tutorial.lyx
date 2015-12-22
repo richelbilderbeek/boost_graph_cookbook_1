@@ -20054,14 +20054,14 @@ name "fig:create_custom_edges_and_vertices_k3_graph.svg"
 \end_layout
 
 \begin_layout Section
-Working on graphs with custom edges and vertices (both as a custom property)
+Working on graphs with custom edges and vertices
 \end_layout
 
 \begin_layout Subsection
 Has a my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:has_edge_with_my_custom_edge"
+name "sub:has_custom_edge_with_my_edge"
 
 \end_inset
 
@@ -20086,7 +20086,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_edge_with_my_edge.impl"
+filename "has_custom_edge_with_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20098,12 +20098,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Find if there is an edge with a certain my_edge
+Find if there is a custom edge with a certain my_custom_edge
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Has edge with my_edge
+Has custom edge with my_custom_edge
 \end_layout
 
 \end_inset
@@ -20111,7 +20111,7 @@ Has edge with my_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_edge_with_my_edge"
+name "alg:has_custom_edge_with_my_edge"
 
 \end_inset
 
@@ -20132,7 +20132,7 @@ name "alg:has_edge_with_my_edge"
 This function can be demonstrated as in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:has_edge_with_my_edge_demo"
+reference "alg:has_custom_edge_with_my_edge_demo"
 
 \end_inset
 
@@ -20150,7 +20150,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_edge_with_my_edge_demo.impl"
+filename "has_custom_edge_with_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20162,10 +20162,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_edge_with_my_edge' function
+Demonstration of the 'has_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_edge_with_my_edge_demo"
+name "alg:has_custom_edge_with_my_edge_demo"
 
 \end_inset
 
@@ -20189,10 +20189,10 @@ Note that this function only finds if there is at least one edge with that
 \end_layout
 
 \begin_layout Subsection
-Find a my_edge
+Find a my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:find_first_edge_with_my_edge"
+name "sub:find_first_custom_edge_with_my_edge"
 
 \end_inset
 
@@ -20212,7 +20212,7 @@ reference "sub:Edge-descriptors"
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:find_first_edge_with_my_edeg"
+reference "alg:find_first_edge_with_my_custom_edge"
 
 \end_inset
 
@@ -20230,7 +20230,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "find_first_edge_with_my_edge.impl"
+filename "find_first_custom_edge_with_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20242,12 +20242,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Find the first edge with a certain my_edge
+Find the first custom edge with a certain my_custom_edge
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Find first edge with my_edge
+Find first custom edge with my_custom_edge
 \end_layout
 
 \end_inset
@@ -20255,7 +20255,7 @@ Find first edge with my_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:find_first_edge_with_my_edeg"
+name "alg:find_first_edge_with_my_custom_edge"
 
 \end_inset
 
@@ -20278,7 +20278,7 @@ With the edge descriptor obtained, one can read and modify the edge and
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:find_first_edge_with_my_edge_demo"
+reference "alg:find_first_edge_with_my_custom_edge_demo"
 
 \end_inset
 
@@ -20295,7 +20295,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "find_first_edge_with_my_edge_demo.impl"
+filename "find_first_custom_edge_with_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20307,10 +20307,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_edge_with_my_edge' function
+Demonstration of the 'find_first_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:find_first_edge_with_my_edge_demo"
+name "alg:find_first_edge_with_my_custom_edge_demo"
 
 \end_inset
 
@@ -20328,10 +20328,10 @@ name "alg:find_first_edge_with_my_edge_demo"
 \end_layout
 
 \begin_layout Subsection
-Get an edge its my_edge
+Get an edge its my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:get_edge_my_edge"
+name "sub:get_custom_edge_my_edge"
 
 \end_inset
 
@@ -20353,7 +20353,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_edge_my_edge.impl"
+filename "get_custom_edge_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20365,12 +20365,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get a vertex its my_vertex from its vertex descriptor
+Get a vertex its my_custom_vertex from its vertex descriptor
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Get edge my_edge
+Get custom edge my_custom_edge
 \end_layout
 
 \end_inset
@@ -20378,7 +20378,7 @@ Get edge my_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_edge_my_edge"
+name "alg:get_custom_edge_my_edge"
 
 \end_inset
 
@@ -20396,11 +20396,12 @@ name "alg:get_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'get_custom_edge_my_edge', one first needs to obtain an edge descriptor.
+To use 'get_custom_edge_my_custom_edge', one first needs to obtain an edge
+ descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_edge_my_edge_demo"
+reference "alg:get_custom_edge_my_edge_demo"
 
 \end_inset
 
@@ -20417,7 +20418,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_edge_my_edge_demo.impl"
+filename "get_custom_edge_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20429,10 +20430,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_edge_my_edge' function
+Demonstration if the 'get_custom_edge_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_edge_my_edge_demo"
+name "alg:get_custom_edge_my_edge_demo"
 
 \end_inset
 
@@ -20450,10 +20451,10 @@ name "alg:get_edge_my_edge_demo"
 \end_layout
 
 \begin_layout Subsection
-Set an edge its my_edge
+Set an edge its my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:set_edge_my_edge"
+name "sub:set_custom_edge_my_edge"
 
 \end_inset
 
@@ -20465,7 +20466,7 @@ If you know how to get the my_custom_edge from an edge descriptor, setting
  it is just as easy, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:set_edge_my_edge"
+reference "alg:set_edge_my_custom_edge"
 
 \end_inset
 
@@ -20482,7 +20483,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_edge_my_edge.impl"
+filename "set_custom_edge_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20494,12 +20495,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Set an edge its my_edge from its edge descriptor
+Set a custom edge its my_custom_edge from its edge descriptor
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Set edge my_edge
+Set custom edge my_custom_edge
 \end_layout
 
 \end_inset
@@ -20507,7 +20508,7 @@ Set edge my_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_edge_my_edge"
+name "alg:set_edge_my_custom_edge"
 
 \end_inset
 
@@ -20529,7 +20530,7 @@ To use 'set_custom_edge_my_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:set_edge_my_edge_demo"
+reference "alg:set_custom_edge_my_edge_demo"
 
 \end_inset
 
@@ -20546,7 +20547,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_edge_my_edge_demo.impl"
+filename "set_custom_edge_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20558,10 +20559,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_edge_my_edge' function
+Demonstration if the 'set_custom_edge_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_edge_my_edge_demo"
+name "alg:set_custom_edge_my_edge_demo"
 
 \end_inset
 

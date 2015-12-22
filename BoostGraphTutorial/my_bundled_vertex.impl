@@ -5,7 +5,7 @@
 ///Member variabled must be public, for boost::dynamic_properties to work on
 struct my_bundled_vertex
 {
-  my_bundled_vertex(
+  explicit my_bundled_vertex(
     const std::string& name = "",
     const std::string& description = "",
     const double x = 0.0,

@@ -38,17 +38,17 @@
 #include "create_tutorial_chapters_graph.h"
 #include "find_first_bundled_vertex_with_my_vertex.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
-#include "find_first_edge_with_my_edge.h"
+#include "find_first_custom_edge_with_my_edge.h"
 #include "find_first_edge_with_name.h"
 #include "find_first_vertex_with_name.h"
-#include "get_custom_edge_my_edges.h"
 #include "get_bundled_vertex_my_vertexes.h"
 #include "get_bundled_vertex_my_vertex.h"
+#include "get_custom_edge_my_edges.h"
 #include "get_custom_vertex_my_vertexes.h"
 #include "get_custom_vertex_my_vertex.h"
 #include "get_edge_descriptors.h"
 #include "get_edge_iterators.h"
-#include "get_edge_my_edge.h"
+#include "get_custom_edge_my_edge.h"
 #include "get_edge_my_edges.h"
 #include "get_edge_name.h"
 #include "get_edge_names.h"
@@ -64,7 +64,7 @@
 #include "get_vertex_out_degrees.h"
 #include "has_bundled_vertex_with_my_vertex.h"
 #include "has_edge_between_vertices.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 #include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
 #include "helper.h"
@@ -84,8 +84,10 @@
 #include "load_undirected_graph_with_graph_name_from_dot.h"
 #include "load_undirected_named_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_named_vertices_graph_from_dot.h"
-#include "my_custom_vertex.h"
+#include "my_bundled_edge.h"
 #include "my_bundled_vertex.h"
+#include "my_custom_edge.h"
+#include "my_custom_vertex.h"
 #include "property_not_found_node_id.h"
 #include "remove_edge_between_vertices_with_names.h"
 #include "remove_first_edge_with_name.h"
@@ -102,7 +104,7 @@
 #include "set_bundled_vertex_my_vertex.h"
 #include "set_custom_vertex_my_vertexes.h"
 #include "set_custom_vertex_my_vertex.h"
-#include "set_edge_my_edge.h"
+#include "set_custom_edge_my_edge.h"
 #include "set_edge_name.h"
 #include "set_graph_name.h"
 #include "set_vertex_name.h"
@@ -130,7 +132,6 @@ int main()
   create_empty_directed_bundled_vertices_graph_test();
   create_empty_directed_custom_edges_and_vertices_graph_test();
   create_empty_directed_custom_vertices_graph_test();
-  get_custom_edge_my_edges_test();
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();
   create_empty_directed_named_edges_and_vertices_graph_test();
@@ -152,16 +153,17 @@ int main()
   create_tutorial_chapters_graph_test();
   find_first_bundled_vertex_with_my_vertex_test();
   find_first_custom_vertex_with_my_vertex_test();
-  find_first_edge_with_my_edge_test();
+  find_first_custom_edge_with_my_edge_test();
   find_first_edge_with_name_test();
   find_first_vertex_with_name_test();
   get_bundled_vertex_my_vertexes_test();
   get_bundled_vertex_my_vertex_test();
+  get_custom_edge_my_edges_test();
+  get_custom_edge_my_edges_test();
   get_custom_vertex_my_vertex_test();
   get_edge_descriptors_test();
   get_edge_iterators_test();
-  get_custom_edge_my_edges_test();
-  get_edge_my_edge_test();
+  get_custom_edge_my_edge_test();
   get_edge_names_test();
   get_edge_name_test();
   get_first_vertex_with_name_out_degree_test();
@@ -177,7 +179,7 @@ int main()
   has_bundled_vertex_with_my_vertex_test();
   has_custom_vertex_with_my_vertex_test();
   has_edge_between_vertices_test();
-  has_edge_with_my_edge_test();
+  has_custom_edge_with_my_edge_test();
   has_edge_with_name_test();
   has_vertex_with_name_test();
   helper();
@@ -197,9 +199,10 @@ int main()
   load_undirected_graph_with_graph_name_from_dot_test();
   load_undirected_named_edges_and_vertices_graph_from_dot_test();
   load_undirected_named_vertices_graph_from_dot_test();
+  my_bundled_edge_test();
+  my_bundled_vertex_test();
   my_custom_edge_test();
   my_custom_vertex_test();
-  my_bundled_vertex_test();
   property_not_found_node_id();
   remove_edge_between_vertices_with_names_test();
   remove_first_edge_with_name_test();
@@ -216,7 +219,7 @@ int main()
   set_bundled_vertex_my_vertex_test();
   set_custom_vertex_my_vertexes_test();
   set_custom_vertex_my_vertex_test();
-  set_edge_my_edge_test();
+  set_custom_edge_my_edge_test();
   set_edge_name_test();
   set_graph_name_test();
   set_vertex_names_test();

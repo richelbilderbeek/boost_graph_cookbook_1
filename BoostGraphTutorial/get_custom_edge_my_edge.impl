@@ -3,9 +3,9 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-///Collect all my_edges from a graph
+///Collect all my_custom_edges from a graph
 template <typename graph>
-my_custom_edge get_edge_my_edge(
+my_custom_edge get_custom_edge_my_edge(
   const typename boost::graph_traits<graph>::edge_descriptor& vd,
   const graph& g
 ) noexcept
