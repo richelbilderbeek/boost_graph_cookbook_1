@@ -17,12 +17,12 @@ void add_custom_edge_test() noexcept
     auto g = create_empty_undirected_custom_edges_and_vertices_graph();
     assert(boost::num_vertices(g) == 0);
     assert(boost::num_edges(g) == 0);
-    const my_edge edge("X");
+    const my_custom_edge edge("X");
     add_custom_edge(edge, g);
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 1);
-    const std::vector<my_edge> edges{get_edge_my_edges(g)};
-    const std::vector<my_edge> expected_edges{edge};
+    const std::vector<my_custom_edge> edges{get_edge_my_edges(g)};
+    const std::vector<my_custom_edge> expected_edges{edge};
     assert(edges == expected_edges);
   }
   //Add 2
@@ -30,14 +30,14 @@ void add_custom_edge_test() noexcept
     auto g = create_empty_undirected_custom_edges_and_vertices_graph();
     assert(boost::num_vertices(g) == 0);
     assert(boost::num_edges(g) == 0);
-    const my_edge edge_1("X");
-    const my_edge edge_2("Y");
+    const my_custom_edge edge_1("X");
+    const my_custom_edge edge_2("Y");
     add_custom_edge(edge_1, g);
     add_custom_edge(edge_2, g);
     assert(boost::num_vertices(g) == 4);
     assert(boost::num_edges(g) == 2);
-    const std::vector<my_edge> edges{get_edge_my_edges(g)};
-    const std::vector<my_edge> expected_edges{edge_1, edge_2};
+    const std::vector<my_custom_edge> edges{get_edge_my_edges(g)};
+    const std::vector<my_custom_edge> expected_edges{edge_1, edge_2};
     assert(edges == expected_edges);
   }
   std::cout << __func__ << ": OK" << '\n';

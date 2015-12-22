@@ -7,7 +7,7 @@
 #include "install_vertex_custom_type.h"
 #include "is_read_graphviz_correct.h"
 #include "is_regular_file.h"
-#include "my_edge.h"
+#include "my_custom_edge.h"
 #include "my_custom_vertex.h"
 
 ///Load an undirected graph with custom edges and
@@ -22,7 +22,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
-    boost::edge_custom_type_t, my_edge
+    boost::edge_custom_type_t, my_custom_edge
   >
 >
 load_undirected_custom_edges_and_vertices_graph_from_dot(
@@ -30,7 +30,7 @@ load_undirected_custom_edges_and_vertices_graph_from_dot(
 )
 {
   assert(is_regular_file(dot_filename));
-  assert(is_read_graphviz_correct<my_edge>());
+  assert(is_read_graphviz_correct<my_custom_edge>());
   assert(is_read_graphviz_correct<my_custom_vertex>());
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_custom_edges_and_vertices_graph();

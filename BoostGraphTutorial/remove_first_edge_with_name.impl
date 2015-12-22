@@ -14,6 +14,8 @@ void remove_first_edge_with_name(
   graph& g
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   assert(has_edge_with_name(name,g));
   const auto vd
     = find_first_edge_with_name(name,g);

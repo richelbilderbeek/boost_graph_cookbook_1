@@ -13,6 +13,8 @@ void set_edge_name(
   graph& g
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   auto edge_name_map = get(boost::edge_name,g);
   edge_name_map[vd] = name;
 }

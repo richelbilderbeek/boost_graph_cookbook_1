@@ -11,7 +11,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t,my_custom_vertex
   >,
   boost::property<
-    boost::edge_custom_type_t,my_edge
+    boost::edge_custom_type_t,my_custom_edge
   >
 >
 create_custom_edges_and_vertices_k3_graph() noexcept
@@ -41,11 +41,11 @@ create_custom_edges_and_vertices_k3_graph() noexcept
 
   auto my_edge_map = get(boost::edge_custom_type,g);
   my_edge_map[aer_a.first]
-    = my_edge("AB","first",0.0,0.0);
+    = my_custom_edge("AB","first",0.0,0.0);
   my_edge_map[aer_b.first]
-    = my_edge("BC","second",3.14,3.14);
+    = my_custom_edge("BC","second",3.14,3.14);
   my_edge_map[aer_c.first]
-    = my_edge("CA","third",3.14,3.14);
+    = my_custom_edge("CA","third",3.14,3.14);
 
   return g;
 }

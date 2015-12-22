@@ -1,3 +1,4 @@
+#include <type_traits>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
@@ -6,10 +7,13 @@
 template <typename graph>
 void add_custom_vertex(const my_custom_vertex& v, graph& g) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   const auto vd_a = boost::add_vertex(g);
   const auto my_custom_vertex_map
     = get( //not boost::get
-      boost::vertex_custom_type,g
+      boost::vertex_custom_type,
+      g
     );
   my_custom_vertex_map[vd_a] = v;
 }

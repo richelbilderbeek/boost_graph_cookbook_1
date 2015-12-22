@@ -48,14 +48,14 @@ void create_custom_edges_and_vertices_markov_chain_test() noexcept
     };
     assert(expected_my_custom_vertexes == vertex_my_custom_vertexes);
 
-    const std::vector<my_edge> edge_my_edges{
+    const std::vector<my_custom_edge> edge_my_edges{
       get_edge_my_edges(g)
     };
-    const std::vector<my_edge> expected_my_edges{
-      my_edge("Sometimes","20%",1.0,2.0),
-      my_edge("Often","80%",3.0,4.0),
-      my_edge("Rarely","10%",5.0,6.0),
-      my_edge("Mostly","90%",7.0,8.0)
+    const std::vector<my_custom_edge> expected_my_edges{
+      my_custom_edge("Sometimes","20%",1.0,2.0),
+      my_custom_edge("Often","80%",3.0,4.0),
+      my_custom_edge("Rarely","10%",5.0,6.0),
+      my_custom_edge("Mostly","90%",7.0,8.0)
     };
     assert(edge_my_edges == edge_my_edges);
 

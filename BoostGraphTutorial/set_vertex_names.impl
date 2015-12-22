@@ -12,6 +12,8 @@ void set_vertex_names(
   const std::vector<std::string>& names
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   const auto vertex_name_map
     = get(boost::vertex_name,g);
   auto ni = std::begin(names);

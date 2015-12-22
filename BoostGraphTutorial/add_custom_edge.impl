@@ -3,15 +3,17 @@
 #include "install_edge_custom_type.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
-#include "my_edge.h"
+#include "my_custom_edge.h"
 
 ///Add a custom edge to a graph
 template <typename graph>
 void add_custom_edge(
-  const my_edge& v,
+  const my_custom_edge& v,
   graph& g
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
 

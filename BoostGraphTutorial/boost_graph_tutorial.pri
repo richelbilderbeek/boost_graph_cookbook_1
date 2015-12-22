@@ -94,7 +94,6 @@ HEADERS += \
   load_undirected_graph_with_graph_name_from_dot.h \
   load_undirected_named_edges_and_vertices_graph_from_dot.h \
   load_undirected_named_vertices_graph_from_dot.h \
-  my_edge.h \
   no_matching_function_for_call_to_clear_out_edges.h \
   property_not_found_node_id.h \
   remove_edge_between_vertices_with_names.h \
@@ -119,7 +118,9 @@ HEADERS += \
   show_dot.h \
     set_bundled_vertex_my_vertexes.h \
     my_bundled_vertex.h \
-    my_custom_vertex.h
+    my_custom_vertex.h \
+    get_custom_edge_my_edges.h \
+    my_custom_edge.h
 
 SOURCES += \
   add_bundled_vertex.cpp \
@@ -176,7 +177,6 @@ SOURCES += \
   get_custom_vertex_my_vertexes.cpp \
   get_edge_descriptors.cpp \
   get_edge_my_edge.cpp \
-  get_edge_my_edges.cpp \
   get_edge_name.cpp \
   get_edge_names.cpp \
   get_edges.cpp \
@@ -215,7 +215,6 @@ SOURCES += \
   load_undirected_graph_with_graph_name_from_dot.cpp \
   load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
   load_undirected_named_vertices_graph_from_dot.cpp \
-  my_edge.cpp \
   no_matching_function_for_call_to_clear_out_edges.cpp \
   property_not_found_node_id.cpp \
   remove_edge_between_vertices_with_names.cpp \
@@ -240,7 +239,9 @@ SOURCES += \
   show_dot.cpp \
   set_bundled_vertex_my_vertexes.cpp \
     my_bundled_vertex.cpp \
-    my_custom_vertex.cpp
+    my_custom_vertex.cpp \
+    get_custom_edge_my_edges.cpp \
+    my_custom_edge.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -444,5 +445,6 @@ OTHER_FILES += \
   set_vertex_names.impl \
   set_bundled_vertex_my_vertexes.impl \
     my_bundled_vertex.impl \
-    my_custom_vertex.impl
+    my_custom_vertex.impl \
+    get_custom_edge_my_edges.impl
 

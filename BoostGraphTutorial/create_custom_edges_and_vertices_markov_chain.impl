@@ -14,7 +14,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
-    boost::edge_custom_type_t, my_edge
+    boost::edge_custom_type_t, my_custom_edge
   >
 >
 create_custom_edges_and_vertices_markov_chain() noexcept
@@ -41,10 +41,10 @@ create_custom_edges_and_vertices_markov_chain() noexcept
   auto my_edges_map = get( //not boost::get
     boost::edge_custom_type,g
   );
-  my_edges_map[aer_aa.first] = my_edge("Sometimes","20%",1.0,2.0);
-  my_edges_map[aer_ab.first] = my_edge("Often","80%",3.0,4.0);
-  my_edges_map[aer_ba.first] = my_edge("Rarely","10%",5.0,6.0);
-  my_edges_map[aer_bb.first] = my_edge("Mostly","90%",7.0,8.0);
+  my_edges_map[aer_aa.first] = my_custom_edge("Sometimes","20%",1.0,2.0);
+  my_edges_map[aer_ab.first] = my_custom_edge("Often","80%",3.0,4.0);
+  my_edges_map[aer_ba.first] = my_custom_edge("Rarely","10%",5.0,6.0);
+  my_edges_map[aer_bb.first] = my_custom_edge("Mostly","90%",7.0,8.0);
 
   return g;
 }

@@ -2,14 +2,14 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 #include "install_edge_custom_type.h"
-#include "my_edge.h"
+#include "my_custom_edge.h"
 
 ///Get all edge descriptors of a graph
 //TODO: generalize to return any type
 template <typename graph>
-std::vector<my_edge> get_edge_my_edges(const graph& g) noexcept
+std::vector<my_custom_edge> get_edge_my_edges(const graph& g) noexcept
 {
-  std::vector<my_edge> v;
+  std::vector<my_custom_edge> v;
 
   const auto my_edges_map = get(boost::edge_custom_type,g);
   const auto eip

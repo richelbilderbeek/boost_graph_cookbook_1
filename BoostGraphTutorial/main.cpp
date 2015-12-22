@@ -41,6 +41,7 @@
 #include "find_first_edge_with_my_edge.h"
 #include "find_first_edge_with_name.h"
 #include "find_first_vertex_with_name.h"
+#include "get_custom_edge_my_edges.h"
 #include "get_bundled_vertex_my_vertexes.h"
 #include "get_bundled_vertex_my_vertex.h"
 #include "get_custom_vertex_my_vertexes.h"
@@ -129,6 +130,7 @@ int main()
   create_empty_directed_bundled_vertices_graph_test();
   create_empty_directed_custom_edges_and_vertices_graph_test();
   create_empty_directed_custom_vertices_graph_test();
+  get_custom_edge_my_edges_test();
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();
   create_empty_directed_named_edges_and_vertices_graph_test();
@@ -158,7 +160,7 @@ int main()
   get_custom_vertex_my_vertex_test();
   get_edge_descriptors_test();
   get_edge_iterators_test();
-  get_edge_my_edges_test();
+  get_custom_edge_my_edges_test();
   get_edge_my_edge_test();
   get_edge_names_test();
   get_edge_name_test();
@@ -195,7 +197,7 @@ int main()
   load_undirected_graph_with_graph_name_from_dot_test();
   load_undirected_named_edges_and_vertices_graph_from_dot_test();
   load_undirected_named_vertices_graph_from_dot_test();
-  my_edge_test();
+  my_custom_edge_test();
   my_custom_vertex_test();
   my_bundled_vertex_test();
   property_not_found_node_id();

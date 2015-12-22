@@ -11,9 +11,9 @@
 void has_edge_with_my_edge_test() noexcept
 {
   auto g = create_empty_undirected_custom_edges_and_vertices_graph();
-  assert(!has_edge_with_my_edge(my_edge("Felix"),g));
-  add_custom_edge(my_edge("Felix"),g);
-  assert(has_edge_with_my_edge(my_edge("Felix"),g));
+  assert(!has_edge_with_my_edge(my_custom_edge("Felix"),g));
+  add_custom_edge(my_custom_edge("Felix"),g);
+  assert(has_edge_with_my_edge(my_custom_edge("Felix"),g));
 
   has_edge_with_my_edge_demo();
   std::cout << __func__ << ": OK" << std::endl;

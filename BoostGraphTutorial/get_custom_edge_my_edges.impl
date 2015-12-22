@@ -1,0 +1,31 @@
+#include <vector>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "install_edge_custom_type.h"
+#include "my_custom_edge.h"
+
+///Collect all the my_custom_edge objects from a graph
+///stored as a custom property of a edge
+//TODO: generalize to return any type
+template <typename graph>
+std::vector<my_custom_edge> get_custom_edge_my_edges(const graph& g) noexcept
+{
+  std::vector<my_custom_edge> v;
+
+  const auto my_custom_edges_map
+    = get( //not boost::get
+      boost::edge_custom_type,g
+    );
+  const auto vip
+    = edges(g); //not boost::edges
+  const auto j = vip.second;
+
+  for (auto i = vip.first; i!=j; ++i) {
+    v.emplace_back(
+      get( //not boost::get
+        my_custom_edges_map, *i
+      )
+    );
+  }
+  return v;
+}

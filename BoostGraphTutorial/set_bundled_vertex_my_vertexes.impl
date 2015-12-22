@@ -12,6 +12,8 @@ void set_bundled_vertex_my_vertexes(
   const std::vector<my_bundled_vertex>& my_vertexes
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   auto my_vertexes_begin = std::begin(my_vertexes);
   const auto my_vertexes_end = std::end(my_vertexes);
   const auto vip = vertices(g); //not boost::vertices

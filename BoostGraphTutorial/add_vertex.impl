@@ -4,5 +4,7 @@
 template <typename graph>
 void add_vertex(graph& g) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   boost::add_vertex(g);
 }

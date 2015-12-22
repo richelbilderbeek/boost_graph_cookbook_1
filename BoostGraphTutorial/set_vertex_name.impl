@@ -14,6 +14,8 @@ void set_vertex_name(
   graph& g
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   auto vertex_name_map
     = get( //not boost::get
       boost::vertex_name,

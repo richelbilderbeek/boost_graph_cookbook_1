@@ -51,7 +51,7 @@ void get_type_name_test() noexcept
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_custom_type_t, my_custom_vertex, boost::no_property>, boost::no_property, boost::no_property, boost::listS>"
   );
   assert(get_type_name<decltype(create_empty_undirected_custom_edges_and_vertices_graph())>()
-    == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_custom_type_t, my_custom_vertex, boost::no_property>, boost::property<boost::edge_custom_type_t, my_edge, boost::no_property>, boost::no_property, boost::listS>"
+    == "boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::property<boost::vertex_custom_type_t, my_custom_vertex, boost::no_property>, boost::property<boost::edge_custom_type_t, my_custom_edge, boost::no_property>, boost::no_property, boost::listS>"
   );
   assert(get_type_name<decltype(vertices(create_empty_undirected_graph()))>()
     == "std::pair<boost::range_detail::integer_iterator<unsigned int>, boost::range_detail::integer_iterator<unsigned int> >"

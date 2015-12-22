@@ -16,6 +16,10 @@
 
 void load_directed_bundled_vertices_graph_from_dot_test() noexcept
 {
+  //Basic tests
+  {
+    //First get the demo working
+  }
   //Create the picture 'load_directed_bundled_vertices_graph_from_dot_test_markov_chain.svg'
   //Create graphs, save it to dot
   //Create another graph by loading it, then save it to .dot, convert that .dot to .svg

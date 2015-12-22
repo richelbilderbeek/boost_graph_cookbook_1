@@ -5,7 +5,7 @@
 #include "install_vertex_custom_type.h"
 #include "install_edge_custom_type.h"
 #include "my_custom_vertex.h"
-#include "my_edge.h"
+#include "my_custom_edge.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -15,7 +15,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
-    boost::edge_custom_type_t, my_edge
+    boost::edge_custom_type_t, my_custom_edge
   >
 >
 load_directed_custom_edges_and_vertices_graph_from_dot(

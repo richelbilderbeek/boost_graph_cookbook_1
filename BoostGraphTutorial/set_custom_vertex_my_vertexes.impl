@@ -15,6 +15,8 @@ void set_custom_vertex_my_custom_vertexes(
   const std::vector<my_custom_vertex>& my_custom_vertexes
 ) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   const auto my_custom_vertex_map
     = get( //not boost::get
       boost::vertex_custom_type,g

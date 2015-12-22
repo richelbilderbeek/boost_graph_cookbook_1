@@ -1,11 +1,11 @@
 #include <boost/graph/properties.hpp>
 #include "install_edge_custom_type.h"
-#include "my_edge.h"
+#include "my_custom_edge.h"
 
 ///See if there is an edge with a certain my_edge
 template <typename graph>
 bool has_edge_with_my_edge(
-  const my_edge& e,
+  const my_custom_edge& e,
   const graph& g
 ) noexcept
 {

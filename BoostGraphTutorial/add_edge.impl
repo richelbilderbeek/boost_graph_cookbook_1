@@ -6,6 +6,8 @@
 template <typename graph>
 void add_edge(graph& g) noexcept
 {
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(

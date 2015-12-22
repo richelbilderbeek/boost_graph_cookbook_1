@@ -24,7 +24,7 @@ void create_custom_edges_and_vertices_k3_graph_test() noexcept
     add_custom_vertex(my_custom_vertex("v"), g);
     assert(boost::num_edges(g) == 3);
     assert(boost::num_vertices(g) == 4);
-    add_custom_edge(my_edge("e"), g);
+    add_custom_edge(my_custom_edge("e"), g);
     assert(boost::num_edges(g) == 4);
     assert(boost::num_vertices(g) == 6);
   }
