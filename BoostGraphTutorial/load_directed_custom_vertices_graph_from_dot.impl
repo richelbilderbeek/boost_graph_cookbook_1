@@ -4,7 +4,7 @@
 #include "create_empty_directed_custom_vertices_graph.h"
 #include "install_vertex_custom_type.h"
 #include "is_regular_file.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 #include "is_read_graphviz_correct.h"
 #include "get_custom_vertex_my_vertexes.h"
 
@@ -17,7 +17,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t,my_vertex
+    boost::vertex_custom_type_t, my_custom_vertex
   >
 >
 load_directed_custom_vertices_graph_from_dot(
@@ -25,7 +25,7 @@ load_directed_custom_vertices_graph_from_dot(
 )
 {
   assert(is_regular_file(dot_filename));
-  assert(is_read_graphviz_correct<my_vertex>());
+  assert(is_read_graphviz_correct<my_custom_vertex>());
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_custom_vertices_graph();
   boost::dynamic_properties p; //_do_ default construct

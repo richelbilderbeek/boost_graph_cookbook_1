@@ -156,6 +156,9 @@ key "siek2001boost"
 \end_inset
 
  and the Boost.Graph website require.
+ It is about basic graph manipulation, not the more advanced graph algorithms.
+ An analogy with std::vector: it teaches the std::vector member functions,
+ but not the algorithms that work on.
 \end_layout
 
 \begin_layout Subsection
@@ -9630,41 +9633,17 @@ name "alg:load_undirected_named_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_named_vertices_graph_from_dot"
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map.
- From this and the empty graph, 'boost::read_graphviz'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
- is called to build up the graph.
+ describes the rationale of this function.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -12929,26 +12908,6 @@ name "sub:load_undirected_named_edges_and_vertices_graph_from_dot"
 \end_inset
 
 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Load undirected graph with named edges and vertices from .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create undirected graph with named edges and vertices from .dot
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -13017,42 +12976,17 @@ name "alg:load_undirected_named_edges_and_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_named_edges_and_vertices_graph_from_dot"
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
- to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
- is called to build up the graph.
+ describes the rationale of this function.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -13230,7 +13164,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 Create the vertex class, called 'my_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:my_vertex-1"
+reference "sub:my_bundled_vertex"
 
 \end_inset
 
@@ -13241,7 +13175,7 @@ reference "sub:my_vertex-1"
 Adding a bundled vertex: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:add_custom_vertex-1"
+reference "sub:add_bundled_vertex"
 
 \end_inset
 
@@ -13268,7 +13202,7 @@ These functions are mostly there for completion and showing which data types
 Creating the vertex class
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:my_vertex-1"
+name "sub:my_bundled_vertex"
 
 \end_inset
 
@@ -13278,13 +13212,14 @@ name "sub:my_vertex-1"
 \begin_layout Standard
 Before creating an empty graph with bundled vertices, that bundled vertex
  class must be created.
- In this tutorial, the 'my_vertex' class is nonsensical, but it can be replaced
+ In this tutorial, it is called 'my_bundled_vertex'.
+ 'my_bundled_vertex' is a class that is nonsensical, but it can be replaced
  by any other class type.
 \end_layout
 
 \begin_layout Standard
-Here I will show the header file of 'my_vertex', as the implementation of
- it is not important:
+Here I will show the header file of 'my_bundled_vertex', as the implementation
+ of it is not important:
 \end_layout
 
 \begin_layout Standard
@@ -13297,7 +13232,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "my_vertex.h"
+filename "my_bundled_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -13309,12 +13244,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Declaration of my_vertex
+Declaration of my_bundled_vertex
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-my_vertex
+my_bundled_vertex
 \end_layout
 
 \end_inset
@@ -13324,7 +13259,7 @@ my_vertex
 status open
 
 \begin_layout Plain Layout
-my_vertex.h
+my_bundled_vertex.h
 \end_layout
 
 \end_inset
@@ -13344,7 +13279,7 @@ my_vertex declaration
 status open
 
 \begin_layout Plain Layout
-Declaration, my_vertex 
+Declaration, my_bundled_vertex 
 \end_layout
 
 \end_inset
@@ -13352,7 +13287,7 @@ Declaration, my_vertex
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:my_vertex_h"
+name "alg:my_bundled_vertex_h"
 
 \end_inset
 
@@ -13370,7 +13305,11 @@ name "alg:my_vertex_h"
 \end_layout
 
 \begin_layout Standard
-'my_vertex' is a class that has multiple properties: two doubles 'm_x' ('m_
+'my_bundled_vertex' is a class that has multiple properties: 
+\end_layout
+
+\begin_layout Itemize
+It has four public member variables: the double 'm_x' ('m_
 \begin_inset Index idx
 status open
 
@@ -13390,22 +13329,34 @@ member
 
 \end_inset
 
-) and 'm_y', and two std::strings m_name and m_description.
- 'my_vertex' is copyable, but cannot trivially be converted to a std::string.
- 'my_vertex' is comparable for equality (that is, operator== is defined).
+), the double 'm_y', the std::string m_name and the std::string m_description.
+ These variables must be public
 \end_layout
 
-\begin_layout Standard
-For the class to be saved to file and/or read from file, one needs to define
- both the in- and outstream operators.
- One can use the 'is_read_graphviz_correct' function (algorithm 
+\begin_layout Itemize
+It has a default constructor
+\end_layout
+
+\begin_layout Itemize
+It is copyable
+\end_layout
+
+\begin_layout Itemize
+It is comparable for equality (it has operator==), which is needed for searching
+\end_layout
+
+\begin_layout Itemize
+It can be streamed (it has both operator<< and operator>>), which is needed
+ for file I/O.
+ The 'is_read_graphviz_correct' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:is_read_graphviz_correct"
 
 \end_inset
 
-) to check this.
+) is a function to check if the class satisfies the needs of the boost::read_gra
+phviz function, which allows reading a graph from file
 \end_layout
 
 \begin_layout Subsection
@@ -13531,22 +13482,12 @@ Edges are stored in a std::list
 \end_layout
 
 \begin_layout Standard
-The boost::adjacency_list
+The boost::adjacency_list has a new, fourth template argument 'my_bundled_vertex
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'my_vertex
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
+my_bundled_vertex
 \end_layout
 
 \end_inset
@@ -13556,7 +13497,7 @@ my_vertex
 \begin_inset Quotes eld
 \end_inset
 
-vertices have the bundled property 'my_vertex'
+vertices have the bundled property 'my_bundled_vertex'
 \begin_inset Quotes erd
 \end_inset
 
@@ -13565,7 +13506,7 @@ vertices have the bundled property 'my_vertex'
 \begin_inset Quotes eld
 \end_inset
 
-vertices have a bundled type called my_vertex
+vertices have a bundled type called my_bundled_vertex
 \begin_inset Quotes erd
 \end_inset
 
@@ -13576,7 +13517,7 @@ vertices have a bundled type called my_vertex
 Create the empty undirected graph with bundled vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_empty_undirected_custom_vertices_graph-1"
+name "sub:create_empty_undirected_bundled_vertices_graph"
 
 \end_inset
 
@@ -13636,39 +13577,15 @@ name "alg:create_empty_undirected_bundled_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_bundled_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -13678,78 +13595,14 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a bundled type my_vertex'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'
-\end_layout
-
-\begin_layout Itemize
-The edges and graph have no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'my_vertex
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have the bundled property 'my_vertex'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have a bundled type called my_vertex
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Subsection
 Add a bundled vertex
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:add_custom_vertex-1"
+name "sub:add_bundled_vertex"
 
 \end_inset
 
@@ -13822,7 +13675,7 @@ name "alg:add_bundled_vertex"
 
 \begin_layout Standard
 When having added a new (abstract) vertex to the graph, the vertex descriptor
- is used to set the my_vertex in the graph with [some bundled propery magic]
+ is used to set the my_bundled_vertex in the graph.
 \end_layout
 
 \begin_layout Subsection
@@ -13848,8 +13701,8 @@ name "sub:get_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph have any associated my_vertex, one can extract
- these as such:
+When the vertices of a graph have any bundled 'my_bundled_vertex', one can
+ extract these as such:
 \end_layout
 
 \begin_layout Standard
@@ -13905,14 +13758,14 @@ name "alg:get_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-The my_vertex object associated with the vertices are obtained from a boost::pro
-perty_map and then put into a std::vector.
+The my_bundled_vertex bundled in the vertices is obtained from a its descriptor
+ and then put into a std::vector.
 \end_layout
 
 \begin_layout Standard
-When trying to get the vertices' my_vertex from a graph without my_vertex
- objects associated, you will get the error 'formed reference to void' (see
- chapter 
+When trying to get the vertices' my_bundled_vertex from a graph without
+ my_bundled_vertex objects associated, you will get the error 'formed reference
+ to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:formed_reference_to_void"
@@ -13941,7 +13794,7 @@ Graph
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:bundled_vertices_markov_chain-1"
+reference "fig:bundled_vertices_markov_chain"
 
 \end_inset
 
@@ -14046,7 +13899,7 @@ A two-state Markov chain where the vertices have bundled properies and the
  The vertices' properties are nonsensical
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:bundled_vertices_markov_chain-1"
+name "fig:bundled_vertices_markov_chain"
 
 \end_inset
 
@@ -14111,7 +13964,7 @@ lstparams "breaklines=true,language={C++}"
 Creating the two-state Markov chain as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:bundled_vertices_markov_chain-1"
+reference "fig:bundled_vertices_markov_chain"
 
 \end_inset
 
@@ -14433,8 +14286,8 @@ reference "alg:create_named_vertices_k2_graph"
 \end_inset
 
 ).
- In the end, the my_vertices are obtained as a boost::property_map and set
- with two bundled my_vertex objects.
+ In the end, (references to) the my_bundled_vertices are obtained and set
+ with two bundled my_bundled_vertex objects.
 \end_layout
 
 \begin_layout Subsubsection
@@ -14616,6 +14469,13 @@ name "fig:create_bundled_vertices_k2_graph.svg"
 
 \begin_layout Section
 Working on graphs with bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Working-on-graphs-with-bundled-vertices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -14625,7 +14485,8 @@ When using graphs with bundled vertices, their state gives a way to find
 \end_layout
 
 \begin_layout Itemize
-Check if there exists a vertex with a certain 'my_vertex': chapter 
+Check if there exists a vertex with a certain 'my_bundled_vertex': chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:has_bundled_vertex_with_my_vertex"
@@ -14636,7 +14497,7 @@ reference "sub:has_bundled_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Find a vertex with a certain 'my_vertex': chapter 
+Find a vertex with a certain 'my_bundled_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_bundled_vertex_with_my_vertex"
@@ -14647,7 +14508,8 @@ reference "sub:find_bundled_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Get a vertex its 'my_vertex' from its vertex descriptor: chapter 
+Get a vertex its 'my_bundled_vertex' from its vertex descriptor: chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_bundled_vertex_my_vertex"
@@ -14658,7 +14520,8 @@ reference "sub:get_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Set a vertex its 'my_vertex' using its vertex descriptor: chapter 
+Set a vertex its 'my_bundled_vertex' using its vertex descriptor: chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_bundled_vertex_my_vertex"
@@ -14669,7 +14532,7 @@ reference "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Setting all vertices their 'my_vertex'es: chapter 
+Setting all vertices their 'my_bundled_vertex'es: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_bundled_vertex_my_vertexes"
@@ -14696,7 +14559,7 @@ Loading a directed graph with bundled vertices from a .dot file: chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:load_directed_custom_vertices_graph_from_dot-1"
+reference "sub:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -14708,7 +14571,7 @@ Loading an undirected directed graph with bundled vertices from a .dot file:
  chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:load_undirected_custom_vertices_graph_from_dot-1"
+reference "sub:load_undirected_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -14716,7 +14579,7 @@ reference "sub:load_undirected_custom_vertices_graph_from_dot-1"
 \end_layout
 
 \begin_layout Subsection
-Has a bundled vertex with a my_vertex
+Has a bundled vertex with a my_bundled_vertex
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:has_bundled_vertex_with_my_vertex"
@@ -14728,10 +14591,10 @@ name "sub:has_bundled_vertex_with_my_vertex"
 
 \begin_layout Standard
 Before modifying our vertices, let's first determine if we can find a vertex
- by its bundled type ('my_vertex') in a graph.
+ by its bundled type ('my_bundled_vertex') in a graph.
  After obtaing a my_vertex map, we obtain the vertex iterators, dereference
  these to obtain the vertex descriptors and then compare each vertex its
- my_vertex with the one desired.
+ 'my_bundled_vertex' with the one desired.
 \end_layout
 
 \begin_layout Standard
@@ -14756,7 +14619,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Find if there is vertex with a certain my_vertex
+Find if there is vertex with a certain my_bundled_vertex
 \begin_inset Index idx
 status open
 
@@ -14795,7 +14658,7 @@ reference "alg:has_bundled_vertex_with_my_vertex_demo"
 \end_inset
 
 , where a certain my_vertex cannot be found in an empty graph.
- After adding the desired my_vertex, it is found.
+ After adding the desired my_bundled_vertex, it is found.
 \end_layout
 
 \begin_layout Standard
@@ -14842,8 +14705,8 @@ name "alg:has_bundled_vertex_with_my_vertex_demo"
 
 \begin_layout Standard
 Note that this function only finds if there is at least one bundled vertex
- with that my_vertex: it does not tell how many bundled vertices with that
- my_vertex exist in the graph.
+ with that my_bundled_vertex: it does not tell how many bundled vertices
+ with that my_bundled_vertex exist in the graph.
 \end_layout
 
 \begin_layout Subsection
@@ -14870,12 +14733,12 @@ reference "sub:Vertex-descriptors"
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:find_first_bundled_vertex_with_my_vertex-1"
+reference "alg:find_first_bundled_vertex_with_my_vertex"
 
 \end_inset
 
  shows how to obtain a vertex descriptor to the first vertex found with
- a specific my_vertex value.
+ a specific 'my_bundled_vertex' value.
 \end_layout
 
 \begin_layout Standard
@@ -14900,7 +14763,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Find the first vertex with a certain my_vertex
+Find the first vertex with a certain my_bundled_vertex
 \begin_inset Index idx
 status open
 
@@ -14913,7 +14776,7 @@ Find first bundled vertex with my_vertex
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:find_first_bundled_vertex_with_my_vertex-1"
+name "alg:find_first_bundled_vertex_with_my_vertex"
 
 \end_inset
 
@@ -14986,7 +14849,7 @@ name "alg:find_first_bundled_vertex_with_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Get a bundled vertex its my_vertex
+Get a bundled vertex its my_bundled_vertex
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:get_bundled_vertex_my_vertex"
@@ -14997,19 +14860,7 @@ name "sub:get_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To obtain the name from a vertex descriptor, one needs to pull out the my_vertex
-es
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Bad English intended: my_vertexes = multiple my_vertex objects, vertices
- = multiple graph nodes
-\end_layout
-
-\end_inset
-
- map and then look up the vertex of interest.
+To obtain the my_bundled_vertex from a vertex descriptor is simple:
 \end_layout
 
 \begin_layout Standard
@@ -15131,8 +14982,8 @@ name "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-If you know how to get the my_vertex from a vertex descriptor, setting it
- is just as easy, as shown in algorithm 
+If you know how to get the my_bundled_vertex from a vertex descriptor, setting
+ it is just as easy, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:set_bundled_vertex_my_vertex"
@@ -15195,7 +15046,8 @@ name "alg:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'set_vertex_my_vertex', one first needs to obtain a vertex descriptor.
+To use 'set_bundled_vertex_my_vertex', one first needs to obtain a vertex
+ descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15260,8 +15112,8 @@ name "sub:set_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph are associated with my_vertex objects, one
- can set these my_vertexes as such:
+When the vertices of a graph are my_bundled_vertex objects, one can set
+ these as such:
 \end_layout
 
 \begin_layout Standard
@@ -15316,13 +15168,6 @@ name "alg:set_bundled_vertex_my_vertexes"
 
 \end_layout
 
-\begin_layout Standard
-An impressive feature is that getting the property map holding the graph
- its names is not a copy, but a reference.
- Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
- only modify a copy.
-\end_layout
-
 \begin_layout Subsection
 Storing a graph with bundled vertices as a .dot
 \begin_inset CommandInset label
@@ -15346,8 +15191,8 @@ reference "alg:create_bundled_vertices_k2_graph"
 \begin_inset Formula $K_{2}$
 \end_inset
 
- graph with vertices associated with my_vertex objects, you can store these
- my_vertexes additionally with algorithm 
+ graph with vertices associated with my_bundled_vertex objects, you can
+ store these 'my_bundled_vertexes' additionally with algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_bundled_vertices_graph_to_dot"
@@ -15559,7 +15404,7 @@ name "fig:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg-1
 Loading a directed graph with bundled vertices from a .dot
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:load_directed_custom_vertices_graph_from_dot-1"
+name "sub:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -15734,15 +15579,15 @@ reference "alg:create_bundled_vertices_markov_chain"
 
 ), saved and then loaded.
  The loaded graph is checked to be a directed graph similar to the Markov
- chain with the same vertex my_vertex instances (using the 'get_vertex_my_vertex
-es' function).
+ chain with the same vertex my_bundled_vertex instances (using the 'get_bundled_
+vertex_my_vertexes' function).
 \end_layout
 
 \begin_layout Subsection
 Loading an undirected graph with bundled vertices from a .dot
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:load_undirected_custom_vertices_graph_from_dot-1"
+name "sub:load_undirected_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -15815,42 +15660,17 @@ name "alg:load_undirected_bundled_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
- to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
- is called to build up the graph.
+ describes the rationale of this function.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -15938,20 +15758,25 @@ name "sec:Building-graphs-with-custom-properties"
 \end_layout
 
 \begin_layout Standard
-Up until now, the graphs created have had edges and vertices with the built-in
- name propery.
- In this chapter, graphs will be created, in which the vertices can have
- a custom 'my_vertex' type
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-I do not intend to be original in naming my data types
-\end_layout
+Instead of using bundled properties, you can also add a new custom property.
+ The difference is that instead of having a 'my_vertex' (the class is described
+ in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:my_bundled_vertex"
 
 \end_inset
 
-.
+) for vertices, vertices have an additional property where the 'my_vertex'
+ is stored, next to properties like vertex name, edge delay (see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:all_properties"
+
+\end_inset
+
+ for all properties).
  The following graphs will be created:
 \end_layout
 
@@ -16007,19 +15832,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Create the custom vertex class, called 'my_vertex': already done in chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:my_vertex-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Installing the new vertex type as a vertex property, called 'vertex_custom_type
+Installing a new vertex property, called 'vertex_custom_type
 \begin_inset Index idx
 status open
 
@@ -16051,7 +15864,7 @@ reference "sub:add_custom_vertex"
 \end_layout
 
 \begin_layout Itemize
-Getting the vertices my_vertex-es: see chapter 
+Getting the custom vertices my_vertex-es: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_vertex_my_vertexes"
@@ -16064,6 +15877,177 @@ reference "sub:get_vertex_my_vertexes"
 \begin_layout Standard
 These functions are mostly there for completion and showing which data types
  are used.
+\end_layout
+
+\begin_layout Subsection
+Creating the vertex class
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:my_custom_vertex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before creating an empty graph with custom vertices, that custom vertex
+ class must be created.
+ In this tutorial, it is called 'my_custom_vertex'.
+ 'my_custom_vertex' is a class that is nonsensical, but it can be replaced
+ by any other class type.
+\end_layout
+
+\begin_layout Standard
+Here I will show the header file of 'my_custom_vertex', as the implementation
+ of it is not important:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "my_custom_vertex.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Declaration of my_custom_vertex
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_custom_vertex
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_custom_vertex.h
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_custom_vertex declaration
+\end_layout
+
+\end_inset
+
+
+<<<<<<< HEAD
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creating an empty directed graph with custom vertices
+=======
+>>>>>>> b78682d1979c1d38c50924777240a2cb60c8ce23
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Declaration, my_custom_vertex 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:my_custom_vertex_h"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+'my_custom_vertex' is a class that has multiple properties: 
+\end_layout
+
+\begin_layout Itemize
+It has four public member variables: the double 'm_x' ('m_
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+m_
+\end_layout
+
+\end_inset
+
+' stands for member
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+member
+\end_layout
+
+\end_inset
+
+), the double 'm_y', the std::string m_name and the std::string m_description.
+ These variables are private, but there are getters supplied
+\end_layout
+
+\begin_layout Itemize
+It has a default constructor
+\end_layout
+
+\begin_layout Itemize
+It is copyable
+\end_layout
+
+\begin_layout Itemize
+It is comparable for equality (it has operator==), which is needed for searching
+\end_layout
+
+\begin_layout Itemize
+It can be streamed (it has both operator<< and operator>>), which is needed
+ for file I/O.
+ The 'is_read_graphviz_correct' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:is_read_graphviz_correct"
+
+\end_inset
+
+) is a function to check if the class satisfies the needs of the boost::read_gra
+phviz function, which allows reading a graph from file
 \end_layout
 
 \begin_layout Subsection
@@ -16131,7 +16115,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
+\begin_inset Caption
 
 \begin_layout Plain Layout
 Installing the vertex_custom_type property
@@ -16415,7 +16399,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
+\begin_inset Caption
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with custom vertices
@@ -16449,39 +16433,15 @@ name "alg:create_empty_undirected_custom_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -16491,115 +16451,7 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,my_vert
-ex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges and graph have no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fourth template argument 'boost::property< boost::vertex_custom_type
-_t,my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have the property 'boost::vertex_custom_type_t', which is of data
- type 'my_vertex'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-vertices have a custom type called my_vertex
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Subsection
@@ -18692,42 +18544,17 @@ name "alg:load_undirected_custom_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_custom_vertices_graph_from_dot"
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
- to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
- is called to build up the graph.
+ describes the rationale of this function.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -18803,7 +18630,7 @@ reference "alg:create_custom_vertices_k2_graph"
 \end_layout
 
 \begin_layout Section
-Building graphs with custom edges and vertices (both as a custom property)
+Building graphs with custom edges and vertices
 \end_layout
 
 \begin_layout Standard
@@ -18831,13 +18658,6 @@ An empty directed graph that allows for custom edges and vertices: see chapter
 \begin_layout Itemize
 An empty undirected graph that allows for custom edges and vertices: see
  chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:create_empty_custom_edges_and_vertices_graph"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -19112,6 +18932,13 @@ The enum value 3142 must be unique.
 
 \begin_layout Subsection
 Create an empty directed graph with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19167,143 +18994,29 @@ name "alg:create_empty_directed_custom_edges_and_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is directed (due to the boost::directedS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::directedS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
- my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges have one property: they have a custom type, that is of data type
- my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The graph has no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list 
+, except that there is a new, fifth template argument:
 \end_layout
 
 \begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
-boost::adjacency_list
+
+boost::property<boost::edge_custom_type_t, my_edge>
 \end_layout
 
 \end_inset
 
- has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
- my_edge>
+
 \begin_inset Index idx
 status open
 
@@ -19333,8 +19046,7 @@ my_edge
 
 \end_inset
 
-'.
- This can be read as: 
+This can be read as: 
 \begin_inset Quotes eld
 \end_inset
 
@@ -19381,7 +19093,8 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Demonstration of the XXX function
+Demonstration of the 'create_empty_directed_custom_edges_and_vertices_graph'
+ function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_custom_edges_and_vertices_graph_demo"
@@ -19403,6 +19116,13 @@ name "alg:create_empty_directed_custom_edges_and_vertices_graph_demo"
 
 \begin_layout Subsection
 Create an empty undirected graph with custom edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19458,39 +19178,15 @@ name "alg:create_empty_undirected_custom_edges_and_vertices_graph"
 \end_layout
 
 \begin_layout Standard
-This graph:
-\end_layout
-
-\begin_layout Itemize
-has its out edges stored in a std::vector (due to the first boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_edges_and_vertices_graph"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-has its vertices stored in a std::vector (due to the second boost::vecS
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vecS
-\end_layout
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-is undirected (due to the boost::undirectedS
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
 \begin_inset Index idx
 status open
 
@@ -19500,150 +19196,7 @@ boost::undirectedS
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Itemize
-The vertices have one property: they have a custom type, that is of data
- type my_vertex (due to the boost::property< boost::vertex_custom_type_t,
- my_vertex>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::vertex_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_vertex
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The edges have one property: they have a custom type, that is of data type
- my_edge (due to the boost::property< boost::edge_custom_type_t, my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-')
-\end_layout
-
-\begin_layout Itemize
-The graph has no properties
-\end_layout
-
-\begin_layout Itemize
-Edges are stored in a std::list 
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::adjacency_list
-\end_layout
-
-\end_inset
-
- has a new, fifth template argument 'boost::property< boost::edge_custom_type_t,
- my_edge>
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::property
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::edge_custom_type_t
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-my_edge
-\end_layout
-
-\end_inset
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have the property 'boost::edge_custom_type_t', which is of data type
- 'my_edge'
-\begin_inset Quotes erd
-\end_inset
-
-.
- Or simply: 
-\begin_inset Quotes eld
-\end_inset
-
-edges have a custom type called my_edge
-\begin_inset Quotes erd
-\end_inset
-
-.
+).
 \end_layout
 
 \begin_layout Standard
@@ -19672,7 +19225,8 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Demonstration of the XXX function
+Demonstration of the 'create_empty_undirected_custom_edges_and_vertices_graph'
+ function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_custom_edges_and_vertices_graph_demo"
@@ -21282,26 +20836,6 @@ name "sub:sub:load_directed_custom_edges_and_vertices_graph_from_dot"
 \end_inset
 
 
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Load directed graph with custom edges and vertices from .dot
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create directed graph with custom edges and vertices from .dot
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -21483,7 +21017,7 @@ ges' function)
 Load an undirected graph with custom edges and vertices from a .dot file
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:sub:load_undirected_custom_edges_and_vertices_graph_from_dot"
+name "sub:load_undirected_custom_edges_and_vertices_graph_from_dot"
 
 \end_inset
 
@@ -21576,42 +21110,17 @@ name "alg:load_undirected_custom_edges_and_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-In this algorithm, first it is checked if the file to load exists.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:sub:load_directed_custom_edges_and_vertices_graph_from_dot"
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
- to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
- is called to build up the graph.
+ describes the rationale of this function.
+ 
 \end_layout
 
 \begin_layout Standard

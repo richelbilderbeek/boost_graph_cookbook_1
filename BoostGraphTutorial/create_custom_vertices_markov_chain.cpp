@@ -37,14 +37,14 @@ void create_custom_vertices_markov_chain_test() noexcept
     assert(eip.first != eip.second);
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
-    const std::vector<my_vertex> vertex_my_vertexes{
+    const std::vector<my_custom_vertex> vertex_my_custom_vertexes{
       get_custom_vertex_my_vertexes(g)
     };
-    const std::vector<my_vertex> expected_my_vertexes{
-      my_vertex("Sunny","You can see the yellow thing",1.0,2.0),
-      my_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+    const std::vector<my_custom_vertex> expected_my_custom_vertexes{
+      my_custom_vertex("Sunny","You can see the yellow thing",1.0,2.0),
+      my_custom_vertex("Rainy","Many grey fluffy things",3.0,4.0)
     };
-    assert(expected_my_vertexes == vertex_my_vertexes);
+    assert(expected_my_custom_vertexes == vertex_my_custom_vertexes);
   }
   //Create the .dot and .svg of the 'create_custom_vertices_markov_chain' chapter
   {

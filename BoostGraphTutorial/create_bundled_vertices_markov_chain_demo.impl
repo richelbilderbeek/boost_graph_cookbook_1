@@ -1,17 +1,17 @@
 #include <cassert>
 #include "create_bundled_vertices_markov_chain.h"
 #include "get_bundled_vertex_my_vertexes.h"
-#include "my_vertex.h"
+#include "my_bundled_vertex.h"
 
 void create_bundled_vertices_markov_chain_demo() noexcept
 {
   const auto g
     = create_bundled_vertices_markov_chain();
-  const std::vector<my_vertex> expected_my_vertexes{
-    my_vertex("Sunny","You can see the yellow thing",1.0,2.0),
-    my_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+  const std::vector<my_bundled_vertex> expected_my_vertexes{
+    my_bundled_vertex("Sunny","You can see the yellow thing",1.0,2.0),
+    my_bundled_vertex("Rainy","Many grey fluffy things",3.0,4.0)
   };
-  const std::vector<my_vertex> vertex_my_vertexes{
+  const std::vector<my_bundled_vertex> vertex_my_vertexes{
     get_bundled_vertex_my_vertexes(g)
   };
   assert(expected_my_vertexes == vertex_my_vertexes);

@@ -2,7 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_custom_vertices_graph.h"
 #include "install_vertex_custom_type.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
 ///Create a two-state Markov chain with custom vertices
 boost::adjacency_list<
@@ -10,7 +10,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t,my_vertex
+    boost::vertex_custom_type_t, my_custom_vertex
   >
 >
 create_custom_vertices_markov_chain() noexcept
@@ -31,10 +31,10 @@ create_custom_vertices_markov_chain() noexcept
   auto name_map = get( //not boost::get
     boost::vertex_custom_type,g
   );
-  name_map[vd_a] = my_vertex("Sunny",
+  name_map[vd_a] = my_custom_vertex("Sunny",
     "You can see the yellow thing",1.0,2.0
   );
-  name_map[vd_b] = my_vertex("Rainy",
+  name_map[vd_b] = my_custom_vertex("Rainy",
     "Many grey fluffy things",3.0,4.0
   );
 

@@ -5,12 +5,12 @@
 #include "create_empty_undirected_custom_vertices_graph.h"
 #include "has_custom_vertex_with_my_vertex.h"
 #include "install_vertex_custom_type.h"
-#include "my_vertex.h"
+#include "my_custom_vertex.h"
 
-void has_custom_vertex_with_my_vertex_demo() noexcept
+void has_custom_vertex_with_my_custom_vertex_demo() noexcept
 {
   auto g = create_empty_undirected_custom_vertices_graph();
-  assert(!has_custom_vertex_with_my_vertex(my_vertex("Felix"),g));
-  add_custom_vertex(my_vertex("Felix"),g);
-  assert(has_custom_vertex_with_my_vertex(my_vertex("Felix"),g));
+  assert(!has_custom_vertex_with_my_custom_vertex(my_custom_vertex("Felix"),g));
+  add_custom_vertex(my_custom_vertex("Felix"),g);
+  assert(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("Felix"),g));
 }

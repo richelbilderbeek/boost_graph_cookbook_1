@@ -1,4 +1,4 @@
-#include "my_vertex.h"
+#include "my_bundled_vertex.h"
 
 #include <cassert>
 #include <sstream>
@@ -7,7 +7,7 @@
 #include "seperate_string.h"
 #include "is_read_graphviz_correct.h"
 
-my_vertex::my_vertex(
+my_bundled_vertex::my_bundled_vertex(
   const std::string& name,
   const std::string& description,
   const double x,
@@ -22,23 +22,23 @@ my_vertex::my_vertex(
   assert(m_description.find(' ') == std::string::npos);
 }
 
-void my_vertex_test() noexcept
+void my_bundled_vertex_test() noexcept
 {
   {
-    const my_vertex in("A B","c d",1.0,2.0);
+    const my_bundled_vertex in("A B","c d",1.0,2.0);
     std::stringstream s;
     s << in;
-    my_vertex out;
+    my_bundled_vertex out;
     s >> out;
     assert(in == out);
   }
   {
-    const my_vertex a("A B","c d",1.0,2.0);
-    const my_vertex b("C","d",3.0,4.0);
+    const my_bundled_vertex a("A B","c d",1.0,2.0);
+    const my_bundled_vertex b("C","d",3.0,4.0);
     std::stringstream s;
     s << a << " " << b;
-    my_vertex c;
-    my_vertex d;
+    my_bundled_vertex c;
+    my_bundled_vertex d;
     s >> c >> d;
     assert(a == c);
     assert(b == d);
@@ -46,7 +46,7 @@ void my_vertex_test() noexcept
   std::cout << __func__ << ": OK" << '\n';
 }
 
-bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
+bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept
 {
   return
        lhs.m_description == rhs.m_description
@@ -56,27 +56,34 @@ bool operator==(const my_vertex& lhs, const my_vertex& rhs) noexcept
   ;
 }
 
-bool operator!=(const my_vertex& lhs, const my_vertex& rhs) noexcept
+bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept
 {
   return !(lhs == rhs);
 }
 
-std::ostream& operator<<(std::ostream& os, const my_vertex& v) noexcept
+std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& v) noexcept
 {
-  os << v.m_name << "," << v.m_description << "," << v.m_x << "," << v.m_y;
+  os << v.m_name << ","
+    << v.m_description << ","
+    << v.m_x << ","
+    << v.m_y
+  ;
   return os;
 }
 
-std::istream& operator>>(std::istream& is, my_vertex& v) noexcept
+std::istream& operator>>(std::istream& is, my_bundled_vertex& v) noexcept
 {
   std::string line;
   is >> line;
   const auto w = seperate_string(line,',');
-  if (w.size() != 4) { v = my_vertex(); return is; }
+  if (w.size() != 4) { v = my_bundled_vertex(); return is; }
   assert(w.size() == 4);
-  v.m_name = w[0];
-  v.m_description = w[1];
-  v.m_x = boost::lexical_cast<double>(w[2]);
-  v.m_y = boost::lexical_cast<double>(w[3]);
+  my_bundled_vertex new_vertex(
+    w[0],
+    w[1],
+    boost::lexical_cast<double>(w[2]),
+    boost::lexical_cast<double>(w[3])
+  );
+  v = new_vertex;
   return is;
 }
