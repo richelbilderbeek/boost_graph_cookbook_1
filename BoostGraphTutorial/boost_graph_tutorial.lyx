@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.1.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.2.
 \end_layout
 
 \begin_layout Subsection
@@ -14347,10 +14347,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "create_bundled_vertices_markov_chain.dot"
-lstparams "breaklines=true,language={C++}"
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_vertices_markov_chain.dot cannot be created
+\end_layout
 
 \end_inset
 
@@ -14397,29 +14400,7 @@ name "alg:create_bundled_vertices_markov_chain.dot"
 \end_layout
 
 \begin_layout Standard
-This .dot file may look unexpectedly different: instead of a space, there
- is this '[[:SPACE:]]'
-\begin_inset Index idx
-status open
 
-\begin_layout Plain Layout
-[[:SPACE:]]
-\end_layout
-
-\end_inset
-
- thing.
- This is because the function 'graphviz_encode' (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:graphviz_encode"
-
-\end_inset
-
-) made this conversion.
- In this example, I could have simply surrounded the content by quotes,
- and this would have worked.
- I chose to use 'graphviz_encode' because it works in all contexts.
 \end_layout
 
 \begin_layout Subsubsection
@@ -14434,8 +14415,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_bundled_vertices_markov_chain.svg
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_vertices_markov_chain.svg cannot be created
+\end_layout
 
 \end_inset
 
@@ -17147,6 +17133,32 @@ name "alg:create_custom_vertices_markov_chain.dot"
 
 \end_layout
 
+\begin_layout Standard
+This .dot file may look unexpectedly different: instead of a space, there
+ is this '[[:SPACE:]]'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+[[:SPACE:]]
+\end_layout
+
+\end_inset
+
+ thing.
+ This is because the function 'graphviz_encode' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_encode"
+
+\end_inset
+
+) made this conversion.
+ In this example, I could have simply surrounded the content by quotes,
+ and this would have worked.
+ I chose to use 'graphviz_encode' because it works in all contexts.
+\end_layout
+
 \begin_layout Subsubsection
 The .svg file produced
 \end_layout
@@ -17204,6 +17216,29 @@ name "fig:create_custom_vertices_markov_chain.svg"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This .svg file may look unexpectedly different: instead of a space, there
+ is this '[[:SPACE:]]'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+[[:SPACE:]]
+\end_layout
+
+\end_inset
+
+ thing.
+ This is because the function 'graphviz_encode' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_encode"
+
+\end_inset
+
+) made this conversion.
 \end_layout
 
 \begin_layout Subsection

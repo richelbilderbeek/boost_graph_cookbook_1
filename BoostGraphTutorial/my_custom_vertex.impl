@@ -1,6 +1,5 @@
 #include <string>
 #include <iosfwd>
-//#include <boost/property_map/dynamic_property_map.hpp>
 
 ///my_custom_vertex can have private member variables.
 ///Interaction with Graphviz goes via the stream operators
@@ -22,7 +21,6 @@ private:
   std::string m_description;
   double m_x;
   double m_y;
-  //friend class boost::dynamic_properties; //Needed as bundled property
 };
 
 bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;

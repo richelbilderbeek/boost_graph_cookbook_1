@@ -17,7 +17,6 @@ struct my_bundled_vertex
   std::string m_description;
   double m_x;
   double m_y;
-
 };
 
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
