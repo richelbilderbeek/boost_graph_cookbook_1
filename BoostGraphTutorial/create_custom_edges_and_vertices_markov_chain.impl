@@ -35,16 +35,22 @@ create_custom_edges_and_vertices_markov_chain() noexcept
   auto my_custom_vertexes_map = get( //not boost::get
     boost::vertex_custom_type,g
   );
-  my_custom_vertexes_map[vd_a] = my_custom_vertex("Sunny","Yellow thing",1.0,2.0);
-  my_custom_vertexes_map[vd_b] = my_custom_vertex("Rainy","Grey things",3.0,4.0);
+  my_custom_vertexes_map[vd_a]
+    = my_custom_vertex("Sunny","Yellow thing",1.0,2.0);
+  my_custom_vertexes_map[vd_b]
+    = my_custom_vertex("Rainy","Grey things",3.0,4.0);
 
   auto my_edges_map = get( //not boost::get
     boost::edge_custom_type,g
   );
-  my_edges_map[aer_aa.first] = my_custom_edge("Sometimes","20%",1.0,2.0);
-  my_edges_map[aer_ab.first] = my_custom_edge("Often","80%",3.0,4.0);
-  my_edges_map[aer_ba.first] = my_custom_edge("Rarely","10%",5.0,6.0);
-  my_edges_map[aer_bb.first] = my_custom_edge("Mostly","90%",7.0,8.0);
+  my_edges_map[aer_aa.first]
+    = my_custom_edge("Sometimes","20%",1.0,2.0);
+  my_edges_map[aer_ab.first]
+    = my_custom_edge("Often","80%",3.0,4.0);
+  my_edges_map[aer_ba.first]
+    = my_custom_edge("Rarely","10%",5.0,6.0);
+  my_edges_map[aer_bb.first]
+    = my_custom_edge("Mostly","90%",7.0,8.0);
 
   return g;
 }

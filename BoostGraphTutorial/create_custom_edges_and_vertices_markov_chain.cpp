@@ -14,7 +14,7 @@
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
 #include "get_custom_vertex_my_vertexes.h"
-#include "get_edge_my_edges.h"
+#include "get_custom_edge_my_edges.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertex_names.h"
 #include "create_custom_edges_and_vertices_markov_chain.h"
@@ -49,7 +49,7 @@ void create_custom_edges_and_vertices_markov_chain_test() noexcept
     assert(expected_my_custom_vertexes == vertex_my_custom_vertexes);
 
     const std::vector<my_custom_edge> edge_my_edges{
-      get_edge_my_edges(g)
+      get_custom_edge_my_edges(g)
     };
     const std::vector<my_custom_edge> expected_my_edges{
       my_custom_edge("Sometimes","20%",1.0,2.0),

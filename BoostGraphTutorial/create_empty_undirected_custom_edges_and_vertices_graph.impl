@@ -4,6 +4,8 @@
 #include "my_custom_vertex.h"
 #include "my_custom_edge.h"
 
+///Create an empty undirected graph with
+///custom edges and vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

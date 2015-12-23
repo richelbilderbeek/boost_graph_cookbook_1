@@ -5,9 +5,6 @@
 
 #include <iostream>
 
-
-
-
 void create_empty_undirected_custom_edges_and_vertices_graph_test() noexcept
 {
   const auto g = create_empty_undirected_custom_edges_and_vertices_graph();

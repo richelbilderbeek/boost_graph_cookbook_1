@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.2.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.3.
 \end_layout
 
 \begin_layout Subsection
@@ -9580,6 +9580,83 @@ reference "alg:get_vertex_name"
 ) and stream it to the out stream.
 \end_layout
 
+\begin_layout Subsubsection
+Demonstration
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot_demo"
+
+\end_inset
+
+ shows how to use (one of) the 'save_named_vertices_graph_to_dot' function(s):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_named_vertices_graph_to_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'save_named_vertices_graph_to_dot' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_named_vertices_graph_to_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When using the 'save_named_vertices_graph_to_dot' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_vertices_graph_to_dot"
+
+\end_inset
+
+), only the structure of the graph and the vertex names are saved: all other
+ properties like edge name are not stored.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_named_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+ shows how to do so.
+\end_layout
+
 \begin_layout Subsection
 Loading a directed graph with named vertices from a .dot
 \begin_inset CommandInset label
@@ -15875,6 +15952,2483 @@ reference "alg:create_bundled_vertices_k2_graph"
 \end_layout
 
 \begin_layout Section
+Building graphs with bundled edges and vertices
+\end_layout
+
+\begin_layout Standard
+Up until now, the graphs created have had only bundled vertices.
+ In this chapter, graphs will be created, in which both the edges and vertices
+ have a bundled 'my_bundled_edge' and 'my_bundled_edge' type
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I do not intend to be original in naming my data types
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+An empty directed graph that allows for bundled edges and vertices: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty undirected graph that allows for bundled edges and vertices: see
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_undirected_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A two-state Markov chain with bundled edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with bundled edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_bundled_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Creating the 'my_bundled_edge' class: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:my_bundled_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a bundled 'my_bundled_edge': see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_bundled_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
+\end_layout
+
+\begin_layout Subsection
+Creating the bundled edge class
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:my_bundled_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this example, I create a 'my_bundled_edge' class.
+ Here I will show the header file of it, as the implementation of it is
+ not important yet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "my_bundled_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Declaration of my_bundled_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_bundled_edge.h
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_bundled_edge declaration
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Declaration, my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:my_bundled_edge_h"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+my_bundled_edge is a class that has multiple properties: two doubles 'm_width'
+ ('m_
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+m_
+\end_layout
+
+\end_inset
+
+' stands for member
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+member
+\end_layout
+
+\end_inset
+
+) and 'm_height', and two std::strings m_name and m_description.
+ 'my_bundled_edge' is copyable, but cannot trivially be converted to a std::stri
+ng.' 'my_bundled_edge' is comparable for equality (that is, operator== is
+ defined).
+\end_layout
+
+\begin_layout Standard
+'my_bundled_edge' does not have to have the stream operators defined for
+ file I/O, as this goes via the public member variables.
+\end_layout
+
+\begin_layout Subsection
+Create an empty directed graph with bundled edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_bundled_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with bundled edges and vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty directed bundled edges and vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+, except that there is a new, fifth template argument:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+boost::property<boost::edge_bundled_type_t, my_edge>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge_bundled_type_t
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+my_edge
+\end_layout
+
+\end_inset
+
+This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have the property 'boost::edge_bundled_type_t', which is of data type
+ 'my_bundled_edge'
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Or simply: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have a bundled type called my_bundled_edge
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_bundled_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_empty_directed_bundled_edges_and_vertices_graph'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_bundled_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create an empty undirected graph with bundled edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_bundled_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with bundled edges and vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty undirected bundled edges and vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_bundled_edges_and_vertices_graph"
+
+\end_inset
+
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_bundled_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_empty_undirected_bundled_edges_and_vertices_graph'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_bundled_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Add a bundled edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_bundled_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding a bundled edge is very similar to adding a named edge (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_named_edge"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_bundled_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add a bundled edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add bundled edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_bundled_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having added a new (abstract) edge to the graph, the edge descriptor
+ is used to set the my_edge in the graph.
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_bundled_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of 'add_bundled_edge'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_bundled_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting the bundled edges my_edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_bundled_edge_my_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the edges of a graph are 'my_bundled_edge' objects, one can extract
+ these all as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_bundled_edge_my_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the edges' my_bundled_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get edge my_bundled_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_edge_my_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 'my_bundled_edge' object associated with the edges are obtained from
+ the graph its property_map and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+Note: the order of the my_bundled_edge objects may be different after saving
+ and loading.
+\end_layout
+
+\begin_layout Standard
+When trying to get the edges' my_bundled_edge objects from a graph without
+ bundled edges objects associated, you will get the error 'formed reference
+ to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Creating a Markov-chain with bundled edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+ shows the graph that will be reproduced:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Sunny, You [...], 1.0, 2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Rainy, Many [...], 3.0, 4.0}
+\end_layout
+
+\begin_layout Plain Layout
+
+  ;   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop above] node {AA,self,1,2} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {AB,nonself,3,4} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {BA,nonself,4,5} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop above] node {BB,self,6,7} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the edges and vertices have bundled properies.
+ The edges' and vertices' properties are nonsensical
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the code creating a two-state Markov chain with bundled edges and
+ vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_edges_and_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create bundled edges and vertices Markov chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_edges_and_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_bundled_edges_and_vertices_markov_chain' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_bundled_edges_and_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_markov_chain.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+:-(
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_edges_and_vertices_markov_chain.svg cannot be created
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_bundled_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_bundled_edges_and_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with bundled edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_bundled_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of using edges with a name, or other properties, here we use a bundled
+ edge class called 'my_bundled_edge'.
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+We reproduce the 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named edges and vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_edges_and_vertices_k3"
+
+\end_inset
+
+ , but with our bundled edges and vertices intead:
+\end_layout
+
+\begin_layout Standard
+[graph here]
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_edges_and_vertices_k3_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create bundled edges and vertices K3 graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a slight modification of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k3_graph"
+
+\end_inset
+
+.
+ In the end, the my_edges and my_vertices are obtained as the graph its
+ property_map and set with the 'my_bundled_edge' and 'my_bundled_vertex'
+ objects.
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_bundled_edges_and_vertices_k3_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_bundled_edges_and_vertices_k3_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_k3_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_k3_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_edges_and_vertices_k3_graph.dot cannot be created
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_k3_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_bundled_edges_and_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_edges_and_vertices_k3_graph.svg cannot be created
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_bundled_edges_and_vertices_k3_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_bundled_edges_and_vertices_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Working on graphs with bundled edges and vertices
+\end_layout
+
+\begin_layout Subsection
+Has a my_bundled_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:has_bundled_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before modifying our edges, let's first determine if we can find an edge
+ by its bundled type ('my_bundled_edge') in a graph.
+ After obtaing a my_bundled_edge map, we obtain the edge iterators, dereference
+ these to obtain the edge descriptors and then compare each edge its my_bundled_
+edge with the one desired.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_bundled_edge_with_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find if there is a bundled edge with a certain my_bundled_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Has bundled edge with my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_bundled_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function can be demonstrated as in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:has_bundled_edge_with_my_edge_demo"
+
+\end_inset
+
+, where a certain 'my_bundled_edge' cannot be found in an empty graph.
+ After adding the desired my_bundled_edge, it is found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_bundled_edge_with_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_bundled_edge_with_my_edge' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_bundled_edge_with_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this function only finds if there is at least one edge with that
+ my_bundled_edge: it does not tell how many edges with that my_bundled_edge
+ exist in the graph.
+\end_layout
+
+\begin_layout Subsection
+Find a my_bundled_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_first_bundled_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where STL functions work with iterators, here we obtain an edge descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired edge.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_bundled_edge_with_my_edge"
+
+\end_inset
+
+ shows how to obtain an edge descriptor to the first edge found with a specific
+ my_bundled_edge value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_bundled_edge_with_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first bundled edge with a certain my_bundled_edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Find first bundled edge with my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_bundled_edge_with_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the edge descriptor obtained, one can read and modify the edge and
+ the vertices surrounding it.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_bundled_edge_with_my_edge_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_bundled_edge_with_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_bundled_edge_with_my_edge' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_bundled_edge_with_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Get an edge its my_bundled_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_bundled_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To obtain the my_edeg from an edge descriptor, one needs to pull out the
+ my_bundled_edges map and then look up the my_edge of interest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_custom_edge_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get a vertex its my_bundled_vertex from its vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get bundled edge my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'get_bundled_edge_my_bundled_edge', one first needs to obtain an
+ edge descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_bundled_edge_my_edge_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_bundled_edge_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'get_bundled_edge_my_edge' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_bundled_edge_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Set an edge its my_bundled_edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_bundled_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you know how to get the my_bundled_edge from an edge descriptor, setting
+ it is just as easy, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_bundled_edge_my_edge"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_bundled_edge_my_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set a bundled edge its my_bundled_edge from its edge descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set bundled edge my_bundled_edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_bundled_edge_my_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use 'set_bundled_edge_my_edge', one first needs to obtain an edge descriptor.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_bundled_edge_my_edge_demo"
+
+\end_inset
+
+ shows a simple example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_bundled_edge_my_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration if the 'set_bundled_edge_my_edge' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_bundled_edge_my_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with bundled edges and vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_bundled_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save graph with bundled edges and vertices as .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create .dot from graph with bundled edges and vertices
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+If you used the create_bundled_edges_and_vertices_k3_graph function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_k3_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with edges and vertices associated with my_bundled_edge and my_bundled_ve
+rtex objects, you can store these my_bundled_edges and my_bundled_vertex-es
+ additionally with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_bundled_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_bundled_edges_and_vertices_graph_to_dot_cpp14.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with bundled edges and vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save bundled edges and vertices graph to dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_bundled_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this algorithm uses C++14
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+C++14
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Load a directed graph with bundled edges and vertices from a .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:sub:load_directed_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph with bundled edges and vertices is loaded,
+ as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_bundled_edges_and_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading a directed graph with bundled edges and vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load directed bundled edges and vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Next to this, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which we direct the boost::dynam
+ic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to the edge name map.
+ From this and the empty graph, 'boost::read_graphviz'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::read_graphviz
+\end_layout
+
+\end_inset
+
+ is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_bundled_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_bundled_edges_and_vertices_graph_from_dot'
+ function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_bundled_edges_and_vertices_graph_from_dot'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_bundled_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_bundl
+ed_edges_and_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_bundled_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), saved and then loaded.
+\end_layout
+
+\begin_layout Subsection
+Load an undirected graph with bundled edges and vertices from a .dot file
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_undirected_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected graph with bundled edges and vertices from .dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create undirected graph with bundled edges and vertices from .dot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an undirected graph with bundled edges and vertices is
+ loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_bundled_edges_and_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading an undirected graph with bundled edges and vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected bundled edges and vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:sub:load_directed_bundled_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+ describes the rationale of this function.
+ 
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_undirected_bundled_vertices_graph_from_dot'
+ function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_undirected_bundled_edges_and_vertices_graph_from_dot'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with bundled vertices is created using the 'create_bundled_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+), saved and then loaded.
+ The loaded graph is checked to be a graph similar to the original.
+\end_layout
+
+\begin_layout Section
 Building graphs with custom vertices
 \begin_inset CommandInset label
 LatexCommand label
@@ -16683,6 +19237,52 @@ get
 \end_inset
 
 ').
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_vertex_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of 'add_custom_vertex'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_vertex_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -18992,7 +21592,7 @@ Declaration, my_custom_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:my_edge_h"
+name "alg:my_custom_edge_h"
 
 \end_inset
 
@@ -19037,16 +21637,24 @@ g.' 'my_custom_edge' is comparable for equality (that is, operator== is defined)
 \end_layout
 
 \begin_layout Standard
-For the class to be saved to file and/or read from file, one needs to define
- both the in- and outstream operators.
- One can use the 'is_read_graphviz_correct' function (algorithm 
+Special characters like comma's, quotes and whitespace cannot be streamed
+ without problems.
+ The function 'graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:is_read_graphviz_correct"
+reference "alg:graphviz_encode"
 
 \end_inset
 
-) to check this.
+) can convert the elements to be streamed to a Graphviz-friendly version,
+ which can be decoded by 'graphviz_decode' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_decode"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -19563,6 +22171,52 @@ get
 \end_inset
 
 ').
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of 'add_custom_edge'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -20989,134 +23643,6 @@ C++14
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The .dot file created is displayed in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k3_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_custom_edges_and_vertices_k3_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.dot"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k3_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the create_custom_edges_and_vertices_k3_graph function
- (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_custom_edges_and_vertices_k3_graph"
-
-\end_inset
-
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_custom_edges_and_vertices_graph_to_dot_test_custom_edges_and_vertices_k2_graph.svg"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection

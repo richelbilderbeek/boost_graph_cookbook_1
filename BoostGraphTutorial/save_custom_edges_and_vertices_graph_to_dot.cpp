@@ -1,5 +1,7 @@
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
 
+#include "save_custom_edges_and_vertices_graph_to_dot_demo.impl"
+
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -81,5 +83,6 @@ void save_custom_edges_and_vertices_graph_to_dot_test() noexcept
     );
     //show_dot(filename);
   }
+  save_custom_edges_and_vertices_graph_to_dot_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

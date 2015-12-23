@@ -1,5 +1,7 @@
 #include "add_bundled_vertex.h"
 
+#include "add_bundled_vertex_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -32,8 +34,6 @@ void add_bundled_vertex_test() noexcept
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 0);
   }
+  add_bundled_vertex_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
-
-
-

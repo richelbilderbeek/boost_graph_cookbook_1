@@ -1,0 +1,45 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_bundled_edges_and_vertices_graph.h"
+#include "my_bundled_vertex.h"
+
+///Create a two-state Markov chain
+///with custom edges and vertices
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::directedS,
+  my_bundled_vertex,
+  my_bundled_edge
+>
+create_bundled_edges_and_vertices_markov_chain() noexcept
+{
+  auto g
+    = create_empty_directed_bundled_edges_and_vertices_graph();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
+  assert(aer_aa.second);
+  const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
+  assert(aer_ab.second);
+  const auto aer_ba = boost::add_edge(vd_b, vd_a, g);
+  assert(aer_ba.second);
+  const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
+  assert(aer_bb.second);
+
+  g[vd_a]
+    = my_bundled_vertex("Sunny","Yellow thing",1.0,2.0);
+  g[vd_b]
+    = my_bundled_vertex("Rainy","Grey things",3.0,4.0);
+
+  g[aer_aa.first]
+    = my_bundled_edge("Sometimes","20%",1.0,2.0);
+  g[aer_ab.first]
+    = my_bundled_edge("Often","80%",3.0,4.0);
+  g[aer_ba.first]
+    = my_bundled_edge("Rarely","10%",5.0,6.0);
+  g[aer_bb.first]
+    = my_bundled_edge("Mostly","90%",7.0,8.0);
+
+  return g;
+}

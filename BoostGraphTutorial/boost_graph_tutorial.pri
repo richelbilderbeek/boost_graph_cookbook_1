@@ -60,7 +60,6 @@ HEADERS += \
     get_custom_vertex_my_vertex.h \
     get_edge_descriptors.h \
     get_edge_iterators.h \
-    get_edge_my_edges.h \
     get_edge_name.h \
     get_edge_names.h \
     get_first_vertex_with_name_out_degree.h \
@@ -132,7 +131,22 @@ HEADERS += \
     set_graph_name.h \
     set_vertex_name.h \
     set_vertex_names.h \
-    show_dot.h
+    show_dot.h \
+    create_empty_directed_bundled_edges_and_vertices_graph.h \
+    create_empty_undirected_bundled_edges_and_vertices_graph.h \
+    add_bundled_edge.h \
+    get_bundled_edge_my_edges.h \
+    create_bundled_edges_and_vertices_k3_graph.h \
+    save_bundled_edges_and_vertices_graph_to_dot.h \
+    get_bundled_edge_my_edge.h \
+    find_first_bundled_edge_with_my_edge.h \
+    has_bundled_edge_with_my_edge.h \
+    create_bundled_edges_and_vertices_markov_chain.h \
+    set_bundled_edge_my_edge.h \
+    load_directed_bundled_edges_and_vertices_graph_from_dot.h \
+    get_sorted_bundled_edge_my_edges.h \
+    create_nasty_directed_bundled_edges_and_vertices_graph.h \
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -265,7 +279,22 @@ SOURCES += \
     set_graph_name.cpp \
     set_vertex_name.cpp \
     set_vertex_names.cpp \
-    show_dot.cpp
+    show_dot.cpp \
+    create_empty_directed_bundled_edges_and_vertices_graph.cpp \
+    create_empty_undirected_bundled_edges_and_vertices_graph.cpp \
+    add_bundled_edge.cpp \
+    get_bundled_edge_my_edges.cpp \
+    create_bundled_edges_and_vertices_k3_graph.cpp \
+    save_bundled_edges_and_vertices_graph_to_dot.cpp \
+    get_bundled_edge_my_edge.cpp \
+    find_first_bundled_edge_with_my_edge.cpp \
+    has_bundled_edge_with_my_edge.cpp \
+    create_bundled_edges_and_vertices_markov_chain.cpp \
+    set_bundled_edge_my_edge.cpp \
+    load_directed_bundled_edges_and_vertices_graph_from_dot.cpp \
+    get_sorted_bundled_edge_my_edges.cpp \
+    create_nasty_directed_bundled_edges_and_vertices_graph.cpp \
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -363,7 +392,6 @@ OTHER_FILES += \
     get_edge_descriptors.impl \
     get_edge_iterators_demo.impl \
     get_edge_iterators.impl \
-    get_edge_my_edges.impl \
     get_edge_name_demo.impl \
     get_edge_name.impl \
     get_edge_names_demo.impl \
@@ -474,5 +502,38 @@ OTHER_FILES += \
     set_graph_name.impl \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
-    set_vertex_names.impl
+    set_vertex_names.impl \
+    create_empty_directed_bundled_edges_and_vertices_graph.impl \
+    create_empty_directed_bundled_edges_and_vertices_graph_demo.impl \
+    create_empty_undirected_bundled_edges_and_vertices_graph.impl \
+    create_empty_undirected_bundled_edges_and_vertices_graph_demo.impl \
+    add_custom_edge_demo.impl \
+    add_custom_vertex_demo.impl \
+    add_bundled_vertex_demo.impl \
+    add_bundled_edge.impl \
+    add_bundled_edge_demo.impl \
+    get_custom_edge_my_edges_demo.impl \
+    get_bundled_edge_my_edges.impl \
+    get_bundled_edge_my_edges_demo.impl \
+    create_bundled_edges_and_vertices_k3_graph.impl \
+    create_bundled_edges_and_vertices_k3_graph_demo.impl \
+    save_named_vertices_graph_to_dot_demo.impl \
+    save_custom_edges_and_vertices_graph_to_dot_demo.impl \
+    save_bundled_edges_and_vertices_graph_to_dot_cpp11.impl \
+    save_bundled_edges_and_vertices_graph_to_dot_cpp14.impl \
+    save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
+    get_bundled_edge_my_edge.impl \
+    get_bundled_edge_my_edge_demo.impl \
+    find_first_bundled_edge_with_my_edge.impl \
+    find_first_bundled_edge_with_my_edge_demo.impl \
+    has_bundled_edge_with_my_edge.impl \
+    has_bundled_edge_with_my_edge_demo.impl \
+    create_bundled_edges_and_vertices_markov_chain.impl \
+    create_bundled_edges_and_vertices_markov_chain_demo.impl \
+    set_bundled_edge_my_edge.impl \
+    set_bundled_edge_my_edge_demo.impl \
+    load_directed_bundled_edges_and_vertices_graph_from_dot.impl \
+    load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl \
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
+    load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl
 

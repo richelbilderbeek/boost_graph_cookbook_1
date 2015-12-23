@@ -31,7 +31,8 @@ create_tutorial_chapters_graph() noexcept
   add_named_vertex("Working on graphs with named edges and vertices", g);
   add_named_vertex("Building graphs with bundled vertices", g);
   add_named_vertex("Working on graphs with bundled vertices", g);
-
+  add_named_vertex("Building graphs with bundled edges and vertices", g);
+  add_named_vertex("Working on graphs with bundled edges and vertices", g);
   add_named_vertex("Building graphs with custom vertices", g);
   add_named_vertex("Working on graphs with custom vertices", g);
   add_named_vertex("Building graphs with custom edges and vertices", g);
@@ -92,13 +93,30 @@ create_tutorial_chapters_graph() noexcept
     add_edge_between_named_vertices(s, "Working on graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
 
   {
     const std::string s = "Working on graphs with bundled vertices";
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
-    //add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
+  }
+
+  {
+    const std::string s = "Building graphs with bundled edges and vertices";
+    add_edge_between_named_vertices(s, "Working on graphs with bundled edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
+  }
+
+  {
+    const std::string s = "Working on graphs with bundled edges and vertices";
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }

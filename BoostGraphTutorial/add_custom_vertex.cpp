@@ -1,5 +1,7 @@
 #include "add_custom_vertex.h"
 
+#include "add_custom_vertex_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -37,6 +39,7 @@ void add_custom_vertex_test() noexcept
     const std::vector<my_custom_vertex> expected_vertices{vertex_1, vertex_2};
     assert(vertices == expected_vertices);
   }
+  add_custom_vertex_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
 

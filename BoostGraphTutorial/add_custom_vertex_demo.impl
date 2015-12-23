@@ -1,0 +1,24 @@
+#include <cassert>
+#include "add_custom_vertex.h"
+#include "create_empty_directed_custom_vertices_graph.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
+
+void add_custom_vertex_demo() noexcept
+{
+  auto g = create_empty_directed_custom_vertices_graph();
+  assert(boost::num_vertices(g) == 0);
+  assert(boost::num_edges(g) == 0);
+  add_custom_vertex(my_custom_vertex("X"), g);
+  assert(boost::num_vertices(g) == 1);
+  assert(boost::num_edges(g) == 0);
+
+  auto h = create_empty_undirected_custom_vertices_graph();
+  assert(boost::num_vertices(h) == 0);
+  assert(boost::num_edges(h) == 0);
+  add_custom_vertex(my_custom_vertex("X"), h);
+  assert(boost::num_vertices(h) == 1);
+  assert(boost::num_edges(h) == 0);
+}
+
+
+

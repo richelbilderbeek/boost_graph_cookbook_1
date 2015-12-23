@@ -1,0 +1,30 @@
+#include <cassert>
+#include <boost/graph/graph_traits.hpp>
+#include "has_bundled_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
+#include "my_bundled_edge.h"
+
+///Find the first edge with a certain
+///my_bundled_edge associated with it.
+///Returns the edge descriptor of that edge.
+///Assumes the my_bundled_edge is present,
+///will crash otherwise
+template <typename graph>
+typename boost::graph_traits<graph>::edge_descriptor
+find_first_bundled_edge_with_my_edge(
+  const my_bundled_edge& e,
+  const graph& g
+) noexcept
+{
+  assert(has_bundled_edge_with_my_edge(e, g));
+  const auto eip = edges(g); //not boost::edges
+  const auto j = eip.second;
+
+  for (auto i = eip.first; i!=j; ++i) {
+    if (g[*i] == e) {
+      return *i;
+    }
+  }
+  assert(!"Should not get here");
+  throw; //Will crash the program
+}

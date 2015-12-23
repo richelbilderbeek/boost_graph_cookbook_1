@@ -8,7 +8,8 @@ void create_custom_edges_and_vertices_markov_chain_demo() noexcept
 {
   const auto g
     = create_custom_edges_and_vertices_markov_chain();
-  const std::vector<my_custom_vertex> expected_my_custom_vertexes{
+  const std::vector<my_custom_vertex>
+    expected_my_custom_vertexes{
     my_custom_vertex("Sunny",
       "Yellow thing",1.0,2.0
     ),
@@ -16,9 +17,12 @@ void create_custom_edges_and_vertices_markov_chain_demo() noexcept
       "Grey things",3.0,4.0
     )
   };
-  const std::vector<my_custom_vertex> vertex_my_custom_vertexes{
+  const std::vector<my_custom_vertex>
+    vertex_my_custom_vertexes{
     get_custom_vertex_my_vertexes(g)
   };
-  assert(expected_my_custom_vertexes == vertex_my_custom_vertexes);
+  assert(expected_my_custom_vertexes
+    == vertex_my_custom_vertexes
+  );
 }
 

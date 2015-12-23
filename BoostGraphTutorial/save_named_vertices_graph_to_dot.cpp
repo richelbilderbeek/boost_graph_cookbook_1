@@ -1,24 +1,15 @@
 #include "save_named_vertices_graph_to_dot.h"
 
+#include "save_named_vertices_graph_to_dot_demo.impl"
+
 #if __cplusplus >= 201402L //C++14
 #include "save_named_vertices_graph_to_dot_using_lambda_cpp14.impl"
 #else
 #include "save_named_vertices_graph_to_dot_using_lambda_cpp11.impl"
 #endif
 
-#include "create_named_vertices_k2_graph.h"
-#include "create_named_vertices_markov_chain.h"
-#include "save_named_vertices_graph_to_dot.h"
 
 
-void save_named_vertices_graph_to_dot_demo() noexcept
-{
-  const auto g = create_named_vertices_k2_graph();
-  save_named_vertices_graph_to_dot(g, "create_named_vertices_k2_graph.dot");
-
-  const auto h = create_named_vertices_markov_chain();
-  save_named_vertices_graph_to_dot(h, "create_named_vertices_markov_chain.dot");
-}
 
 #include <cassert>
 #include <iostream>

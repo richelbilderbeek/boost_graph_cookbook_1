@@ -15,7 +15,7 @@ boost::adjacency_list<
     boost::vertex_custom_type_t, my_custom_vertex
   >,
   boost::property<
-    boost::edge_custom_type_t,my_custom_edge
+    boost::edge_custom_type_t, my_custom_edge
   >
 >
 create_empty_undirected_custom_edges_and_vertices_graph() noexcept;

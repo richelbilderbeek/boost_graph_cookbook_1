@@ -1,0 +1,20 @@
+#include <cassert>
+#include <boost/graph/adjacency_list.hpp>
+#include "my_bundled_edge.h"
+
+///Add a custom edge to a graph
+template <typename graph>
+void add_bundled_edge(
+  const my_bundled_edge& v,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
+  g[aer.first] = v;
+}

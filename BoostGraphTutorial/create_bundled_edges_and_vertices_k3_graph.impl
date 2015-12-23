@@ -1,0 +1,43 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include "my_bundled_edge.h"
+#include "my_bundled_vertex.h"
+
+///Create a K3 graph with custom edges and vertices
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  my_bundled_vertex,
+  my_bundled_edge
+>
+create_bundled_edges_and_vertices_k3_graph() noexcept
+{
+  auto g
+    = create_empty_undirected_bundled_edges_and_vertices_graph();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto vd_c = boost::add_vertex(g);
+  const auto aer_a = boost::add_edge(vd_a, vd_b, g);
+  const auto aer_b = boost::add_edge(vd_b, vd_c, g);
+  const auto aer_c = boost::add_edge(vd_c, vd_a, g);
+  assert(aer_a.second);
+  assert(aer_b.second);
+  assert(aer_c.second);
+
+  g[vd_a]
+    = my_bundled_vertex("top","source",0.0,0.0);
+  g[vd_b]
+    = my_bundled_vertex("right","target",3.14,0);
+  g[vd_c]
+    = my_bundled_vertex("left","target",0,3.14);
+
+  g[aer_a.first]
+    = my_bundled_edge("AB","first",0.0,0.0);
+  g[aer_b.first]
+    = my_bundled_edge("BC","second",3.14,3.14);
+  g[aer_c.first]
+    = my_bundled_edge("CA","third",3.14,3.14);
+
+  return g;
+}

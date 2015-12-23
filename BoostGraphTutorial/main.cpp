@@ -53,7 +53,7 @@
 #include "get_custom_vertex_my_vertex.h"
 #include "get_edge_descriptors.h"
 #include "get_edge_iterators.h"
-#include "get_edge_my_edges.h"
+#include "get_custom_edge_my_edges.h"
 #include "get_edge_name.h"
 #include "get_edge_names.h"
 #include "get_first_vertex_with_name_out_degree.h"
@@ -115,10 +115,37 @@
 #include "set_graph_name.h"
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
+#include "create_empty_directed_bundled_edges_and_vertices_graph.h"
+#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include "add_bundled_edge.h"
+#include "get_bundled_edge_my_edges.h"
+#include "create_bundled_edges_and_vertices_k3_graph.h"
+#include "save_bundled_edges_and_vertices_graph_to_dot.h"
+#include "get_bundled_edge_my_edge.h"
+#include "find_first_bundled_edge_with_my_edge.h"
+#include "has_bundled_edge_with_my_edge.h"
+#include "create_bundled_edges_and_vertices_markov_chain.h"
+#include "set_bundled_edge_my_edge.h"
+#include "load_directed_bundled_edges_and_vertices_graph_from_dot.h"
+#include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
+#include "get_sorted_bundled_edge_my_edges.h"
+#include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
 #include <iostream>
 
 int main()
 {
+  load_undirected_bundled_edges_and_vertices_graph_from_dot_test();
+  create_nasty_directed_bundled_edges_and_vertices_graph_test();
+  load_directed_bundled_edges_and_vertices_graph_from_dot_test();
+  set_bundled_edge_my_edge_test();
+  create_bundled_edges_and_vertices_markov_chain_test();
+  has_bundled_edge_with_my_edge_test();
+  find_first_bundled_edge_with_my_edge_test();
+  get_bundled_edge_my_edge_test();
+  save_bundled_edges_and_vertices_graph_to_dot_test();
+  create_bundled_edges_and_vertices_k3_graph_test();
+  get_bundled_edge_my_edges_test();
+  add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_edge_test();
   add_custom_edge_test();
@@ -127,6 +154,8 @@ int main()
   add_named_edge_test();
   add_named_vertex_test();
   add_vertex_test();
+  create_empty_undirected_bundled_edges_and_vertices_graph_test();
+  create_empty_directed_bundled_edges_and_vertices_graph_test();
   clear_first_vertex_with_name_test();
   count_vertices_with_name_test();
   create_bundled_vertices_k2_graph_test();

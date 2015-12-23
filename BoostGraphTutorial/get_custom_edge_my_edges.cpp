@@ -1,5 +1,7 @@
 #include "get_custom_edge_my_edges.h"
 
+#include "get_custom_edge_my_edges_demo.impl"
+
 #include <cassert>
 #include <iostream>
 
@@ -31,5 +33,6 @@ void get_custom_edge_my_edges_test() noexcept
     };
     assert(expected_my_edges == edges);
   }
+  get_custom_edge_my_edges_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

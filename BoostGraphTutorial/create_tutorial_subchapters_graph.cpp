@@ -151,7 +151,7 @@ create_tutorial_subchapters_graph() noexcept
   vertex_name_map[gvn] = "get_vertex_names";
   vertex_name_map[gvm] = "get_vertex_my_vertexes";
   vertex_name_map[gen] = "get_edge_names";
-  vertex_name_map[gem] = "get_edge_my_edges";
+  vertex_name_map[gem] = "get_custom_edge_my_edges";
 
   //Setting
   vertex_name_map[svn] = "set_vertex_names";
