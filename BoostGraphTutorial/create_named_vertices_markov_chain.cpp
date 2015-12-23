@@ -9,7 +9,7 @@
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 
-
+#include "add_named_vertex.h"
 #include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
@@ -17,6 +17,9 @@
 #include "get_vertex_names.h"
 #include "create_named_vertices_markov_chain.h"
 #include "save_named_vertices_graph_to_dot.h"
+#include "load_directed_named_vertices_graph_from_dot.h"
+#include "get_sorted_named_vertex_my_vertexes.h"
+#include "create_nasty_directed_named_vertices_graph.h"
 
 void create_named_vertices_markov_chain_test() noexcept
 {
@@ -35,10 +38,23 @@ void create_named_vertices_markov_chain_test() noexcept
     assert(eip.first != eip.second);
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
-
     const std::vector<std::string> expected_names{"Sunny", "Rainy"};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_names == vertex_names);
+  }
+  //Nasty graph
+  {
+    auto g = create_nasty_directed_named_vertices_graph();
+    const std::string filename{
+      "create_nasty_directed_named_vertices_graph_test.dot"
+    };
+    save_named_vertices_graph_to_dot(g, filename);
+    const auto h = load_directed_named_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    const auto a = get_sorted_vertex_names(g);
+    const auto b = get_sorted_vertex_names(h);
+    assert(a == b);
   }
   //Create the .dot and .svg of the 'create_named_vertices_markov_chain' chapter
   {

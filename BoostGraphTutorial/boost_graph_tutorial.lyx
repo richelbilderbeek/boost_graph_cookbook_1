@@ -350,7 +350,38 @@ There are some pieces of code I could use help with:
 \end_layout
 
 \begin_layout Itemize
-load_directed_bundled_vertices_graph_from_dot
+Some types are hardcoded, for example, the function 'get_vertex_names' (algorith
+m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:get_vertex_names"
+
+\end_inset
+
+) returns a std::vector<std::string>, where std::string is the only supported
+ vertex' name data type.
+ It would be better if, instead of using std::string, deduce the type of
+ the vertex' name data type from the graph
+\end_layout
+
+\begin_layout Itemize
+Loading a directed graph with bundled vertices, function 'load_directed_bundled_
+vertices_graph_from_dot' as shown in chapters 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_bundled_vertices_graph_from_dot"
+
+\end_inset
+
+.
+ Perhaps the function 'save_bundled_vertices_graph_to_dot' (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+) needs to rewritten as well
 \end_layout
 
 \begin_layout Itemize
@@ -374,7 +405,23 @@ reference "sub:save_graph_with_graph_name_to_dot"
 \end_layout
 
 \begin_layout Itemize
-load_undirected_bundled_vertices_graph_from_dot
+Loading an undirected graph with bundled vertices, function 'load_undirected_bun
+dled_vertices_graph_from_dot' as shown in chapters 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_undirected_bundled_vertices_graph_from_dot"
+
+\end_inset
+
+.
+ Perhaps the function 'save_bundled_vertices_graph_to_dot' (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_bundled_vertices_graph_to_dot"
+
+\end_inset
+
+) needs to rewritten as well
 \end_layout
 
 \begin_layout Itemize
@@ -395,20 +442,6 @@ reference "sub:save_graph_with_graph_name_to_dot"
 \end_inset
 
 ) needs to rewritten as well
-\end_layout
-
-\begin_layout Itemize
-Some types are hardcoded, for example algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:get_vertex_names"
-
-\end_inset
-
- returns a std::vector<std::string>, where std::string is the only supported
- vertex' name data type.
- It would be better if, instead of using std::string, deduce the type of
- the vertex' name data type from the graph
 \end_layout
 
 \begin_layout Standard
@@ -491,6 +524,241 @@ have a custom property: see chapter
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The differences between graphs with bundled and custom prorties are shown
+ in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Difference-between-bundled-and-custom-properties"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="33text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bundled
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Custom
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Meaning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edges/vertices are of your type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edges/vertices have an additional custom property
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Directly
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Via property map
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Class members
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Must be public
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Can be private
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File I/O mechanism
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Via public class members
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Via stream operators
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+File I/O success
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fails, please help!
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Works, with encoding/decoding
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Difference between bundled and custom properties
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Difference-between-bundled-and-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6522,6 +6790,10 @@ Note that the std::vector has element type 'std::string', instead of extracting
 \end_layout
 
 \begin_layout Standard
+The order of the vertex names may be different after saving and loading.
+\end_layout
+
+\begin_layout Standard
 When trying to get the vertices' names from a graph without vertices with
  names, you will get the error 'formed reference to void' (see chapter 
 \begin_inset CommandInset ref
@@ -9032,8 +9304,18 @@ reference "alg:create_named_vertices_k2_graph.dot"
 \end_inset
 
 .
- Note that the 'save_named_vertices_graph_to_dot' functions below only save
- the structure of the graph and its vertex names.
+ 
+\end_layout
+
+\begin_layout Standard
+You can use all characters in the vertex without problems (for example:
+ comma's, quotes, whitespace).
+ This will not hold anymore for bundled and custom vertices in later chapters.
+\end_layout
+
+\begin_layout Standard
+The 'save_named_vertices_graph_to_dot' functions below only save the structure
+ of the graph and its vertex names.
  It ignores other edge and vertex properties.
 \end_layout
 
@@ -10729,6 +11011,10 @@ reference "alg:get_edge_names_demo"
 
  shows how to apply this function.
  
+\end_layout
+
+\begin_layout Standard
+The order of the edge names may be different after saving and loading.
 \end_layout
 
 \begin_layout Standard
@@ -13108,7 +13394,7 @@ name "sec:Building-graphs-with-bundled-vertices"
 Up until now, the graphs created have had edges and vertices with the built-in
  name propery.
  In this chapter, graphs will be created, in which the vertices can have
- a bundled 'my_vertex' type
+ a bundled 'my_bundled_vertex' type
 \begin_inset Foot
 status collapsed
 
@@ -13175,7 +13461,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Create the vertex class, called 'my_vertex': see chapter 
+Create the vertex class, called 'my_bundled_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:my_bundled_vertex"
@@ -13186,7 +13472,7 @@ reference "sub:my_bundled_vertex"
 \end_layout
 
 \begin_layout Itemize
-Adding a bundled vertex: see chapter 
+Adding a 'my_bundled_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:add_bundled_vertex"
@@ -13197,7 +13483,7 @@ reference "sub:add_bundled_vertex"
 \end_layout
 
 \begin_layout Itemize
-Getting the vertices my_vertex-es: see chapter 
+Getting the vertices 'my_bundled_vertex'-es: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_bundled_vertex_my_vertexes"
@@ -13359,18 +13645,9 @@ It is copyable
 It is comparable for equality (it has operator==), which is needed for searching
 \end_layout
 
-\begin_layout Itemize
-It can be streamed (it has both operator<< and operator>>), which is needed
- for file I/O.
- The 'is_read_graphviz_correct' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:is_read_graphviz_correct"
-
-\end_inset
-
-) is a function to check if the class satisfies the needs of the boost::read_gra
-phviz function, which allows reading a graph from file
+\begin_layout Standard
+'my_bundled_vertex' does not have to have the stream operators defined for
+ file I/O, as this goes via the public member variables.
 \end_layout
 
 \begin_layout Subsection
@@ -13484,7 +13761,7 @@ boost::directedS
 
 \begin_layout Itemize
 The vertices have one property: they have a bundled type, that is of data
- type my_vertex
+ type 'my_bundled_vertex'
 \end_layout
 
 \begin_layout Itemize
@@ -13689,7 +13966,7 @@ name "alg:add_bundled_vertex"
 
 \begin_layout Standard
 When having added a new (abstract) vertex to the graph, the vertex descriptor
- is used to set the my_bundled_vertex in the graph.
+ is used to set the 'my_bundled_vertex' in the graph.
 \end_layout
 
 \begin_layout Subsection
@@ -13772,14 +14049,18 @@ name "alg:get_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-The my_bundled_vertex bundled in the vertices is obtained from a its descriptor
- and then put into a std::vector.
+The 'my_bundled_vertex' bundled in each vertex is obtained from a vertex
+ descriptor and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+The order of the 'my_bundled_vertex' objects may be different after saving
+ and loading.
 \end_layout
 
 \begin_layout Standard
 When trying to get the vertices' my_bundled_vertex from a graph without
- my_bundled_vertex objects associated, you will get the error 'formed reference
- to void' (see chapter 
+ these, you will get the error 'formed reference to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:formed_reference_to_void"
@@ -13850,7 +14131,7 @@ node[state] (A)
 
 \begin_layout Plain Layout
 
-    {Sunny, You [...], 1.0, 2.0};   
+    {Sunny, Yellow thing, 1.0, 2.0};   
 \end_layout
 
 \begin_layout Plain Layout
@@ -13862,7 +14143,7 @@ node[state] (B) [right of=A]
 
 \begin_layout Plain Layout
 
-    {Rainy, Many [...], 3.0, 4.0}
+    {Rainy, Grey things, 3.0, 4.0}
 \end_layout
 
 \begin_layout Plain Layout
@@ -13928,21 +14209,6 @@ name "fig:bundled_vertices_markov_chain"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-Having spaces in a vertex label is not supported (yet), and the spaces are
- replaced by underscores.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -14083,7 +14349,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "create_custom_vertices_markov_chain.dot"
+filename "create_bundled_vertices_markov_chain.dot"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -14130,6 +14396,32 @@ name "alg:create_bundled_vertices_markov_chain.dot"
 
 \end_layout
 
+\begin_layout Standard
+This .dot file may look unexpectedly different: instead of a space, there
+ is this '[[:SPACE:]]'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+[[:SPACE:]]
+\end_layout
+
+\end_inset
+
+ thing.
+ This is because the function 'graphviz_encode' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_encode"
+
+\end_inset
+
+) made this conversion.
+ In this example, I could have simply surrounded the content by quotes,
+ and this would have worked.
+ I chose to use 'graphviz_encode' because it works in all contexts.
+\end_layout
+
 \begin_layout Subsubsection
 The .svg file produced
 \end_layout
@@ -14143,7 +14435,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename create_custom_vertices_markov_chain.svg
+	filename create_bundled_vertices_markov_chain.svg
 
 \end_inset
 
@@ -15269,149 +15561,17 @@ name "alg:save_bundled_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-Note that this algorithm uses C++14
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++14
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The .dot file created is displayed in algorithm 
+For saving to and loading for a .dot file to work without problems, there
+ are some restrictions: any data type that is written to file, must not
+ have comma's, quotes, nor spaces.
+ The function 'graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
+reference "alg:graphviz_encode"
 
 \end_inset
 
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.dot file created from the create_bundled_vertices_k2_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_named_vertices_k2_graph"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This .dot file corresponds to figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.dot-1"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename save_custom_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-.svg file created from the create_bundled_vertices_k2_graph function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:create_bundled_vertices_k2_graph"
-
-\end_inset
-
-) and converted to .svg using the 'convert_dot_to_svg' function (algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:convert_dot_to_svg"
-
-\end_inset
-
-)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:save_bundled_vertices_graph_to_dot_test_custom_vertices_k2_graph.svg-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
+) shows how to encode std::string to a Graphviz-friendly format.
 \end_layout
 
 \begin_layout Subsection
@@ -15431,7 +15591,7 @@ When loading a graph from file, one needs to specify a type of graph.
  shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:load_directed_bundled_vertices_graph_from_dot-1"
+reference "alg:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -15473,7 +15633,7 @@ Load directed bundled vertices graph from dot
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:load_directed_bundled_vertices_graph_from_dot-1"
+name "alg:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -16644,6 +16804,11 @@ perty_map and then put into a std::vector.
 \end_layout
 
 \begin_layout Standard
+The order of the 'my_custom_vertex' objects may be different after saving
+ and loading.
+\end_layout
+
+\begin_layout Standard
 When trying to get the vertices' my_vertex from a graph without my_vertex
  objects associated, you will get the error 'formed reference to void' (see
  chapter 
@@ -16795,21 +16960,6 @@ name "fig:custom_vertices_markov_chain"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-Having spaces in a vertex label is not supported (yet), and the spaces are
- replaced by underscores.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -18641,7 +18791,7 @@ Building graphs with custom edges and vertices
 Up until now, the graphs created have had edges and vertices with the built-in
  name propery.
  In this chapter, graphs will be created, in which the edges and vertices
- can have a custom 'my_edge' and 'my_edge' type
+ can have a custom 'my_custom_edge' and 'my_custom_edge' type
 \begin_inset Foot
 status collapsed
 
@@ -18657,15 +18807,36 @@ I do not intend to be original in naming my data types
 \begin_layout Itemize
 An empty directed graph that allows for custom edges and vertices: see chapter
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 An empty undirected graph that allows for custom edges and vertices: see
  chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_undirected_custom_edges_and_vertices_graph"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 A two-state Markov chain with custom edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -18688,10 +18859,24 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 
 \begin_layout Itemize
 Creating the custom edge class: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:my_custom_edge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Installing the new edge property: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:install_edge_custom_type"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -18712,6 +18897,13 @@ These functions are mostly there for completion and showing which data types
 
 \begin_layout Subsection
 Creating the custom edge class
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:my_custom_edge"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -18730,7 +18922,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "my_custom_edge.h"
+filename "my_custom_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18742,12 +18934,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Declaration of my_edge
+Declaration of my_custom_edge
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-my_edge
+my_custom_edge
 \end_layout
 
 \end_inset
@@ -18757,7 +18949,7 @@ my_edge
 status open
 
 \begin_layout Plain Layout
-my_edge.h
+my_custom_edge.h
 \end_layout
 
 \end_inset
@@ -18767,7 +18959,7 @@ my_edge.h
 status open
 
 \begin_layout Plain Layout
-my_edge declaration
+my_custom_edge declaration
 \end_layout
 
 \end_inset
@@ -18777,7 +18969,7 @@ my_edge declaration
 status open
 
 \begin_layout Plain Layout
-Declaration, my_edge
+Declaration, my_custom_edge
 \end_layout
 
 \end_inset
@@ -18844,6 +19036,13 @@ reference "alg:is_read_graphviz_correct"
 
 \begin_layout Subsection
 Installing the new edge property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:install_edge_custom_type"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19349,6 +19548,97 @@ get
 \end_inset
 
 ').
+\end_layout
+
+\begin_layout Subsection
+Getting the custom edges my_edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_custom_edge_my_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the edges of a graph have an associated 'my_custom_edge', one can extract
+ these all as such:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_custom_edge_my_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the edges' my_custom_edges
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get edge my_custom_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_custom_edge_my_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 'my_custom_edge' object associated with the edges are obtained from
+ a boost::property_map and then put into a std::vector.
+\end_layout
+
+\begin_layout Standard
+Note: the order of the my_custom_edge objects may be different after saving
+ and loading.
+\end_layout
+
+\begin_layout Standard
+When trying to get the edges' my_custom_edge objects from a graph without
+ custom edges objects associated, you will get the error 'formed reference
+ to void' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:formed_reference_to_void"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -22502,10 +22792,10 @@ Some functions that did not fit in
 \end_layout
 
 \begin_layout Subsection
-Check if a custom class can be used with boost::read_graphviz
+Encode a std::string to a Graphviz-friendly format
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:is_read_graphviz_correct"
+name "sub:graphviz_encode"
 
 \end_inset
 
@@ -22513,40 +22803,10 @@ name "sub:is_read_graphviz_correct"
 \end_layout
 
 \begin_layout Standard
-For a custom class to be saved to a .dot file and then loaded from it, it
- needs to have these properties:
-\end_layout
-
-\begin_layout Itemize
-When the class is sent to a stream, and a copy is created from that stream,
- that copy must be identical
-\end_layout
-
-\begin_layout Itemize
-When the class is sent to a stream, and then converted to a std::string,
- there must not be spaces in the std::string.
- Note: it may be that surrounding the string in quotes also suffices
-\end_layout
-
-\begin_layout Standard
-To checks if a custom class can be used with boost::read_graphviz
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::read_graphviz
-\end_layout
-
-\end_inset
-
-, see the function 'is_read_graphviz_correct' (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:is_read_graphviz_correct"
-
-\end_inset
-
-):
+You may want to use a label with spaces, comma's and/or quotes.
+ Saving and loading these, will result in problem.
+ This function replaces these special characters by a rare combination of
+ ordinary characters.
 \end_layout
 
 \begin_layout Standard
@@ -22559,7 +22819,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "is_read_graphviz_correct.impl"
+filename "graphviz_encode.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -22571,12 +22831,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Check if a custom class can be used with boost::graph_viz
+Encode a std::string to a Graphviz-friendly format
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Is read_graphviz correct
+graphviz encode
 \end_layout
 
 \end_inset
@@ -22584,7 +22844,83 @@ Is read_graphviz correct
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:is_read_graphviz_correct"
+name "alg:graphviz_encode"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decode a std::string from a Graphviz-friendly format
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:graphviz_decode"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function undoes the 'graphviz_encode' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_encode"
+
+\end_inset
+
+) and thus converts a Graphviz-friendly std::string to the original human-friend
+ly std::string.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "graphviz_decode.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Decode a std::string from a Graphviz-friendly format to a human-friendly
+ format
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+graphviz decode
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:graphviz_decode"
 
 \end_inset
 

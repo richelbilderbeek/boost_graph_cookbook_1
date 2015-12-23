@@ -24,7 +24,6 @@ load_undirected_custom_vertices_graph_from_dot(
 )
 {
   assert(is_regular_file(dot_filename));
-  assert(is_read_graphviz_correct<my_custom_vertex>());
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_custom_vertices_graph();
   boost::dynamic_properties p; //_do_ default construct

@@ -1,6 +1,6 @@
 digraph G {
-0[label="Sunny,You[[:SPACE:]]can[[:SPACE:]]see[[:SPACE:]]the[[:SPACE:]]yellow[[:SPACE:]]thing,1,1"];
-1[label="Rainy,Many[[:SPACE:]]grey[[:SPACE:]]fluffy[[:SPACE:]]things,3,3"];
+0[label="Sunny,Yellow[[:SPACE:]]thing,1,1"];
+1[label="Rainy,Grey[[:SPACE:]]things,3,3"];
 0->0 ;
 0->1 ;
 1->0 ;

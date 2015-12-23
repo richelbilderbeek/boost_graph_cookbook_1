@@ -13,11 +13,38 @@
 #include "helper.h"
 #include "my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
-
+#include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
+#include "get_sorted_custom_edge_my_edges.h"
 
 void load_undirected_custom_edges_and_vertices_graph_from_dot_test() noexcept
 {
-  //Create the picture 'load_undirected_custom_edges_and_vertices_graph_from_dot_test_k3_graph.svg'
+  //Basic tests: empty graph
+  {
+    const auto g = create_empty_undirected_custom_edges_and_vertices_graph();
+    const std::string filename{
+      "load_undirected_custom_edges_and_vertices_graph_from_dot_test.dot"
+    };
+    save_custom_edges_and_vertices_graph_to_dot(g, filename);
+    const auto h = load_undirected_custom_edges_and_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    assert(get_custom_edge_my_edges(g) == get_custom_edge_my_edges(h));
+  }
+  //Basic tests: nasty graph
+  {
+    auto g = create_nasty_undirected_custom_edges_and_vertices_graph();
+    const std::string filename{
+      "load_undirected_custom_edges_and_vertices_graph_from_dot_test.dot"
+    };
+    save_custom_edges_and_vertices_graph_to_dot(g, filename);
+    const auto h = load_undirected_custom_edges_and_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    const auto a = get_sorted_custom_edge_my_edges(g);
+    const auto b = get_sorted_custom_edge_my_edges(h);
+    assert(a == b);
+  }
+  //Create the picture 'create_custom_edges_and_vertices_k3_graph.svg'
   //Create graphs, save it to dot
   //Create another graph by loading it, then save it to .dot, convert that .dot to .svg
   {

@@ -6,6 +6,8 @@
 #include "helper.h"
 #include "seperate_string.h"
 #include "is_read_graphviz_correct.h"
+#include "graphviz_decode.h"
+#include "graphviz_encode.h"
 
 my_custom_vertex::my_custom_vertex(
   const std::string& name,
@@ -19,13 +21,13 @@ my_custom_vertex::my_custom_vertex(
   m_y{y}
 {
   assert(
-    helper().graphviz_decode(
-      helper().graphviz_encode(m_name)
+    graphviz_decode(
+      graphviz_encode(m_name)
     ) == m_name
   );
   assert(
-    helper().graphviz_decode(
-      helper().graphviz_encode(m_description)
+    graphviz_decode(
+      graphviz_encode(m_description)
     ) == m_description
   );
 }
@@ -103,9 +105,9 @@ bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexce
 std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept
 {
   os
-    << helper().graphviz_encode(v.get_name())
+    << graphviz_encode(v.get_name())
     << ","
-    << helper().graphviz_encode(v.get_description())
+    << graphviz_encode(v.get_description())
     << ","
     << v.get_x()
     << ","
@@ -122,8 +124,8 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
   if (w.size() != 4) { v = my_custom_vertex(); return is; }
   assert(w.size() == 4);
   my_custom_vertex new_vertex(
-    helper().graphviz_decode(w[0]),
-    helper().graphviz_decode(w[1]),
+    graphviz_decode(w[0]),
+    graphviz_decode(w[1]),
     boost::lexical_cast<double>(w[2]),
     boost::lexical_cast<double>(w[3])
   );

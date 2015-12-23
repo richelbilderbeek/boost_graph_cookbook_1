@@ -32,10 +32,10 @@ create_custom_vertices_markov_chain() noexcept
     boost::vertex_custom_type,g
   );
   name_map[vd_a] = my_custom_vertex("Sunny",
-    "You can see the yellow thing",1.0,2.0
+    "Yellow thing",1.0,2.0
   );
   name_map[vd_b] = my_custom_vertex("Rainy",
-    "Many grey fluffy things",3.0,4.0
+    "Grey things",3.0,4.0
   );
 
   return g;

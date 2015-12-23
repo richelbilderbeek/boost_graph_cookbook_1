@@ -17,6 +17,8 @@
 #include "get_vertex_names.h"
 #include "create_bundled_vertices_markov_chain.h"
 #include "save_bundled_vertices_graph_to_dot.h"
+#include "load_directed_bundled_vertices_graph_from_dot.h"
+#include "get_sorted_bundled_vertex_my_vertexes.h"
 
 void create_bundled_vertices_markov_chain_test() noexcept
 {
@@ -39,28 +41,46 @@ void create_bundled_vertices_markov_chain_test() noexcept
       get_bundled_vertex_my_vertexes(g)
     };
     const std::vector<my_bundled_vertex> expected_my_vertexes{
-      my_bundled_vertex("Sunny","You can see the yellow thing",1.0,2.0),
-      my_bundled_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+      my_bundled_vertex("Sunny","Yellow thing",1.0,2.0),
+      my_bundled_vertex("Rainy","Grey things",3.0,4.0)
     };
     assert(expected_my_vertexes == vertex_my_vertexes);
   }
-  //Create the .dot and .svg of the 'create_bundled_vertices_markov_chain' chapter
+  //Create the picture 'create_bundled_vertices_markov_chain.svg'
+  //Create graphs, save it to dot
+  //Create another graph by loading it, then save it to .dot, convert that .dot to .svg
   {
     const auto g = create_bundled_vertices_markov_chain();
-    const std::string dot_filename{"create_bundled_vertices_markov_chain.dot"};
-    const std::string svg_filename{"create_bundled_vertices_markov_chain.svg"};
+    const std::string base_filename{"create_bundled_vertices_markov_chain"};
+    const std::string dot_filename{base_filename + ".dot"};
+    const std::string svg_filename{base_filename + ".svg"};
     save_bundled_vertices_graph_to_dot(g, dot_filename);
-    convert_dot_to_svg(dot_filename, svg_filename);
-    copy_file(
-      dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
-      copy_file_mode::allow_overwrite
-    );
-    copy_file(
-      svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
-      copy_file_mode::allow_overwrite
-    );
+    const auto h = load_directed_bundled_vertices_graph_from_dot(dot_filename);
+    if (get_sorted_bundled_vertex_my_vertexes(g)
+      == get_sorted_bundled_vertex_my_vertexes(h)
+    )
+    {
+      assert(boost::num_edges(g) == boost::num_edges(h));
+      assert(boost::num_vertices(g) == boost::num_vertices(h));
+      assert(get_sorted_bundled_vertex_my_vertexes(g)
+        == get_sorted_bundled_vertex_my_vertexes(h));
+      assert(!"Green");
+      convert_dot_to_svg(dot_filename, svg_filename);
+      copy_file(
+        svg_filename,
+        "../BoostGraphTutorial/" + svg_filename,
+        copy_file_mode::allow_overwrite
+      );
+      copy_file(
+        dot_filename,
+        "../BoostGraphTutorial/" + dot_filename,
+        copy_file_mode::allow_overwrite
+      );
+    }
+    else
+    {
+      std::cout << __func__ << ": TODO" << '\n';
+    }
   }
   create_bundled_vertices_markov_chain_demo();
   std::cout << __func__ << ": OK" << '\n';

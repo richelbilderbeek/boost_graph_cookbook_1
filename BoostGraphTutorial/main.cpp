@@ -2,6 +2,8 @@
 #include "add_custom_edge.h"
 #include "add_custom_vertex.h"
 #include "add_edge.h"
+#include "create_nasty_directed_custom_edges_and_vertices_graph.h"
+#include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
 #include "add_named_edge.h"
 #include "add_named_vertex.h"
 #include "add_vertex.h"
@@ -31,6 +33,7 @@
 #include "create_k2_graph_with_graph_name.h"
 #include "create_markov_chain.h"
 #include "create_markov_chain_with_graph_name.h"
+#include "create_nasty_directed_custom_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "create_named_edges_and_vertices_markov_chain.h"
 #include "create_named_vertices_k2_graph.h"
@@ -39,6 +42,8 @@
 #include "find_first_bundled_vertex_with_my_vertex.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
 #include "find_first_custom_edge_with_my_edge.h"
+#include "graphviz_encode.h"
+#include "graphviz_decode.h"
 #include "find_first_edge_with_name.h"
 #include "find_first_vertex_with_name.h"
 #include "get_bundled_vertex_my_vertexes.h"
@@ -91,6 +96,7 @@
 #include "property_not_found_node_id.h"
 #include "remove_edge_between_vertices_with_names.h"
 #include "remove_first_edge_with_name.h"
+#include "create_nasty_directed_bundled_vertices_graph.h"
 #include "remove_first_vertex_with_name.h"
 #include "save_bundled_vertices_graph_to_dot.h"
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
@@ -121,6 +127,7 @@ int main()
   add_named_edge_test();
   add_named_vertex_test();
   add_vertex_test();
+  create_nasty_directed_custom_vertices_graph_test();
   clear_first_vertex_with_name_test();
   count_vertices_with_name_test();
   create_bundled_vertices_k2_graph_test();
@@ -129,9 +136,13 @@ int main()
   create_custom_edges_and_vertices_markov_chain_test();
   create_custom_vertices_k2_graph_test();
   create_custom_vertices_markov_chain_test();
+  graphviz_encode_test();
+  graphviz_decode_test();
   create_empty_directed_bundled_vertices_graph_test();
+  create_nasty_directed_bundled_vertices_graph_test();
   create_empty_directed_custom_edges_and_vertices_graph_test();
   create_empty_directed_custom_vertices_graph_test();
+  create_nasty_undirected_custom_edges_and_vertices_graph_test();
   create_empty_directed_graph_test();
   create_empty_directed_graph_with_graph_name_test();
   create_empty_directed_named_edges_and_vertices_graph_test();
@@ -183,7 +194,6 @@ int main()
   has_edge_with_name_test();
   has_vertex_with_name_test();
   helper();
-  is_read_graphviz_correct_test();
   is_valid_dot_file_test();
   load_directed_bundled_vertices_graph_from_dot_test();
   load_directed_custom_edges_and_vertices_graph_from_dot_test();

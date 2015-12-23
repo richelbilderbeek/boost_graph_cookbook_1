@@ -41,8 +41,8 @@ void create_custom_vertices_markov_chain_test() noexcept
       get_custom_vertex_my_vertexes(g)
     };
     const std::vector<my_custom_vertex> expected_my_custom_vertexes{
-      my_custom_vertex("Sunny","You can see the yellow thing",1.0,2.0),
-      my_custom_vertex("Rainy","Many grey fluffy things",3.0,4.0)
+      my_custom_vertex("Sunny","Yellow thing",1.0,2.0),
+      my_custom_vertex("Rainy","Grey things",3.0,4.0)
     };
     assert(expected_my_custom_vertexes == vertex_my_custom_vertexes);
   }

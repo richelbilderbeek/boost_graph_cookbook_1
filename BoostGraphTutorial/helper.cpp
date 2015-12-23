@@ -1,9 +1,9 @@
 #include "helper.h"
 
 #include <algorithm>
+#include <cassert>
 #include <fstream>
 #include <stdexcept>
-#include <boost/algorithm/string/replace.hpp>
 #include "is_regular_file.h"
 
 helper::helper()
@@ -39,21 +39,7 @@ std::vector<std::string> helper::file_to_vector(
   return v;
 }
 
-std::string helper::graphviz_decode(std::string s) const noexcept
-{
-  boost::algorithm::replace_all(s,"[[:UNDERSCORE:]]","_");
-  boost::algorithm::replace_all(s,"[[:SPACE:]]"," ");
-  boost::algorithm::replace_all(s,"[[:QUOTE:]]","\"");
-  return s;
-}
 
-std::string helper::graphviz_encode(std::string s) const noexcept
-{
-  boost::algorithm::replace_all(s,"_","[[:UNDERSCORE:]]");
-  boost::algorithm::replace_all(s," ","[[:SPACE:]]");
-  boost::algorithm::replace_all(s,"\"","[[:QUOTE:]]");
-  return s;
-}
 
 void helper::test() noexcept
 {
@@ -61,14 +47,5 @@ void helper::test() noexcept
     static bool is_tested{false};
     if (is_tested) return;
     is_tested = true;
-  }
-  //Graphviz encoding
-  {
-    for (const auto s: { "A", "A B", "A_B", " A B ", "_A_B_"} )
-    {
-      const auto t = helper().graphviz_encode(s);
-      const auto u = helper().graphviz_decode(t);
-      assert(s == u);
-    }
   }
 }

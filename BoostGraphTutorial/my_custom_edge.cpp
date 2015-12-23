@@ -8,6 +8,8 @@
 
 #include "helper.h"
 #include "seperate_string.h"
+#include "graphviz_decode.h"
+#include "graphviz_encode.h"
 
 my_custom_edge::my_custom_edge(
   const std::string& name,
@@ -21,13 +23,13 @@ my_custom_edge::my_custom_edge(
     m_height{height}
 {
   assert(
-    helper().graphviz_decode(
-      helper().graphviz_encode(m_name)
+    graphviz_decode(
+      graphviz_encode(m_name)
     ) == m_name
   );
   assert(
-    helper().graphviz_decode(
-      helper().graphviz_encode(m_description)
+    graphviz_decode(
+      graphviz_encode(m_description)
     ) == m_description
   );
 }
@@ -111,9 +113,9 @@ bool operator!=(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept
 std::ostream& operator<<(std::ostream& os, const my_custom_edge& v) noexcept
 {
   os
-    << helper().graphviz_encode(v.get_name())
+    << graphviz_encode(v.get_name())
     << ","
-    << helper().graphviz_encode(v.get_description())
+    << graphviz_encode(v.get_description())
     << ","
     << v.get_width()
     << ","
@@ -130,8 +132,8 @@ std::istream& operator>>(std::istream& is, my_custom_edge& the_edge) noexcept
   if (w.size() != 4) { the_edge = my_custom_edge(); return is; }
   assert(w.size() == 4);
   the_edge = my_custom_edge(
-    helper().graphviz_decode(w[0]),
-    helper().graphviz_decode(w[1]),
+    graphviz_decode(w[0]),
+    graphviz_decode(w[1]),
     boost::lexical_cast<double>(w[2]),
     boost::lexical_cast<double>(w[3])
   );

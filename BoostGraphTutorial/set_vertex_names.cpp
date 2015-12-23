@@ -15,5 +15,5 @@ void set_vertex_names_test() noexcept
     set_vertex_names(g,vertex_names);
     assert(get_vertex_names(g) == vertex_names);
   }
-  std::cout << __func__ << ": TODO" << '\n';
+  std::cout << __func__ << ": OK" << '\n';
 }

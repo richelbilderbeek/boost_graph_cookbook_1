@@ -121,7 +121,18 @@ HEADERS += \
     find_first_custom_edge_with_my_edge.h \
     get_custom_edge_my_edge.h \
     set_custom_edge_my_edge.h \
-    has_custom_edge_with_my_edge.h
+    has_custom_edge_with_my_edge.h \
+    graphviz_encode.h \
+    graphviz_decode.h \
+    create_nasty_directed_custom_edges_and_vertices_graph.h \
+    create_nasty_undirected_custom_edges_and_vertices_graph.h \
+    get_sorted_custom_edge_my_edges.h \
+    create_nasty_directed_custom_vertices_graph.h \
+    get_sorted_custom_vertex_my_vertexes.h \
+    create_nasty_directed_bundled_vertices_graph.h \
+    get_sorted_bundled_vertex_my_vertexes.h \
+    get_sorted_named_vertex_my_vertexes.h \
+    create_nasty_directed_named_vertices_graph.h
 
 SOURCES += \
   add_bundled_vertex.cpp \
@@ -243,7 +254,18 @@ SOURCES += \
     find_first_custom_edge_with_my_edge.cpp \
     get_custom_edge_my_edge.cpp \
     set_custom_edge_my_edge.cpp \
-    has_custom_edge_with_my_edge.cpp
+    has_custom_edge_with_my_edge.cpp \
+    graphviz_encode.cpp \
+    graphviz_decode.cpp \
+    create_nasty_directed_custom_edges_and_vertices_graph.cpp \
+    create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
+    get_sorted_custom_edge_my_edges.cpp \
+    create_nasty_directed_custom_vertices_graph.cpp \
+    get_sorted_custom_vertex_my_vertexes.cpp \
+    create_nasty_directed_bundled_vertices_graph.cpp \
+    get_sorted_bundled_vertex_my_vertexes.cpp \
+    get_sorted_named_vertex_my_vertexes.cpp \
+    create_nasty_directed_named_vertices_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -450,5 +472,7 @@ OTHER_FILES += \
     set_custom_edge_my_edge_demo.impl \
     set_custom_edge_my_edge.impl \
     has_custom_edge_with_my_edge_demo.impl \
-    has_custom_edge_with_my_edge.impl
+    has_custom_edge_with_my_edge.impl \
+    graphviz_encode.impl \
+    graphviz_decode.impl
 

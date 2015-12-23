@@ -1,6 +1,6 @@
 digraph G {
-0[label="Sunny,You can see the yellow thing,1,2"];
-1[label="Rainy,Many grey fluffy things,3,4"];
+0[label="Sunny,Yellow thing,1,2"];
+1[label="Rainy,Grey things,3,4"];
 0->0 ;
 0->1 ;
 1->0 ;
