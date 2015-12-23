@@ -310,18 +310,6 @@ In the index, I did first put all my long-named functions there literally,
 \end_layout
 
 \begin_layout Subsection
-Bundled properties
-\end_layout
-
-\begin_layout Standard
-Because I never got these to work, bundled properties are absent in this
- tutorial.
- Instead, I add custom edges and vertices, which I did get to work.
- I would love additional chapters that follow the same structure as the
- current tutorial that show 'The Bundled Properies Way'.
-\end_layout
-
-\begin_layout Subsection
 Feedback
 \end_layout
 
