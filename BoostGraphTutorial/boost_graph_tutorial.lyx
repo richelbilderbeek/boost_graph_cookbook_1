@@ -14622,14 +14622,17 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "create_bundled_vertices_k2_graph.dot"
-lstparams "breaklines=true,language={C++}"
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_vertices_k2_graph.dot cannot be created
+\end_layout
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -14683,8 +14686,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename create_custom_vertices_k2_graph.svg
+:-( 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+create_bundled_vertices_k2_graph.svg cannot be created
+\end_layout
 
 \end_inset
 
@@ -14795,7 +14803,7 @@ reference "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Setting all vertices their 'my_bundled_vertex'es: chapter 
+Setting all vertices their 'my_bundled_vertex'-es: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_bundled_vertex_my_vertexes"
@@ -14855,9 +14863,9 @@ name "sub:has_bundled_vertex_with_my_vertex"
 \begin_layout Standard
 Before modifying our vertices, let's first determine if we can find a vertex
  by its bundled type ('my_bundled_vertex') in a graph.
- After obtaing a my_vertex map, we obtain the vertex iterators, dereference
- these to obtain the vertex descriptors and then compare each vertex its
- 'my_bundled_vertex' with the one desired.
+ After obtain the vertex iterators, we can dereference each these to obtain
+ the vertex descriptors and then compare each vertex its 'my_bundled_vertex'
+ with the one desired.
 \end_layout
 
 \begin_layout Standard
@@ -14920,7 +14928,7 @@ reference "alg:has_bundled_vertex_with_my_vertex_demo"
 
 \end_inset
 
-, where a certain my_vertex cannot be found in an empty graph.
+, where a certain my_bundled_vertex cannot be found in an empty graph.
  After adding the desired my_bundled_vertex, it is found.
 \end_layout
 
@@ -14973,7 +14981,7 @@ Note that this function only finds if there is at least one bundled vertex
 \end_layout
 
 \begin_layout Subsection
-Find a bundled vertex with a certain my_vertex
+Find a bundled vertex with a certain my_bundled_vertex
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:find_bundled_vertex_with_my_vertex"
@@ -15112,7 +15120,7 @@ name "alg:find_first_bundled_vertex_with_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Get a bundled vertex its my_bundled_vertex
+Get a bundled vertex its 'my_bundled_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:get_bundled_vertex_my_vertex"
@@ -15123,7 +15131,7 @@ name "sub:get_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To obtain the my_bundled_vertex from a vertex descriptor is simple:
+To obtain the 'my_bundled_vertex' from a vertex descriptor is simple:
 \end_layout
 
 \begin_layout Standard
@@ -15153,7 +15161,7 @@ Get a bundled vertex its my_vertex from its vertex descriptor
 status open
 
 \begin_layout Plain Layout
-Get bundled vertex my_vertex
+Get bundled vertex my_bundled_vertex
 \end_layout
 
 \end_inset
@@ -15176,6 +15184,10 @@ name "alg:get_bundled_vertex_my_vertex"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+One can just use the graph as a property map and let it be looked-up.
 \end_layout
 
 \begin_layout Standard
@@ -15245,8 +15257,8 @@ name "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-If you know how to get the my_bundled_vertex from a vertex descriptor, setting
- it is just as easy, as shown in algorithm 
+If you know how to get the 'my_bundled_vertex' from a vertex descriptor,
+ setting it is just as easy, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:set_bundled_vertex_my_vertex"
@@ -15375,7 +15387,7 @@ name "sub:set_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph are my_bundled_vertex objects, one can set
+When the vertices of a graph are 'my_bundled_vertex' objects, one can set
  these as such:
 \end_layout
 
@@ -15401,12 +15413,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Setting the bundled vertices' my_vertexes
+Setting the bundled vertices' 'my_bundled_vertex'-es
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Set bundled vertex my_vertexes
+Set bundled vertex my_bundled_vertexes
 \end_layout
 
 \end_inset
@@ -15443,7 +15455,7 @@ name "sub:save_bundled_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-If you used the create_bundled_vertices_k2_graph function (algorithm 
+If you used the 'create_bundled_vertices_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_bundled_vertices_k2_graph"
@@ -15454,8 +15466,8 @@ reference "alg:create_bundled_vertices_k2_graph"
 \begin_inset Formula $K_{2}$
 \end_inset
 
- graph with vertices associated with my_bundled_vertex objects, you can
- store these 'my_bundled_vertexes' additionally with algorithm 
+ graph with vertices associated with 'my_bundled_vertex' objects, you can
+ store these with algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_bundled_vertices_graph_to_dot"
@@ -15620,19 +15632,8 @@ boost::dynamic_properties
 
 \end_inset
 
- is created with its default constructor, after which we direct the boost::dynam
-ic_properties
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-boost::dynamic_properties
-\end_layout
-
-\end_inset
-
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
- to the edge name map.
+ is created with its default constructor, after which [we set up the boost::dyna
+mic_properties properly somehow, issue #16].
  From this and the empty graph, 'boost::read_graphviz'
 \begin_inset Index idx
 status open
@@ -15709,9 +15710,7 @@ reference "alg:create_bundled_vertices_markov_chain"
 \end_inset
 
 ), saved and then loaded.
- The loaded graph is checked to be a directed graph similar to the Markov
- chain with the same vertex my_bundled_vertex instances (using the 'get_bundled_
-vertex_my_vertexes' function).
+ The loaded graph is checked to be the same as the original.
 \end_layout
 
 \begin_layout Subsection
@@ -15872,9 +15871,7 @@ reference "alg:create_bundled_vertices_k2_graph"
 \end_inset
 
 ), saved and then loaded.
- The loaded graph is checked to be a graph similar to the original, with
- the same vertex my_vertex instances (using the 'get_vertex_my_vertexes'
- function).
+ The loaded graph is checked to be the same as the original.
 \end_layout
 
 \begin_layout Section
@@ -15890,17 +15887,16 @@ name "sec:Building-graphs-with-custom-properties"
 
 \begin_layout Standard
 Instead of using bundled properties, you can also add a new custom property.
- The difference is that instead of having a 'my_vertex' (the class is described
- in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:my_bundled_vertex"
-
-\end_inset
-
-) for vertices, vertices have an additional property where the 'my_vertex'
- is stored, next to properties like vertex name, edge delay (see chapter
- 
+ The difference is that instead of having a class 
+\emph on
+as
+\emph default
+ a vertex, vertices have 
+\emph on
+an additional property
+\emph default
+ where the 'my_custom_vertex' is stored, next to properties like vertex
+ name, edge delay (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:all_properties"
@@ -16121,7 +16117,7 @@ name "alg:my_custom_vertex_h"
 \end_layout
 
 \begin_layout Itemize
-It has four public member variables: the double 'm_x' ('m_
+It has four private member variables: the double 'm_x' ('m_
 \begin_inset Index idx
 status open
 
@@ -16160,15 +16156,28 @@ It is comparable for equality (it has operator==), which is needed for searching
 \begin_layout Itemize
 It can be streamed (it has both operator<< and operator>>), which is needed
  for file I/O.
- The 'is_read_graphviz_correct' function (algorithm 
+ 
+\end_layout
+
+\begin_layout Standard
+Special characters like comma's, quotes and whitespace cannot be streamed
+ without problems.
+ The function 'graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:is_read_graphviz_correct"
+reference "alg:graphviz_encode"
 
 \end_inset
 
-) is a function to check if the class satisfies the needs of the boost::read_gra
-phviz function, which allows reading a graph from file
+) can convert the elements to be streamed to a Graphviz-friendly version,
+ which can be decoded by 'graphviz_decode' (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:graphviz_decode"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -22594,7 +22603,7 @@ name "sub:load_directed_graph_with_graph_name_from_dot"
 \end_layout
 
 \begin_layout Standard
-This will result in a directed graph without a name.
+This will result in a directed graph without a name [ISSUE #12].
  Please email me if you know how to do this correctly.
 \end_layout
 
@@ -22679,7 +22688,7 @@ name "sub:load_undirected_graph_with_graph_name_from_dot"
 
 \begin_layout Standard
 This will result in an undirected graph without a name.
- Please email me if you know how to do this correctly.
+ [ISSUE #12] Please email me if you know how to do this correctly.
 \end_layout
 
 \begin_layout Standard
@@ -22764,6 +22773,7 @@ reference "sec:Building-graphs-with-a-graph-name"
 \end_inset
 
 ).
+ That is, if Issue #12 is fixed.
 \end_layout
 
 \begin_layout Section
@@ -22779,7 +22789,7 @@ reference "sec:Building-graphs-with-a-graph-name"
 
 \end_inset
 
-).
+).That is, if Issue #12 is fixed.
 \end_layout
 
 \begin_layout Section
