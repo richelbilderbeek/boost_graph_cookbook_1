@@ -57,7 +57,7 @@ void create_nasty_directed_bundled_vertices_graph_test() noexcept
       const auto a = get_sorted_bundled_vertex_my_vertexes(g);
       const auto b = get_sorted_bundled_vertex_my_vertexes(h);
       assert(a == b);
-      assert(!"Green");
+      assert(!"Fixed #16");
     }
     catch (std::exception&)
     {

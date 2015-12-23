@@ -23,7 +23,7 @@ void load_undirected_graph_with_graph_name_from_dot_demo() noexcept
   assert(num_vertices(g) == num_vertices(h));
   if (get_graph_name(h) == "Two-state Markov chain")
   {
-    assert(!"Green");
+    assert(!"Fixed #12");
     assert(get_graph_name(g) == "Two-state Markov chain");
   }
   else

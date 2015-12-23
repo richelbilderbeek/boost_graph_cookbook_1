@@ -64,7 +64,7 @@ void create_bundled_vertices_markov_chain_test() noexcept
       assert(boost::num_vertices(g) == boost::num_vertices(h));
       assert(get_sorted_bundled_vertex_my_vertexes(g)
         == get_sorted_bundled_vertex_my_vertexes(h));
-      assert(!"Green");
+      assert(!"Fixed #16");
       convert_dot_to_svg(dot_filename, svg_filename);
       copy_file(
         svg_filename,

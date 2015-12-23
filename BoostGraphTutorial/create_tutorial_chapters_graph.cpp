@@ -96,6 +96,14 @@ create_tutorial_chapters_graph() noexcept
   }
 
   {
+    const std::string s = "Working on graphs with bundled vertices";
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    //add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
+  }
+
+  {
     const std::string s = "Building graphs with custom vertices";
     add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);

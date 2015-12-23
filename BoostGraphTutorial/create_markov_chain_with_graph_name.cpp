@@ -31,7 +31,7 @@ void create_markov_chain_with_graph_name_test() noexcept
     const auto h = load_directed_graph_with_graph_name_from_dot(dot_filename);
     if (get_graph_name(g) == get_graph_name(h))
     {
-      assert(!"Green");
+      assert(!"Fixed #12");
       assert(get_graph_name(g) == get_graph_name(h));
     }
     else

@@ -40,7 +40,7 @@ void load_undirected_bundled_vertices_graph_from_dot_test() noexcept
         "../BoostGraphTutorial/" + svg_filename,
         copy_file_mode::allow_overwrite
       );
-      assert(!"Green");
+      assert(!"Fixed #16");
     }
     else
     {

@@ -27,7 +27,7 @@ void load_directed_graph_with_graph_name_from_dot_test() noexcept
     const auto new_text = helper().file_to_vector(dot_filename);
     if (old_text == new_text)
     {
-      assert(!"Green");
+      assert(!"Fixed #12");
       assert(old_text == new_text);
       convert_dot_to_svg(dot_filename, svg_filename);
       assert(boost::num_edges(g) == boost::num_edges(h));

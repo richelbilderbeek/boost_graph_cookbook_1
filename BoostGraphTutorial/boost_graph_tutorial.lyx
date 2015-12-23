@@ -338,8 +338,8 @@ There are some pieces of code I could use help with:
 \end_layout
 
 \begin_layout Itemize
-Some types are hardcoded, for example, the function 'get_vertex_names' (algorith
-m 
+Issue #1: Some types are hardcoded, for example, the function 'get_vertex_names'
+ (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_vertex_names"
@@ -353,28 +353,8 @@ reference "sub:get_vertex_names"
 \end_layout
 
 \begin_layout Itemize
-Loading a directed graph with bundled vertices, function 'load_directed_bundled_
-vertices_graph_from_dot' as shown in chapters 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:load_directed_bundled_vertices_graph_from_dot"
-
-\end_inset
-
-.
- Perhaps the function 'save_bundled_vertices_graph_to_dot' (chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:save_bundled_vertices_graph_to_dot"
-
-\end_inset
-
-) needs to rewritten as well
-\end_layout
-
-\begin_layout Itemize
-Loading a directed graph with a name, function 'load_directed_graph_with_graph_n
-ame_from_dot' as shown in chapters 
+Issue #12: Loading a directed graph with a name, function 'load_directed_graph_w
+ith_graph_name_from_dot' as shown in chapters 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:load_directed_graph_with_graph_name_from_dot"
@@ -393,11 +373,11 @@ reference "sub:save_graph_with_graph_name_to_dot"
 \end_layout
 
 \begin_layout Itemize
-Loading an undirected graph with bundled vertices, function 'load_undirected_bun
-dled_vertices_graph_from_dot' as shown in chapters 
+Issue #16: Loading a directed graph with bundled vertices, function 'load_direct
+ed_bundled_vertices_graph_from_dot' as shown in chapters 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:load_undirected_bundled_vertices_graph_from_dot"
+reference "sub:load_directed_bundled_vertices_graph_from_dot"
 
 \end_inset
 
@@ -412,29 +392,18 @@ reference "sub:save_bundled_vertices_graph_to_dot"
 ) needs to rewritten as well
 \end_layout
 
-\begin_layout Itemize
-Loading an undirected graph with a name, function 'load_undirected_graph_with_gr
-aph_name_from_dot' as shown in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:load_undirected_graph_with_graph_name_from_dot"
-
-\end_inset
-
-.
- Perhaps the function 'save_graph_with_graph_name_to_dot' (chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:save_graph_with_graph_name_to_dot"
-
-\end_inset
-
-) needs to rewritten as well
-\end_layout
-
 \begin_layout Standard
 I have already put the tests in place, so you/I can easily check if your
  solution works.
+ If the program crashes with the message 'assertion failed: !
+\begin_inset Quotes erd
+\end_inset
+
+Fixed #
+\begin_inset Quotes erd
+\end_inset
+
+', a problem has been solved.
 \end_layout
 
 \begin_layout Subsection
@@ -14388,7 +14357,17 @@ name "alg:create_bundled_vertices_markov_chain.dot"
 \end_layout
 
 \begin_layout Standard
+I am unaware how to convert this graph to a .dot file in such a way it can
+ be correctly converted back again.
+ The problem is in the function 'load_directed_bundled_vertices_graph_from_dot'
+ (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_bundled_vertices_graph_from_dot"
 
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsubsection
@@ -14453,6 +14432,10 @@ name "fig:create_bundled_vertices_markov_chain.svg"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+No .dot file, no .svg file...
 \end_layout
 
 \begin_layout Subsection

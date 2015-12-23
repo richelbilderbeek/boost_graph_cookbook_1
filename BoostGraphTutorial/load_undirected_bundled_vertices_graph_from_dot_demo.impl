@@ -25,7 +25,7 @@ void load_undirected_bundled_vertices_graph_from_dot_demo() noexcept
     assert(get_bundled_vertex_my_vertexes(g)
       == get_bundled_vertex_my_vertexes(h)
     );
-    assert(!"Green");
+    assert(!"Fixed #16");
   }
   else
   {
