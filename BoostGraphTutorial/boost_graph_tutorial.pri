@@ -19,6 +19,7 @@ HEADERS += \
     create_bundled_edges_and_vertices_markov_chain.h \
     create_bundled_vertices_k2_graph.h \
     create_bundled_vertices_markov_chain.h \
+    create_custom_and_selectable_vertices_k2_graph.h \
     create_custom_and_selectable_vertices_markov_chain.h \
     create_custom_edges_and_vertices_k3_graph.h \
     create_custom_edges_and_vertices_markov_chain.h \
@@ -62,6 +63,7 @@ HEADERS += \
     create_nasty_undirected_custom_edges_and_vertices_graph.h \
     create_tutorial_chapters_graph.h \
     create_tutorial_subchapters_graph.h \
+    custom_and_selectable_vertices_writer.h \
     find_first_bundled_edge_with_my_edge.h \
     find_first_bundled_vertex_with_my_vertex.h \
     find_first_custom_edge_with_my_edge.h \
@@ -90,6 +92,7 @@ HEADERS += \
     get_sorted_custom_edge_my_edges.h \
     get_sorted_custom_vertex_my_vertexes.h \
     get_sorted_named_vertex_my_vertexes.h \
+    get_sorted_vertex_selectednesses.h \
     get_type_name.h \
     get_vertex_descriptors.h \
     get_vertex_iterators.h \
@@ -124,12 +127,14 @@ HEADERS += \
     load_directed_named_vertices_graph_from_dot.h \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.h \
     load_undirected_bundled_vertices_graph_from_dot.h \
+    load_undirected_custom_and_selectable_vertices_graph_from_dot.h \
     load_undirected_custom_edges_and_vertices_graph_from_dot.h \
     load_undirected_custom_vertices_graph_from_dot.h \
     load_undirected_graph_from_dot.h \
     load_undirected_graph_with_graph_name_from_dot.h \
     load_undirected_named_edges_and_vertices_graph_from_dot.h \
     load_undirected_named_vertices_graph_from_dot.h \
+    make_custom_and_selectable_vertices_writer.h \
     my_bundled_edge.h \
     my_bundled_vertex.h \
     my_custom_edge.h \
@@ -141,6 +146,7 @@ HEADERS += \
     remove_first_vertex_with_name.h \
     save_bundled_edges_and_vertices_graph_to_dot.h \
     save_bundled_vertices_graph_to_dot.h \
+    save_custom_and_selectable_vertices_graph_to_dot.h \
     save_custom_edges_and_vertices_graph_to_dot.h \
     save_custom_vertices_graph_to_dot.h \
     save_graph_to_dot.h \
@@ -159,11 +165,7 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    get_sorted_vertex_selectednesses.h \
-    save_custom_and_selectable_vertices_graph_to_dot.h \
-    custom_and_selectable_vertices_writer.h \
-    make_custom_and_selectable_vertices_writer.h \
-    create_custom_and_selectable_vertices_k2_graph.h
+    create_nasty_undirected_custom_and_selectable_vertices_graph.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -186,6 +188,7 @@ SOURCES += \
     create_bundled_edges_and_vertices_markov_chain.cpp \
     create_bundled_vertices_k2_graph.cpp \
     create_bundled_vertices_markov_chain.cpp \
+    create_custom_and_selectable_vertices_k2_graph.cpp \
     create_custom_and_selectable_vertices_markov_chain.cpp \
     create_custom_edges_and_vertices_k3_graph.cpp \
     create_custom_edges_and_vertices_markov_chain.cpp \
@@ -229,6 +232,7 @@ SOURCES += \
     create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
     create_tutorial_chapters_graph.cpp \
     create_tutorial_subchapters_graph.cpp \
+    custom_and_selectable_vertices_writer.cpp \
     find_first_bundled_edge_with_my_edge.cpp \
     find_first_bundled_vertex_with_my_vertex.cpp \
     find_first_custom_edge_with_my_edge.cpp \
@@ -257,6 +261,7 @@ SOURCES += \
     get_sorted_custom_edge_my_edges.cpp \
     get_sorted_custom_vertex_my_vertexes.cpp \
     get_sorted_named_vertex_my_vertexes.cpp \
+    get_sorted_vertex_selectednesses.cpp \
     get_type_name.cpp \
     get_vertex_descriptors.cpp \
     get_vertex_iterators.cpp \
@@ -288,12 +293,14 @@ SOURCES += \
     load_directed_named_vertices_graph_from_dot.cpp \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.cpp \
     load_undirected_bundled_vertices_graph_from_dot.cpp \
+    load_undirected_custom_and_selectable_vertices_graph_from_dot.cpp \
     load_undirected_custom_edges_and_vertices_graph_from_dot.cpp \
     load_undirected_custom_vertices_graph_from_dot.cpp \
     load_undirected_graph_from_dot.cpp \
     load_undirected_graph_with_graph_name_from_dot.cpp \
     load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
     load_undirected_named_vertices_graph_from_dot.cpp \
+    make_custom_and_selectable_vertices_writer.cpp \
     my_bundled_edge.cpp \
     my_bundled_vertex.cpp \
     my_custom_edge.cpp \
@@ -305,6 +312,7 @@ SOURCES += \
     remove_first_vertex_with_name.cpp \
     save_bundled_edges_and_vertices_graph_to_dot.cpp \
     save_bundled_vertices_graph_to_dot.cpp \
+    save_custom_and_selectable_vertices_graph_to_dot.cpp \
     save_custom_edges_and_vertices_graph_to_dot.cpp \
     save_custom_vertices_graph_to_dot.cpp \
     save_graph_to_dot.cpp \
@@ -323,11 +331,7 @@ SOURCES += \
     set_vertex_name.cpp \
     set_vertex_names.cpp \
     show_dot.cpp \
-    get_sorted_vertex_selectednesses.cpp \
-    save_custom_and_selectable_vertices_graph_to_dot.cpp \
-    custom_and_selectable_vertices_writer.cpp \
-    make_custom_and_selectable_vertices_writer.cpp \
-    create_custom_and_selectable_vertices_k2_graph.cpp
+    create_nasty_undirected_custom_and_selectable_vertices_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -365,6 +369,8 @@ OTHER_FILES += \
     create_bundled_vertices_k2_graph.impl \
     create_bundled_vertices_markov_chain_demo.impl \
     create_bundled_vertices_markov_chain.impl \
+    create_custom_and_selectable_vertices_k2_graph_demo.impl \
+    create_custom_and_selectable_vertices_k2_graph.impl \
     create_custom_and_selectable_vertices_markov_chain_demo.impl \
     create_custom_and_selectable_vertices_markov_chain.impl \
     create_custom_edges_and_vertices_k3_graph_demo.impl \
@@ -429,6 +435,7 @@ OTHER_FILES += \
     create_named_vertices_k2_graph.impl \
     create_named_vertices_markov_chain_demo.impl \
     create_named_vertices_markov_chain.impl \
+    custom_and_selectable_vertices_writer.impl \
     find_first_bundled_edge_with_my_edge_demo.impl \
     find_first_bundled_edge_with_my_edge.impl \
     find_first_bundled_vertex_with_my_vertex_demo.impl \
@@ -509,6 +516,7 @@ OTHER_FILES += \
     load_directed_bundled_edges_and_vertices_graph_from_dot.impl \
     load_directed_bundled_vertices_graph_from_dot_demo.impl \
     load_directed_bundled_vertices_graph_from_dot.impl \
+    load_directed_custom_and_selectable_vertices_graph_from_dot_demo.impl \
     load_directed_custom_and_selectable_vertices_graph_from_dot.impl \
     load_directed_custom_edges_and_vertices_graph_from_dot_demo.impl \
     load_directed_custom_edges_and_vertices_graph_from_dot.impl \
@@ -526,6 +534,7 @@ OTHER_FILES += \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
     load_undirected_bundled_vertices_graph_from_dot_demo.impl \
     load_undirected_bundled_vertices_graph_from_dot.impl \
+    load_undirected_custom_and_selectable_vertices_graph_from_dot.impl \
     load_undirected_custom_edges_and_vertices_graph_from_dot_demo.impl \
     load_undirected_custom_edges_and_vertices_graph_from_dot.impl \
     load_undirected_custom_vertices_graph_from_dot_demo.impl \
@@ -538,6 +547,7 @@ OTHER_FILES += \
     load_undirected_named_edges_and_vertices_graph_from_dot.impl \
     load_undirected_named_vertices_graph_from_dot_demo.impl \
     load_undirected_named_vertices_graph_from_dot.impl \
+    make_custom_and_selectable_vertices_writer.impl \
     my_bundled_edge.impl \
     my_bundled_vertex.impl \
     my_custom_edge.impl \
@@ -555,6 +565,8 @@ OTHER_FILES += \
     save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
     save_bundled_vertices_graph_to_dot_cpp11.impl \
     save_bundled_vertices_graph_to_dot_cpp14.impl \
+    save_custom_and_selectable_vertices_graph_to_dot_cpp11.impl \
+    save_custom_and_selectable_vertices_graph_to_dot_cpp14.impl \
     save_custom_edges_and_vertices_graph_to_dot_cpp11.impl \
     save_custom_edges_and_vertices_graph_to_dot_cpp14.impl \
     save_custom_edges_and_vertices_graph_to_dot_demo.impl \
@@ -589,9 +601,5 @@ OTHER_FILES += \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
     set_vertex_names.impl \
-    load_directed_custom_and_selectable_vertices_graph_from_dot_demo.impl \
-    save_custom_and_selectable_vertices_graph_to_dot_cpp11.impl \
-    save_custom_and_selectable_vertices_graph_to_dot_cpp14.impl \
-    create_custom_and_selectable_vertices_k2_graph.impl \
-    create_custom_and_selectable_vertices_k2_graph_demo.impl
+    load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl
 

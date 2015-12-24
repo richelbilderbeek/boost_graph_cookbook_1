@@ -1,0 +1,41 @@
+#include <boost/graph/graphviz.hpp>
+#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
+#include "install_vertex_custom_type.h"
+#include "is_regular_file.h"
+#include "my_custom_vertex.h"
+
+///Load a undirected graph with custom and
+///selectable vertices from a .dot file.
+///Assumes that the file exists, that the
+///'my_custom_vertex_type' is stored as a
+///Graphiz label and the 'is_selected_type'
+///is stored as the Graphviz 'regular' property
+template<
+  typename my_custom_vertex_type = my_custom_vertex,
+  typename is_selected_type = bool
+>
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::property<
+      boost::vertex_is_selected_t, is_selected_type
+    >
+  >
+>
+load_undirected_custom_and_selectable_vertices_graph_from_dot(
+  const std::string& dot_filename
+)
+{
+  assert(is_regular_file(dot_filename));
+  std::ifstream f(dot_filename.c_str());
+  auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
+  boost::dynamic_properties p; //_do_ default construct
+  p.property("node_id", get(boost::vertex_custom_type, g));
+  p.property("label", get(boost::vertex_custom_type, g));
+  p.property("regular", get(boost::vertex_is_selected, g));
+  boost::read_graphviz(f,g,p);
+  return g;
+}

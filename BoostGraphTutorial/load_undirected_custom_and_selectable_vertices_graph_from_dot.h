@@ -1,0 +1,9 @@
+#ifndef LOAD_UNDIRECTED_CUSTOM_AND_SELECTABLE_VERTICES_GRAPH_FROM_DOT_H
+#define LOAD_UNDIRECTED_CUSTOM_AND_SELECTABLE_VERTICES_GRAPH_FROM_DOT_H
+
+#include "load_undirected_custom_and_selectable_vertices_graph_from_dot.impl"
+
+void load_undirected_custom_and_selectable_vertices_graph_from_dot_test() noexcept;
+
+
+#endif // LOAD_UNDIRECTED_CUSTOM_AND_SELECTABLE_VERTICES_GRAPH_FROM_DOT_H

@@ -3,12 +3,8 @@
 #include <boost/graph/graphviz.hpp>
 #include "install_vertex_custom_type.h"
 #include "install_vertex_is_selected.h"
-#include "my_custom_vertex.h"
-//#include <boost/graph/properties.hpp>
-
 #include "make_custom_and_selectable_vertices_writer.h"
-
-
+#include "my_custom_vertex.h"
 
 ///Save a graph with custom vertices to a .dot file
 template <typename graph>

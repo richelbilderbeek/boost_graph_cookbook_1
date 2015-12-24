@@ -53,6 +53,7 @@
 #include "create_nasty_directed_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_directed_custom_edges_and_vertices_graph.h"
 #include "create_nasty_directed_custom_vertices_graph.h"
+#include "create_nasty_undirected_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
 #include "create_tutorial_chapters_graph.h"
 #include "create_tutorial_subchapters_graph.h"
@@ -108,6 +109,7 @@
 #include "load_directed_named_vertices_graph_from_dot.h"
 #include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_bundled_vertices_graph_from_dot.h"
+#include "load_undirected_custom_and_selectable_vertices_graph_from_dot.h"
 #include "load_undirected_custom_edges_and_vertices_graph_from_dot.h"
 #include "load_undirected_custom_vertices_graph_from_dot.h"
 #include "load_undirected_graph_from_dot.h"
@@ -199,6 +201,7 @@ int main()
   create_nasty_directed_bundled_vertices_graph_test();
   create_nasty_directed_custom_and_selectable_vertices_graph_test();
   create_nasty_directed_custom_vertices_graph_test();
+  create_nasty_undirected_custom_and_selectable_vertices_graph_test();
   create_nasty_undirected_custom_edges_and_vertices_graph_test();
   create_tutorial_chapters_graph_test();
   create_tutorial_subchapters_graph_test();
@@ -253,6 +256,7 @@ int main()
   load_directed_named_vertices_graph_from_dot_test();
   load_undirected_bundled_edges_and_vertices_graph_from_dot_test();
   load_undirected_bundled_vertices_graph_from_dot_test();
+  load_undirected_custom_and_selectable_vertices_graph_from_dot_test();
   load_undirected_custom_edges_and_vertices_graph_from_dot_test();
   load_undirected_custom_vertices_graph_from_dot_test();
   load_undirected_graph_from_dot_test();
