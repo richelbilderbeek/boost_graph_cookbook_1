@@ -1,8 +1,0 @@
-graph G {
-0[label=top];
-1[label=right];
-2[label=left];
-0--1 ;
-1--2 ;
-2--0 ;
-}

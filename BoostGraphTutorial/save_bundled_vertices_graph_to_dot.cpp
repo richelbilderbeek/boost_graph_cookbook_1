@@ -25,7 +25,6 @@ void save_bundled_vertices_graph_to_dot_test() noexcept
 
     const std::string base_filename{"save_bundled_vertices_graph_to_dot_test_bundled_vertices_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
-    const std::string svg_filename{base_filename + ".svg"};
 
     save_bundled_vertices_graph_to_dot(g,dot_filename);
     assert(is_regular_file(dot_filename));
@@ -38,25 +37,12 @@ void save_bundled_vertices_graph_to_dot_test() noexcept
       "}"
     };
     assert(text != expected_text);
-    convert_dot_to_svg(dot_filename,svg_filename);
-    copy_file(
-      dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
-      copy_file_mode::allow_overwrite
-    );
-    copy_file(
-      svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
-      copy_file_mode::allow_overwrite
-    );
-    //show_dot(filename);
   }
   //Show it does not store the edges' names
   {
     const auto g = create_bundled_vertices_k2_graph();
     const std::string base_filename{"save_bundled_vertices_graph_to_dot_test_bundled_vertices_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
-    const std::string svg_filename{base_filename + ".svg"};
 
     save_bundled_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
@@ -74,18 +60,7 @@ void save_bundled_vertices_graph_to_dot_test() noexcept
       "}"
     };
     assert(text != expected_text);
-    convert_dot_to_svg(dot_filename,svg_filename);
-    copy_file(
-      dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
-      copy_file_mode::allow_overwrite
-    );
-    copy_file(
-      svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
-      copy_file_mode::allow_overwrite
-    );
-    //show_dot(filename);
+
   }
   std::cout << __func__ << ": OK" << '\n';
 }

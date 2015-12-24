@@ -18,6 +18,7 @@
 #include "save_named_vertices_graph_to_dot.h"
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
+#include "load_undirected_named_vertices_graph_from_dot.h"
 
 void create_named_vertices_k2_graph_test() noexcept
 {
@@ -45,6 +46,10 @@ void create_named_vertices_k2_graph_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g, dot_filename);
+    const auto h = load_undirected_named_vertices_graph_from_dot(dot_filename);
+    assert(get_vertex_names(g) == get_vertex_names(h)); //Maybe sort first?
+
+
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(
       dot_filename,

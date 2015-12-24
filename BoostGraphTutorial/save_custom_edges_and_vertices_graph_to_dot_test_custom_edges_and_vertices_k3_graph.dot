@@ -1,8 +1,0 @@
-graph G {
-0[label="top,source,0,0"];
-1[label="right,target,3.14,3.14"];
-2[label="left,target,0,0"];
-0--1 [label="AB,first,0,0"];
-1--2 [label="BC,second,3.14,3.14"];
-2--0 [label="CA,third,3.14,3.14"];
-}

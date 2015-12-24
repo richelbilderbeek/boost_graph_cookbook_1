@@ -156,7 +156,8 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    create_custom_and_selectable_vertices_markov_chain.h
+    create_custom_and_selectable_vertices_markov_chain.h \
+    convert_svg_to_png.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -313,7 +314,8 @@ SOURCES += \
     create_empty_undirected_custom_and_selectable_vertices_graph.cpp \
     add_custom_and_selectable_vertex.cpp \
     get_vertex_selectednesses.cpp \
-    create_custom_and_selectable_vertices_markov_chain.cpp
+    create_custom_and_selectable_vertices_markov_chain.cpp \
+    convert_svg_to_png.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and

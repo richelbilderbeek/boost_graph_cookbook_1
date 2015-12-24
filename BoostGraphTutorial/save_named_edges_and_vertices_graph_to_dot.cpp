@@ -13,18 +13,11 @@
 
 void save_named_edges_and_vertices_graph_to_dot_test() noexcept
 {
-  //Should not compile on graphs without named vertices. It does not :-)
-  {
-    //const auto g = create_named_vertices_k2_graph();
-    //const std::string filename{"save_named_edges_and_vertices_graph_to_dot_test_named_vertices_k2_graph.dot"};
-    //save_named_edges_and_vertices_graph_to_dot(g,filename);
-  }
   //Show it stores the edges' names
   {
     const auto g = create_named_edges_and_vertices_k3_graph();
     const std::string base_filename{"save_named_edges_and_vertices_graph_to_dot_test_named_edges_and_vertices_k3_graph"};
     const std::string dot_filename{base_filename + ".dot"};
-    const std::string svg_filename{base_filename + ".svg"};
     save_named_edges_and_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
@@ -41,18 +34,6 @@ void save_named_edges_and_vertices_graph_to_dot_test() noexcept
       "}"
     };
     assert(text == expected_text);
-    convert_dot_to_svg(dot_filename,svg_filename);
-    copy_file(
-      dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
-      copy_file_mode::allow_overwrite
-    );
-    copy_file(
-      svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
-      copy_file_mode::allow_overwrite
-    );
-    //show_dot(filename);
   }
   std::cout << __func__ << ": OK" << '\n';
 }

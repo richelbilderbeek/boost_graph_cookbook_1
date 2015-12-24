@@ -8,6 +8,7 @@
 #include "add_edge_between_named_vertices.h"
 #include "add_named_vertex.h"
 #include "convert_dot_to_svg.h"
+#include "convert_svg_to_png.h"
 #include "copy_file.h"
 #include "create_empty_directed_named_vertices_graph.h"
 #include "is_valid_dot_file.h"
@@ -210,10 +211,12 @@ void create_tutorial_chapters_graph_test() noexcept
     const std::string base_filename{"title_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
+    const std::string png_filename{base_filename + ".png"};
     std::ofstream f(dot_filename);
     boost::write_graphviz(f,g);
     assert(is_valid_dot_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
+    convert_svg_to_png(svg_filename,png_filename);
     copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
@@ -222,6 +225,11 @@ void create_tutorial_chapters_graph_test() noexcept
     copy_file(
       svg_filename,
       "../BoostGraphTutorial/" + svg_filename,
+      copy_file_mode::allow_overwrite
+    );
+    copy_file(
+      png_filename,
+      "../BoostGraphTutorial/" + png_filename,
       copy_file_mode::allow_overwrite
     );
   }

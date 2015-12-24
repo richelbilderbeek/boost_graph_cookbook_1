@@ -1,5 +1,0 @@
-graph G {
-0[label="Hello world"];
-1[label="Hasta la vista"];
-0--1 ;
-}
