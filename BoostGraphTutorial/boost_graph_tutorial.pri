@@ -154,7 +154,8 @@ HEADERS += \
     create_empty_directed_custom_and_selectable_vertices_graph.h \
     create_empty_undirected_custom_and_selectable_vertices_graph.h \
     add_custom_and_selectable_vertex.h \
-    install_vertex_is_selected.h
+    install_vertex_is_selected.h \
+    get_vertex_selectednesses.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -309,7 +310,8 @@ SOURCES += \
     create_empty_undirected_named_and_selectable_vertices_graph.cpp \
     create_empty_directed_custom_and_selectable_vertices_graph.cpp \
     create_empty_undirected_custom_and_selectable_vertices_graph.cpp \
-    add_custom_and_selectable_vertex.cpp
+    add_custom_and_selectable_vertex.cpp \
+    get_vertex_selectednesses.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -565,5 +567,7 @@ OTHER_FILES += \
     create_empty_undirected_custom_and_selectable_vertices_graph_demo.impl \
     add_custom_and_selectable_vertex.impl \
     add_custom_and_selectable_vertex_demo.impl \
-    install_vertex_is_selected.impl
+    install_vertex_is_selected.impl \
+    get_vertex_selectednesses.impl \
+    get_vertex_selectednesses_demo.impl
 

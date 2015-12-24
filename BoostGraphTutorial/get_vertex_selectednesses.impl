@@ -1,0 +1,34 @@
+//#include <string>
+#include <vector>
+#include "install_vertex_is_selected.h"
+//#include <boost/graph/properties.hpp>
+//#include <boost/graph/graph_traits.hpp>
+
+///Get all vertex selectednesses
+///TODO: return a 'vertex_is_selected_type' (deduced from the
+///graph type), instead of a bool
+///TODO: if that type is bool, return a boost::dynamic_bitset
+template <typename graph>
+std::vector<bool> get_vertex_selectednesses(
+  const graph& g
+) noexcept
+{
+  std::vector<bool> v;
+
+  const auto is_selected_map = get(
+    boost::vertex_is_selected, g
+  );
+  const auto vip
+    = vertices(g); //not boost::vertices
+  const auto j = vip.second;
+
+  for (auto i = vip.first; i!=j; ++i) {
+    v.push_back(
+      get( //not boost::get
+        is_selected_map,
+        *i
+      )
+    );
+  }
+  return v;
+}

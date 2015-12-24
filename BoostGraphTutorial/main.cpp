@@ -137,10 +137,12 @@
 #include "create_empty_directed_custom_and_selectable_vertices_graph.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "add_custom_and_selectable_vertex.h"
+#include "get_vertex_selectednesses.h"
 #include <iostream>
 
 int main()
 {
+  get_vertex_selectednesses_test();
   add_custom_and_selectable_vertex_test();
   create_empty_undirected_custom_and_selectable_vertices_graph_test();
   create_empty_directed_custom_and_selectable_vertices_graph_test();
