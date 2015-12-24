@@ -1,0 +1,6 @@
+#include <boost/graph/properties.hpp>
+
+namespace boost {
+  enum vertex_is_selectable_t { vertex_is_selectable = 31415 };
+  BOOST_INSTALL_PROPERTY(vertex,is_selectable);
+}

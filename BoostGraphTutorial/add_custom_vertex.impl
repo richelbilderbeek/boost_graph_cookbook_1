@@ -5,9 +5,14 @@
 
 ///Add a custom vertex to a graph
 template <typename graph>
-void add_custom_vertex(const my_custom_vertex& v, graph& g) noexcept
+void add_custom_vertex(
+  const my_custom_vertex& v,
+  graph& g
+) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
 
   const auto vd_a = boost::add_vertex(g);
   const auto my_custom_vertex_map

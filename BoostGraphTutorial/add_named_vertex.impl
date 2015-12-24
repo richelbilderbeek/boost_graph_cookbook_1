@@ -11,7 +11,9 @@ void add_named_vertex(
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
 
   const auto vd_a = boost::add_vertex(g);
   auto vertex_name_map

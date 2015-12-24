@@ -1,0 +1,36 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_is_selectable.h"
+
+///Add a named and selectable vertex to the graph
+///TODO: extract vertex_name_type
+///and is_selectable_type from the graph
+template <
+  typename vertex_name_type,
+  typename is_selectable_type,
+  typename graph
+>
+void add_named_and_selectable_vertex(
+  const vertex_name_type& vertex_name,
+  const is_selectable_type& is_selected,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  const auto vd_a = boost::add_vertex(g);
+  auto vertex_name_map
+    = get( //not boost::get
+      boost::vertex_name, g
+    );
+  vertex_name_map[vd_a] = vertex_name;
+
+  auto vertex_is_selected_map
+    = get( //not boost::get
+      boost::vertex_is_selectable, g
+    );
+  vertex_is_selected_map[vd_a]
+    = is_selected;
+}
+

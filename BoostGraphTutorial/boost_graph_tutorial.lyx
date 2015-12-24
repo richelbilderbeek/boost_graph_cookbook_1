@@ -1341,6 +1341,54 @@ reference "sub:Edge-descriptors"
 
 \end_layout
 
+\begin_layout Standard
+After this chapter you may want to:
+\end_layout
+
+\begin_layout Itemize
+Building graphs with named vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-named-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with bundled vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-bundled-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with a graph name: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-a-graph-name"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Creating an empty (directed) graph
 \begin_inset CommandInset label
@@ -6011,6 +6059,54 @@ Getting the vertices' names: see chapter
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_vertex_names"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After this chapter you may want to:
+\end_layout
+
+\begin_layout Itemize
+Building graphs with named edges and vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-named-edges-and-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with bundled vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-bundled-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with custom vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-custom-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Building graphs with a graph name: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-a-graph-name"
 
 \end_inset
 
@@ -19150,6 +19246,52 @@ vertices have a custom type called my_vertex
 .
 \end_layout
 
+\begin_layout Standard
+The demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_custom_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo how to create an empty directed graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_custom_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Create the empty undirected graph with custom vertices
 \begin_inset CommandInset label
@@ -19233,6 +19375,52 @@ boost::undirectedS
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Standard
+The demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_custom_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo how to create an empty undirected graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_custom_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -21493,6 +21681,15 @@ reference "alg:create_custom_vertices_k2_graph"
  The loaded graph is checked to be a graph similar to the original, with
  the same vertex my_vertex instances (using the 'get_vertex_my_vertexes'
  function).
+\end_layout
+
+\begin_layout Section
+Building graphs with custom and selectable vertices
+\end_layout
+
+\begin_layout Standard
+We have added one custom vertex property, here we add a second: if the vertex
+ is selected.
 \end_layout
 
 \begin_layout Section

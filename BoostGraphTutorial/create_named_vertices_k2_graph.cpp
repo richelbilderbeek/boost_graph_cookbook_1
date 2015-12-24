@@ -14,6 +14,7 @@
 #include "get_vertex_descriptors.h"
 #include "get_vertex_names.h"
 #include "create_named_vertices_k2_graph.h"
+#include "create_k2_graph.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
@@ -57,11 +58,12 @@ void create_named_vertices_k2_graph_test() noexcept
     );
   }
   //Copy from named-vertices graph to graph without properties
-  {
-    const auto h = create_named_vertices_k2_graph();
-    auto g = create_k2_graph();
-    g = h; //Lose information, is that possible?
-  }
+  //CANNOT
+  //{
+  //  const auto h = create_named_vertices_k2_graph();
+  //  auto g = create_k2_graph();
+  //  g = h; //Lose information, is that possible?
+  //}
   create_named_vertices_k2_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

@@ -1,0 +1,16 @@
+#include "create_empty_undirected_custom_vertices_graph.h"
+
+void create_empty_undirected_custom_vertices_graph_demo() noexcept
+{
+  //Custom type is of type 'my_custom_vertex' by default
+  const auto g
+    = create_empty_undirected_custom_vertices_graph();
+  assert(boost::num_edges(g) == 0);
+  assert(boost::num_vertices(g) == 0);
+
+  //Custom type is of type 'int'
+  const auto h
+    = create_empty_undirected_custom_vertices_graph<int>();
+  assert(boost::num_edges(h) == 0);
+  assert(boost::num_vertices(h) == 0);
+}

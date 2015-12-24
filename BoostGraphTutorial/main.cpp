@@ -131,10 +131,16 @@
 #include "get_sorted_bundled_edge_my_edges.h"
 #include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
 #include "create_tutorial_subchapters_graph.h"
+#include "create_empty_directed_named_and_selectable_vertices_graph.h"
+#include "add_named_and_selectable_vertex.h"
+#include "create_empty_undirected_named_and_selectable_vertices_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_empty_undirected_named_and_selectable_vertices_graph_test();
+  add_named_and_selectable_vertex_test();
+  create_empty_directed_named_and_selectable_vertices_graph_test();
   create_tutorial_subchapters_graph_test();
   load_undirected_bundled_edges_and_vertices_graph_from_dot_test();
   create_nasty_directed_bundled_edges_and_vertices_graph_test();

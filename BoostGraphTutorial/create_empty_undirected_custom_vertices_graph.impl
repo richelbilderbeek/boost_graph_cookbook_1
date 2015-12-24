@@ -2,12 +2,18 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
+///Create an empty and undirected graph in
+///which the vertices are associated to
+///a custom vertex type.
+///The custom vertex can be of any type and is
+///of type 'my_custom_vertex' by default
+template<typename my_custom_vertex_type = my_custom_vertex>
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
+    boost::vertex_custom_type_t, my_custom_vertex_type
   >
 >
 create_empty_undirected_custom_vertices_graph() noexcept
@@ -17,7 +23,7 @@ create_empty_undirected_custom_vertices_graph() noexcept
     boost::vecS,
     boost::undirectedS,
     boost::property<
-      boost::vertex_custom_type_t, my_custom_vertex
+      boost::vertex_custom_type_t, my_custom_vertex_type
     >
   >();
 }
