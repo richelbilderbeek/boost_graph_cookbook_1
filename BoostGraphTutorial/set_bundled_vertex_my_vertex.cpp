@@ -2,6 +2,7 @@
 
 #include "set_bundled_vertex_my_vertex_demo.impl"
 
+#include <iostream>
 #include <cassert>
 
 #include "create_empty_undirected_bundled_vertices_graph.h"

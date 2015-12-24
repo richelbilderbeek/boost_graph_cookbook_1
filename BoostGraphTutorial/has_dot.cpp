@@ -10,13 +10,10 @@
 
 bool has_dot() noexcept
 {
-  const std::string filename{"tmp_has_dot.txt"};
   std::stringstream cmd;
-  cmd << "dot -? > " << filename;
-  std::system(cmd.str().c_str());
-  assert(is_regular_file(filename));
-  const auto v = helper().file_to_vector(filename);
-  const bool has_dot{v.size() > 1};
+  cmd << "type dot > /dev/null";
+  const auto v = std::system(cmd.str().c_str());
+  const bool has_dot{v == 0};
   if (!has_dot) {
     std::cout << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
   }

@@ -1,5 +1,6 @@
 #include "my_custom_vertex.h"
 
+#include <iostream>
 #include <cassert>
 #include <sstream>
 #include <boost/lexical_cast.hpp>

@@ -2,6 +2,7 @@
 
 #include "graphviz_encode.impl"
 
+#include <iostream>
 #include <cassert>
 #include "graphviz_decode.h"
 
