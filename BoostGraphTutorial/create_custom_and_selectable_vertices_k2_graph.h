@@ -1,0 +1,8 @@
+#ifndef CREATE_CUSTOM_AND_SELECTABLE_VERTICES_K2_GRAPH_H
+#define CREATE_CUSTOM_AND_SELECTABLE_VERTICES_K2_GRAPH_H
+
+#include "create_custom_and_selectable_vertices_k2_graph.impl"
+
+void create_custom_and_selectable_vertices_k2_graph_test() noexcept;
+
+#endif // CREATE_CUSTOM_AND_SELECTABLE_VERTICES_K2_GRAPH_H

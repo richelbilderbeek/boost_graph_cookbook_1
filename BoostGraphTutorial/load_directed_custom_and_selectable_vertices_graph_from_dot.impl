@@ -6,7 +6,10 @@
 
 ///Load a directed graph with custom and
 ///selectable vertices from a .dot file.
-///Assumes that the file exists.
+///Assumes that the file exists, that the
+///'my_custom_vertex_type' is stored as a
+///Graphiz label and the 'is_selected_type'
+///is stored as the Graphviz 'regular' property
 template<
   typename my_custom_vertex_type = my_custom_vertex,
   typename is_selected_type = bool

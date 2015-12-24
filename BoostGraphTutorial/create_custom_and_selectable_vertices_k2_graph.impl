@@ -1,0 +1,50 @@
+#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
+//#include "install_vertex_custom_type.h"
+
+///Create a K2 graph with a custom vertex type
+///associated to its vertices. The associated type
+///is of type 'my_custom_and_selectable_vertex' by default
+template<
+  typename my_custom_vertex_type = my_custom_vertex,
+  typename is_selectable_type = bool
+>
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::property<
+      boost::vertex_is_selected_t, is_selectable_type
+    >
+  >
+>
+create_custom_and_selectable_vertices_k2_graph() noexcept
+{
+  auto g
+    = create_empty_undirected_custom_and_selectable_vertices_graph();
+  const auto vd_a = boost::add_vertex(g);
+  const auto vd_b = boost::add_vertex(g);
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
+
+  auto my_custom_vertexes_map
+    = get( //not boost::get
+    boost::vertex_custom_type,
+    g
+  );
+  my_custom_vertexes_map[vd_a]
+    = my_custom_vertex("A","source",0.0,0.0);
+  my_custom_vertexes_map[vd_b]
+    = my_custom_vertex("B","target",3.14,3.14);
+
+  auto is_selected_map
+    = get( //not boost::get
+    boost::vertex_is_selected,
+    g
+  );
+  is_selected_map[vd_a] = true;
+  is_selected_map[vd_b] = false;
+
+  return g;
+}
