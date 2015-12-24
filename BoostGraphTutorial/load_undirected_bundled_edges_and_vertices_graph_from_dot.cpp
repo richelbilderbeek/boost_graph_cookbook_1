@@ -43,11 +43,11 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
     save_bundled_edges_and_vertices_graph_to_dot(g, dot_filename);
     const auto old_text = helper().file_to_vector(dot_filename);
-    const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot(dot_filename);
-    save_bundled_edges_and_vertices_graph_to_dot(h, dot_filename);
-    const auto new_text = helper().file_to_vector(dot_filename);
-    if (old_text == new_text)
+    try
     {
+      const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot(dot_filename);
+      save_bundled_edges_and_vertices_graph_to_dot(h, dot_filename);
+      const auto new_text = helper().file_to_vector(dot_filename);
       assert(old_text == new_text);
       convert_dot_to_svg(dot_filename, svg_filename);
       assert(boost::num_edges(g) == boost::num_edges(h));
@@ -62,8 +62,9 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_test() noexcept
         "../BoostGraphTutorial/" + dot_filename,
         copy_file_mode::allow_overwrite
       );
+      assert(!"Fixed #16");
     }
-    else
+    catch (std::exception&)
     {
       std::cout << __func__ << ": TODO" << '\n';
     }

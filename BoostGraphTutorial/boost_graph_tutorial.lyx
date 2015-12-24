@@ -305,8 +305,8 @@ In the index, I did first put all my long-named functions there literally,
  but this resulted in a very sloppy layout.
  Instead, the function 'do_something' can be found as 'Do something' in
  the index.
- Functions like 'boost::do_something' and 'boost::do_something' are at named
- literally in the index.
+ On the other hand, STL and Boost functions like 'std::do_something' and
+ 'boost::do_something' can be found as such in the index.
 \end_layout
 
 \begin_layout Subsection
@@ -772,6 +772,61 @@ name "fig:The-relations-between-chapters"
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All chapters have a rather similar structure in themselves, as depicted
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-relations-between-subchapters"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_tutorial_subchapters_graph.svg
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The relations between sub-chapters
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-relations-between-subchapters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

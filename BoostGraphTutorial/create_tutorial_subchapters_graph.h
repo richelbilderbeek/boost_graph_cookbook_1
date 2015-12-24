@@ -8,9 +8,8 @@
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
-  boost::undirectedS,
-  boost::property<boost::vertex_name_t,std::string>,
-  boost::property<boost::edge_name_t,std::string>
+  boost::directedS,
+  boost::property<boost::vertex_name_t,std::string>
 >
 create_tutorial_subchapters_graph() noexcept;
 

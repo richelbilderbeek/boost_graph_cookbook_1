@@ -46,22 +46,22 @@ create_tutorial_chapters_graph() noexcept
     const std::string s = "Building graphs without properties";
     add_edge_between_named_vertices(s, "Working on graphs without properties", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
   {
     const std::string s = "Working on graphs without properties";
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
-    add_edge_between_named_vertices(s, "Working on graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
   }
   {
     const std::string s = "Building graphs with named vertices";
     add_edge_between_named_vertices(s, "Working on graphs with named vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with named edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
@@ -71,29 +71,28 @@ create_tutorial_chapters_graph() noexcept
     add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
-    add_edge_between_named_vertices(s, "Working on graphs with named edges and vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
   }
   {
     const std::string s = "Building graphs with named edges and vertices";
     add_edge_between_named_vertices(s, "Working on graphs with named edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
   {
     const std::string s = "Working on graphs with named edges and vertices";
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
-    add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
+    //add_edge_between_named_vertices(s, "Working on graphs with custom vertices", g);
+    //add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
   }
   {
     const std::string s = "Building graphs with bundled vertices";
     add_edge_between_named_vertices(s, "Working on graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with bundled edges and vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
 
@@ -131,10 +130,11 @@ create_tutorial_chapters_graph() noexcept
   }
   {
     const std::string s = "Working on graphs with custom vertices";
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with custom edges and vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
     add_edge_between_named_vertices(s, "Working on graphs with custom edges and vertices", g);
-    add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
+    //add_edge_between_named_vertices(s, "Working on graphs with a graph name", g);
   }
   {
     const std::string s = "Building graphs with custom edges and vertices";
@@ -145,6 +145,8 @@ create_tutorial_chapters_graph() noexcept
   }
   {
     const std::string s = "Working on graphs with custom edges and vertices";
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
     add_edge_between_named_vertices(s, "Building graphs with a graph name", g);
   }
   {
@@ -165,6 +167,9 @@ create_tutorial_chapters_graph() noexcept
   {
     const std::string s = "Building graphs with custom graph properties";
     add_edge_between_named_vertices(s, "Working on graphs with custom graph properties", g);
+    add_edge_between_named_vertices(s, "Building graphs with named vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with bundled vertices", g);
+    add_edge_between_named_vertices(s, "Building graphs with custom vertices", g);
   }
   {
     const std::string s = "Working on graphs with custom graph properties";
@@ -205,7 +210,8 @@ void create_tutorial_chapters_graph_test() noexcept
     const std::string base_filename{"title_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
-    save_graph_to_dot(g,dot_filename);
+    std::ofstream f(dot_filename);
+    boost::write_graphviz(f,g);
     assert(is_valid_dot_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
     copy_file(

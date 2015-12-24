@@ -146,7 +146,8 @@ HEADERS += \
     load_directed_bundled_edges_and_vertices_graph_from_dot.h \
     get_sorted_bundled_edge_my_edges.h \
     create_nasty_directed_bundled_edges_and_vertices_graph.h \
-    load_undirected_bundled_edges_and_vertices_graph_from_dot.h
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.h \
+    create_nasty_undirected_bundled_edges_and_vertices_graph.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -294,7 +295,8 @@ SOURCES += \
     load_directed_bundled_edges_and_vertices_graph_from_dot.cpp \
     get_sorted_bundled_edge_my_edges.cpp \
     create_nasty_directed_bundled_edges_and_vertices_graph.cpp \
-    load_undirected_bundled_edges_and_vertices_graph_from_dot.cpp
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.cpp \
+    create_nasty_undirected_bundled_edges_and_vertices_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and

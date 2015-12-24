@@ -14,20 +14,20 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_demo() noexcept
     "create_bundled_edges_and_vertices_markov_chain.dot"
   };
   save_bundled_edges_and_vertices_graph_to_dot(g, filename);
-  const auto h
-    = load_undirected_bundled_edges_and_vertices_graph_from_dot(
-      filename
-    );
-  assert(num_edges(g) == num_edges(h));
-  assert(num_vertices(g) == num_vertices(h));
-  if (get_sorted_bundled_vertex_my_vertexes(g)
-    == get_sorted_bundled_vertex_my_vertexes(h)
-  )
+  try
   {
-    std::cout << __func__ << ": fixed #16" << std::endl;
+    const auto h
+      = load_undirected_bundled_edges_and_vertices_graph_from_dot(
+        filename
+      );
+    assert(num_edges(g) == num_edges(h));
+    assert(num_vertices(g) == num_vertices(h));
+    assert(get_sorted_bundled_vertex_my_vertexes(g)
+      == get_sorted_bundled_vertex_my_vertexes(h)
+    );
     assert(!"Fixed #16");
   }
-  else
+  catch (std::exception&)
   {
     std::cout << __func__ << ": TODO" << std::endl;
   }

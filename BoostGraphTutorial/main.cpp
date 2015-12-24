@@ -130,10 +130,12 @@
 #include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
 #include "get_sorted_bundled_edge_my_edges.h"
 #include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
+#include "create_tutorial_subchapters_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_tutorial_subchapters_graph_test();
   load_undirected_bundled_edges_and_vertices_graph_from_dot_test();
   create_nasty_directed_bundled_edges_and_vertices_graph_test();
   load_directed_bundled_edges_and_vertices_graph_from_dot_test();
