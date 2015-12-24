@@ -2,6 +2,7 @@
 
 #include "set_graph_name_demo.impl"
 
+#include <iostream>
 #include <cassert>
 
 #include "create_empty_directed_graph_with_graph_name.h"

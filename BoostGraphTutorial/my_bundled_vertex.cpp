@@ -1,5 +1,6 @@
 #include "my_bundled_vertex.h"
 
+#include <iostream>
 #include <cassert>
 #include <sstream>
 

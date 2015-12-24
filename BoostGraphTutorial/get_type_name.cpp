@@ -1,5 +1,6 @@
 #include "get_type_name.h"
 
+#include <iostream>
 #include <cassert>
 #include <vector>
 

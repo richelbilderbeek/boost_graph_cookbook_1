@@ -2,6 +2,7 @@
 
 #include "get_custom_edge_my_edge_demo.impl"
 
+#include <iostream>
 #include <cassert>
 
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
