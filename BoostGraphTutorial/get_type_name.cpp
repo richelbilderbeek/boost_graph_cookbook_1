@@ -19,15 +19,22 @@ void get_type_name_test() noexcept
   assert(get_type_name<std::vector<int>>()
     == "std::vector<int, std::allocator<int> >"
   );
-  static_assert(sizeof(int) < sizeof(long),"On my university computer");
+  static_assert(sizeof(int) <= sizeof(long),
+    "On my university computer: sizeof(int) < sizeof(long)"
+    "On my home computer: sizeof(int) == sizeof(long)"
+  );
 
   assert(
     get_type_name<decltype(boost::num_vertices(create_empty_directed_graph()))>()
     == "unsigned long"
+    || get_type_name<decltype(boost::num_vertices(create_empty_directed_graph()))>()
+    == "unsigned int"
   );
   assert(
     get_type_name<decltype(boost::num_edges(create_empty_directed_graph()))>()
     == "unsigned long"
+    || get_type_name<decltype(boost::num_edges(create_empty_directed_graph()))>()
+    == "unsigned int"
   );
   assert(get_type_name<decltype(boost::adjacency_list<>())>()
     == "boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, boost::no_property, boost::no_property, boost::no_property, boost::listS>"

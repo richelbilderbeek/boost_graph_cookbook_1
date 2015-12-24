@@ -561,7 +561,6 @@ OTHER_FILES += \
     remove_first_vertex_with_name_demo.impl \
     remove_first_vertex_with_name.impl \
     save_bundled_edges_and_vertices_graph_to_dot_cpp11.impl \
-    save_bundled_edges_and_vertices_graph_to_dot_cpp14.impl \
     save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
     save_bundled_vertices_graph_to_dot_cpp11.impl \
     save_bundled_vertices_graph_to_dot_cpp14.impl \
