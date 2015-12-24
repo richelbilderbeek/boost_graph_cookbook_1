@@ -148,13 +148,13 @@ HEADERS += \
     create_nasty_directed_bundled_edges_and_vertices_graph.h \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.h \
     create_nasty_undirected_bundled_edges_and_vertices_graph.h \
-    install_vertex_is_selectable.h \
     create_empty_directed_named_and_selectable_vertices_graph.h \
     add_named_and_selectable_vertex.h \
     create_empty_undirected_named_and_selectable_vertices_graph.h \
     create_empty_directed_custom_and_selectable_vertices_graph.h \
     create_empty_undirected_custom_and_selectable_vertices_graph.h \
-    add_custom_and_selectable_vertex.h
+    add_custom_and_selectable_vertex.h \
+    install_vertex_is_selected.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -551,7 +551,6 @@ OTHER_FILES += \
     load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
     load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl \
-    install_vertex_is_selectable.impl \
     create_empty_directed_named_and_selectable_vertices_graph.impl \
     create_empty_directed_named_and_selectable_vertices_graph_demo.impl \
     add_named_and_selectable_vertex.impl \
@@ -565,5 +564,6 @@ OTHER_FILES += \
     create_empty_undirected_custom_and_selectable_vertices_graph.impl \
     create_empty_undirected_custom_and_selectable_vertices_graph_demo.impl \
     add_custom_and_selectable_vertex.impl \
-    add_custom_and_selectable_vertex_demo.impl
+    add_custom_and_selectable_vertex_demo.impl \
+    install_vertex_is_selected.impl
 

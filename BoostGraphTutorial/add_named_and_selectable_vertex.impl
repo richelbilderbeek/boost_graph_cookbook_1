@@ -1,5 +1,5 @@
 #include <boost/graph/adjacency_list.hpp>
-#include "install_vertex_is_selectable.h"
+#include "install_vertex_is_selected.h"
 
 ///Add a named and selectable vertex to the graph
 ///TODO: extract vertex_name_type
@@ -28,7 +28,7 @@ void add_named_and_selectable_vertex(
 
   auto vertex_is_selected_map
     = get( //not boost::get
-      boost::vertex_is_selectable, g
+      boost::vertex_is_selected, g
     );
   vertex_is_selected_map[vd_a]
     = is_selected;

@@ -1,7 +1,7 @@
 #include <type_traits>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
-#include "install_vertex_is_selectable.h"
+#include "install_vertex_is_selected.h"
 //#include "my_custom_vertex.h"
 
 ///Add a custom vertex to a graph
@@ -31,7 +31,7 @@ void add_custom_and_selectable_vertex(
 
   const auto is_selected_map
     = get( //not boost::get
-      boost::vertex_is_selectable,
+      boost::vertex_is_selected,
       g
     );
   is_selected_map[vd_a] = is_selected;

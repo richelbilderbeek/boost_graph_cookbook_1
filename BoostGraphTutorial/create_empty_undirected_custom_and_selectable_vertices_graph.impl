@@ -1,6 +1,6 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
-#include "install_vertex_is_selectable.h"
+#include "install_vertex_is_selected.h"
 #include "my_custom_vertex.h"
 
 ///Create an empty and undirected graph in
@@ -21,7 +21,7 @@ boost::adjacency_list<
   boost::property<
     boost::vertex_custom_type_t, my_custom_vertex_type,
     boost::property<
-      boost::vertex_is_selectable_t, is_selectable_type
+      boost::vertex_is_selected_t, is_selectable_type
     >
   >
 >
@@ -34,7 +34,7 @@ create_empty_undirected_custom_and_selectable_vertices_graph() noexcept
     boost::property<
       boost::vertex_custom_type_t, my_custom_vertex_type,
       boost::property<
-        boost::vertex_is_selectable_t, is_selectable_type
+        boost::vertex_is_selected_t, is_selectable_type
       >
     >
   >();
