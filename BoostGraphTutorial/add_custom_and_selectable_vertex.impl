@@ -1,0 +1,38 @@
+#include <type_traits>
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_custom_type.h"
+#include "install_vertex_is_selectable.h"
+//#include "my_custom_vertex.h"
+
+///Add a custom vertex to a graph
+template <
+  typename graph,
+  typename my_custom_vertex_type,
+  typename is_selected_type
+>
+void add_custom_and_selectable_vertex(
+  const my_custom_vertex_type& v,
+  const is_selected_type is_selected,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  const auto vd_a = boost::add_vertex(g);
+
+  const auto my_custom_vertex_map
+    = get( //not boost::get
+      boost::vertex_custom_type,
+      g
+    );
+  my_custom_vertex_map[vd_a] = v;
+
+  const auto is_selected_map
+    = get( //not boost::get
+      boost::vertex_is_selectable,
+      g
+    );
+  is_selected_map[vd_a] = is_selected;
+}

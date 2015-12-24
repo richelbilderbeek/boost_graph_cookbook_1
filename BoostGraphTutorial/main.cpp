@@ -134,10 +134,16 @@
 #include "create_empty_directed_named_and_selectable_vertices_graph.h"
 #include "add_named_and_selectable_vertex.h"
 #include "create_empty_undirected_named_and_selectable_vertices_graph.h"
+#include "create_empty_directed_custom_and_selectable_vertices_graph.h"
+#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
+#include "add_custom_and_selectable_vertex.h"
 #include <iostream>
 
 int main()
 {
+  add_custom_and_selectable_vertex_test();
+  create_empty_undirected_custom_and_selectable_vertices_graph_test();
+  create_empty_directed_custom_and_selectable_vertices_graph_test();
   create_empty_undirected_named_and_selectable_vertices_graph_test();
   add_named_and_selectable_vertex_test();
   create_empty_directed_named_and_selectable_vertices_graph_test();
