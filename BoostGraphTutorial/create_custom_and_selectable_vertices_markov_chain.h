@@ -1,0 +1,8 @@
+#ifndef CREATE_CUSTOM_AND_SELECTABLE_VERTICES_MARKOV_CHAIN_H
+#define CREATE_CUSTOM_AND_SELECTABLE_VERTICES_MARKOV_CHAIN_H
+
+#include "create_custom_and_selectable_vertices_markov_chain.impl"
+
+void create_custom_and_selectable_vertices_markov_chain_test() noexcept;
+
+#endif // CREATE_CUSTOM_AND_SELECTABLE_VERTICES_MARKOV_CHAIN_H

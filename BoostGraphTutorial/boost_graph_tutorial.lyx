@@ -19686,6 +19686,62 @@ reference "sub:formed_reference_to_void"
 ).
 \end_layout
 
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_custom_vertex_my_vertexes_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo how to the vertices' my_custom_vertex objects
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get custom vertex my_custom_vertex objects
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_vertex_my_vertexes_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Creating a two-state Markov chain with custom vertices
 \begin_inset CommandInset label

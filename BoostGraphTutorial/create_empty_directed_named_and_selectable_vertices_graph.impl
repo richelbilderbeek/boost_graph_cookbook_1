@@ -5,7 +5,7 @@
 ///Create an empty directed graph with named and selectable vertices
 template<
   typename vertex_name_type = std::string,
-  typename vertex_is_selectable_type = bool
+  typename vertex_is_selected_type = bool
 >
 boost::adjacency_list<
   boost::vecS,
@@ -14,7 +14,7 @@ boost::adjacency_list<
   boost::property<
     boost::vertex_name_t, vertex_name_type,
     boost::property<
-      boost::vertex_is_selected_t, vertex_is_selectable_type
+      boost::vertex_is_selected_t, vertex_is_selected_type
     >
   >
 >
@@ -27,7 +27,7 @@ create_empty_directed_named_and_selectable_vertices_graph() noexcept
     boost::property<
       boost::vertex_name_t, vertex_name_type,
       boost::property<
-        boost::vertex_is_selected_t, vertex_is_selectable_type
+        boost::vertex_is_selected_t, vertex_is_selected_type
       >
     >
   > ();

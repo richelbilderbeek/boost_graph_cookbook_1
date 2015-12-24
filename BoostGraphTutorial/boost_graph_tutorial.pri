@@ -1,9 +1,12 @@
 HEADERS += \
+    add_bundled_edge.h \
     add_bundled_vertex.h \
+    add_custom_and_selectable_vertex.h \
     add_custom_edge.h \
     add_custom_vertex.h \
     add_edge_between_named_vertices.h \
     add_edge.h \
+    add_named_and_selectable_vertex.h \
     add_named_edge.h \
     add_named_vertex.h \
     add_vertex.h \
@@ -11,24 +14,32 @@ HEADERS += \
     convert_dot_to_svg.h \
     copy_file.h \
     count_vertices_with_name.h \
+    create_bundled_edges_and_vertices_k3_graph.h \
+    create_bundled_edges_and_vertices_markov_chain.h \
     create_bundled_vertices_k2_graph.h \
     create_bundled_vertices_markov_chain.h \
     create_custom_edges_and_vertices_k3_graph.h \
     create_custom_edges_and_vertices_markov_chain.h \
     create_custom_vertices_k2_graph.h \
     create_custom_vertices_markov_chain.h \
+    create_empty_directed_bundled_edges_and_vertices_graph.h \
     create_empty_directed_bundled_vertices_graph.h \
+    create_empty_directed_custom_and_selectable_vertices_graph.h \
     create_empty_directed_custom_edges_and_vertices_graph.h \
     create_empty_directed_custom_vertices_graph.h \
     create_empty_directed_graph.h \
     create_empty_directed_graph_with_graph_name.h \
+    create_empty_directed_named_and_selectable_vertices_graph.h \
     create_empty_directed_named_edges_and_vertices_graph.h \
     create_empty_directed_named_vertices_graph.h \
+    create_empty_undirected_bundled_edges_and_vertices_graph.h \
     create_empty_undirected_bundled_vertices_graph.h \
+    create_empty_undirected_custom_and_selectable_vertices_graph.h \
     create_empty_undirected_custom_edges_and_vertices_graph.h \
     create_empty_undirected_custom_vertices_graph.h \
     create_empty_undirected_graph.h \
     create_empty_undirected_graph_with_graph_name.h \
+    create_empty_undirected_named_and_selectable_vertices_graph.h \
     create_empty_undirected_named_edges_and_vertices_graph.h \
     create_empty_undirected_named_vertices_graph.h \
     create_k2_graph.h \
@@ -39,19 +50,24 @@ HEADERS += \
     create_named_edges_and_vertices_markov_chain.h \
     create_named_vertices_k2_graph.h \
     create_named_vertices_markov_chain.h \
+    create_nasty_directed_bundled_edges_and_vertices_graph.h \
     create_nasty_directed_bundled_vertices_graph.h \
     create_nasty_directed_custom_edges_and_vertices_graph.h \
     create_nasty_directed_custom_vertices_graph.h \
     create_nasty_directed_named_vertices_graph.h \
+    create_nasty_undirected_bundled_edges_and_vertices_graph.h \
     create_nasty_undirected_custom_edges_and_vertices_graph.h \
     create_tutorial_chapters_graph.h \
     create_tutorial_subchapters_graph.h \
+    find_first_bundled_edge_with_my_edge.h \
     find_first_bundled_vertex_with_my_vertex.h \
     find_first_custom_edge_with_my_edge.h \
     find_first_custom_vertex_with_my_vertex.h \
     find_first_edge_with_name.h \
     find_first_vertex_with_name.h \
     formed_reference_to_void.h \
+    get_bundled_edge_my_edge.h \
+    get_bundled_edge_my_edges.h \
     get_bundled_vertex_my_vertexes.h \
     get_bundled_vertex_my_vertex.h \
     get_custom_edge_my_edge.h \
@@ -66,6 +82,7 @@ HEADERS += \
     get_graph_name.h \
     get_n_edges.h \
     get_n_vertices.h \
+    get_sorted_bundled_edge_my_edges.h \
     get_sorted_bundled_vertex_my_vertexes.h \
     get_sorted_custom_edge_my_edges.h \
     get_sorted_custom_vertex_my_vertexes.h \
@@ -76,8 +93,10 @@ HEADERS += \
     get_vertex_name.h \
     get_vertex_names.h \
     get_vertex_out_degrees.h \
+    get_vertex_selectednesses.h \
     graphviz_decode.h \
     graphviz_encode.h \
+    has_bundled_edge_with_my_edge.h \
     has_bundled_vertex_with_my_vertex.h \
     has_custom_edge_with_my_edge.h \
     has_custom_vertex_with_my_vertex.h \
@@ -88,9 +107,11 @@ HEADERS += \
     helper.h \
     install_edge_custom_type.h \
     install_vertex_custom_type.h \
+    install_vertex_is_selected.h \
     is_read_graphviz_correct.h \
     is_regular_file.h \
     is_valid_dot_file.h \
+    load_directed_bundled_edges_and_vertices_graph_from_dot.h \
     load_directed_bundled_vertices_graph_from_dot.h \
     load_directed_custom_edges_and_vertices_graph_from_dot.h \
     load_directed_custom_vertices_graph_from_dot.h \
@@ -98,6 +119,7 @@ HEADERS += \
     load_directed_graph_with_graph_name_from_dot.h \
     load_directed_named_edges_and_vertices_graph_from_dot.h \
     load_directed_named_vertices_graph_from_dot.h \
+    load_undirected_bundled_edges_and_vertices_graph_from_dot.h \
     load_undirected_bundled_vertices_graph_from_dot.h \
     load_undirected_custom_edges_and_vertices_graph_from_dot.h \
     load_undirected_custom_vertices_graph_from_dot.h \
@@ -114,6 +136,7 @@ HEADERS += \
     remove_edge_between_vertices_with_names.h \
     remove_first_edge_with_name.h \
     remove_first_vertex_with_name.h \
+    save_bundled_edges_and_vertices_graph_to_dot.h \
     save_bundled_vertices_graph_to_dot.h \
     save_custom_edges_and_vertices_graph_to_dot.h \
     save_custom_vertices_graph_to_dot.h \
@@ -122,6 +145,7 @@ HEADERS += \
     save_named_edges_and_vertices_graph_to_dot.h \
     save_named_vertices_graph_to_dot.h \
     seperate_string.h \
+    set_bundled_edge_my_edge.h \
     set_bundled_vertex_my_vertexes.h \
     set_bundled_vertex_my_vertex.h \
     set_custom_edge_my_edge.h \
@@ -132,30 +156,7 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    create_empty_directed_bundled_edges_and_vertices_graph.h \
-    create_empty_undirected_bundled_edges_and_vertices_graph.h \
-    add_bundled_edge.h \
-    get_bundled_edge_my_edges.h \
-    create_bundled_edges_and_vertices_k3_graph.h \
-    save_bundled_edges_and_vertices_graph_to_dot.h \
-    get_bundled_edge_my_edge.h \
-    find_first_bundled_edge_with_my_edge.h \
-    has_bundled_edge_with_my_edge.h \
-    create_bundled_edges_and_vertices_markov_chain.h \
-    set_bundled_edge_my_edge.h \
-    load_directed_bundled_edges_and_vertices_graph_from_dot.h \
-    get_sorted_bundled_edge_my_edges.h \
-    create_nasty_directed_bundled_edges_and_vertices_graph.h \
-    load_undirected_bundled_edges_and_vertices_graph_from_dot.h \
-    create_nasty_undirected_bundled_edges_and_vertices_graph.h \
-    create_empty_directed_named_and_selectable_vertices_graph.h \
-    add_named_and_selectable_vertex.h \
-    create_empty_undirected_named_and_selectable_vertices_graph.h \
-    create_empty_directed_custom_and_selectable_vertices_graph.h \
-    create_empty_undirected_custom_and_selectable_vertices_graph.h \
-    add_custom_and_selectable_vertex.h \
-    install_vertex_is_selected.h \
-    get_vertex_selectednesses.h
+    create_custom_and_selectable_vertices_markov_chain.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -311,7 +312,8 @@ SOURCES += \
     create_empty_directed_custom_and_selectable_vertices_graph.cpp \
     create_empty_undirected_custom_and_selectable_vertices_graph.cpp \
     add_custom_and_selectable_vertex.cpp \
-    get_vertex_selectednesses.cpp
+    get_vertex_selectednesses.cpp \
+    create_custom_and_selectable_vertices_markov_chain.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -569,5 +571,8 @@ OTHER_FILES += \
     add_custom_and_selectable_vertex_demo.impl \
     install_vertex_is_selected.impl \
     get_vertex_selectednesses.impl \
-    get_vertex_selectednesses_demo.impl
+    get_vertex_selectednesses_demo.impl \
+    get_custom_vertex_my_vertexes_demo.impl \
+    create_custom_and_selectable_vertices_markov_chain.impl \
+    create_custom_and_selectable_vertices_markov_chain_demo.impl
 

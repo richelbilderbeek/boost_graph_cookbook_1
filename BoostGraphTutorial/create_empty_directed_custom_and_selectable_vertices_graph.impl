@@ -12,7 +12,7 @@
 ///of type 'bool' by default
 template<
   typename my_custom_vertex_type = my_custom_vertex,
-  typename is_selectable_type = bool
+  typename is_selected_type = bool
 >
 boost::adjacency_list<
   boost::vecS,
@@ -21,7 +21,7 @@ boost::adjacency_list<
   boost::property<
     boost::vertex_custom_type_t, my_custom_vertex_type,
     boost::property<
-      boost::vertex_is_selected_t, is_selectable_type
+      boost::vertex_is_selected_t, is_selected_type
     >
   >
 >
@@ -34,7 +34,7 @@ create_empty_directed_custom_and_selectable_vertices_graph() noexcept
     boost::property<
       boost::vertex_custom_type_t, my_custom_vertex_type,
       boost::property<
-        boost::vertex_is_selected_t, is_selectable_type
+        boost::vertex_is_selected_t, is_selected_type
       >
     >
   >();

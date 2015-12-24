@@ -138,10 +138,12 @@
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "add_custom_and_selectable_vertex.h"
 #include "get_vertex_selectednesses.h"
+#include "create_custom_and_selectable_vertices_markov_chain.h"
 #include <iostream>
 
 int main()
 {
+  create_custom_and_selectable_vertices_markov_chain_test();
   get_vertex_selectednesses_test();
   add_custom_and_selectable_vertex_test();
   create_empty_undirected_custom_and_selectable_vertices_graph_test();
@@ -226,7 +228,7 @@ int main()
   get_type_name_test();
   get_vertex_descriptors_test();
   get_vertex_iterators_test();
-  get_vertex_my_vertexes_test();
+  get_custom_vertex_my_vertexes_test();
   get_vertex_names_test();
   get_vertex_name_test();
   get_vertex_out_degrees_test();

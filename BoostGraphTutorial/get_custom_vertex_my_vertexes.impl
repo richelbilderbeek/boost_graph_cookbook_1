@@ -1,6 +1,6 @@
 #include <vector>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/graph/properties.hpp>
+//#include <boost/graph/graph_traits.hpp>
+//#include <boost/graph/properties.hpp>
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
@@ -8,7 +8,9 @@
 ///stored as a custom property of a vertex
 //TODO: generalize to return any type
 template <typename graph>
-std::vector<my_custom_vertex> get_custom_vertex_my_vertexes(const graph& g) noexcept
+std::vector<my_custom_vertex> get_custom_vertex_my_vertexes(
+  const graph& g
+) noexcept
 {
   std::vector<my_custom_vertex> v;
 
