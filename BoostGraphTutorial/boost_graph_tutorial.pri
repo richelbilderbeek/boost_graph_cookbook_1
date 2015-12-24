@@ -108,7 +108,6 @@ HEADERS += \
     install_edge_custom_type.h \
     install_vertex_custom_type.h \
     install_vertex_is_selected.h \
-    is_read_graphviz_correct.h \
     is_regular_file.h \
     is_valid_dot_file.h \
     load_directed_bundled_edges_and_vertices_graph_from_dot.h \
@@ -157,7 +156,10 @@ HEADERS += \
     set_vertex_names.h \
     show_dot.h \
     create_custom_and_selectable_vertices_markov_chain.h \
-    convert_svg_to_png.h
+    convert_svg_to_png.h \
+    load_directed_custom_and_selectable_vertices_graph_from_dot.h \
+    create_nasty_directed_custom_and_selectable_vertices_graph.h \
+    get_sorted_vertex_selectednesses.h
 
 SOURCES += \
     add_bundled_vertex.cpp \
@@ -247,7 +249,6 @@ SOURCES += \
     has_edge_with_name.cpp \
     has_vertex_with_name.cpp \
     helper.cpp \
-    is_read_graphviz_correct.cpp \
     is_regular_file.cpp \
     is_valid_dot_file.cpp \
     load_directed_bundled_vertices_graph_from_dot.cpp \
@@ -315,7 +316,10 @@ SOURCES += \
     add_custom_and_selectable_vertex.cpp \
     get_vertex_selectednesses.cpp \
     create_custom_and_selectable_vertices_markov_chain.cpp \
-    convert_svg_to_png.cpp
+    convert_svg_to_png.cpp \
+    load_directed_custom_and_selectable_vertices_graph_from_dot.cpp \
+    create_nasty_directed_custom_and_selectable_vertices_graph.cpp \
+    get_sorted_vertex_selectednesses.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and
@@ -450,7 +454,6 @@ OTHER_FILES += \
     has_vertex_with_name.impl \
     install_edge_custom_type.impl \
     install_vertex_custom_type.impl \
-    is_read_graphviz_correct.impl \
     is_regular_file.impl \
     is_valid_dot_file.impl \
     load_directed_bundled_vertices_graph_from_dot_demo.impl \
@@ -576,5 +579,8 @@ OTHER_FILES += \
     get_vertex_selectednesses_demo.impl \
     get_custom_vertex_my_vertexes_demo.impl \
     create_custom_and_selectable_vertices_markov_chain.impl \
-    create_custom_and_selectable_vertices_markov_chain_demo.impl
+    create_custom_and_selectable_vertices_markov_chain_demo.impl \
+    save_custom_vertices_graph_to_dot_demo.impl \
+    load_directed_custom_and_selectable_vertices_graph_from_dot.impl \
+    load_directed_custom_and_selectable_vertices_graph_from_dot_demo.impl
 

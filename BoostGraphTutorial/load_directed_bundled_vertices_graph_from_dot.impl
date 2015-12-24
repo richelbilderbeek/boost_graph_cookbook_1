@@ -5,7 +5,6 @@
 #include "create_empty_directed_bundled_vertices_graph.h"
 #include "is_regular_file.h"
 #include "my_bundled_vertex.h"
-#include "is_read_graphviz_correct.h"
 #include "get_bundled_vertex_my_vertexes.h"
 
 ///Load a directed graph with custom

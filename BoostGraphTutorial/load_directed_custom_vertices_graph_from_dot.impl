@@ -1,23 +1,21 @@
-#include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
-
 #include "create_empty_directed_custom_vertices_graph.h"
 #include "install_vertex_custom_type.h"
 #include "is_regular_file.h"
 #include "my_custom_vertex.h"
-#include "is_read_graphviz_correct.h"
-#include "get_custom_vertex_my_vertexes.h"
 
 ///Load a directed graph with custom
 ///vertices from a .dot file.
-///Assumes the file exists and that the
-///custom vertices can be read by Graphviz
+///Assumes the file exists.
+template<
+  typename my_custom_vertex_type = my_custom_vertex
+>
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
+    boost::vertex_custom_type_t, my_custom_vertex_type
   >
 >
 load_directed_custom_vertices_graph_from_dot(

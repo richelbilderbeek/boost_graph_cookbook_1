@@ -1,0 +1,89 @@
+#include <fstream>
+#include <string>
+#include <boost/graph/graphviz.hpp>
+#include "install_vertex_custom_type.h"
+#include "install_vertex_is_selected.h"
+#include "my_custom_vertex.h"
+//#include <boost/graph/properties.hpp>
+
+template <
+  typename my_custom_vertex_map,
+  typename is_selected_map>
+class vertex_writer {
+public:
+  vertex_writer(my_custom_vertex_map w, is_selected_map c) : wm(w),cm(c) {}
+  template <class vertex_descriptor>
+  void operator()(std::ostream &out, const vertex_descriptor& vd) const {
+    out << "[label=\"" << wm[vd] << "\", regular=\"" << cm[vd] << "\"]";
+  }
+private:
+  my_custom_vertex_map wm;
+  is_selected_map cm;
+};
+
+template <class my_custom_vertex_map, class is_selected_map>
+inline vertex_writer<my_custom_vertex_map,is_selected_map>
+make_vertex_writer(my_custom_vertex_map w,is_selected_map c) {
+  return vertex_writer<my_custom_vertex_map,is_selected_map>(w,c);
+}
+
+
+///Save a graph with custom vertices to a .dot file
+template <typename graph>
+void save_custom_and_selectable_vertices_graph_to_dot(
+  const graph& g,
+  const std::string& filename
+)
+{
+  std::ofstream f(filename);
+
+  write_graphviz(f, g,
+    make_vertex_writer(
+      get(boost::vertex_custom_type,g),
+      get(boost::vertex_is_selected,g)
+    )
+  );
+
+  #ifdef USE_EXPERIMENT_1
+  using my_custom_and_selectable_vertex_descriptor
+    = typename graph::vertex_descriptor;
+
+
+  const auto my_custom_vertexes_map
+    = get( //not boost::get
+      boost::vertex_custom_type, g
+    );
+
+  boost::write_graphviz(
+    f,
+    g,
+    [my_custom_vertexes_map](
+      std::ostream& out,
+      const my_custom_and_selectable_vertex_descriptor& v
+    ) {
+      const my_custom_vertex m{my_custom_vertexes_map[v]};
+      out << "[label=\"" << m << "\"]";
+    }
+  );
+  #endif // USE_EXPERIMENT_1
+
+  #ifdef USE_EXPERIMENT_2
+  const auto is_selectedness_map
+    = get( //not boost::get
+      boost::vertex_is_selected, g
+    );
+
+  boost::write_graphviz(
+    f,
+    g,
+    [my_custom_vertexes_map,is_selectedness_map](
+      std::ostream& out,
+      const my_custom_and_selectable_vertex_descriptor& v
+    ) {
+      const my_custom_vertex m{my_custom_vertexes_map[v]};
+      const bool s{is_selectedness_map[v]};
+      out << "[label=\"" << m << "," << s << "\"]";
+    }
+  );
+  #endif
+}

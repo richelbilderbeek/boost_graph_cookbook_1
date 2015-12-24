@@ -4,10 +4,10 @@
 #include "get_custom_vertex_my_vertexes.h"
 
 #include <vector>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/graph/properties.hpp>
-#include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+//#include <boost/graph/graph_traits.hpp>
+//#include <boost/graph/properties.hpp>
+//#include "install_vertex_custom_type.h"
+//#include "my_custom_vertex.h"
 
 ///Collect all the my_custom_vertex objects from a graph
 ///stored as a custom property of a vertex and

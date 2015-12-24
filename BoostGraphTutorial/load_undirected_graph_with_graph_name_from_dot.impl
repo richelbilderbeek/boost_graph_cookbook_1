@@ -3,7 +3,6 @@
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
 #include "create_empty_undirected_graph_with_graph_name.h"
-#include "is_read_graphviz_correct.h"
 #include "is_regular_file.h"
 
 ///Load an undirected graph with a graph name from file

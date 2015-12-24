@@ -74,7 +74,6 @@
 #include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
 #include "helper.h"
-#include "is_read_graphviz_correct.h"
 #include "is_valid_dot_file.h"
 #include "load_directed_bundled_vertices_graph_from_dot.h"
 #include "load_directed_custom_edges_and_vertices_graph_from_dot.h"
@@ -139,10 +138,14 @@
 #include "add_custom_and_selectable_vertex.h"
 #include "get_vertex_selectednesses.h"
 #include "create_custom_and_selectable_vertices_markov_chain.h"
+#include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
+#include "create_nasty_directed_custom_and_selectable_vertices_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_nasty_directed_custom_and_selectable_vertices_graph_test();
+  load_directed_custom_and_selectable_vertices_graph_from_dot_test();
   create_custom_and_selectable_vertices_markov_chain_test();
   get_vertex_selectednesses_test();
   add_custom_and_selectable_vertex_test();

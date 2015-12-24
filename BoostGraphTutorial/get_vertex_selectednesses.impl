@@ -1,8 +1,5 @@
-//#include <string>
 #include <vector>
 #include "install_vertex_is_selected.h"
-//#include <boost/graph/properties.hpp>
-//#include <boost/graph/graph_traits.hpp>
 
 ///Get all vertex selectednesses
 ///TODO: return a 'vertex_is_selected_type' (deduced from the

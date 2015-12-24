@@ -5,7 +5,6 @@
 #include "install_vertex_custom_type.h"
 #include "is_regular_file.h"
 #include "my_custom_vertex.h"
-#include "is_read_graphviz_correct.h"
 
 ///Load an undirected graph with custom
 ///vertices from a .dot file.

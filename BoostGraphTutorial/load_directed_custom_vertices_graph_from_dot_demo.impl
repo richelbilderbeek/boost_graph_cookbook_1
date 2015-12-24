@@ -18,5 +18,7 @@ void load_directed_custom_vertices_graph_from_dot_demo() noexcept
     = load_directed_custom_vertices_graph_from_dot(filename);
   assert(num_edges(g) == num_edges(h));
   assert(num_vertices(g) == num_vertices(h));
-  assert(get_custom_vertex_my_vertexes(g) == get_custom_vertex_my_vertexes(h));
+  assert(get_custom_vertex_my_vertexes(g)
+    == get_custom_vertex_my_vertexes(h)
+  );
 }
