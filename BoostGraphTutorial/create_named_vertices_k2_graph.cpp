@@ -56,6 +56,12 @@ void create_named_vertices_k2_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
+  //Copy from named-vertices graph to graph without properties
+  {
+    const auto h = create_named_vertices_k2_graph();
+    auto g = create_k2_graph();
+    g = h; //Lose information, is that possible?
+  }
   create_named_vertices_k2_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

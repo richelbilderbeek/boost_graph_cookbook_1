@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.3.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.4.
 \end_layout
 
 \begin_layout Subsection
@@ -307,6 +307,48 @@ In the index, I did first put all my long-named functions there literally,
  the index.
  On the other hand, STL and Boost functions like 'std::do_something' and
  'boost::do_something' can be found as such in the index.
+\end_layout
+
+\begin_layout Subsection
+License
+\end_layout
+
+\begin_layout Standard
+This tutorial is licensed under Creative Commons license 4.0.
+ All C++ code is licensed under GPL 3.0.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename CC-BY-SA_icon.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creative Commons license 4.0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

@@ -54,7 +54,13 @@ void create_k2_graph_test() noexcept
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
-
+  }
+  //Copy
+  {
+    const auto g = create_k2_graph();
+    const auto h(g);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
   }
   create_k2_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
