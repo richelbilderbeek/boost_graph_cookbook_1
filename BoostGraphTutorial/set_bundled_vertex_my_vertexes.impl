@@ -4,15 +4,15 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
 
-///Set all bundled vertices their my_vertex objects
-//TODO: generalize 'my_vertexes'
 template <typename graph>
 void set_bundled_vertex_my_vertexes(
   graph& g,
   const std::vector<my_bundled_vertex>& my_vertexes
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
 
   auto my_vertexes_begin = std::begin(my_vertexes);
   const auto my_vertexes_end = std::end(my_vertexes);

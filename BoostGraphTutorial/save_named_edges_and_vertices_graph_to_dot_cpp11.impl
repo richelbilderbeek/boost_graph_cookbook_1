@@ -6,7 +6,6 @@
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 
-///Save a graph with named vertices to a .dot file
 template <typename graph>
 void save_named_edges_and_vertices_graph_to_dot(
   const graph& g,

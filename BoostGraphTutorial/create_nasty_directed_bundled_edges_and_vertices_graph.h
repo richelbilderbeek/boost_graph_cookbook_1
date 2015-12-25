@@ -5,9 +5,6 @@
 #include "my_bundled_edge.h"
 #include "my_bundled_vertex.h"
 
-///Create a nasty directed graph with custom edges and vertices.
-///Here nasty means: edge and vertex labels with special characters
-///like comma's, quotes, leading spaces, etc.
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

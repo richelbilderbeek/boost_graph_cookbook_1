@@ -7,12 +7,6 @@
 #include "my_bundled_vertex.h"
 #include "get_bundled_vertex_my_vertexes.h"
 
-///Load a directed graph with custom
-///vertices from a .dot file.
-///Assumes the file exists and that the
-///custom vertices can be read by Graphviz
-///TODO: the code returns an empty graph,
-///instead of loading from file
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

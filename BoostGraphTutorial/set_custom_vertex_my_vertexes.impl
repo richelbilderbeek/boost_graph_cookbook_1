@@ -7,8 +7,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///Set all vertices their my_custom_vertex objects
-//TODO: generalize 'my_custom_vertexes'
 template <typename graph>
 void set_custom_vertex_my_custom_vertexes(
   graph& g,

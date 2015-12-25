@@ -3,7 +3,6 @@
 #include "my_bundled_edge.h"
 #include "my_bundled_vertex.h"
 
-///Create a K3 graph with custom edges and vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

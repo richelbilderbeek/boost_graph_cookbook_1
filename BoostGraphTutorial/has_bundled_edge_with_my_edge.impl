@@ -1,8 +1,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_edge.h"
 
-///See if there is an edge with a
-///certain my_bundled_edge associated with it
 template <typename graph>
 bool has_bundled_edge_with_my_edge(
   const my_bundled_edge& e,

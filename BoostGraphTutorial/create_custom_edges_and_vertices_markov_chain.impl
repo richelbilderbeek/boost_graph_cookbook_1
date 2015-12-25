@@ -1,11 +1,9 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
+//#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_custom_edges_and_vertices_graph.h"
-#include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+//#include "install_vertex_custom_type.h"
+//#include "my_custom_vertex.h"
 
-///Create a two-state Markov chain
-///with custom edges and vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

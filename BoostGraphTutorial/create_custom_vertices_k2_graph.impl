@@ -1,16 +1,12 @@
 #include "create_empty_undirected_custom_vertices_graph.h"
 //#include "install_vertex_custom_type.h"
 
-///Create a K2 graph with a custom vertex type
-///associated to its vertices. The associated type
-///is of type 'my_custom_vertex' by default
-template<class my_custom_vertex_type = my_custom_vertex>
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type
+    boost::vertex_custom_type_t, my_custom_vertex
   >
 >
 create_custom_vertices_k2_graph() noexcept

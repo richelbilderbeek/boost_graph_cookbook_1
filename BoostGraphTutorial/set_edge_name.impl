@@ -1,8 +1,6 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-///Set and edge its name from its edge descriptor.
-///TODO: extract edge_name_type from the graph
 template <
   typename graph,
   typename edge_name_type

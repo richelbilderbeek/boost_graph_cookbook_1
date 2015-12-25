@@ -5,8 +5,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///Find the first vertex with a certain my_custom_vertex.
-///Assumes that there exists that my_custom_vertex.
 template <typename graph>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_custom_vertex_with_my_vertex(

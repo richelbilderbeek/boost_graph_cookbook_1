@@ -4,11 +4,6 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-///Find the first edge with a certain
-///my_custom_edge associated with it.
-///Returns the edge descriptor of that edge.
-///Assumes the my_custom_edge is present,
-///will crash otherwise
 template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 find_first_custom_edge_with_my_edge(

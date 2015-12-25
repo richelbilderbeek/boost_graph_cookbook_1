@@ -3,7 +3,6 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-///Add a custom edge to a graph
 template <typename graph>
 void add_custom_edge(
   const my_custom_edge& v,

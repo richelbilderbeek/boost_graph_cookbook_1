@@ -2,8 +2,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
 
-///Get the my_vertex of a custom vertex
-///from its vertex descriptor
 template <typename graph>
 my_bundled_vertex get_bundled_vertex_my_vertex(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,

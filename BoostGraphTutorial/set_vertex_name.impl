@@ -1,9 +1,6 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-///Set a vertex its name,
-///when already having its vertex descriptor
-///TODO: extract vertex_name_type from the graph
 template <
   typename graph,
   typename vertex_name_type

@@ -1,7 +1,6 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-///Get a graph its name
 template <typename graph>
 std::string get_graph_name(
   const graph& g

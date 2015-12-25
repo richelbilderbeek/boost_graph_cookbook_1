@@ -2,7 +2,6 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "my_bundled_edge.h"
 
-///Add a custom edge to a graph
 template <typename graph>
 void add_bundled_edge(
   const my_bundled_edge& v,

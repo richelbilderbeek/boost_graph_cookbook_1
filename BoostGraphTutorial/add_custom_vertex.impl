@@ -3,7 +3,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///Add a custom vertex to a graph
 template <typename graph>
 void add_custom_vertex(
   const my_custom_vertex& v,

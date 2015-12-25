@@ -3,8 +3,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///See if the graph with custom vertices
-///contains a vertex with a certain my_custom_vertex
 template <typename graph>
 bool has_custom_vertex_with_my_custom_vertex(
   const my_custom_vertex& v,

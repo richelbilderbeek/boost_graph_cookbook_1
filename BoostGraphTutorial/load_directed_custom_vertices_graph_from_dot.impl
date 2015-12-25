@@ -4,18 +4,12 @@
 #include "is_regular_file.h"
 #include "my_custom_vertex.h"
 
-///Load a directed graph with custom
-///vertices from a .dot file.
-///Assumes the file exists.
-template<
-  typename my_custom_vertex_type = my_custom_vertex
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type
+    boost::vertex_custom_type_t, my_custom_vertex
   >
 >
 load_directed_custom_vertices_graph_from_dot(

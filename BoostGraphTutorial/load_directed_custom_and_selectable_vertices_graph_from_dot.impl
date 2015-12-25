@@ -4,24 +4,14 @@
 #include "is_regular_file.h"
 #include "my_custom_vertex.h"
 
-///Load a directed graph with custom and
-///selectable vertices from a .dot file.
-///Assumes that the file exists, that the
-///'my_custom_vertex_type' is stored as a
-///Graphiz label and the 'is_selected_type'
-///is stored as the Graphviz 'regular' property
-template<
-  typename my_custom_vertex_type = my_custom_vertex,
-  typename is_selected_type = bool
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::vertex_custom_type_t, my_custom_vertex,
     boost::property<
-      boost::vertex_is_selected_t, is_selected_type
+      boost::vertex_is_selected_t, bool
     >
   >
 >

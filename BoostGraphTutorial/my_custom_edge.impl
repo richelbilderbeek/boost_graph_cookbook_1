@@ -1,8 +1,6 @@
 #include <string>
 #include <iosfwd>
 
-///my_custom_edge can have private member variables.
-///Interaction with Graphviz goes via the stream operators
 class my_custom_edge
 {
 public:

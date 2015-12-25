@@ -1,9 +1,6 @@
 #include <string>
 #include <iosfwd>
 
-///Member variabled must be public,
-///for boost::dynamic_properties (used by Graphviz) to work on.
-///No need to define the stream operators for interaction with Graphviz.
 class my_bundled_edge
 {
 public:

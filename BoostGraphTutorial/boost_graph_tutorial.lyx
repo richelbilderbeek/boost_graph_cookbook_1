@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -18,13 +18,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -35,15 +35,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -100,7 +109,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.4.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.5.
 \end_layout
 
 \begin_layout Subsection
@@ -200,7 +209,9 @@ I enjoy to show concepts by putting those in (long-named) functions.
 \end_layout
 
 \begin_layout Standard
-All coding snippets are taken from compiled C++ code.
+All coding snippets are taken from compiled C++11 code.
+ I chose to use C++11 because (1) C++14 was not installable on all my computers
+ (2) the step to C++14 is small.
  All code is tested to compile cleanly under GCC at the highest warning
  level.
  The code, as well as this tutorial, can be downloaded from the GitHub at
@@ -230,9 +241,20 @@ I use the coding style from the Core C++ Guidelines.
 \end_layout
 
 \begin_layout Standard
-Most functions are documented by three slashes '///', which allows tools
- like Doxygen to create documentation from it.
- 
+It is important to add comments to code.
+ In this tutorial, however, I have chosen not to put comments in code, as
+ I already describe the function in the tutorial its text.
+ This way, it prevents me from saying the same things twice.
+\end_layout
+
+\begin_layout Standard
+It is good to write generic code.
+ In this tutorial, however, I have chosen my functions to have no templated
+ arguments for conciseness and readability.
+ For example, a vertex name is std::string, the type for if a vertex is
+ selected is a boolean, and the custom vertex type is of type 'my_custom_vertex'.
+ I think these choises are reasonable and that the resulting increase in
+ readability is worth it.
 \end_layout
 
 \begin_layout Standard
@@ -335,7 +357,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creative Commons license 4.0
@@ -565,9 +587,9 @@ status open
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="33text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -751,7 +773,7 @@ Works, with encoding/decoding
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Difference between bundled and custom properties
@@ -779,15 +801,8 @@ name "tab:Difference-between-bundled-and-custom-properties"
 \end_layout
 
 \begin_layout Standard
-A pivotal chapter is chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:find_first_vertex_with_name"
-
-\end_inset
-
-, 'Finding the first vertex with a name', as this opens up the door to finding
- a vertex and manipulating it.
+Pivotal chapters are chapters like 'Finding the first vertex with ...', as
+ this opens up the door to finding a vertex and manipulating it.
 \end_layout
 
 \begin_layout Standard
@@ -809,7 +824,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The relations between chapters
@@ -824,10 +839,6 @@ name "fig:The-relations-between-chapters"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -868,7 +879,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The relations between sub-chapters
@@ -1006,7 +1017,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Example of an undirected graph
@@ -1140,7 +1151,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Example of a directed graph
@@ -1469,7 +1480,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty (directed) graph
@@ -1657,7 +1668,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_empty_directed_graph'
@@ -1692,12 +1703,34 @@ boost::adjacency_list
 \end_inset
 
  with its default template arguments.
+ The boost::adjacency_list is the most commonly used graph type, the other
+ is the boost::adjacency_matrix
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+boost::adjacency_matrix
+\end_layout
+
+\end_inset
+
+.
  We do not do anything with it yet, but still, you've just created a graph,
  in which:
 \end_layout
 
 \begin_layout Itemize
 The out edges and vertices are stored in a std::vector
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::vector
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1710,22 +1743,20 @@ The vertices, edges and graph have no properties
 
 \begin_layout Itemize
 The edges are stored in a std::list
-\end_layout
-
-\begin_layout Standard
-The boost::adjacency_list is the most commonly used graph type, the other
- is the boost::adjacency_matrix
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-boost::adjacency_matrix
+std::list
 \end_layout
 
 \end_inset
 
-.
- It stores its edges, out edges and vertices in a two different STL
+
+\end_layout
+
+\begin_layout Standard
+It stores its edges, out edges and vertices in a two different STL
 \begin_inset Index idx
 status open
 
@@ -1933,7 +1964,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph
@@ -2075,7 +2106,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_empty_undirected_graph'
@@ -2179,7 +2210,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Count the number of vertices
@@ -2375,7 +2406,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'get_n_vertices' function
@@ -2474,7 +2505,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Count the number of edges
@@ -2559,7 +2590,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'get_n_edges' function
@@ -2657,7 +2688,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Adding a vertex to a graph
@@ -2688,6 +2719,23 @@ name "alg:add_vertex"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Note the static_assert
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+static_assert
+\end_layout
+
+\end_inset
+
+ at the top of the function: it checks during compiling if the function
+ is called with a non-const graph.
+ One can freely omit this static_assert: you will get a compiler error anyways,
+ be it a less helpful one.
 \end_layout
 
 \begin_layout Standard
@@ -2730,7 +2778,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'add_vertex' function
@@ -2888,17 +2936,27 @@ Dereferencing a vertex iterator to obtain a vertex descriptor
 \end_layout
 
 \begin_layout Standard
-'boost::vertices'
+'vertices'
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
-boost::vertices
+vertices
 \end_layout
 
 \end_inset
 
- is used to obtain a vertex iterator pair
+ (not 'boost::vertices' 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertices does not exist
+\end_layout
+
+\end_inset
+
+) is used to obtain a vertex iterator pair
 \begin_inset Index idx
 status open
 
@@ -2960,7 +3018,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the vertex iterators of a graph
@@ -2995,7 +3053,27 @@ name "alg:get_vertex_iterators"
 
 \begin_layout Standard
 This is a somewhat trivial function, as it forwards the function call to
- 'boost::vertices'.
+ 'vertices'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertices
+\end_layout
+
+\end_inset
+
+ (not 'boost::vertices' 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vertices does not exist
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -3032,7 +3110,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'get_vertex_iterators'
@@ -3112,7 +3190,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get all vertex descriptors of a graph
@@ -3226,7 +3304,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'get_vertex_descriptors'
@@ -3345,7 +3423,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Adding (two vertices and) an edge to a graph
@@ -3480,7 +3558,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'add_edge'
@@ -3664,7 +3742,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the edge iterators of a graph
@@ -3745,7 +3823,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'get_edge_iterators'
@@ -3890,7 +3968,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get all edge descriptors of a graph
@@ -3990,7 +4068,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of get_edge_descriptors
@@ -4161,7 +4239,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The two-state Markov chain
@@ -4217,7 +4295,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -4339,7 +4417,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_markov_chain' 
@@ -4412,7 +4490,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_markov_chain_graph' function (algorithm
@@ -4503,7 +4581,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_markov_chain' function (algorithm 
@@ -4658,7 +4736,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset Formula $K_{2}$
@@ -4715,7 +4793,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -4852,7 +4930,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_k2_graph' 
@@ -4917,7 +4995,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_k2_graph' function (algorithm 
@@ -5008,7 +5086,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_k2_graph' function (algorithm 
@@ -5137,45 +5215,75 @@ The number of connections is called the 'degree' of the vertex.
 \end_layout
 
 \begin_layout Itemize
-in degree: the number of incoming connections, using boost::in_degree
+in degree: the number of incoming connections, using 'in_degree'
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::in_degree
+in_degree
 \end_layout
 
 \end_inset
 
+ (not 'boost::in_edgree'
+\begin_inset Index idx
+status open
 
+\begin_layout Plain Layout
+boost::in_degree does not exist
+\end_layout
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
-out degree: the number of outgoing connections, using boost::in_degree
+out degree: the number of outgoing connections, using 'out_degree'
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::out_degree
+out_degree
 \end_layout
 
 \end_inset
 
+ (not 'boost::out_edgree'
+\begin_inset Index idx
+status open
 
+\begin_layout Plain Layout
+boost::out_degree does not exist
+\end_layout
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
-degree: sum of the in degree and out degree, using boost::in_degree
+degree: sum of the in degree and out degree, using 'degree'
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-boost::degree
+idegree
 \end_layout
 
 \end_inset
 
+ (not 'boost::edgree'
+\begin_inset Index idx
+status open
 
+\begin_layout Plain Layout
+boost::degree does not exist
+\end_layout
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -5208,7 +5316,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the vertices' out degrees
@@ -5310,7 +5418,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'get_vertex_out_degrees' function
@@ -5416,7 +5524,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Saving a graph to a .dot file
@@ -5514,7 +5622,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'save_graph_to_dot' function
@@ -5619,7 +5727,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph from a .dot file
@@ -5745,7 +5853,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_graph_from_dot' function
@@ -5851,7 +5959,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph from a .dot file
@@ -5928,7 +6036,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_graph_from_dot' function
@@ -6192,7 +6300,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with named vertices
@@ -6401,7 +6509,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_directed_named_vertices_graph' function
@@ -6495,7 +6603,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with named vertices
@@ -6588,7 +6696,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_undirected_named_vertices_graph' function
@@ -6697,7 +6805,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Adding a vertex with a name
@@ -6823,7 +6931,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'add_named_vertex'
@@ -6890,7 +6998,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the vertices' names
@@ -7000,7 +7108,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'get_vertex_names'
@@ -7163,7 +7271,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the vertices have texts 
@@ -7221,7 +7329,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating a Markov chain with named vertices as depicted in figure 
@@ -7316,7 +7424,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstrating the 'create_named_vertices_markov_chain' function
@@ -7374,7 +7482,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_named_vertices_markov_chain' function
@@ -7458,7 +7566,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_named_vertices_markov_chain' function
@@ -7626,7 +7734,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset Formula $K_{2}$
@@ -7691,7 +7799,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -7790,7 +7898,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstrating the 'create_k2_graph' function
@@ -7848,7 +7956,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_named_vertices_k2' function (algorithm
@@ -7932,7 +8040,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_named_vertices_k2_graph' function (algorithm
@@ -8175,7 +8283,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is vertex with a certain name
@@ -8239,7 +8347,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_vertex_with_name' function
@@ -8319,7 +8427,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first vertex by its name
@@ -8384,7 +8492,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_vertex_with_name' function
@@ -8464,7 +8572,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the first vertex with a certain name its out degree from its vertex
@@ -8528,7 +8636,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'get_first_vertex_with_name_out_degree' function
@@ -8602,7 +8710,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get a vertex its name from its vertex descriptor
@@ -8666,7 +8774,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_vertex_name' function
@@ -8731,7 +8839,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set a vertex its name from its vertex descriptor
@@ -8795,7 +8903,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_vertex_name' function
@@ -8873,7 +8981,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Setting the vertices' names
@@ -9014,7 +9122,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Clear the first vertex with a certain name
@@ -9077,7 +9185,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'clear_first_vertex_with_name' function
@@ -9166,7 +9274,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Remove the first vertex with a certain name
@@ -9229,7 +9337,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'remove_first_vertex_with_name' function
@@ -9311,7 +9419,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Remove the first edge with a certain name
@@ -9374,7 +9482,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'remove_edge_between_vertices_with_names' function
@@ -9451,12 +9559,8 @@ Using boost::make_label_writer
 Using a C++11 lambda function
 \end_layout
 
-\begin_layout Itemize
-Using a C++14 lambda function
-\end_layout
-
 \begin_layout Standard
-I show all three ways, because you may need all of them.
+I show both ways, because you may need all of them.
 \end_layout
 
 \begin_layout Standard
@@ -9518,7 +9622,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Saving a graph with named vertices to a .dot file
@@ -9611,7 +9715,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Saving a graph with named vertices to a .dot file using a lambda expression
@@ -9672,105 +9776,9 @@ First we create a shorthand for the vertex descriptor type, that we'll need
 \end_layout
 
 \begin_layout Standard
-We then create a vertex name map at function scope (in C++14 this can be
+We then create a vertex name map at function scope (in C++17 this can be
  at lambda function scope) and pass it to the lambda function using its
  capture section.
-\end_layout
-
-\begin_layout Standard
-The lambda function arguments need to be two: a std::ostream& (a reference
- to a general out-stream) and a vertex descriptor.
- In the function body, we get the name of the vertex the same as the 'get_vertex
-_name' function (algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:get_vertex_name"
-
-\end_inset
-
-) and stream it to the out stream.
-\end_layout
-
-\begin_layout Subsubsection
-Using a C++14 lambda function
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "save_named_vertices_graph_to_dot_using_lambda_cpp14.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Saving a graph with named vertices to a .dot file using a lambda expression
- and C++14
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Save named vertices graph to dot using lambda C++14
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:save_named_vertices_graph_to_dot_using_lambda_cpp14"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In this C++14 code, a lambda function is used as a third argument.
- 
-\end_layout
-
-\begin_layout Standard
-A lambda function is an on-the-fly function that has these parts:
-\end_layout
-
-\begin_layout Itemize
-the capture brackets '[]', to take variables within the lambda function
-\end_layout
-
-\begin_layout Itemize
-the function argument parentheses '()', to put the function arguments in
-\end_layout
-
-\begin_layout Itemize
-the function body '{}', where to write what it does
-\end_layout
-
-\begin_layout Standard
-We create a vertex name map at lambda function scope in its capture section.
 \end_layout
 
 \begin_layout Standard
@@ -9821,7 +9829,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'save_named_vertices_graph_to_dot' function
@@ -9927,7 +9935,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with named vertices from a .dot file
@@ -10028,7 +10036,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_named_vertices_graph_from_dot' function
@@ -10136,7 +10144,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with named vertices from a .dot file
@@ -10213,7 +10221,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_graph_from_dot' function
@@ -10436,7 +10444,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with named edges and vertices
@@ -10658,7 +10666,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'create_empty_directed_named_edges_and_vertices_graph'
@@ -10747,7 +10755,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with named edges and vertices
@@ -10969,7 +10977,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'create_empty_undirected_named_edges_and_vertices_graph'
@@ -11047,7 +11055,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a vertex with a name
@@ -11140,7 +11148,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'add_named_edge' function
@@ -11207,7 +11215,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the edges' names
@@ -11290,7 +11298,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'get_edge_names' function
@@ -11427,7 +11435,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the vertices have texts 
@@ -11501,7 +11509,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -11568,7 +11576,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_named_edges_and_vertices_markov_chain' function (algorithm
@@ -11622,7 +11630,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_named_edges_and_vertices_markov_chain'
@@ -11681,7 +11689,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_named_edges_and_vertices_markov_chain'
@@ -11858,7 +11866,7 @@ draw[thick]
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset Formula $K_{3}$
@@ -11915,7 +11923,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -12006,7 +12014,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_named_edges_and_vertices_k3' function
@@ -12059,7 +12067,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_named_edges_and_vertices_k3_graph' function
@@ -12125,7 +12133,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_named_edges_and_vertices_k3_graph' function
@@ -12311,7 +12319,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is an edge with a certain name
@@ -12375,7 +12383,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_edge_with_name' function
@@ -12454,7 +12462,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first edge by its name
@@ -12518,7 +12526,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_edge_by_name' function
@@ -12589,7 +12597,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get an edge its name from its edge descriptor
@@ -12653,7 +12661,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_edge_name' function
@@ -12718,7 +12726,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set an edge its name from its edge descriptor
@@ -12782,7 +12790,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_edge_name' function
@@ -12862,7 +12870,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Remove the first edge with a certain name
@@ -12925,7 +12933,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'remove_first_edge_with_name' function
@@ -13022,7 +13030,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Saving an undirected graph with named edges and vertices to a .dot file
@@ -13157,7 +13165,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with named edges and vertices from a .dot file
@@ -13259,7 +13267,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_named_edges_and_vertices_graph_from_dot'
@@ -13355,7 +13363,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with named edges and vertices from a .dot file
@@ -13432,7 +13440,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_named_edges_and_vertices_graph_from_dot'
@@ -13654,7 +13662,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Declaration of my_bundled_vertex
@@ -13793,7 +13801,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with bundled vertices
@@ -13947,7 +13955,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with bundled vertices
@@ -14044,7 +14052,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a bundled vertex
@@ -14128,7 +14136,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the bundled vertices' my_vertexes
@@ -14299,7 +14307,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the vertices have bundled properies and the
@@ -14351,7 +14359,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -14418,7 +14426,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_bundled_vertices_markov_chain' function (algorithm 
@@ -14474,7 +14482,7 @@ create_bundled_vertices_markov_chain.dot cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_bundled_vertices_markov_chain' function
@@ -14552,7 +14560,7 @@ create_bundled_vertices_markov_chain.svg cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_bundled_vertices_markov_chain' function
@@ -14651,7 +14659,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -14736,7 +14744,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_bundled_vertices_k2_graph' function (algorithm 
@@ -14792,7 +14800,7 @@ create_bundled_vertices_k2_graph.dot cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_bundled_vertices_k2_graph' function (algorithm
@@ -14856,7 +14864,7 @@ create_bundled_vertices_k2_graph.svg cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_bundled_vertices_k2_graph' function (algorithm
@@ -15043,7 +15051,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is vertex with a certain my_bundled_vertex
@@ -15107,7 +15115,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_bundled_vertex_with_my_vertex' function
@@ -15187,7 +15195,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first vertex with a certain my_bundled_vertex
@@ -15252,7 +15260,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_bundled_vertex_with_my_vertex' function
@@ -15309,7 +15317,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get a bundled vertex its my_vertex from its vertex descriptor
@@ -15378,7 +15386,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_bundled_vertex_my_vertex' function
@@ -15443,7 +15451,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set a bundled vertex its my_vertex from its vertex descriptor
@@ -15508,7 +15516,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_bundled_vertex_my_vertex' function
@@ -15566,7 +15574,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Setting the bundled vertices' 'my_bundled_vertex'-es
@@ -15652,7 +15660,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Storing a graph with bundled vertices as a .dot file
@@ -15742,7 +15750,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with bundled vertices from a .dot file
@@ -15833,7 +15841,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_bundled_vertices_graph_from_dot' function
@@ -15912,7 +15920,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with bundled vertices from a .dot file
@@ -15990,7 +15998,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_bundled_vertices_graph_from_dot' function
@@ -16166,7 +16174,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Declaration of my_bundled_edge
@@ -16292,7 +16300,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with bundled edges and vertices
@@ -16422,7 +16430,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_directed_bundled_edges_and_vertices_graph'
@@ -16476,7 +16484,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with bundled edges and vertices
@@ -16554,7 +16562,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_undirected_bundled_edges_and_vertices_graph'
@@ -16619,7 +16627,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a bundled edge
@@ -16680,7 +16688,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of 'add_bundled_edge'
@@ -16738,7 +16746,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the edges' my_bundled_edges
@@ -16910,7 +16918,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the edges and vertices have bundled properies.
@@ -16962,7 +16970,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -17029,7 +17037,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_bundled_edges_and_vertices_markov_chain' function (algorithm
@@ -17083,7 +17091,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
@@ -17147,7 +17155,7 @@ create_bundled_edges_and_vertices_markov_chain.svg cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_bundled_edges_and_vertices_markov_chain'
@@ -17251,7 +17259,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -17336,7 +17344,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_bundled_edges_and_vertices_k3_graph' function (algorithm
@@ -17393,7 +17401,7 @@ create_bundled_edges_and_vertices_k3_graph.dot cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
@@ -17457,7 +17465,7 @@ create_bundled_edges_and_vertices_k3_graph.svg cannot be created
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_bundled_edges_and_vertices_k3_graph' function
@@ -17537,7 +17545,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is a bundled edge with a certain my_bundled_edge
@@ -17601,7 +17609,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_bundled_edge_with_my_edge' function
@@ -17681,7 +17689,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first bundled edge with a certain my_bundled_edge
@@ -17746,7 +17754,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_bundled_edge_with_my_edge' function
@@ -17804,7 +17812,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get a vertex its my_bundled_vertex from its vertex descriptor
@@ -17869,7 +17877,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_bundled_edge_my_edge' function
@@ -17934,7 +17942,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set a bundled edge its my_bundled_edge from its edge descriptor
@@ -17998,7 +18006,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_bundled_edge_my_edge' function
@@ -18053,7 +18061,7 @@ Create .dot from graph with bundled edges and vertices
 \end_layout
 
 \begin_layout Standard
-If you used the create_bundled_edges_and_vertices_k3_graph function (algorithm
+If you used the 'create_bundled_edges_and_vertices_k3_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18087,7 +18095,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_bundled_edges_and_vertices_graph_to_dot_cpp14.impl"
+filename "save_bundled_edges_and_vertices_graph_to_dot_cpp11.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18096,7 +18104,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Storing a graph with bundled edges and vertices as a .dot file
@@ -18127,20 +18135,6 @@ name "alg:save_bundled_edges_and_vertices_graph_to_dot"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Note that this algorithm uses C++14
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++14
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -18186,7 +18180,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with bundled edges and vertices from a .dot file
@@ -18289,7 +18283,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_bundled_edges_and_vertices_graph_from_dot'
@@ -18388,7 +18382,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with bundled edges and vertices from a .dot file
@@ -18466,7 +18460,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_bundled_edges_and_vertices_graph_from_dot'
@@ -18682,7 +18676,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Declaration of my_custom_vertex
@@ -18878,7 +18872,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Installing the vertex_custom_type property
@@ -18945,7 +18939,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with custom vertices
@@ -19155,7 +19149,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo how to create an empty directed graph with custom vertices
@@ -19208,7 +19202,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with custom vertices
@@ -19286,7 +19280,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo how to create an empty undirected graph with custom vertices
@@ -19351,7 +19345,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a custom vertex
@@ -19433,7 +19427,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of 'add_custom_vertex'
@@ -19502,7 +19496,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the vertices' my_vertexes
@@ -19581,7 +19575,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo how to the vertices' my_custom_vertex objects
@@ -19730,7 +19724,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the vertices have custom properies and the
@@ -19782,7 +19776,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -19849,7 +19843,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_vertices_markov_chain' function (algorithm 
@@ -19902,7 +19896,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_vertices_markov_chain' function
@@ -19987,7 +19981,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_vertices_markov_chain' function
@@ -20105,7 +20099,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -20190,7 +20184,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_vertices_k2_graph' function (algorithm 
@@ -20243,7 +20237,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_vertices_k2_graph' function (algorithm
@@ -20302,7 +20296,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_vertices_k2_graph' function (algorithm
@@ -20478,7 +20472,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is vertex with a certain my_vertex
@@ -20542,7 +20536,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_custom_vertex_with_my_vertex' function
@@ -20622,7 +20616,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first vertex with a certain my_vertex
@@ -20687,7 +20681,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_custom_vertex_with_my_vertex' function
@@ -20756,7 +20750,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get a custom vertex its my_vertex from its vertex descriptor
@@ -20821,7 +20815,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_custom_vertex_my_vertex' function
@@ -20886,7 +20880,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set a custom vertex its my_vertex from its vertex descriptor
@@ -20950,7 +20944,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_custom_vertex_my_vertex' function
@@ -21008,7 +21002,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Setting the custom vertices' my_vertexes
@@ -21092,7 +21086,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_vertices_graph_to_dot_cpp14.impl"
+filename "save_custom_vertices_graph_to_dot_cpp11.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21101,7 +21095,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Storing a graph with custom vertices as a .dot file
@@ -21132,20 +21126,6 @@ name "alg:save_custom_vertices_graph_to_dot"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Note that this algorithm uses C++14
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++14
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -21191,7 +21171,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with custom vertices from a .dot file
@@ -21293,7 +21273,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_custom_vertices_graph_from_dot' function
@@ -21372,7 +21352,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with custom vertices from a .dot file
@@ -21449,7 +21429,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_custom_vertices_graph_from_dot' function
@@ -21496,23 +21476,6 @@ Building graphs with custom and selectable vertices
 \begin_layout Standard
 We have added one custom vertex property, here we add a second: if the vertex
  is selected.
-\end_layout
-
-\begin_layout Standard
-Up until now, the graphs created have had edges and vertices with the built-in
- name propery.
- In this chapter, graphs will be created, in which the edges and vertices
- can have a custom 'my_custom_edge' and 'my_custom_edge' type
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-I do not intend to be original in naming my data types
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Itemize
@@ -21605,6 +21568,26 @@ name "sub:install_is_selected"
 \end_inset
 
 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex_is_selected
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+vertex_is_selected_t
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -21659,7 +21642,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Installing the vertex_is_selected property
@@ -21726,7 +21709,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with custom and selectable vertices
@@ -21827,7 +21810,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_directed_custom_and_selectable_vertices_graph
@@ -21881,7 +21864,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with custom and selectable vertices
@@ -21959,7 +21942,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_undirected_custom_and_selectable_vertices_gra
@@ -22025,7 +22008,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a custom and selectable vertex
@@ -22087,7 +22070,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of 'add_custom_and_selectable_vertex'
@@ -22226,7 +22209,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the edges and vertices have custom properies.
@@ -22278,7 +22261,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -22345,7 +22328,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_and_selectable_vertices_markov_chain' function
@@ -22399,7 +22382,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_and_selectable_vertices_markov_chain'
@@ -22458,7 +22441,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_and_selectable_vertices_markov_chain'
@@ -22505,7 +22488,11 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-)
+): the vertex labeled 'Sunny' is drawn according to the Graphviz 'regular'
+ attribute, which makes it a circle.
+ The other vertex, labeled 'Rainy' is not drawn as such and retained its
+ ellipsoid appearance.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -22569,7 +22556,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -22654,7 +22641,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_and_selectable_vertices_k2_graph' function (algorithm
@@ -22708,7 +22695,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_and_selectable_vertices_k2_graph'
@@ -22767,7 +22754,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_and_selectable_vertices_k2_graph'
@@ -22814,7 +22801,10 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-)
+): the vertex labeled 'A' is drawn according to the Graphviz 'regular' attribute
+, which makes it a circle.
+ The other vertex, labeled 'B' is not drawn as such and retained its ellipsoid
+ appearance.
 \end_layout
 
 \begin_layout Section
@@ -22917,10 +22907,10 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Storing a graph with custom vertices as a .dot file
+Storing a graph with custom and selectable vertices as a .dot file
 \begin_inset Index idx
 status open
 
@@ -22981,7 +22971,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The 'make_custom_and_selectable_vertices_writer' function
@@ -23045,7 +23035,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The 'custom_and_selectable_vertices_writer' function
@@ -23105,8 +23095,8 @@ name "sub:load_directed_custom_and_selectable_vertices_graph_from_dot"
 
 \begin_layout Standard
 When loading a graph from file, one needs to specify a type of graph.
- In this example, an directed graph with custom vertices is loaded, as shown
- in algorithm 
+ In this example, an directed graph with custom and selectable vertices
+ is loaded, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:load_directed_custom_and_selectable_vertices_graph_from_dot"
@@ -23135,7 +23125,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with custom vertices from a .dot file
@@ -23171,7 +23161,7 @@ name "alg:load_directed_custom_and_selectable_vertices_graph_from_dot"
 \begin_layout Standard
 In this algorithm, first it is checked if the file to load exists.
  Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
+ Then, a boost::dynamic_properties
 \begin_inset Index idx
 status open
 
@@ -23236,7 +23226,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_custom_and_selectable_vertices_graph_from_do
@@ -23269,8 +23259,7 @@ reference "alg:create_custom_vertices_markov_chain"
 
 \end_inset
 
-), saved and then loaded.
- The loaded graph is then checked to be identical to the original.
+), saved and then checked to exist.
 \end_layout
 
 \begin_layout Subsection
@@ -23286,8 +23275,8 @@ name "sub:load_undirected_custom_and_selectable_vertices_graph_from_dot"
 
 \begin_layout Standard
 When loading a graph from file, one needs to specify a type of graph.
- In this example, an undirected graph with custom vertices is loaded, as
- shown in algorithm 
+ In this example, an undirected graph with custom and selectable vertices
+ is loaded, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:load_undirected_custom_and_selectable_vertices_graph_from_dot"
@@ -23316,7 +23305,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with custom vertices from a .dot file
@@ -23393,7 +23382,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_custom_and_selectable_vertices_graph_from_
@@ -23430,8 +23419,7 @@ reference "alg:create_custom_vertices_k2_graph"
 
 \end_inset
 
-), saved and then loaded.
- The loaded graph is then checked to be identical to the original.
+), saved and then checked to exist.
 \end_layout
 
 \begin_layout Section
@@ -23582,7 +23570,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Declaration of my_custom_edge
@@ -23756,7 +23744,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Installing the edge_custom_type property
@@ -23823,7 +23811,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with custom edges and vertices
@@ -23953,7 +23941,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_directed_custom_edges_and_vertices_graph'
@@ -24007,7 +23995,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with custom edges and vertices
@@ -24085,7 +24073,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'create_empty_undirected_custom_edges_and_vertices_graph'
@@ -24150,7 +24138,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Add a custom edge
@@ -24232,7 +24220,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of 'add_custom_edge'
@@ -24290,7 +24278,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get the edges' my_custom_edges
@@ -24462,7 +24450,7 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 A two-state Markov chain where the edges and vertices have custom properies.
@@ -24514,7 +24502,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the two-state Markov chain as depicted in figure 
@@ -24581,7 +24569,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_edges_and_vertices_markov_chain' function (algorithm
@@ -24635,7 +24623,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_edges_and_vertices_markov_chain'
@@ -24694,7 +24682,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_edges_and_vertices_markov_chain'
@@ -24798,7 +24786,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating 
@@ -24882,7 +24870,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demo of the 'create_custom_edges_and_vertices_k3_graph' function (algorithm
@@ -24936,7 +24924,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_custom_edges_and_vertices_markov_chain'
@@ -24995,7 +24983,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_custom_edges_and_vertices_k3_graph' function
@@ -25075,7 +25063,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find if there is a custom edge with a certain my_custom_edge
@@ -25139,7 +25127,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'has_custom_edge_with_my_edge' function
@@ -25219,7 +25207,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Find the first custom edge with a certain my_custom_edge
@@ -25284,7 +25272,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'find_first_custom_edge_with_my_edge' function
@@ -25342,7 +25330,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Get a vertex its my_custom_vertex from its vertex descriptor
@@ -25407,7 +25395,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'get_custom_edge_my_edge' function
@@ -25472,7 +25460,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set a custom edge its my_custom_edge from its edge descriptor
@@ -25536,7 +25524,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration if the 'set_custom_edge_my_edge' function
@@ -25625,7 +25613,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_edges_and_vertices_graph_to_dot_cpp14.impl"
+filename "save_custom_edges_and_vertices_graph_to_dot_cpp11.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -25634,7 +25622,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Storing a graph with custom edges and vertices as a .dot file
@@ -25665,20 +25653,6 @@ name "alg:save_custom_edges_and_vertices_graph_to_dot"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Note that this algorithm uses C++14
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++14
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -25724,7 +25698,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with custom edges and vertices from a .dot file
@@ -25827,7 +25801,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_directed_custom_edges_and_vertices_graph_from_dot'
@@ -25926,7 +25900,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with custom edges and vertices from a .dot file
@@ -26003,7 +25977,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of the 'load_undirected_custom_edges_and_vertices_graph_from_dot'
@@ -26055,6 +26029,48 @@ name "sec:Building-graphs-with-a-graph-name"
 
 \end_layout
 
+\begin_layout Standard
+Up until now, the graphs created have had no properties themselves.
+ Sure, the edges and vertices have had properties, but the graph itself
+ has had none.
+ Until now.
+\end_layout
+
+\begin_layout Standard
+In this chapter, graphs will be created with a graph name of type std::string
+\end_layout
+
+\begin_layout Itemize
+An empty directed graph with a graph name: see chapter 
+\end_layout
+
+\begin_layout Itemize
+An empty undirected graph with a graph name: see chapter 
+\end_layout
+
+\begin_layout Itemize
+A two-state Markov chain with a graph name: see chapter
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with a graph name: see chapter 
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Getting a graph its name: see chapter 
+\end_layout
+
+\begin_layout Itemize
+Setting a graph its name: see chapter
+\end_layout
+
 \begin_layout Subsection
 Create an empty directed graph with a graph name property
 \begin_inset CommandInset label
@@ -26096,7 +26112,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty directed graph with a graph name
@@ -26130,6 +26146,129 @@ name "alg:create_empty_directed_graph_with_graph_name"
 \end_layout
 
 \begin_layout Standard
+This boost::adjacency_list is of the following type:
+\end_layout
+
+\begin_layout Itemize
+the first 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+: select (that is what the 'S
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+
+' means) that out edges are stored in a std::vector.
+ This is the default way.
+\end_layout
+
+\begin_layout Itemize
+the second 'boost::vecS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::vecS
+\end_layout
+
+\end_inset
+
+: select that the graph vertices are stored in a std::vector.
+ This is the default way.
+\end_layout
+
+\begin_layout Itemize
+'boost::directedS'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::directedS
+\end_layout
+
+\end_inset
+
+: select that the graph is directed.
+ This is the default selectedness
+\end_layout
+
+\begin_layout Itemize
+the first 'boost::no_property'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::no_property
+\end_layout
+
+\end_inset
+
+: the vertices have no properties.
+ This is the default (non-)property
+\end_layout
+
+\begin_layout Itemize
+the second 'boost::no_property'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::no_property
+\end_layout
+
+\end_inset
+
+: the vertices have no properties.
+ This is the default (non-)propert
+\end_layout
+
+\begin_layout Itemize
+'boost::property<boost::graph_name_t, std::string>'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::property
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::graph_name_t
+\end_layout
+
+\end_inset
+
+: the graph itself has a single property: its boost::graph_name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::graph_name
+\end_layout
+
+\end_inset
+
+ has type std::string
+\end_layout
+
+\begin_layout Standard
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26159,7 +26298,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_empty_directed_graph_with_graph_name'
@@ -26223,7 +26362,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating an empty undirected graph with a graph name
@@ -26257,6 +26396,28 @@ name "alg:create_empty_undirected_graph_with_graph_name"
 \end_layout
 
 \begin_layout Standard
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_empty_directed_graph_with_graph_name"
+
+\end_inset
+
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26286,13 +26447,245 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_empty_undirected_graph_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_graph_with_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Get a graph its name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Get a graph its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get graph name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:get_graph_name_demo"
+
+\end_inset
+
+ demonstrates the 'get_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Demonstration of 'get_graph_name'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_graph_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Set a graph its name property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:set_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_graph_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Set a graph its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Set graph name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_graph_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:set_graph_name_demo"
+
+\end_inset
+
+ demonstrates the 'set_graph_name' function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "set_graph_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Demonstration of 'set_graph_name'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:set_graph_name_demo"
 
 \end_inset
 
@@ -26369,7 +26762,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating a two-state Markov chain with a graph name
@@ -26436,7 +26829,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_markov_chain_with_graph_name'
@@ -26482,7 +26875,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_markov_chain_with_graph_name' function
@@ -26541,7 +26934,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_markov_chain_with_graph_name' function
@@ -26639,7 +27032,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating a K2 graph with a graph name
@@ -26706,7 +27099,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Demonstration of 'create_k2_graph_with_graph_name'
@@ -26752,7 +27145,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .dot file created from the 'create_k2_graph_with_graph_name' function (algorithm
@@ -26811,7 +27204,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 .svg file created from the 'create_k2_graph_with_graph_name' function (algorithm
@@ -26854,238 +27247,6 @@ Working on graphs with a graph name
 \end_layout
 
 \begin_layout Subsection
-Set a graph its name property
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:set_graph_name"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "set_graph_name.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Set a graph its name
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Set graph name
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:set_graph_name"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:set_graph_name_demo"
-
-\end_inset
-
- demonstrates the 'set_graph_name' function.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "set_graph_name_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of 'set_graph_name'
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:set_graph_name_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Get a graph its name property
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:get_graph_name"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_graph_name.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Get a graph its name
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Get graph name
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_graph_name"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:get_graph_name_demo"
-
-\end_inset
-
- demonstrates the 'get_graph_name' function.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "get_graph_name_demo.impl"
-lstparams "breaklines=true,language={C++}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Demonstration of 'get_graph_name'
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:get_graph_name_demo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 Storing a graph with a graph name property as a .dot file
 \begin_inset CommandInset label
 LatexCommand label
@@ -27120,7 +27281,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Storing a graph with a graph name as a .dot file
@@ -27188,7 +27349,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading a directed graph with a graph name from a .dot file
@@ -27272,7 +27433,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Loading an undirected graph with a graph name from a .dot file
@@ -27406,7 +27567,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Encode a std::string to a Graphviz-friendly format
@@ -27481,7 +27642,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Decode a std::string from a Graphviz-friendly format to a human-friendly
@@ -27561,7 +27722,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Getting a data type its name as a std::string
@@ -27631,7 +27792,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Convert a .dot file to a .svg
@@ -27703,7 +27864,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Check if a file exists
@@ -27786,7 +27947,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the error 'formed reference to void'
@@ -27870,7 +28031,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the error 'no matching function for call to clear_out_edges'
@@ -28133,7 +28294,7 @@ lstparams "breaklines=true,language={C++}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Creating the error 'Property not found: node_id'
@@ -28248,10 +28409,10 @@ The following list is obtained from the file 'boost/graph/properties.hpp'.
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="29" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -29129,10 +29290,10 @@ www.graphviz.org/content/attrs
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="45" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text

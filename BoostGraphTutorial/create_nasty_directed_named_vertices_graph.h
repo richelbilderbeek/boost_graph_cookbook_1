@@ -3,7 +3,6 @@
 
 #include <boost/graph/adjacency_list.hpp>
 
-///Create a nasty directed graph with named vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

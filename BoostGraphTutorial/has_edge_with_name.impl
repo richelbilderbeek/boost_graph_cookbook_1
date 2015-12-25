@@ -1,8 +1,6 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-///See if there is an edge with a certain name.
-///TODO: extract edge_name_type from the graph
 template <
   typename graph,
   typename edge_name_type

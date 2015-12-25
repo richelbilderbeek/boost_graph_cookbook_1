@@ -1,21 +1,18 @@
 #include <cassert>
+#include <string>
 #include <boost/graph/adjacency_list.hpp>
 
-///Add an isolated named edge to the graph,
-///by adding two vertices to put
-///the new named edge in between.
-///TODO: extract edge_name_type from the graph
 template <
-  typename graph,
-  typename edge_name_type
+  typename graph
 >
 void add_named_edge(
-  const edge_name_type& edge_name,
+  const std::string& edge_name,
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(vd_a, vd_b, g);

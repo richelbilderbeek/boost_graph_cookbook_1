@@ -1,8 +1,5 @@
 #include <boost/algorithm/string/replace.hpp>
 
-///Encodes any std::string to a format that is usable
-///for Graphviz to save and load from file.
-///Use 'graphviz_decode' to retrieve the original std::string
 std::string graphviz_encode(std::string s) noexcept
 {
   boost::algorithm::replace_all(s,",","[[:COMMA:]]");

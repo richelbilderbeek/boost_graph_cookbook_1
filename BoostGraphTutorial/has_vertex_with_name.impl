@@ -1,8 +1,5 @@
 #include <boost/graph/properties.hpp>
 
-///See if a graph has a vertex
-///with a certain name
-///TODO: extract vertex_name_type from the graph
 template <
   typename graph,
   typename vertex_name_type

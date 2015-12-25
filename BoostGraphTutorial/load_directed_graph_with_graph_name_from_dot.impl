@@ -5,8 +5,6 @@
 #include "create_empty_directed_graph_with_graph_name.h"
 #include "is_regular_file.h"
 
-///Load a graph with a name from file
-///TODO: fix this, as this code is not working correct
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

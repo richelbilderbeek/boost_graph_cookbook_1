@@ -8,10 +8,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_edge.h"
 
-///Collect all the my_bundled_edge objects from a graph
-///stored as a custom property of a edge and
-///sort these before returning
-//TODO: generalize to return any type
 template <typename graph>
 std::vector<my_bundled_edge> get_sorted_bundled_edge_my_edges(const graph& g) noexcept
 {

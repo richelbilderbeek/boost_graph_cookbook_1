@@ -1,21 +1,13 @@
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
-//#include "install_vertex_custom_type.h"
 
-///Create a K2 graph with a custom vertex type
-///associated to its vertices. The associated type
-///is of type 'my_custom_and_selectable_vertex' by default
-template<
-  typename my_custom_vertex_type = my_custom_vertex,
-  typename is_selectable_type = bool
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::vertex_custom_type_t, my_custom_vertex,
     boost::property<
-      boost::vertex_is_selected_t, is_selectable_type
+      boost::vertex_is_selected_t, bool
     >
   >
 >

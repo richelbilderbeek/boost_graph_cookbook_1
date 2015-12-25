@@ -5,9 +5,6 @@
 
 #include "get_vertex_names.h"
 
-///Save a graph with named vertices to a .dot file
-///using a lambda and C++11
-///TODO: remove the hard-coded std::string type
 template <typename graph>
 void save_named_vertices_graph_to_dot_using_lambda_cpp11(
   const graph& g,

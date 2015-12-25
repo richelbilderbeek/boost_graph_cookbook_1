@@ -1,7 +1,6 @@
 #include <vector>
 #include "boost/graph/graph_traits.hpp"
 
-///Collect all vertex descriptors of a graph
 template <typename graph>
 std::vector<
   typename boost::graph_traits<graph>::vertex_descriptor

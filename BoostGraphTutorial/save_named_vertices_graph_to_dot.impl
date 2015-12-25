@@ -4,8 +4,6 @@
 
 #include "get_vertex_names.h"
 
-///Save a graph with named vertices to a .dot file
-///TODO: extract vertex_name_type from the graph
 template <
   typename graph,
   typename vertex_name_type

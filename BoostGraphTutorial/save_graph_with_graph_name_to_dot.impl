@@ -5,7 +5,6 @@
 
 #include "get_graph_name.h"
 
-///Save a graph with a graph name to a .dot file
 template <typename graph>
 void save_graph_with_graph_name_to_dot(
   const graph& g,

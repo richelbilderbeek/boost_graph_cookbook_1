@@ -3,15 +3,6 @@
 
 #include "get_bundled_vertex_my_vertexes.h"
 
-//#include <vector>
-//#include <boost/graph/graph_traits.hpp>
-//#include <boost/graph/properties.hpp>
-//#include "my_bundled_vertex.h"
-
-///Collect all the my_bundled_vertex objects from a graph
-///stored as a custom property of a vertex and
-///sort these before returning
-//TODO: generalize to return any type
 template <typename graph>
 std::vector<my_bundled_vertex> get_sorted_bundled_vertex_my_vertexes(const graph& g) noexcept
 {

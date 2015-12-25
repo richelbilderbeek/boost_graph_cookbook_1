@@ -1,8 +1,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_edge.h"
 
-///Set an edge its my_bundled_edge from its
-///edge descriptor
 template <typename graph>
 void set_bundled_edge_my_edge(
   const my_bundled_edge& name,
@@ -10,6 +8,8 @@ void set_bundled_edge_my_edge(
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
   g[ed] = name;
 }

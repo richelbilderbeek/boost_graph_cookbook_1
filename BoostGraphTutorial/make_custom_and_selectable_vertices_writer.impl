@@ -1,4 +1,3 @@
-///Create a 'custom_and_selectable_vertices_writer' object
 template <class my_custom_vertex_map, class is_selected_map>
 inline custom_and_selectable_vertices_writer<
   my_custom_vertex_map,

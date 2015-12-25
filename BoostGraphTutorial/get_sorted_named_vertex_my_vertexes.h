@@ -3,9 +3,6 @@
 
 #include "get_vertex_names.h"
 
-///Collect all the vertex names and
-///sort these before returning
-//TODO: generalize to return any type
 template <typename graph>
 std::vector<std::string>
 get_sorted_vertex_names(const graph& g) noexcept

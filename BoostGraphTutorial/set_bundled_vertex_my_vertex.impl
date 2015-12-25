@@ -2,8 +2,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
 
-///Set the my_bundled_vertex of a bundled vertex
-///from its vertex descriptor
 template <typename graph>
 void set_bundled_vertex_my_vertex(
   const my_bundled_vertex& v,

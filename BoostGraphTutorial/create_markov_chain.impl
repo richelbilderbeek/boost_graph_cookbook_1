@@ -1,8 +1,6 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_graph.h"
 
-///Create a two-state Markov chain
 boost::adjacency_list<>
 create_markov_chain() noexcept
 {

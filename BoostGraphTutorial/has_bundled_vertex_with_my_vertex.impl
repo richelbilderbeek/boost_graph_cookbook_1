@@ -2,8 +2,6 @@
 #include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
 
-///See if the graph with bundled vertices
-///contains a vertex with a certain my_bundled_vertex
 template <typename graph>
 bool has_bundled_vertex_with_my_vertex(
   const my_bundled_vertex& v,

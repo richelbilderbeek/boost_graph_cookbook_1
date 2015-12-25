@@ -2,9 +2,6 @@
 #include <iosfwd>
 #include <boost/property_map/dynamic_property_map.hpp>
 
-///Member variabled must be public,
-///for boost::dynamic_properties (used by Graphviz) to work on.
-///No need to define the stream operators for interaction with Graphviz.
 struct my_bundled_vertex
 {
   explicit my_bundled_vertex(

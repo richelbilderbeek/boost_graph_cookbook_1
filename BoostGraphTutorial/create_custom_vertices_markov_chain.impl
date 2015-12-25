@@ -4,16 +4,12 @@
 //#include "install_vertex_custom_type.h"
 //#include "my_custom_vertex.h"
 
-///Create a two-state Markov chain with custom vertices
-///for any my_custom_vertex_type, which is
-///'my_custom_vertex' by default
-template<class my_custom_vertex_type = my_custom_vertex>
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type
+    boost::vertex_custom_type_t, my_custom_vertex
   >
 >
 create_custom_vertices_markov_chain() noexcept

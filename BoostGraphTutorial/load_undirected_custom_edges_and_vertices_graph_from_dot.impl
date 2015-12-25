@@ -9,10 +9,6 @@
 #include "my_custom_edge.h"
 #include "my_custom_vertex.h"
 
-///Load an undirected graph with custom edges and
-///vertices from a .dot file.
-///Assumes the file exists and that the
-///custom edges and vertices can be read by Graphviz
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

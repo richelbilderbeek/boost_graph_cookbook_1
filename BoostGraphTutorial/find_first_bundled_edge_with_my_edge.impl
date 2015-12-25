@@ -4,11 +4,6 @@
 #include "has_custom_edge_with_my_edge.h"
 #include "my_bundled_edge.h"
 
-///Find the first edge with a certain
-///my_bundled_edge associated with it.
-///Returns the edge descriptor of that edge.
-///Assumes the my_bundled_edge is present,
-///will crash otherwise
 template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 find_first_bundled_edge_with_my_edge(

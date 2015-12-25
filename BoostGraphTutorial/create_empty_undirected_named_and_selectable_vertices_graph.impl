@@ -2,19 +2,14 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_is_selected.h"
 
-///Create an empty undirected graph with named and selectable vertices
-template<
-  typename vertex_name_type = std::string,
-  typename vertex_is_selectable_type = bool
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_name_t, vertex_name_type,
+    boost::vertex_name_t, std::string,
     boost::property<
-      boost::vertex_is_selected_t, vertex_is_selectable_type
+      boost::vertex_is_selected_t, bool
     >
   >
 >
@@ -25,9 +20,9 @@ create_empty_undirected_named_and_selectable_vertices_graph() noexcept
     boost::vecS,
     boost::undirectedS,
     boost::property<
-      boost::vertex_name_t, vertex_name_type,
+      boost::vertex_name_t, std::string,
       boost::property<
-        boost::vertex_is_selected_t, vertex_is_selectable_type
+        boost::vertex_is_selected_t, bool
       >
     >
   > ();

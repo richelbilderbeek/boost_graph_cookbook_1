@@ -3,8 +3,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///Get the my_custom_vertex of a custom vertex
-///from its vertex descriptor
 template <typename graph>
 my_custom_vertex get_custom_vertex_my_custom_vertex(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,

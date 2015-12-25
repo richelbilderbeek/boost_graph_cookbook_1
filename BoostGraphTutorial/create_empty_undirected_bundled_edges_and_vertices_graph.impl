@@ -2,8 +2,6 @@
 #include "my_bundled_edge.h"
 #include "my_bundled_vertex.h"
 
-///Create an empty undirected graph with
-///custom edges and vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

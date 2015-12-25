@@ -1,8 +1,6 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_named_vertices_graph.h"
 
-///Create a K2 graph with named vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

@@ -2,7 +2,6 @@
 #include "helper.h"
 #include "is_regular_file.h"
 
-///Check if a file is a valid .dot file
 bool is_valid_dot_file(const std::string& dot_filename) noexcept
 {
 

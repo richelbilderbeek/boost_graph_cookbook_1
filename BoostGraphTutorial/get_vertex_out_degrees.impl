@@ -1,6 +1,5 @@
 #include <vector>
 
-///Get the out degrees of all vertices
 template <typename graph>
 std::vector<int> get_vertex_out_degrees(
   const graph& g

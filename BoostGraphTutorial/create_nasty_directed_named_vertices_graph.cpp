@@ -7,7 +7,6 @@
 #include "load_directed_named_vertices_graph_from_dot.h"
 #include "get_sorted_named_vertex_my_vertexes.h"
 
-///Create a nasty directed graph with named vertices
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

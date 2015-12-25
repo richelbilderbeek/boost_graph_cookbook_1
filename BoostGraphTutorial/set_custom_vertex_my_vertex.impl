@@ -3,8 +3,6 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-///Set the my_custom_vertex of a vertex
-///from its vertex descriptor
 template <typename graph>
 void set_custom_vertex_my_custom_vertex(
   const my_custom_vertex& v,

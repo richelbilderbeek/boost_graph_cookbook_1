@@ -1,7 +1,6 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 
-///Get the number of edges a graph has
 template <typename graph>
 int get_n_edges(const graph& g) noexcept
 {

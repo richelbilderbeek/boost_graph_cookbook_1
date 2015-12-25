@@ -2,7 +2,6 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-///Set the name of a graph
 template <typename graph>
 void set_graph_name(
   const std::string& name,

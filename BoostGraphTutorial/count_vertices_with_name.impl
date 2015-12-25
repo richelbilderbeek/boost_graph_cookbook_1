@@ -1,15 +1,10 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-///Count the vertices with a certain name
-///TODO: extract vertex_name_type from the graph
-template <
-  typename graph,
-  typename vertex_name_type
->
+template <typename graph>
 int count_vertices_with_name(
   const graph& g,
-  const vertex_name_type& name
+  const std::string& name
 ) noexcept
 {
   int cnt{0};

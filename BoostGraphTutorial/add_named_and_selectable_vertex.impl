@@ -1,17 +1,13 @@
+#include <string>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_is_selected.h"
-
-///Add a named and selectable vertex to the graph
-///TODO: extract vertex_name_type
-///and is_selectable_type from the graph
+#include "my_custom_vertex.h"
 template <
-  typename vertex_name_type,
-  typename is_selectable_type,
   typename graph
 >
 void add_named_and_selectable_vertex(
-  const vertex_name_type& vertex_name,
-  const is_selectable_type& is_selected,
+  const std::string& vertex_name,
+  const bool is_selected,
   graph& g
 ) noexcept
 {

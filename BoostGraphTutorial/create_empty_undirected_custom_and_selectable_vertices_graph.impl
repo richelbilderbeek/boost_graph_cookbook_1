@@ -3,25 +3,14 @@
 #include "install_vertex_is_selected.h"
 #include "my_custom_vertex.h"
 
-///Create an empty and undirected graph in
-///which the vertices are associated to both
-///a custom vertex type and a selectedness.
-///The custom vertex can be of any type and is
-///of type 'my_custom_and_selectable_vertex' by default
-///The selectedness type can be of any type and is
-///of type 'bool' by default
-template<
-  typename my_custom_vertex_type = my_custom_vertex,
-  typename is_selectable_type = bool
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::vertex_custom_type_t, my_custom_vertex,
     boost::property<
-      boost::vertex_is_selected_t, is_selectable_type
+      boost::vertex_is_selected_t, bool
     >
   >
 >

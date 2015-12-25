@@ -2,9 +2,6 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-///Collect all the my_custom_edge objects from a graph
-///stored as a custom property of a edge
-//TODO: generalize to return any type
 template <typename graph>
 std::vector<my_custom_edge> get_custom_edge_my_edges(
   const graph& g

@@ -5,9 +5,6 @@
 #include "my_bundled_edge.h"
 #include "my_bundled_vertex.h"
 
-///Load a undirected graph with custom edges and
-///vertices from a .dot file.
-///Assumes the file exists
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,

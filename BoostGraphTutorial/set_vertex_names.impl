@@ -4,8 +4,6 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-///Set all vertices' names
-//TODO: generalize 'names'
 template <typename graph>
 void set_vertex_names(
   graph& g,

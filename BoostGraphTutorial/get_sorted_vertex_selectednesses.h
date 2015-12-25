@@ -4,9 +4,6 @@
 #include <algorithm>
 #include "get_vertex_selectednesses.h"
 
-///Collect all the vertex selectednesses from a graph
-///and sort these before returning
-///TODO: generalize the return type
 template <typename graph>
 std::vector<bool> get_sorted_vertex_selectednesses(
   const graph& g

@@ -2,17 +2,14 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "install_vertex_is_selected.h"
-//#include "my_custom_vertex.h"
+#include "my_custom_vertex.h"
 
-///Add a custom vertex to a graph
 template <
-  typename graph,
-  typename my_custom_vertex_type,
-  typename is_selected_type
+  typename graph
 >
 void add_custom_and_selectable_vertex(
-  const my_custom_vertex_type& v,
-  const is_selected_type is_selected,
+  const my_custom_vertex& v,
+  const bool is_selected,
   graph& g
 ) noexcept
 {

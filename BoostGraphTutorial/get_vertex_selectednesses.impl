@@ -1,10 +1,6 @@
 #include <vector>
 #include "install_vertex_is_selected.h"
 
-///Get all vertex selectednesses
-///TODO: return a 'vertex_is_selected_type' (deduced from the
-///graph type), instead of a bool
-///TODO: if that type is bool, return a boost::dynamic_bitset
 template <typename graph>
 std::vector<bool> get_vertex_selectednesses(
   const graph& g

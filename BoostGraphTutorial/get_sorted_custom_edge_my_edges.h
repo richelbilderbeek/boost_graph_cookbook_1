@@ -1,18 +1,9 @@
 #ifndef GET_SORTED_CUSTOM_EDGE_MY_EDGES_H
 #define GET_SORTED_CUSTOM_EDGE_MY_EDGES_H
 
+#include <vector>
 #include "get_custom_edge_my_edges.h"
 
-#include <vector>
-//#include <boost/graph/graph_traits.hpp>
-//#include <boost/graph/properties.hpp>
-//#include "install_edge_custom_type.h"
-//#include "my_custom_edge.h"
-
-///Collect all the my_custom_edge objects from a graph
-///stored as a custom property of a edge and
-///sort these before returning
-//TODO: generalize to return any type
 template <typename graph>
 std::vector<my_custom_edge> get_sorted_custom_edge_my_edges(const graph& g) noexcept
 {

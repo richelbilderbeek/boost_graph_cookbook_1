@@ -1,6 +1,5 @@
 #include <boost/graph/adjacency_list.hpp>
 
-///Get the edge iterators of a graph
 template <typename graph>
 std::pair<
   typename graph::edge_iterator,

@@ -3,18 +3,10 @@
 #include <boost/graph/properties.hpp>
 #include "has_vertex_with_name.h"
 
-///Find the first vertex with a certain
-///name and return its vertex descriptor.
-///Assumes that there exists a vertex with
-///such a name
-///TODO: extract vertex_name_type from the graph
-template <
-  typename graph,
-  typename vertex_name_type
->
+template <typename graph>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_vertex_with_name(
-  const vertex_name_type& name,
+  const std::string& name,
   const graph& g
 ) noexcept
 {

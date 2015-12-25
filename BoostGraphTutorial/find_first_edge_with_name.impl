@@ -1,26 +1,21 @@
+#include <string>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 #include "has_edge_with_name.h"
 
-///Find the first edge with a certain name
-///and returns its edge descriptor.
-///Assumes that there exists an edge with
-///such a name.
-///TODO: extract edge_name_type from the graph
-template <
-  typename graph,
-  typename edge_name_type
->
+template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 find_first_edge_with_name(
-  const edge_name_type& name,
+  const std::string& name,
   const graph& g
 ) noexcept
 {
   assert(has_edge_with_name(name, g));
 
   const auto edge_name_map
-    = get(boost::edge_name,g);
+    = get( //not boost::get
+      boost::edge_name, g
+    );
   const auto eip
     = edges(g); //not boost::edges
   const auto j = eip.second;

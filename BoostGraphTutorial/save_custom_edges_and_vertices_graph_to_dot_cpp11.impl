@@ -5,7 +5,6 @@
 #include "get_custom_edge_my_edge.h"
 #include "get_custom_vertex_my_vertexes.h"
 
-///Save a graph with custom vertices to a .dot file
 template <typename graph>
 void save_custom_edges_and_vertices_graph_to_dot(
   const graph& g,

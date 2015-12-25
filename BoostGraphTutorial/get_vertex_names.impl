@@ -3,9 +3,6 @@
 #include <boost/graph/properties.hpp>
 #include <boost/graph/graph_traits.hpp>
 
-///Get all vertex names
-///TODO: return a 'vertex_name_type' (deduced from the
-///graph type), instead of a std::string
 template <typename graph>
 std::vector<std::string> get_vertex_names(
   const graph& g

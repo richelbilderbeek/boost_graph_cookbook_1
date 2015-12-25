@@ -1,9 +1,5 @@
 #include <ostream>
 
-///A vertex writer that stores a custom
-///vertex type map as a Graphviz 'label', and an
-///is_selected_map as the Graphviz 'regular'
-///property
 template <
   typename my_custom_vertex_map,
   typename is_selected_map
