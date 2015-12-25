@@ -5483,8 +5483,18 @@ Create .dot from graph
 
 \begin_layout Standard
 Graph are easily saved to a file, thanks to Graphviz.
- Graphviz (short for Graph Visualization Software) is a package of open-source
- tools for drawing graphs.
+ Graphviz
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Graphviz
+\end_layout
+
+\end_inset
+
+ (short for Graph Visualization Software) is a package of open-source tools
+ for drawing graphs.
  It uses the DOT language for describing graphs, and these are commonly
  stored in (plain-text) .dot files (I show .dot file of every non-empty graph
  created, e.g.
@@ -5780,8 +5790,9 @@ std::ifstream
 \end_inset
 
  is opened.
- Then an empty directed graph is created.
- Next to this, a boost::dynamic_properties
+ Then an empty directed graph is created, which saves us writing down the
+ template arguments explicitly.
+ Then, a boost::dynamic_properties
 \begin_inset Index idx
 status open
 
@@ -9689,7 +9700,7 @@ Using a C++11 lambda function
 An equivalent algorithm is algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:save_named_vertices_graph_to_dot_using_lambda_cpp11"
+reference "alg:save_named_vertices_graph_to_dot_using_lambda"
 
 \end_inset
 
@@ -9706,7 +9717,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_named_vertices_graph_to_dot_using_lambda_cpp11.impl"
+filename "save_named_vertices_graph_to_dot_using_lambda.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -9719,12 +9730,12 @@ lstparams "breaklines=true,language={C++}"
 
 \begin_layout Plain Layout
 Saving a graph with named vertices to a .dot file using a lambda expression
- and C++11
+ 
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Save named vertices graph to dot using lambda function C++11
+Save named vertices graph to dot using lambda function
 \end_layout
 
 \end_inset
@@ -9732,7 +9743,7 @@ Save named vertices graph to dot using lambda function C++11
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:save_named_vertices_graph_to_dot_using_lambda_cpp11"
+name "alg:save_named_vertices_graph_to_dot_using_lambda"
 
 \end_inset
 
@@ -9750,7 +9761,7 @@ name "alg:save_named_vertices_graph_to_dot_using_lambda_cpp11"
 \end_layout
 
 \begin_layout Standard
-In this C++11 code, a lambda function is used as a third argument.
+In this code, a lambda function is used as a third argument.
  
 \end_layout
 
@@ -13021,7 +13032,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_named_edges_and_vertices_graph_to_dot_cpp11.impl"
+filename "save_named_edges_and_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -13061,20 +13072,6 @@ name "alg:save_named_edges_and_vertices_graph_to_dot"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-This a C++11
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-C++11
-\end_layout
-
-\end_inset
-
- implementation.
 \end_layout
 
 \begin_layout Standard
@@ -13482,8 +13479,8 @@ reference "alg:create_named_edges_and_vertices_k3_graph"
 \begin_inset Formula $K_{3}$
 \end_inset
 
- , with the same edge and vertex names (using the 'get_edge_names' function
- , algorithm 
+ , with the same edge and vertex names (using the 'get_edge_names' function,
+ algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_edge_names"
@@ -15651,7 +15648,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_bundled_vertices_graph_to_dot_cpp14.impl"
+filename "save_bundled_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18095,7 +18092,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_bundled_edges_and_vertices_graph_to_dot_cpp11.impl"
+filename "save_bundled_edges_and_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21086,7 +21083,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_vertices_graph_to_dot_cpp11.impl"
+filename "save_custom_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -22898,7 +22895,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_and_selectable_vertices_graph_to_dot_cpp11.impl"
+filename "save_custom_and_selectable_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -25613,7 +25610,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "save_custom_edges_and_vertices_graph_to_dot_cpp11.impl"
+filename "save_custom_edges_and_vertices_graph_to_dot.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -27701,6 +27698,30 @@ name "sub:get_type_name"
 
 \begin_layout Standard
 This function will only work under GCC.
+ I found this code at: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
+\end_layout
+
+\end_inset
+
+ .
+ Thanks to 'm-dudley' (Stack Overflow userpage at 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/111327/m-dudley
+\end_layout
+
+\end_inset
+
+ ).
 \end_layout
 
 \begin_layout Standard

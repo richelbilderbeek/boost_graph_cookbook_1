@@ -1,12 +1,9 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-template <
-  typename graph,
-  typename edge_name_type
->
+template <typename graph>
 bool has_edge_with_name(
-  const edge_name_type& name,
+  const std::string& name,
   const graph& g
 ) noexcept
 {

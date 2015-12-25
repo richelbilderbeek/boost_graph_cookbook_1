@@ -3,18 +3,16 @@
 #include "has_vertex_with_name.h"
 #include "has_edge_between_vertices.h"
 
-template <
-  typename graph,
-  typename vertex_name_type_1,
-  typename vertex_name_type_2
->
+template <typename graph>
 void remove_edge_between_vertices_with_names(
-  const vertex_name_type_1& name_1,
-  const vertex_name_type_2& name_2,
+  const std::string& name_1,
+  const std::string& name_2,
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
 
   assert(has_vertex_with_name(name_1, g));
   assert(has_vertex_with_name(name_2, g));

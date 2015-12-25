@@ -2,14 +2,7 @@
 
 #include "save_named_vertices_graph_to_dot_demo.impl"
 
-#if __cplusplus >= 201402L //C++14
-#include "save_named_vertices_graph_to_dot_using_lambda_cpp14.impl"
-#else
-#include "save_named_vertices_graph_to_dot_using_lambda_cpp11.impl"
-#endif
-
-
-
+#include "save_named_vertices_graph_to_dot_using_lambda.impl"
 
 #include <cassert>
 #include <iostream>
@@ -136,32 +129,17 @@ void save_named_vertices_graph_to_dot_test() noexcept
   //Compare ways of save_named_vertices_graph_to_dot to be equivalent:
   // - use boost::make_label_writes
   // - use lambda in C++11
-  // - use lambda in C++14
-  #if __cplusplus >= 201402L //C++14
   {
     const auto g = create_named_vertices_k2_graph();
     const auto h = create_named_vertices_markov_chain();
     save_named_vertices_graph_to_dot(g,"g1.dot");
-    save_named_vertices_graph_to_dot_using_lambda_cpp14(g,"g2.dot");
+    save_named_vertices_graph_to_dot_using_lambda(g,"g2.dot");
     save_named_vertices_graph_to_dot(h,"h1.dot");
-    save_named_vertices_graph_to_dot_using_lambda_cpp14(h,"h2.dot");
+    save_named_vertices_graph_to_dot_using_lambda(h,"h2.dot");
     assert(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
     assert(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
     assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
   }
-  #else
-  {
-    const auto g = create_named_vertices_k2_graph();
-    const auto h = create_named_vertices_markov_chain();
-    save_named_vertices_graph_to_dot(g,"g1.dot");
-    save_named_vertices_graph_to_dot_using_lambda_cpp11(g,"g2.dot");
-    save_named_vertices_graph_to_dot(h,"h1.dot");
-    save_named_vertices_graph_to_dot_using_lambda_cpp11(h,"h2.dot");
-    assert(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
-    assert(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
-    assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
-  }
-  #endif
   save_named_vertices_graph_to_dot_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

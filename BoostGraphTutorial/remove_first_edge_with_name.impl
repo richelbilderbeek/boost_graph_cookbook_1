@@ -2,16 +2,15 @@
 #include "find_first_edge_with_name.h"
 #include "has_edge_with_name.h"
 
-template <
-  typename graph,
-  typename edge_name_type
->
+template <typename graph>
 void remove_first_edge_with_name(
-  const edge_name_type& name,
+  const std::string& name,
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
 
   assert(has_edge_with_name(name,g));
   const auto vd

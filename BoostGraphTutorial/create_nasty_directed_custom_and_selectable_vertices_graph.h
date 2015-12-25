@@ -8,18 +8,14 @@
 #include "my_custom_vertex.h"
 #include "add_custom_and_selectable_vertex.h"
 
-template<
-  typename my_custom_vertex_type = my_custom_vertex,
-  typename is_selected_type = bool
->
 boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
   boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex_type,
+    boost::vertex_custom_type_t, my_custom_vertex,
     boost::property<
-      boost::vertex_is_selected_t, is_selected_type
+      boost::vertex_is_selected_t, bool
     >
   >
 >

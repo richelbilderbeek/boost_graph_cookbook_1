@@ -3,12 +3,9 @@
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
 
-template <
-  typename graph,
-  typename vertex_name_type
->
+template <typename graph>
 int get_first_vertex_with_name_out_degree(
-  const vertex_name_type& name,
+  const std::string& name,
   const graph& g) noexcept
 {
   assert(has_vertex_with_name(name, g));

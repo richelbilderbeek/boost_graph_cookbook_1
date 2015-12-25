@@ -3,9 +3,6 @@
 #include <typeinfo>
 #include <cxxabi.h>
 
-///Get the type of data type as a std::string
-//From http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
-//Thanks to m-dudley ( http://stackoverflow.com/users/111327/m-dudley )
 template<typename T>
 std::string get_type_name() noexcept
 {

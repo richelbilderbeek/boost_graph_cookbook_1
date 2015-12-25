@@ -4,15 +4,8 @@
 
 void create_empty_named_directed_vertices_graph_demo() noexcept
 {
-  //Create a graph with names of std::string type
   const auto g
     = create_empty_directed_named_vertices_graph();
   assert(boost::num_vertices(g) == 0);
   assert(boost::num_edges(g) == 0);
-
-  //Create a graph with names of int type
-  const auto h
-    = create_empty_directed_named_vertices_graph<int>();
-  assert(boost::num_vertices(h) == 0);
-  assert(boost::num_edges(h) == 0);
 }

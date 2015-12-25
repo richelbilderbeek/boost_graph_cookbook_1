@@ -560,29 +560,23 @@ OTHER_FILES += \
     remove_first_edge_with_name.impl \
     remove_first_vertex_with_name_demo.impl \
     remove_first_vertex_with_name.impl \
-    save_bundled_edges_and_vertices_graph_to_dot_cpp11.impl \
+    save_bundled_edges_and_vertices_graph_to_dot.impl \
     save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
-    save_bundled_vertices_graph_to_dot_cpp11.impl \
-    save_bundled_vertices_graph_to_dot_cpp14.impl \
-    save_custom_and_selectable_vertices_graph_to_dot_cpp11.impl \
-    save_custom_and_selectable_vertices_graph_to_dot_cpp14.impl \
-    save_custom_edges_and_vertices_graph_to_dot_cpp11.impl \
-    save_custom_edges_and_vertices_graph_to_dot_cpp14.impl \
+    save_bundled_vertices_graph_to_dot.impl \
+    save_custom_and_selectable_vertices_graph_to_dot.impl \
+    save_custom_edges_and_vertices_graph_to_dot.impl \
     save_custom_edges_and_vertices_graph_to_dot_demo.impl \
-    save_custom_vertices_graph_to_dot_cpp11.impl \
-    save_custom_vertices_graph_to_dot_cpp14.impl \
+    save_custom_vertices_graph_to_dot.impl \
     save_custom_vertices_graph_to_dot_demo.impl \
     save_custom_vertices_graph_to_dot.impl \
     save_graph_to_dot_demo.impl \
     save_graph_to_dot.impl \
     save_graph_with_graph_name_to_dot.impl \
-    save_named_edges_and_vertices_graph_to_dot_cpp11.impl \
-    save_named_edges_and_vertices_graph_to_dot_cpp14.impl \
+    save_named_edges_and_vertices_graph_to_dot.impl \
     save_named_edges_and_vertices_graph_to_dot.impl \
     save_named_vertices_graph_to_dot_demo.impl \
     save_named_vertices_graph_to_dot.impl \
-    save_named_vertices_graph_to_dot_using_lambda_cpp11.impl \
-    save_named_vertices_graph_to_dot_using_lambda_cpp14.impl \
+    save_named_vertices_graph_to_dot_using_lambda.impl \
     set_bundled_edge_my_edge_demo.impl \
     set_bundled_edge_my_edge.impl \
     set_bundled_vertex_my_vertex_demo.impl \

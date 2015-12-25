@@ -4,9 +4,7 @@
 #include "install_vertex_is_selected.h"
 #include "my_custom_vertex.h"
 
-template <
-  typename graph
->
+template <typename graph>
 void add_custom_and_selectable_vertex(
   const my_custom_vertex& v,
   const bool is_selected,

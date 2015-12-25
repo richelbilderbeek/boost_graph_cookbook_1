@@ -21,9 +21,9 @@ create_empty_undirected_custom_and_selectable_vertices_graph() noexcept
     boost::vecS,
     boost::undirectedS,
     boost::property<
-      boost::vertex_custom_type_t, my_custom_vertex_type,
+      boost::vertex_custom_type_t, my_custom_vertex,
       boost::property<
-        boost::vertex_is_selected_t, is_selectable_type
+        boost::vertex_is_selected_t, bool
       >
     >
   >();

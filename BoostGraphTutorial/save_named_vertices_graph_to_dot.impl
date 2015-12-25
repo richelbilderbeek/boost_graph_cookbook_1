@@ -4,13 +4,10 @@
 
 #include "get_vertex_names.h"
 
-template <
-  typename graph,
-  typename vertex_name_type
->
+template <typename graph>
 void save_named_vertices_graph_to_dot(
   const graph& g,
-  const vertex_name_type& filename
+  const std::string& filename
 ) noexcept
 {
   std::ofstream f(filename);
