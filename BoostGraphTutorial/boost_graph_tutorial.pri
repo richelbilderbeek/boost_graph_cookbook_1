@@ -165,7 +165,9 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    create_nasty_undirected_custom_and_selectable_vertices_graph.h
+    create_nasty_undirected_custom_and_selectable_vertices_graph.h \
+    make_bundled_vertices_writer.h \
+    bundled_vertices_writer.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -331,7 +333,9 @@ SOURCES += \
     set_vertex_name.cpp \
     set_vertex_names.cpp \
     show_dot.cpp \
-    create_nasty_undirected_custom_and_selectable_vertices_graph.cpp
+    create_nasty_undirected_custom_and_selectable_vertices_graph.cpp \
+    make_bundled_vertices_writer.cpp \
+    bundled_vertices_writer.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -594,5 +598,7 @@ OTHER_FILES += \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
     set_vertex_names.impl \
-    load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl
+    load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl \
+    make_bundled_vertices_writer.impl \
+    bundled_vertices_writer.impl
 

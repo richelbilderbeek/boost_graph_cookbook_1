@@ -1,0 +1,8 @@
+digraph G {
+0[label="Sunny", comment="Yellow thing", width=1, height=2];
+1[label="Rainy", comment="Grey things", width=3, height=4];
+0->0 ;
+0->1 ;
+1->0 ;
+1->1 ;
+}

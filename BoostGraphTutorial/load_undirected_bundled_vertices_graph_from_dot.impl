@@ -17,13 +17,13 @@ load_undirected_bundled_vertices_graph_from_dot(
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_bundled_vertices_graph();
 
-
   boost::dynamic_properties p; //_do_ default construct
-  p.property("node_id",get(&my_bundled_vertex::m_name, g)); //m_name must be public
+  p.property("node_id",get(&my_bundled_vertex::m_name, g));
   p.property("label",get(&my_bundled_vertex::m_name, g));
+  p.property("comment", get(&my_bundled_vertex::m_description, g));
+  p.property("width", get(&my_bundled_vertex::m_x, g));
+  p.property("height", get(&my_bundled_vertex::m_y, g));
   boost::read_graphviz(f,g,p);
-
-  //boost::read_graphviz(f,g); //Also does not work
 
   return g;
 }

@@ -13,12 +13,6 @@
 
 void save_bundled_vertices_graph_to_dot_test() noexcept
 {
-  //Should not compile on graphs without named vertices. It does not :-)
-  {
-    //const auto g = create_k2_graph();
-    //const std::string filename{"save_bundled_vertices_graph_to_dot_test_k2_graph.dot"};
-    //save_bundled_vertices_graph_to_dot(g,filename);
-  }
   //Show it does store the vertex names
   {
     const auto g = create_bundled_vertices_k2_graph();

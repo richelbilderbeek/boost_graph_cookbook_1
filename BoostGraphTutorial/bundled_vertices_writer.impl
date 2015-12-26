@@ -1,0 +1,29 @@
+#include <ostream>
+
+template <
+  typename my_bundled_vertex_map
+>
+class bundled_vertices_writer {
+public:
+  bundled_vertices_writer(
+    my_bundled_vertex_map any_bundled_vertex_map
+  ) : m_bundled_vertex_map{any_bundled_vertex_map}
+  {
+
+  }
+  template <class vertex_descriptor>
+  void operator()(
+    std::ostream& out,
+    const vertex_descriptor& vd
+  ) const noexcept {
+    out
+      << "[label=\"" << m_bundled_vertex_map[vd].m_name
+      << "\", comment=\"" << m_bundled_vertex_map[vd].m_description
+      << "\", width=" << m_bundled_vertex_map[vd].m_x
+      << ", height=" << m_bundled_vertex_map[vd].m_y
+      << "]"
+    ;
+  }
+private:
+  my_bundled_vertex_map m_bundled_vertex_map;
+};

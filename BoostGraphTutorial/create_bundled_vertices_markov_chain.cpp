@@ -56,31 +56,21 @@ void create_bundled_vertices_markov_chain_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
     save_bundled_vertices_graph_to_dot(g, dot_filename);
     const auto h = load_directed_bundled_vertices_graph_from_dot(dot_filename);
-    if (get_sorted_bundled_vertex_my_vertexes(g)
-      == get_sorted_bundled_vertex_my_vertexes(h)
-    )
-    {
-      assert(boost::num_edges(g) == boost::num_edges(h));
-      assert(boost::num_vertices(g) == boost::num_vertices(h));
-      assert(get_sorted_bundled_vertex_my_vertexes(g)
-        == get_sorted_bundled_vertex_my_vertexes(h));
-      assert(!"Fixed #16");
-      convert_dot_to_svg(dot_filename, svg_filename);
-      copy_file(
-        svg_filename,
-        "../BoostGraphTutorial/" + svg_filename,
-        copy_file_mode::allow_overwrite
-      );
-      copy_file(
-        dot_filename,
-        "../BoostGraphTutorial/" + dot_filename,
-        copy_file_mode::allow_overwrite
-      );
-    }
-    else
-    {
-      std::cout << __func__ << ": TODO" << '\n';
-    }
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    assert(get_sorted_bundled_vertex_my_vertexes(g)
+      == get_sorted_bundled_vertex_my_vertexes(h));
+    convert_dot_to_svg(dot_filename, svg_filename);
+    copy_file(
+      svg_filename,
+      "../BoostGraphTutorial/" + svg_filename,
+      copy_file_mode::allow_overwrite
+    );
+    copy_file(
+      dot_filename,
+      "../BoostGraphTutorial/" + dot_filename,
+      copy_file_mode::allow_overwrite
+    );
   }
   create_bundled_vertices_markov_chain_demo();
   std::cout << __func__ << ": OK" << '\n';
