@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="220" height="220">
+<g fill="none" stroke="black" stroke-width="2">
+ <polygon points="110,10 205,79 168,190 51,190 14,79"/>
+ <polygon points="110,60 139,150 62,94 157,94 80,150"/>
+<line x1="110" y1="10" x2="110" y2="60"/>
+<line x1="205" y1="79" x2="157" y2="94"/>
+<line x1="168" y1="190" x2="139" y2="150"/>
+<line x1="51" y1="190" x2="80" y2="150"/>
+<line x1="14" y1="79" x2="62" y2="94"/>
+</g>
+<g fill="blue" stroke="black" stroke-width="2">
+<circle cx="110" cy="10" r="6"/>
+<circle cx="110" cy="60" r="6"/>
+<circle cx="205" cy="79" r="6"/>
+<circle cx="157" cy="94" r="6"/>
+<circle cx="168" cy="190" r="6"/>
+<circle cx="139" cy="150" r="6"/>
+<circle cx="51" cy="190" r="6"/>
+<circle cx="80" cy="150" r="6"/>
+<circle cx="14" cy="79" r="6"/>
+<circle cx="62" cy="94" r="6"/>
+</g>
+</svg>

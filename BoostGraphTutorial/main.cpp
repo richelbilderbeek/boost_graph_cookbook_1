@@ -42,6 +42,7 @@
 #include "create_empty_undirected_named_vertices_graph.h"
 #include "create_k2_graph.h"
 #include "create_k2_graph_with_graph_name.h"
+#include "create_k3_graph.h"
 #include "create_markov_chain.h"
 #include "create_markov_chain_with_graph_name.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
@@ -56,6 +57,7 @@
 #include "create_nasty_directed_named_vertices_graph.h"
 #include "create_nasty_undirected_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
+#include "create_petersen_graph.h"
 #include "create_tutorial_chapters_graph.h"
 #include "create_tutorial_subchapters_graph.h"
 #include "find_first_bundled_edge_with_my_edge.h"
@@ -144,11 +146,21 @@
 #include "set_graph_name.h"
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
+#include "create_direct_neighbour_subgraph.h"
+#include "get_edge_between_vertices.h"
+#include "create_all_direct_neighbour_subgraphs.h"
+#include "create_path_graph.h"
+
 
 #include <iostream>
 
 int main()
 {
+  get_edge_between_vertices_test();
+  create_all_direct_neighbour_subgraphs_test();
+  create_path_graph_test();
+  load_directed_bundled_edges_and_vertices_graph_from_dot_test();
+  create_direct_neighbour_subgraph_test();
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_vertex_test();
@@ -193,6 +205,8 @@ int main()
   create_empty_undirected_named_vertices_graph_test();
   create_k2_graph_test();
   create_k2_graph_with_graph_name_test();
+  create_k3_graph_test();
+  create_petersen_graph_test();
   create_markov_chain_test();
   create_markov_chain_with_graph_name_test();
   create_named_edges_and_vertices_k3_graph_test();

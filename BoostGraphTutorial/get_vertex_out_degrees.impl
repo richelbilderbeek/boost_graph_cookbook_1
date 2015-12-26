@@ -1,3 +1,4 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <vector>
 
 template <typename graph>

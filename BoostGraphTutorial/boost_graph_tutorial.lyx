@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.6.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.7.
 \end_layout
 
 \begin_layout Subsection
@@ -856,6 +856,13 @@ name "fig:The-relations-between-subchapters"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+There are also some bonus chapters, that I have labeled with a ▶.
+ These chapters are added I needed these functions myself and adding them
+ would not hurt.
+ Just feel free to skip them, as there will be less theory explained.
 \end_layout
 
 \begin_layout Section
@@ -5085,6 +5092,848 @@ Also this figure shows that the graph in undirected, otherwise the edge
  The vertices display the node index, which is the default behavior.
 \end_layout
 
+\begin_layout Subsection
+▶ Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, a fully connected undirected graph with three vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k3_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is an extension of the previous chapter
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+To create a fully connected undirected graph with two vertices (also called
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+), one needs two vertices and one (undirected) edge, as depicted in figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_k3_graph"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (2,4) node[fill=black,shape=circle,text=white] {top} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (3,2) node[anchor=west] {AB} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (4,0) node[fill=black,shape=circle,text=white] {right} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (2,0) node[anchor=north] {BC} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (0,0) node[fill=black,shape=circle,text=white] {left} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (1,2) node[anchor=east] {CA} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (2,4)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+: a fully connected graph with three edges and vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k3_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_k3_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k3_graph_demo"
+
+\end_inset
+
+ demonstrates how to 'create_k2_graph' and checks if it has the correct
+ amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_k3_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_k3_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k3_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k3_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_k3_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k3_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k3.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Continuing to running a bit ahead, this .dot file can be converted to the
+ .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_k3_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_k3_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_k3_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_k3_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating a Peterson graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_petersen_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create Petersen graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Petersen graph, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is an extension of the previous chapter.
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+To create a fully connected undirected graph with two vertices (also called
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+), one needs two vertices and one (undirected) edge, as depicted in figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_petersen_graph"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Petersen_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A Petersen graph (from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Petersen_graph
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_petersen_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a Petersen graph, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_petersen_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating Petersen graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_petersen_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create Petersen graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_petersen_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_petersen_graph_demo"
+
+\end_inset
+
+ demonstrates how to use 'create_petersen_graph' and checks if it has the
+ correct amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_petersen_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_k3_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_petersen_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_petersen_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_petersen_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_petersen_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_petersen_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_petersen_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_petersen_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_petersen.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_petersen_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_petersen_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_petersen_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_petersen_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_petersen_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Working on graphs without properties
 \begin_inset CommandInset label
@@ -5097,7 +5946,8 @@ name "sec:Working-on-graphs-without-properties"
 \end_layout
 
 \begin_layout Standard
-Now that we can build a graph, there are some things we can do:
+Now that we can build a graph, there are some things we can do.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -5109,6 +5959,14 @@ reference "sub:get_vertex_out_degrees"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Create a direct-neighbour subgraph from a vertex descriptor
+\end_layout
+
+\begin_layout Itemize
+Create all direct-neighbour subgraphs from a graphs
 \end_layout
 
 \begin_layout Itemize
@@ -5404,6 +6262,497 @@ It is expected that
 
  has one out-degree for every vertex, where the two-state Markov chain is
  expected to have two out-degrees per vertex.
+\end_layout
+
+\begin_layout Subsection
+▶ Is there an edge between two vertices?
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:has_edge_between_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you have two vertex descriptors, you can check if these are connected
+ by an edge:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_between_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if there exists an edge between two vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Has edge between vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_between_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code uses the function 'edge'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edge
+\end_layout
+
+\end_inset
+
+ (not boost::edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::edge does not exist
+\end_layout
+
+\end_inset
+
+: it returns a pair consisting of an edge descriptor and a boolean indicating
+ if it is a valid edge descriptor.
+ The boolean will be true if there exists an edge between the two vertices
+ and false if not.
+\end_layout
+
+\begin_layout Standard
+The demo shows that there is an edge between the two vertices of a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph, but there are no self-loops (edges that original and end at the
+ same vertex).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "has_edge_between_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'has_edge_between_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:has_edge_between_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Get the edge between two vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:get_edge_between_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you have two vertex descriptors, you can use these to find the edge between
+ them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_between_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the edge between two vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get edge between vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_between_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code does assume that there is an edge between the two vertices.
+\end_layout
+
+\begin_layout Standard
+The demo shows how to get the edge between two vertices, deleting it, and
+ checking for success.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "get_edge_between_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'get_edge_between_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:get_edge_between_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Create a direct-neighbour subgraph from a vertex descriptor
+\end_layout
+
+\begin_layout Standard
+Suppose you have a vertex of interest its vertex descriptor.
+ Let's say you want to get a subgraph of that vertex and its direct neighbours
+ only.
+ This means that all vertices of that subgraph are adjacent vertices and
+ that the edges go either from focal vertex to its neighbours, or from adjacent
+ vertex to adjacent neighbour.
+\end_layout
+
+\begin_layout Standard
+Here is the 'create_direct_neighbour_subgraph' code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_subgraph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the direct-neighbour subgraph from a vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create direct-neighbour subgraph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that the direct-neighbour graph of each vertex
+ of a K2 graphs is ...
+ a K2 graph!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_subgraph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_direct_neighbour_subgraph' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_subgraph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating all direct-neighbour subgraphs from a graph without properties
+\end_layout
+
+\begin_layout Standard
+Using the previous function, it is easy to create all direct-neighbour subgraphs
+ from a graph without properties:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_subgraphs.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create all direct-neighbour subgraphs from a graph without properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create all direct-neighbour subgraphs
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that all direct-neighbour graphs of a K2 graphs
+ are ...
+ K2 graphs!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_subgraphs_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_all_direct_neighbour_subgraphs' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_subgraphs_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

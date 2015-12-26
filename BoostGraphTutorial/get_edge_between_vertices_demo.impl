@@ -1,0 +1,14 @@
+#include <cassert>
+#include "create_k2_graph.h"
+#include "get_edge_between_vertices.h"
+
+void get_edge_between_vertices_demo() noexcept
+{
+  auto g = create_k2_graph();
+  const auto vd_1 = *vertices(g).first;
+  const auto vd_2 = *(++vertices(g).first);
+  assert(has_edge_between_vertices(vd_1, vd_2, g));
+  const auto ed = get_edge_between_vertices(vd_1, vd_2, g);
+  boost::remove_edge(ed, g);
+  assert(boost::num_edges(g) == 0);
+}

@@ -1,0 +1,20 @@
+#include <vector>
+#include "create_direct_neighbour_subgraph.h"
+
+template <typename graph>
+std::vector<graph> create_all_direct_neighbour_subgraphs(
+  const graph g
+) noexcept
+{
+  std::vector<graph> v;
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i = vip.first; i!=j; ++i) {
+    v.emplace_back(
+      create_direct_neighbour_subgraph(
+        *i, g
+      )
+    );
+  }
+  return v;
+}

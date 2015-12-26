@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     add_bundled_edge.h \
     add_bundled_vertex.h \
@@ -169,7 +171,13 @@ HEADERS += \
     make_bundled_vertices_writer.h \
     bundled_vertices_writer.h \
     make_bundled_edges_writer.h \
-    bundled_edges_writer.h
+    bundled_edges_writer.h \
+    create_all_direct_neighbour_subgraphs.h \
+    create_direct_neighbour_subgraph.h \
+    create_k3_graph.h \
+    create_petersen_graph.h \
+    get_edge_between_vertices.h \
+    create_path_graph.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -339,7 +347,13 @@ SOURCES += \
     make_bundled_vertices_writer.cpp \
     bundled_vertices_writer.cpp \
     make_bundled_edges_writer.cpp \
-    bundled_edges_writer.cpp
+    bundled_edges_writer.cpp \
+    create_all_direct_neighbour_subgraphs.cpp \
+    create_direct_neighbour_subgraph.cpp \
+    create_k3_graph.cpp \
+    create_petersen_graph.cpp \
+    get_edge_between_vertices.cpp \
+    create_path_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -606,5 +620,17 @@ OTHER_FILES += \
     make_bundled_vertices_writer.impl \
     bundled_vertices_writer.impl \
     make_bundled_edges_writer.impl \
-    bundled_edges_writer.impl
+    bundled_edges_writer.impl \
+    create_direct_neighbour_subgraph.impl \
+    create_direct_neighbour_subgraph_demo.impl \
+    create_all_direct_neighbour_subgraphs.impl \
+    create_all_direct_neighbour_subgraphs_demo.impl \
+    create_k3_graph.impl \
+    create_k3_graph_demo.impl \
+    create_petersen_graph.impl \
+    create_petersen_graph_demo.impl \
+    has_edge_between_vertices.impl \
+    has_edge_between_vertices_demo.impl \
+    get_edge_between_vertices.impl \
+    get_edge_between_vertices_demo.impl
 
