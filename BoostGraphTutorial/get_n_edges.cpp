@@ -25,13 +25,6 @@ void get_n_edges_test() noexcept
     const auto g = create_k2_graph();
     assert(get_n_edges(g) == 1);
   }
-  //A K3 graph has 3 edges
-  /*
-  {
-    const auto g = create_k3_graph();
-    assert(get_n_edges(g) == 3);
-  }
-  */
   get_n_edges_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

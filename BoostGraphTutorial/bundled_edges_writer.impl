@@ -1,0 +1,36 @@
+#include <ostream>
+#include "graphviz_encode.h"
+
+template <typename graph>
+class bundled_edges_writer {
+public:
+  bundled_edges_writer(
+    graph g
+  ) : m_g{g}
+  {
+
+  }
+  template <class edge_descriptor>
+  void operator()(
+    std::ostream& out,
+    const edge_descriptor& ed
+  ) const noexcept {
+    out
+      << "[label=\""
+        << graphviz_encode(
+          m_g[ed].m_name
+        )
+      << "\",comment=\""
+        << graphviz_encode(
+          m_g[ed].m_description
+        )
+      << "\",width="
+        << m_g[ed].m_width
+      << ",height="
+        << m_g[ed].m_height
+      << "]"
+    ;
+  }
+private:
+  graph m_g;
+};

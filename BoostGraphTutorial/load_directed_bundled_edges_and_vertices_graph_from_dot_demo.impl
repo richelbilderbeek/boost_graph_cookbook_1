@@ -20,15 +20,7 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_demo() noexcept
     );
   assert(num_edges(g) == num_edges(h));
   assert(num_vertices(g) == num_vertices(h));
-  if (get_sorted_bundled_vertex_my_vertexes(g)
+  assert(get_sorted_bundled_vertex_my_vertexes(g)
     == get_sorted_bundled_vertex_my_vertexes(h)
-  )
-  {
-    std::cout << __func__ << ": fixed #23" << std::endl;
-    assert(!"Fixed #23");
-  }
-  else
-  {
-    std::cout << __func__ << ": TODO" << std::endl;
-  }
+  );
 }

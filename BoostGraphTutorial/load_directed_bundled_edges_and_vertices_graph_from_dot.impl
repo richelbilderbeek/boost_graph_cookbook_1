@@ -2,6 +2,7 @@
 #include <boost/graph/graphviz.hpp>
 #include "create_empty_directed_bundled_edges_and_vertices_graph.h"
 #include "is_regular_file.h"
+#include "graphviz_decode.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -18,13 +19,40 @@ load_directed_bundled_edges_and_vertices_graph_from_dot(
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_bundled_edges_and_vertices_graph();
 
-  //Something like this...
   boost::dynamic_properties p; //_do_ default construct
   p.property("node_id",get(&my_bundled_vertex::m_name, g));
   p.property("label",get(&my_bundled_vertex::m_name, g));
+  p.property("comment", get(&my_bundled_vertex::m_description, g));
+  p.property("width", get(&my_bundled_vertex::m_x, g));
+  p.property("height", get(&my_bundled_vertex::m_y, g));
   p.property("edge_id",get(&my_bundled_edge::m_name, g));
   p.property("label",get(&my_bundled_edge::m_name, g));
-
+  p.property("comment", get(&my_bundled_edge::m_description, g));
+  p.property("width", get(&my_bundled_edge::m_width, g));
+  p.property("height", get(&my_bundled_edge::m_height, g));
   boost::read_graphviz(f,g,p);
+
+  //Decode vertices
+  {
+    const auto vip = vertices(g);
+    const auto j = vip.second;
+    for (auto i = vip.first; i!=j; ++i)
+    {
+      g[*i].m_name = graphviz_decode(g[*i].m_name);
+      g[*i].m_description = graphviz_decode(g[*i].m_description);
+    }
+  }
+
+  //Decode edges
+  {
+    const auto eip = edges(g);
+    const auto j = eip.second;
+    for (auto i = eip.first; i!=j; ++i)
+    {
+      g[*i].m_name = graphviz_decode(g[*i].m_name);
+      g[*i].m_description = graphviz_decode(g[*i].m_description);
+    }
+  }
+
   return g;
 }

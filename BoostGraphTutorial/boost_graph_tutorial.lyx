@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.5.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.6.
 \end_layout
 
 \begin_layout Subsection
@@ -17563,13 +17563,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-:-(
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-create_bundled_edges_and_vertices_markov_chain.svg cannot be created
-\end_layout
+\begin_inset Graphics
+	filename create_bundled_edges_and_vertices_markov_chain.svg
 
 \end_inset
 
@@ -17809,17 +17804,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-:-( 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-create_bundled_edges_and_vertices_k3_graph.dot cannot be created
-\end_layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_bundled_edges_and_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -17873,13 +17865,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-:-( 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-create_bundled_edges_and_vertices_k3_graph.svg cannot be created
-\end_layout
+\begin_inset Graphics
+	filename create_bundled_edges_and_vertices_k3_graph.svg
 
 \end_inset
 

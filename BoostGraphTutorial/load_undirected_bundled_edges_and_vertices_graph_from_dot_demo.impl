@@ -1,4 +1,4 @@
-#include "create_bundled_edges_and_vertices_markov_chain.h"
+#include "create_bundled_edges_and_vertices_k3_graph.h"
 #include "get_sorted_bundled_vertex_my_vertexes.h"
 #include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
@@ -9,26 +9,18 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_demo() noexcept
   using boost::num_vertices;
 
   const auto g
-    = create_bundled_edges_and_vertices_markov_chain();
+    = create_bundled_edges_and_vertices_k3_graph();
   const std::string filename{
-    "create_bundled_edges_and_vertices_markov_chain.dot"
+    "create_bundled_edges_and_vertices_k3_graph.dot"
   };
   save_bundled_edges_and_vertices_graph_to_dot(g, filename);
-  try
-  {
-    const auto h
-      = load_undirected_bundled_edges_and_vertices_graph_from_dot(
-        filename
-      );
-    assert(num_edges(g) == num_edges(h));
-    assert(num_vertices(g) == num_vertices(h));
-    assert(get_sorted_bundled_vertex_my_vertexes(g)
-      == get_sorted_bundled_vertex_my_vertexes(h)
+  const auto h
+    = load_undirected_bundled_edges_and_vertices_graph_from_dot(
+      filename
     );
-    assert(!"Fixed #23");
-  }
-  catch (std::exception&)
-  {
-    std::cout << __func__ << ": TODO" << std::endl;
-  }
+  assert(num_edges(g) == num_edges(h));
+  assert(num_vertices(g) == num_vertices(h));
+  assert(get_sorted_bundled_vertex_my_vertexes(g)
+    == get_sorted_bundled_vertex_my_vertexes(h)
+  );
 }
