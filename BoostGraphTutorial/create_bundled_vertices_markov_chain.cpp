@@ -41,8 +41,8 @@ void create_bundled_vertices_markov_chain_test() noexcept
       get_bundled_vertex_my_vertexes(g)
     };
     const std::vector<my_bundled_vertex> expected_my_vertexes{
-      my_bundled_vertex("Sunny","Yellow thing",1.0,2.0),
-      my_bundled_vertex("Rainy","Grey things",3.0,4.0)
+      my_bundled_vertex("Sunny","Yellow",1.0,2.0),
+      my_bundled_vertex("Not rainy","Not grey",3.0,4.0)
     };
     assert(expected_my_vertexes == vertex_my_vertexes);
   }

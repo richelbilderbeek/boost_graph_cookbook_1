@@ -49,20 +49,12 @@ void create_nasty_directed_bundled_vertices_graph_test() noexcept
       "create_nasty_directed_bundled_vertices_graph_test.dot"
     };
     save_bundled_vertices_graph_to_dot(g, filename);
-    try
-    {
-      const auto h = load_directed_bundled_vertices_graph_from_dot(filename);
-      assert(boost::num_edges(g) == boost::num_edges(h));
-      assert(boost::num_vertices(g) == boost::num_vertices(h));
-      const auto a = get_sorted_bundled_vertex_my_vertexes(g);
-      const auto b = get_sorted_bundled_vertex_my_vertexes(h);
-      assert(a == b);
-      assert(!"Fixed #16");
-    }
-    catch (std::exception&)
-    {
-      std::cout << __func__ << ": TODO" << '\n';
-    }
+    const auto h = load_directed_bundled_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    const auto a = get_sorted_bundled_vertex_my_vertexes(g);
+    const auto b = get_sorted_bundled_vertex_my_vertexes(h);
+    assert(a == b);
   }
   std::cout << __func__ << ": OK" << '\n';
 }

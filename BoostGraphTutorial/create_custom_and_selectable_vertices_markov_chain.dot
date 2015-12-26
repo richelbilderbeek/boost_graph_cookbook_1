@@ -1,6 +1,6 @@
 digraph G {
-0[label="Sunny,Yellow[[:SPACE:]]thing,1,1", regular="1"];
-1[label="Rainy,Grey[[:SPACE:]]things,3,3", regular="0"];
+0[label="Sunny,Yellow$$$SPACE$$$thing,1,1", regular="1"];
+1[label="Rainy,Grey$$$SPACE$$$things,3,3", regular="0"];
 0->0 ;
 0->1 ;
 1->0 ;

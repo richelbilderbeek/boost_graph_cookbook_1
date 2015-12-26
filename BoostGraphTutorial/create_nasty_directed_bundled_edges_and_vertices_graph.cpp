@@ -58,7 +58,7 @@ void create_nasty_directed_bundled_edges_and_vertices_graph_test() noexcept
       const auto a = get_sorted_bundled_edge_my_edges(g);
       const auto b = get_sorted_bundled_edge_my_edges(h);
       assert(a == b);
-      assert(!"Fixed #16");
+      assert(!"Fixed #23");
     }
     catch (std::exception&)
     {

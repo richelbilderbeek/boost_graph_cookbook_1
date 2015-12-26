@@ -24,8 +24,8 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_demo() noexcept
     == get_sorted_bundled_vertex_my_vertexes(h)
   )
   {
-    std::cout << __func__ << ": fixed #16" << std::endl;
-    assert(!"Fixed #16");
+    std::cout << __func__ << ": fixed #23" << std::endl;
+    assert(!"Fixed #23");
   }
   else
   {

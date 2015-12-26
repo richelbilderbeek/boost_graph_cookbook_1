@@ -1,6 +1,6 @@
 digraph G {
-0[label="Sunny", comment="Yellow thing", width=1, height=2];
-1[label="Rainy", comment="Grey things", width=3, height=4];
+0[label="Sunny",comment="Yellow",width=1,height=2];
+1[label="Not$$$SPACE$$$rainy",comment="Not$$$SPACE$$$grey",width=3,height=4];
 0->0 ;
 0->1 ;
 1->0 ;

@@ -25,7 +25,7 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_demo() noexcept
     assert(get_sorted_bundled_vertex_my_vertexes(g)
       == get_sorted_bundled_vertex_my_vertexes(h)
     );
-    assert(!"Fixed #16");
+    assert(!"Fixed #23");
   }
   catch (std::exception&)
   {

@@ -23,10 +23,10 @@ create_bundled_vertices_markov_chain() noexcept
   assert(aer_bb.second);
 
   g[vd_a] = my_bundled_vertex("Sunny",
-    "Yellow thing",1.0,2.0
+    "Yellow",1.0,2.0
   );
-  g[vd_b] = my_bundled_vertex("Rainy",
-    "Grey things",3.0,4.0
+  g[vd_b] = my_bundled_vertex("Not rainy",
+    "Not grey",3.0,4.0
   );
 
   return g;

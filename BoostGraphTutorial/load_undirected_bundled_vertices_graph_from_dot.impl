@@ -1,6 +1,7 @@
 #include <fstream>
 #include <boost/graph/graphviz.hpp>
 #include "create_empty_undirected_bundled_vertices_graph.h"
+#include "graphviz_decode.h"
 #include "is_regular_file.h"
 
 boost::adjacency_list<
@@ -24,6 +25,15 @@ load_undirected_bundled_vertices_graph_from_dot(
   p.property("width", get(&my_bundled_vertex::m_x, g));
   p.property("height", get(&my_bundled_vertex::m_y, g));
   boost::read_graphviz(f,g,p);
+
+  //Decode vertices
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i = vip.first; i!=j; ++i)
+  {
+    g[*i].m_name = graphviz_decode(g[*i].m_name);
+    g[*i].m_description = graphviz_decode(g[*i].m_description);
+  }
 
   return g;
 }

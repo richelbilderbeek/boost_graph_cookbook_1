@@ -63,7 +63,7 @@ void load_undirected_bundled_edges_and_vertices_graph_from_dot_test() noexcept
         "../BoostGraphTutorial/" + dot_filename,
         copy_file_mode::allow_overwrite
       );
-      assert(!"Fixed #16");
+      assert(!"Fixed #23");
     }
     catch (std::exception&)
     {

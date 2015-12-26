@@ -14223,7 +14223,7 @@ node[state] (A)
 
 \begin_layout Plain Layout
 
-    {Sunny, Yellow thing, 1.0, 2.0};   
+    {Sunny, Yellow, 1.0, 2.0};   
 \end_layout
 
 \begin_layout Plain Layout
@@ -14235,7 +14235,7 @@ node[state] (B) [right of=A]
 
 \begin_layout Plain Layout
 
-    {Rainy, Grey things, 3.0, 4.0}
+    {Not rainy, Not grey, 3.0, 4.0}
 \end_layout
 
 \begin_layout Plain Layout
@@ -14501,7 +14501,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename create_bundled_vertices_k2_graph.svg
+	filename create_bundled_vertices_markov_chain.svg
 
 \end_inset
 
@@ -14578,7 +14578,100 @@ reference "sub:create_named_vertices_k2_graph"
 
 \end_inset
 
- , but with our bundled vertices intead.
+ , but with our bundled vertices intead, as show in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bundled_vertices_k2_graph"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[state] (A)              {Me,Myself,1.0,2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path (A) edge [] node {} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+: a fully connected graph with two bundled vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bundled_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -14733,7 +14826,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "create_bundled_vertices_k2_graph.dot"
+filename "reate_bundled_vertices_k2_graph.dot"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -14792,13 +14885,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-:-( 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-create_bundled_vertices_k2_graph.svg cannot be created
-\end_layout
+\begin_inset Graphics
+	filename create_bundled_vertices_k2_graph.svg
 
 \end_inset
 
@@ -15793,9 +15881,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="5">
+<lyxtabular version="3" rows="5" columns="4">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -15828,20 +15915,11 @@ Graphviz data type
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Graphviz attribute
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Graphviz attribute
 \end_layout
 
 \end_inset
@@ -15875,20 +15953,11 @@ string
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-label
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+label
 \end_layout
 
 \end_inset
@@ -15922,20 +15991,11 @@ string
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-comment
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+comment
 \end_layout
 
 \end_inset
@@ -15969,20 +16029,11 @@ double
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-width
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+width
 \end_layout
 
 \end_inset
@@ -16016,20 +16067,11 @@ double
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-height
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+height
 \end_layout
 
 \end_inset
