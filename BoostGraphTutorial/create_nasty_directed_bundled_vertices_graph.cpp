@@ -35,6 +35,14 @@ create_nasty_directed_bundled_vertices_graph() noexcept
     add_bundled_vertex(my_bundled_vertex("A\"B","C\"D"), g);
     //Commas
     add_bundled_vertex(my_bundled_vertex("A,B",",C,D,"), g);
+    //Square brackets
+    add_bundled_vertex(my_bundled_vertex("A[B",",C]D,"), g);
+    //Curly braces
+    add_bundled_vertex(my_bundled_vertex("A{B",",C}D,"), g);
+    //Colon, semicolon
+    add_bundled_vertex(my_bundled_vertex("A:B",",C;D,"), g);
+    //Dollar, at
+    add_bundled_vertex(my_bundled_vertex("A$B",",C@D,"), g);
     //Escape sequence
     add_bundled_vertex(my_bundled_vertex("A\"];","B\"];"), g);
   }
