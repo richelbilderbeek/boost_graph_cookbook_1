@@ -41,20 +41,6 @@ void create_bundled_vertices_k2_graph_test() noexcept
     const auto v = get_sorted_bundled_vertex_my_vertexes(g);
     const auto w = get_sorted_bundled_vertex_my_vertexes(h);
     assert(v.size() == w.size());
-    const int sz{static_cast<int>(v.size())};
-    for (int i=0; i!=sz; ++i)
-    {
-      std::cout
-        << std::string('-',20) << '\n'
-        << i << '\n'
-        << std::string('-',20) << '\n'
-        << v[i].m_name << " --- " << w[i].m_name << '\n'
-        << v[i].m_description << " --- " << w[i].m_description << '\n'
-        << v[i].m_x << " --- " << w[i].m_x << '\n'
-        << v[i].m_y << " --- " << w[i].m_y << '\n'
-      ;
-    }
-
     assert(get_sorted_bundled_vertex_my_vertexes(g)
       == get_sorted_bundled_vertex_my_vertexes(h));
     convert_dot_to_svg(dot_filename, svg_filename);

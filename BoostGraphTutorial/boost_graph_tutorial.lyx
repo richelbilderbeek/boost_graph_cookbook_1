@@ -16113,6 +16113,12 @@ Important in this mapping is that the C++ and the Graphviz data types match.
  I also chose attributes that matched as closely as possible.
 \end_layout
 
+\begin_layout Standard
+The writer also encodes the std::string of the name and description to a
+ Graphviz-friendly format.
+ When loading the .dot file again, this will have to be undone again.
+\end_layout
+
 \begin_layout Subsection
 Loading a directed graph with bundled vertices from a .dot
 \begin_inset CommandInset label
@@ -16218,6 +16224,13 @@ boost::read_graphviz
 \end_inset
 
  is called to build up the graph.
+\end_layout
+
+\begin_layout Standard
+At the moment the graph is created, all 'my_bundled_vertex' their names
+ and description are in a Graphviz-friendly format.
+ By obtaining all vertex iterators and vertex descriptors, the encoding
+ is made undone.
 \end_layout
 
 \begin_layout Standard

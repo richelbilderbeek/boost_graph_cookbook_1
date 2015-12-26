@@ -2,13 +2,13 @@
 #include "graphviz_encode.h"
 
 template <
-  typename my_bundled_vertex_map
+  typename graph
 >
 class bundled_vertices_writer {
 public:
   bundled_vertices_writer(
-    my_bundled_vertex_map any_bundled_vertex_map
-  ) : m_bundled_vertex_map{any_bundled_vertex_map}
+    graph g
+  ) : m_g{g}
   {
 
   }
@@ -18,13 +18,21 @@ public:
     const vertex_descriptor& vd
   ) const noexcept {
     out
-      << "[label=\"" << graphviz_encode(m_bundled_vertex_map[vd].m_name)
-      << "\",comment=\"" << graphviz_encode(m_bundled_vertex_map[vd].m_description)
-      << "\",width=" << m_bundled_vertex_map[vd].m_x
-      << ",height=" << m_bundled_vertex_map[vd].m_y
+      << "[label=\""
+        << graphviz_encode(
+          m_g[vd].m_name
+        )
+      << "\",comment=\""
+        << graphviz_encode(
+          m_g[vd].m_description
+        )
+      << "\",width="
+        << m_g[vd].m_x
+      << ",height="
+        << m_g[vd].m_y
       << "]"
     ;
   }
 private:
-  my_bundled_vertex_map m_bundled_vertex_map;
+  graph m_g;
 };
