@@ -1,7 +1,8 @@
 #include "create_named_edges_and_vertices_k3_graph.h"
 
-#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.impl"
+
+#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph_demo.impl"
 #include <cassert>
 #include <iostream>

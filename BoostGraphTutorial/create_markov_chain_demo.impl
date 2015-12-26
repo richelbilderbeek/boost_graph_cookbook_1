@@ -1,7 +1,4 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
-#include <iostream>
-
 #include "create_markov_chain.h"
 
 void create_markov_chain_demo() noexcept

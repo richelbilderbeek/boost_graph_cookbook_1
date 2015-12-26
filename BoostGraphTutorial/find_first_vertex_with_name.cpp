@@ -12,10 +12,13 @@ void find_first_vertex_with_name_test() noexcept
 {
   {
     const auto g = create_named_vertices_k2_graph();
-    const auto vd = find_first_vertex_with_name("A", g);
+    const auto vd
+      = find_first_vertex_with_name(
+        "My computer", g
+      );
     assert(out_degree(vd,g) == 1); //not boost::out_degree
     assert(in_degree(vd,g) == 1); //not boost::in_degree
-    assert(get_vertex_name(vd,g) == "A");
+    assert(get_vertex_name(vd,g) == "My computer");
   }
 
   find_first_vertex_with_name_demo();

@@ -1,7 +1,8 @@
 #include "create_named_edges_and_vertices_markov_chain.h"
 
-#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_markov_chain.impl"
+
+#include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "create_named_edges_and_vertices_markov_chain_demo.impl"
 #include <cassert>
 #include <iostream>

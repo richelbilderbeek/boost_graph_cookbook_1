@@ -1,9 +1,7 @@
-#include <boost/graph/adjacency_list.hpp>
+#include <fstream>
 #include <boost/graph/graphviz.hpp>
 #include "create_empty_directed_bundled_edges_and_vertices_graph.h"
 #include "is_regular_file.h"
-#include "my_bundled_edge.h"
-#include "my_bundled_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,

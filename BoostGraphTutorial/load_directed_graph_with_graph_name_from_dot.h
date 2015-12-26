@@ -1,7 +1,7 @@
 #ifndef LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 #define LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_graph_with_graph_name.h"
 
 boost::adjacency_list<
   boost::vecS,

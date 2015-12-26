@@ -25,8 +25,8 @@ create_named_vertices_markov_chain() noexcept
   auto name_map = get( //not boost::get
     boost::vertex_name,g
   );
-  name_map[vd_a] = "Sunny";
-  name_map[vd_b] = "Rainy";
+  name_map[vd_a] = "Good";
+  name_map[vd_b] = "Not bad";
 
   return g;
 }

@@ -1,7 +1,7 @@
 #ifndef LOAD_DIRECTED_GRAPH_FROM_DOT_H
 #define LOAD_DIRECTED_GRAPH_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_graph.h"
 
 boost::adjacency_list<>
 load_directed_graph_from_dot(
@@ -9,6 +9,5 @@ load_directed_graph_from_dot(
 );
 
 void load_directed_graph_from_dot_test() noexcept;
-
 
 #endif // LOAD_DIRECTED_GRAPH_FROM_DOT_H

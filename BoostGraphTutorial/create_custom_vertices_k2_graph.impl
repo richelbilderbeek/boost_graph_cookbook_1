@@ -1,5 +1,4 @@
 #include "create_empty_undirected_custom_vertices_graph.h"
-//#include "install_vertex_custom_type.h"
 
 boost::adjacency_list<
   boost::vecS,

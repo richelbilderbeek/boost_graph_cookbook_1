@@ -1,6 +1,6 @@
 digraph G {
-0[label=Sunny];
-1[label=Rainy];
+0[label=Good];
+1[label="Not bad"];
 0->0 ;
 0->1 ;
 1->0 ;

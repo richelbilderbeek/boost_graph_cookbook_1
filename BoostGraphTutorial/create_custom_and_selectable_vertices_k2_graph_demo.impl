@@ -1,5 +1,4 @@
 #include <cassert>
-#include <iostream>
 #include "create_custom_and_selectable_vertices_k2_graph.h"
 #include "has_custom_vertex_with_my_vertex.h"
 

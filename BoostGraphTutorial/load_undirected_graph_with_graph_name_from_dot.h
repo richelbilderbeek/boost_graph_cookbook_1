@@ -1,7 +1,7 @@
 #ifndef LOAD_UNDIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 #define LOAD_UNDIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_graph_with_graph_name.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -10,7 +10,7 @@ boost::adjacency_list<
   boost::no_property,
   boost::no_property,
   boost::property<
-    boost::graph_name_t,std::string
+    boost::graph_name_t, std::string
   >
 >
 load_undirected_graph_with_graph_name_from_dot(

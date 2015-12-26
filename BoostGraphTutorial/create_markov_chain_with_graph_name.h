@@ -1,7 +1,7 @@
 #ifndef CREATE_MARKOV_CHAIN_WITH_GRAPH_NAME_H
 #define CREATE_MARKOV_CHAIN_WITH_GRAPH_NAME_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_directed_graph_with_graph_name.h"
 
 boost::adjacency_list<
   boost::vecS,

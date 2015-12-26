@@ -1,11 +1,7 @@
 #ifndef CREATE_NASTY_DIRECTED_CUSTOM_EDGES_AND_VERTICES_GRAPH_H
 #define CREATE_NASTY_DIRECTED_CUSTOM_EDGES_AND_VERTICES_GRAPH_H
 
-#include <boost/graph/adjacency_list.hpp>
-#include "install_edge_custom_type.h"
-#include "install_vertex_custom_type.h"
-#include "my_custom_edge.h"
-#include "my_custom_vertex.h"
+#include "create_empty_directed_custom_edges_and_vertices_graph.h"
 
 boost::adjacency_list<
   boost::vecS,

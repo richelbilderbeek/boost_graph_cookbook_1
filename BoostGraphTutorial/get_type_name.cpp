@@ -4,7 +4,6 @@
 #include <cassert>
 #include <vector>
 
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_custom_vertices_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "create_empty_directed_graph.h"

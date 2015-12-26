@@ -38,7 +38,7 @@ void create_named_vertices_markov_chain_test() noexcept
     assert(eip.first != eip.second);
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
-    const std::vector<std::string> expected_names{"Sunny", "Rainy"};
+    const std::vector<std::string> expected_names{"Good", "Not bad"};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_names == vertex_names);
   }

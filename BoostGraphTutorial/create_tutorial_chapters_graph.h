@@ -1,8 +1,6 @@
 #ifndef CREATE_TUTORIAL_CHAPTERS_GRAPH_H
 #define CREATE_TUTORIAL_CHAPTERS_GRAPH_H
 
-
-
 #include <boost/graph/adjacency_list.hpp>
 
 boost::adjacency_list<

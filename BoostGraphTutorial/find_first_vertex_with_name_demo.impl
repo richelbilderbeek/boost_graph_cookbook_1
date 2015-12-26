@@ -8,7 +8,9 @@ void find_first_vertex_with_name_demo() noexcept
   const auto g
     = create_named_vertices_k2_graph();
   const auto vd
-    = find_first_vertex_with_name("A", g);
+    = find_first_vertex_with_name(
+      "My computer", g
+    );
   assert(
     out_degree(vd,g) == 1 //not boost::out_degree
   );

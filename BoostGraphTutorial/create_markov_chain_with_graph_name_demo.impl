@@ -1,7 +1,4 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
-#include <iostream>
-
 #include "create_markov_chain_with_graph_name.h"
 #include "get_graph_name.h"
 

@@ -5,7 +5,6 @@
 #include <cassert>
 #include <iostream>
 
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
 
 #include "get_bundled_edge_my_edges.h"

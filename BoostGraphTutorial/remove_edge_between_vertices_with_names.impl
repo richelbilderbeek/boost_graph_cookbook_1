@@ -1,4 +1,3 @@
-#include <boost/graph/adjacency_list.hpp>
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
 #include "has_edge_between_vertices.h"

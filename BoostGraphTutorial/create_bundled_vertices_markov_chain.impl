@@ -1,7 +1,5 @@
 #include <cassert>
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_bundled_vertices_graph.h"
-//#include "my_bundled_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,

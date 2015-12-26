@@ -1,5 +1,7 @@
 #include "load_directed_graph_with_graph_name_from_dot.h"
+
 #include "load_directed_graph_with_graph_name_from_dot.impl"
+
 #include "load_directed_graph_with_graph_name_from_dot_demo.impl"
 
 #include "copy_file.h"

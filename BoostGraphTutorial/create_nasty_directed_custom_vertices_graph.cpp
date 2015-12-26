@@ -41,6 +41,7 @@ create_nasty_directed_custom_vertices_graph() noexcept
   return g;
 }
 
+
 void create_nasty_directed_custom_vertices_graph_test() noexcept
 {
   {

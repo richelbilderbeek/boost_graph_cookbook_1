@@ -1,8 +1,7 @@
 #ifndef LOAD_DIRECTED_BUNDLED_VERTICES_GRAPH_FROM_DOT_H
 #define LOAD_DIRECTED_BUNDLED_VERTICES_GRAPH_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
-#include "my_bundled_vertex.h"
+#include "create_empty_directed_bundled_vertices_graph.h"
 
 boost::adjacency_list<
   boost::vecS,

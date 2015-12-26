@@ -5,7 +5,6 @@
 #include <cassert>
 #include <iostream>
 
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 
 void add_custom_and_selectable_vertex_test() noexcept

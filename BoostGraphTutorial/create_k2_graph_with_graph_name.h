@@ -1,7 +1,7 @@
 #ifndef CREATE_K2_GRAPH_WITH_GRAPH_NAME_H
 #define CREATE_K2_GRAPH_WITH_GRAPH_NAME_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_graph_with_graph_name.h"
 
 boost::adjacency_list<
   boost::vecS,

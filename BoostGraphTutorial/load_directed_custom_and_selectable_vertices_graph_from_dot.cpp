@@ -1,4 +1,5 @@
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
+#include "load_directed_custom_and_selectable_vertices_graph_from_dot.impl"
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot_demo.impl"
 
 #include <iostream>

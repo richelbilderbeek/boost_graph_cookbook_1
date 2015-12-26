@@ -14,7 +14,8 @@ void add_custom_edge(
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
 
-  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  const auto aer
+    = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
   const auto my_edge_map
     = get( //not boost::get

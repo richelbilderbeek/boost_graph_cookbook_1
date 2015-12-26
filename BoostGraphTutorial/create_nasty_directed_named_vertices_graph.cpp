@@ -35,10 +35,10 @@ create_nasty_directed_named_vertices_graph() noexcept
     add_named_vertex(" A,B,, ", g);
     //Escape sequence
     add_named_vertex("A\"];", g);
-
   }
   return g;
 }
+
 
 void create_nasty_directed_named_vertices_graph_test() noexcept
 {
@@ -55,6 +55,5 @@ void create_nasty_directed_named_vertices_graph_test() noexcept
     const auto b = get_sorted_vertex_names(h);
     assert(a == b);
   }
-  assert(1==2);
   std::cout << __func__ << ": OK" << '\n';
 }

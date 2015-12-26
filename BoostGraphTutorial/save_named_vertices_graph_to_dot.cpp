@@ -72,8 +72,8 @@ void save_named_vertices_graph_to_dot_test() noexcept
     assert(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
-      "0[label=A];",
-      "1[label=B];",
+      "0[label=Me];",
+      "1[label=\"My computer\"];",
       "0--1 ;",
       "}"
     };

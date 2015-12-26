@@ -1,9 +1,7 @@
 #ifndef LOAD_UNDIRECTED_CUSTOM_VERTICES_GRAPH_FROM_DOT_H
 #define LOAD_UNDIRECTED_CUSTOM_VERTICES_GRAPH_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
-#include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+#include "create_empty_undirected_custom_vertices_graph.h"
 
 boost::adjacency_list<
   boost::vecS,

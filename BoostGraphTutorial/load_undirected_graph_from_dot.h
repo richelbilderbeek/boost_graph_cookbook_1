@@ -1,7 +1,7 @@
 #ifndef LOAD_UNDIRECTED_GRAPH_FROM_DOT_H
 #define LOAD_UNDIRECTED_GRAPH_FROM_DOT_H
 
-#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_graph.h"
 
 boost::adjacency_list<
   boost::vecS,

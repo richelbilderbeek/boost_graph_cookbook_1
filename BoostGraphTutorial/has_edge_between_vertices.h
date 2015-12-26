@@ -12,8 +12,10 @@ bool has_edge_between_vertices(
   const graph& g
 ) noexcept
 {
-  if (boost::degree(vd_1, g) == 0) return false;
-  if (boost::degree(vd_2, g) == 0) return false;
+  if (degree(vd_1, g) //not boost::degree
+    == 0) return false;
+  if (degree(vd_2, g) //not boost::degree
+    == 0) return false;
   for (auto eip = edges(g);
     eip.first != eip.second;
     ++eip.first) {

@@ -5,7 +5,6 @@
 #include <cassert>
 #include <iostream>
 
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 
 

@@ -35,14 +35,14 @@ void create_named_vertices_k2_graph_test() noexcept
 
     assert(boost::num_edges(g) == 1);
     assert(boost::num_vertices(g) == 2);
-    const std::vector<std::string> expected_names{"A", "B"};
+    const std::vector<std::string> expected_names{"Me", "My computer"};
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     assert(expected_names == vertex_names);
   }
   //Create the .dot and .svg of the 'create_named_vertices_markov_chain' chapter
   {
     const auto g = create_named_vertices_k2_graph();
-    const std::string base_filename{"create_named_vertices_k2_graph.dot"};
+    const std::string base_filename{"create_named_vertices_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g, dot_filename);

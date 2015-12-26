@@ -1,10 +1,7 @@
+#include <fstream>
 #include <boost/graph/graphviz.hpp>
 #include "create_empty_directed_custom_edges_and_vertices_graph.h"
-#include "install_edge_custom_type.h"
-#include "install_vertex_custom_type.h"
 #include "is_regular_file.h"
-#include "my_custom_edge.h"
-#include "my_custom_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,

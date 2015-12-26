@@ -16,8 +16,8 @@ void remove_first_vertex_with_name_test() noexcept
     auto g = create_named_vertices_k2_graph();
     assert(boost::num_edges(g) == 1);
     assert(boost::num_vertices(g) == 2);
-    clear_first_vertex_with_name("A",g);
-    remove_first_vertex_with_name("A",g);
+    clear_first_vertex_with_name("My computer",g);
+    remove_first_vertex_with_name("My computer",g);
     assert(boost::num_edges(g) == 0);
     assert(boost::num_vertices(g) == 1);
   }
@@ -27,8 +27,8 @@ void remove_first_vertex_with_name_test() noexcept
     auto g = create_named_vertices_k2_graph();
     assert(boost::num_edges(g) == 1);
     assert(boost::num_vertices(g) == 2);
-    remove_first_vertex_with_name("A",g); //Will keep the edge??? Will be checked by assert
-    assert(!has_vertex_with_name("A",g));
+    remove_first_vertex_with_name("My computer",g); //Will keep the edge??? Will be checked by assert
+    assert(!has_vertex_with_name("My computer",g));
     assert(boost::num_edges(g) == 1);
     assert(boost::num_vertices(g) == 1);
   }

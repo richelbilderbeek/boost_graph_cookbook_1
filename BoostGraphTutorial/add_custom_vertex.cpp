@@ -5,7 +5,6 @@
 #include <cassert>
 #include <iostream>
 
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_custom_vertices_graph.h"
 #include "get_custom_vertex_my_vertexes.h"
 

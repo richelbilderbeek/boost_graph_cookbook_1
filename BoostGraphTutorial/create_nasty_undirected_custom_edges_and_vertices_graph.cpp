@@ -44,6 +44,7 @@ create_nasty_undirected_custom_edges_and_vertices_graph() noexcept
   return g;
 }
 
+
 void create_nasty_undirected_custom_edges_and_vertices_graph_test() noexcept
 {
   {

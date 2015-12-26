@@ -53,6 +53,7 @@
 #include "create_nasty_directed_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_directed_custom_edges_and_vertices_graph.h"
 #include "create_nasty_directed_custom_vertices_graph.h"
+#include "create_nasty_directed_named_vertices_graph.h"
 #include "create_nasty_undirected_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
 #include "create_tutorial_chapters_graph.h"
@@ -143,6 +144,7 @@
 #include "set_graph_name.h"
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
+
 #include <iostream>
 
 int main()
@@ -200,7 +202,9 @@ int main()
   create_nasty_directed_bundled_edges_and_vertices_graph_test();
   create_nasty_directed_bundled_vertices_graph_test();
   create_nasty_directed_custom_and_selectable_vertices_graph_test();
+  create_nasty_directed_custom_edges_and_vertices_graph_test();
   create_nasty_directed_custom_vertices_graph_test();
+  create_nasty_directed_named_vertices_graph_test();
   create_nasty_undirected_custom_and_selectable_vertices_graph_test();
   create_nasty_undirected_custom_edges_and_vertices_graph_test();
   create_tutorial_chapters_graph_test();
@@ -290,5 +294,6 @@ int main()
   set_graph_name_test();
   set_vertex_names_test();
   set_vertex_name_test();
+
   std::cout << "Done" << std::endl;
 }
