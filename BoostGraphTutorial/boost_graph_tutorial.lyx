@@ -7193,14 +7193,14 @@ tikzstyle{every state}=[]
 
 
 \backslash
-node[state] (A)              {$Good$};   
+node[state] (A)              {Good};   
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-node[state] (B) [right of=A] {$Not bad$};   
+node[state] (B) [right of=A] {Not bad};   
 \end_layout
 
 \begin_layout Plain Layout
@@ -7635,15 +7635,7 @@ reference "sub:create_k2_graph"
 
 \end_inset
 
- by naming the vertices 
-\begin_inset Formula $A$
-\end_inset
-
- and 
-\begin_inset Formula $B$
-\end_inset
-
-, as depicted in figure 
+ by naming the vertices 'Me' and 'My computer', as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:named_vertices_k2_graph"
@@ -7668,29 +7660,43 @@ status open
 
 
 \backslash
-tikz 
+begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+   
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-draw[thick] 
+tikzstyle{every state}=[]
 \end_layout
 
 \begin_layout Plain Layout
 
-  (0,0) node[fill=black,shape=circle,text=white] {$A$} 
+
+\backslash
+node[state] (A)              {Me};   
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (5,0) node[fill=black,shape=circle,text=white] {$B$} 
+
+\backslash
+node[state] (B) [right of=A] {My computer};   
 \end_layout
 
 \begin_layout Plain Layout
 
-;
+
+\backslash
+path (A) edge [] node {} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
 \end_layout
 
 \end_inset
@@ -7705,15 +7711,7 @@ draw[thick]
 \begin_inset Formula $K_{2}$
 \end_inset
 
-: a fully connected graph with two vertices with the text 
-\begin_inset Formula $A$
-\end_inset
-
- and 
-\begin_inset Formula $B$
-\end_inset
-
-
+: a fully connected graph with two named vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:named_vertices_k2_graph"
