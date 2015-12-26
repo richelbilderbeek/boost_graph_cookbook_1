@@ -12,7 +12,7 @@ void create_named_edges_and_vertices_markov_chain_demo() noexcept
     = create_named_edges_and_vertices_markov_chain();
 
   const strings expected_vertex_names{
-    "Sunny", "Rainy"
+    "Happy","Not unhappy"
   };
   const strings vertex_names{
     get_vertex_names(g)
@@ -20,7 +20,7 @@ void create_named_edges_and_vertices_markov_chain_demo() noexcept
   assert(expected_vertex_names == vertex_names);
 
   const strings expected_edge_names{
-    "Sometimes", "Often", "Rarely", "Mostly"
+    "Fruit","No chocolate","Chocolate","Other candy"
   };
 
   const strings edge_names{get_edge_names(g)};

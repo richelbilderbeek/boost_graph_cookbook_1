@@ -1,8 +1,8 @@
 graph G {
-0[label="top",comment="source",width=0,height=0];
-1[label="right",comment="target",width=3.14,height=0];
-2[label="left",comment="target",width=0,height=3.14];
-0--1 [label="AB",comment="first",width=0,height=0];
-1--2 [label="BC",comment="second",width=3.14,height=3.14];
-2--0 [label="CA",comment="third",width=3.14,height=3.14];
+0[label="Red",comment="Not$$$SPACE$$$green",width=1,height=2];
+1[label="Light$$$SPACE$$$red",comment="Not$$$SPACE$$$dark",width=3,height=4];
+2[label="Orange",comment="Orangy",width=5,height=6];
+0--1 [label="Oxygen",comment="Air",width=1,height=2];
+1--2 [label="Helium",comment="From$$$SPACE$$$tube",width=3,height=4];
+2--0 [label="Stable$$$SPACE$$$temperature",comment="Here",width=5,height=6];
 }

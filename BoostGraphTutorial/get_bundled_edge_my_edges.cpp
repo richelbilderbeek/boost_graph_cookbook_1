@@ -14,9 +14,9 @@ void get_bundled_edge_my_edges_test() noexcept
     const auto g = create_bundled_edges_and_vertices_k3_graph();
 
     const std::vector<my_bundled_vertex> expected_my_bundled_vertexes{
-      my_bundled_vertex("top","source",0.0,0.0),
-      my_bundled_vertex("right","target",3.14,0),
-      my_bundled_vertex("left","target",0,3.14)
+      my_bundled_vertex("Red","Not green",1.0,2.0),
+      my_bundled_vertex("Light red","Not dark",3.0,4.0),
+      my_bundled_vertex("Orange","Orangy",5.0,6.0)
     };
     const std::vector<my_bundled_vertex> vertexes{
       get_bundled_vertex_my_vertexes(g)
@@ -24,9 +24,9 @@ void get_bundled_edge_my_edges_test() noexcept
     assert(expected_my_bundled_vertexes == vertexes);
 
     const std::vector<my_bundled_edge> expected_my_edges{
-      my_bundled_edge("AB","first",0.0,0.0),
-      my_bundled_edge("BC","second",3.14,3.14),
-      my_bundled_edge("CA","third",3.14,3.14)
+      my_bundled_edge("Oxygen","Air",1.0,2.0),
+      my_bundled_edge("Helium","From tube",3.0,4.0),
+      my_bundled_edge("Stable temperature","Here",5.0,6.0)
     };
     const std::vector<my_bundled_edge> edges{
       get_bundled_edge_my_edges(g)

@@ -24,18 +24,18 @@ create_bundled_edges_and_vertices_markov_chain() noexcept
   assert(aer_bb.second);
 
   g[vd_a]
-    = my_bundled_vertex("Sunny","Yellow thing",1.0,2.0);
+    = my_bundled_vertex("Stable","Right",1.0,2.0);
   g[vd_b]
-    = my_bundled_vertex("Rainy","Grey things",3.0,4.0);
+    = my_bundled_vertex("Not unstable","Not left",3.0,4.0);
 
   g[aer_aa.first]
-    = my_bundled_edge("Sometimes","20%",1.0,2.0);
+    = my_bundled_edge("Red","Heat",1.0,2.0);
   g[aer_ab.first]
-    = my_bundled_edge("Often","80%",3.0,4.0);
+    = my_bundled_edge("Orange","Lose heat",3.0,4.0);
   g[aer_ba.first]
-    = my_bundled_edge("Rarely","10%",5.0,6.0);
+    = my_bundled_edge("Yellow cold","Heat",5.0,6.0);
   g[aer_bb.first]
-    = my_bundled_edge("Mostly","90%",7.0,8.0);
+    = my_bundled_edge("Green cold","Stay cool",7.0,8.0);
 
   return g;
 }

@@ -22,18 +22,18 @@ create_bundled_edges_and_vertices_k3_graph() noexcept
   assert(aer_c.second);
 
   g[vd_a]
-    = my_bundled_vertex("top","source",0.0,0.0);
+    = my_bundled_vertex("Red","Not green",1.0,2.0);
   g[vd_b]
-    = my_bundled_vertex("right","target",3.14,0);
+    = my_bundled_vertex("Light red","Not dark",3.0,4.0);
   g[vd_c]
-    = my_bundled_vertex("left","target",0,3.14);
+    = my_bundled_vertex("Orange","Orangy",5.0,6.0);
 
   g[aer_a.first]
-    = my_bundled_edge("AB","first",0.0,0.0);
+    = my_bundled_edge("Oxygen","Air",1.0,2.0);
   g[aer_b.first]
-    = my_bundled_edge("BC","second",3.14,3.14);
+    = my_bundled_edge("Helium","From tube",3.0,4.0);
   g[aer_c.first]
-    = my_bundled_edge("CA","third",3.14,3.14);
+    = my_bundled_edge("Stable temperature","Here",5.0,6.0);
 
   return g;
 }

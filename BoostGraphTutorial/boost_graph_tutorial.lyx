@@ -11375,36 +11375,36 @@ tikzstyle{every state}=[]
 
   
 \backslash
-node[state] (A)              {$Sunny$};   
+node[state] (A)              {Happy};   
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-node[state] (B) [right of=A] {$Rainy$};   
+node[state] (B) [right of=A] {Not unhappy};   
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-path (A) edge [loop  left] node {$Sometimes$} (A)
+path (A) edge [loop  left] node {Fruit       } (A)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (A) edge [bend  left] node {    $Often$} (B)
+        (A) edge [bend  left] node {No chocolate} (B)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (B) edge [bend  left] node {   $Rarely$} (A)
+        (B) edge [bend  left] node {Chocolate   } (A)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (B) edge [loop right] node {   $Mostly$} (B); 
+        (B) edge [loop right] node {Other candy } (B); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -11423,31 +11423,7 @@ end{tikzpicture}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-A two-state Markov chain where the vertices have texts 
-\begin_inset Formula $Sunny$
-\end_inset
-
- and 
-\begin_inset Formula $Rainy$
-\end_inset
-
-, and the edges have texts 
-\begin_inset Formula $Sometimes$
-\end_inset
-
-, 
-\begin_inset Formula $Often$
-\end_inset
-
-, 
-\begin_inset Formula $Rarely$
-\end_inset
-
- and 
-\begin_inset Formula $Mostly$
-\end_inset
-
-
+A two-state Markov chain where the edges and vertices have texts
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:named_edges_and_vertices_markov_chain"
@@ -17265,7 +17241,7 @@ status open
 
 
 \backslash
-begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick
 ]   
 \end_layout
 
@@ -17285,7 +17261,7 @@ node[state] (A)
 
 \begin_layout Plain Layout
 
-    {Sunny, You [...], 1.0, 2.0};   
+    {Stable,Right, 1.0, 2.0};   
 \end_layout
 
 \begin_layout Plain Layout
@@ -17297,7 +17273,7 @@ node[state] (B) [right of=A]
 
 \begin_layout Plain Layout
 
-    {Rainy, Many [...], 3.0, 4.0}
+    {Not unstable,Not left, 3.0, 4.0}
 \end_layout
 
 \begin_layout Plain Layout
@@ -17309,22 +17285,22 @@ node[state] (B) [right of=A]
 
   
 \backslash
-path (A) edge [loop above] node {AA,self,1,2} (A)
+path (A) edge [loop above] node {Red,Heat,1,2} (A)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (A) edge [bend  left] node {AB,nonself,3,4} (B)
+        (A) edge [bend  left] node {Orange,Lose heat,3,4} (B)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (B) edge [bend  left] node {BA,nonself,4,5} (A)
+        (B) edge [bend  left] node {Yellow cold,Heat,4,5} (A)
 \end_layout
 
 \begin_layout Plain Layout
 
-        (B) edge [loop above] node {BB,self,6,7} (B); 
+        (B) edge [loop above] node {Green cols,Stay cool,6,7} (B); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -17650,7 +17626,103 @@ reference "sub:create_named_edges_and_vertices_k3"
 \end_layout
 
 \begin_layout Standard
-[graph here]
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (2,4) node[draw=black,fill=white,shape=circle,text=black] {Red,Not green,1,2}
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (5,2) node[anchor=west] {Oxygen,Air,1,2} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (8,0) node[draw=black,fill=white,shape=circle,text=black] {Light red,Not
+ dark,3,4} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (4,0) node[anchor=north] {Helium,From tube,3,4} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (0,0) node[draw=black,fill=white,shape=circle,text=black] {Orange,Orangy,5
+,6} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (1,2) node[anchor=east] {Stable temperature,Here,5,6} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (2,4)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+: a fully connected graph with three named edges and vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_bundled_edges_and_vertices_k3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -17867,6 +17939,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename create_bundled_edges_and_vertices_k3_graph.svg
+	scale 50
 
 \end_inset
 

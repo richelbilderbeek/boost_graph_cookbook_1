@@ -43,8 +43,8 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
       get_bundled_vertex_my_vertexes(g)
     };
     const std::vector<my_bundled_vertex> expected_my_bundled_vertexes{
-      my_bundled_vertex("Sunny","Yellow thing",1.0,2.0),
-      my_bundled_vertex("Rainy","Grey things",3.0,4.0)
+      my_bundled_vertex("Stable","Right",1.0,2.0),
+      my_bundled_vertex("Not unstable","Not left",3.0,4.0)
     };
     assert(expected_my_bundled_vertexes == vertex_my_bundled_vertexes);
 
@@ -52,12 +52,12 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
       get_bundled_edge_my_edges(g)
     };
     const std::vector<my_bundled_edge> expected_my_edges{
-      my_bundled_edge("Sometimes","20%",1.0,2.0),
-      my_bundled_edge("Often","80%",3.0,4.0),
-      my_bundled_edge("Rarely","10%",5.0,6.0),
-      my_bundled_edge("Mostly","90%",7.0,8.0)
+      my_bundled_edge("Red","Heat",1.0,2.0),
+      my_bundled_edge("Orange","Lose heat",3.0,4.0),
+      my_bundled_edge("Yellow cold","Heat",5.0,6.0),
+      my_bundled_edge("Green cold","Stay cool",7.0,8.0)
     };
-    assert(edge_my_edges == edge_my_edges);
+    assert(edge_my_edges == expected_my_edges);
 
   }
   //Create the .dot and .svg of the 'create_bundled_edges_and_vertices_markov_chain' chapter

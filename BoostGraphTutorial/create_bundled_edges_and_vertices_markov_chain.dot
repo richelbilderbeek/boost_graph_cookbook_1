@@ -1,8 +1,8 @@
 digraph G {
-0[label="Sunny",comment="Yellow$$$SPACE$$$thing",width=1,height=2];
-1[label="Rainy",comment="Grey$$$SPACE$$$things",width=3,height=4];
-0->0 [label="Sometimes",comment="20%",width=1,height=2];
-0->1 [label="Often",comment="80%",width=3,height=4];
-1->0 [label="Rarely",comment="10%",width=5,height=6];
-1->1 [label="Mostly",comment="90%",width=7,height=8];
+0[label="Stable",comment="Right",width=1,height=2];
+1[label="Not$$$SPACE$$$unstable",comment="Not$$$SPACE$$$left",width=3,height=4];
+0->0 [label="Red",comment="Heat",width=1,height=2];
+0->1 [label="Orange",comment="Lose$$$SPACE$$$heat",width=3,height=4];
+1->0 [label="Yellow$$$SPACE$$$cold",comment="Heat",width=5,height=6];
+1->1 [label="Green$$$SPACE$$$cold",comment="Stay$$$SPACE$$$cool",width=7,height=8];
 }

@@ -19,11 +19,11 @@ void create_named_edges_and_vertices_markov_chain_test() noexcept
     const auto g = create_named_edges_and_vertices_markov_chain();
     assert(boost::num_edges(g) == 4);
     assert(boost::num_vertices(g) == 2);
-    const std::vector<std::string> expected_vertex_names{"Sunny","Rainy"};
+    const std::vector<std::string> expected_vertex_names{"Happy","Not unhappy"};
     const std::vector<std::string> vertex_names{get_vertex_names(g)};
     assert(expected_vertex_names == vertex_names);
     const std::vector<std::string> expected_edge_names{
-      "Sometimes", "Often", "Rarely", "Mostly"
+      "Fruit","No chocolate","Chocolate","Other candy"
     };
     const std::vector<std::string> edge_names{get_edge_names(g)};
     assert(expected_edge_names == edge_names);
