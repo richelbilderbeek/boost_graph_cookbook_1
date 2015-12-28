@@ -1,27 +1,7 @@
 #include "create_path_graph.h"
 
-#include "create_empty_undirected_graph.h"
-
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS
->
-create_path_graph(const int n_vertices) noexcept
-{
-  assert(n_vertices >= 2);
-  auto g = create_empty_undirected_graph();
-
-  auto vd_1 = boost::add_vertex(g);
-  for (int i=1; i!=n_vertices; ++i)
-  {
-    auto vd_2 = boost::add_vertex(g);
-    const auto aer = boost::add_edge(vd_1, vd_2, g);
-    assert(aer.second);
-    vd_1 = vd_2;
-  }
-  return g;
-}
+#include "create_path_graph.impl"
+#include "create_path_graph_demo.impl"
 
 #include <cassert>
 #include "convert_dot_to_svg.h"
@@ -50,11 +30,12 @@ void create_path_graph_test() noexcept
     assert(boost::num_edges(g) == 3);
     assert(boost::num_vertices(g) == 4);
   }
-  //Create the .dot and .svg of the 'create_graph_graph' chapter
+  //Create the .dot and .svg of the 'create_path_graph' chapter
+  for (const int n: {3,4, 5} )
   {
 
-    const auto g = create_path_graph(3);
-    const std::string base_filename{"create_path_graph_3"};
+    const auto g = create_path_graph(n);
+    const std::string base_filename{"create_path_graph_" + std::to_string(n)};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
@@ -72,5 +53,6 @@ void create_path_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
+  create_path_graph_demo();
   std::cout << __func__ << ": OK" << '\n';
 }

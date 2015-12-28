@@ -150,12 +150,14 @@
 #include "get_edge_between_vertices.h"
 #include "create_all_direct_neighbour_subgraphs.h"
 #include "create_path_graph.h"
-
-
+#include "is_isomorphic.h"
+#include "create_path_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_path_graph_test();
+  is_isomorphic_test();
   get_edge_between_vertices_test();
   create_all_direct_neighbour_subgraphs_test();
   create_path_graph_test();

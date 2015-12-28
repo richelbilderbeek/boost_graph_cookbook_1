@@ -177,7 +177,8 @@ HEADERS += \
     create_k3_graph.h \
     create_petersen_graph.h \
     get_edge_between_vertices.h \
-    create_path_graph.h
+    create_path_graph.h \
+    is_isomorphic.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -353,7 +354,8 @@ SOURCES += \
     create_k3_graph.cpp \
     create_petersen_graph.cpp \
     get_edge_between_vertices.cpp \
-    create_path_graph.cpp
+    create_path_graph.cpp \
+    is_isomorphic.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -632,5 +634,9 @@ OTHER_FILES += \
     has_edge_between_vertices.impl \
     has_edge_between_vertices_demo.impl \
     get_edge_between_vertices.impl \
-    get_edge_between_vertices_demo.impl
+    get_edge_between_vertices_demo.impl \
+    is_isomorphic.impl \
+    is_isomorphic_demo.impl \
+    create_path_graph.impl \
+    create_path_graph_demo.impl
 

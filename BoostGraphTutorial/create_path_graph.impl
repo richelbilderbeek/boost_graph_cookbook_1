@@ -1,0 +1,22 @@
+#include "create_empty_undirected_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS
+>
+create_path_graph(const int n_vertices) noexcept
+{
+  assert(n_vertices >= 2);
+  auto g = create_empty_undirected_graph();
+
+  auto vd_1 = boost::add_vertex(g);
+  for (int i=1; i!=n_vertices; ++i)
+  {
+    auto vd_2 = boost::add_vertex(g);
+    const auto aer = boost::add_edge(vd_1, vd_2, g);
+    assert(aer.second);
+    vd_1 = vd_2;
+  }
+  return g;
+}

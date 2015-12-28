@@ -956,17 +956,17 @@ draw[thick]
 
 \begin_layout Plain Layout
 
-  (0,0) node[fill=black,shape=circle,text=white] {} 
+  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (5,2) node[fill=black,shape=circle,text=white] {} 
+    -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (10,1) node[fill=black,shape=circle,text=white] {} 
+    -- (10,1) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1030,7 +1030,7 @@ tikzset{
 
 \begin_layout Plain Layout
 
-  VertexStyle/.append style = { fill=black,shape=circle },
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
 \end_layout
 
 \begin_layout Plain Layout
@@ -4132,7 +4132,7 @@ tikzset{
 
 \begin_layout Plain Layout
 
-  VertexStyle/.append style = { fill=black,shape=circle },
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
 \end_layout
 
 \begin_layout Plain Layout
@@ -4680,12 +4680,12 @@ draw[thick]
 
 \begin_layout Plain Layout
 
-  (0,0) node[fill=black,shape=circle,text=white] {} 
+  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-    -- (5,1) node[fill=black,shape=circle,text=white] {} 
+    -- (5,1) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -5186,32 +5186,32 @@ draw[thick]
 
 \begin_layout Plain Layout
 
-  (2,4) node[fill=black,shape=circle,text=white] {top} 
+  (2,4) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-   -- (3,2) node[anchor=west] {AB} 
+   -- (3,2) node[anchor=west] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-   -- (4,0) node[fill=black,shape=circle,text=white] {right} 
+   -- (4,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-   -- (2,0) node[anchor=north] {BC} 
+   -- (2,0) node[anchor=north] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-   -- (0,0) node[fill=black,shape=circle,text=white] {left} 
+   -- (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 \end_layout
 
 \begin_layout Plain Layout
 
-   -- (1,2) node[anchor=east] {CA} 
+   -- (1,2) node[anchor=east] {} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -5532,6 +5532,465 @@ reference "alg:convert_dot_to_svg"
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating a path graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Path graph, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A path graph is a linear graph without any branches
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a path graph with four vertices (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_path_graph"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(C){D}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(C)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(D)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+: a fully connected graph with three edges and vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a path graph, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_path_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a path graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_path_graph_demo"
+
+\end_inset
+
+ demonstrates how to 'create_k2_graph' and checks if it has the correct
+ amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_path_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_path_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_path_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_path_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_path_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_path_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_path_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_path_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_path_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_path_graph_4.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_path_graph' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_path_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_path_graph.svg"
 
 \end_inset
 
@@ -5890,6 +6349,8 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename create_petersen_graph.svg
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -6739,6 +7200,124 @@ Demo of the 'create_all_direct_neighbour_subgraphs' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_all_direct_neighbour_subgraphs_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Are two graphs isomorphic?
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You may want to check if two graphs are isomorphic.
+ That is: if they have the same shape.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_isomorphic.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if two graphs are isomorphic
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Is isomorphic
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph is not equivalent to a 3-vertices path graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_isomorphic_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'is_isomorphic' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_isomorphic_demo"
 
 \end_inset
 
