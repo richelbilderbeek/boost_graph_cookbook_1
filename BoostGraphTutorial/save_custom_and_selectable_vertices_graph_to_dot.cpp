@@ -11,51 +11,36 @@
 #include "convert_dot_to_svg.h"
 #include "is_regular_file.h"
 #include "helper.h"
+#include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
 
 void save_custom_and_selectable_vertices_graph_to_dot_test() noexcept
 {
-  //Show it does store the vertex names
+  //Basic tests: empty graph
   {
-    const auto g = create_custom_and_selectable_vertices_k2_graph();
-
-    const std::string base_filename{"save_custom_and_selectable_vertices_graph_to_dot_test"};
-    const std::string dot_filename{base_filename + ".dot"};
-    const std::string svg_filename{base_filename + ".svg"};
-
-    save_custom_and_selectable_vertices_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
-    const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+    const auto g = create_empty_directed_custom_and_selectable_vertices_graph();
+    const std::string filename{
+      "save_custom_and_selectable_vertices_graph_to_dot.dot"
     };
-    assert(!text.empty());
-    const std::vector<std::string> expected_text{
-      "digraph G {",
-      "}"
-    };
-    assert(text != expected_text);
+    save_custom_and_selectable_vertices_graph_to_dot(g, filename);
+    const auto h = load_directed_custom_and_selectable_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
-  //Show it does not store the edges' names
+  //Basic tests: graph with harder texts
   {
-    const auto g = create_custom_and_selectable_vertices_k2_graph();
-    const std::string base_filename{"save_custom_and_selectable_vertices_graph_to_dot_test"};
-    const std::string dot_filename{base_filename + ".dot"};
-
-    save_custom_and_selectable_vertices_graph_to_dot(g,dot_filename);
-    const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+    auto g = create_nasty_directed_custom_and_selectable_vertices_graph();
+    const std::string filename{
+      "save_custom_and_selectable_vertices_graph_to_dot.dot"
     };
-    assert(!text.empty());
-    const std::vector<std::string> expected_text{
-      "graph G {",
-      "0[label=top];",
-      "1[label=right];",
-      "2[label=left];",
-      "0--1 ;",
-      "1--2 ;",
-      "2--0 ;",
-      "}"
-    };
-    assert(text != expected_text);
+    save_custom_and_selectable_vertices_graph_to_dot(g, filename);
+    const auto h = load_directed_custom_and_selectable_vertices_graph_from_dot(filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
+    assert(get_sorted_vertex_selectednesses(g)
+      == get_sorted_vertex_selectednesses(h)
+    );
   }
   std::cout << __func__ << ": OK" << '\n';
 }
