@@ -1,4 +1,5 @@
 #include <vector>
+#include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
@@ -9,6 +10,7 @@ std::vector<my_bundled_vertex> get_bundled_vertex_my_vertexes(
 ) noexcept
 {
   std::vector<my_bundled_vertex> v;
+  v.reserve(boost::num_vertices(g));
 
   const auto vip
     = vertices(g); //not boost::vertices

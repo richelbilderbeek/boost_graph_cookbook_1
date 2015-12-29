@@ -7,6 +7,7 @@ std::vector<int> get_vertex_out_degrees(
 ) noexcept
 {
   std::vector<int> v;
+  v.reserve(boost::num_vertices(g));
   const auto vis
     = vertices(g); //not boost::vertices
   const auto j = vis.second;

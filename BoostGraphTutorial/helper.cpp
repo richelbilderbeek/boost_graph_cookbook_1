@@ -32,7 +32,7 @@ std::vector<std::string> helper::file_to_vector(
   {
     std::string s;
     std::getline(in,s);
-    v.push_back(s); //Might throw std::bad_alloc
+    v.emplace_back(s); //Might throw std::bad_alloc
   }
   //Remove empty line at back of vector
   if (!v.empty() && v.back().empty()) v.pop_back();

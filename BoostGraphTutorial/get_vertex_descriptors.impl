@@ -1,5 +1,6 @@
 #include <vector>
-#include "boost/graph/graph_traits.hpp"
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graph_traits.hpp>
 
 template <typename graph>
 std::vector<
@@ -12,6 +13,8 @@ get_vertex_descriptors(const graph& g) noexcept
     = typename graph_traits<graph>::vertex_descriptor;
 
   std::vector<vd> vds;
+  vds.reserve(boost::num_vertices(g));
+
   const auto vis = vertices(g); //not boost::vertices
   const auto j = vis.second;
   for (auto i = vis.first; i!=j; ++i) {

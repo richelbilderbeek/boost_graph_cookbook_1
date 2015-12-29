@@ -7,6 +7,7 @@ std::vector<graph> create_all_direct_neighbour_subgraphs(
 ) noexcept
 {
   std::vector<graph> v;
+  v.reserve(boost::num_vertices(g));
   const auto vip = vertices(g);
   const auto j = vip.second;
   for (auto i = vip.first; i!=j; ++i) {

@@ -1,11 +1,13 @@
 #include <string>
 #include <vector>
+#include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
 std::vector<std::string> get_edge_names(const graph& g) noexcept
 {
   std::vector<std::string> v;
+  v.reserve(boost::num_edges(g));
 
   const auto edge_name_map = get(boost::edge_name,g);
   const auto eip = edges(g); //not boost::edges

@@ -13,7 +13,7 @@ std::vector<std::string> seperate_string(
   for (
     std::string sub;
     std::getline(is, sub, seperator);
-    v.push_back(sub))
+    v.emplace_back(sub))
   {
     //Empty for loop
   }

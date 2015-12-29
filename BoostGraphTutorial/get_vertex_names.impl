@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/properties.hpp>
 #include <boost/graph/graph_traits.hpp>
 
@@ -9,6 +10,7 @@ std::vector<std::string> get_vertex_names(
 ) noexcept
 {
   std::vector<std::string> v;
+  v.reserve(boost::num_vertices(g));
 
   const auto vertex_name_map = get(
     boost::vertex_name, g

@@ -440,6 +440,36 @@ E.
  Kawashima
 \end_layout
 
+\begin_layout Itemize
+mat69, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.reddit.com/user/mat69
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+danielhj, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.reddit.com/user/danieljh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Outline
 \end_layout
@@ -3200,7 +3230,17 @@ which may be necessary just to create a tutorial with code snippets that
 \end_inset
 
 .
- The function 'vertices'
+ 
+\end_layout
+
+\begin_layout Standard
+The std::vector to serve as a return value is created.
+ Because its size is known beforehand, memory to occupy this size is reserved.
+ 
+\end_layout
+
+\begin_layout Standard
+The function 'vertices'
 \begin_inset Index idx
 status open
 
@@ -6622,8 +6662,8 @@ name "alg:get_vertex_out_degrees"
 \end_layout
 
 \begin_layout Standard
-The structure of this algorithm is similar to get_vertex_descriptors (algorithm
- 
+The structure of this algorithm is similar to 'get_vertex_descriptors' (algorith
+m 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_descriptors"

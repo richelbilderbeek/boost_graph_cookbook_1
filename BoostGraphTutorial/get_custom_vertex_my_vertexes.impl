@@ -1,4 +1,5 @@
 #include <vector>
+#include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
@@ -8,6 +9,7 @@ std::vector<my_custom_vertex> get_custom_vertex_my_vertexes(
 ) noexcept
 {
   std::vector<my_custom_vertex> v;
+  v.reserve(boost::num_vertices(g));
 
   const auto my_custom_vertexes_map
     = get( //not boost::get
