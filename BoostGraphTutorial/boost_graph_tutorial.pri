@@ -178,7 +178,9 @@ HEADERS += \
     create_petersen_graph.h \
     get_edge_between_vertices.h \
     create_path_graph.h \
-    is_isomorphic.h
+    is_isomorphic.h \
+    create_named_vertices_path_graph.h \
+    is_named_vertices_isomorphic.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -355,7 +357,9 @@ SOURCES += \
     create_petersen_graph.cpp \
     get_edge_between_vertices.cpp \
     create_path_graph.cpp \
-    is_isomorphic.cpp
+    is_isomorphic.cpp \
+    create_named_vertices_path_graph.cpp \
+    is_named_vertices_isomorphic.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -638,5 +642,9 @@ OTHER_FILES += \
     is_isomorphic.impl \
     is_isomorphic_demo.impl \
     create_path_graph.impl \
-    create_path_graph_demo.impl
+    create_path_graph_demo.impl \
+    create_named_vertices_path_graph.impl \
+    create_named_vertices_path_graph_demo.impl \
+    is_named_vertices_isomorphic.impl \
+    is_named_vertices_isomorphic_demo.impl
 

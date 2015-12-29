@@ -1,0 +1,40 @@
+#include <vector>
+#include "create_empty_undirected_named_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_name_t, std::string
+  >
+>
+create_named_vertices_path_graph(
+  const std::vector<std::string>& names
+) noexcept
+{
+  auto g = create_empty_undirected_named_vertices_graph();
+  if (names.size() == 0) { return g; }
+
+  auto vertex_name_map
+    = get( //not boost::get
+      boost::vertex_name,
+      g
+    );
+
+  auto vd_1 = boost::add_vertex(g);
+  vertex_name_map[vd_1] = *names.begin();
+  if (names.size() == 1) return g;
+
+  const auto j = std::end(names);
+  auto i = std::begin(names);
+  for (++i; i!=j; ++i) //Skip first
+  {
+    auto vd_2 = boost::add_vertex(g);
+    vertex_name_map[vd_2] = *i;
+    const auto aer = boost::add_edge(vd_1, vd_2, g);
+    assert(aer.second);
+    vd_1 = vd_2;
+  }
+  return g;
+}

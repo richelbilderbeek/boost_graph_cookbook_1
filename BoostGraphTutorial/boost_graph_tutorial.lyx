@@ -5705,10 +5705,7 @@ end{tikzpicture}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-\begin_inset Formula $K_{3}$
-\end_inset
-
-: a fully connected graph with three edges and vertices 
+A path graph with four vertices 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_path_graph"
@@ -9953,6 +9950,464 @@ name "fig:create_named_vertices_k2_graph.svg"
 The .svg now shows the vertex names, instead of the vertex indices.
 \end_layout
 
+\begin_layout Subsection
+▶ Creating a path graph with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create path graph with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Path graph with named vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we create a path graph with names vertices
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a path graph with four vertices (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_path_graph"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=black}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(C){D}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(C)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(D)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A path graph with four vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a path graph, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_path_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a path graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create named vertices path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_path_graph_demo"
+
+\end_inset
+
+ demonstrates how to create a path graph with named vertices and checks
+ if it has the correct amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_path_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_named_vertices_path_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_path_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_path_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_vertices_path_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_named_vertices_path_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_path_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_path_graph.svg-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_path_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_vertices_path_graph_4.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_named_vertices_path_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_path_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_path_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Working on graphs with named vertices
 \begin_inset CommandInset label
@@ -11402,6 +11857,124 @@ Demonstration of the 'remove_edge_between_vertices_with_names' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_edge_between_vertices_with_names_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Are two graphs with named vertices isomorphic?
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_named_vertices_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You may want to check if two graphs with named vertices are isomorphic.
+ That is: if they have the same shape.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_named_vertices_isomorphic.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if two graphs with named vertices are isomorphic
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Is isomorphic
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_named_vertices_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph is not equivalent to a 3-vertices path graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_named_vertices_isomorphic_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'is_named_vertices_isomorphic' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_named_vertices_isomorphic_demo"
 
 \end_inset
 

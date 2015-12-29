@@ -152,10 +152,15 @@
 #include "create_path_graph.h"
 #include "is_isomorphic.h"
 #include "create_path_graph.h"
+#include "is_named_vertices_isomorphic.h"
+#include "create_named_vertices_path_graph.h"
+
 #include <iostream>
 
 int main()
 {
+  create_named_vertices_path_graph_test();
+  is_named_vertices_isomorphic_test();
   create_path_graph_test();
   is_isomorphic_test();
   get_edge_between_vertices_test();

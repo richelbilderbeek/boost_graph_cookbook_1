@@ -12,6 +12,9 @@
 #include "is_regular_file.h"
 #include "helper.h"
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
+#include "get_sorted_custom_vertex_my_vertexes.h"
+#include "create_nasty_directed_custom_and_selectable_vertices_graph.h"
+#include "get_sorted_vertex_selectednesses.h"
 
 void save_custom_and_selectable_vertices_graph_to_dot_test() noexcept
 {

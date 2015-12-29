@@ -1,0 +1,17 @@
+#include <cassert>
+#include "create_named_vertices_path_graph.h"
+#include "is_named_vertices_isomorphic.h"
+
+void is_named_vertices_isomorphic_demo() noexcept
+{
+  const auto g = create_named_vertices_path_graph(
+    { "Alpha", "Beta", "Gamma" }
+  );
+  const auto h = create_named_vertices_path_graph(
+    { "Alpha", "Gamma", "Beta" }
+  );
+  assert( is_named_vertices_isomorphic(g,g));
+  assert( is_named_vertices_isomorphic(g,h)); //:-(
+  //assert(!is_named_vertices_isomorphic_correct(g,h));
+  //assert(!"Green");
+}

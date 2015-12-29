@@ -1,0 +1,11 @@
+#include <cassert>
+#include "create_named_vertices_path_graph.h"
+
+void create_named_vertices_path_graph_demo() noexcept
+{
+  const auto g = create_named_vertices_path_graph(
+    {"A", "B", "C", "D"}
+  );
+  assert(boost::num_edges(g) == 3);
+  assert(boost::num_vertices(g) == 4);
+}
