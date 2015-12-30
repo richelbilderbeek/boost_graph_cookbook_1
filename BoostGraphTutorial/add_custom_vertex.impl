@@ -16,10 +16,7 @@ add_custom_vertex(
 
   const auto vd = boost::add_vertex(g);
   const auto my_custom_vertex_map
-    = get( //not boost::get
-      boost::vertex_custom_type,
-      g
-    );
+    = get(boost::vertex_custom_type, g);
   put(my_custom_vertex_map, vd, v);
   return vd;
 }

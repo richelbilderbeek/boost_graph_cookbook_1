@@ -8,19 +8,16 @@ int count_vertices_with_name(
 ) noexcept
 {
   using vd = typename boost::graph_traits<graph>::vertex_descriptor;
-  const auto vip
-    = vertices( //not boost::vertices
-      g
-    );
+  const auto vip = vertices(g);
   const auto cnt = std::count_if(
-      vip.first, vip.second,
-      [g, name](const vd& d)
-      {
-        const auto vertex_name_map
-          = get(boost::vertex_name,g);
-        return name
-          == get(vertex_name_map, d);
-      }
-    );
+    vip.first, vip.second,
+    [g, name](const vd& d)
+    {
+      const auto vertex_name_map
+        = get(boost::vertex_name,g);
+      return name
+        == get(vertex_name_map, d);
+    }
+  );
   return static_cast<int>(cnt);
 }

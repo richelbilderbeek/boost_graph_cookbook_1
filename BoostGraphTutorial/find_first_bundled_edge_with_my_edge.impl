@@ -11,15 +11,12 @@ find_first_bundled_edge_with_my_edge(
   const graph& g
 ) noexcept
 {
-  assert(has_bundled_edge_with_my_edge(e, g));
-  const auto eip = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-    if (g[*i] == e) {
-      return *i;
-    }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g);
+  const auto i = std::find_if(
+    eip.first, eip.second,
+    [e,g](const ed d) { return g[d] == e; }
+  );
+  assert(i != eip.second);
+  return *i;
 }

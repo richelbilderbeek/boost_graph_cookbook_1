@@ -309,6 +309,32 @@ boost::get does not exist
 , as the latter does not compile.
 \end_layout
 
+\begin_layout Standard
+I try to use STL algorithms wherever I can.
+ Also you should prefer algorithm calls over hand-written for-loops (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+ chapter 18.12.1, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "meyers2005effective"
+
+\end_inset
+
+ item 43).
+ Sometimes using these algorithms becomes a burden on the lines of code.
+ This is because in C++11, a lambda function argument (use by the algorithm)
+ must have its data type specified.
+ It may take multiple lines of 'using' statements being able to do so.
+ In C++14 one can use 'auto' there as well.
+ So, only if it shortens the number of lines significantly, I use raw for-loops,
+ even though you shouldn't.
+\end_layout
+
 \begin_layout Subsection
 Tutorial style
 \end_layout
@@ -433,6 +459,21 @@ Acknowledgements
 \begin_layout Standard
 These are users that improved this tutorial and/or the code behind this
  tutorial, in chronological order:
+\end_layout
+
+\begin_layout Itemize
+m-dudley, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/111327/m-dudley
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -12073,6 +12114,140 @@ Demonstration of the 'remove_edge_between_vertices_with_names' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_edge_between_vertices_with_names_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Count the vertices with a certain name
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:count_vertices_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How often is a vertex with a certain name present? Here we'll find out.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_vertices_with_name.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first vertex by its name
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Find first vertex with name
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_vertices_with_name"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we use the STL std::count_if
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::count_if
+\end_layout
+
+\end_inset
+
+ algorithm to count how many vertices have a name equal to the desired name.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:count_vertices_with_name_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_vertices_with_name_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'find_first_vertex_with_name' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_vertices_with_name_demo"
 
 \end_inset
 

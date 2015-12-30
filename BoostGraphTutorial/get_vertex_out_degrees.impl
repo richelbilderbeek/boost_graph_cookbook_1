@@ -6,15 +6,13 @@ std::vector<int> get_vertex_out_degrees(
   const graph& g
 ) noexcept
 {
-  std::vector<int> v;
-  v.reserve(boost::num_vertices(g));
-  const auto vis
-    = vertices(g); //not boost::vertices
-  const auto j = vis.second;
-  for (auto i = vis.first; i!=j; ++i) {
-    v.emplace_back(
-      out_degree(*i,g) //not boost::out_degree
-    );
-  }
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  std::vector<int> v(boost::num_vertices(g));
+  const auto vip = vertices(g); 
+  std::transform(vip.first, vip.second, std::begin(v),
+    [g](const vd& d) {
+      return out_degree(d,g); 
+    }
+  );
   return v;
 }

@@ -10,22 +10,15 @@ find_first_vertex_with_name(
   const graph& g
 ) noexcept
 {
-  assert(has_vertex_with_name(name, g));
-  const auto vertex_name_map
-    = get(boost::vertex_name,g);
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-
-  for (auto i = vip.first; i!=j; ++i) {
-    const std::string s{
-      get( //not boost::get
-        vertex_name_map,
-        *i
-      )
-    };
-    if (s == name) { return *i; }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  const auto vip = vertices(g);
+  const auto i = std::find_if(
+    vip.first, vip.second,
+    [g, name](const vd d) {
+      const auto vertex_name_map = get(boost::vertex_name, g);
+      return get(vertex_name_map, d) == name;
+    }
+  );
+  assert(i != vip.second);
+  return *i;
 }

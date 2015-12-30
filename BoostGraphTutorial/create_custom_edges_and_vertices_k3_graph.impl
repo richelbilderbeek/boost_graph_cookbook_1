@@ -25,8 +25,7 @@ create_custom_edges_and_vertices_k3_graph() noexcept
   assert(aer_b.second);
   assert(aer_c.second);
 
-  auto my_custom_vertex_map
-    = get(  //not boost::get
+  auto my_custom_vertex_map  = get(
       boost::vertex_custom_type,g
     );
   put(my_custom_vertex_map,vd_a,

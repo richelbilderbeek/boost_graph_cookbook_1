@@ -24,7 +24,7 @@ create_custom_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto my_custom_vertex_map = get( //not boost::get
+  auto my_custom_vertex_map = get(
     boost::vertex_custom_type,g
   );
   put(my_custom_vertex_map, vd_a,

@@ -7,5 +7,5 @@ std::pair<
 >
 get_vertex_iterators(const graph& g) noexcept
 {
-  return vertices(g); //not boost::vertices
+  return vertices(g); 
 }

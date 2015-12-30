@@ -15,12 +15,10 @@ void add_named_and_selectable_vertex(
   );
 
   const auto vd = boost::add_vertex(g);
-  auto vertex_name_map
-    = get( //not boost::get
+  auto vertex_name_map = get(
       boost::vertex_name, g
     );
-  auto vertex_is_selected_map
-    = get( //not boost::get
+  auto vertex_is_selected_map = get(
       boost::vertex_is_selected, g
     );
   put(vertex_name_map, vd, vertex_name);

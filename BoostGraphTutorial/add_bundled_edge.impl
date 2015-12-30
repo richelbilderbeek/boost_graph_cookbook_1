@@ -16,6 +16,6 @@ add_bundled_edge(
 
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-  g[aer.first] = v; //Cannot use put here
+  g[aer.first] = v;
   return aer.first;
 }

@@ -9,15 +9,11 @@ std::vector<my_bundled_vertex> get_bundled_vertex_my_vertexes(
   const graph& g
 ) noexcept
 {
-  std::vector<my_bundled_vertex> v;
-  v.reserve(boost::num_vertices(g));
-
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-
-  for (auto i = vip.first; i!=j; ++i) {
-    v.emplace_back(g[*i]);
-  }
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  std::vector<my_bundled_vertex> v(boost::num_vertices(g));
+  const auto vip = vertices(g);
+  std::transform(vip.first, vip.second, std::begin(v),
+    [g](const vd& d) { return g[d]; }
+  );
   return v;
 }

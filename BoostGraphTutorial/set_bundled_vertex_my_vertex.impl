@@ -10,6 +10,5 @@ void set_bundled_vertex_my_vertex(
 ) noexcept
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
   g[vd] = v;
 }

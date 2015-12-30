@@ -16,10 +16,8 @@ create_named_vertices_path_graph(
   auto g = create_empty_undirected_named_vertices_graph();
   if (names.size() == 0) { return g; }
 
-  auto vertex_name_map
-    = get( //not boost::get
-      boost::vertex_name,
-      g
+  auto vertex_name_map = get(
+      boost::vertex_name, g
     );
 
   auto vd_1 = boost::add_vertex(g);

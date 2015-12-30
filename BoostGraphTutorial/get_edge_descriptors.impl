@@ -9,15 +9,8 @@ std::vector<
 {
   using boost::graph_traits;
   using ed = typename graph_traits<graph>::edge_descriptor;
-
-  std::vector<ed> eds;
-  eds.reserve(boost::num_edges(g));
-
-  const auto ei = edges(g); //not boost::edges
-  const auto j = ei.second;
-
-  for (auto i = ei.first; i!=j; ++i) {
-    eds.emplace_back(*i);
-  }
-  return eds;
+  std::vector<ed> v(boost::num_edges(g));
+  const auto eip = edges(g); 
+  std::copy(eip.first, eip.second, std::begin(v));
+  return v;
 }

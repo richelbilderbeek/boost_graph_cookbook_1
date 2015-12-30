@@ -9,9 +9,6 @@ my_custom_edge get_custom_edge_my_edge(
 ) noexcept
 {
   const auto my_edge_map
-    = get( //not boost::get
-      boost::edge_custom_type,
-      g
-    );
-  return my_edge_map[vd];
+    = get(boost::edge_custom_type, g);
+  return get(my_edge_map, vd);
 }

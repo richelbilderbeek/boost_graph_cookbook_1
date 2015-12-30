@@ -8,13 +8,12 @@ bool has_bundled_vertex_with_my_vertex(
   const graph& g
 ) noexcept
 {
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-  for (auto i = vip.first; i!=j; ++i) {
-    if (g[*i] == v) {
-      return true;
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  const auto vip = vertices(g); 
+  return std::find_if(vip.first, vip.second,
+    [v, g](const vd& d)
+    {
+      return g[d] == v;
     }
-  }
-  return false;
+  ) != vip.second;
 }

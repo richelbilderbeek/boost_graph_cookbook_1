@@ -10,7 +10,5 @@ void set_graph_name(
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
 
-  get_property( //not boost::get_property
-    g,boost::graph_name
-  ) = name;
+  get_property(g, boost::graph_name) = name;
 }

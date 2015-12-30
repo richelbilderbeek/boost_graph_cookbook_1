@@ -3,24 +3,18 @@
 
 template <typename graph>
 bool has_edge_with_name(
-  const std::string& name,
+  const std::string& edge_name,
   const graph& g
 ) noexcept
 {
-  const auto edge_name_map
-    = get( //not boost::get
-      boost::edge_name,
-      g
-    );
-  const auto eip
-    = edges( //not boost::edges
-    g
-  );
-  const auto j = eip.second;
-  for (auto i = eip.first; i!=j; ++i) {
-    if (get(edge_name_map, *i) == name) {
-      return true;
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g);
+  return std::find_if(eip.first, eip.second,
+    [edge_name, g](const ed& d)
+    {
+      const auto edge_name_map
+        = get(boost::edge_name, g);
+      return get(edge_name_map, d) == edge_name;
     }
-  }
-  return false;
+  ) != eip.second;
 }

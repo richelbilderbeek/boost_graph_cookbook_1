@@ -11,14 +11,12 @@ find_first_bundled_vertex_with_my_vertex(
   const graph& g
 ) noexcept
 {
-  assert(has_bundled_vertex_with_my_vertex(v, g));
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-
-  for (auto i = vip.first; i!=j; ++i) {
-    if (g[*i] == v) { return *i; }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  const auto vip = vertices(g);
+  const auto i = std::find_if(
+    vip.first, vip.second,
+    [v,g](const vd d) { return g[d] == v; }
+  );
+  assert(i != vip.second);
+  return *i;
 }

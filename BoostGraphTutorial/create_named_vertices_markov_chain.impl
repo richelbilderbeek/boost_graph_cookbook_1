@@ -22,7 +22,7 @@ create_named_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto name_map = get( //not boost::get
+  auto name_map = get(
     boost::vertex_name,g
   );
   put(name_map, vd_a, "Good");

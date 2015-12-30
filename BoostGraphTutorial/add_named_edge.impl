@@ -17,8 +17,7 @@ add_named_edge(
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
 
-  auto edge_name_map
-    = get( //not boost::get
+  auto edge_name_map = get(
       boost::edge_name,g
     );
   put(edge_name_map, aer.first, edge_name);

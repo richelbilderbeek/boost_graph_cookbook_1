@@ -7,14 +7,12 @@ bool has_bundled_edge_with_my_edge(
   const graph& g
 ) noexcept
 {
-  const auto eip
-    = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-    if (g[*i] == e) {
-      return true;
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g); 
+  return std::find_if(eip.first, eip.second,
+    [e, g](const ed& d)
+    {
+      return g[d] == e;
     }
-  }
-  return false;
+  ) != eip.second;
 }

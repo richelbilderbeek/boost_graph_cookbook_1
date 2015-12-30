@@ -13,10 +13,6 @@ void set_vertex_name(
   );
 
   auto vertex_name_map
-    = get( //not boost::get
-      boost::vertex_name,
-      g
-    );
-  vertex_name_map[vd]
-    = any_vertex_name;
+    = get(boost::vertex_name, g);
+  put(vertex_name_map, vd, any_vertex_name);
 }

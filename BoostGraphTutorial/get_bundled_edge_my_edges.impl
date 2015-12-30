@@ -7,15 +7,11 @@ std::vector<my_bundled_edge> get_bundled_edge_my_edges(
   const graph& g
 ) noexcept
 {
-  std::vector<my_bundled_edge> v;
-  v.reserve(boost::num_edges(g));
-
-  const auto eip
-    = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-    v.emplace_back(g[*i]);
-  }
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  std::vector<my_bundled_edge> v(boost::num_edges(g));
+  const auto eip = edges(g);
+  std::transform(eip.first, eip.second,std::begin(v),
+    [g](const ed e) { return g[e]; }
+  );
   return v;
 }

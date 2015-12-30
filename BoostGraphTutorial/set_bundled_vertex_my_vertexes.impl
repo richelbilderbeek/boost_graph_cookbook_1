@@ -16,7 +16,7 @@ void set_bundled_vertex_my_vertexes(
 
   auto my_vertexes_begin = std::begin(my_vertexes);
   const auto my_vertexes_end = std::end(my_vertexes);
-  const auto vip = vertices(g); //not boost::vertices
+  const auto vip = vertices(g); 
   const auto j = vip.second;
   for (
     auto i = vip.first;

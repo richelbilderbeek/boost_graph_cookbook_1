@@ -10,6 +10,6 @@ add_bundled_vertex(const my_bundled_vertex& v, graph& g) noexcept
   );
 
   const auto vd = boost::add_vertex(g);
-  g[vd] = v; //TODO: use put
+  g[vd] = v;
   return vd;
 }

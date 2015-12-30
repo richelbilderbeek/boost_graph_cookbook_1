@@ -16,12 +16,11 @@ void set_vertex_names(
     = get(boost::vertex_name,g);
   auto ni = std::begin(names);
   const auto names_end = std::end(names);
-  const auto vip
-    = vertices(g); //not boost::vertices
+  const auto vip = vertices(g);
   const auto j = vip.second;
   for (auto i = vip.first; i!=j; ++i, ++ni)
   {
     assert(ni != names_end);
-    put(vertex_name_map, *i,*ni);
+    put(vertex_name_map, *i, *ni);
   }
 }

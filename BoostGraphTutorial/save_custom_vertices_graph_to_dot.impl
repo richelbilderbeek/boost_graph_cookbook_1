@@ -15,9 +15,7 @@ void save_custom_vertices_graph_to_dot(
   std::ofstream f(filename);
 
   const auto my_custom_vertexes_map
-    = get( //not boost::get
-      boost::vertex_custom_type,g
-    );
+    = get(boost::vertex_custom_type,g);
   boost::write_graphviz(
     f,
     g,

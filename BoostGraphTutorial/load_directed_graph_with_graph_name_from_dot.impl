@@ -22,7 +22,7 @@ load_directed_graph_with_graph_name_from_dot(
   auto g = create_empty_directed_graph_with_graph_name();
 
   #ifdef TODO_KNOW_HOW_TO_LOAD_A_GRAPH_ITS_NAME
-  boost::dynamic_properties p; //_do_ default construct
+  boost::dynamic_properties p; 
   p.property("name",get_property(g,boost::graph_name)); //AFAIK, this should work
   #else
   boost::dynamic_properties p(

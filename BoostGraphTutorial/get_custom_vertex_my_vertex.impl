@@ -10,9 +10,8 @@ my_custom_vertex get_custom_vertex_my_custom_vertex(
 ) noexcept
 {
   const auto my_custom_vertexes_map
-    = get( //not boost::get
-      boost::vertex_custom_type,
+    = get(boost::vertex_custom_type,
       g
     );
-  return my_custom_vertexes_map[vd];
+  return get(my_custom_vertexes_map, vd);
 }

@@ -9,9 +9,8 @@ std::string get_vertex_name(
 ) noexcept
 {
   const auto vertex_name_map
-    = get( //not boost::get
-      boost::vertex_name,
+    = get(boost::vertex_name,
       g
     );
-  return vertex_name_map[vd];
+  return get(vertex_name_map, vd);
 }

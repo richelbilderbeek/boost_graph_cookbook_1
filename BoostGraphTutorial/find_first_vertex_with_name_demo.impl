@@ -12,8 +12,8 @@ void find_first_vertex_with_name_demo() noexcept
       "My computer", g
     );
   assert(
-    out_degree(vd,g) == 1 //not boost::out_degree
+    out_degree(vd,g) == 1 
   );
-  assert(in_degree(vd,g) == 1); //not boost::in_degree
+  assert(in_degree(vd,g) == 1); 
 }
 

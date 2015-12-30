@@ -9,9 +9,8 @@ std::string get_edge_name(
 ) noexcept
 {
   const auto edge_name_map
-    = get( //not boost::get
-      boost::edge_name,
+    = get(boost::edge_name,
       g
     );
-  return edge_name_map[ed];
+  return get(edge_name_map, ed);
 }

@@ -12,9 +12,7 @@ add_edge(graph& g) noexcept
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(
-    vd_a, // Source/from
-    vd_b, // Target/to
-    g
+    vd_a, vd_b, g
   );
   assert(aer.second);
   return aer.first;

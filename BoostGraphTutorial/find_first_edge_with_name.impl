@@ -1,7 +1,6 @@
 #include <string>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "has_edge_with_name.h"
 
 template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
@@ -10,23 +9,15 @@ find_first_edge_with_name(
   const graph& g
 ) noexcept
 {
-  assert(has_edge_with_name(name, g));
-
-  const auto edge_name_map
-    = get( //not boost::get
-      boost::edge_name, g
-    );
-  const auto eip
-    = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-
-    const std::string s{
-      get(edge_name_map, *i)
-    };
-    if (s == name) { return *i; }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g);
+  const auto i = std::find_if(
+    eip.first, eip.second,
+    [g, name](const ed d) {
+      const auto edge_name_map = get(boost::edge_name, g);
+      return get(edge_name_map, d) == name;
+    }
+  );
+  assert(i != eip.second);
+  return *i;
 }

@@ -13,7 +13,7 @@ get_vertex_descriptors(const graph& g) noexcept
     = typename graph_traits<graph>::vertex_descriptor;
 
   std::vector<vd> vds(boost::num_vertices(g));
-  const auto vis = vertices(g); //not boost::vertices
+  const auto vis = vertices(g); 
   std::copy(vis.first, vis.second, std::begin(vds));
   return vds;
 }

@@ -8,23 +8,16 @@ std::vector<my_custom_edge> get_custom_edge_my_edges(
   const graph& g
 ) noexcept
 {
-  std::vector<my_custom_edge> v;
-  v.reserve(boost::num_edges(g));
-
-  const auto my_custom_edges_map
-    = get( //not boost::get
-      boost::edge_custom_type,g
-    );
-  const auto eip
-    = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-    v.emplace_back(
-      get( //not boost::get
-        my_custom_edges_map, *i
-      )
-    );
-  }
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  std::vector<my_custom_edge> v(boost::num_edges(g));
+  const auto eip = edges(g);
+  std::transform(eip.first, eip.second, std::begin(v),
+    [g](const ed d)
+    {
+      const auto my_custom_edges_map
+        = get(boost::edge_custom_type,g);
+      return get(my_custom_edges_map, d);
+    }
+  );
   return v;
 }

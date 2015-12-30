@@ -10,7 +10,7 @@ void find_first_custom_vertex_with_my_vertex_demo() noexcept
     my_custom_vertex("A","source",0.0,0.0),
     g
   );
-  assert(out_degree(vd,g) == 1); //not boost::out_degree
-  assert(in_degree(vd,g) == 1); //not boost::in_degree
+  assert(out_degree(vd,g) == 1);
+  assert(in_degree(vd,g) == 1);
 }
 

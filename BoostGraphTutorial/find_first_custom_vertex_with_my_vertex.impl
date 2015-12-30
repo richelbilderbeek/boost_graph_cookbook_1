@@ -12,20 +12,15 @@ find_first_custom_vertex_with_my_vertex(
   const graph& g
 ) noexcept
 {
-  assert(has_custom_vertex_with_my_custom_vertex(v, g));
-  const auto my_custom_vertexes_map = get(boost::vertex_custom_type, g);
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-
-  for (auto i = vip.first; i!=j; ++i) {
-    const auto w
-      = get( //not boost::get
-        my_custom_vertexes_map,
-        *i
-      );
-    if (w == v) { return *i; }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  const auto vip = vertices(g);
+  const auto i = std::find_if(
+    vip.first, vip.second,
+    [v,g](const vd d) {
+      const auto my_vertex_map = get(boost::vertex_custom_type, g);
+      return get(my_vertex_map, d) == v;
+    }
+  );
+  assert(i != vip.second);
+  return *i;
 }

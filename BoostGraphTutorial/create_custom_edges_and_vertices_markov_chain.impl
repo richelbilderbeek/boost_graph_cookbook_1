@@ -27,7 +27,7 @@ create_custom_edges_and_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto my_custom_vertexes_map = get( //not boost::get
+  auto my_custom_vertexes_map = get(
     boost::vertex_custom_type,g
   );
   put(my_custom_vertexes_map, vd_a,
@@ -37,7 +37,7 @@ create_custom_edges_and_vertices_markov_chain() noexcept
     my_custom_vertex("Rainy","Grey things",3.0,4.0)
   );
 
-  auto my_edges_map = get( //not boost::get
+  auto my_edges_map = get(
     boost::edge_custom_type,g
   );
   put(my_edges_map, aer_aa.first,

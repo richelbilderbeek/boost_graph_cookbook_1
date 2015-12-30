@@ -13,5 +13,5 @@ void set_edge_name(
   );
 
   auto edge_name_map = get(boost::edge_name,g);
-  edge_name_map[vd] = any_edge_name;
+  put(edge_name_map, vd, any_edge_name);
 }

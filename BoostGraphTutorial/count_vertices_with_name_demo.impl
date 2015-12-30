@@ -2,11 +2,14 @@
 #include "add_named_vertex.h"
 #include "count_vertices_with_name.h"
 #include "create_empty_undirected_named_vertices_graph.h"
+#include "create_named_vertices_path_graph.h"
 
 void count_vertices_with_name_demo() noexcept
 {
-  auto g = create_empty_undirected_named_vertices_graph();
-  add_named_vertex("Rex", g);
-  assert(count_vertices_with_name(g,"Rex") == 1);
-  assert(count_vertices_with_name(g,"Nebular") == 0);
+  auto g = create_named_vertices_path_graph(
+    {"Apple", "Pear", "Apple"}
+  );
+  assert(count_vertices_with_name(g,"Apple") == 2);
+  assert(count_vertices_with_name(g,"Pear") == 1);
+  assert(count_vertices_with_name(g,"Banana") == 0);
 }

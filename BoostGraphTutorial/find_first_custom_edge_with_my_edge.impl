@@ -11,20 +11,15 @@ find_first_custom_edge_with_my_edge(
   const graph& g
 ) noexcept
 {
-  assert(has_custom_edge_with_my_edge(e, g));
-  const auto my_edges_map = get(boost::edge_custom_type, g);
-  const auto eip = edges(g); //not boost::edges
-  const auto j = eip.second;
-
-  for (auto i = eip.first; i!=j; ++i) {
-    if (
-      get( //not boost::get
-        my_edges_map,
-        *i
-      ) == e) {
-      return *i;
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g);
+  const auto i = std::find_if(
+    eip.first, eip.second,
+    [e,g](const ed d) {
+      const auto my_edges_map = get(boost::edge_custom_type, g);
+      return get(my_edges_map, d) == e;
     }
-  }
-  assert(!"Should not get here");
-  throw; //Will crash the program
+  );
+  assert(i != eip.second);
+  return *i;
 }

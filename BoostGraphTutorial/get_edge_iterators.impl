@@ -7,5 +7,5 @@ std::pair<
 >
 get_edge_iterators(const graph& g) noexcept
 {
-  return edges(g); //not boost::edges
+  return edges(g); 
 }

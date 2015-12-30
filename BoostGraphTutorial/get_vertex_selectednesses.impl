@@ -7,23 +7,16 @@ std::vector<bool> get_vertex_selectednesses(
   const graph& g
 ) noexcept
 {
-  std::vector<bool> v;
-  v.reserve(boost::num_vertices(g));
-
-  const auto is_selected_map = get(
-    boost::vertex_is_selected, g
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  const auto vip = vertices(g); 
+  std::vector<bool> v(boost::num_vertices(g));
+  std::transform(vip.first, vip.second, std::begin(v),
+    [g](const vd& d) {
+      const auto is_selected_map = get(
+        boost::vertex_is_selected, g
+      );
+      return get(is_selected_map, d);
+    }
   );
-  const auto vip
-    = vertices(g); //not boost::vertices
-  const auto j = vip.second;
-
-  for (auto i = vip.first; i!=j; ++i) {
-    v.push_back(
-      get( //not boost::get
-        is_selected_map,
-        *i
-      )
-    );
-  }
   return v;
 }
