@@ -23,7 +23,8 @@ create_named_vertices_path_graph(
     );
 
   auto vd_1 = boost::add_vertex(g);
-  vertex_name_map[vd_1] = *names.begin();
+  put(vertex_name_map, vd_1, *names.begin());
+
   if (names.size() == 1) return g;
 
   const auto j = std::end(names);
@@ -31,7 +32,7 @@ create_named_vertices_path_graph(
   for (++i; i!=j; ++i) //Skip first
   {
     auto vd_2 = boost::add_vertex(g);
-    vertex_name_map[vd_2] = *i;
+    put(vertex_name_map, vd_2, *i);
     const auto aer = boost::add_edge(vd_1, vd_2, g);
     assert(aer.second);
     vd_1 = vd_2;

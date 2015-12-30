@@ -40,13 +40,12 @@ void create_direct_neighbour_subgraph_test() noexcept
     const auto g = create_petersen_graph();
     const auto vip = vertices(g);
     const auto j = vip.second;
-    for (auto i=vip.first; i!=j; ++i) {
+    for (auto i = vip.first; i!=j; ++i) {
       const auto h = create_direct_neighbour_subgraph(
         *i,g
       );
       assert(boost::num_vertices(h) == 4);
       assert(boost::num_edges(h) == 3);
-
     }
   }
   create_direct_neighbour_subgraph_demo();

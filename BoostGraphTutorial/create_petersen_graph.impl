@@ -1,4 +1,5 @@
 #include <cassert>
+#include <vector>
 #include "create_empty_undirected_graph.h"
 
 boost::adjacency_list<
@@ -8,51 +9,42 @@ boost::adjacency_list<
 >
 create_petersen_graph() noexcept
 {
+
+  using vd = boost::graph_traits<
+    boost::adjacency_list<
+      boost::vecS,
+      boost::vecS,
+      boost::undirectedS
+    >
+  >::vertex_descriptor;
+
   auto g = create_empty_undirected_graph();
 
-  //Outer pentagon
-  const auto vd_oa = boost::add_vertex(g);
-  const auto vd_ob = boost::add_vertex(g);
-  const auto vd_oc = boost::add_vertex(g);
-  const auto vd_od = boost::add_vertex(g);
-  const auto vd_oe = boost::add_vertex(g);
-  //Inner pentagon
-  const auto vd_ia = boost::add_vertex(g);
-  const auto vd_ib = boost::add_vertex(g);
-  const auto vd_ic = boost::add_vertex(g);
-  const auto vd_id = boost::add_vertex(g);
-  const auto vd_ie = boost::add_vertex(g);
-
-  const auto aer_1  = boost::add_edge(vd_oa, vd_ob, g);
-  const auto aer_2  = boost::add_edge(vd_oa, vd_ia, g);
-  const auto aer_3  = boost::add_edge(vd_ob, vd_oc, g);
-  const auto aer_4  = boost::add_edge(vd_ob, vd_ib, g);
-  const auto aer_5  = boost::add_edge(vd_oc, vd_od, g);
-  const auto aer_6  = boost::add_edge(vd_oc, vd_ic, g);
-  const auto aer_7  = boost::add_edge(vd_od, vd_oe, g);
-  const auto aer_8  = boost::add_edge(vd_od, vd_id, g);
-  const auto aer_9  = boost::add_edge(vd_oe, vd_oa, g);
-  const auto aer_10 = boost::add_edge(vd_oe, vd_ie, g);
-  const auto aer_11 = boost::add_edge(vd_ia, vd_ic, g);
-  const auto aer_12 = boost::add_edge(vd_ib, vd_id, g);
-  const auto aer_13 = boost::add_edge(vd_ic, vd_ie, g);
-  const auto aer_14 = boost::add_edge(vd_id, vd_ia, g);
-  const auto aer_15 = boost::add_edge(vd_ie, vd_ib, g);
-
-  assert(aer_1.second);
-  assert(aer_2.second);
-  assert(aer_3.second);
-  assert(aer_4.second);
-  assert(aer_5.second);
-  assert(aer_6.second);
-  assert(aer_7.second);
-  assert(aer_8.second);
-  assert(aer_9.second);
-  assert(aer_10.second);
-  assert(aer_11.second);
-  assert(aer_12.second);
-  assert(aer_13.second);
-  assert(aer_14.second);
-  assert(aer_15.second);
+  std::vector<vd> v; //Outer
+  for (int i=0; i!=5; ++i) {
+    v.push_back(boost::add_vertex(g));
+  }
+  std::vector<vd> w; //Inner
+  for (int i=0; i!=5; ++i) {
+    w.push_back(boost::add_vertex(g));
+  }
+  //Outer ring
+  for (int i=0; i!=5; ++i) {
+    const auto aer
+      = boost::add_edge(v[i], v[(i + 1) % 5], g);
+    assert(aer.second);
+  }
+  //Spoke
+  for (int i=0; i!=5; ++i) {
+    const auto aer
+      = boost::add_edge(v[i], w[i], g);
+    assert(aer.second);
+  }
+  //Inner pentagram
+  for (int i=0; i!=5; ++i) {
+    const auto aer
+      = boost::add_edge(w[i], w[(i + 2) % 5], g);
+    assert(aer.second);
+  }
   return g;
 }
