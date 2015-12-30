@@ -1612,8 +1612,10 @@ key "stroustrup2013"
 \end_layout
 
 \begin_layout Itemize
-a function body: all the function body does is create a 'boost::adjacency_list<>
-' by calling its constructor, by using the round brackets
+a function body: all the function body does is implicitly create its return
+ type by using the '{}'.
+ An alternative syntax would be 'return boost::adjacency_list<>()', which
+ is needlessly longer
 \end_layout
 
 \begin_layout Standard
@@ -6026,7 +6028,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "create_path_graph.dot"
+filename "create_path_graph_4.dot"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -8909,7 +8911,23 @@ reference "sub:Vertex-descriptors"
 \end_inset
 
 ) is stored.
- After obtaining the name map from the graph (using 'get(boost::vertex_name,g)
+ 
+\end_layout
+
+\begin_layout Standard
+The name map is obtained from the graph using 'get'.
+ 'get' (not boost::get 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::get does not exist
+\end_layout
+
+\end_inset
+
+) allow to obtain a property map.
+ In this case, 'get(boost::vertex_name,g)
 \begin_inset Index idx
 status open
 
@@ -8929,9 +8947,10 @@ boost::vertex_name
 
 \end_inset
 
-'), the name of the vertex is set using that vertex descriptor.
- Note that 'get' has no 'boost::' prepending it, as it lives in the same
- (global) namespace the function is in.
+'), denotes that we want to obtain the property map associated with 'boost::vert
+ex_name' from the graph.
+ 'get' has no 'boost::' prepending it, as it lives in the same (global)
+ namespace the function is in.
  Using 'boost::get' will not compile
 \begin_inset Index idx
 status open
@@ -8943,6 +8962,59 @@ boost::get does not exist
 \end_inset
 
 .
+ 
+\end_layout
+
+\begin_layout Standard
+With a name map and a vertex descriptor, the name of a vertex can be set
+ using 'put'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+put
+\end_layout
+
+\end_inset
+
+ (not boost::put
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::put does not exist
+\end_layout
+
+\end_inset
+
+).
+ 'put' is the opposite of 'get'.
+ In this case 'put(vertex_name_map, vd, vertex_name)' is read as: in the
+ vertex name map, look up the spot where the vertex we have the descriptor
+ of, and put the new vertex name there.
+ An alternative syntax is 'vertex_name_map[vd] = vertex_name'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Alternative syntax for put
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+put, alternative syntax
+\end_layout
+
+\end_inset
+
+.
+ Because 'put' is more general, it is chosen to be the preferred syntax
+ for this tutorial.
 \end_layout
 
 \begin_layout Standard

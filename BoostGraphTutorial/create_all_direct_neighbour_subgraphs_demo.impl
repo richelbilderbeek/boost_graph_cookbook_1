@@ -4,7 +4,8 @@
 
 void create_all_direct_neighbour_subgraphs_demo() noexcept
 {
-  const auto v = create_all_direct_neighbour_subgraphs(create_k2_graph());
+  const auto v
+    = create_all_direct_neighbour_subgraphs(create_k2_graph());
   assert(v.size() == 2);
   for (const auto g: v)
   {

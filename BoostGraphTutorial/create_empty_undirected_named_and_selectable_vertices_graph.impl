@@ -15,15 +15,5 @@ boost::adjacency_list<
 >
 create_empty_undirected_named_and_selectable_vertices_graph() noexcept
 {
-  return boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::property<
-      boost::vertex_name_t, std::string,
-      boost::property<
-        boost::vertex_is_selected_t, bool
-      >
-    >
-  > ();
+  return {};
 }

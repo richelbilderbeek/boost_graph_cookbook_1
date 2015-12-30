@@ -12,12 +12,5 @@ boost::adjacency_list<
 >
 create_empty_undirected_custom_vertices_graph() noexcept
 {
-  return boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::property<
-      boost::vertex_custom_type_t, my_custom_vertex
-    >
-  >();
+  return {};
 }
