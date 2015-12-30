@@ -17,16 +17,33 @@ graph create_direct_neighbour_subgraph(
   //Copy vertices
   {
     const auto vdsi = boost::adjacent_vertices(vd, g);
-    const auto j = vdsi.second;
-    for (auto i = vdsi.first; i!=j; ++i)
-    {
-      const auto vd_h = boost::add_vertex(h);
-      m.insert(std::make_pair(*i,vd_h));
-    }
+    std::transform(vdsi.first, vdsi.second,
+      std::inserter(m,std::begin(m)),
+      [&h](const vertex_descriptor& d)
+      {
+        const auto vd_h = boost::add_vertex(h);
+        return std::make_pair(d,vd_h);
+      }
+    );
   }
   //Copy edges
   {
-    const auto eip = edges(g);
+  const auto eip = edges(g);
+    /*
+    std::for_each(eip.first, eip.second,
+      [g, &h, m](const vertex_descriptor& vd)
+      {
+        const auto vd_from = source(vd, g);
+        const auto vd_to = target(vd, g);
+        if (  m.find(vd_from) != std::end(m)
+          && m.find(vd_to) != std::end(m)
+        ) {
+          const auto aer = boost::add_edge(m[vd_from],m[vd_to], h);
+          assert(aer.second);
+        }
+      }
+    );
+    */
     const auto j = eip.second;
     for (auto i = eip.first; i!=j; ++i)
     {

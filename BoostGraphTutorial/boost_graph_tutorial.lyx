@@ -470,6 +470,21 @@ https://www.reddit.com/user/danieljh
 
 \end_layout
 
+\begin_layout Itemize
+sehe, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/85371/sehe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Outline
 \end_layout
@@ -2742,7 +2757,12 @@ reference "sub:Vertex-descriptors"
 \end_inset
 
 , as we need these to add an edge.
- Algorithm 
+ To allow for this already, 'add_vertex' also returns a vertex descriptor.
+ 
+\end_layout
+
+\begin_layout Standard
+Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:add_vertex_demo"
@@ -3234,8 +3254,8 @@ which may be necessary just to create a tutorial with code snippets that
 \end_layout
 
 \begin_layout Standard
-The std::vector to serve as a return value is created.
- Because its size is known beforehand, memory to occupy this size is reserved.
+The std::vector to serve as a return value is created at the needed size,
+ which is the number of vertices.
  
 \end_layout
 
@@ -3261,20 +3281,44 @@ boost::vertices does not exist
 \end_inset
 
 !) returns a vertex iterator pair.
- The two iterators are extracted, of which the first iterator, 'i', points
- to the first vertex, and the second, 'j', points to beyond the last vertex.
- In the for-loop, 'i' loops from begin to end.
- Dereferencing it produces a vertex descriptor, which is stored in the std::vect
-or using emplace_back.
- Prefer using emplace_back (
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroustrup2013"
+ These iterators are used by std::copy to iterator over.
+ std::copy
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::copy
+\end_layout
 
 \end_inset
 
- chapter 31.6, items 25 and 27).
- 
+ is an STL algorithm to copy a half-open range.
+ Prefer algorithm calls over hand-written for-loops (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+ chapter 18.12.1, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "meyers2005effective"
+
+\end_inset
+
+ item 43).
+\end_layout
+
+\begin_layout Standard
+In this case, we copy all vertex descriptors in the range produced by 'vertices'
+ to the std::vector.
+\end_layout
+
+\begin_layout Standard
+This function will not be used in practice: one iterates over the vertices
+ directly instead, saving the cost of creating a std::vector.
+ This function is only shown as an illustration.
 \end_layout
 
 \begin_layout Standard

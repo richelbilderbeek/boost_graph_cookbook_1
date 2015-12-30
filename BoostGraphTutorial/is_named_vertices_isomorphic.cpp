@@ -6,23 +6,25 @@
 #include "create_path_graph.h"
 #include "create_k2_graph.h"
 #include "create_k3_graph.h"
+#include "create_named_vertices_path_graph.h"
 
 void is_named_vertices_isomorphic_test() noexcept
 {
-  //Basic tests: K2 == path graph of 2 vertices
   {
-    const auto g = create_path_graph(2);
-    const auto h = create_k2_graph();
-    assert(is_named_vertices_isomorphic(g,h));
-  }
-  //Basic tests: K3 != path graph of 3 vertices
-  {
-    const auto g = create_path_graph(3);
-    const auto h = create_k3_graph();
+    const auto g = create_named_vertices_path_graph(
+      { "Alpha", "Beta", "Gamma" }
+    );
+    const auto h = create_named_vertices_path_graph(
+      { "Alpha", "Gamma", "Beta" }
+    );
     assert( is_named_vertices_isomorphic(g,g));
-    assert( is_named_vertices_isomorphic(h,h));
     assert(!is_named_vertices_isomorphic(g,h));
+    assert(!"Green");
   }
   is_named_vertices_isomorphic_demo();
   std::cout << __func__ << ": OK" << '\n';
 }
+
+
+
+

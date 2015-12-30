@@ -3,7 +3,8 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void add_named_edge(
+typename boost::graph_traits<graph>::edge_descriptor
+add_named_edge(
   const std::string& edge_name,
   graph& g
 ) noexcept
@@ -20,5 +21,6 @@ void add_named_edge(
     = get( //not boost::get
       boost::edge_name,g
     );
-  edge_name_map[aer.first] = edge_name;
+  put(edge_name_map, aer.first, edge_name);
+  return aer.first;
 }

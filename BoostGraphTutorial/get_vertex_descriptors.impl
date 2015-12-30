@@ -12,13 +12,8 @@ get_vertex_descriptors(const graph& g) noexcept
   using vd
     = typename graph_traits<graph>::vertex_descriptor;
 
-  std::vector<vd> vds;
-  vds.reserve(boost::num_vertices(g));
-
+  std::vector<vd> vds(boost::num_vertices(g));
   const auto vis = vertices(g); //not boost::vertices
-  const auto j = vis.second;
-  for (auto i = vis.first; i!=j; ++i) {
-    vds.emplace_back(*i);
-  }
+  std::copy(vis.first, vis.second, std::begin(vds));
   return vds;
 }

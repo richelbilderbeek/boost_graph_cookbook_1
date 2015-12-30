@@ -6,16 +6,19 @@ std::vector<graph> create_all_direct_neighbour_subgraphs(
   const graph g
 ) noexcept
 {
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
   std::vector<graph> v;
-  v.reserve(boost::num_vertices(g));
+  v.resize(boost::num_vertices(g));
   const auto vip = vertices(g);
-  const auto j = vip.second;
-  for (auto i = vip.first; i!=j; ++i) {
-    v.emplace_back(
-      create_direct_neighbour_subgraph(
-        *i, g
-      )
-    );
-  }
+  std::transform(
+    vip.first, vip.second,
+    std::begin(v),
+    [g](const vd& d)
+    {
+      return create_direct_neighbour_subgraph(
+        d, g
+      );
+    }
+  );
   return v;
 }

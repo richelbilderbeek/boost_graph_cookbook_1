@@ -5,7 +5,8 @@
 #include "my_custom_vertex.h"
 
 template <typename graph>
-void add_custom_and_selectable_vertex(
+typename boost::graph_traits<graph>::vertex_descriptor
+add_custom_and_selectable_vertex(
   const my_custom_vertex& v,
   const bool is_selected,
   graph& g
@@ -15,19 +16,20 @@ void add_custom_and_selectable_vertex(
     "graph cannot be const"
   );
 
-  const auto vd_a = boost::add_vertex(g);
+  const auto vd = boost::add_vertex(g);
 
   const auto my_custom_vertex_map
     = get( //not boost::get
       boost::vertex_custom_type,
       g
     );
-  my_custom_vertex_map[vd_a] = v;
+  put(my_custom_vertex_map, vd, v);
 
   const auto is_selected_map
     = get( //not boost::get
       boost::vertex_is_selected,
       g
     );
-  is_selected_map[vd_a] = is_selected;
+  put(is_selected_map, vd, is_selected);
+  return vd;
 }

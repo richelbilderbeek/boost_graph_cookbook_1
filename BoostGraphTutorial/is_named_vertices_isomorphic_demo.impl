@@ -11,7 +11,5 @@ void is_named_vertices_isomorphic_demo() noexcept
     { "Alpha", "Gamma", "Beta" }
   );
   assert( is_named_vertices_isomorphic(g,g));
-  assert( is_named_vertices_isomorphic(g,h)); //:-(
-  //assert(!is_named_vertices_isomorphic_correct(g,h));
-  //assert(!"Green");
+  assert(!is_named_vertices_isomorphic(g,h));
 }

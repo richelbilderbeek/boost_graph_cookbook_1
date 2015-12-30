@@ -14,18 +14,16 @@ void add_named_and_selectable_vertex(
     "graph cannot be const"
   );
 
-  const auto vd_a = boost::add_vertex(g);
+  const auto vd = boost::add_vertex(g);
   auto vertex_name_map
     = get( //not boost::get
       boost::vertex_name, g
     );
-  vertex_name_map[vd_a] = vertex_name;
-
   auto vertex_is_selected_map
     = get( //not boost::get
       boost::vertex_is_selected, g
     );
-  vertex_is_selected_map[vd_a]
-    = is_selected;
+  put(vertex_name_map, vd, vertex_name);
+  put(vertex_is_selected_map, vd, is_selected);
 }
 

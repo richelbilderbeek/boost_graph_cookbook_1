@@ -2,9 +2,12 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void add_vertex(graph& g) noexcept
+typename boost::graph_traits<graph>::vertex_descriptor
+add_vertex(graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
-  boost::add_vertex(g);
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+  const auto vd = boost::add_vertex(g);
+  return vd;
 }

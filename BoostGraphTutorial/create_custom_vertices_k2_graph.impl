@@ -19,10 +19,12 @@ create_custom_vertices_k2_graph() noexcept
   auto my_custom_vertex_map = get( //not boost::get
     boost::vertex_custom_type,g
   );
-  my_custom_vertex_map[vd_a]
-    = my_custom_vertex("A","source",0.0,0.0);
-  my_custom_vertex_map[vd_b]
-    = my_custom_vertex("B","target",3.14,3.14);
+  put(my_custom_vertex_map, vd_a,
+    my_custom_vertex("A","source",0.0,0.0)
+  );
+  put(my_custom_vertex_map, vd_b,
+    my_custom_vertex("B","target",3.14,3.14)
+  );
 
   return g;
 }

@@ -3,7 +3,8 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void add_edge(graph& g) noexcept
+typename boost::graph_traits<graph>::edge_descriptor
+add_edge(graph& g) noexcept
 {
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"
@@ -15,6 +16,6 @@ void add_edge(graph& g) noexcept
     vd_b, // Target/to
     g
   );
-
   assert(aer.second);
+  return aer.first;
 }

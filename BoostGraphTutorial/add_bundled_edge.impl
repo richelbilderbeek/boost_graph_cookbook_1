@@ -3,7 +3,8 @@
 #include "my_bundled_edge.h"
 
 template <typename graph>
-void add_bundled_edge(
+typename boost::graph_traits<graph>::edge_descriptor
+add_bundled_edge(
   const my_bundled_edge& v,
   graph& g
 ) noexcept
@@ -15,5 +16,6 @@ void add_bundled_edge(
 
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-  g[aer.first] = v;
+  g[aer.first] = v; //Cannot use put here
+  return aer.first;
 }

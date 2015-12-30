@@ -5,6 +5,7 @@
 
 #include <boost/graph/adjacency_list.hpp>
 
+/*
 template <typename Graph>
 std::string discrete_vertex_invariant(
   const typename boost::graph_traits<Graph>::vertex_descriptor& vd,
@@ -70,6 +71,7 @@ bool is_named_vertices_isomorphic_correct(
   );
   #endif
 }
+*/
 
 void is_named_vertices_isomorphic_test() noexcept;
 

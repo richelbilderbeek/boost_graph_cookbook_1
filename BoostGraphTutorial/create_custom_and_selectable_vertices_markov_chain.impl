@@ -31,19 +31,17 @@ create_custom_and_selectable_vertices_markov_chain() noexcept
     = get( //not boost::get
     boost::vertex_custom_type,g
   );
-  my_custom_vertex_map[vd_a] = my_custom_vertex("Sunny",
-    "Yellow thing",1.0,2.0
+  put(my_custom_vertex_map, vd_a,
+    my_custom_vertex("Sunny","Yellow thing",1.0,2.0)
   );
-  my_custom_vertex_map[vd_b] = my_custom_vertex("Rainy",
-    "Grey things",3.0,4.0
+  put(my_custom_vertex_map, vd_b,
+    my_custom_vertex("Rainy", "Grey things",3.0,4.0)
   );
-
   auto is_selected_map
     = get( //not boost::get
     boost::vertex_is_selected, g
   );
-  is_selected_map[vd_a] = true;
-  is_selected_map[vd_b] = false;
-
+  put(is_selected_map, vd_a, true);
+  put(is_selected_map, vd_b, false);
   return g;
 }

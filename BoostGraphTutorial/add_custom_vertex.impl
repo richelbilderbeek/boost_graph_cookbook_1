@@ -4,7 +4,8 @@
 #include "my_custom_vertex.h"
 
 template <typename graph>
-void add_custom_vertex(
+typename boost::graph_traits<graph>::vertex_descriptor
+add_custom_vertex(
   const my_custom_vertex& v,
   graph& g
 ) noexcept
@@ -13,11 +14,12 @@ void add_custom_vertex(
     "graph cannot be const"
   );
 
-  const auto vd_a = boost::add_vertex(g);
+  const auto vd = boost::add_vertex(g);
   const auto my_custom_vertex_map
     = get( //not boost::get
       boost::vertex_custom_type,
       g
     );
-  my_custom_vertex_map[vd_a] = v;
+  put(my_custom_vertex_map, vd, v);
+  return vd;
 }
