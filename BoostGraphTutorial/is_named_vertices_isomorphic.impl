@@ -1,78 +1,60 @@
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/isomorphism.hpp>
-#include <boost/graph/graph_utility.hpp>
-
 #include <map>
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/isomorphism.hpp>
 #include <boost/graph/vf2_sub_graph_iso.hpp>
 #include <boost/graph/graph_utility.hpp>
 
-using Graph
-  = boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
-      boost::property<boost::vertex_name_t, std::string> >;
+template <class graph, bool verbose = false>
+struct named_vertex_invariant {
+  using str_to_int_map = std::map<std::string, size_t>;
+  using result_type = size_t;
+  using argument_type = typename boost::graph_traits<graph>::vertex_descriptor;
 
-//////////////////////////////////////// {{{
-//namespace {
+  const graph& m_graph;
+  str_to_int_map& m_mappings;
 
-    struct VertexInvariant {
-        using Map = std::map<std::string, size_t>;
-        const Graph& _graph;
-        Map&         _mappings;
-        //VertexInvariant(const Graph& g, Map& m)
-        //  :  _graph(g), _mappings(m) {}
+  size_t operator()(argument_type u) const {
+      return m_mappings.at(boost::get(boost::vertex_name, m_graph, u));
+  }
+  size_t max() const noexcept { return m_mappings.size(); }
 
-        using result_type = size_t;
-        using argument_type = Graph::vertex_descriptor;
+  void collect_names() noexcept {
+    for (auto vd : boost::make_iterator_range(boost::vertices(m_graph))) {
+      size_t next_id = m_mappings.size();
+      auto ins = m_mappings.insert(
+        { boost::get(boost::vertex_name, m_graph, vd), next_id}
+      );
+      if (ins.second) {
+      //  std::cout << "Mapped '" << ins.first->first << "' to " << ins.first->second << "\n";
+      }
+    }
+  }
+};
 
-        size_t operator()(argument_type u) const {
-            return _mappings.at(boost::get(boost::vertex_name, _graph, u));
-        }
-        size_t max() const { return _mappings.size(); }
-
-        void collect_names() {
-            for (auto vd : boost::make_iterator_range(boost::vertices(_graph))) {
-                size_t next_id = _mappings.size();
-                auto ins = _mappings.insert({ boost::get(boost::vertex_name, _graph, vd), next_id});
-                if (ins.second) {
-                    std::cout << "Mapped '" << ins.first->first << "' to " << ins.first->second << "\n";
-                }
-            }
-        }
-    };
-
-
-//}
-//////////////////////////////////////// }}}
-
-template <typename graph1, typename graph2>
-bool is_named_vertices_isomorphic(const graph1 &g, const graph2 &h) noexcept {
-    auto ref_index_map = get(boost::vertex_index, g);
-    using vd = typename boost::graph_traits<graph1>::vertex_descriptor;
-    std::vector<vd> iso(boost::num_vertices(g));
-
-    VertexInvariant::Map shared_names;
-    VertexInvariant inv1{g, shared_names};
-    VertexInvariant inv2{h, shared_names};
-
-    inv1.collect_names();
-    inv2.collect_names();
-
-    return boost::isomorphism(g, h,
-            boost::isomorphism_map(make_iterator_property_map(iso.begin(), ref_index_map))
-            .vertex_invariant1(inv1)
-            .vertex_invariant2(inv2)
-        );
-}
-
-/*
-template <typename graph1, typename graph2>
+template <typename graph>
 bool is_named_vertices_isomorphic(
-  const graph1 g,
-  const graph2 h
-) noexcept
-{
-  return boost::isomorphism(g,h);
-}
+  const graph &g,
+  const graph &h
+) noexcept {
+  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
 
-*/
+  auto ref_index_map = get(boost::vertex_index, g);
+  std::vector<vd> iso(boost::num_vertices(g));
+
+  typename named_vertex_invariant<graph>::str_to_int_map shared_names;
+  named_vertex_invariant<graph> inv1{g, shared_names};
+  named_vertex_invariant<graph> inv2{h, shared_names};
+  inv1.collect_names();
+  inv2.collect_names();
+
+  return boost::isomorphism(g, h,
+    boost::isomorphism_map(
+      make_iterator_property_map(
+        iso.begin(),
+        ref_index_map
+      )
+    )
+    .vertex_invariant1(inv1)
+    .vertex_invariant2(inv2)
+  );
+}

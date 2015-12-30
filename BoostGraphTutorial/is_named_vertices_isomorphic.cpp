@@ -15,11 +15,28 @@ void is_named_vertices_isomorphic_test() noexcept
       { "Alpha", "Beta", "Gamma" }
     );
     const auto h = create_named_vertices_path_graph(
+      { "Alpha", "Beta", "Gamma" }
+    );
+    assert( is_named_vertices_isomorphic(g,h));
+  }
+  {
+    const auto g = create_named_vertices_path_graph(
+      { "Alpha", "Beta", "Gamma" }
+    );
+    const auto h = create_named_vertices_path_graph(
+      { "Gamma", "Beta", "Alpha" }
+    );
+    assert( is_named_vertices_isomorphic(g,h));
+  }
+  {
+    const auto g = create_named_vertices_path_graph(
+      { "Alpha", "Beta", "Gamma" }
+    );
+    const auto h = create_named_vertices_path_graph(
       { "Alpha", "Gamma", "Beta" }
     );
     assert( is_named_vertices_isomorphic(g,g));
     assert(!is_named_vertices_isomorphic(g,h));
-    assert(!"Green");
   }
   is_named_vertices_isomorphic_demo();
   std::cout << __func__ << ": OK" << '\n';

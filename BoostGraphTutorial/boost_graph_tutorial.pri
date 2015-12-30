@@ -12,11 +12,14 @@ HEADERS += \
     add_named_edge.h \
     add_named_vertex.h \
     add_vertex.h \
+    bundled_edges_writer.h \
+    bundled_vertices_writer.h \
     clear_first_vertex_with_name.h \
     convert_dot_to_svg.h \
     convert_svg_to_png.h \
     copy_file.h \
     count_vertices_with_name.h \
+    create_all_direct_neighbour_subgraphs.h \
     create_bundled_edges_and_vertices_k3_graph.h \
     create_bundled_edges_and_vertices_markov_chain.h \
     create_bundled_vertices_k2_graph.h \
@@ -27,6 +30,7 @@ HEADERS += \
     create_custom_edges_and_vertices_markov_chain.h \
     create_custom_vertices_k2_graph.h \
     create_custom_vertices_markov_chain.h \
+    create_direct_neighbour_subgraph.h \
     create_empty_directed_bundled_edges_and_vertices_graph.h \
     create_empty_directed_bundled_vertices_graph.h \
     create_empty_directed_custom_and_selectable_vertices_graph.h \
@@ -49,12 +53,14 @@ HEADERS += \
     create_empty_undirected_named_vertices_graph.h \
     create_k2_graph.h \
     create_k2_graph_with_graph_name.h \
+    create_k3_graph.h \
     create_markov_chain.h \
     create_markov_chain_with_graph_name.h \
     create_named_edges_and_vertices_k3_graph.h \
     create_named_edges_and_vertices_markov_chain.h \
     create_named_vertices_k2_graph.h \
     create_named_vertices_markov_chain.h \
+    create_named_vertices_path_graph.h \
     create_nasty_directed_bundled_edges_and_vertices_graph.h \
     create_nasty_directed_bundled_vertices_graph.h \
     create_nasty_directed_custom_and_selectable_vertices_graph.h \
@@ -62,7 +68,10 @@ HEADERS += \
     create_nasty_directed_custom_vertices_graph.h \
     create_nasty_directed_named_vertices_graph.h \
     create_nasty_undirected_bundled_edges_and_vertices_graph.h \
+    create_nasty_undirected_custom_and_selectable_vertices_graph.h \
     create_nasty_undirected_custom_edges_and_vertices_graph.h \
+    create_path_graph.h \
+    create_petersen_graph.h \
     create_tutorial_chapters_graph.h \
     create_tutorial_subchapters_graph.h \
     custom_and_selectable_vertices_writer.h \
@@ -81,6 +90,7 @@ HEADERS += \
     get_custom_edge_my_edges.h \
     get_custom_vertex_my_vertexes.h \
     get_custom_vertex_my_vertex.h \
+    get_edge_between_vertices.h \
     get_edge_descriptors.h \
     get_edge_iterators.h \
     get_edge_name.h \
@@ -116,6 +126,7 @@ HEADERS += \
     install_edge_custom_type.h \
     install_vertex_custom_type.h \
     install_vertex_is_selected.h \
+    is_isomorphic.h \
     is_regular_file.h \
     is_valid_dot_file.h \
     load_directed_bundled_edges_and_vertices_graph_from_dot.h \
@@ -136,6 +147,8 @@ HEADERS += \
     load_undirected_graph_with_graph_name_from_dot.h \
     load_undirected_named_edges_and_vertices_graph_from_dot.h \
     load_undirected_named_vertices_graph_from_dot.h \
+    make_bundled_edges_writer.h \
+    make_bundled_vertices_writer.h \
     make_custom_and_selectable_vertices_writer.h \
     my_bundled_edge.h \
     my_bundled_vertex.h \
@@ -167,19 +180,6 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    create_nasty_undirected_custom_and_selectable_vertices_graph.h \
-    make_bundled_vertices_writer.h \
-    bundled_vertices_writer.h \
-    make_bundled_edges_writer.h \
-    bundled_edges_writer.h \
-    create_all_direct_neighbour_subgraphs.h \
-    create_direct_neighbour_subgraph.h \
-    create_k3_graph.h \
-    create_petersen_graph.h \
-    get_edge_between_vertices.h \
-    create_path_graph.h \
-    is_isomorphic.h \
-    create_named_vertices_path_graph.h \
     is_named_vertices_isomorphic.h
 
 SOURCES += \
@@ -194,11 +194,14 @@ SOURCES += \
     add_named_edge.cpp \
     add_named_vertex.cpp \
     add_vertex.cpp \
+    bundled_edges_writer.cpp \
+    bundled_vertices_writer.cpp \
     clear_first_vertex_with_name.cpp \
     convert_dot_to_svg.cpp \
     convert_svg_to_png.cpp \
     copy_file.cpp \
     count_vertices_with_name.cpp \
+    create_all_direct_neighbour_subgraphs.cpp \
     create_bundled_edges_and_vertices_k3_graph.cpp \
     create_bundled_edges_and_vertices_markov_chain.cpp \
     create_bundled_vertices_k2_graph.cpp \
@@ -209,6 +212,7 @@ SOURCES += \
     create_custom_edges_and_vertices_markov_chain.cpp \
     create_custom_vertices_k2_graph.cpp \
     create_custom_vertices_markov_chain.cpp \
+    create_direct_neighbour_subgraph.cpp \
     create_empty_directed_bundled_edges_and_vertices_graph.cpp \
     create_empty_directed_bundled_vertices_graph.cpp \
     create_empty_directed_custom_and_selectable_vertices_graph.cpp \
@@ -231,12 +235,14 @@ SOURCES += \
     create_empty_undirected_named_vertices_graph.cpp \
     create_k2_graph.cpp \
     create_k2_graph_with_graph_name.cpp \
+    create_k3_graph.cpp \
     create_markov_chain.cpp \
     create_markov_chain_with_graph_name.cpp \
     create_named_edges_and_vertices_k3_graph.cpp \
     create_named_edges_and_vertices_markov_chain.cpp \
     create_named_vertices_k2_graph.cpp \
     create_named_vertices_markov_chain.cpp \
+    create_named_vertices_path_graph.cpp \
     create_nasty_directed_bundled_edges_and_vertices_graph.cpp \
     create_nasty_directed_bundled_vertices_graph.cpp \
     create_nasty_directed_custom_and_selectable_vertices_graph.cpp \
@@ -244,7 +250,10 @@ SOURCES += \
     create_nasty_directed_custom_vertices_graph.cpp \
     create_nasty_directed_named_vertices_graph.cpp \
     create_nasty_undirected_bundled_edges_and_vertices_graph.cpp \
+    create_nasty_undirected_custom_and_selectable_vertices_graph.cpp \
     create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
+    create_path_graph.cpp \
+    create_petersen_graph.cpp \
     create_tutorial_chapters_graph.cpp \
     create_tutorial_subchapters_graph.cpp \
     custom_and_selectable_vertices_writer.cpp \
@@ -263,6 +272,7 @@ SOURCES += \
     get_custom_edge_my_edges.cpp \
     get_custom_vertex_my_vertex.cpp \
     get_custom_vertex_my_vertexes.cpp \
+    get_edge_between_vertices.cpp \
     get_edge_descriptors.cpp \
     get_edge_name.cpp \
     get_edge_names.cpp \
@@ -295,6 +305,7 @@ SOURCES += \
     has_edge_with_name.cpp \
     has_vertex_with_name.cpp \
     helper.cpp \
+    is_isomorphic.cpp \
     is_regular_file.cpp \
     is_valid_dot_file.cpp \
     load_directed_bundled_edges_and_vertices_graph_from_dot.cpp \
@@ -315,6 +326,8 @@ SOURCES += \
     load_undirected_graph_with_graph_name_from_dot.cpp \
     load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
     load_undirected_named_vertices_graph_from_dot.cpp \
+    make_bundled_edges_writer.cpp \
+    make_bundled_vertices_writer.cpp \
     make_custom_and_selectable_vertices_writer.cpp \
     my_bundled_edge.cpp \
     my_bundled_vertex.cpp \
@@ -346,19 +359,6 @@ SOURCES += \
     set_vertex_name.cpp \
     set_vertex_names.cpp \
     show_dot.cpp \
-    create_nasty_undirected_custom_and_selectable_vertices_graph.cpp \
-    make_bundled_vertices_writer.cpp \
-    bundled_vertices_writer.cpp \
-    make_bundled_edges_writer.cpp \
-    bundled_edges_writer.cpp \
-    create_all_direct_neighbour_subgraphs.cpp \
-    create_direct_neighbour_subgraph.cpp \
-    create_k3_graph.cpp \
-    create_petersen_graph.cpp \
-    get_edge_between_vertices.cpp \
-    create_path_graph.cpp \
-    is_isomorphic.cpp \
-    create_named_vertices_path_graph.cpp \
     is_named_vertices_isomorphic.cpp
 
 # .impl files are the clean tutorial code snippets,
@@ -384,11 +384,15 @@ OTHER_FILES += \
     add_named_vertex.impl \
     add_vertex_demo.impl \
     add_vertex.impl \
+    bundled_edges_writer.impl \
+    bundled_vertices_writer.impl \
     clear_first_vertex_with_name_demo.impl \
     clear_first_vertex_with_name.impl \
     convert_dot_to_svg.impl \
     count_vertices_with_name_demo.impl \
     count_vertices_with_name.impl \
+    create_all_direct_neighbour_subgraphs_demo.impl \
+    create_all_direct_neighbour_subgraphs.impl \
     create_bundled_edges_and_vertices_k3_graph_demo.impl \
     create_bundled_edges_and_vertices_k3_graph.impl \
     create_bundled_edges_and_vertices_markov_chain_demo.impl \
@@ -409,6 +413,8 @@ OTHER_FILES += \
     create_custom_vertices_k2_graph.impl \
     create_custom_vertices_markov_chain_demo.impl \
     create_custom_vertices_markov_chain.impl \
+    create_direct_neighbour_subgraph_demo.impl \
+    create_direct_neighbour_subgraph.impl \
     create_empty_directed_bundled_edges_and_vertices_graph_demo.impl \
     create_empty_directed_bundled_edges_and_vertices_graph.impl \
     create_empty_directed_bundled_vertices_graph.impl \
@@ -451,6 +457,8 @@ OTHER_FILES += \
     create_k2_graph.impl \
     create_k2_graph_with_graph_name_demo.impl \
     create_k2_graph_with_graph_name.impl \
+    create_k3_graph_demo.impl \
+    create_k3_graph.impl \
     create_markov_chain_demo.impl \
     create_markov_chain.impl \
     create_markov_chain_with_graph_name_demo.impl \
@@ -463,6 +471,12 @@ OTHER_FILES += \
     create_named_vertices_k2_graph.impl \
     create_named_vertices_markov_chain_demo.impl \
     create_named_vertices_markov_chain.impl \
+    create_named_vertices_path_graph_demo.impl \
+    create_named_vertices_path_graph.impl \
+    create_path_graph_demo.impl \
+    create_path_graph.impl \
+    create_petersen_graph_demo.impl \
+    create_petersen_graph.impl \
     custom_and_selectable_vertices_writer.impl \
     find_first_bundled_edge_with_my_edge_demo.impl \
     find_first_bundled_edge_with_my_edge.impl \
@@ -492,6 +506,8 @@ OTHER_FILES += \
     get_custom_vertex_my_vertexes_demo.impl \
     get_custom_vertex_my_vertexes.impl \
     get_custom_vertex_my_vertex.impl \
+    get_edge_between_vertices_demo.impl \
+    get_edge_between_vertices.impl \
     get_edge_descriptors_demo.impl \
     get_edge_descriptors.impl \
     get_edge_iterators_demo.impl \
@@ -531,6 +547,8 @@ OTHER_FILES += \
     has_custom_edge_with_my_edge.impl \
     has_custom_vertex_with_my_vertex_demo.impl \
     has_custom_vertex_with_my_vertex.impl \
+    has_edge_between_vertices_demo.impl \
+    has_edge_between_vertices.impl \
     has_edge_with_name_demo.impl \
     has_edge_with_name.impl \
     has_vertex_with_name_demo.impl \
@@ -538,6 +556,9 @@ OTHER_FILES += \
     install_edge_custom_type.impl \
     install_vertex_custom_type.impl \
     install_vertex_is_selected.impl \
+    is_isomorphic_demo.impl \
+    is_isomorphic.impl \
+    is_named_vertices_isomorphic.impl \
     is_regular_file.impl \
     is_valid_dot_file.impl \
     load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl \
@@ -562,6 +583,7 @@ OTHER_FILES += \
     load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
     load_undirected_bundled_vertices_graph_from_dot_demo.impl \
     load_undirected_bundled_vertices_graph_from_dot.impl \
+    load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl \
     load_undirected_custom_and_selectable_vertices_graph_from_dot.impl \
     load_undirected_custom_edges_and_vertices_graph_from_dot_demo.impl \
     load_undirected_custom_edges_and_vertices_graph_from_dot.impl \
@@ -575,6 +597,8 @@ OTHER_FILES += \
     load_undirected_named_edges_and_vertices_graph_from_dot.impl \
     load_undirected_named_vertices_graph_from_dot_demo.impl \
     load_undirected_named_vertices_graph_from_dot.impl \
+    make_bundled_edges_writer.impl \
+    make_bundled_vertices_writer.impl \
     make_custom_and_selectable_vertices_writer.impl \
     my_bundled_edge.impl \
     my_bundled_vertex.impl \
@@ -588,14 +612,14 @@ OTHER_FILES += \
     remove_first_edge_with_name.impl \
     remove_first_vertex_with_name_demo.impl \
     remove_first_vertex_with_name.impl \
-    save_bundled_edges_and_vertices_graph_to_dot.impl \
     save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
+    save_bundled_edges_and_vertices_graph_to_dot.impl \
     save_bundled_vertices_graph_to_dot.impl \
     save_custom_and_selectable_vertices_graph_to_dot.impl \
-    save_custom_edges_and_vertices_graph_to_dot.impl \
     save_custom_edges_and_vertices_graph_to_dot_demo.impl \
-    save_custom_vertices_graph_to_dot.impl \
+    save_custom_edges_and_vertices_graph_to_dot.impl \
     save_custom_vertices_graph_to_dot_demo.impl \
+    save_custom_vertices_graph_to_dot.impl \
     save_custom_vertices_graph_to_dot.impl \
     save_graph_to_dot_demo.impl \
     save_graph_to_dot.impl \
@@ -622,29 +646,5 @@ OTHER_FILES += \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
     set_vertex_names.impl \
-    load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl \
-    make_bundled_vertices_writer.impl \
-    bundled_vertices_writer.impl \
-    make_bundled_edges_writer.impl \
-    bundled_edges_writer.impl \
-    create_direct_neighbour_subgraph.impl \
-    create_direct_neighbour_subgraph_demo.impl \
-    create_all_direct_neighbour_subgraphs.impl \
-    create_all_direct_neighbour_subgraphs_demo.impl \
-    create_k3_graph.impl \
-    create_k3_graph_demo.impl \
-    create_petersen_graph.impl \
-    create_petersen_graph_demo.impl \
-    has_edge_between_vertices.impl \
-    has_edge_between_vertices_demo.impl \
-    get_edge_between_vertices.impl \
-    get_edge_between_vertices_demo.impl \
-    is_isomorphic.impl \
-    is_isomorphic_demo.impl \
-    create_path_graph.impl \
-    create_path_graph_demo.impl \
-    create_named_vertices_path_graph.impl \
-    create_named_vertices_path_graph_demo.impl \
-    is_named_vertices_isomorphic.impl \
     is_named_vertices_isomorphic_demo.impl
 
