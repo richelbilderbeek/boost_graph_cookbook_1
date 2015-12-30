@@ -24,14 +24,14 @@ create_named_edges_and_vertices_k3_graph() noexcept
   assert(aer_ca.second);
 
   auto vertex_name_map = get(boost::vertex_name,g);
-  vertex_name_map[vd_a] = "top";
-  vertex_name_map[vd_b] = "right";
-  vertex_name_map[vd_c] = "left";
+  put(vertex_name_map, vd_a, "top");
+  put(vertex_name_map, vd_b, "right");
+  put(vertex_name_map, vd_c, "left");
 
   auto edge_name_map = get(boost::edge_name,g);
-  edge_name_map[aer_ab.first] = "AB";
-  edge_name_map[aer_bc.first] = "BC";
-  edge_name_map[aer_ca.first] = "CA";
+  put(edge_name_map, aer_ab.first, "AB");
+  put(edge_name_map, aer_bc.first, "BC");
+  put(edge_name_map, aer_ca.first, "CA");
 
   return g;
 }

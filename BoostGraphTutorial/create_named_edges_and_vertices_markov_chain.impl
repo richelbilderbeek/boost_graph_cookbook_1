@@ -26,16 +26,16 @@ create_named_edges_and_vertices_markov_chain() noexcept
   auto vertex_name_map = get( //not boost::get
     boost::vertex_name,g
   );
-  vertex_name_map[vd_a] = "Happy";
-  vertex_name_map[vd_b] = "Not unhappy";
+  put(vertex_name_map, vd_a, "Happy");
+  put(vertex_name_map, vd_b, "Not unhappy");
 
   auto edge_name_map = get( //not boost::get
     boost::edge_name,g
   );
-  edge_name_map[aer_aa.first] = "Fruit";
-  edge_name_map[aer_ab.first] = "No chocolate";
-  edge_name_map[aer_ba.first] = "Chocolate";
-  edge_name_map[aer_bb.first] = "Other candy";
+  put(edge_name_map, aer_aa.first, "Fruit");
+  put(edge_name_map, aer_ab.first, "No chocolate");
+  put(edge_name_map, aer_ba.first, "Chocolate");
+  put(edge_name_map, aer_bb.first, "Other candy");
 
   return g;
 }

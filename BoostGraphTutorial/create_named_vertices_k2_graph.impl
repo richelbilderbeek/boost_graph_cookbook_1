@@ -19,8 +19,8 @@ create_named_vertices_k2_graph() noexcept
   auto name_map = get( //not boost::get
     boost::vertex_name,g
   );
-  name_map[vd_a] = "Me";
-  name_map[vd_b] = "My computer";
+  put(name_map, vd_a, "Me");
+  put(name_map, vd_b, "My computer");
 
   return g;
 }
