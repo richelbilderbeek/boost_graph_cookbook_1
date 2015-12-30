@@ -1432,7 +1432,7 @@ name "sub:create_empty_directed_graph"
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Create an empty directed graph
@@ -1442,7 +1442,7 @@ Create an empty directed graph
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Empty directed graph, create
@@ -1917,7 +1917,7 @@ name "sub:create_empty_undirected_graph"
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Create an empty graph
@@ -1927,7 +1927,7 @@ Create an empty graph
 
 
 \begin_inset Index idx
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Empty graph, create
@@ -2188,6 +2188,16 @@ status open
 
 \begin_layout Plain Layout
 Counting the number of vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Number of vertices, get
 \end_layout
 
 \end_inset
@@ -2469,6 +2479,16 @@ status open
 
 \begin_layout Plain Layout
 Counting the number of edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Number of edges, get
 \end_layout
 
 \end_inset
@@ -2931,6 +2951,36 @@ name "sub:get_vertices"
 \end_inset
 
 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex iterator
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Vertex iterators, get
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get vertex iterators
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3160,6 +3210,16 @@ status open
 
 \begin_layout Plain Layout
 Vertex descriptors, get
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Get vertex descriptors
 \end_layout
 
 \end_inset
@@ -11969,8 +12029,109 @@ name "sub:is_named_vertices_isomorphic"
 \end_layout
 
 \begin_layout Standard
-You may want to check if two graphs with named vertices are isomorphic.
- That is: if they have the same shape.
+Strictly speaking, finding isomorphisms is about the shape of the graph,
+ independent of vertex name, and is already done in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:is_isomorphic"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Here, it is checked if two graphs with named vertices are 'label isomorphic'
+ (please email me a better term if you know one).
+ That is: if they have the same shape with the same vertex names at the
+ same places.
+\end_layout
+
+\begin_layout Standard
+To do this, there are two steps needed:
+\end_layout
+
+\begin_layout Enumerate
+Map all vertex names to an unsigned int.
+\end_layout
+
+\begin_layout Enumerate
+Compare the two graphs with that map
+\end_layout
+
+\begin_layout Standard
+Below the class 'named_vertex_invariant' is shown.
+ Its std::map maps the vertex names to an unsigned integer, which is done
+ in the member function 'collect_names'.
+ The purpose of this, is that is is easier to compare integers that std::strings.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "named_vertex_invariant.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The named_vertex_invariant functor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+named_vertex_invariant
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:named_vertex_invariant"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To check for 'label isomorphism', multiple things need to be put in place
+ for 'boost::isomorphism'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::isomorphism
+\end_layout
+
+\end_inset
+
+ to work with:
 \end_layout
 
 \begin_layout Standard
@@ -12026,11 +12187,8 @@ name "alg:is_named_vertices_isomorphic"
 \end_layout
 
 \begin_layout Standard
-This demonstration code shows that a 
-\begin_inset Formula $K_{3}$
-\end_inset
-
- graph is not equivalent to a 3-vertices path graph:
+This demonstration code creates three path graphs, of which two are 'label
+ isomorphic':
 \end_layout
 
 \begin_layout Standard

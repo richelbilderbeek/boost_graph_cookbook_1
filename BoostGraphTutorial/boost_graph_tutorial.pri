@@ -180,7 +180,8 @@ HEADERS += \
     set_vertex_name.h \
     set_vertex_names.h \
     show_dot.h \
-    is_named_vertices_isomorphic.h
+    is_named_vertices_isomorphic.h \
+    named_vertex_invariant.h
 
 SOURCES += \
     add_bundled_edge.cpp \
@@ -646,5 +647,6 @@ OTHER_FILES += \
     set_vertex_name_demo.impl \
     set_vertex_name.impl \
     set_vertex_names.impl \
-    is_named_vertices_isomorphic_demo.impl
+    is_named_vertices_isomorphic_demo.impl \
+    named_vertex_invariant.impl
 

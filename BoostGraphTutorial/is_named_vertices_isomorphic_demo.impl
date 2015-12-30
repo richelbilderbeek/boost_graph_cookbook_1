@@ -8,8 +8,11 @@ void is_named_vertices_isomorphic_demo() noexcept
     { "Alpha", "Beta", "Gamma" }
   );
   const auto h = create_named_vertices_path_graph(
+    { "Gamma", "Beta", "Alpha" }
+  );
+  const auto i = create_named_vertices_path_graph(
     { "Alpha", "Gamma", "Beta" }
   );
-  assert( is_named_vertices_isomorphic(g,g));
-  assert(!is_named_vertices_isomorphic(g,h));
+  assert( is_named_vertices_isomorphic(g,h));
+  assert(!is_named_vertices_isomorphic(g,i));
 }
