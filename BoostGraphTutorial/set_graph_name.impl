@@ -8,7 +8,8 @@ void set_graph_name(
   graph& g
 ) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
   get_property(g, boost::graph_name) = name;
 }
