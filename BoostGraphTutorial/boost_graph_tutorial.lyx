@@ -18411,7 +18411,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_bundled_vertex_my_vertex.impl"
+filename "set_my_bundled_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18476,7 +18476,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_bundled_vertex_my_vertex_demo.impl"
+filename "set_my_bundled_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18534,7 +18534,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_bundled_vertex_my_vertexes.impl"
+filename "set_my_bundled_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
