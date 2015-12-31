@@ -1,6 +1,8 @@
 #include "get_edge_between_vertices.h"
 
 #include "get_edge_between_vertices_demo.impl"
+#include <cassert>
+#include <iostream>
 
 void get_edge_between_vertices_test() noexcept
 {

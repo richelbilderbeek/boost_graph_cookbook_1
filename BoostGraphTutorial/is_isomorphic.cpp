@@ -3,6 +3,7 @@
 #include "is_isomorphic_demo.impl"
 
 #include <cassert>
+#include <iostream>
 #include "create_path_graph.h"
 #include "create_k2_graph.h"
 #include "create_k3_graph.h"

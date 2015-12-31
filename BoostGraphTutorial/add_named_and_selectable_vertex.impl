@@ -4,7 +4,8 @@
 #include "my_custom_vertex.h"
 
 template <typename graph>
-void add_named_and_selectable_vertex(
+typename boost::graph_traits<graph>::vertex_descriptor
+add_named_and_selectable_vertex(
   const std::string& vertex_name,
   const bool is_selected,
   graph& g
@@ -23,5 +24,6 @@ void add_named_and_selectable_vertex(
     );
   put(vertex_name_map, vd, vertex_name);
   put(vertex_is_selected_map, vd, is_selected);
+  return vd;
 }
 

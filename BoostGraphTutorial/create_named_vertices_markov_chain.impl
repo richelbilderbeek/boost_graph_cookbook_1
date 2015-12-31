@@ -1,4 +1,5 @@
 #include <cassert>
+#include "add_named_vertex.h"
 #include "create_empty_directed_named_vertices_graph.h"
 
 boost::adjacency_list<
@@ -11,8 +12,8 @@ create_named_vertices_markov_chain() noexcept
 {
   auto g
     = create_empty_directed_named_vertices_graph();
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
+  const auto vd_a = add_named_vertex("Good", g);
+  const auto vd_b = add_named_vertex("Not bad", g);
   const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
   assert(aer_aa.second);
   const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
@@ -21,12 +22,5 @@ create_named_vertices_markov_chain() noexcept
   assert(aer_ba.second);
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
-
-  auto name_map = get(
-    boost::vertex_name,g
-  );
-  put(name_map, vd_a, "Good");
-  put(name_map, vd_b, "Not bad");
-
   return g;
 }
