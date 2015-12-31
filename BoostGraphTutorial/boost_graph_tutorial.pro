@@ -62,3 +62,7 @@ LIBS += \
   -lboost_regex
 
 SOURCES += main.cpp
+
+#QMAKE_MAKEFLAGS += -j
+#QMAKE_CXXFLAGS += -j4
+#QMAKE_CXX = ccache g++

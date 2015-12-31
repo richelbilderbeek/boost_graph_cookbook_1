@@ -6,8 +6,7 @@ template <class graph>
 struct named_vertex_invariant {
   using str_to_int_map = std::map<std::string, size_t>;
   using result_type = size_t;
-  using argument_type
-    = typename boost::graph_traits<graph>::vertex_descriptor;
+  using argument_type = typename graph::vertex_descriptor;
 
   const graph& m_graph;
   str_to_int_map& m_mappings;

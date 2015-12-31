@@ -8,9 +8,7 @@ std::vector<
 >
 get_vertex_descriptors(const graph& g) noexcept
 {
-  using boost::graph_traits;
-  using vd
-    = typename graph_traits<graph>::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
 
   std::vector<vd> vds(boost::num_vertices(g));
   const auto vis = vertices(g); 

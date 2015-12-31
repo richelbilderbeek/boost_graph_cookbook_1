@@ -9,7 +9,8 @@ std::vector<std::string> get_vertex_names(
   const graph& g
 ) noexcept
 {
-  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
+
   std::vector<std::string> v(boost::num_vertices(g));
   const auto vip = vertices(g); 
   std::transform(vip.first, vip.second, std::begin(v),

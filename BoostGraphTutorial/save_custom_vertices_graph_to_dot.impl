@@ -10,20 +10,18 @@ void save_custom_vertices_graph_to_dot(
   const std::string& filename
 )
 {
-  using my_custom_vertex_descriptor
-    = typename graph::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
   std::ofstream f(filename);
 
-  const auto my_custom_vertexes_map
-    = get(boost::vertex_custom_type,g);
   boost::write_graphviz(
     f,
     g,
-    [my_custom_vertexes_map](
+    [g](
       std::ostream& out,
-      const my_custom_vertex_descriptor& v
+      const vd& v
     ) {
-      const my_custom_vertex m{my_custom_vertexes_map[v]};
+      const auto my_custom_vertexes_map = get(boost::vertex_custom_type,g);
+      const my_custom_vertex m{get(my_custom_vertexes_map,v)};
       out << "[label=\"" << m << "\"]";
     }
   );

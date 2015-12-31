@@ -11,8 +11,8 @@ void save_custom_edges_and_vertices_graph_to_dot(
   const std::string& filename
 )
 {
-  using my_vertex_descriptor = typename graph::vertex_descriptor;
-  using my_edge_descriptor = typename graph::edge_descriptor;
+  //using vd = typename graph::vertex_descriptor;
+  using ed = typename graph::edge_descriptor;
   std::ofstream f(filename);
   const auto my_custom_vertexes = get_custom_vertex_my_vertexes(g);
   boost::write_graphviz(
@@ -20,13 +20,13 @@ void save_custom_edges_and_vertices_graph_to_dot(
     g,
     [my_custom_vertexes](
       std::ostream& out,
-      const my_vertex_descriptor& v
+      const typename graph::vertex_descriptor& vd
     ) {
-      const my_custom_vertex m{my_custom_vertexes[v]};
+      const my_custom_vertex m{my_custom_vertexes[vd]};
       out << "[label=\"" << m << "\"]";
     },
     [g](std::ostream& out,
-       const my_edge_descriptor& e
+       const ed& e
      ) {
       const my_custom_edge m{get_custom_edge_my_edge(e,g)};
       out << "[label=\"" << m << "\"]";

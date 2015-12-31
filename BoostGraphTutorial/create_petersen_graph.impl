@@ -9,7 +9,7 @@ boost::adjacency_list<
 >
 create_petersen_graph() noexcept
 {
-
+  /*
   using vd = boost::graph_traits<
     boost::adjacency_list<
       boost::vecS,
@@ -17,6 +17,8 @@ create_petersen_graph() noexcept
       boost::undirectedS
     >
   >::vertex_descriptor;
+  */
+  using vd = decltype(create_empty_undirected_graph())::vertex_descriptor;
 
   auto g = create_empty_undirected_graph();
 

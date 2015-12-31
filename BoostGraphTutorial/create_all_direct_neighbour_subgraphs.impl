@@ -6,7 +6,8 @@ std::vector<graph> create_all_direct_neighbour_subgraphs(
   const graph g
 ) noexcept
 {
-  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+
+  using vd = typename graph::vertex_descriptor;
   std::vector<graph> v;
   v.resize(boost::num_vertices(g));
   const auto vip = vertices(g);

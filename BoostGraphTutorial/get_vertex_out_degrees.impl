@@ -6,7 +6,8 @@ std::vector<int> get_vertex_out_degrees(
   const graph& g
 ) noexcept
 {
-  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
+
   std::vector<int> v(boost::num_vertices(g));
   const auto vip = vertices(g); 
   std::transform(vip.first, vip.second, std::begin(v),

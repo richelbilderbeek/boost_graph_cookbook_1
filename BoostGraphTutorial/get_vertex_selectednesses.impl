@@ -7,7 +7,8 @@ std::vector<bool> get_vertex_selectednesses(
   const graph& g
 ) noexcept
 {
-  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
+
   const auto vip = vertices(g); 
   std::vector<bool> v(boost::num_vertices(g));
   std::transform(vip.first, vip.second, std::begin(v),

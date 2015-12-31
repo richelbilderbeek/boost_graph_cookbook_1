@@ -6,7 +6,8 @@ bool has_vertex_with_name(
   const graph& g
 ) noexcept
 {
-  using vd = typename boost::graph_traits<graph>::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
+
   const auto vip = vertices(g);
   return std::find_if(vip.first, vip.second,
     [g, vertex_name](const vd& d)
