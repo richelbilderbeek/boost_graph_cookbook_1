@@ -29,15 +29,7 @@ void create_markov_chain_with_graph_name_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     save_graph_with_graph_name_to_dot(g, dot_filename);
     const auto h = load_directed_graph_with_graph_name_from_dot(dot_filename);
-    if (get_graph_name(g) == get_graph_name(h))
-    {
-      assert(!"Fixed #12");
-      assert(get_graph_name(g) == get_graph_name(h));
-    }
-    else
-    {
-      std::cout << __func__ << ": TODO" << '\n';
-    }
+    assert(get_graph_name(g) == get_graph_name(h));
   }
   //Create the .dot and .svg of the 'create_markov_chain' chapter
   {

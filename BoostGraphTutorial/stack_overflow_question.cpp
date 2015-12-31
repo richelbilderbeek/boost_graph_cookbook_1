@@ -63,19 +63,27 @@ load_directed_graph_with_graph_name_from_dot(
   const std::string& dot_filename
 )
 {
+  using graph = boost::adjacency_list<
+    boost::vecS,
+    boost::vecS,
+    boost::directedS,
+    boost::no_property,
+    boost::no_property,
+    boost::property<boost::graph_name_t, std::string>
+  >;
+
+
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_graph_with_graph_name();
 
-  //#define TODO_KNOW_HOW_TO_LOAD_A_GRAPH_ITS_NAME
-  #ifdef TODO_KNOW_HOW_TO_LOAD_A_GRAPH_ITS_NAME
-  boost::dynamic_properties p;
-  p.property("name",get_property(g,boost::graph_name)); //AFAIK, this should work
-  #else
-  boost::dynamic_properties p(
-    boost::ignore_other_properties
+  boost::ref_property_map<graph*,std::string>
+    graph_name(get_property(g,boost::graph_name)
   );
-  #endif
-  boost::read_graphviz(f,g,p);
+
+  boost::dynamic_properties dp;
+  dp.property("name",graph_name);
+
+  boost::read_graphviz(f,g,dp);
   return g;
 }
 

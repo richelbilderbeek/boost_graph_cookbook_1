@@ -25,22 +25,20 @@ void load_directed_graph_with_graph_name_from_dot_test() noexcept
     assert(get_graph_name(g) == "TestGraph");
     save_graph_with_graph_name_to_dot(g, dot_filename);
     const auto h = load_directed_graph_with_graph_name_from_dot(dot_filename);
-    if (get_graph_name(g) == get_graph_name(h))
-    {
-      assert(!"Fixed #12");
-      convert_dot_to_svg(dot_filename, svg_filename);
-      assert(boost::num_edges(g) == boost::num_edges(h));
-      assert(boost::num_vertices(g) == boost::num_vertices(h));
-      copy_file(
-        svg_filename,
-        "../BoostGraphTutorial/" + svg_filename,
-        copy_file_mode::allow_overwrite
-      );
-    }
-    else
-    {
-      std::cout << __func__ << ": TODO" << '\n';
-    }
+    assert(get_graph_name(g) == get_graph_name(h));
+    convert_dot_to_svg(dot_filename, svg_filename);
+    assert(boost::num_edges(g) == boost::num_edges(h));
+    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    copy_file(
+      dot_filename,
+      "../BoostGraphTutorial/" + dot_filename,
+      copy_file_mode::allow_overwrite
+    );
+    copy_file(
+      svg_filename,
+      "../BoostGraphTutorial/" + svg_filename,
+      copy_file_mode::allow_overwrite
+    );
   }
   load_directed_graph_with_graph_name_from_dot_demo();
   std::cout << __func__ << ": OK" << '\n';

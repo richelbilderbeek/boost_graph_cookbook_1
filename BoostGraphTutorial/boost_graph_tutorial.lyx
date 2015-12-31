@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.8.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.9.
 \end_layout
 
 \begin_layout Subsection
@@ -411,48 +411,6 @@ I have tried hard to strictly follow the style as described above.
 \end_layout
 
 \begin_layout Subsection
-Help
-\end_layout
-
-\begin_layout Standard
-There are some pieces of code I could use help with:
-\end_layout
-
-\begin_layout Itemize
-Issue #12: Loading a directed graph with a name, function 'load_directed_graph_w
-ith_graph_name_from_dot' as shown in chapters 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:load_directed_graph_with_graph_name_from_dot"
-
-\end_inset
-
-.
- Perhaps the function 'save_graph_with_graph_name_to_dot' (chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:save_graph_with_graph_name_to_dot"
-
-\end_inset
-
-) needs to rewritten as well
-\end_layout
-
-\begin_layout Standard
-I have already put the tests in place, so you/I can easily check if your
- solution works.
- If the program crashes with the message 'assertion failed: !
-\begin_inset Quotes erd
-\end_inset
-
-Fixed #
-\begin_inset Quotes erd
-\end_inset
-
-', a problem has been solved.
-\end_layout
-
-\begin_layout Subsection
 Acknowledgements
 \end_layout
 
@@ -519,6 +477,21 @@ status collapsed
 \begin_layout Plain Layout
 
 http://stackoverflow.com/users/85371/sehe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+cv_and_me, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/2417774/cv-and-he
 \end_layout
 
 \end_inset
@@ -30730,8 +30703,7 @@ name "sub:save_graph_with_graph_name_to_dot"
 \end_layout
 
 \begin_layout Standard
-I am unsure if this results in a .dot file that can produce a graph with
- a graph name, but this is what I came up with.
+This works:
 \end_layout
 
 \begin_layout Standard
@@ -30798,8 +30770,7 @@ name "sub:load_directed_graph_with_graph_name_from_dot"
 \end_layout
 
 \begin_layout Standard
-This will result in a directed graph without a name [ISSUE #12].
- Please email me if you know how to do this correctly.
+This will result in a directed graph with a name:
 \end_layout
 
 \begin_layout Standard
@@ -30854,22 +30825,6 @@ name "alg:load_directed_graph_with_graph_name_from_dot"
 
 \end_layout
 
-\begin_layout Standard
-Note the part that I removed using #ifdef: I read that that is a valid approach,
- according to the Boost.Graph documentation (see 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-http://www.boost.org/doc/libs/1_60_0/libs/graph/doc/read_graphviz.html
-\end_layout
-
-\end_inset
-
-), but it failed to compile.
-\end_layout
-
 \begin_layout Subsection
 Loading an undirected graph with a graph name property from a .dot file
 \begin_inset CommandInset label
@@ -30882,8 +30837,7 @@ name "sub:load_undirected_graph_with_graph_name_from_dot"
 \end_layout
 
 \begin_layout Standard
-This will result in an undirected graph without a name.
- [ISSUE #12] Please email me if you know how to do this correctly.
+This will result in an undirected graph with a name:
 \end_layout
 
 \begin_layout Standard
@@ -30938,55 +30892,6 @@ name "alg:load_undirected_graph_with_graph_name_from_dot"
 
 \end_layout
 
-\begin_layout Standard
-Note the part that I removed using #ifdef: I read that that is a valid approach,
- according to the Boost.Graph documentation (see 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-http://www.boost.org/doc/libs/1_60_0/libs/graph/doc/read_graphviz.html
-\end_layout
-
-\end_inset
-
-), but it failed to compile.
-\end_layout
-
-\begin_layout Section
-Building graphs with custom graph properties
-\end_layout
-
-\begin_layout Standard
-I will write this chapter if and only if I can save and load a graph with
- a graph name (as in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Building-graphs-with-a-graph-name"
-
-\end_inset
-
-).
- That is, if Issue #12 is fixed.
-\end_layout
-
-\begin_layout Section
-Working on graphs with custom graph properties
-\end_layout
-
-\begin_layout Standard
-I will write this chapter if and only if I can save and load a graph with
- a graph name (as in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Building-graphs-with-a-graph-name"
-
-\end_inset
-
-).That is, if Issue #12 is fixed.
-\end_layout
-
 \begin_layout Section
 Other graph functions
 \begin_inset CommandInset label
@@ -30999,7 +30904,7 @@ name "sec:Other-graph-functions"
 \end_layout
 
 \begin_layout Standard
-Some functions that did not fit in
+Some functions that did not fit in.
 \end_layout
 
 \begin_layout Subsection
