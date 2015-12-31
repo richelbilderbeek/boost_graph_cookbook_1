@@ -5,7 +5,7 @@
 #include "my_bundled_vertex.h"
 
 template <typename graph>
-void set_bundled_vertex_my_vertexes(
+void set_my_bundled_vertexes(
   graph& g,
   const std::vector<my_bundled_vertex>& my_vertexes
 ) noexcept

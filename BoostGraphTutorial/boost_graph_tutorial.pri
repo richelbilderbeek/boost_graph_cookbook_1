@@ -171,9 +171,9 @@ HEADERS += \
     $$PWD/save_named_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_named_vertices_graph_to_dot.h \
     $$PWD/seperate_string.h \
-    $$PWD/set_bundled_edge_my_edge.h \
-    $$PWD/set_bundled_vertex_my_vertexes.h \
-    $$PWD/set_bundled_vertex_my_vertex.h \
+    $$PWD/set_my_bundled_edge.h \
+    $$PWD/set_my_bundled_vertexes.h \
+    $$PWD/set_my_bundled_vertex.h \
     $$PWD/set_edge_name.h \
     $$PWD/set_graph_name.h \
     $$PWD/set_my_custom_edge.h \
@@ -350,9 +350,9 @@ SOURCES += \
     $$PWD/save_named_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_named_vertices_graph_to_dot.cpp \
     $$PWD/seperate_string.cpp \
-    $$PWD/set_bundled_edge_my_edge.cpp \
-    $$PWD/set_bundled_vertex_my_vertex.cpp \
-    $$PWD/set_bundled_vertex_my_vertexes.cpp \
+    $$PWD/set_my_bundled_edge.cpp \
+    $$PWD/set_my_bundled_vertex.cpp \
+    $$PWD/set_my_bundled_vertexes.cpp \
     $$PWD/set_edge_name.cpp \
     $$PWD/set_graph_name.cpp \
     $$PWD/set_my_custom_edge.cpp \
@@ -632,11 +632,11 @@ OTHER_FILES += \
     $$PWD/save_named_vertices_graph_to_dot_demo.impl \
     $$PWD/save_named_vertices_graph_to_dot.impl \
     $$PWD/save_named_vertices_graph_to_dot_using_lambda.impl \
-    $$PWD/set_bundled_edge_my_edge_demo.impl \
-    $$PWD/set_bundled_edge_my_edge.impl \
-    $$PWD/set_bundled_vertex_my_vertex_demo.impl \
-    $$PWD/set_bundled_vertex_my_vertexes.impl \
-    $$PWD/set_bundled_vertex_my_vertex.impl \
+    $$PWD/set_my_bundled_edge_demo.impl \
+    $$PWD/set_my_bundled_edge.impl \
+    $$PWD/set_my_bundled_vertex_demo.impl \
+    $$PWD/set_my_bundled_vertexes.impl \
+    $$PWD/set_my_bundled_vertex.impl \
     $$PWD/set_edge_name_demo.impl \
     $$PWD/set_edge_name.impl \
     $$PWD/set_graph_name_demo.impl \

@@ -1,8 +1,8 @@
 #ifndef SET_BUNDLED_VERTEX_MY_VERTEX_H
 #define SET_BUNDLED_VERTEX_MY_VERTEX_H
 
-#include "set_bundled_vertex_my_vertex.impl"
+#include "set_my_bundled_vertex.impl"
 
-void set_bundled_vertex_my_vertex_test() noexcept;
+void set_my_bundled_vertex_test() noexcept;
 
 #endif // SET_BUNDLED_VERTEX_MY_VERTEX_H

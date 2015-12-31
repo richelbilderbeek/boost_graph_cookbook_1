@@ -143,9 +143,9 @@
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "seperate_string.h"
-#include "set_bundled_edge_my_edge.h"
-#include "set_bundled_vertex_my_vertexes.h"
-#include "set_bundled_vertex_my_vertex.h"
+#include "set_my_bundled_edge.h"
+#include "set_my_bundled_vertexes.h"
+#include "set_my_bundled_vertex.h"
 #include "set_edge_name.h"
 #include "set_graph_name.h"
 #include "set_my_custom_edge.h"
@@ -304,9 +304,9 @@ int main()
   save_named_edges_and_vertices_graph_to_dot_test();
   save_named_vertices_graph_to_dot_test();
   seperate_string_test();
-  set_bundled_edge_my_edge_test();
-  set_bundled_vertex_my_vertexes_test();
-  set_bundled_vertex_my_vertex_test();
+  set_my_bundled_edge_test();
+  set_my_bundled_vertexes_test();
+  set_my_bundled_vertex_test();
   set_my_custom_edge_test();
   set_my_custom_vertexes_test();
   set_my_custom_vertex_test();

@@ -21377,7 +21377,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_bundled_edge_my_edge.impl"
+filename "set_my_bundled_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21441,7 +21441,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_bundled_edge_my_edge_demo.impl"
+filename "set_my_bundled_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
