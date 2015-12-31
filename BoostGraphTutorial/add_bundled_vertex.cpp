@@ -7,8 +7,6 @@
 
 #include "create_empty_undirected_bundled_vertices_graph.h"
 
-#include "get_bundled_vertex_my_vertexes.h"
-
 void add_bundled_vertex_test() noexcept
 {
   //Add 1

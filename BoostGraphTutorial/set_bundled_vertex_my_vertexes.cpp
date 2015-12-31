@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "create_bundled_vertices_k2_graph.h"
-#include "get_bundled_vertex_my_vertexes.h"
+#include "get_my_bundled_vertexes.h"
 
 void set_bundled_vertex_my_vertexes_test() noexcept
 {
@@ -14,9 +14,9 @@ void set_bundled_vertex_my_vertexes_test() noexcept
       my_bundled_vertex("alpha"),
       my_bundled_vertex("beta")
     };
-    assert(get_bundled_vertex_my_vertexes(g) != my_vertexes);
-    set_bundled_vertex_my_vertexes(g,my_vertexes);
-    assert(get_bundled_vertex_my_vertexes(g) == my_vertexes);
+    assert(get_my_bundled_vertexes(g) != my_vertexes);
+    set_bundled_vertex_my_vertexes(g, my_vertexes);
+    assert(get_my_bundled_vertexes(g) == my_vertexes);
   }
 
   std::cout << __func__ << ": OK" << '\n';

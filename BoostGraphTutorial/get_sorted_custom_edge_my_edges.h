@@ -2,12 +2,12 @@
 #define GET_SORTED_CUSTOM_EDGE_MY_EDGES_H
 
 #include <vector>
-#include "get_custom_edge_my_edges.h"
+#include "get_my_custom_edges.h"
 
 template <typename graph>
 std::vector<my_custom_edge> get_sorted_custom_edge_my_edges(const graph& g) noexcept
 {
-  auto v = get_custom_edge_my_edges(g);
+  auto v = get_my_custom_edges(g);
 
   const auto my_custom_edge_comparer
     = [](const my_custom_edge& lhs,const my_custom_edge& rhs)

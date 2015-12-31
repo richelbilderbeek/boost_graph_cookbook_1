@@ -1,6 +1,6 @@
 #include <cassert>
 #include "create_custom_edges_and_vertices_markov_chain.h"
-#include "get_custom_vertex_my_vertexes.h"
+#include "get_my_custom_vertexes.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
@@ -19,7 +19,7 @@ void create_custom_edges_and_vertices_markov_chain_demo() noexcept
   };
   const std::vector<my_custom_vertex>
     vertex_my_custom_vertexes{
-    get_custom_vertex_my_vertexes(g)
+    get_my_custom_vertexes(g)
   };
   assert(expected_my_custom_vertexes
     == vertex_my_custom_vertexes

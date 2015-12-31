@@ -1,7 +1,7 @@
 #ifndef GET_SORTED_BUNDLED_EDGE_MY_EDGES_H
 #define GET_SORTED_BUNDLED_EDGE_MY_EDGES_H
 
-#include "get_bundled_edge_my_edges.h"
+#include "get_my_bundled_edges.h"
 
 #include <vector>
 #include <boost/graph/graph_traits.hpp>
@@ -11,7 +11,7 @@
 template <typename graph>
 std::vector<my_bundled_edge> get_sorted_bundled_edge_my_edges(const graph& g) noexcept
 {
-  auto v = get_bundled_edge_my_edges(g);
+  auto v = get_my_bundled_edges(g);
 
   const auto my_bundled_edge_comparer
     = [](const my_bundled_edge& lhs,const my_bundled_edge& rhs)

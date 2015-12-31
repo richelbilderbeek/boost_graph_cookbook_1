@@ -2,8 +2,8 @@
 #include <string>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
-#include "get_custom_edge_my_edge.h"
-#include "get_custom_vertex_my_vertexes.h"
+#include "get_my_custom_edge.h"
+#include "get_my_custom_vertex.h"
 
 template <typename graph>
 void save_custom_edges_and_vertices_graph_to_dot(
@@ -11,24 +11,24 @@ void save_custom_edges_and_vertices_graph_to_dot(
   const std::string& filename
 )
 {
-  //using vd = typename graph::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
   using ed = typename graph::edge_descriptor;
+
   std::ofstream f(filename);
-  const auto my_custom_vertexes = get_custom_vertex_my_vertexes(g);
   boost::write_graphviz(
     f,
     g,
-    [my_custom_vertexes](
-      std::ostream& out,
-      const typename graph::vertex_descriptor& vd
-    ) {
-      const my_custom_vertex m{my_custom_vertexes[vd]};
+    [g](
+      std::ostream& out, const vd& d) {
+      const my_custom_vertex& m{
+        get_my_custom_vertex(d, g)
+      };
       out << "[label=\"" << m << "\"]";
     },
-    [g](std::ostream& out,
-       const ed& e
-     ) {
-      const my_custom_edge m{get_custom_edge_my_edge(e,g)};
+    [g](std::ostream& out, const ed& d) {
+      const my_custom_edge& m{
+        get_my_custom_edge(d, g)
+      };
       out << "[label=\"" << m << "\"]";
     }
   );

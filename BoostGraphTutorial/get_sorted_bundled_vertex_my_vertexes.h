@@ -1,13 +1,12 @@
 #ifndef GET_SORTED_BUNDLED_VERTEX_MY_VERTEXES_H
 #define GET_SORTED_BUNDLED_VERTEX_MY_VERTEXES_H
 
-#include "get_bundled_vertex_my_vertexes.h"
+#include "get_my_bundled_vertexes.h"
 
 template <typename graph>
 std::vector<my_bundled_vertex> get_sorted_bundled_vertex_my_vertexes(const graph& g) noexcept
 {
-  auto v = get_bundled_vertex_my_vertexes(g);
-
+  auto v = get_my_bundled_vertexes(g);
   const auto my_bundled_vertex_comparer
     = [](const my_bundled_vertex& lhs,const my_bundled_vertex& rhs)
         {

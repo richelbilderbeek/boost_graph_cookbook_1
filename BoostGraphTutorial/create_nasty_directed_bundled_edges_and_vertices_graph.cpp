@@ -51,7 +51,7 @@ void create_nasty_directed_bundled_edges_and_vertices_graph_test() noexcept
     const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    //get_bundled_edge_my_edges returns the unsorted edge,
+    //get_my_bundled_edges returns the unsorted edge,
     //to compare the my_bundled_edges before and after, its results must be sorted
     const auto a = get_sorted_bundled_edge_my_edges(g);
     const auto b = get_sorted_bundled_edge_my_edges(h);

@@ -8,6 +8,7 @@ int count_vertices_with_name(
 ) noexcept
 {
   using vd = typename graph::vertex_descriptor;
+
   const auto vip = vertices(g);
   const auto cnt = std::count_if(
     vip.first, vip.second,

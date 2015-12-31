@@ -28,7 +28,7 @@ void load_undirected_custom_edges_and_vertices_graph_from_dot_test() noexcept
     const auto h = load_undirected_custom_edges_and_vertices_graph_from_dot(filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_custom_edge_my_edges(g) == get_custom_edge_my_edges(h));
+    assert(get_my_custom_edges(g) == get_my_custom_edges(h));
   }
   //Basic tests: nasty graph
   {

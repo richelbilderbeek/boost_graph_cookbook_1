@@ -13,8 +13,9 @@
 #include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
-#include "get_bundled_vertex_my_vertexes.h"
-#include "get_bundled_edge_my_edges.h"
+#include "get_my_bundled_vertex.h"
+#include "get_my_bundled_vertexes.h"
+#include "get_my_bundled_edges.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertex_names.h"
 #include "create_bundled_edges_and_vertices_markov_chain.h"
@@ -40,8 +41,7 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
     const std::vector<my_bundled_vertex> vertex_my_bundled_vertexes{
-      get_bundled_vertex_my_vertexes(g)
-    };
+      get_my_bundled_vertexes(g)   };
     const std::vector<my_bundled_vertex> expected_my_bundled_vertexes{
       my_bundled_vertex("Stable","Right",1.0,2.0),
       my_bundled_vertex("Not unstable","Not left",3.0,4.0)
@@ -49,7 +49,7 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
     assert(expected_my_bundled_vertexes == vertex_my_bundled_vertexes);
 
     const std::vector<my_bundled_edge> edge_my_edges{
-      get_bundled_edge_my_edges(g)
+      get_my_bundled_edges(g)
     };
     const std::vector<my_bundled_edge> expected_my_edges{
       my_bundled_edge("Red","Heat",1.0,2.0),

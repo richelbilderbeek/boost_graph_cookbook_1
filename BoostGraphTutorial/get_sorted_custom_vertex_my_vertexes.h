@@ -1,14 +1,14 @@
 #ifndef GET_SORTED_CUSTOM_VERTEX_MY_VERTEXES_H
 #define GET_SORTED_CUSTOM_VERTEX_MY_VERTEXES_H
 
-#include "get_custom_vertex_my_vertexes.h"
+#include "get_my_custom_vertexes.h"
 
 #include <vector>
 
 template <typename graph>
 std::vector<my_custom_vertex> get_sorted_custom_vertex_my_vertexes(const graph& g) noexcept
 {
-  auto v = get_custom_vertex_my_vertexes(g);
+  auto v = get_my_custom_vertexes(g);
 
   const auto my_custom_vertex_comparer
     = [](const my_custom_vertex& lhs,const my_custom_vertex& rhs)

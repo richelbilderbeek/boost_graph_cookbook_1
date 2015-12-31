@@ -28,7 +28,7 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_bundled_edge_my_edges(g) == get_bundled_edge_my_edges(h));
+    assert(get_my_bundled_edges(g) == get_my_bundled_edges(h));
   }
   //Basic tests: nasty graph
   {
@@ -46,8 +46,7 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(dot_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_bundled_vertex_my_vertexes(g) == get_bundled_vertex_my_vertexes(h));
-    assert(get_bundled_edge_my_edges(g) == get_bundled_edge_my_edges(h));
+    assert(get_my_bundled_vertexes(g) == get_my_bundled_vertexes(h));
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(
       svg_filename,

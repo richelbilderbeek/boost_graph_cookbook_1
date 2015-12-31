@@ -1,0 +1,16 @@
+#include <cassert>
+#include "add_bundled_vertex.h"
+#include "create_empty_undirected_bundled_vertices_graph.h"
+#include "find_first_bundled_vertex_with_my_vertex.h"
+#include "get_my_bundled_vertex.h"
+
+void get_my_bundled_vertex_demo() noexcept
+{
+  auto g
+    = create_empty_undirected_bundled_vertices_graph();
+  const my_bundled_vertex v{"Dex"};
+  add_bundled_vertex(v, g);
+  const auto vd
+    = find_first_bundled_vertex_with_my_vertex(v, g);
+  assert(get_my_bundled_vertex(vd, g) == v);
+}

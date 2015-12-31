@@ -82,14 +82,6 @@ HEADERS += \
     $$PWD/find_first_edge_with_name.h \
     $$PWD/find_first_vertex_with_name.h \
     $$PWD/formed_reference_to_void.h \
-    $$PWD/get_bundled_edge_my_edge.h \
-    $$PWD/get_bundled_edge_my_edges.h \
-    $$PWD/get_bundled_vertex_my_vertexes.h \
-    $$PWD/get_bundled_vertex_my_vertex.h \
-    $$PWD/get_custom_edge_my_edge.h \
-    $$PWD/get_custom_edge_my_edges.h \
-    $$PWD/get_custom_vertex_my_vertexes.h \
-    $$PWD/get_custom_vertex_my_vertex.h \
     $$PWD/get_edge_between_vertices.h \
     $$PWD/get_edge_descriptors.h \
     $$PWD/get_edge_iterators.h \
@@ -97,6 +89,14 @@ HEADERS += \
     $$PWD/get_edge_names.h \
     $$PWD/get_first_vertex_with_name_out_degree.h \
     $$PWD/get_graph_name.h \
+    $$PWD/get_my_bundled_edge.h \
+    $$PWD/get_my_bundled_edges.h \
+    $$PWD/get_my_bundled_vertexes.h \
+    $$PWD/get_my_bundled_vertex.h \
+    $$PWD/get_my_custom_edge.h \
+    $$PWD/get_my_custom_edges.h \
+    $$PWD/get_my_custom_vertexes.h \
+    $$PWD/get_my_custom_vertex.h \
     $$PWD/get_n_edges.h \
     $$PWD/get_n_vertices.h \
     $$PWD/get_sorted_bundled_edge_my_edges.h \
@@ -127,6 +127,7 @@ HEADERS += \
     $$PWD/install_vertex_custom_type.h \
     $$PWD/install_vertex_is_selected.h \
     $$PWD/is_isomorphic.h \
+    $$PWD/is_named_vertices_isomorphic.h \
     $$PWD/is_regular_file.h \
     $$PWD/is_valid_dot_file.h \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.h \
@@ -154,6 +155,7 @@ HEADERS += \
     $$PWD/my_bundled_vertex.h \
     $$PWD/my_custom_edge.h \
     $$PWD/my_custom_vertex.h \
+    $$PWD/named_vertex_invariant.h \
     $$PWD/no_matching_function_for_call_to_clear_out_edges.h \
     $$PWD/property_not_found_node_id.h \
     $$PWD/remove_edge_between_vertices_with_names.h \
@@ -172,16 +174,14 @@ HEADERS += \
     $$PWD/set_bundled_edge_my_edge.h \
     $$PWD/set_bundled_vertex_my_vertexes.h \
     $$PWD/set_bundled_vertex_my_vertex.h \
-    $$PWD/set_custom_edge_my_edge.h \
-    $$PWD/set_custom_vertex_my_vertexes.h \
-    $$PWD/set_custom_vertex_my_vertex.h \
     $$PWD/set_edge_name.h \
     $$PWD/set_graph_name.h \
+    $$PWD/set_my_custom_edge.h \
+    $$PWD/set_my_custom_vertexes.h \
+    $$PWD/set_my_custom_vertex.h \
     $$PWD/set_vertex_name.h \
     $$PWD/set_vertex_names.h \
-    $$PWD/show_dot.h \
-    $$PWD/is_named_vertices_isomorphic.h \
-    $$PWD/named_vertex_invariant.h
+    $$PWD/show_dot.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -265,14 +265,6 @@ SOURCES += \
     $$PWD/find_first_edge_with_name.cpp \
     $$PWD/find_first_vertex_with_name.cpp \
     $$PWD/formed_reference_to_void.cpp \
-    $$PWD/get_bundled_edge_my_edge.cpp \
-    $$PWD/get_bundled_edge_my_edges.cpp \
-    $$PWD/get_bundled_vertex_my_vertex.cpp \
-    $$PWD/get_bundled_vertex_my_vertexes.cpp \
-    $$PWD/get_custom_edge_my_edge.cpp \
-    $$PWD/get_custom_edge_my_edges.cpp \
-    $$PWD/get_custom_vertex_my_vertex.cpp \
-    $$PWD/get_custom_vertex_my_vertexes.cpp \
     $$PWD/get_edge_between_vertices.cpp \
     $$PWD/get_edge_descriptors.cpp \
     $$PWD/get_edge_name.cpp \
@@ -280,6 +272,14 @@ SOURCES += \
     $$PWD/get_edges.cpp \
     $$PWD/get_first_vertex_with_name_out_degree.cpp \
     $$PWD/get_graph_name.cpp \
+    $$PWD/get_my_bundled_edge.cpp \
+    $$PWD/get_my_bundled_edges.cpp \
+    $$PWD/get_my_bundled_vertex.cpp \
+    $$PWD/get_my_bundled_vertexes.cpp \
+    $$PWD/get_my_custom_edge.cpp \
+    $$PWD/get_my_custom_edges.cpp \
+    $$PWD/get_my_custom_vertex.cpp \
+    $$PWD/get_my_custom_vertexes.cpp \
     $$PWD/get_n_edges.cpp \
     $$PWD/get_n_vertices.cpp \
     $$PWD/get_sorted_bundled_edge_my_edges.cpp \
@@ -307,6 +307,7 @@ SOURCES += \
     $$PWD/has_vertex_with_name.cpp \
     $$PWD/helper.cpp \
     $$PWD/is_isomorphic.cpp \
+    $$PWD/is_named_vertices_isomorphic.cpp \
     $$PWD/is_regular_file.cpp \
     $$PWD/is_valid_dot_file.cpp \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.cpp \
@@ -352,15 +353,14 @@ SOURCES += \
     $$PWD/set_bundled_edge_my_edge.cpp \
     $$PWD/set_bundled_vertex_my_vertex.cpp \
     $$PWD/set_bundled_vertex_my_vertexes.cpp \
-    $$PWD/set_custom_edge_my_edge.cpp \
-    $$PWD/set_custom_vertex_my_vertex.cpp \
-    $$PWD/set_custom_vertex_my_vertexes.cpp \
     $$PWD/set_edge_name.cpp \
     $$PWD/set_graph_name.cpp \
+    $$PWD/set_my_custom_edge.cpp \
+    $$PWD/set_my_custom_vertex.cpp \
+    $$PWD/set_my_custom_vertexes.cpp \
     $$PWD/set_vertex_name.cpp \
     $$PWD/set_vertex_names.cpp \
-    $$PWD/show_dot.cpp \
-    $$PWD/is_named_vertices_isomorphic.cpp
+    $$PWD/show_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -492,21 +492,6 @@ OTHER_FILES += \
     $$PWD/find_first_vertex_with_name_demo.impl \
     $$PWD/find_first_vertex_with_name.impl \
     $$PWD/formed_reference_to_void.impl \
-    $$PWD/get_bundled_edge_my_edge_demo.impl \
-    $$PWD/get_bundled_edge_my_edge.impl \
-    $$PWD/get_bundled_edge_my_edges_demo.impl \
-    $$PWD/get_bundled_edge_my_edges.impl \
-    $$PWD/get_bundled_vertex_my_vertex_demo.impl \
-    $$PWD/get_bundled_vertex_my_vertexes.impl \
-    $$PWD/get_bundled_vertex_my_vertex.impl \
-    $$PWD/get_custom_edge_my_edge_demo.impl \
-    $$PWD/get_custom_edge_my_edge.impl \
-    $$PWD/get_custom_edge_my_edges_demo.impl \
-    $$PWD/get_custom_edge_my_edges.impl \
-    $$PWD/get_custom_vertex_my_vertex_demo.impl \
-    $$PWD/get_custom_vertex_my_vertexes_demo.impl \
-    $$PWD/get_custom_vertex_my_vertexes.impl \
-    $$PWD/get_custom_vertex_my_vertex.impl \
     $$PWD/get_edge_between_vertices_demo.impl \
     $$PWD/get_edge_between_vertices.impl \
     $$PWD/get_edge_descriptors_demo.impl \
@@ -521,6 +506,21 @@ OTHER_FILES += \
     $$PWD/get_first_vertex_with_name_out_degree.impl \
     $$PWD/get_graph_name_demo.impl \
     $$PWD/get_graph_name.impl \
+    $$PWD/get_my_bundled_edge_demo.impl \
+    $$PWD/get_my_bundled_edge.impl \
+    $$PWD/get_my_bundled_edges_demo.impl \
+    $$PWD/get_my_bundled_edges.impl \
+    $$PWD/get_my_bundled_vertexes.impl \
+    $$PWD/get_my_bundled_vertex.impl \
+    $$PWD/get_my_bundled_vertexmpl \
+    $$PWD/get_my_custom_edge_demo.impl \
+    $$PWD/get_my_custom_edge.impl \
+    $$PWD/get_my_custom_edges_demo.impl \
+    $$PWD/get_my_custom_edges.impl \
+    $$PWD/get_my_custom_vertex_demo.impl \
+    $$PWD/get_my_custom_vertexes_demo.impl \
+    $$PWD/get_my_custom_vertexes.impl \
+    $$PWD/get_my_custom_vertex.impl \
     $$PWD/get_n_edges_demo.impl \
     $$PWD/get_n_edges.impl \
     $$PWD/get_n_vertices_demo.impl \
@@ -559,6 +559,7 @@ OTHER_FILES += \
     $$PWD/install_vertex_is_selected.impl \
     $$PWD/is_isomorphic_demo.impl \
     $$PWD/is_isomorphic.impl \
+    $$PWD/is_named_vertices_isomorphic_demo.impl \
     $$PWD/is_named_vertices_isomorphic.impl \
     $$PWD/is_regular_file.impl \
     $$PWD/is_valid_dot_file.impl \
@@ -605,6 +606,7 @@ OTHER_FILES += \
     $$PWD/my_bundled_vertex.impl \
     $$PWD/my_custom_edge.impl \
     $$PWD/my_custom_vertex.impl \
+    $$PWD/named_vertex_invariant.impl \
     $$PWD/no_matching_function_for_call_to_clear_out_edges.impl \
     $$PWD/property_not_found_node_id.impl \
     $$PWD/remove_edge_between_vertices_with_names_demo.impl \
@@ -635,18 +637,16 @@ OTHER_FILES += \
     $$PWD/set_bundled_vertex_my_vertex_demo.impl \
     $$PWD/set_bundled_vertex_my_vertexes.impl \
     $$PWD/set_bundled_vertex_my_vertex.impl \
-    $$PWD/set_custom_edge_my_edge_demo.impl \
-    $$PWD/set_custom_edge_my_edge.impl \
-    $$PWD/set_custom_vertex_my_vertex_demo.impl \
-    $$PWD/set_custom_vertex_my_vertexes.impl \
-    $$PWD/set_custom_vertex_my_vertex.impl \
     $$PWD/set_edge_name_demo.impl \
     $$PWD/set_edge_name.impl \
     $$PWD/set_graph_name_demo.impl \
     $$PWD/set_graph_name.impl \
+    $$PWD/set_my_custom_edge_demo.impl \
+    $$PWD/set_my_custom_edge.impl \
+    $$PWD/set_my_custom_vertex_demo.impl \
+    $$PWD/set_my_custom_vertexes.impl \
+    $$PWD/set_my_custom_vertex.impl \
     $$PWD/set_vertex_name_demo.impl \
     $$PWD/set_vertex_name.impl \
-    $$PWD/set_vertex_names.impl \
-    $$PWD/is_named_vertices_isomorphic_demo.impl \
-    $$PWD/named_vertex_invariant.impl
+    $$PWD/set_vertex_names.impl
 

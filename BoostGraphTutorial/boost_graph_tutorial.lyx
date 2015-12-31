@@ -17037,7 +17037,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_bundled_vertex_my_vertexes.impl"
+filename "get_my_bundled_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -17062,7 +17062,7 @@ Get bundled vertex my_vertexes
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_bundled_vertex_my_vertexes"
+name "alg:get_my_bundled_vertexes"
 
 \end_inset
 
@@ -18277,7 +18277,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_bundled_vertex_my_vertex.impl"
+filename "get_my_bundled_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -18346,7 +18346,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_bundled_vertex_my_vertex_demo.impl"
+filename "get_my_bundled_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -20098,7 +20098,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_bundled_edge_my_edges.impl"
+filename "get_my_bundled_edges.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21234,8 +21234,8 @@ name "sub:get_bundled_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To obtain the my_edeg from an edge descriptor, one needs to pull out the
- my_bundled_edges map and then look up the my_edge of interest.
+To obtain the my_bundled_edge from an edge descriptor, one needs to pull
+ out the my_bundled_edges map and then look up the my_edge of interest.
 \end_layout
 
 \begin_layout Standard
@@ -21248,7 +21248,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_edge_my_edge.impl"
+filename "get_my_bundled_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21265,7 +21265,7 @@ Get a vertex its my_bundled_vertex from its vertex descriptor
 status open
 
 \begin_layout Plain Layout
-Get bundled edge my_bundled_edge
+Get my_bundled_edge
 \end_layout
 
 \end_inset
@@ -21291,8 +21291,7 @@ name "alg:get_bundled_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'get_bundled_edge_my_bundled_edge', one first needs to obtain an
- edge descriptor.
+To use 'get_my_bundled_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21313,7 +21312,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_bundled_edge_my_edge_demo.impl"
+filename "get_my_bundled_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -21325,7 +21324,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_bundled_edge_my_edge' function
+Demonstration if the 'get_my_bundled_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_bundled_edge_my_edge_demo"
@@ -22932,7 +22931,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_vertex_my_vertexes.impl"
+filename "get_my_custom_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -22944,12 +22943,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get the vertices' my_vertexes
+Get the my_custom_vertex objects
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Get vertex my_vertexes
+Get my_custom_vertexes
 \end_layout
 
 \end_inset
@@ -22957,7 +22956,7 @@ Get vertex my_vertexes
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_vertex_my_vertexes"
+name "alg:get_my_custom_vertexes"
 
 \end_inset
 
@@ -23011,7 +23010,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_vertex_my_vertexes_demo.impl"
+filename "get_my_custom_vertexes_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -23036,7 +23035,7 @@ Get custom vertex my_custom_vertex objects
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_vertex_my_vertexes_demo"
+name "alg:get_my_custom_vertexes_demo"
 
 \end_inset
 
@@ -24186,7 +24185,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_vertex_my_vertex.impl"
+filename "get_my_custom_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -24198,12 +24197,12 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get a custom vertex its my_vertex from its vertex descriptor
+Get a my_custom_vertex its my_vertex from its vertex descriptor
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Get custom vertex my_vertex
+Get my_custom_vertex
 \end_layout
 
 \end_inset
@@ -24234,7 +24233,7 @@ To use 'get_custom_vertex_my_vertex', one first needs to obtain a vertex
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:get_vertex_my_vertex_demo"
+reference "alg:get_my_custom_vertex_demo"
 
 \end_inset
 
@@ -24251,7 +24250,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_vertex_my_vertex_demo.impl"
+filename "get_my_custom_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -24263,10 +24262,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_custom_vertex_my_vertex' function
+Demonstration if the 'get_my_custom_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:get_vertex_my_vertex_demo"
+name "alg:get_my_custom_vertex_demo"
 
 \end_inset
 
@@ -24316,7 +24315,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_custom_vertex_my_vertex.impl"
+filename "set_my_custom_vertex.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -24333,7 +24332,7 @@ Set a custom vertex its my_vertex from its vertex descriptor
 status open
 
 \begin_layout Plain Layout
-Set vertex my_vertex
+Set my_custom_vertex
 \end_layout
 
 \end_inset
@@ -24359,7 +24358,7 @@ name "alg:set_custom_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'set_vertex_my_vertex', one first needs to obtain a vertex descriptor.
+To use 'set_my_custom_vertex', one first needs to obtain a vertex descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -24380,7 +24379,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_custom_vertex_my_vertex_demo.impl"
+filename "set_my_custom_vertex_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -24392,7 +24391,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_custom_vertex_my_vertex' function
+Demonstration if the 'set_my_custom_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_custom_vertex_my_vertex_demo"
@@ -24438,7 +24437,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_custom_vertex_my_vertexes.impl"
+filename "set_my_custom_vertexes.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -24455,7 +24454,7 @@ Setting the custom vertices' my_vertexes
 status open
 
 \begin_layout Plain Layout
-Set custom vertex my_vertexes
+Set my_custom_vertexes
 \end_layout
 
 \end_inset
@@ -24463,7 +24462,7 @@ Set custom vertex my_vertexes
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_custom_vertex_my_vertexes"
+name "alg:set_my_custom_vertexes"
 
 \end_inset
 
@@ -27714,7 +27713,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_edge_my_edges.impl"
+filename "get_my_custom_edges.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -28766,7 +28765,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_edge_my_edge.impl"
+filename "get_my_custom_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -28831,7 +28830,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "get_custom_edge_my_edge_demo.impl"
+filename "get_my_custom_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -28896,7 +28895,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_custom_edge_my_edge.impl"
+filename "set_my_custom_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -28913,7 +28912,7 @@ Set a custom edge its my_custom_edge from its edge descriptor
 status open
 
 \begin_layout Plain Layout
-Set custom edge my_custom_edge
+Set my_custom_edge
 \end_layout
 
 \end_inset
@@ -28939,11 +28938,11 @@ name "alg:set_edge_my_custom_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'set_custom_edge_my_edge', one first needs to obtain an edge descriptor.
+To use 'set_my_custom_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:set_custom_edge_my_edge_demo"
+reference "alg:set_my_custom_edge_demo"
 
 \end_inset
 
@@ -28960,7 +28959,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "set_custom_edge_my_edge_demo.impl"
+filename "set_my_custom_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -28972,10 +28971,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_custom_edge_my_edge' function
+Demonstration if the 'set_my_custom_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:set_custom_edge_my_edge_demo"
+name "alg:set_my_custom_edge_demo"
 
 \end_inset
 

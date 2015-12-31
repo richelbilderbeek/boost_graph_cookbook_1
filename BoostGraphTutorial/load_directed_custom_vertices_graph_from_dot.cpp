@@ -31,7 +31,7 @@ void load_directed_custom_vertices_graph_from_dot_test() noexcept
     const auto h = load_directed_custom_vertices_graph_from_dot(filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_custom_vertex_my_vertexes(g) == get_custom_vertex_my_vertexes(h));
+    assert(get_my_custom_vertexes(g) == get_my_custom_vertexes(h));
   }
   //Basic tests: graph with harder texts
   {

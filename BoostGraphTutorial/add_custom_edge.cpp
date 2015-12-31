@@ -7,7 +7,7 @@
 
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 
-#include "get_custom_edge_my_edges.h"
+#include "get_my_custom_edges.h"
 
 void add_custom_edge_test() noexcept
 {
@@ -20,7 +20,7 @@ void add_custom_edge_test() noexcept
     add_custom_edge(edge, g);
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 1);
-    const std::vector<my_custom_edge> edges{get_custom_edge_my_edges(g)};
+    const std::vector<my_custom_edge> edges{get_my_custom_edges(g)};
     const std::vector<my_custom_edge> expected_edges{edge};
     assert(edges == expected_edges);
   }
@@ -35,7 +35,7 @@ void add_custom_edge_test() noexcept
     add_custom_edge(edge_2, g);
     assert(boost::num_vertices(g) == 4);
     assert(boost::num_edges(g) == 2);
-    const std::vector<my_custom_edge> edges{get_custom_edge_my_edges(g)};
+    const std::vector<my_custom_edge> edges{get_my_custom_edges(g)};
     const std::vector<my_custom_edge> expected_edges{edge_1, edge_2};
     assert(edges == expected_edges);
   }

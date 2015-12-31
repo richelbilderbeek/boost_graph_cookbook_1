@@ -14,7 +14,7 @@
 #include "get_edge_descriptors.h"
 #include "get_vertex_descriptors.h"
 #include "get_vertex_names.h"
-#include "get_custom_vertex_my_vertexes.h"
+#include "get_my_custom_vertexes.h"
 #include "create_custom_and_selectable_vertices_markov_chain.h"
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
@@ -40,7 +40,7 @@ void create_custom_and_selectable_vertices_markov_chain_test() noexcept
     assert(eds.size() == 4);
     //Can get the my_custom_vertex objects
     const std::vector<my_custom_vertex> vertex_my_custom_vertexes{
-      get_custom_vertex_my_vertexes(g)
+      get_my_custom_vertexes(g)
     };
     const std::vector<my_custom_vertex> expected_my_custom_vertexes{
       my_custom_vertex("Sunny","Yellow thing",1.0,2.0),
@@ -67,7 +67,7 @@ void create_custom_and_selectable_vertices_markov_chain_test() noexcept
     const auto h = load_directed_custom_and_selectable_vertices_graph_from_dot(dot_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_custom_vertex_my_vertexes(g) ==  get_custom_vertex_my_vertexes(h));
+    assert(get_my_custom_vertexes(g) ==  get_my_custom_vertexes(h));
     assert(get_vertex_selectednesses(g) == get_vertex_selectednesses(h));
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(

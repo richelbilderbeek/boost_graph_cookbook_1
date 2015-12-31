@@ -30,7 +30,7 @@ void load_undirected_bundled_vertices_graph_from_dot_test() noexcept
     convert_dot_to_svg(dot_filename, svg_filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_bundled_vertex_my_vertexes(g) == get_bundled_vertex_my_vertexes(h));
+    assert(get_my_bundled_vertexes(g) == get_my_bundled_vertexes(h));
     copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,

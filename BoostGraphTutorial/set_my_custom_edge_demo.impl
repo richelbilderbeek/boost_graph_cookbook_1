@@ -1,0 +1,25 @@
+#include <cassert>
+
+#include "add_custom_edge.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include "find_first_custom_edge_with_my_edge.h"
+#include "get_my_custom_edge.h"
+#include "set_my_custom_edge.h"
+
+void set_my_custom_edge_demo() noexcept
+{
+  auto g
+    = create_empty_undirected_custom_edges_and_vertices_graph();
+  const my_custom_edge old_edge{"Dex"};
+  add_custom_edge(old_edge, g);
+  const auto vd
+    = find_first_custom_edge_with_my_edge(old_edge,g);
+  assert(get_my_custom_edge(vd,g)
+    == old_edge
+  );
+  const my_custom_edge new_edge{"Diggy"};
+  set_my_custom_edge(new_edge, vd, g);
+  assert(get_my_custom_edge(vd,g)
+    == new_edge
+  );
+}

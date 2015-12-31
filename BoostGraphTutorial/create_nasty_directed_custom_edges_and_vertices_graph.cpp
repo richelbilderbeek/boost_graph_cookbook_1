@@ -55,7 +55,7 @@ void create_nasty_directed_custom_edges_and_vertices_graph_test() noexcept
     const auto h = load_directed_custom_edges_and_vertices_graph_from_dot(filename);
     assert(boost::num_edges(g) == boost::num_edges(h));
     assert(boost::num_vertices(g) == boost::num_vertices(h));
-    //get_custom_edge_my_edges returns the unsorted edge,
+    //get_my_custom_edges returns the unsorted edge,
     //to compare the my_custom_edges before and after, its results must be sorted
     const auto a = get_sorted_custom_edge_my_edges(g);
     const auto b = get_sorted_custom_edge_my_edges(h);

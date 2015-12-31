@@ -1,0 +1,25 @@
+#include <vector>
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_custom_type.h"
+#include "my_custom_vertex.h"
+
+template <typename graph>
+std::vector<my_custom_vertex> get_my_custom_vertexes(
+  const graph& g
+) noexcept
+{
+  using vd = typename graph::vertex_descriptor;
+
+  std::vector<my_custom_vertex> v(boost::num_vertices(g));
+  const auto vip = vertices(g); 
+  std::transform(vip.first, vip.second, std::begin(v),
+    [g](const vd& d)
+    {
+      const auto my_custom_vertexes_map
+        = get(boost::vertex_custom_type,g
+      );
+      return get(my_custom_vertexes_map, d);
+    }
+  );
+  return v;
+}

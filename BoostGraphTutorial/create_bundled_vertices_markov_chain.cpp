@@ -38,7 +38,7 @@ void create_bundled_vertices_markov_chain_test() noexcept
     const auto eds = get_edge_descriptors(g);
     assert(eds.size() == 4);
     const std::vector<my_bundled_vertex> vertex_my_vertexes{
-      get_bundled_vertex_my_vertexes(g)
+      get_my_bundled_vertexes(g)
     };
     const std::vector<my_bundled_vertex> expected_my_vertexes{
       my_bundled_vertex("Sunny","Yellow",1.0,2.0),
