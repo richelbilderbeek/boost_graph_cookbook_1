@@ -33,5 +33,5 @@ void create_markov_chain_test() noexcept
     );
   }
   create_markov_chain_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

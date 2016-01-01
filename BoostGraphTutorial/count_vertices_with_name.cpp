@@ -17,5 +17,5 @@ void count_vertices_with_name_test() noexcept
     assert(count_vertices_with_name(g,"Nebular") == 0);
   }
   count_vertices_with_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

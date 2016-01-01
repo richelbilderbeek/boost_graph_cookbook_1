@@ -18,5 +18,5 @@ void get_my_custom_vertex_test() noexcept
   assert(get_my_custom_vertex(vd,g) == name);
 
   get_my_custom_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

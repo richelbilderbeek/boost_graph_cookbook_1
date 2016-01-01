@@ -16,6 +16,6 @@ void find_first_edge_with_name_test() noexcept
   }
 
   find_first_edge_with_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

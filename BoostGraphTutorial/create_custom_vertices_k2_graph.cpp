@@ -41,6 +41,6 @@ void create_custom_vertices_k2_graph_test() noexcept
     );
   }
   create_custom_vertices_k2_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 
 }

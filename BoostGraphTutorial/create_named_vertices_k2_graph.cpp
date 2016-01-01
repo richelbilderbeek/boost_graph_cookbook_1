@@ -70,6 +70,6 @@ void create_named_vertices_k2_graph_test() noexcept
   //  g = h; //Lose information, is that possible?
   //}
   create_named_vertices_k2_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

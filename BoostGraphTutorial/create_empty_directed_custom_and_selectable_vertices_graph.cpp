@@ -14,5 +14,5 @@ void create_empty_directed_custom_and_selectable_vertices_graph_test() noexcept
     assert(boost::num_vertices(g) == 0);
   }
   create_empty_directed_custom_and_selectable_vertices_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -44,5 +44,5 @@ void get_vertex_names_test() noexcept
     assert(expected_names == vertex_names);
   }
   get_vertex_names_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

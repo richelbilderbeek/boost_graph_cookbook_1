@@ -8,9 +8,6 @@
 
 void load_undirected_graph_with_graph_name_from_dot_demo() noexcept
 {
-  using boost::num_edges;
-  using boost::num_vertices;
-
   const auto g
     = create_k2_graph_with_graph_name();
   const std::string filename{
@@ -19,15 +16,5 @@ void load_undirected_graph_with_graph_name_from_dot_demo() noexcept
   save_graph_with_graph_name_to_dot(g, filename);
   const auto h
     = load_undirected_graph_with_graph_name_from_dot(filename);
-  assert(num_edges(g) == num_edges(h));
-  assert(num_vertices(g) == num_vertices(h));
-  if (get_graph_name(h) == "Two-state Markov chain")
-  {
-    assert(!"Fixed #12");
-    assert(get_graph_name(g) == "Two-state Markov chain");
-  }
-  else
-  {
-    std::cout << __func__ << ": TODO" << '\n';
-  }
+  assert(get_graph_name(g) == get_graph_name(h));
 }

@@ -55,5 +55,5 @@ void save_graph_with_graph_name_to_dot_test() noexcept
     };
     assert(text != expected_text);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

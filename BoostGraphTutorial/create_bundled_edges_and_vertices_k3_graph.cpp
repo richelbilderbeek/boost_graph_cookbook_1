@@ -47,5 +47,5 @@ void create_bundled_edges_and_vertices_k3_graph_test() noexcept
     );
   }
   create_bundled_edges_and_vertices_k3_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

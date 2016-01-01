@@ -54,5 +54,5 @@ void create_path_graph_test() noexcept
     );
   }
   create_path_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

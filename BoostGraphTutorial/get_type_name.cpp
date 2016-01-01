@@ -83,5 +83,5 @@ void get_type_name_test() noexcept
   //std::cout
   //  <<  get_type_name<decltype(boost::vertices(create_empty_directed_graph()))>()
   //  << std::endl;
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

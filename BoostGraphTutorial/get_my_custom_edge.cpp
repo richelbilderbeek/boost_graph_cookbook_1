@@ -20,5 +20,5 @@ void get_my_custom_edge_test() noexcept
     assert(get_my_custom_edge(vd,g) == edge);
   }
   get_my_custom_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

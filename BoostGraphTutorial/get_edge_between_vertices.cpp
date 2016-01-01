@@ -19,5 +19,5 @@ void get_edge_between_vertices_test() noexcept
     assert(boost::num_edges(g) == 0);
   }
   get_edge_between_vertices_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

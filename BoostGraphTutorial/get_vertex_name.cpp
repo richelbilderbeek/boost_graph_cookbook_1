@@ -18,5 +18,5 @@ void get_vertex_name_test() noexcept
   const auto vd = find_first_vertex_with_name(name,g);
   assert(get_vertex_name(vd,g) == name);
   get_vertex_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

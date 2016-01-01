@@ -25,5 +25,5 @@ void is_isomorphic_test() noexcept
     assert(!is_isomorphic(g,h));
   }
   is_isomorphic_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

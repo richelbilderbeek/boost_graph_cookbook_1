@@ -34,5 +34,5 @@ void remove_first_vertex_with_name_test() noexcept
   }
   #endif // REMOVE_VERTEX_WITHOUT_CLEARING
   remove_first_vertex_with_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -16,5 +16,5 @@ void has_bundled_edge_with_my_edge_test() noexcept
   assert(has_bundled_edge_with_my_edge(my_bundled_edge("Felix"),g));
 
   has_bundled_edge_with_my_edge_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

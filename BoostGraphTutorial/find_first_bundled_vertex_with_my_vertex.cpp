@@ -22,6 +22,6 @@ void find_first_bundled_vertex_with_my_vertex_test() noexcept
   }
 
   find_first_bundled_vertex_with_my_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

@@ -61,5 +61,5 @@ void create_nasty_directed_custom_edges_and_vertices_graph_test() noexcept
     const auto b = get_sorted_custom_edge_my_edges(h);
     assert(a == b);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

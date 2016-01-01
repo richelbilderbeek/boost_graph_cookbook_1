@@ -21,7 +21,7 @@ my_bundled_edge::my_bundled_edge(
 
 void my_bundled_edge_test() noexcept
 {
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept

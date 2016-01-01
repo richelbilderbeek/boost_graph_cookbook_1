@@ -41,5 +41,5 @@ void load_directed_graph_with_graph_name_from_dot_test() noexcept
     );
   }
   load_directed_graph_with_graph_name_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

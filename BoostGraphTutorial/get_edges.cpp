@@ -38,6 +38,6 @@ void get_edge_iterators_test() noexcept
     assert(eip_a.first != eip_a.second);
   }
   get_edge_iterators_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

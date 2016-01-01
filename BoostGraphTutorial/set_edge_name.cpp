@@ -21,5 +21,5 @@ void set_edge_name_test() noexcept
   assert(get_edge_name(vd, g) == new_name);
 
   set_edge_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

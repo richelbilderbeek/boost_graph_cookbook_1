@@ -20,5 +20,5 @@ void remove_edge_between_vertices_with_names_test() noexcept
     assert(boost::num_vertices(g) == 3);
   }
   remove_edge_between_vertices_with_names_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

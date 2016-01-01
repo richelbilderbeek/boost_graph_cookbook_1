@@ -21,7 +21,7 @@ my_bundled_vertex::my_bundled_vertex(
 void my_bundled_vertex_test() noexcept
 {
 
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept

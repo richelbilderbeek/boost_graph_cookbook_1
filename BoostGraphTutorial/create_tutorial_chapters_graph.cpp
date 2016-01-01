@@ -157,5 +157,5 @@ void create_tutorial_chapters_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

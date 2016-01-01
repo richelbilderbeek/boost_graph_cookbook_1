@@ -42,5 +42,5 @@ void get_vertex_descriptors_test() noexcept
     assert(out_degree(vds[2], g) == 2);
   }
   get_vertex_descriptors_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -15,5 +15,5 @@ void get_first_vertex_with_name_out_degree_test() noexcept
     assert(get_first_vertex_with_name_out_degree("My computer", g) == 1);
   }
   get_first_vertex_with_name_out_degree_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

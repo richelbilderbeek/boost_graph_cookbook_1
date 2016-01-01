@@ -22,5 +22,5 @@ void set_my_bundled_edge_test() noexcept
     assert(get_my_bundled_edge(vd, g) == new_name);
   }
   set_my_bundled_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

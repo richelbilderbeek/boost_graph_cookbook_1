@@ -84,7 +84,7 @@ void my_custom_vertex_test() noexcept
     assert(a == c);
     assert(b == d);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept

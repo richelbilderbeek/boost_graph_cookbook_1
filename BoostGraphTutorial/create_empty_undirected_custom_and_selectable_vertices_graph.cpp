@@ -13,5 +13,5 @@ void create_empty_undirected_custom_and_selectable_vertices_graph_test() noexcep
     assert(boost::num_vertices(g) == 0);
   }
   create_empty_undirected_custom_and_selectable_vertices_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

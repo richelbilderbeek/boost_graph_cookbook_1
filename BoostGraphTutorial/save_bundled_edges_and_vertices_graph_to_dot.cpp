@@ -58,5 +58,5 @@ void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
     assert(text != expected_text);
   }
   save_bundled_edges_and_vertices_graph_to_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -90,5 +90,5 @@ void save_graph_to_dot_test() noexcept
   }
 
   save_graph_to_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

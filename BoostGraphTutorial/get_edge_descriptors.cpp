@@ -38,5 +38,5 @@ void get_edge_descriptors_test() noexcept
     //assert(target(eds[0], g) == source(eds[1], g));
   }
   get_edge_descriptors_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

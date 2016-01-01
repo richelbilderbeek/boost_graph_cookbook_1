@@ -63,5 +63,5 @@ void create_k2_graph_test() noexcept
     assert(boost::num_vertices(g) == boost::num_vertices(h));
   }
   create_k2_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

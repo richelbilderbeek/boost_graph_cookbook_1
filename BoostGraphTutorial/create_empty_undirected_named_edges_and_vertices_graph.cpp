@@ -34,6 +34,6 @@ void create_empty_undirected_named_edges_and_vertices_graph_test() noexcept
     assert(expected_edge_names == edge_names);
   }
   create_empty_undirected_named_edges_and_vertices_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 
 }

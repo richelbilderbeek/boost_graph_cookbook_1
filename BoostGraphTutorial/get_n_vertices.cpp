@@ -28,6 +28,6 @@ void get_n_vertices_test() noexcept
     assert(get_n_vertices(g) == 2);
   }
   get_n_vertices_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

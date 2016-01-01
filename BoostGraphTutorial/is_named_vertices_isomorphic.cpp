@@ -39,7 +39,7 @@ void is_named_vertices_isomorphic_test() noexcept
     assert(!is_named_vertices_isomorphic(g,h));
   }
   is_named_vertices_isomorphic_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 

@@ -14,5 +14,5 @@ void set_graph_name_test() noexcept
   set_graph_name("Ralph", g);
   assert(get_graph_name(g) == "Ralph");
   set_graph_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

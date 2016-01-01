@@ -39,7 +39,7 @@ void add_custom_vertex_test() noexcept
     assert(vertices == expected_vertices);
   }
   add_custom_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 

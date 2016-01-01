@@ -22,5 +22,5 @@ void set_my_bundled_vertex_test() noexcept
     assert(get_my_bundled_vertex(vd, g) == new_name);
   }
   set_my_bundled_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

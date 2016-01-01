@@ -28,5 +28,5 @@ void load_undirected_named_edges_and_vertices_graph_from_dot_test() noexcept
     assert(boost::num_vertices(g) == boost::num_vertices(h));
   }
   load_undirected_named_edges_and_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

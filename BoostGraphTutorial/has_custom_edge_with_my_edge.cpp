@@ -16,5 +16,5 @@ void has_custom_edge_with_my_edge_test() noexcept
   assert(has_custom_edge_with_my_edge(my_custom_edge("Felix"),g));
 
   has_custom_edge_with_my_edge_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

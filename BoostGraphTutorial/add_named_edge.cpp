@@ -41,5 +41,5 @@ void add_named_edge_test() noexcept
     assert(edge_names == expected_names);
   }
   add_named_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

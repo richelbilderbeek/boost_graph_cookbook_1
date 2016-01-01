@@ -34,5 +34,5 @@ void get_my_bundled_edges_test() noexcept
     assert(expected_my_edges == edges);
   }
   get_my_bundled_edges_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

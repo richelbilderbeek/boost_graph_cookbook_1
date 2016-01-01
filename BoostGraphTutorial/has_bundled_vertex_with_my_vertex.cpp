@@ -16,5 +16,5 @@ void has_bundled_vertex_with_my_vertex_test() noexcept
   add_bundled_vertex(my_bundled_vertex("Felix"),g);
   assert(has_bundled_vertex_with_my_vertex(my_bundled_vertex("Felix"),g));
   has_bundled_vertex_with_my_vertex_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

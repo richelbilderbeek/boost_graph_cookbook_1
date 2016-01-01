@@ -92,7 +92,7 @@ void my_custom_edge_test() noexcept
     assert(a == c);
     assert(b == d);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 bool operator==(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept

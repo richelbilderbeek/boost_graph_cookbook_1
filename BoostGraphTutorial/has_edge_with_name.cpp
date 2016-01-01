@@ -16,5 +16,5 @@ void has_edge_with_name_test() noexcept
   assert(has_edge_with_name("Felix",g));
 
   has_edge_with_name_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

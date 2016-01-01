@@ -49,5 +49,5 @@ void load_directed_custom_and_selectable_vertices_graph_from_dot_test() noexcept
     );
   }
   load_directed_custom_and_selectable_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

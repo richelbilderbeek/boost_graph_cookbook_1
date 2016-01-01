@@ -41,5 +41,5 @@ void create_all_direct_neighbour_subgraphs_test() noexcept
     }
   }
   create_all_direct_neighbour_subgraphs_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

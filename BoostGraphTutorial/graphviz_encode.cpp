@@ -25,5 +25,5 @@ void graphviz_encode_test() noexcept
       assert(s == u);
     }
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -32,7 +32,7 @@ void get_vertex_iterators_test() noexcept
     assert(vip_a.first != vip_a.second);
   }
   get_vertex_iterators_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 
 }
 

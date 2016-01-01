@@ -40,7 +40,7 @@ void add_custom_edge_test() noexcept
     assert(edges == expected_edges);
   }
   add_custom_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 

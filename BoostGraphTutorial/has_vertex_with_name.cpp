@@ -17,5 +17,5 @@ void has_vertex_with_name_test() noexcept
     assert(has_vertex_with_name("Felix",g));
   }
   has_vertex_with_name_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

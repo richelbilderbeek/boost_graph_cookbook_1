@@ -35,5 +35,5 @@ void load_directed_bundled_vertices_graph_from_dot_test() noexcept
     //See: create_nasty_directed_bundled_vertices_graph
   }
   load_directed_bundled_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

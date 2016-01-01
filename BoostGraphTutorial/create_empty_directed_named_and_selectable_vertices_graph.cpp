@@ -38,5 +38,5 @@ void create_empty_directed_named_and_selectable_vertices_graph_test() noexcept
     assert(boost::num_vertices(g) == 3);
   }
   create_empty_directed_named_and_selectable_vertices_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

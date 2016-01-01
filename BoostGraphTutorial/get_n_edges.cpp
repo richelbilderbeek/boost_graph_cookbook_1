@@ -26,6 +26,6 @@ void get_n_edges_test() noexcept
     assert(get_n_edges(g) == 1);
   }
   get_n_edges_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

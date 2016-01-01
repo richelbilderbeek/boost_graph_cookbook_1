@@ -1,6 +1,5 @@
 #include <fstream>
 #include <boost/graph/graphviz.hpp>
-//#include "create_empty_directed_graph_with_graph_name.h"
 #include "is_regular_file.h"
 
 boost::adjacency_list<

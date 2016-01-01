@@ -47,6 +47,6 @@ void add_named_and_selectable_vertex_test() noexcept
     assert(vertex_names == expected_names);
   }
   add_named_and_selectable_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

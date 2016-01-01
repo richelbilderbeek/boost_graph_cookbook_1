@@ -12,5 +12,5 @@ void create_empty_directed_bundled_vertices_graph_test() noexcept
     assert(boost::num_edges(g) == 0);
     assert(boost::num_vertices(g) == 0);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

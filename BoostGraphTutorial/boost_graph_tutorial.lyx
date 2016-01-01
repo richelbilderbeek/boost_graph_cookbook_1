@@ -756,7 +756,7 @@ Via stream operators
 \begin_inset Text
 
 \begin_layout Plain Layout
-File I/O success
+File I/O constraints
 \end_layout
 
 \end_inset
@@ -765,7 +765,7 @@ File I/O success
 \begin_inset Text
 
 \begin_layout Plain Layout
-Fails, please help!
+Restricted to Graphviz attributes
 \end_layout
 
 \end_inset
@@ -774,7 +774,7 @@ Fails, please help!
 \begin_inset Text
 
 \begin_layout Plain Layout
-Works, with encoding/decoding
+Need encoding and decoding
 \end_layout
 
 \end_inset

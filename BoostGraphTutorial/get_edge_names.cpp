@@ -31,5 +31,5 @@ void get_edge_names_test() noexcept
     assert(expected_names == edge_names);
   }
   get_edge_names_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

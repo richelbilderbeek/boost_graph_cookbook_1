@@ -21,5 +21,5 @@ void get_my_custom_vertexes_test() noexcept
     assert(expected_my_custom_vertexes == vertexes);
   }
   get_my_custom_vertexes_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

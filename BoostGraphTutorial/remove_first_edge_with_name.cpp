@@ -20,7 +20,7 @@ void remove_first_edge_with_name_test() noexcept
     assert(boost::num_vertices(g) == 3);
   }
   remove_first_edge_with_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 

@@ -48,5 +48,5 @@ void create_custom_edges_and_vertices_k3_graph_test() noexcept
     );
   }
   create_custom_edges_and_vertices_k3_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

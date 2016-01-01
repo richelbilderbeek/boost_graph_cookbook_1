@@ -64,5 +64,5 @@ void create_nasty_directed_bundled_vertices_graph_test() noexcept
     const auto b = get_sorted_bundled_vertex_my_vertexes(h);
     assert(a == b);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

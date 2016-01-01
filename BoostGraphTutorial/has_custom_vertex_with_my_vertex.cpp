@@ -17,5 +17,5 @@ void has_custom_vertex_with_my_vertex_test() noexcept
   add_custom_vertex(my_custom_vertex("Felix"),g);
   assert(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("Felix"),g));
   has_custom_vertex_with_my_custom_vertex_demo();
-  std::cout << __func__ << ": OK" << std::endl;
+
 }

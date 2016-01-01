@@ -77,5 +77,5 @@ void create_nasty_undirected_custom_and_selectable_vertices_graph_test() noexcep
       copy_file_mode::allow_overwrite
     );
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

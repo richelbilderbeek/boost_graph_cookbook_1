@@ -141,5 +141,5 @@ void save_named_vertices_graph_to_dot_test() noexcept
     assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
   }
   save_named_vertices_graph_to_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

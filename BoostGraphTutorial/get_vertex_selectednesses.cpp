@@ -24,5 +24,5 @@ void get_vertex_selectednesses_test() noexcept
     assert(expected_selectednesses == vertex_selectednesses);
   }
   get_vertex_selectednesses_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

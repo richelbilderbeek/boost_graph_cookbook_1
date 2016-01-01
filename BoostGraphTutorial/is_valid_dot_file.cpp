@@ -39,5 +39,5 @@ void is_valid_dot_file_test() noexcept
     save_graph_to_dot(g,filename);
     assert(is_valid_dot_file(filename));
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

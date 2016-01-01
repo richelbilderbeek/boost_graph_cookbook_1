@@ -18,5 +18,5 @@ void get_my_bundled_vertexes_test() noexcept
     };
     assert(expected_my_vertexes == vertexes);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -45,5 +45,5 @@ void save_custom_and_selectable_vertices_graph_to_dot_test() noexcept
       == get_sorted_vertex_selectednesses(h)
     );
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

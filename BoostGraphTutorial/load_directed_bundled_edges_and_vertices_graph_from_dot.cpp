@@ -60,5 +60,5 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     );
   }
   load_directed_bundled_edges_and_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

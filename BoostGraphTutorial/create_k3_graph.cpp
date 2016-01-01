@@ -41,5 +41,5 @@ void create_k3_graph_test() noexcept
     );
   }
   create_k3_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

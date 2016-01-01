@@ -32,5 +32,5 @@ void add_vertex_test() noexcept
     assert(boost::num_edges(g) == 0);
   }
   add_vertex_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

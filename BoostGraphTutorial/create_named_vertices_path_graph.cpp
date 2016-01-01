@@ -64,5 +64,5 @@ void create_named_vertices_path_graph_test() noexcept
     );
   }
   create_named_vertices_path_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

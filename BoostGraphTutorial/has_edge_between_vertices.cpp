@@ -47,5 +47,5 @@ void has_edge_between_vertices_test() noexcept
     assert(cnt == 4);
   }
   has_edge_between_vertices_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

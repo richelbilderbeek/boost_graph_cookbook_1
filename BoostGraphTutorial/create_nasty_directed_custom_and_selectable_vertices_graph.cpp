@@ -83,5 +83,5 @@ void create_nasty_directed_custom_and_selectable_vertices_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

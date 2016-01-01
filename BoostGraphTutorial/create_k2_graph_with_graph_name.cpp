@@ -58,5 +58,5 @@ void create_k2_graph_with_graph_name_test() noexcept
 
   }
   create_k2_graph_with_graph_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

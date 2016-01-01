@@ -73,5 +73,5 @@ void create_bundled_vertices_markov_chain_test() noexcept
     );
   }
   create_bundled_vertices_markov_chain_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

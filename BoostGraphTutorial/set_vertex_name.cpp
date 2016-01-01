@@ -21,5 +21,5 @@ void set_vertex_name_test() noexcept
   assert(get_vertex_name(vd, g) == new_name);
 
   set_vertex_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

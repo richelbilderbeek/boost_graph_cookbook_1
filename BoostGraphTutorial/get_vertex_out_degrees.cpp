@@ -28,5 +28,5 @@ void get_vertex_out_degrees_test() noexcept
     assert(expected_out_degrees == vertex_out_degrees);
   }
   get_vertex_out_degrees_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

@@ -26,5 +26,5 @@ void load_undirected_named_vertices_graph_from_dot_test() noexcept
     assert(get_vertex_names(g) == get_vertex_names(h));
   }
   load_undirected_named_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

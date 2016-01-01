@@ -57,5 +57,5 @@ void create_nasty_directed_custom_vertices_graph_test() noexcept
     const auto b = get_sorted_custom_vertex_my_vertexes(h);
     assert(a == b);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

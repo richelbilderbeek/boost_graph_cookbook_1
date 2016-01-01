@@ -19,6 +19,6 @@ void find_first_bundled_edge_with_my_edge_test() noexcept
   }
 
   find_first_bundled_edge_with_my_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 

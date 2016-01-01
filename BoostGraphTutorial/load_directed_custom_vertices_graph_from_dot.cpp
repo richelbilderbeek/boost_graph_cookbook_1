@@ -46,5 +46,5 @@ void load_directed_custom_vertices_graph_from_dot_test() noexcept
     assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
   load_directed_custom_vertices_graph_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

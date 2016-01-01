@@ -25,5 +25,5 @@ void load_undirected_graph_with_graph_name_from_dot_test() noexcept
     assert(get_graph_name(g) == get_graph_name(h));
   }
   load_undirected_graph_with_graph_name_from_dot_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

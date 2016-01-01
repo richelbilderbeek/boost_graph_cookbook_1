@@ -21,5 +21,5 @@ void create_empty_directed_graph_test() noexcept
   add_vertex(g);
 
   create_empty_directed_graph_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

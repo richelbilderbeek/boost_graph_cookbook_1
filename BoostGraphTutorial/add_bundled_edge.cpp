@@ -41,7 +41,7 @@ void add_bundled_edge_test() noexcept
     assert(edges == expected_edges);
   }
   add_bundled_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
 
 

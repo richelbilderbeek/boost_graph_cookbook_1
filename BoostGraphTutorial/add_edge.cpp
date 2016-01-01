@@ -31,5 +31,5 @@ void add_edge_test() noexcept
     assert(boost::num_edges(g) == 1);
   }
   add_edge_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

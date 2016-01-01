@@ -55,5 +55,5 @@ void create_nasty_directed_named_vertices_graph_test() noexcept
     const auto b = get_sorted_vertex_names(h);
     assert(a == b);
   }
-  std::cout << __func__ << ": OK" << '\n';
+  
 }

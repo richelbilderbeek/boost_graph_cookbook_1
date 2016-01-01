@@ -15,5 +15,5 @@ void clear_first_vertex_with_name_test() noexcept
   clear_first_vertex_with_name("My computer",g);
   assert(boost::num_edges(g) == 0);
   clear_first_vertex_with_name_demo();
-  std::cout << __func__ << ": OK" << '\n';
+  
 }
