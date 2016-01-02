@@ -158,10 +158,17 @@
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
 #include "create_custom_vertices_path_graph.h"
 #include "is_custom_vertices_isomorphic.h"
+#include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
+#include "add_custom_and_selectable_edge.h"
+
 #include <iostream>
 
 int main()
 {
+  add_custom_and_selectable_edge_test();
+  create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_test();
+  create_empty_directed_custom_and_selectable_edges_and_vertices_graph_test();
   is_custom_vertices_isomorphic_test();
   create_custom_vertices_path_graph_test();
   save_custom_and_selectable_vertices_graph_to_dot_test();

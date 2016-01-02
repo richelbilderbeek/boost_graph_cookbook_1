@@ -1,0 +1,39 @@
+#include <type_traits>
+#include <boost/graph/adjacency_list.hpp>
+#include "install_edge_custom_type.h"
+#include "install_edge_is_selected.h"
+#include "my_custom_edge.h"
+
+template <typename graph>
+std::pair<
+  typename boost::graph_traits<graph>::edge_descriptor,
+  bool
+>
+add_custom_and_selectable_edge(
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_from,
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_to,
+  const my_custom_edge& edge,
+  const bool is_selected,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  const auto aer = boost::add_edge(vd_from, vd_to, g);
+  assert(aer.second);
+
+  const auto my_custom_edge_map
+    = get(boost::edge_custom_type,
+      g
+    );
+  put(my_custom_edge_map, aer.first, edge);
+
+  const auto is_selected_map
+    = get(boost::edge_is_selected,
+      g
+    );
+  put(is_selected_map, aer.first, is_selected);
+  return aer;
+}
