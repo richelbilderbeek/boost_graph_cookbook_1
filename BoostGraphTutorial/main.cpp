@@ -159,13 +159,15 @@
 #include "create_custom_vertices_path_graph.h"
 #include "is_custom_vertices_isomorphic.h"
 #include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 #include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
 #include "add_custom_and_selectable_edge.h"
-
+#include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
 #include <iostream>
 
 int main()
 {
+  create_custom_and_selectable_edges_and_vertices_markov_chain_test();
   add_custom_and_selectable_edge_test();
   create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_test();
   create_empty_directed_custom_and_selectable_edges_and_vertices_graph_test();

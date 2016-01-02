@@ -188,9 +188,10 @@ HEADERS += \
     $$PWD/custom_vertex_invariant.h \
     $$PWD/is_custom_vertices_isomorphic.h \
     $$PWD/create_custom_vertices_path_graph.h \
-    create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h \
-    create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h \
-    add_custom_and_selectable_edge.h
+    $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h \
+    $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h \
+    $$PWD/add_custom_and_selectable_edge.h \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -375,9 +376,10 @@ SOURCES += \
     $$PWD/install_edge_is_selected.cpp \
     $$PWD/is_custom_vertices_isomorphic.cpp \
     $$PWD/create_custom_vertices_path_graph.cpp \
-    create_empty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
-    create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.cpp \
-    add_custom_and_selectable_edge.cpp
+    $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
+    $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.cpp \
+    $$PWD/add_custom_and_selectable_edge.cpp \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -673,10 +675,12 @@ OTHER_FILES += \
     $$PWD/create_custom_vertices_path_graph.impl \
     $$PWD/create_custom_vertices_path_graph_demo.impl \
     $$PWD/is_graphviz_friendly.impl \
-    create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl \
-    create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo.impl \
-    create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.impl \
-    create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo.impl \
-    add_custom_and_selectable_edge.impl \
-    add_custom_and_selectable_edge_demo.impl
+    $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl \
+    $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo.impl \
+    $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.impl \
+    $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo.impl \
+    $$PWD/add_custom_and_selectable_edge.impl \
+    $$PWD/add_custom_and_selectable_edge_demo.impl \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.impl \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl
 

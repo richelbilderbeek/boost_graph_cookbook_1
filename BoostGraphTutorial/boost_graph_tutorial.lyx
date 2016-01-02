@@ -34311,7 +34311,8 @@ Stream zeroes
 \end_layout
 
 \begin_layout Standard
-When loading a graph from a .dot file, in operator>>, do not eat characters:
+When loading a graph from a .dot file, in operator>>, I encountered reading
+ zeroes, where I expected an XML formatted string:
 \end_layout
 
 \begin_layout Standard
@@ -34321,7 +34322,7 @@ status open
 
 \begin_layout Plain Layout
 
-std::istream& ribi::cmap::operator>>(std::istream& is, Concept& concept)
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
  noexcept
 \end_layout
 
@@ -34332,62 +34333,22 @@ std::istream& ribi::cmap::operator>>(std::istream& is, Concept& concept)
 
 \begin_layout Plain Layout
 
-  //eat until '</concept>'
-\end_layout
-
-\begin_layout Plain Layout
-
-  is >> std::noskipws;
-\end_layout
-
-\begin_layout Plain Layout
-
   std::string s;
 \end_layout
 
 \begin_layout Plain Layout
 
-  while (1)
+  is >> s; //s has an XML format
 \end_layout
 
 \begin_layout Plain Layout
 
-  {
+  assert(s == "0");
 \end_layout
 
 \begin_layout Plain Layout
 
-    char c;
-\end_layout
-
-\begin_layout Plain Layout
-
-    is >> c;
-\end_layout
-
-\begin_layout Plain Layout
-
-    s += c;
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert(s != "00000000000000000000000");
-\end_layout
-
-\begin_layout Plain Layout
-
-    if(s.size() > 10 && s.substr(s.size() - 10,10) == "</concept>") break;
-\end_layout
-
-\begin_layout Plain Layout
-
-  }
-\end_layout
-
-\begin_layout Plain Layout
-
-  concept = XmlToConcept(s);
+  any_class_class = my_class(s);
 \end_layout
 
 \begin_layout Plain Layout
@@ -34406,8 +34367,209 @@ std::istream& ribi::cmap::operator>>(std::istream& is, Concept& concept)
 \end_layout
 
 \begin_layout Standard
-boost::read_graphviz will, as shown by the assert, produce all zeroes.
- Instead, read/write a std::string:
+This was because I misconfigured the reader.
+ I did (heavily simplified code):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+graph load_from_dot(const std::string& dot_filename)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::ifstream f(dot_filename.c_str());
+\end_layout
+
+\begin_layout Plain Layout
+
+  graph g;
+\end_layout
+
+\begin_layout Plain Layout
+
+  boost::dynamic_properties dp;
+\end_layout
+
+\begin_layout Plain Layout
+
+  dp.property("node_id", get(boost::vertex_custom_type, g));
+\end_layout
+
+\begin_layout Plain Layout
+
+  dp.property("label", get(boost::vertex_custom_type, g));
+\end_layout
+
+\begin_layout Plain Layout
+
+  boost::read_graphviz(f,g,dp);
+\end_layout
+
+\begin_layout Plain Layout
+
+  return g;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where it should have been:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+graph load_from_dot(const std::string& dot_filename)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::ifstream f(dot_filename.c_str());
+\end_layout
+
+\begin_layout Plain Layout
+
+  graph g;
+\end_layout
+
+\begin_layout Plain Layout
+
+  boost::dynamic_properties dp(boost::ignore_other_properties);
+\end_layout
+
+\begin_layout Plain Layout
+
+  dp.property("label", get(boost::vertex_custom_type, g));
+\end_layout
+
+\begin_layout Plain Layout
+
+  boost::read_graphviz(f,g,dp);
+\end_layout
+
+\begin_layout Plain Layout
+
+  return g;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The explanation is that by setting the boost::dynamic_property 'node_id'
+ to 'boost::vertex_custom_type', operator>> will receive the node indices.
+ 
+\end_layout
+
+\begin_layout Standard
+An alternative, but less clean solution, is to let operator>> ignore the
+ node indices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
+ noexcept
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::string s;
+\end_layout
+
+\begin_layout Plain Layout
+
+  is >> s; //s has an XML format
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (!is_xml(s)) { //Ignore node index
+\end_layout
+
+\begin_layout Plain Layout
+
+    any_class_class = my_class(); 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else {
+\end_layout
+
+\begin_layout Plain Layout
+
+    any_class_class = my_class(s);
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  return is;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

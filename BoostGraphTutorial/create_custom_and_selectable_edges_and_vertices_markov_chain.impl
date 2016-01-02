@@ -1,0 +1,62 @@
+#include <cassert>
+#include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include "add_custom_and_selectable_edge.h"
+#include "add_custom_and_selectable_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::directedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<
+      boost::vertex_is_selected_t, bool
+    >
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_custom_edge,
+    boost::property<
+      boost::edge_is_selected_t, bool
+    >
+  >
+>
+create_custom_and_selectable_edges_and_vertices_markov_chain() noexcept
+{
+  auto g
+    = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();
+  const auto vd_a = add_custom_and_selectable_vertex(
+    my_custom_vertex("Sunny","Yellow thing",1.0,2.0),
+    true,
+    g
+  );
+  const auto vd_b = add_custom_and_selectable_vertex(
+    my_custom_vertex("Rainy", "Grey things",3.0,4.0),
+    false,
+    g
+  );
+  add_custom_and_selectable_edge(
+    vd_a, vd_a,
+    my_custom_edge("A to A"),
+    true,
+    g
+  );
+  add_custom_and_selectable_edge(
+    vd_a, vd_b,
+    my_custom_edge("A to B"),
+    false,
+    g
+  );
+  add_custom_and_selectable_edge(
+    vd_b, vd_a,
+    my_custom_edge("B to A"),
+    false,
+    g
+  );
+  add_custom_and_selectable_edge(
+    vd_b, vd_b,
+    my_custom_edge("B to B"),
+    true,
+    g
+  );
+  return g;
+}

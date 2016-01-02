@@ -11,9 +11,9 @@ load_directed_graph_from_dot(
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_graph();
-  boost::dynamic_properties p(
+  boost::dynamic_properties dp(
     boost::ignore_other_properties
   );
-  boost::read_graphviz(f,g,p);
+  boost::read_graphviz(f,g,dp);
   return g;
 }

@@ -19,8 +19,7 @@ load_undirected_custom_vertices_graph_from_dot(
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_custom_vertices_graph();
-  boost::dynamic_properties dp; 
-  dp.property("node_id", get(boost::vertex_custom_type, g));
+  boost::dynamic_properties dp(boost::ignore_other_properties); 
   dp.property("label", get(boost::vertex_custom_type, g));
   boost::read_graphviz(f,g,dp);
   return g;
