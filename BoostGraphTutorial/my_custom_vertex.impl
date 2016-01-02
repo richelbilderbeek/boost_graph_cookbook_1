@@ -23,5 +23,7 @@ private:
 
 bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
 bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+bool operator<(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+
 std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept;
 std::istream& operator>>(std::istream& os, my_custom_vertex& v) noexcept;

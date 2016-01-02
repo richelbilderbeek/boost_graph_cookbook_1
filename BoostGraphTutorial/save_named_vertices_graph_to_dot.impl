@@ -1,8 +1,8 @@
 #include <fstream>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
-
 #include "get_vertex_names.h"
+#include "is_graphviz_friendly.h"
 
 template <typename graph>
 void save_named_vertices_graph_to_dot(
@@ -11,7 +11,8 @@ void save_named_vertices_graph_to_dot(
 ) noexcept
 {
   std::ofstream f(filename);
-  const auto names = get_vertex_names(g);
+  const auto names
+    = get_vertex_names(g); //Can be Graphviz-unfriendly
   boost::write_graphviz(
     f,
     g,

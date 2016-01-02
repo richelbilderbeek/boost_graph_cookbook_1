@@ -18,9 +18,9 @@ load_undirected_named_vertices_graph_from_dot(
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_undirected_named_vertices_graph();
-  boost::dynamic_properties p;
-  p.property("node_id", get(boost::vertex_name, g));
-  p.property("label", get(boost::vertex_name, g));
-  boost::read_graphviz(f,g,p);
+  boost::dynamic_properties dp;
+  dp.property("node_id", get(boost::vertex_name, g));
+  dp.property("label", get(boost::vertex_name, g));
+  boost::read_graphviz(f,g,dp);
   return g;
 }

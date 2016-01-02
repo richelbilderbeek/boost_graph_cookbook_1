@@ -1,5 +1,6 @@
 #include <ostream>
 #include "graphviz_encode.h"
+#include "is_graphviz_friendly.h"
 
 template <
   typename graph

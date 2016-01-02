@@ -9,6 +9,7 @@
 #include "add_bundled_edge.h"
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
+#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
 #include "create_bundled_edges_and_vertices_markov_chain.h"
 #include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
 #include "get_sorted_bundled_edge_my_edges.h"
@@ -58,6 +59,25 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
       "../BoostGraphTutorial/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
+  }
+  //Load incorrect .dot files: write an undirected graph
+  {
+    try
+    {
+      const auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
+      //                          ^^
+      const std::string filename{
+        "create_empty_undirected_bundled_edges_and_vertices_graph.dot"
+      };
+      save_bundled_edges_and_vertices_graph_to_dot(g, filename);
+      const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(filename);
+      assert(!"Should not get here");
+    }
+    catch (std::exception& e)
+    {
+      assert(std::string(e.what())
+        == "read_graphviz: Tried to read an undirected graph into a directed graph.");
+    }
   }
   load_directed_bundled_edges_and_vertices_graph_from_dot_demo();
   

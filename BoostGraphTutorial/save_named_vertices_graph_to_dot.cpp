@@ -13,6 +13,7 @@
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_vertices_markov_chain.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
+#include "create_nasty_directed_named_vertices_graph.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "set_vertex_names.h"
@@ -103,28 +104,8 @@ void save_named_vertices_graph_to_dot_test() noexcept
   }
   //Will it break if the vertices have named with spaces
   {
-    auto g = create_named_vertices_k2_graph();
-    const std::string word_1{"Hello world"};
-    const std::string word_2{"Hasta la vista"};
-    const std::vector<std::string> v{word_1, word_2};
-    set_vertex_names(g,v);
-
-    const std::string base_filename{"save_named_vertices_graph_to_dot_test_named_vertices_k2_graph_with_space"};
-    const std::string dot_filename{base_filename + ".dot"};
-
-    save_named_vertices_graph_to_dot(g,dot_filename);
-    const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
-    };
-    assert(!text.empty());
-    const std::vector<std::string> expected_text{
-      "graph G {",
-      "0[label=\"" + word_1 + "\"];",
-      "1[label=\"" + word_2 + "\"];",
-      "0--1 ;",
-      "}"
-    };
-    assert(text == expected_text);
+    //See load_directed_named_vertices_graph_from_dot_test
+    //for nasty tests
   }
   //Compare ways of save_named_vertices_graph_to_dot to be equivalent:
   // - use boost::make_label_writes

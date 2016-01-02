@@ -105,6 +105,7 @@
 #include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
 #include "helper.h"
+#include "is_graphviz_friendly.h"
 #include "is_isomorphic.h"
 #include "is_named_vertices_isomorphic.h"
 #include "is_valid_dot_file.h"
@@ -153,11 +154,18 @@
 #include "set_my_custom_vertex.h"
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
-
+#include "get_sorted_vertex_names.h"
+#include "save_custom_and_selectable_vertices_graph_to_dot.h"
+#include "create_custom_vertices_path_graph.h"
+#include "is_custom_vertices_isomorphic.h"
 #include <iostream>
 
 int main()
 {
+  is_custom_vertices_isomorphic_test();
+  create_custom_vertices_path_graph_test();
+  save_custom_and_selectable_vertices_graph_to_dot_test();
+  get_sorted_vertex_names_test();
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_vertex_test();
@@ -265,6 +273,7 @@ int main()
   has_edge_with_name_test();
   has_vertex_with_name_test();
   helper();
+  is_graphviz_friendly_test();
   is_isomorphic_test();
   is_named_vertices_isomorphic_test();
   is_valid_dot_file_test();

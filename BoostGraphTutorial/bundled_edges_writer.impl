@@ -1,6 +1,7 @@
+#include <sstream>
 #include <ostream>
 #include "graphviz_encode.h"
-
+#include "is_graphviz_friendly.h"
 template <typename graph>
 class bundled_edges_writer {
 public:
@@ -15,8 +16,7 @@ public:
     std::ostream& out,
     const edge_descriptor& ed
   ) const noexcept {
-    out
-      << "[label=\""
+    out << "[label=\""
         << graphviz_encode(
           m_g[ed].m_name
         )

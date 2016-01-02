@@ -1,0 +1,6 @@
+#include "graphviz_encode.h"
+
+bool is_graphviz_friendly(const std::string& s) noexcept
+{
+  return graphviz_encode(s) == s;
+}

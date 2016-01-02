@@ -47,6 +47,8 @@ create_nasty_directed_custom_and_selectable_vertices_graph() noexcept
     add_custom_and_selectable_vertex(my_custom_vertex("A\"B","C\"D"), i % 2, g);
     //Commas
     add_custom_and_selectable_vertex(my_custom_vertex("A,B",",C,D,"), i % 2, g);
+    //Tags
+    add_custom_and_selectable_vertex(my_custom_vertex("A<B",",C>D,"), i % 2, g);
     //Escape sequence
     add_custom_and_selectable_vertex(my_custom_vertex("A\"];","B\"];"), i % 2, g);
   }

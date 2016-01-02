@@ -1,0 +1,30 @@
+#include <cassert>
+#include "create_custom_vertices_path_graph.h"
+#include "is_custom_vertices_isomorphic.h"
+
+void is_custom_vertices_isomorphic_demo() noexcept
+{
+  const auto g = create_custom_vertices_path_graph(
+    {
+      my_custom_vertex("Alpha"),
+      my_custom_vertex("Beta"),
+      my_custom_vertex("Gamma")
+    }
+  );
+  const auto h = create_custom_vertices_path_graph(
+    {
+      my_custom_vertex("Gamma"),
+      my_custom_vertex("Beta"),
+      my_custom_vertex("Alpha")
+    }
+  );
+  const auto i = create_custom_vertices_path_graph(
+    {
+      my_custom_vertex("Alpha"),
+      my_custom_vertex("Gamma"),
+      my_custom_vertex("Beta")
+    }
+  );
+  assert( is_custom_vertices_isomorphic(g,h));
+  assert(!is_custom_vertices_isomorphic(g,i));
+}

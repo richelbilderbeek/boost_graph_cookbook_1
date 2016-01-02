@@ -21,11 +21,11 @@ load_directed_named_edges_and_vertices_graph_from_dot(
   assert(is_regular_file(dot_filename));
   std::ifstream f(dot_filename.c_str());
   auto g = create_empty_directed_named_edges_and_vertices_graph();
-  boost::dynamic_properties p; 
-  p.property("node_id", get(boost::vertex_name, g));
-  p.property("label", get(boost::vertex_name, g));
-  p.property("edge_id", get(boost::edge_name, g));
-  p.property("label", get(boost::edge_name, g));
-  boost::read_graphviz(f,g,p);
+  boost::dynamic_properties dp; 
+  dp.property("node_id", get(boost::vertex_name, g));
+  dp.property("label", get(boost::vertex_name, g));
+  dp.property("edge_id", get(boost::edge_name, g));
+  dp.property("label", get(boost::edge_name, g));
+  boost::read_graphviz(f,g,dp);
   return g;
 }

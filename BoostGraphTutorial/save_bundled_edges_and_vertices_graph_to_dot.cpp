@@ -15,11 +15,11 @@
 
 void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
 {
-  //Show it does store the vertex names
+  //Show how it stores the create_bundled_edges_and_vertices_k3_graph
   {
     const auto g = create_bundled_edges_and_vertices_k3_graph();
 
-    const std::string base_filename{"save_bundled_edges_and_vertices_graph_to_dot_test_bundled_edges_and_vertices_k3_graph"};
+    const std::string base_filename{"create_bundled_edges_and_vertices_k3_graph"};
     const std::string dot_filename{base_filename + ".dot"};
 
     save_bundled_edges_and_vertices_graph_to_dot(g,dot_filename);
@@ -27,35 +27,19 @@ void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
-    assert(!text.empty());
-    const std::vector<std::string> expected_text{
-      "digraph G {",
-      "}"
-    };
-    assert(text != expected_text);
-  }
-  //Show it does not store the edges' names
-  {
-    const auto g = create_bundled_edges_and_vertices_k3_graph();
-    const std::string base_filename{"save_bundled_edges_and_vertices_graph_to_dot_test_bundled_edges_and_vertices_k3_graph"};
-    const std::string dot_filename{base_filename + ".dot"};
-
-    save_bundled_edges_and_vertices_graph_to_dot(g,dot_filename);
-    const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
-    };
+    //for (const auto s: text) { std::cerr << s << '\n'; }
     assert(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
-      "0[label=top];",
-      "1[label=right];",
-      "2[label=left];",
-      "0--1 ;",
-      "1--2 ;",
-      "2--0 ;",
+      "0[label=\"Red\",comment=\"Not$$$SPACE$$$green\",width=1,height=2];",
+      "1[label=\"Light$$$SPACE$$$red\",comment=\"Not$$$SPACE$$$dark\",width=3,height=4];",
+      "2[label=\"Orange\",comment=\"Orangy\",width=5,height=6];",
+      "0--1 [label=\"Oxygen\",comment=\"Air\",width=1,height=2];",
+      "1--2 [label=\"Helium\",comment=\"From$$$SPACE$$$tube\",width=3,height=4];",
+      "2--0 [label=\"Stable$$$SPACE$$$temperature\",comment=\"Here\",width=5,height=6];",
       "}"
     };
-    assert(text != expected_text);
+    assert(text == expected_text);
   }
   save_bundled_edges_and_vertices_graph_to_dot_demo();
   

@@ -33,6 +33,8 @@ create_nasty_directed_named_vertices_graph() noexcept
     add_named_vertex(" \"A\"B\"\" ", g);
     //Commas
     add_named_vertex(" A,B,, ", g);
+    //Long name
+    add_named_vertex(std::string(999,'A') + std::string(999,'B'), g);
     //Escape sequence
     add_named_vertex("A\"];", g);
   }

@@ -21,10 +21,10 @@ void property_not_found_node_id() noexcept
 
   //Line below should have been
   //  boost::dynamic_properties p(boost::ignore_other_properties);
-  boost::dynamic_properties p; //Error
+  boost::dynamic_properties dp; //Error
 
   try {
-    boost::read_graphviz(f,g,p);
+    boost::read_graphviz(f,g,dp);
   }
   catch (std::exception&) {
     return; //Should get here

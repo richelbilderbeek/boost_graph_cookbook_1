@@ -34,6 +34,8 @@ create_nasty_undirected_bundled_edges_and_vertices_graph() noexcept
     add_bundled_edge(my_bundled_edge("A\"B","C\"D"), g);
     //Commas
     add_bundled_edge(my_bundled_edge("A,B",",C,D,"), g);
+    //Long name
+    add_bundled_edge(my_bundled_edge(std::string(999,'A'),std::string(999,'B')), g);
     //Escape sequence
     add_bundled_edge(my_bundled_edge("A\"];","B\"];"), g);
   }

@@ -1,5 +1,6 @@
 #include <ostream>
-
+#include <boost/lexical_cast.hpp>
+#include "is_graphviz_friendly.h"
 template <
   typename my_custom_vertex_map,
   typename is_selected_map
@@ -19,8 +20,10 @@ public:
     std::ostream& out,
     const vertex_descriptor& vd
   ) const noexcept {
-    out << "[label=\"" << m_my_custom_vertex_map[vd]
-      << "\", regular=\"" << m_is_selected_map[vd]
+    out << "[label=\""
+      << get(m_my_custom_vertex_map, vd) //Can be Graphviz unfriendly
+      << "\", regular=\""
+      << get(m_is_selected_map,vd)
       << "\"]"
     ;
   }

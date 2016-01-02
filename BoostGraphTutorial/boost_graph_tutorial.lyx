@@ -12284,7 +12284,7 @@ Compare the two graphs with that map
 Below the class 'named_vertex_invariant' is shown.
  Its std::map maps the vertex names to an unsigned integer, which is done
  in the member function 'collect_names'.
- The purpose of this, is that is is easier to compare integers that std::strings.
+ The purpose of this, is that is is easier to compare integers than std::strings.
 \end_layout
 
 \begin_layout Standard
@@ -23778,6 +23778,464 @@ name "fig:create_custom_vertices_k2_graph.svg"
 
 \end_layout
 
+\begin_layout Subsection
+▶ Creating a path graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create path graph with custom vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Path graph with custom vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we create a path graph with custom vertices
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a path graph with four vertices (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_custom_vertices_path_graph"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=black}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(C){D}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(C)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(D)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A path graph with four vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a path graph, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_path_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a path graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_custom_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create custom vertices path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_path_graph_demo"
+
+\end_inset
+
+ demonstrates how to create a path graph with named vertices and checks
+ if it has the correct amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_vertices_path_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of 'create_named_vertices_path_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_path_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_vertices_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_path_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_vertices_path_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_named_vertices_path_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_path_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_vertices_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_vertices_path_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_custom_vertices_path_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_vertices_path_graph_4.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_named_vertices_path_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_path_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_vertices_path_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Working on graphs with custom vertices (as a custom property)
 \end_layout
@@ -24484,6 +24942,226 @@ An impressive feature is that getting the property map holding the graph
  its names is not a copy, but a reference.
  Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
  only modify a copy.
+\end_layout
+
+\begin_layout Subsection
+▶ Are two graphs with custom vertices isomorphic?
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_custom_vertices_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:is_named_vertices_isomorphic"
+
+\end_inset
+
+ checked if two graphs with named vertices are 'label isomorphic'.
+ Here, we do the same for custom vertices.
+\end_layout
+
+\begin_layout Standard
+To do this, there are two steps needed:
+\end_layout
+
+\begin_layout Enumerate
+Map all my_custom_vertex objects to an unsigned int.
+\end_layout
+
+\begin_layout Enumerate
+Compare the two graphs with that map
+\end_layout
+
+\begin_layout Standard
+Below the class 'my_custom_vertex_invariant' is shown.
+ Its std::map maps the vertex names to an unsigned integer, which is done
+ in the member function 'collect_names'.
+ The purpose of this, is that is is easier to compare integers than custom
+ vertices.
+ Note that operator<
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+operator<
+\end_layout
+
+\end_inset
+
+ must be implemented for the custom class for this to compile.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "custom_vertex_invariant.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The 'custom_vertex_invariant' functor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+custom_vertex_invariant
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:custom_vertex_invariant"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To check for 'custom vertexness isomorphism', multiple things need to be
+ put in place for 'boost::isomorphism'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::isomorphism
+\end_layout
+
+\end_inset
+
+ to work with:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_custom_vertices_isomorphic.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if two graphs with custom vertices are isomorphic
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Is isomorphic
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_custom_vertices_isomorphic"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code creates three path graphs, of which two are 'label
+ isomorphic':
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_custom_vertices_isomorphic_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'is_named_vertices_isomorphic' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_named_vertices_isomorphic_demo-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -26524,6 +27202,11 @@ reference "sub:Graphviz-attributes"
 \end_inset
 
  for most Graphviz attributes).
+\end_layout
+
+\begin_layout Standard
+Special about this, is that even for Graphviz-unfriendly input, it still
+ works.
 \end_layout
 
 \begin_layout Subsection
@@ -29463,6 +30146,1833 @@ reference "alg:create_custom_vertices_k2_graph"
 \end_layout
 
 \begin_layout Section
+Building graphs with custom and selectable edges and vertices
+\end_layout
+
+\begin_layout Standard
+Now also the edge can be selected
+\end_layout
+
+\begin_layout Itemize
+An empty directed graph that allows for custom and selectable vertices:
+ see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An empty undirected graph that allows for custom and selectable vertices:
+ see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A two-state Markov chain with custom and selectable vertices: see chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with custom and selectable vertices: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the process, some basic (sometimes bordering trivial) functions are shown:
+\end_layout
+
+\begin_layout Itemize
+Installing the new edge property: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:install_is_selected-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adding a custom and selectable vertex: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_and_selectable_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are mostly there for completion and showing which data types
+ are used.
+\end_layout
+
+\begin_layout Subsection
+Installing the new is_selected property
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:install_is_selected-1"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edge_is_selected
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+edge_is_selected_t
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Installing a new property would have been easier, if 'more C++ compilers
+ were standards conformant' (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+, chapter 3.6, footnote at page 52).
+ Boost.Graph uses the BOOST_INSTALL_PROPERTY
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+BOOST_INSTALL_PROPERTY
+\end_layout
+
+\end_inset
+
+ macro
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+macro
+\end_layout
+
+\end_inset
+
+ to allow using a custom property:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "install_edge_is_selected.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Installing the edge_is_selected property
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Install edge_is_selected
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:install_edge_is_selected"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The enum value 31415 must be unique.
+\end_layout
+
+\begin_layout Subsection
+Create an empty directed graph with custom and selectable edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty directed graph with custom and selectable edges and vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty directed custom and selectable edges and vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_vertices_graph"
+
+\end_inset
+
+, except that there is a new, fifth template argument:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+boost::property<boost::edge_custom_type_t, my_custom_edge, 
+\end_layout
+
+\begin_layout Plain Layout
+
+  boost::property<boost::edge_is_selected_t, bool, 
+\end_layout
+
+\begin_layout Plain Layout
+
+>
+\end_layout
+
+\end_inset
+
+This can be read as: 
+\begin_inset Quotes eld
+\end_inset
+
+edges have two properties: an associated custom type (of type my_custom_edge)
+ and an associated is_selected property (of type bool)
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_empty_directed_custom_and_selectable_edges_and_vert
+ices_graph' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create an empty undirected graph with custom and selectable edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating an empty undirected graph with custom and selectable edges and
+ vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create empty undirected custom and selectable edges and vertices graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This code is very similar to the code described in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph"
+
+\end_inset
+
+, except that the directedness (the third template argument) is undirected
+ (due to the boost::undirectedS
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::undirectedS
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'create_empty_undirected_custom_and_selectable_edges_and_ve
+rtices_graph' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Add a custom and selectable edge
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_custom_and_selectable_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adding a custom and selectable edge is very similar to adding a custom and
+ selectable vertex (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:add_custom_and_selectable_vertex"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_and_selectable_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add a custom and selectable edge
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add custom and selectable edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_and_selectable_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having added a new (abstract) edge to the graph, the edge descriptor
+ is used to set the my_custom_edge and the selectedness in the graph its
+ my_custom_edge and is_selected map .
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_custom_and_selectable_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of 'add_custom_and_selectable_vertex'
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_custom_and_selectable_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating a Markov-chain with custom and selectable vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+ shows the graph that will be reproduced:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick
+]   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (A) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Sunny, You [...], 1.0, 2.0};   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[state] (B) [right of=A] 
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Rainy, Many [...], 3.0, 4.0}
+\end_layout
+
+\begin_layout Plain Layout
+
+  ;   
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (A) edge [loop above] node {AA,self,1,2} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (A) edge [bend  left] node {AB,nonself,3,4} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [bend  left] node {BA,nonself,4,5} (A)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (B) edge [loop above] node {BB,self,6,7} (B); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A two-state Markov chain where the edges and vertices have custom properies.
+ The edges' and vertices' properties are nonsensical
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the code creating a two-state Markov chain with custom edges and
+ vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_and_selectable_edges_and_vertices_markov_chain.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating the two-state Markov chain as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create custom and selectable edges and vertices Markov chain
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_and_selectable_edges_and_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_markov_chain_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_and_selectable_edges_and_vertices_markov_chain.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_and_selectable_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_and_selectable_edges_and_vertices_markov_chain"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_markov_chain.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_and_selectable_edges_and_vertices_markov_chain.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_and_selectable_vertices_markov_chain'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_and_selectable_edges_and_vertices_markov_chain.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note how the .svg changed it appearance due to the Graphviz 'regular' property
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Graphviz-attributes"
+
+\end_inset
+
+): the vertex labeled 'Sunny' is drawn according to the Graphviz 'regular'
+ attribute, which makes it a circle.
+ The other vertex, labeled 'Rainy' is not drawn as such and retained its
+ ellipsoid appearance.
+ 
+\end_layout
+
+\begin_layout Subsection
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom and selectable edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+We reproduce the 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_custom_vertices_k2_graph"
+
+\end_inset
+
+ , but now are vertices can be selected as well:
+\end_layout
+
+\begin_layout Standard
+[graph here]
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_and_selectable_edges_and_vertices_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k3"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create custom and selectable edges and vertices K2 graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a slight modification of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+.
+ In the end, the associated my_custom_vertex and is_selected properties
+ are obtained as boost::property_maps and set with the desired my_custom_vertex
+ objects and selectednesses.
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Here is the demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_custom_and_selectable_edges_and_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the 'create_custom_and_selectable_edges_and_vertices_k2_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_k2_graph_demo-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_custom_and_selectable_edges_and_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the 'create_custom_and_selectable_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_custom_and_selectable_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_custom_and_selectable_edges_and_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the 'create_custom_and_selectable_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_custom_and_selectable_edges_and_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note how the .svg changed it appearance due to the Graphviz 'regular' property
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Graphviz-attributes"
+
+\end_inset
+
+): the vertex labeled 'A' is drawn according to the Graphviz 'regular' attribute
+, which makes it a circle.
+ The other vertex, labeled 'B' is not drawn as such and retained its ellipsoid
+ appearance.
+\end_layout
+
+\begin_layout Section
+Working on graphs with custom and selectable edges and vertices
+\end_layout
+
+\begin_layout Standard
+This chapter shows some basic operations to do on graphs with custom and
+ selectable edges and vertices.
+\end_layout
+
+\begin_layout Itemize
+Storing an directed/undirected graph with custom and selectable edges and
+ vertices as a .dot file: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:save_custom_and_selectable_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading a directed graph with custom and selectable edges and vertices from
+ a .dot file: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Loading an undirected directed graph with custom and selectable edges amd
+ vertices from a .dot file: chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Storing a graph with custom and selectable edges and vertices as a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:save_custom_and_selectable_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you used the 'create_custom_and_selectable_edges_and_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_and_selectable_edges_and_vertices_k2_graph"
+
+\end_inset
+
+) to produce a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph with edges and vertices associated with (1) my_custom_edge/my_custom_vert
+ex objects, and (2) a boolean indicating its selectedness, you can store
+ such graphs with algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_custom_and_selectable_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "save_custom_and_selectable_edges_and_vertices_graph_to_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Storing a graph with custom and selectable edges and vertices as a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Save custom and selectable edges and vertices graph to dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:save_custom_and_selectable_edges_and_vertices_graph_to_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We re-use the writer.
+\end_layout
+
+\begin_layout Standard
+Special about this, is that even for Graphviz-unfriendly input, it still
+ works.
+\end_layout
+
+\begin_layout Subsection
+Loading a directed graph with custom and selectable edges and vertices from
+ a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an directed graph with custom and selectable edges and
+ vertices is loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading a directed graph with custom and selectable edges and vertices from
+ a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load directed custom and selectable edges and vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this algorithm, first it is checked if the file to load exists.
+ Then an empty directed graph is created.
+ Then, a boost::dynamic_properties
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::dynamic_properties
+\end_layout
+
+\end_inset
+
+ is created with its default constructor, after which 
+\end_layout
+
+\begin_layout Itemize
+The Graphviz attribute 'node_id' (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Graphviz-attributes"
+
+\end_inset
+
+ for most Graphviz attributes) is connected to a vertex its 'my_custom_vertex'
+ property
+\end_layout
+
+\begin_layout Itemize
+The Graphviz attribute 'label' is connected to a vertex its 'my_custom_vertex'
+ property
+\end_layout
+
+\begin_layout Itemize
+The Graphviz attribute 'regular' is connected to a vertex its 'is_selected'
+ vertex property
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_directed_custom_vertices_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_directed_custom_and_selectable_edges_and_vertices_gra
+ph_from_dot' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how the Markov chain is created using the 'create_custo
+m_vertices_markov_chain' function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_markov_chain"
+
+\end_inset
+
+), saved and then checked to exist.
+\end_layout
+
+\begin_layout Subsection
+Loading an undirected graph with custom and selectable edges and vertices
+ from a .dot
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When loading a graph from file, one needs to specify a type of graph.
+ In this example, an undirected graph with custom and selectable vertices
+ is loaded, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Loading an undirected graph with custom vertices from a .dot file
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Load undirected custom vertices graph from dot
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The only difference with loading a directed graph, is that the initial empty
+ graph is undirected instead.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot"
+
+\end_inset
+
+ describes the rationale of this function.
+ 
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+ shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'load_undirected_custom_and_selectable_edges_and_vertices_g
+raph_from_dot' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration shows how 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_custom_vertices_k2_graph"
+
+\end_inset
+
+), saved and then checked to exist.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
 Building graphs with a graph name
 \begin_inset CommandInset label
 LatexCommand label
@@ -31052,6 +33562,75 @@ name "alg:graphviz_decode"
 
 \end_layout
 
+\begin_layout Subsection
+Check if a std::string is Graphviz-friendly
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:is_graphviz_friendly"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are pieces where I check if a std::string is Graphviz-friendly.
+ This is done only where it matters.
+ If it is tested not to matter, 'is_graphviz_friendly' is absent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "is_graphviz_friendly.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Check if a std::string is Graphviz-friendly
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+is_graphviz_friendly
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:is_graphviz_friendly"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Misc functions
 \end_layout
@@ -31725,6 +34304,110 @@ name "alg:property_not_found_node_id"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Stream zeroes
+\end_layout
+
+\begin_layout Standard
+When loading a graph from a .dot file, in operator>>, do not eat characters:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+std::istream& ribi::cmap::operator>>(std::istream& is, Concept& concept)
+ noexcept
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  //eat until '</concept>'
+\end_layout
+
+\begin_layout Plain Layout
+
+  is >> std::noskipws;
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::string s;
+\end_layout
+
+\begin_layout Plain Layout
+
+  while (1)
+\end_layout
+
+\begin_layout Plain Layout
+
+  {
+\end_layout
+
+\begin_layout Plain Layout
+
+    char c;
+\end_layout
+
+\begin_layout Plain Layout
+
+    is >> c;
+\end_layout
+
+\begin_layout Plain Layout
+
+    s += c;
+\end_layout
+
+\begin_layout Plain Layout
+
+    assert(s != "00000000000000000000000");
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(s.size() > 10 && s.substr(s.size() - 10,10) == "</concept>") break;
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  concept = XmlToConcept(s);
+\end_layout
+
+\begin_layout Plain Layout
+
+  return is;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+boost::read_graphviz will, as shown by the assert, produce all zeroes.
+ Instead, read/write a std::string:
 \end_layout
 
 \begin_layout Section

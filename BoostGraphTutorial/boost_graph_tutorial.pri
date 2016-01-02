@@ -181,7 +181,13 @@ HEADERS += \
     $$PWD/set_my_custom_vertex.h \
     $$PWD/set_vertex_name.h \
     $$PWD/set_vertex_names.h \
-    $$PWD/show_dot.h
+    $$PWD/show_dot.h \
+    $$PWD/is_graphviz_friendly.h \
+    $$PWD/get_sorted_vertex_names.h \
+    $$PWD/install_edge_is_selected.h \
+    $$PWD/custom_vertex_invariant.h \
+    $$PWD/is_custom_vertices_isomorphic.h \
+    $$PWD/create_custom_vertices_path_graph.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -360,7 +366,12 @@ SOURCES += \
     $$PWD/set_my_custom_vertexes.cpp \
     $$PWD/set_vertex_name.cpp \
     $$PWD/set_vertex_names.cpp \
-    $$PWD/show_dot.cpp
+    $$PWD/show_dot.cpp \
+    $$PWD/is_graphviz_friendly.cpp \
+    $$PWD/get_sorted_vertex_names.cpp \
+    $$PWD/install_edge_is_selected.cpp \
+    $$PWD/is_custom_vertices_isomorphic.cpp \
+    $$PWD/create_custom_vertices_path_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -648,5 +659,12 @@ OTHER_FILES += \
     $$PWD/set_my_custom_vertex.impl \
     $$PWD/set_vertex_name_demo.impl \
     $$PWD/set_vertex_name.impl \
-    $$PWD/set_vertex_names.impl
+    $$PWD/set_vertex_names.impl \
+    $$PWD/install_edge_is_selected.impl \
+    $$PWD/custom_vertex_invariant.impl \
+    $$PWD/is_custom_vertices_isomorphic.impl \
+    $$PWD/is_custom_vertices_isomorphic_demo.impl \
+    $$PWD/create_custom_vertices_path_graph.impl \
+    $$PWD/create_custom_vertices_path_graph_demo.impl \
+    $$PWD/is_graphviz_friendly.impl
 
