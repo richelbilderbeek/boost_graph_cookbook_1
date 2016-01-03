@@ -100,7 +100,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.9.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.10.
 \end_layout
 
 \begin_layout Subsection
@@ -34343,12 +34343,12 @@ std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
 
 \begin_layout Plain Layout
 
-  assert(s == "0");
+  assert(s != "0");
 \end_layout
 
 \begin_layout Plain Layout
 
-  any_class_class = my_class(s);
+  any_class = my_class(s);
 \end_layout
 
 \begin_layout Plain Layout

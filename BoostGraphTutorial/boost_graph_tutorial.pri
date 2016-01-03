@@ -191,7 +191,11 @@ HEADERS += \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h \
     $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h \
     $$PWD/add_custom_and_selectable_edge.h \
-    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.h
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.h \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.h \
+    $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.h \
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -379,7 +383,11 @@ SOURCES += \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.cpp \
     $$PWD/add_custom_and_selectable_edge.cpp \
-    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.cpp
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.cpp \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.cpp \
+    $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.cpp \
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -682,5 +690,14 @@ OTHER_FILES += \
     $$PWD/add_custom_and_selectable_edge.impl \
     $$PWD/add_custom_and_selectable_edge_demo.impl \
     $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain.impl \
-    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl \
+    $$PWD/save_custom_and_selectable_vertices_graph_to_dot_demo.impl \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.impl \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl \
+    $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.impl \
+    $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.impl \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph_demo.impl \
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl \
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl
 

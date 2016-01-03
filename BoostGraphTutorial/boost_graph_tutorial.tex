@@ -8,6 +8,7 @@
 \usepackage{verbatim}
 \usepackage{float}
 \usepackage{rotfloat}
+\usepackage{ifsym}
 \usepackage{url}
 \usepackage{makeidx}
 \makeindex
@@ -65,7 +66,7 @@
 
 \section{Introduction}
 
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.5.
+This is 'A well-connected C++11 Boost.Graph tutorial', version 1.9.
 
 
 \subsection{Why this tutorial}
@@ -146,6 +147,16 @@ in the namespace of the graph to work on. In this tutorial, this is
 in the global namespace. Thus, I will write 'get', instead of 'boost::get'\index{boost::get does not exist},
 as the latter does not compile.
 
+I try to use STL algorithms wherever I can. Also you should prefer
+algorithm calls over hand-written for-loops (\cite{stroustrup1997}
+chapter 18.12.1, \cite{meyers2005effective} item 43). Sometimes using
+these algorithms becomes a burden on the lines of code. This is because
+in C++11, a lambda function argument (use by the algorithm) must have
+its data type specified. It may take multiple lines of 'using' statements
+being able to do so. In C++14 one can use 'auto' there as well. So,
+only if it shortens the number of lines significantly, I use raw for-loops,
+even though you shouldn't.
+
 
 \subsection{Tutorial style}
 
@@ -181,27 +192,17 @@ grateful if you'd let know. Next to this, there are some sections
 that need to be coded or have its code improved. 
 
 
-\subsection{Help}
-
-There are some pieces of code I could use help with:
-\begin{itemize}
-\item Issue \#12: Loading a directed graph with a name, function 'load\_directed\_graph\_with\_graph\_name\_from\_dot'
-as shown in chapters \ref{sub:load_directed_graph_with_graph_name_from_dot}.
-Perhaps the function 'save\_graph\_with\_graph\_name\_to\_dot' (chapter
-\ref{sub:save_graph_with_graph_name_to_dot}) needs to rewritten as
-well
-\end{itemize}
-I have already put the tests in place, so you/I can easily check if
-your solution works. If the program crashes with the message 'assertion
-failed: !''Fixed \#''', a problem has been solved.
-
-
 \subsection{Acknowledgements}
 
 These are users that improved this tutorial and/or the code behind
 this tutorial, in chronological order:
 \begin{itemize}
+\item m-dudley, \url{http://stackoverflow.com/users/111327/m-dudley} 
 \item E. Kawashima
+\item mat69, \url{https://www.reddit.com/user/mat69}
+\item danielhj, \url{https://www.reddit.com/user/danieljh}
+\item sehe, \url{http://stackoverflow.com/users/85371/sehe}
+\item cv\_and\_me, \url{http://stackoverflow.com/users/2417774/cv-and-he}
 \end{itemize}
 
 \subsection{Outline}
@@ -241,7 +242,7 @@ Class members & Must be public & Can be private\tabularnewline
 \hline 
 File I/O mechanism & Via public class members & Via stream operators\tabularnewline
 \hline 
-File I/O success & Fails, please help! & Works, with encoding/decoding\tabularnewline
+File I/O constraints & Restricted to Graphviz attributes & Need encoding and decoding\tabularnewline
 \hline 
 \end{tabular}
 
@@ -272,6 +273,11 @@ in figure \ref{fig:The-relations-between-subchapters}.
 \end{sidewaysfigure}
 
 
+There are also some bonus chapters, that I have labeled with a \textifsymbol[ifgeo]{100}.
+These chapters are added I needed these functions myself and adding
+them would not hurt. Just feel free to skip them, as there will be
+less theory explained.
+
 
 \section{Building graphs without properties\label{sec:Building-graphs-without-properties}}
 
@@ -291,9 +297,9 @@ figure \ref{fig:directed_graph_example}.
 \begin{figure}[H]
 \tikz 
 \draw[thick] 
-  (0,0) node[fill=black,shape=circle,text=white] {} 
-    -- (5,2) node[fill=black,shape=circle,text=white] {} 
-    -- (10,1) node[fill=black,shape=circle,text=white] {} 
+  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+    -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+    -- (10,1) node[draw=black,fill=white,shape=circle,text=white] {} 
 ;
 
 \caption{Example of an undirected graph\label{fig:undirected_graph_example}}
@@ -303,7 +309,7 @@ figure \ref{fig:directed_graph_example}.
 \begin{figure}[H]
 \begin{tikzpicture}   
 \tikzset{ 
-  VertexStyle/.append style = { fill=black,shape=circle },
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
   EdgeStyle/.append style = {->, bend left} }
 \SetGraphUnit{5}
 \Vertex{A}   
@@ -397,8 +403,9 @@ should not throw%
 piece of memory, you are already in big trouble%
 }, so it is preferred to mark it noexcept\index{noexcept} (\cite{stroustrup2013}
 chapter 13.7).
-\item a function body: all the function body does is create a 'boost::adjacency\_list<>'
-by calling its constructor, by using the round brackets
+\item a function body: all the function body does is implicitly create its
+return type by using the '\{\}'. An alternative syntax would be 'return
+boost::adjacency\_list<>()', which is needlessly longer
 \end{itemize}
 Algorithm \ref{alg:create_empty_directed_graph_demo} demonstrates
 the 'create\_empty\_directed\_graph' function. Note that it includes
@@ -491,7 +498,7 @@ you've just created an undirected graph in which:
 \item Edges are stored in a std::list 
 \end{itemize}
 
-\subsection{Counting the number of vertices\label{sub:get_n_vertices}\index{Vertices, counting}\index{Counting the number of vertices}}
+\subsection{Counting the number of vertices\label{sub:get_n_vertices}\index{Vertices, counting}\index{Counting the number of vertices}\index{Number of vertices, get}}
 
 Let's count all zero vertices of an empty graph!
 
@@ -540,7 +547,7 @@ is very good at detecting operations that are not allowed, during
 compile time.
 
 
-\subsection{Counting the number of edges\label{sub:get_n_edges}\index{Edges, counting}\index{Counting the number of edges}}
+\subsection{Counting the number of edges\label{sub:get_n_edges}\index{Edges, counting}\index{Counting the number of edges}\index{Number of edges, get}}
 
 Let's count all zero edges of an empty graph!
 
@@ -593,8 +600,11 @@ will get a compiler error anyways, be it a less helpful one.
 Note that boost::add\_vertex (in the 'add\_vertex' function) returns
 a vertex descriptor, which is ignored for now. Vertex descriptors
 are looked at in more details at the chapter \ref{sub:Vertex-descriptors},
-as we need these to add an edge. Algorithm \ref{alg:add_vertex_demo}
-shows how to add a vertex to a directed and undirected graph.
+as we need these to add an edge. To allow for this already, 'add\_vertex'
+also returns a vertex descriptor. 
+
+Algorithm \ref{alg:add_vertex_demo} shows how to add a vertex to
+a directed and undirected graph.
 
 \begin{algorithm}[H]
 \lstinputlisting[breaklines=true,language={C++}]{add_vertex_demo.impl}
@@ -628,7 +638,7 @@ In this tutorial, vertex descriptors have named prefixed with 'vd\_'\index{vd_@v
 for example 'vd\_1'.
 
 
-\subsection{Get the vertex iterators\label{sub:get_vertices}}
+\subsection{Get the vertex iterators\label{sub:get_vertices}\index{Vertex iterator}\index{Vertex iterators, get}\index{Get vertex iterators}}
 
 You cannot get the vertices. This may sound unexpected, as it must
 be possible to work on the vertices of a graph. Working on the vertices
@@ -670,7 +680,7 @@ of an empty graph point to the same location.
 
 
 
-\subsection{Get all vertex descriptors\label{sub:get_vertex_descriptors}\index{Vertex descriptors, get}}
+\subsection{Get all vertex descriptors\label{sub:get_vertex_descriptors}\index{Vertex descriptors, get}\index{Get vertex descriptors}}
 
 Vertex descriptors are the way to manipulate those vertices. Let's
 go get the all!
@@ -690,13 +700,24 @@ This is the first more complex piece of code. In the first lines,
 some 'using' statements allow for shorter type names%
 \footnote{which may be necessary just to create a tutorial with code snippets
 that are readable%
-}. The function 'vertices'\index{vertices} (not boost::vertices\index{boost::vertices does not exist}!)
-returns a vertex iterator pair. The two iterators are extracted, of
-which the first iterator, 'i', points to the first vertex, and the
-second, 'j', points to beyond the last vertex. In the for-loop, 'i'
-loops from begin to end. Dereferencing it produces a vertex descriptor,
-which is stored in the std::vector using emplace\_back. Prefer using
-emplace\_back (\cite{stroustrup2013} chapter 31.6, items 25 and 27). 
+}. 
+
+The std::vector to serve as a return value is created at the needed
+size, which is the number of vertices. 
+
+The function 'vertices'\index{vertices} (not boost::vertices\index{boost::vertices does not exist}!)
+returns a vertex iterator pair. These iterators are used by std::copy
+to iterator over. std::copy\index{std::copy} is an STL algorithm
+to copy a half-open range. Prefer algorithm calls over hand-written
+for-loops (\cite{stroustrup1997} chapter 18.12.1, \cite{meyers2005effective}
+item 43).
+
+In this case, we copy all vertex descriptors in the range produced
+by 'vertices' to the std::vector.
+
+This function will not be used in practice: one iterates over the
+vertices directly instead, saving the cost of creating a std::vector.
+This function is only shown as an illustration.
 
 Algorithm \ref{alg:get_vertex_descriptors_demo} demonstrates that
 an empty graph has no vertex descriptors:
@@ -860,7 +881,7 @@ and four edges, as depicted in figure \ref{fig:markov_chain}:
 \begin{figure}[H]
 \begin{tikzpicture}   
 \tikzset{ 
-  VertexStyle/.append style = { fill=black,shape=circle },
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
   EdgeStyle/.append style = {->, bend left} }
 \SetGraphUnit{5}
 \Vertex{A}   
@@ -969,8 +990,8 @@ as depicted in figure \ref{fig:k2_graph}.
 \begin{figure}[H]
 \tikz 
 \draw[thick] 
-  (0,0) node[fill=black,shape=circle,text=white] {} 
-    -- (5,1) node[fill=black,shape=circle,text=white] {} 
+  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+    -- (5,1) node[draw=black,fill=white,shape=circle,text=white] {} 
 ;
 
 \caption{$K_{2}$: a fully connected undirected graph with two vertices\label{fig:k2_graph}}
@@ -1056,11 +1077,255 @@ edge would have one or two arrow heads. The vertices display the node
 index, which is the default behavior.
 
 
+\subsection{\textifsymbol[ifgeo]{100} Creating $K_{3}$, a fully connected undirected
+graph with three vertices\label{sub:create_k3_graph}\index{Create $K_{3}$}\index{$K_{3}$, create}}
+
+This is an extension of the previous chapter
+
+
+\subsubsection{Graph}
+
+To create a fully connected undirected graph with two vertices (also
+called $K_{2}$), one needs two vertices and one (undirected) edge,
+as depicted in figure \ref{fig:create_k3_graph}.
+
+\begin{figure}[H]
+\tikz 
+\draw[thick] 
+  (2,4) node[draw=black,fill=white,shape=circle,text=white] {} 
+   -- (3,2) node[anchor=west] {} 
+   -- (4,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+   -- (2,0) node[anchor=north] {} 
+   -- (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+   -- (1,2) node[anchor=east] {} 
+   -- (2,4)
+;
+
+\caption{$K_{3}$: a fully connected graph with three edges and vertices \label{fig:create_k3_graph}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+To create $K_{3}$, the following code can be used:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_k3_graph.impl}
+
+\caption{Creating $K_{3}$ as depicted in figure \ref{fig:create_k3_graph}\index{Create $K_{3}$ graph}\label{alg:create_k3_graph}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Algorithm \ref{alg:create_k3_graph_demo} demonstrates how to 'create\_k2\_graph'
+and checks if it has the correct amount of edges and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_k3_graph_demo.impl}
+
+\caption{Demonstration of 'create\_k3\_graph' \label{alg:create_k3_graph_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced\label{sub:create_k3_graph.dot}}
+
+This graph can be converted to the .dot file as shown in algorithm
+\ref{alg:create_k3_graph.dot}:
+
+\begin{algorithm}[H]
+\verbatiminput{create_k3_graph.dot}
+
+\caption{.dot file created from the 'create\_k3\_graph' function (algorithm
+\ref{alg:create_k3_graph}), converted from graph to .dot file using
+algorithm \ref{alg:save_graph_to_dot}\label{alg:create_k3_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced\label{sub:create_k3.svg}}
+
+Continuing to running a bit ahead, this .dot file can be converted
+to the .svg as shown in figure \ref{fig:create_k3_graph.svg}:
+
+\begin{figure}[H]
+\includegraphics{create_k3_graph}
+
+\caption{.svg file created from the 'create\_k3\_graph' function (algorithm
+\ref{alg:create_k3_graph}) its .dot file, converted from .dot file
+to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_k3_graph.svg}}
+\end{figure}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Creating a path graph\label{sub:create_path_graph}\index{Create path graph}\index{Path graph, create}}
+
+A path graph is a linear graph without any branches
+
+
+\subsubsection{Graph}
+
+Here I show a path graph with four vertices (see figure \ref{fig:create_path_graph}):
+
+\begin{figure}[H]
+\begin{tikzpicture}   
+\tikzset{ 
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white}
+}
+\SetGraphUnit{4}
+\Vertex{A}   
+\EA(A){B}   
+\EA(B){C}   
+\EA(C){D}   
+\Edge[](A)(B)   
+\Edge[](B)(C)   
+\Edge[](C)(D)   
+\end{tikzpicture}
+
+\caption{A path graph with four vertices \label{fig:create_path_graph}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+To create a path graph, the following code can be used:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_path_graph.impl}
+
+\caption{Creating a path graph as depicted in figure \ref{fig:create_path_graph}\index{Create path graph}\label{alg:create_path_graph}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Algorithm \ref{alg:create_path_graph_demo} demonstrates how to 'create\_k2\_graph'
+and checks if it has the correct amount of edges and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_path_graph_demo.impl}
+
+\caption{Demonstration of 'create\_path\_graph' \label{alg:create_path_graph_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced\label{sub:create_path_graph.dot}}
+
+This graph can be converted to the .dot file as shown in algorithm
+\ref{alg:create_path_graph.dot}:
+
+\begin{algorithm}[H]
+\verbatiminput{create_path_graph_4.dot}
+
+\caption{.dot file created from the 'create\_path\_graph' function (algorithm
+\ref{alg:create_path_graph}), converted from graph to .dot file using
+algorithm \ref{alg:save_graph_to_dot}\label{alg:create_path_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced\label{sub:create_path_graph.svg}}
+
+The .dot file can be converted to the .svg as shown in figure \ref{fig:create_path_graph.svg}:
+
+\begin{figure}[H]
+\includegraphics{create_path_graph_4}
+
+\caption{.svg file created from the 'create\_path\_graph' function (algorithm
+\ref{alg:create_path_graph}) its .dot file, converted from .dot file
+to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_path_graph.svg}}
+\end{figure}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Creating a Peterson graph\label{sub:create_petersen_graph}\index{Create Petersen graph}\index{Petersen graph, create}}
+
+This is an extension of the previous chapter.
+
+
+\subsubsection{Graph}
+
+To create a fully connected undirected graph with two vertices (also
+called $K_{2}$), one needs two vertices and one (undirected) edge,
+as depicted in figure \ref{fig:create_petersen_graph}.
+
+\begin{figure}[H]
+\includegraphics{Petersen_graph}
+
+\caption{A Petersen graph (from \protect\url{https://en.wikipedia.org/wiki/Petersen_graph})
+\label{fig:create_petersen_graph}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+To create a Petersen graph, the following code can be used:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_petersen_graph.impl}
+
+\caption{Creating Petersen graph as depicted in figure \ref{fig:create_petersen_graph}\index{Create Petersen graph}\label{alg:create_petersen_graph}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Algorithm \ref{alg:create_petersen_graph_demo} demonstrates how to
+use 'create\_petersen\_graph' and checks if it has the correct amount
+of edges and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_petersen_graph_demo.impl}
+
+\caption{Demonstration of 'create\_k3\_graph' \label{alg:create_petersen_graph_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced\label{sub:create_petersen_graph.dot}}
+
+This graph can be converted to the .dot file as shown in algorithm
+\ref{alg:create_petersen_graph.dot}:
+
+\begin{algorithm}[H]
+\verbatiminput{create_petersen_graph.dot}
+
+\caption{.dot file created from the 'create\_petersen\_graph' function (algorithm
+\ref{alg:create_petersen_graph}), converted from graph to .dot file
+using algorithm \ref{alg:save_graph_to_dot}\label{alg:create_petersen_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced\label{sub:create_petersen.svg}}
+
+This .dot file can be converted to the .svg as shown in figure \ref{fig:create_petersen_graph.svg}:
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{create_petersen_graph}
+
+\caption{.svg file created from the 'create\_petersen\_graph' function (algorithm
+\ref{alg:create_petersen_graph}) its .dot file, converted from .dot
+file to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_petersen_graph.svg}}
+\end{figure}
+
+
+
 \section{Working on graphs without properties\label{sec:Working-on-graphs-without-properties}}
 
-Now that we can build a graph, there are some things we can do:
+Now that we can build a graph, there are some things we can do. 
 \begin{itemize}
 \item Getting the vertices' out degrees: see chapter \ref{sub:get_vertex_out_degrees}
+\item Create a direct-neighbour subgraph from a vertex descriptor
+\item Create all direct-neighbour subgraphs from a graphs
 \item Saving a graph without properties to .dot file: see chapter \ref{sub:save_graph_to_dot}
 \item Loading an undirected graph without properties from .dot file: see
 chapter \ref{sub:load_undirected_graph_from_dot}
@@ -1094,7 +1359,7 @@ Algorithm \ref{alg:get_vertex_out_degrees} shows how to obtain these:
 \end{algorithm}
 
 
-The structure of this algorithm is similar to get\_vertex\_descriptors
+The structure of this algorithm is similar to 'get\_vertex\_descriptors'
 (algorithm \ref{alg:get_vertex_descriptors}), except that the out
 degrees from the vertex descriptors are stored. The out degree of
 a vertex iterator is obtained from the function 'out\_degree'\index{out_degree@out\_degree}
@@ -1114,6 +1379,136 @@ on, as shown in algorithm \ref{alg:get_vertex_out_degrees_demo}.
 It is expected that $K_{2}$ has one out-degree for every vertex,
 where the two-state Markov chain is expected to have two out-degrees
 per vertex.
+
+
+\subsection{\textifsymbol[ifgeo]{100} Is there an edge between two vertices?\label{sub:has_edge_between_vertices}}
+
+If you have two vertex descriptors, you can check if these are connected
+by an edge:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{has_edge_between_vertices.impl}
+
+\caption{Check if there exists an edge between two vertices\index{Has edge between vertices}\label{alg:has_edge_between_vertices}}
+\end{algorithm}
+
+
+This code uses the function 'edge'\index{edge} (not boost::edge\index{boost::edge does not exist}:
+it returns a pair consisting of an edge descriptor and a boolean indicating
+if it is a valid edge descriptor. The boolean will be true if there
+exists an edge between the two vertices and false if not.
+
+The demo shows that there is an edge between the two vertices of a
+$K_{2}$ graph, but there are no self-loops (edges that original and
+end at the same vertex).
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{has_edge_between_vertices_demo.impl}
+
+\caption{Demonstration of the 'has\_edge\_between\_vertices' function\label{alg:has_edge_between_vertices_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Get the edge between two vertices\label{sub:get_edge_between_vertices}}
+
+If you have two vertex descriptors, you can use these to find the
+edge between them.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{get_edge_between_vertices.impl}
+
+\caption{Get the edge between two vertices\index{Get edge between vertices}\label{alg:get_edge_between_vertices}}
+\end{algorithm}
+
+
+This code does assume that there is an edge between the two vertices.
+
+The demo shows how to get the edge between two vertices, deleting
+it, and checking for success.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{get_edge_between_vertices_demo.impl}
+
+\caption{Demonstration of the 'get\_edge\_between\_vertices' function\label{alg:get_edge_between_vertices_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Create a direct-neighbour subgraph from
+a vertex descriptor}
+
+Suppose you have a vertex of interest its vertex descriptor. Let's
+say you want to get a subgraph of that vertex and its direct neighbours
+only. This means that all vertices of that subgraph are adjacent vertices
+and that the edges go either from focal vertex to its neighbours,
+or from adjacent vertex to adjacent neighbour.
+
+Here is the 'create\_direct\_neighbour\_subgraph' code:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_direct_neighbour_subgraph.impl}
+
+\caption{Get the direct-neighbour subgraph from a vertex descriptor\index{Create direct-neighbour subgraph}\label{alg:create_direct_neighbour_subgraph}}
+\end{algorithm}
+
+
+This demonstration code shows that the direct-neighbour graph of each
+vertex of a K2 graphs is ... a K2 graph!
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_direct_neighbour_subgraph_demo.impl}
+
+\caption{Demo of the 'create\_direct\_neighbour\_subgraph' function\label{alg:create_direct_neighbour_subgraph_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Creating all direct-neighbour subgraphs
+from a graph without properties}
+
+Using the previous function, it is easy to create all direct-neighbour
+subgraphs from a graph without properties:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_all_direct_neighbour_subgraphs.impl}
+
+\caption{Create all direct-neighbour subgraphs from a graph without properties\index{Create all direct-neighbour subgraphs}\label{alg:create_all_direct_neighbour_subgraphs}}
+\end{algorithm}
+
+
+This demonstration code shows that all direct-neighbour graphs of
+a K2 graphs are ... K2 graphs!
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_all_direct_neighbour_subgraphs_demo.impl}
+
+\caption{Demo of the 'create\_all\_direct\_neighbour\_subgraphs' function\label{alg:create_all_direct_neighbour_subgraphs_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Are two graphs isomorphic?\label{sub:is_isomorphic}}
+
+You may want to check if two graphs are isomorphic. That is: if they
+have the same shape.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_isomorphic.impl}
+
+\caption{Check if two graphs are isomorphic\index{Is isomorphic}\label{alg:is_isomorphic}}
+\end{algorithm}
+
+
+This demonstration code shows that a $K_{3}$ graph is not equivalent
+to a 3-vertices path graph:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_isomorphic_demo.impl}
+
+\caption{Demo of the 'is\_isomorphic' function\label{alg:is_isomorphic_demo}}
+\end{algorithm}
+
 
 
 \subsection{Saving a graph to a .dot file\label{sub:save_graph_to_dot}\index{Save graph as .dot}\index{Create .dot from graph} }
@@ -1367,11 +1762,25 @@ called with a non-const graph. One can freely omit this static\_assert:
 you will get a compiler error anyways, be it a less helpful one.
 
 When adding a new vertex to the graph, the vertex descriptor (as described
-in chapter \ref{sub:Vertex-descriptors}) is stored. After obtaining
-the name map from the graph (using 'get(boost::vertex\_name,g)\index{get}\index{boost::vertex_name@boost::vertex\_name}'),
-the name of the vertex is set using that vertex descriptor. Note that
-'get' has no 'boost::' prepending it, as it lives in the same (global)
-namespace the function is in. Using 'boost::get' will not compile\index{boost::get does not exist}.
+in chapter \ref{sub:Vertex-descriptors}) is stored. 
+
+The name map is obtained from the graph using 'get'. 'get' (not boost::get
+\index{boost::get does not exist}) allow to obtain a property map.
+In this case, 'get(boost::vertex\_name,g)\index{get}\index{boost::vertex_name@boost::vertex\_name}'),
+denotes that we want to obtain the property map associated with 'boost::vertex\_name'
+from the graph. 'get' has no 'boost::' prepending it, as it lives
+in the same (global) namespace the function is in. Using 'boost::get'
+will not compile\index{boost::get does not exist}. 
+
+With a name map and a vertex descriptor, the name of a vertex can
+be set using 'put'\index{put} (not boost::put\index{boost::put does not exist}).
+'put' is the opposite of 'get'. In this case 'put(vertex\_name\_map,
+vd, vertex\_name)' is read as: in the vertex name map, look up the
+spot where the vertex we have the descriptor of, and put the new vertex
+name there. An alternative syntax is 'vertex\_name\_map{[}vd{]} =
+vertex\_name'\index{Alternative syntax for put}\index{put, alternative syntax}.
+Because 'put' is more general, it is chosen to be the preferred syntax
+for this tutorial.
 
 Using 'add\_named\_vertex' is straightforward, as demonstrated by
 algorithm \ref{alg:add_named_vertex_demo}.
@@ -1606,6 +2015,90 @@ file, converted from .dot file to .svg using algorithm \ref{alg:save_named_verti
 
 
 The .svg now shows the vertex names, instead of the vertex indices.
+
+
+\subsection{\textifsymbol[ifgeo]{100} Creating a path graph with named vertices\label{sub:create_named_vertices_path_graph}\index{Create path graph with named vertices}\index{Path graph with named vertices, create}}
+
+Here we create a path graph with names vertices
+
+
+\subsubsection{Graph}
+
+Here I show a path graph with four vertices (see figure \ref{fig:create_named_vertices_path_graph}):
+
+\begin{figure}[H]
+\begin{tikzpicture}   
+\tikzset{ 
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=black}
+}
+\SetGraphUnit{4}
+\Vertex{A}   
+\EA(A){B}   
+\EA(B){C}   
+\EA(C){D}   
+\Edge[](A)(B)   
+\Edge[](B)(C)   
+\Edge[](C)(D)   
+\end{tikzpicture}
+
+\caption{A path graph with four vertices \label{fig:create_named_vertices_path_graph}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+To create a path graph, the following code can be used:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_named_vertices_path_graph.impl}
+
+\caption{Creating a path graph as depicted in figure \ref{fig:create_named_vertices_path_graph}\index{Create named vertices path graph}\label{alg:create_named_vertices_path_graph}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Algorithm \ref{alg:create_named_vertices_path_graph_demo} demonstrates
+how to create a path graph with named vertices and checks if it has
+the correct amount of edges and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_named_vertices_path_graph_demo.impl}
+
+\caption{Demonstration of 'create\_named\_vertices\_path\_graph' \label{alg:create_named_vertices_path_graph_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced\label{sub:create_named_vertices_path_graph.dot}}
+
+This graph can be converted to the .dot file as shown in algorithm
+\ref{alg:create_named_vertices_path_graph.dot}:
+
+\begin{algorithm}[H]
+\verbatiminput{create_named_vertices_path_graph.dot}
+
+\caption{.dot file created from the 'create\_named\_vertices\_path\_graph'
+function (algorithm \ref{alg:create_named_vertices_path_graph}),
+converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\label{alg:create_named_vertices_path_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced\label{sub:create_path_graph.svg-1}}
+
+The .dot file can be converted to the .svg as shown in figure \ref{fig:create_named_vertices_path_graph.svg}:
+
+\begin{figure}[H]
+\includegraphics{create_named_vertices_path_graph_4}
+
+\caption{.svg file created from the 'create\_named\_vertices\_path\_graph'
+function (algorithm \ref{alg:create_named_vertices_path_graph}) its
+.dot file, converted from .dot file to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_named_vertices_path_graph.svg}}
+\end{figure}
+
 
 
 \section{Working on graphs with named vertices\label{sec:Working-on-graphs-with-named-vertices}}
@@ -1890,6 +2383,82 @@ shows the removal of the first named edge found.
 
 \caption{Demonstration of the 'remove\_edge\_between\_vertices\_with\_names'
 function\label{alg:remove_edge_between_vertices_with_names_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Count the vertices with a certain name\label{sub:count_vertices_with_name}}
+
+How often is a vertex with a certain name present? Here we'll find
+out.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{count_vertices_with_name.impl}
+
+\caption{Find the first vertex by its name\index{Find first vertex with name}\label{alg:count_vertices_with_name}}
+\end{algorithm}
+
+
+Here we use the STL std::count\_if\index{std::count_if@std::count\_if}
+algorithm to count how many vertices have a name equal to the desired
+name.
+
+Algorithm \ref{alg:count_vertices_with_name_demo} shows some examples
+of how to do so.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{count_vertices_with_name_demo.impl}
+
+\caption{Demonstration of the 'find\_first\_vertex\_with\_name' function\label{alg:count_vertices_with_name_demo}}
+\end{algorithm}
+
+
+
+\subsection{\textifsymbol[ifgeo]{100} Are two graphs with named vertices isomorphic?\label{sub:is_named_vertices_isomorphic}}
+
+Strictly speaking, finding isomorphisms is about the shape of the
+graph, independent of vertex name, and is already done in chapter
+\ref{sub:is_isomorphic}. 
+
+Here, it is checked if two graphs with named vertices are 'label isomorphic'
+(please email me a better term if you know one). That is: if they
+have the same shape with the same vertex names at the same places.
+
+To do this, there are two steps needed:
+\begin{enumerate}
+\item Map all vertex names to an unsigned int.
+\item Compare the two graphs with that map
+\end{enumerate}
+Below the class 'named\_vertex\_invariant' is shown. Its std::map
+maps the vertex names to an unsigned integer, which is done in the
+member function 'collect\_names'. The purpose of this, is that is
+is easier to compare integers than std::strings.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{named_vertex_invariant.impl}
+
+\caption{The named\_vertex\_invariant functor\index{named_vertex_invariant@named\_vertex\_invariant}\label{alg:named_vertex_invariant}}
+\end{algorithm}
+
+
+To check for 'label isomorphism', multiple things need to be put in
+place for 'boost::isomorphism'\index{boost::isomorphism} to work
+with:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_named_vertices_isomorphic.impl}
+
+\caption{Check if two graphs with named vertices are isomorphic\index{Is isomorphic}\label{alg:is_named_vertices_isomorphic}}
+\end{algorithm}
+
+
+This demonstration code creates three path graphs, of which two are
+'label isomorphic':
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_named_vertices_isomorphic_demo.impl}
+
+\caption{Demo of the 'is\_named\_vertices\_isomorphic' function\label{alg:is_named_vertices_isomorphic_demo}}
 \end{algorithm}
 
 
@@ -2246,17 +2815,15 @@ We build this graph:
 \begin{figure}[H]
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]   
   \tikzstyle{every state}=[]
-  \node[state] (A)              {$Sunny$};   
-  \node[state] (B) [right of=A] {$Rainy$};   
-  \path (A) edge [loop  left] node {$Sometimes$} (A)
-        (A) edge [bend  left] node {    $Often$} (B)
-        (B) edge [bend  left] node {   $Rarely$} (A)
-        (B) edge [loop right] node {   $Mostly$} (B); 
+  \node[state] (A)              {Happy};   
+  \node[state] (B) [right of=A] {Not unhappy};   
+  \path (A) edge [loop  left] node {Fruit       } (A)
+        (A) edge [bend  left] node {No chocolate} (B)
+        (B) edge [bend  left] node {Chocolate   } (A)
+        (B) edge [loop right] node {Other candy } (B); 
 \end{tikzpicture}
 
-\caption{A two-state Markov chain where the vertices have texts $Sunny$ and
-$Rainy$, and the edges have texts $Sometimes$, $Often$, $Rarely$
-and $Mostly$\label{fig:named_edges_and_vertices_markov_chain}}
+\caption{A two-state Markov chain where the edges and vertices have texts\label{fig:named_edges_and_vertices_markov_chain}}
 \end{figure}
 
 
@@ -2771,9 +3338,9 @@ When the vertices of a graph have any bundled 'my\_bundled\_vertex',
 one can extract these as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_bundled_vertex_my_vertexes.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_vertexes.impl}
 
-\caption{Get the bundled vertices' my\_vertexes\index{Get bundled vertex my_vertexes@Get bundled vertex my\_vertexes}\label{alg:get_bundled_vertex_my_vertexes}}
+\caption{Get the bundled vertices' my\_vertexes\index{Get bundled vertex my_vertexes@Get bundled vertex my\_vertexes}\label{alg:get_my_bundled_vertexes}}
 \end{algorithm}
 
 
@@ -2800,9 +3367,9 @@ will be reproduced:
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]   
   \tikzstyle{every state}=[]
   \node[state] (A) 
-    {Sunny, Yellow thing, 1.0, 2.0};   
+    {Sunny, Yellow, 1.0, 2.0};   
   \node[state] (B) [right of=A] 
-    {Rainy, Grey things, 3.0, 4.0}
+    {Not rainy, Not grey, 3.0, 4.0}
   ;   
   \path (A) edge [loop  left] node {} (A)
         (A) edge [bend  left] node {} (B)
@@ -2856,7 +3423,7 @@ converted from graph to .dot file using algorithm \ref{alg:save_bundled_vertices
 \subsubsection{The .svg file produced}
 
 \begin{figure}[H]
-\includegraphics{create_bundled_vertices_k2_graph}
+\includegraphics{create_bundled_vertices_markov_chain}
 
 \caption{.svg file created from the 'create\_bundled\_vertices\_markov\_chain'
 function (algorithm \ref{alg:create_bundled_vertices_markov_chain})
@@ -2871,7 +3438,19 @@ its .dot file, converted from .dot file to .svg using algorithm \ref{alg:convert
 \subsubsection{Graph}
 
 We reproduce the $K_{2}$ with named vertices of chapter \ref{sub:create_named_vertices_k2_graph}
-, but with our bundled vertices intead.
+, but with our bundled vertices intead, as show in figure \ref{fig:bundled_vertices_k2_graph}:
+
+\begin{figure}[H]
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]   
+\tikzstyle{every state}=[]
+\node[state] (A)              {Me,Myself,1.0,2.0};   
+\node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
+\path (A) edge [] node {} (B); 
+\end{tikzpicture}
+
+\caption{$K_{2}$: a fully connected graph with two bundled vertices\label{fig:bundled_vertices_k2_graph}}
+\end{figure}
+
 
 
 \subsubsection{Function to create such a graph}
@@ -2905,7 +3484,7 @@ Demo:
 \subsubsection{The .dot file produced}
 
 \begin{algorithm}[H]
-\verbatiminput{create_bundled_vertices_k2_graph.dot}
+\verbatiminput{reate_bundled_vertices_k2_graph.dot}
 
 \caption{.dot file created from the 'create\_bundled\_vertices\_k2\_graph'
 function (algorithm \ref{alg:create_bundled_vertices_k2_graph}),
@@ -2917,7 +3496,7 @@ converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\la
 \subsubsection{The .svg file produced}
 
 \begin{figure}[H]
-:-( 
+\includegraphics{create_bundled_vertices_k2_graph}
 
 \caption{.svg file created from the 'create\_bundled\_vertices\_k2\_graph'
 function (algorithm \ref{alg:create_bundled_vertices_k2_graph}) its
@@ -3012,7 +3591,7 @@ function\label{alg:find_first_bundled_vertex_with_my_vertex_demo}}
 To obtain the 'my\_bundled\_vertex' from a vertex descriptor is simple:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_bundled_vertex_my_vertex.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_vertex.impl}
 
 \caption{Get a bundled vertex its my\_vertex from its vertex descriptor\index{Get bundled vertex my_bundled_vertex@Get bundled vertex my\_bundled\_vertex}\label{alg:get_bundled_vertex_my_vertex}}
 \end{algorithm}
@@ -3025,7 +3604,7 @@ a vertex descriptor. Algorithm \ref{alg:get_bundled_vertex_my_vertex_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_bundled_vertex_my_vertex_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_vertex_demo.impl}
 
 \caption{Demonstration if the 'get\_bundled\_vertex\_my\_vertex' function\label{alg:get_bundled_vertex_my_vertex_demo}}
 \end{algorithm}
@@ -3038,7 +3617,7 @@ If you know how to get the 'my\_bundled\_vertex' from a vertex descriptor,
 setting it is just as easy, as shown in algorithm \ref{alg:set_bundled_vertex_my_vertex}.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_bundled_vertex_my_vertex.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_bundled_vertex.impl}
 
 \caption{Set a bundled vertex its my\_vertex from its vertex descriptor\index{Set vertex my_vertex@Set vertex my\_vertex}\label{alg:set_bundled_vertex_my_vertex}}
 \end{algorithm}
@@ -3049,7 +3628,7 @@ a vertex descriptor. Algorithm \ref{alg:set_bundled_vertex_my_vertex_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_bundled_vertex_my_vertex_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_bundled_vertex_demo.impl}
 
 \caption{Demonstration if the 'set\_bundled\_vertex\_my\_vertex' function\label{alg:set_bundled_vertex_my_vertex_demo}}
 \end{algorithm}
@@ -3062,7 +3641,7 @@ When the vertices of a graph are 'my\_bundled\_vertex' objects, one
 can set these as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_bundled_vertex_my_vertexes.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_bundled_vertexes.impl}
 
 \caption{Setting the bundled vertices' 'my\_bundled\_vertex'-es\index{Set bundled vertex my_bundled_vertexes@Set bundled vertex my\_bundled\_vertexes}\label{alg:set_bundled_vertex_my_vertexes}}
 \end{algorithm}
@@ -3083,11 +3662,58 @@ you can store these with algorithm \ref{alg:save_bundled_vertices_graph_to_dot}:
 \end{algorithm}
 
 
-For saving to and loading for a .dot file to work without problems,
-there are some restrictions: any data type that is written to file,
-must not have comma's, quotes, nor spaces. The function 'graphviz\_encode'
-(algorithm \ref{alg:graphviz_encode}) shows how to encode std::string
-to a Graphviz-friendly format.
+This code looks small, because we call the 'make\_bundled\_vertices\_writer'
+function, which is shown in algorithm \ref{alg:make_bundled_vertices_writer}:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{make_bundled_vertices_writer.impl}
+
+\caption{The 'make\_bundled\_vertices\_writer' function\index{make_bundled_vertices_writer@make\_bundled\_vertices\_writer}\label{alg:make_bundled_vertices_writer}}
+\end{algorithm}
+
+
+Also this function is forwarding the real work to the 'bundled\_vertices\_writer',
+shown in algorithm \ref{alg:bundled_vertices_writer}:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{bundled_vertices_writer.impl}
+
+\caption{The 'bundled\_vertices\_writer' function\index{bundled_vertices_writer@bundled\_vertices\_writer}\label{alg:bundled_vertices_writer}}
+\end{algorithm}
+
+
+Here, some interesting things are happening: the writer needs the
+bundled property maps to work with and thus copies the whole graph
+to its internals. I have chosen to map the 'my\_bundled\_vertex' member
+variables to Graphviz attributes (see chapter \ref{sub:Graphviz-attributes}
+for most Graphviz attributes) as shown in table \ref{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}:
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|}
+\hline 
+my\_bundled\_vertex variable & C++ data type & Graphviz data type & Graphviz attribute\tabularnewline
+\hline 
+\hline 
+m\_name & std::string & string & label\tabularnewline
+\hline 
+m\_description & std::string & string & comment\tabularnewline
+\hline 
+m\_x & double & double & width\tabularnewline
+\hline 
+m\_y & double & double & height\tabularnewline
+\hline 
+\end{tabular}
+
+\caption{Mapping of my\_bundled\_vertex member variable and Graphviz attributes\label{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}}
+\end{table}
+
+
+Important in this mapping is that the C++ and the Graphviz data types
+match. I also chose attributes that matched as closely as possible.
+
+The writer also encodes the std::string of the name and description
+to a Graphviz-friendly format. When loading the .dot file again, this
+will have to be undone again.
 
 
 \subsection{Loading a directed graph with bundled vertices from a .dot\label{sub:load_directed_bundled_vertices_graph_from_dot}}
@@ -3104,11 +3730,19 @@ as shown in algorithm \ref{alg:load_directed_bundled_vertices_graph_from_dot}:
 
 
 In this algorithm, first it is checked if the file to load exists.
-Then an empty directed graph is created. Next to this, a boost::dynamic\_properties\index{boost::dynamic_properties@boost::dynamic\_properties}
-is created with its default constructor, after which {[}we set up
-the boost::dynamic\_properties properly somehow, issue \#16{]}. From
-this and the empty graph, 'boost::read\_graphviz'\index{boost::read_graphviz@boost::read\_graphviz}
+Then an empty directed graph is created, to save typing the typename
+explicitly.
+
+Then a boost::dynamic\_properties\index{boost::dynamic_properties@boost::dynamic\_properties}
+is created with its default constructor, after which we set it to
+follow the same mapping as in the previous chapter. From this and
+the empty graph, 'boost::read\_graphviz'\index{boost::read_graphviz@boost::read\_graphviz}
 is called to build up the graph.
+
+At the moment the graph is created, all 'my\_bundled\_vertex' their
+names and description are in a Graphviz-friendly format. By obtaining
+all vertex iterators and vertex descriptors, the encoding is made
+undone.
 
 Algorithm \ref{alg:load_directed_bundled_vertices_graph_from_dot_demo}
 shows how to use the 'load\_directed\_bundled\_vertices\_graph\_from\_dot'
@@ -3300,7 +3934,7 @@ When the edges of a graph are 'my\_bundled\_edge' objects, one can
 extract these all as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_bundled_edge_my_edges.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_edges.impl}
 
 \caption{Get the edges' my\_bundled\_edges\index{Get edge my_bundled_edges@Get edge my\_bundled\_edges}\label{alg:get_bundled_edge_my_edges}}
 \end{algorithm}
@@ -3326,17 +3960,17 @@ Figure \ref{fig:bundled_edges_and_vertices_markov_chain} shows the
 graph that will be reproduced:
 
 \begin{figure}[H]
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick]   
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick]   
   \tikzstyle{every state}=[]
   \node[state] (A) 
-    {Sunny, You [...], 1.0, 2.0};   
+    {Stable,Right, 1.0, 2.0};   
   \node[state] (B) [right of=A] 
-    {Rainy, Many [...], 3.0, 4.0}
+    {Not unstable,Not left, 3.0, 4.0}
   ;   
-  \path (A) edge [loop above] node {AA,self,1,2} (A)
-        (A) edge [bend  left] node {AB,nonself,3,4} (B)
-        (B) edge [bend  left] node {BA,nonself,4,5} (A)
-        (B) edge [loop above] node {BB,self,6,7} (B); 
+  \path (A) edge [loop above] node {Red,Heat,1,2} (A)
+        (A) edge [bend  left] node {Orange,Lose heat,3,4} (B)
+        (B) edge [bend  left] node {Yellow cold,Heat,4,5} (A)
+        (B) edge [loop above] node {Green cols,Stay cool,6,7} (B); 
 \end{tikzpicture}
 
 \caption{A two-state Markov chain where the edges and vertices have bundled
@@ -3386,7 +4020,7 @@ converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\la
 \subsubsection{The .svg file produced}
 
 \begin{figure}[H]
-:-(
+\includegraphics{create_bundled_edges_and_vertices_markov_chain}
 
 \caption{.svg file created from the 'create\_bundled\_edges\_and\_vertices\_markov\_chain'
 function (algorithm \ref{alg:create_custom_vertices_markov_chain})
@@ -3407,7 +4041,22 @@ We reproduce the $K_{3}$ with named edges and vertices of chapter
 \ref{sub:create_named_edges_and_vertices_k3} , but with our bundled
 edges and vertices intead:
 
-{[}graph here{]}
+\begin{figure}[H]
+\tikz 
+\draw[] 
+  (2,4) node[draw=black,fill=white,shape=circle,text=black] {Red,Not green,1,2} 
+   -- (5,2) node[anchor=west] {Oxygen,Air,1,2} 
+   -- (8,0) node[draw=black,fill=white,shape=circle,text=black] {Light red,Not dark,3,4} 
+   -- (4,0) node[anchor=north] {Helium,From tube,3,4} 
+   -- (0,0) node[draw=black,fill=white,shape=circle,text=black] {Orange,Orangy,5,6} 
+   -- (1,2) node[anchor=east] {Stable temperature,Here,5,6} 
+   -- (2,4)
+;
+
+\caption{$K_{3}$: a fully connected graph with three named edges and vertices
+\label{fig:create_bundled_edges_and_vertices_k3}}
+\end{figure}
+
 
 
 \subsubsection{Function to create such a graph}
@@ -3441,7 +4090,7 @@ Here is the demo:
 \subsubsection{The .dot file produced}
 
 \begin{algorithm}[H]
-:-(  
+\verbatiminput{create_bundled_edges_and_vertices_k3_graph.dot}
 
 \caption{.dot file created from the 'create\_bundled\_edges\_and\_vertices\_markov\_chain'
 function (algorithm \ref{alg:create_bundled_edges_and_vertices_k3_graph}),
@@ -3453,7 +4102,7 @@ converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\la
 \subsubsection{The .svg file produced}
 
 \begin{figure}[H]
-:-( 
+\includegraphics[scale=0.5]{create_bundled_edges_and_vertices_k3_graph}
 
 \caption{.svg file created from the 'create\_bundled\_edges\_and\_vertices\_k3\_graph'
 function (algorithm \ref{alg:create_custom_vertices_markov_chain})
@@ -3526,24 +4175,25 @@ function\label{alg:find_first_bundled_edge_with_my_edge_demo}}
 
 \subsection{Get an edge its my\_bundled\_edge\label{sub:get_bundled_edge_my_edge}}
 
-To obtain the my\_edeg from an edge descriptor, one needs to pull
-out the my\_bundled\_edges map and then look up the my\_edge of interest.
+To obtain the my\_bundled\_edge from an edge descriptor, one needs
+to pull out the my\_bundled\_edges map and then look up the my\_edge
+of interest.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_edge_my_edge.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_edge.impl}
 
-\caption{Get a vertex its my\_bundled\_vertex from its vertex descriptor\index{Get bundled edge my_bundled_edge@Get bundled edge my\_bundled\_edge}\label{alg:get_bundled_edge_my_edge}}
+\caption{Get a vertex its my\_bundled\_vertex from its vertex descriptor\index{Get my_bundled_edge@Get my\_bundled\_edge}\label{alg:get_bundled_edge_my_edge}}
 \end{algorithm}
 
 
-To use 'get\_bundled\_edge\_my\_bundled\_edge', one first needs to
-obtain an edge descriptor. Algorithm \ref{alg:get_bundled_edge_my_edge_demo}
-shows a simple example.
+To use 'get\_my\_bundled\_edge', one first needs to obtain an edge
+descriptor. Algorithm \ref{alg:get_bundled_edge_my_edge_demo} shows
+a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_bundled_edge_my_edge_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_bundled_edge_demo.impl}
 
-\caption{Demonstration if the 'get\_bundled\_edge\_my\_edge' function\label{alg:get_bundled_edge_my_edge_demo}}
+\caption{Demonstration if the 'get\_my\_bundled\_edge' function\label{alg:get_bundled_edge_my_edge_demo}}
 \end{algorithm}
 
 
@@ -3554,7 +4204,7 @@ If you know how to get the my\_bundled\_edge from an edge descriptor,
 setting it is just as easy, as shown in algorithm \ref{alg:set_bundled_edge_my_edge}.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_bundled_edge_my_edge.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_bundled_edge.impl}
 
 \caption{Set a bundled edge its my\_bundled\_edge from its edge descriptor\index{Set bundled edge my_bundled_edge@Set bundled edge my\_bundled\_edge}\label{alg:set_bundled_edge_my_edge}}
 \end{algorithm}
@@ -3565,7 +4215,7 @@ edge descriptor. Algorithm \ref{alg:set_bundled_edge_my_edge_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_bundled_edge_my_edge_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_bundled_edge_demo.impl}
 
 \caption{Demonstration if the 'set\_bundled\_edge\_my\_edge' function\label{alg:set_bundled_edge_my_edge_demo}}
 \end{algorithm}
@@ -3842,9 +4492,9 @@ When the vertices of a graph have any associated my\_vertex, one can
 extract these as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_vertex_my_vertexes.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_vertexes.impl}
 
-\caption{Get the vertices' my\_vertexes\index{Get vertex my_vertexes@Get vertex my\_vertexes}\label{alg:get_vertex_my_vertexes}}
+\caption{Get the my\_custom\_vertex objects\index{Get my_custom_vertexes@Get my\_custom\_vertexes}\label{alg:get_my_custom_vertexes}}
 \end{algorithm}
 
 
@@ -3861,9 +4511,9 @@ objects associated, you will get the error 'formed reference to void'
 Demo:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_vertex_my_vertexes_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_vertexes_demo.impl}
 
-\caption{Demo how to the vertices' my\_custom\_vertex objects\index{Get custom vertex my_custom_vertex objects@Get custom vertex my\_custom\_vertex objects}\label{alg:get_vertex_my_vertexes_demo}}
+\caption{Demo how to the vertices' my\_custom\_vertex objects\index{Get custom vertex my_custom_vertex objects@Get custom vertex my\_custom\_vertex objects}\label{alg:get_my_custom_vertexes_demo}}
 \end{algorithm}
 
 
@@ -4018,6 +4668,90 @@ converted from .dot file to .svg using algorithm \ref{alg:convert_dot_to_svg}\la
 
 
 
+\subsection{\textifsymbol[ifgeo]{100} Creating a path graph with custom vertices\label{sub:create_custom_vertices_path_graph}\index{Create path graph with custom vertices}\index{Path graph with custom vertices, create}}
+
+Here we create a path graph with custom vertices
+
+
+\subsubsection{Graph}
+
+Here I show a path graph with four vertices (see figure \ref{fig:create_custom_vertices_path_graph}):
+
+\begin{figure}[H]
+\begin{tikzpicture}   
+\tikzset{ 
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=black}
+}
+\SetGraphUnit{4}
+\Vertex{A}   
+\EA(A){B}   
+\EA(B){C}   
+\EA(C){D}   
+\Edge[](A)(B)   
+\Edge[](B)(C)   
+\Edge[](C)(D)   
+\end{tikzpicture}
+
+\caption{A path graph with four vertices \label{fig:create_custom_vertices_path_graph}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+To create a path graph, the following code can be used:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_vertices_path_graph.impl}
+
+\caption{Creating a path graph as depicted in figure \ref{fig:create_custom_vertices_path_graph}\index{Create custom vertices path graph}\label{alg:create_custom_vertices_path_graph}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Algorithm \ref{alg:create_custom_vertices_path_graph_demo} demonstrates
+how to create a path graph with named vertices and checks if it has
+the correct amount of edges and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_vertices_path_graph_demo.impl}
+
+\caption{Demonstration of 'create\_named\_vertices\_path\_graph' \label{alg:create_custom_vertices_path_graph_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced\label{sub:create_custom_vertices_path_graph.dot}}
+
+This graph can be converted to the .dot file as shown in algorithm
+\ref{alg:create_custom_vertices_path_graph.dot}:
+
+\begin{algorithm}[H]
+\verbatiminput{create_custom_vertices_path_graph.dot}
+
+\caption{.dot file created from the 'create\_named\_vertices\_path\_graph'
+function (algorithm \ref{alg:create_custom_vertices_path_graph}),
+converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\label{alg:create_custom_vertices_path_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced\label{sub:create_custom_vertices_path_graph.svg}}
+
+The .dot file can be converted to the .svg as shown in figure \ref{fig:create_custom_vertices_path_graph.svg}:
+
+\begin{figure}[H]
+\includegraphics{create_custom_vertices_path_graph_4}
+
+\caption{.svg file created from the 'create\_named\_vertices\_path\_graph'
+function (algorithm \ref{alg:create_custom_vertices_path_graph})
+its .dot file, converted from .dot file to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_custom_vertices_path_graph.svg}}
+\end{figure}
+
+
+
 \section{Working on graphs with custom vertices (as a custom property)}
 
 When using graphs with custom vertices, their state gives a way to
@@ -4108,20 +4842,20 @@ vertices = multiple graph nodes%
 } map and then look up the vertex of interest.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_vertex_my_vertex.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_vertex.impl}
 
-\caption{Get a custom vertex its my\_vertex from its vertex descriptor\index{Get custom vertex my_vertex@Get custom vertex my\_vertex}\label{alg:get_vertex_my_vertex}}
+\caption{Get a my\_custom\_vertex its my\_vertex from its vertex descriptor\index{Get my_custom_vertex@Get my\_custom\_vertex}\label{alg:get_vertex_my_vertex}}
 \end{algorithm}
 
 
 To use 'get\_custom\_vertex\_my\_vertex', one first needs to obtain
-a vertex descriptor. Algorithm \ref{alg:get_vertex_my_vertex_demo}
+a vertex descriptor. Algorithm \ref{alg:get_my_custom_vertex_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_vertex_my_vertex_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_vertex_demo.impl}
 
-\caption{Demonstration if the 'get\_custom\_vertex\_my\_vertex' function\label{alg:get_vertex_my_vertex_demo}}
+\caption{Demonstration if the 'get\_my\_custom\_vertex' function\label{alg:get_my_custom_vertex_demo}}
 \end{algorithm}
 
 
@@ -4132,20 +4866,20 @@ If you know how to get the my\_vertex from a vertex descriptor, setting
 it is just as easy, as shown in algorithm \ref{alg:set_custom_vertex_my_vertex}.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_custom_vertex_my_vertex.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_custom_vertex.impl}
 
-\caption{Set a custom vertex its my\_vertex from its vertex descriptor\index{Set vertex my_vertex@Set vertex my\_vertex}\label{alg:set_custom_vertex_my_vertex}}
+\caption{Set a custom vertex its my\_vertex from its vertex descriptor\index{Set my_custom_vertex@Set my\_custom\_vertex}\label{alg:set_custom_vertex_my_vertex}}
 \end{algorithm}
 
 
-To use 'set\_vertex\_my\_vertex', one first needs to obtain a vertex
+To use 'set\_my\_custom\_vertex', one first needs to obtain a vertex
 descriptor. Algorithm \ref{alg:set_custom_vertex_my_vertex_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_custom_vertex_my_vertex_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_custom_vertex_demo.impl}
 
-\caption{Demonstration if the 'set\_custom\_vertex\_my\_vertex' function\label{alg:set_custom_vertex_my_vertex_demo}}
+\caption{Demonstration if the 'set\_my\_custom\_vertex' function\label{alg:set_custom_vertex_my_vertex_demo}}
 \end{algorithm}
 
 
@@ -4156,9 +4890,9 @@ When the vertices of a graph are associated with my\_vertex objects,
 one can set these my\_vertexes as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_custom_vertex_my_vertexes.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_custom_vertexes.impl}
 
-\caption{Setting the custom vertices' my\_vertexes\index{Set custom vertex my_vertexes@Set custom vertex my\_vertexes}\label{alg:set_custom_vertex_my_vertexes}}
+\caption{Setting the custom vertices' my\_vertexes\index{Set my_custom_vertexes@Set my\_custom\_vertexes}\label{alg:set_my_custom_vertexes}}
 \end{algorithm}
 
 
@@ -4166,6 +4900,52 @@ An impressive feature is that getting the property map holding the
 graph its names is not a copy, but a reference. Otherwise, modifying
 'my\_vertexes\_map' (obtained by non-reference) would only modify
 a copy.
+
+
+\subsection{\textifsymbol[ifgeo]{100} Are two graphs with custom vertices isomorphic?\label{sub:is_custom_vertices_isomorphic}}
+
+Algorithm \ref{sub:is_named_vertices_isomorphic} checked if two graphs
+with named vertices are 'label isomorphic'. Here, we do the same for
+custom vertices.
+
+To do this, there are two steps needed:
+\begin{enumerate}
+\item Map all my\_custom\_vertex objects to an unsigned int.
+\item Compare the two graphs with that map
+\end{enumerate}
+Below the class 'my\_custom\_vertex\_invariant' is shown. Its std::map
+maps the vertex names to an unsigned integer, which is done in the
+member function 'collect\_names'. The purpose of this, is that is
+is easier to compare integers than custom vertices. Note that operator<\index{operator<}
+must be implemented for the custom class for this to compile.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{custom_vertex_invariant.impl}
+
+\caption{The 'custom\_vertex\_invariant' functor\index{custom_vertex_invariant@custom\_vertex\_invariant}\label{alg:custom_vertex_invariant}}
+\end{algorithm}
+
+
+To check for 'custom vertexness isomorphism', multiple things need
+to be put in place for 'boost::isomorphism'\index{boost::isomorphism}
+to work with:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_custom_vertices_isomorphic.impl}
+
+\caption{Check if two graphs with custom vertices are isomorphic\index{Is isomorphic}\label{alg:is_custom_vertices_isomorphic}}
+\end{algorithm}
+
+
+This demonstration code creates three path graphs, of which two are
+'label isomorphic':
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_custom_vertices_isomorphic_demo.impl}
+
+\caption{Demo of the 'is\_named\_vertices\_isomorphic' function\label{alg:is_named_vertices_isomorphic_demo-1}}
+\end{algorithm}
+
 
 
 \subsection{Storing a graph with custom vertices as a .dot\label{sub:save_custom_vertices_graph_to_dot}}
@@ -4587,6 +5367,9 @@ is\_selected maps). The 'my\_custom\_vertex' are written to the Graphviz
 attribute (see chapter \ref{sub:Graphviz-attributes} for most Graphviz
 attributes).
 
+Special about this, is that even for Graphviz-unfriendly input, it
+still works.
+
 
 \subsection{Loading a directed graph with custom and selectable vertices from
 a .dot\label{sub:load_directed_custom_and_selectable_vertices_graph_from_dot}}
@@ -4824,7 +5607,7 @@ When the edges of a graph have an associated 'my\_custom\_edge', one
 can extract these all as such:
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_edge_my_edges.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_edges.impl}
 
 \caption{Get the edges' my\_custom\_edges\index{Get edge my_custom_edges@Get edge my\_custom\_edges}\label{alg:get_custom_edge_my_edges}}
 \end{algorithm}
@@ -5052,7 +5835,7 @@ To obtain the my\_edeg from an edge descriptor, one needs to pull
 out the my\_custom\_edges map and then look up the my\_edge of interest.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_edge_my_edge.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_edge.impl}
 
 \caption{Get a vertex its my\_custom\_vertex from its vertex descriptor\index{Get custom edge my_custom_edge@Get custom edge my\_custom\_edge}\label{alg:get_custom_edge_my_edge}}
 \end{algorithm}
@@ -5063,7 +5846,7 @@ an edge descriptor. Algorithm \ref{alg:get_custom_edge_my_edge_demo}
 shows a simple example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{get_custom_edge_my_edge_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{get_my_custom_edge_demo.impl}
 
 \caption{Demonstration if the 'get\_custom\_edge\_my\_edge' function\label{alg:get_custom_edge_my_edge_demo}}
 \end{algorithm}
@@ -5076,20 +5859,20 @@ If you know how to get the my\_custom\_edge from an edge descriptor,
 setting it is just as easy, as shown in algorithm \ref{alg:set_edge_my_custom_edge}.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_custom_edge_my_edge.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_custom_edge.impl}
 
-\caption{Set a custom edge its my\_custom\_edge from its edge descriptor\index{Set custom edge my_custom_edge@Set custom edge my\_custom\_edge}\label{alg:set_edge_my_custom_edge}}
+\caption{Set a custom edge its my\_custom\_edge from its edge descriptor\index{Set my_custom_edge@Set my\_custom\_edge}\label{alg:set_edge_my_custom_edge}}
 \end{algorithm}
 
 
-To use 'set\_custom\_edge\_my\_edge', one first needs to obtain an
-edge descriptor. Algorithm \ref{alg:set_custom_edge_my_edge_demo}
-shows a simple example.
+To use 'set\_my\_custom\_edge', one first needs to obtain an edge
+descriptor. Algorithm \ref{alg:set_my_custom_edge_demo} shows a simple
+example.
 
 \begin{algorithm}[H]
-\lstinputlisting[breaklines=true,language={C++}]{set_custom_edge_my_edge_demo.impl}
+\lstinputlisting[breaklines=true,language={C++}]{set_my_custom_edge_demo.impl}
 
-\caption{Demonstration if the 'set\_custom\_edge\_my\_edge' function\label{alg:set_custom_edge_my_edge_demo}}
+\caption{Demonstration if the 'set\_my\_custom\_edge' function\label{alg:set_my_custom_edge_demo}}
 \end{algorithm}
 
 
@@ -5186,6 +5969,404 @@ This demonstration shows how $K_{2}$ with custom vertices is created
 using the 'create\_custom\_vertices\_k2\_graph' function (algorithm
 \ref{alg:create_custom_vertices_k2_graph}), saved and then loaded.
 The loaded graph is checked to be a graph similar to the original.
+
+
+\section{Building graphs with custom and selectable edges and vertices}
+
+Now also the edge can be selected
+\begin{itemize}
+\item An empty directed graph that allows for custom and selectable vertices:
+see chapter \ref{sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph}
+\item An empty undirected graph that allows for custom and selectable vertices:
+see chapter \ref{sub:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph}
+\item A two-state Markov chain with custom and selectable vertices: see
+chapter \ref{sub:create_custom_and_selectable_edges_and_vertices_markov_chain}
+\item $K_{3}$with custom and selectable vertices: see chapter \ref{sub:create_custom_and_selectable_edges_and_vertices_k2_graph}
+\end{itemize}
+In the process, some basic (sometimes bordering trivial) functions
+are shown:
+\begin{itemize}
+\item Installing the new edge property: see chapter \ref{sub:install_is_selected-1}
+\item Adding a custom and selectable vertex: see chapter \ref{sub:add_custom_and_selectable_edge}
+\end{itemize}
+These functions are mostly there for completion and showing which
+data types are used.
+
+
+\subsection{Installing the new is\_selected property\label{sub:install_is_selected-1}\index{edge_is_selected@edge\_is\_selected}\index{edge_is_selected_t@edge\_is\_selected\_t}}
+
+Installing a new property would have been easier, if 'more C++ compilers
+were standards conformant' (\cite{siek2001boost}, chapter 3.6, footnote
+at page 52). Boost.Graph uses the BOOST\_INSTALL\_PROPERTY\index{BOOST_INSTALL_PROPERTY@BOOST\_INSTALL\_PROPERTY}
+macro\index{macro} to allow using a custom property:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{install_edge_is_selected.impl}
+
+\caption{Installing the edge\_is\_selected property\index{Install edge_is_selected@Install edge\_is\_selected}\label{alg:install_edge_is_selected}}
+\end{algorithm}
+
+
+The enum value 31415 must be unique.
+
+
+\subsection{Create an empty directed graph with custom and selectable edges and
+vertices\label{sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph}}
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl}
+
+\caption{Creating an empty directed graph with custom and selectable edges
+and vertices\index{Create empty directed custom and selectable edges and vertices graph}\label{alg:create_empty_directed_custom_and_selectable_edges_and_vertices_graph}}
+\end{algorithm}
+
+
+This code is very similar to the code described in chapter \ref{sub:create_empty_directed_custom_vertices_graph},
+except that there is a new, fifth template argument:
+
+\begin{lstlisting}
+boost::property<boost::edge_custom_type_t, my_custom_edge, 
+  boost::property<boost::edge_is_selected_t, bool, 
+>
+\end{lstlisting}
+This can be read as: ``edges have two properties: an associated custom
+type (of type my\_custom\_edge) and an associated is\_selected property
+(of type bool)''.
+
+Demo:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo.impl}
+
+\caption{Demonstration of the 'create\_empty\_directed\_custom\_and\_selectable\_edges\_and\_vertices\_graph'
+function\label{alg:create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo}}
+\end{algorithm}
+
+
+
+\subsection{Create an empty undirected graph with custom and selectable edges
+and vertices\label{sub:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph}}
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.impl}
+
+\caption{Creating an empty undirected graph with custom and selectable edges
+and vertices\index{Create empty undirected custom and selectable edges and vertices graph}\label{alg:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph}}
+\end{algorithm}
+
+
+This code is very similar to the code described in chapter \ref{sub:create_empty_directed_custom_and_selectable_edges_and_vertices_graph},
+except that the directedness (the third template argument) is undirected
+(due to the boost::undirectedS\index{boost::undirectedS}).
+
+Demo:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo.impl}
+
+\caption{Demonstration of the 'create\_empty\_undirected\_custom\_and\_selectable\_edges\_and\_vertices\_graph'
+function\label{alg:create_empty_undirected_custom_and_selectable_edges_and_vertices_graph_demo}}
+\end{algorithm}
+
+
+
+\subsection{Add a custom and selectable edge\label{sub:add_custom_and_selectable_edge}}
+
+Adding a custom and selectable edge is very similar to adding a custom
+and selectable vertex (chapter \ref{sub:add_custom_and_selectable_vertex}).
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{add_custom_and_selectable_edge.impl}
+
+\caption{Add a custom and selectable edge\index{Add custom and selectable edge}\label{alg:add_custom_and_selectable_edge}}
+\end{algorithm}
+
+
+When having added a new (abstract) edge to the graph, the edge descriptor
+is used to set the my\_custom\_edge and the selectedness in the graph
+its my\_custom\_edge and is\_selected map .
+
+Here is the demo:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{add_custom_and_selectable_edge_demo.impl}
+
+\caption{Demo of 'add\_custom\_and\_selectable\_vertex'\label{alg:add_custom_and_selectable_edge_demo}}
+\end{algorithm}
+
+
+
+\subsection{Creating a Markov-chain with custom and selectable vertices\label{sub:create_custom_and_selectable_edges_and_vertices_markov_chain}}
+
+
+\subsubsection{Graph}
+
+Figure \ref{fig:create_custom_and_selectable_edges_and_vertices_markov_chain}
+shows the graph that will be reproduced:
+
+\begin{figure}[H]
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick]   
+  \tikzstyle{every state}=[]
+  \node[state] (A) 
+    {Sunny, You [...], 1.0, 2.0};   
+  \node[state] (B) [right of=A] 
+    {Rainy, Many [...], 3.0, 4.0}
+  ;   
+  \path (A) edge [loop above] node {AA,self,1,2} (A)
+        (A) edge [bend  left] node {AB,nonself,3,4} (B)
+        (B) edge [bend  left] node {BA,nonself,4,5} (A)
+        (B) edge [loop above] node {BB,self,6,7} (B); 
+\end{tikzpicture}
+
+\caption{A two-state Markov chain where the edges and vertices have custom
+properies. The edges' and vertices' properties are nonsensical\label{fig:create_custom_and_selectable_edges_and_vertices_markov_chain}}
+\end{figure}
+
+
+
+\subsubsection{Function to create such a graph}
+
+Here is the code creating a two-state Markov chain with custom edges
+and vertices:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_and_selectable_edges_and_vertices_markov_chain.impl}
+
+\caption{Creating the two-state Markov chain as depicted in figure \ref{fig:create_custom_and_selectable_edges_and_vertices_markov_chain}\index{Create custom and selectable edges and vertices Markov chain}\label{alg:create_custom_and_selectable_edges_and_vertices_markov_chain}}
+\end{algorithm}
+
+
+
+\subsubsection{Creating such a graph}
+
+Here is the demo:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl}
+
+\caption{Demo of the 'create\_custom\_and\_selectable\_edges\_and\_vertices\_markov\_chain'
+function (algorithm \ref{alg:create_custom_and_selectable_edges_and_vertices_markov_chain})\label{alg:create_custom_and_selectable_edges_and_vertices_markov_chain_demo}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced}
+
+\begin{algorithm}[H]
+\verbatiminput{create_custom_and_selectable_edges_and_vertices_markov_chain.dot}
+
+\caption{.dot file created from the 'create\_custom\_and\_selectable\_vertices\_markov\_chain'
+function (algorithm \ref{alg:create_custom_and_selectable_edges_and_vertices_markov_chain}),
+converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\label{alg:create_custom_and_selectable_edges_and_vertices_markov_chain.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced}
+
+\begin{figure}[H]
+\includegraphics{create_custom_and_selectable_edges_and_vertices_markov_chain}
+
+\caption{.svg file created from the 'create\_custom\_and\_selectable\_vertices\_markov\_chain'
+function (algorithm \ref{alg:create_custom_vertices_markov_chain})
+its .dot file, converted from .dot file to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_custom_and_selectable_edges_and_vertices_markov_chain.svg}}
+\end{figure}
+
+
+Note how the .svg changed it appearance due to the Graphviz 'regular'
+property (see chapter \ref{sub:Graphviz-attributes}): the vertex
+labeled 'Sunny' is drawn according to the Graphviz 'regular' attribute,
+which makes it a circle. The other vertex, labeled 'Rainy' is not
+drawn as such and retained its ellipsoid appearance. 
+
+
+\subsection{Creating $K_{2}$ with custom and selectable edges and vertices\label{sub:create_custom_and_selectable_edges_and_vertices_k2_graph}}
+
+
+\subsubsection{Graph}
+
+We reproduce the $K_{2}$ with custom vertices of chapter \ref{sub:create_custom_vertices_k2_graph}
+, but now are vertices can be selected as well:
+
+{[}graph here{]}
+
+
+\subsubsection{Function to create such a graph}
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_and_selectable_edges_and_vertices_k2_graph.impl}
+
+\caption{Creating $K_{3}$ as depicted in figure \ref{fig:named_edges_and_vertices_k3}\index{Create custom and selectable edges and vertices K2 graph}\label{alg:create_custom_and_selectable_edges_and_vertices_k2_graph}}
+\end{algorithm}
+
+
+Most of the code is a slight modification of algorithm \ref{alg:create_custom_vertices_k2_graph}.
+In the end, the associated my\_custom\_vertex and is\_selected properties
+are obtained as boost::property\_maps and set with the desired my\_custom\_vertex
+objects and selectednesses.
+
+
+\subsubsection{Creating such a graph}
+
+Here is the demo:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{create_custom_and_selectable_edges_and_vertices_k2_graph_demo.impl}
+
+\caption{Demo of the 'create\_custom\_and\_selectable\_edges\_and\_vertices\_k2\_graph'
+function (algorithm \ref{alg:create_custom_and_selectable_edges_and_vertices_k2_graph})\label{alg:create_custom_and_selectable_edges_and_vertices_k2_graph_demo-1}}
+\end{algorithm}
+
+
+
+\subsubsection{The .dot file produced}
+
+\begin{algorithm}[H]
+\verbatiminput{create_custom_and_selectable_edges_and_vertices_k2_graph.dot}
+
+\caption{.dot file created from the 'create\_custom\_and\_selectable\_vertices\_k2\_graph'
+function (algorithm \ref{alg:create_custom_and_selectable_edges_and_vertices_k2_graph}),
+converted from graph to .dot file using algorithm \ref{alg:save_graph_to_dot}\label{alg:create_custom_and_selectable_edges_and_vertices_k2_graph.dot}}
+\end{algorithm}
+
+
+
+\subsubsection{The .svg file produced}
+
+\begin{figure}[H]
+\includegraphics{create_custom_and_selectable_edges_and_vertices_k2_graph}
+
+\caption{.svg file created from the 'create\_custom\_and\_selectable\_vertices\_k2\_graph'
+function (algorithm \ref{alg:create_custom_vertices_markov_chain})
+its .dot file, converted from .dot file to .svg using algorithm \ref{alg:convert_dot_to_svg}\label{fig:create_custom_and_selectable_edges_and_vertices_k2_graph.svg}}
+\end{figure}
+
+
+Note how the .svg changed it appearance due to the Graphviz 'regular'
+property (see chapter \ref{sub:Graphviz-attributes}): the vertex
+labeled 'A' is drawn according to the Graphviz 'regular' attribute,
+which makes it a circle. The other vertex, labeled 'B' is not drawn
+as such and retained its ellipsoid appearance.
+
+
+\section{Working on graphs with custom and selectable edges and vertices}
+
+This chapter shows some basic operations to do on graphs with custom
+and selectable edges and vertices.
+\begin{itemize}
+\item Storing an directed/undirected graph with custom and selectable edges
+and vertices as a .dot file: chapter \ref{sub:save_custom_and_selectable_edges_and_vertices_graph_to_dot}
+\item Loading a directed graph with custom and selectable edges and vertices
+from a .dot file: chapter \ref{sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot}
+\item Loading an undirected directed graph with custom and selectable edges
+amd vertices from a .dot file: chapter \ref{sub:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot}
+\end{itemize}
+
+\subsection{Storing a graph with custom and selectable edges and vertices as
+a .dot\label{sub:save_custom_and_selectable_edges_and_vertices_graph_to_dot}}
+
+If you used the 'create\_custom\_and\_selectable\_edges\_and\_vertices\_k2\_graph'
+function (algorithm \ref{alg:create_custom_and_selectable_edges_and_vertices_k2_graph})
+to produce a $K_{2}$ graph with edges and vertices associated with
+(1) my\_custom\_edge/my\_custom\_vertex objects, and (2) a boolean
+indicating its selectedness, you can store such graphs with algorithm
+\ref{alg:save_custom_and_selectable_edges_and_vertices_graph_to_dot}:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{save_custom_and_selectable_edges_and_vertices_graph_to_dot.impl}
+
+\caption{Storing a graph with custom and selectable edges and vertices as a
+.dot file\index{Save custom and selectable edges and vertices graph to dot}\label{alg:save_custom_and_selectable_edges_and_vertices_graph_to_dot}}
+\end{algorithm}
+
+
+We re-use the writer.
+
+Special about this, is that even for Graphviz-unfriendly input, it
+still works.
+
+
+\subsection{Loading a directed graph with custom and selectable edges and vertices
+from a .dot\label{sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot}}
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an directed graph with custom and selectable edges
+and vertices is loaded, as shown in algorithm \ref{alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot}:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.impl}
+
+\caption{Loading a directed graph with custom and selectable edges and vertices
+from a .dot file\index{Load directed custom and selectable edges and vertices graph from
+dot}\label{alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot}}
+\end{algorithm}
+
+
+In this algorithm, first it is checked if the file to load exists.
+Then an empty directed graph is created. Then, a boost::dynamic\_properties\index{boost::dynamic_properties@boost::dynamic\_properties}
+is created with its default constructor, after which 
+\begin{itemize}
+\item The Graphviz attribute 'node\_id' (see chapter \ref{sub:Graphviz-attributes}
+for most Graphviz attributes) is connected to a vertex its 'my\_custom\_vertex'
+property
+\item The Graphviz attribute 'label' is connected to a vertex its 'my\_custom\_vertex'
+property
+\item The Graphviz attribute 'regular' is connected to a vertex its 'is\_selected'
+vertex property
+\end{itemize}
+Algorithm \ref{alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo}
+shows how to use the 'load\_directed\_custom\_vertices\_graph\_from\_dot'
+function:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl}
+
+\caption{Demonstration of the 'load\_directed\_custom\_and\_selectable\_edges\_and\_vertices\_graph\_from\_dot'
+function\label{alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo}}
+\end{algorithm}
+
+
+This demonstration shows how the Markov chain is created using the
+'create\_custom\_vertices\_markov\_chain' function (algorithm \ref{alg:create_custom_vertices_markov_chain}),
+saved and then checked to exist.
+
+
+\subsection{Loading an undirected graph with custom and selectable edges and
+vertices from a .dot\label{sub:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot}}
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an undirected graph with custom and selectable vertices
+is loaded, as shown in algorithm \ref{alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot}:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl}
+
+\caption{Loading an undirected graph with custom vertices from a .dot file\index{Load undirected custom vertices graph from dot}\label{alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot}}
+\end{algorithm}
+
+
+The only difference with loading a directed graph, is that the initial
+empty graph is undirected instead. Chapter \ref{sub:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot}
+describes the rationale of this function. 
+
+Algorithm \ref{alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo}
+shows how to use the 'load\_undirected\_custom\_vertices\_graph\_from\_dot'
+function:
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl}
+
+\caption{Demonstration of the 'load\_undirected\_custom\_and\_selectable\_edges\_and\_vertices\_graph\_from\_dot'
+function\label{alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo}}
+\end{algorithm}
+
+
+This demonstration shows how $K_{2}$ with custom vertices is created
+using the 'create\_custom\_vertices\_k2\_graph' function (algorithm
+\ref{alg:create_custom_vertices_k2_graph}), saved and then checked
+to exist.
+
+
 
 
 \section{Building graphs with a graph name\label{sec:Building-graphs-with-a-graph-name}}
@@ -5440,8 +6621,7 @@ function (algorithm \ref{alg:create_k2_graph_with_graph_name}) its
 
 \subsection{Storing a graph with a graph name property as a .dot file\label{sub:save_graph_with_graph_name_to_dot}}
 
-I am unsure if this results in a .dot file that can produce a graph
-with a graph name, but this is what I came up with.
+This works:
 
 \begin{algorithm}[H]
 \lstinputlisting[breaklines=true,language={C++}]{save_graph_with_graph_name_to_dot.impl}
@@ -5453,8 +6633,7 @@ with a graph name, but this is what I came up with.
 
 \subsection{Loading a directed graph with a graph name property from a .dot file\label{sub:load_directed_graph_with_graph_name_from_dot}}
 
-This will result in a directed graph without a name {[}ISSUE \#12{]}.
-Please email me if you know how to do this correctly.
+This will result in a directed graph with a name:
 
 \begin{algorithm}[H]
 \lstinputlisting[breaklines=true,language={C++}]{load_directed_graph_with_graph_name_from_dot.impl}
@@ -5463,16 +6642,11 @@ Please email me if you know how to do this correctly.
 \end{algorithm}
 
 
-Note the part that I removed using \#ifdef: I read that that is a
-valid approach, according to the Boost.Graph documentation (see \url{http://www.boost.org/doc/libs/1_60_0/libs/graph/doc/read_graphviz.html}),
-but it failed to compile.
-
 
 \subsection{Loading an undirected graph with a graph name property from a .dot
 file\label{sub:load_undirected_graph_with_graph_name_from_dot}}
 
-This will result in an undirected graph without a name. {[}ISSUE \#12{]}
-Please email me if you know how to do this correctly.
+This will result in an undirected graph with a name:
 
 \begin{algorithm}[H]
 \lstinputlisting[breaklines=true,language={C++}]{load_undirected_graph_with_graph_name_from_dot.impl}
@@ -5481,28 +6655,10 @@ Please email me if you know how to do this correctly.
 \end{algorithm}
 
 
-Note the part that I removed using \#ifdef: I read that that is a
-valid approach, according to the Boost.Graph documentation (see \url{http://www.boost.org/doc/libs/1_60_0/libs/graph/doc/read_graphviz.html}),
-but it failed to compile.
-
-
-\section{Building graphs with custom graph properties}
-
-I will write this chapter if and only if I can save and load a graph
-with a graph name (as in chapter \ref{sec:Building-graphs-with-a-graph-name}).
-That is, if Issue \#12 is fixed.
-
-
-\section{Working on graphs with custom graph properties}
-
-I will write this chapter if and only if I can save and load a graph
-with a graph name (as in chapter \ref{sec:Building-graphs-with-a-graph-name}).That
-is, if Issue \#12 is fixed.
-
 
 \section{Other graph functions\label{sec:Other-graph-functions}}
 
-Some functions that did not fit in
+Some functions that did not fit in.
 
 
 \subsection{Encode a std::string to a Graphviz-friendly format\label{sub:graphviz_encode}}
@@ -5530,6 +6686,20 @@ human-friendly std::string.
 
 \caption{Decode a std::string from a Graphviz-friendly format to a human-friendly
 format\index{graphviz decode}\label{alg:graphviz_decode}}
+\end{algorithm}
+
+
+
+\subsection{Check if a std::string is Graphviz-friendly\label{sub:is_graphviz_friendly}}
+
+There are pieces where I check if a std::string is Graphviz-friendly.
+This is done only where it matters. If it is tested not to matter,
+'is\_graphviz\_friendly' is absent.
+
+\begin{algorithm}[H]
+\lstinputlisting[breaklines=true,language={C++}]{is_graphviz_friendly.impl}
+
+\caption{Check if a std::string is Graphviz-friendly\index{is_graphviz_friendly@is\_graphviz\_friendly}\label{alg:is_graphviz_friendly}}
 \end{algorithm}
 
 
@@ -5661,6 +6831,79 @@ shows how to trigger this run-time error.
 
 \caption{Creating the error 'Property not found: node\_id'\index{Property not found: node_id@Property not found: node\_id}\label{alg:property_not_found_node_id}}
 \end{algorithm}
+
+
+
+\subsection{Stream zeroes}
+
+When loading a graph from a .dot file, in operator>\textcompwordmark{}>,
+I encountered reading zeroes, where I expected an XML formatted string:
+
+\begin{lstlisting}
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class) noexcept
+{
+  std::string s;
+  is >> s; //s has an XML format
+  assert(s != "0");
+  any_class = my_class(s);
+  return is;
+}
+\end{lstlisting}
+
+
+This was because I misconfigured the reader. I did (heavily simplified
+code):
+
+\begin{lstlisting}
+graph load_from_dot(const std::string& dot_filename)
+{
+  std::ifstream f(dot_filename.c_str());
+  graph g;
+  boost::dynamic_properties dp;
+  dp.property("node_id", get(boost::vertex_custom_type, g));
+  dp.property("label", get(boost::vertex_custom_type, g));
+  boost::read_graphviz(f,g,dp);
+  return g;
+}
+\end{lstlisting}
+
+
+Where it should have been:
+
+\begin{lstlisting}
+graph load_from_dot(const std::string& dot_filename)
+{
+  std::ifstream f(dot_filename.c_str());
+  graph g;
+  boost::dynamic_properties dp(boost::ignore_other_properties);
+  dp.property("label", get(boost::vertex_custom_type, g));
+  boost::read_graphviz(f,g,dp);
+  return g;
+}
+\end{lstlisting}
+
+
+The explanation is that by setting the boost::dynamic\_property 'node\_id'
+to 'boost::vertex\_custom\_type', operator>\textcompwordmark{}> will
+receive the node indices. 
+
+An alternative, but less clean solution, is to let operator>\textcompwordmark{}>
+ignore the node indices:
+
+\begin{lstlisting}
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class) noexcept
+{
+  std::string s;
+  is >> s; //s has an XML format
+  if (!is_xml(s)) { //Ignore node index
+    any_class_class = my_class(); 
+  }
+  else {
+    any_class_class = my_class(s);
+  }
+  return is;
+}
+\end{lstlisting}
 
 
 

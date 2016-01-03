@@ -131,6 +131,7 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
 {
   std::string line;
   is >> line;
+  assert(line != "0");
   if (line == "0")
   {
     std::cerr << line << '\n';

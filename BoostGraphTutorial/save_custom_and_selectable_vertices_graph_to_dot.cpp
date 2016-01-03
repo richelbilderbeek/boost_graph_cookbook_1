@@ -1,5 +1,7 @@
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
 
+#include "save_custom_and_selectable_vertices_graph_to_dot_demo.impl"
+
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -41,4 +43,5 @@ void save_custom_and_selectable_vertices_graph_to_dot_test() noexcept
     assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
     assert(get_sorted_vertex_selectednesses(g) == get_sorted_vertex_selectednesses(h));
   }
+  save_custom_and_selectable_vertices_graph_to_dot_demo();
 }

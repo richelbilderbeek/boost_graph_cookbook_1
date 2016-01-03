@@ -16,8 +16,9 @@
 #include "get_vertex_names.h"
 #include "get_my_custom_vertexes.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
-//TODO: #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
-//TODO: #include "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
+#include "save_custom_and_selectable_vertices_graph_to_dot.h"
+#include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
+#include "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
 #include "load_directed_custom_edges_and_vertices_graph_from_dot.h"
 
@@ -58,8 +59,6 @@ void create_custom_and_selectable_edges_and_vertices_markov_chain_test() noexcep
 
   }
   //Create the .dot and .svg of the 'create_custom_and_selectable_edges_and_vertices_markov_chain' chapter
-  //TODO
-  /*
   {
     const auto g = create_custom_and_selectable_edges_and_vertices_markov_chain();
     const std::string base_filename{"create_custom_and_selectable_edges_and_vertices_markov_chain"};
@@ -83,7 +82,6 @@ void create_custom_and_selectable_edges_and_vertices_markov_chain_test() noexcep
       copy_file_mode::allow_overwrite
     );
   }
-  */
   create_custom_and_selectable_edges_and_vertices_markov_chain_demo();
   
 }

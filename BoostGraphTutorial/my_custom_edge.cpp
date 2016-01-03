@@ -128,6 +128,7 @@ std::istream& operator>>(std::istream& is, my_custom_edge& the_edge) noexcept
 {
   std::string line;
   is >> line;
+  assert(line != "0");
   const auto w = seperate_string(line,',');
   if (w.size() != 4) { the_edge = my_custom_edge(); return is; }
   assert(w.size() == 4);
