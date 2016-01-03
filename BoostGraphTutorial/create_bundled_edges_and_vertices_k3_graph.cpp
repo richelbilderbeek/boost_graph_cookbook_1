@@ -20,12 +20,6 @@ void create_bundled_edges_and_vertices_k3_graph_test() noexcept
     auto g = create_bundled_edges_and_vertices_k3_graph();
     assert(boost::num_edges(g) == 3);
     assert(boost::num_vertices(g) == 3);
-    add_bundled_vertex(my_bundled_vertex("v"), g);
-    assert(boost::num_edges(g) == 3);
-    assert(boost::num_vertices(g) == 4);
-    add_bundled_edge(my_bundled_edge("e"), g);
-    assert(boost::num_edges(g) == 4);
-    assert(boost::num_vertices(g) == 6);
   }
   //Create the .dot and .svg of the 'create_bundled_edges_and_vertices_k3_graph' chapter
   {

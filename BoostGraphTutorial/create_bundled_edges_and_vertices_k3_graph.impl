@@ -1,4 +1,6 @@
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include "add_bundled_edge.h"
+#include "add_bundled_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -11,29 +13,29 @@ create_bundled_edges_and_vertices_k3_graph() noexcept
 {
   auto g
     = create_empty_undirected_bundled_edges_and_vertices_graph();
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
-  const auto vd_c = boost::add_vertex(g);
-  const auto aer_a = boost::add_edge(vd_a, vd_b, g);
-  const auto aer_b = boost::add_edge(vd_b, vd_c, g);
-  const auto aer_c = boost::add_edge(vd_c, vd_a, g);
-  assert(aer_a.second);
-  assert(aer_b.second);
-  assert(aer_c.second);
-
-  g[vd_a]
-    = my_bundled_vertex("Red","Not green",1.0,2.0);
-  g[vd_b]
-    = my_bundled_vertex("Light red","Not dark",3.0,4.0);
-  g[vd_c]
-    = my_bundled_vertex("Orange","Orangy",5.0,6.0);
-
-  g[aer_a.first]
-    = my_bundled_edge("Oxygen","Air",1.0,2.0);
-  g[aer_b.first]
-    = my_bundled_edge("Helium","From tube",3.0,4.0);
-  g[aer_c.first]
-    = my_bundled_edge("Stable temperature","Here",5.0,6.0);
-
+  const auto vd_a = add_bundled_vertex(
+    my_bundled_vertex("Red","Not green",1.0,2.0),
+    g
+  );
+  const auto vd_b = add_bundled_vertex(
+    my_bundled_vertex("Light red","Not dark",3.0,4.0),
+    g
+  );
+  const auto vd_c = add_bundled_vertex(
+    my_bundled_vertex("Orange","Orangy",5.0,6.0),
+    g
+  );
+  add_bundled_edge(vd_a, vd_b,
+    my_bundled_edge("Oxygen","Air",1.0,2.0),
+    g
+  );
+  add_bundled_edge(vd_b, vd_c,
+    my_bundled_edge("Helium","From tube",3.0,4.0),
+    g
+  );
+  add_bundled_edge(vd_c, vd_a,
+    my_bundled_edge("Stable temperature","Here",5.0,6.0),
+    g
+  );
   return g;
 }

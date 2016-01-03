@@ -5,16 +5,14 @@
 template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 add_bundled_edge(
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_from,
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_to,
   const my_bundled_edge& v,
   graph& g
 ) noexcept
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
-
-  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  const auto aer = boost::add_edge(vd_from, vd_to, g);
   assert(aer.second);
   g[aer.first] = v;
   return aer.first;

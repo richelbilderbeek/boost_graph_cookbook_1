@@ -1,6 +1,4 @@
 #include <cassert>
-#include "add_bundled_edge.h"
-#include "add_bundled_vertex.h"
 #include "create_bundled_edges_and_vertices_k3_graph.h"
 
 void create_bundled_edges_and_vertices_k3_graph_demo() noexcept
@@ -9,6 +7,4 @@ void create_bundled_edges_and_vertices_k3_graph_demo() noexcept
     = create_bundled_edges_and_vertices_k3_graph();
   assert(boost::num_edges(g) == 3);
   assert(boost::num_vertices(g) == 3);
-  add_bundled_vertex(my_bundled_vertex("v"), g);
-  add_bundled_edge(my_bundled_edge("e"), g);
 }

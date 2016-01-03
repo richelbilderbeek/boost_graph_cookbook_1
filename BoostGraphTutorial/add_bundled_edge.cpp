@@ -18,7 +18,9 @@ void add_bundled_edge_test() noexcept
     assert(boost::num_vertices(g) == 0);
     assert(boost::num_edges(g) == 0);
     const my_bundled_edge edge("X");
-    add_bundled_edge(edge, g);
+    const auto vd_from = add_bundled_vertex(my_bundled_vertex("From"), g);
+    const auto vd_to = add_bundled_vertex(my_bundled_vertex("To"), g);
+    add_bundled_edge(vd_from, vd_to, edge, g);
     assert(boost::num_vertices(g) == 2);
     assert(boost::num_edges(g) == 1);
     const std::vector<my_bundled_edge> edges{get_my_bundled_edges(g)};
@@ -30,11 +32,14 @@ void add_bundled_edge_test() noexcept
     auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
     assert(boost::num_vertices(g) == 0);
     assert(boost::num_edges(g) == 0);
+    const auto vd_a = add_bundled_vertex(my_bundled_vertex("A"), g);
+    const auto vd_b = add_bundled_vertex(my_bundled_vertex("B"), g);
+    const auto vd_c = add_bundled_vertex(my_bundled_vertex("C"), g);
     const my_bundled_edge edge_1("X");
     const my_bundled_edge edge_2("Y");
-    add_bundled_edge(edge_1, g);
-    add_bundled_edge(edge_2, g);
-    assert(boost::num_vertices(g) == 4);
+    add_bundled_edge(vd_a, vd_b, edge_1, g);
+    add_bundled_edge(vd_b, vd_c, edge_2, g);
+    assert(boost::num_vertices(g) == 3);
     assert(boost::num_edges(g) == 2);
     const std::vector<my_bundled_edge> edges{get_my_bundled_edges(g)};
     const std::vector<my_bundled_edge> expected_edges{edge_1, edge_2};
