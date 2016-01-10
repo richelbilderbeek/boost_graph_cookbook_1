@@ -5,7 +5,8 @@
 #include "find_first_vertex_with_name.h"
 
 template <typename graph>
-void add_edge_between_named_vertices(
+typename boost::graph_traits<graph>::edge_descriptor
+add_edge_between_named_vertices(
   const std::string& vertex_name_1,
   const std::string& vertex_name_2,
   graph& g
@@ -17,4 +18,5 @@ void add_edge_between_named_vertices(
   const auto vd_2 = find_first_vertex_with_name(vertex_name_2, g);
   const auto aer = boost::add_edge(vd_1, vd_2, g);
   assert(aer.second);
+  return aer.first;
 }
