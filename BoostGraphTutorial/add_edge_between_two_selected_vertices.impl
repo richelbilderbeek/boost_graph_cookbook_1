@@ -1,0 +1,17 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "has_vertex_with_name.h"
+#include "find_first_vertex_with_name.h"
+#include "get_vertices_with_selectedness.h"
+#include "count_vertices_with_selectedness.h"
+
+template <typename graph>
+void add_edge_between_two_selected_vertices(graph& g) noexcept
+{
+  assert(count_vertices_with_selectedness(true, g) == 2);
+  const auto vds = get_vertices_with_selectedness(true, g);
+  assert(vds.size() == 2);
+  const auto aer = boost::add_edge(vds[0], vds[2], g);
+  assert(aer.second);
+}

@@ -137,8 +137,13 @@ key "siek2001boost"
  
 \end_layout
 
+\begin_layout Subsection
+Tutorial style
+\end_layout
+
 \begin_layout Standard
-This tutorial is intended to take the reader to the level of understanding
+This tutorial is aimed at the beginner programmer.
+ This tutorial is intended to take the reader to the level of understanding
  the book 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -148,8 +153,33 @@ key "siek2001boost"
 
  and the Boost.Graph website require.
  It is about basic graph manipulation, not the more advanced graph algorithms.
- An analogy with std::vector: it teaches the std::vector member functions,
- but not the algorithms that work on.
+ 
+\end_layout
+
+\begin_layout Standard
+This tutorial is intended to be as verbose, such that a beginner should
+ be able to follow every step, from reading the tutorial from beginning
+ to end chronologically.
+ Especially in the earlier chapters, the rationale behind the code presented
+ is given, including references to the literature.
+ Chapters marked with '▶' are optional, less verbose and bring no new informatio
+n to the storyline.
+ 
+\end_layout
+
+\begin_layout Standard
+This tutorial is intended to be as repetitive, such that a beginner can
+ spot the patterns in the code snippets their increasing complexity.
+ Extending code from this tutorial should be as easy as extending the patterns.
+\end_layout
+
+\begin_layout Standard
+In the index, I did first put all my long-named functions there literally,
+ but this resulted in a very sloppy layout.
+ Instead, the function 'do_something' can be found as 'Do something' in
+ the index.
+ On the other hand, STL and Boost functions like 'std::do_something' and
+ 'boost::do_something' can be found as such in the index.
 \end_layout
 
 \begin_layout Subsection
@@ -336,19 +366,6 @@ key "meyers2005effective"
 \end_layout
 
 \begin_layout Subsection
-Tutorial style
-\end_layout
-
-\begin_layout Standard
-In the index, I did first put all my long-named functions there literally,
- but this resulted in a very sloppy layout.
- Instead, the function 'do_something' can be found as 'Do something' in
- the index.
- On the other hand, STL and Boost functions like 'std::do_something' and
- 'boost::do_something' can be found as such in the index.
-\end_layout
-
-\begin_layout Subsection
 License
 \end_layout
 
@@ -514,21 +531,7 @@ reference "fig:The-relations-between-chapters"
 
 ).
  To allow for quicker learners to skim chapters, or for beginners looking
- to find the patterns, some chapters are repetitions of each other (for
- example, getting an edge its name is very similar to getting a vertex its
- name)
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-There was even copy-pasting involved!
-\end_layout
-
-\end_inset
-
-.
- This tutorial is not about being short, but being complete, at the risk
- of being called bloated.
+ to find the patterns.
 \end_layout
 
 \begin_layout Standard
@@ -581,7 +584,7 @@ reference "sec:Building-graphs-with-custom-properties"
 \end_layout
 
 \begin_layout Standard
-The differences between graphs with bundled and custom prorties are shown
+The differences between graphs with bundled and custom properties are shown
  in table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -918,7 +921,7 @@ name "fig:The-relations-between-subchapters"
 \end_layout
 
 \begin_layout Standard
-There are also some bonus chapters, that I have labeled with a ▶.
+There are also some bonus chapters, that I have labeled with a '▶'.
  These chapters are added I needed these functions myself and adding them
  would not hurt.
  Just feel free to skip them, as there will be less theory explained.
@@ -11963,7 +11966,148 @@ Again, be sure that the vertex removed does not have any connections!
 \end_layout
 
 \begin_layout Subsection
-Removing the edge between two named vertices
+▶ Adding an edge between two named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_edge_between_named_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of looking for an edge descriptor, one can also add an edge from
+ two vertex descriptors.
+ Adding an edge between two named vertices named edge goes as follows: use
+ the names of the vertices to get both vertex descriptors, then call 'boost::add
+_edge'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ on those two, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_named_vertices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_named_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Adding an edge between two named vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add edge between named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_named_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_named_vertices_demo"
+
+\end_inset
+
+ shows how to add an edge between two named vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_named_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'add_edge_between_named_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_named_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Removing the edge between two named vertices
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:remove_edge_between_vertices_with_names"
@@ -26968,6 +27112,285 @@ Loading an undirected directed graph with custom and selectable vertices
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:load_undirected_custom_and_selectable_vertices_graph_from_dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Getting the vertices with a certain selectedness
+\end_layout
+
+\begin_layout Subsection
+▶ Counting the vertices with a certain selectedness
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:count_vertices_with_selectedness"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How often is a vertex with a certain selectedness present? Here we'll find
+ out.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_vertices_with_selectedness.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the vertices with a certain selectedness
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Count vertices with selectedness
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_vertices_with_selectedness"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we use the STL std::count_if
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::count_if
+\end_layout
+
+\end_inset
+
+ algorithm to count how many vertices have the desired selectedness.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:count_vertices_with_selectedness_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_vertices_with_selectedness_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'count_vertices_with_selectedness' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_vertices_with_selectedness_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Adding an edge between two selected vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_edge_between_two_selected_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of looking for an edge descriptor, one can also add an edge from
+ two vertex descriptors.
+ Adding an edge between two selected vertices goes as follows: use the selectedn
+ess of the vertices to get both vertex descriptors, then call 'boost::add_edge'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ on those two, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_two_selected_vertices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_two_selected_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add an edge between two selected vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add edge between two selected vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_two_selected_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_two_selected_vertices_demo"
+
+\end_inset
+
+ shows how the edges can be added:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_two_selected_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'add_edge_between_selected_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_two_selected_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 

@@ -195,7 +195,10 @@ HEADERS += \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.h \
     $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.h \
-    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h \
+    $$PWD/add_edge_between_two_selected_vertices.h \
+    get_vertices_with_selectedness.h \
+    count_vertices_with_selectedness.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -387,7 +390,10 @@ SOURCES += \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.cpp \
-    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp \
+    $$PWD/add_edge_between_two_selected_vertices.cpp \
+    get_vertices_with_selectedness.cpp \
+    count_vertices_with_selectedness.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -699,5 +705,11 @@ OTHER_FILES += \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.impl \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph_demo.impl \
     $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl \
+    $$PWD/add_edge_between_named_vertices.impl \
+    $$PWD/add_edge_between_named_vertices_demo.impl \
+    $$PWD/add_edge_between_two_selected_vertices.impl \
+    $$PWD/add_edge_between_two_selected_vertices_demo.impl \
+    count_vertices_with_selectedness.impl \
+    count_vertices_with_selectedness_demo.impl
 

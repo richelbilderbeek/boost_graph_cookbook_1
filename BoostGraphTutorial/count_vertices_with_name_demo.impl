@@ -9,7 +9,7 @@ void count_vertices_with_name_demo() noexcept
   auto g = create_named_vertices_path_graph(
     {"Apple", "Pear", "Apple"}
   );
-  assert(count_vertices_with_name(g,"Apple") == 2);
-  assert(count_vertices_with_name(g,"Pear") == 1);
-  assert(count_vertices_with_name(g,"Banana") == 0);
+  assert(count_vertices_with_name("Apple", g) == 2);
+  assert(count_vertices_with_name("Pear", g) == 1);
+  assert(count_vertices_with_name("Banana", g) == 0);
 }

@@ -1,9 +1,10 @@
 #include <string>
 #include <boost/graph/properties.hpp>
+#include "install_vertex_is_selected.h"
 
 template <typename graph>
-int count_vertices_with_name(
-  const std::string& name,
+int count_vertices_with_selectedness(
+  const bool selectedness,
   const graph& g
 ) noexcept
 {
@@ -12,12 +13,12 @@ int count_vertices_with_name(
   const auto vip = vertices(g);
   const auto cnt = std::count_if(
     vip.first, vip.second,
-    [g, name](const vd& d)
+    [g, selectedness](const vd& d)
     {
-      const auto vertex_name_map
-        = get(boost::vertex_name,g);
-      return name
-        == get(vertex_name_map, d);
+      const auto is_selected_map
+        = get(boost::vertex_is_selected, g);
+      return selectedness
+        == get(is_selected_map, d);
     }
   );
   return static_cast<int>(cnt);

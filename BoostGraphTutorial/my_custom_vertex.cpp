@@ -132,13 +132,6 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
   std::string line;
   is >> line;
   assert(line != "0");
-  if (line == "0")
-  {
-    std::cerr << line << '\n';
-    assert(1==2);
-    v = my_custom_vertex();
-    return is;
-  }
   const auto w = seperate_string(line,',');
   assert(w.size() == 4);
   my_custom_vertex new_vertex(

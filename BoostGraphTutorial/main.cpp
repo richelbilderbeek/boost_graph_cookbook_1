@@ -4,6 +4,7 @@
 #include "add_custom_edge.h"
 #include "add_custom_vertex.h"
 #include "add_edge.h"
+#include "add_edge_between_named_vertices.h"
 #include "add_named_and_selectable_vertex.h"
 #include "add_named_edge.h"
 #include "add_named_vertex.h"
@@ -167,10 +168,15 @@
 #include "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
 #include "create_custom_and_selectable_edges_and_vertices_k2_graph.h"
 #include "load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
+#include "add_edge_between_two_selected_vertices.h"
+#include "count_vertices_with_selectedness.h"
 #include <iostream>
 
 int main()
 {
+  count_vertices_with_selectedness_test();
+  add_edge_between_two_selected_vertices_test();
+  add_edge_between_named_vertices_test();
   load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_test();
   create_custom_and_selectable_edges_and_vertices_k2_graph_test();
   load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_test();
