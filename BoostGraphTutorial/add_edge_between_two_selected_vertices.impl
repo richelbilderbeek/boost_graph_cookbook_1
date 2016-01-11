@@ -13,7 +13,7 @@ add_edge_between_two_selected_vertices(graph& g) noexcept
   assert(count_vertices_with_selectedness(true, g) == 2);
   const auto vds = get_vertices_with_selectedness(true, g);
   assert(vds.size() == 2);
-  const auto aer = boost::add_edge(vds[0], vds[2], g);
+  const auto aer = boost::add_edge(vds[0], vds[1], g);
   assert(aer.second);
   return aer.first;
 }
