@@ -4,6 +4,12 @@
 \begin_header
 \textclass article
 \begin_preamble
+\usepackage[hidelinks,
+  bookmarksnumbered=true,
+  unicode=true,
+  pdftitle={A well-connected C++11 Boost.Graph tutorial},
+  pdfauthor={Richèl Bilderbeek}
+  ]{hyperref}
 \usepackage{tikz}
 \usepackage{tkz-graph}
 \usepackage{pgf}
