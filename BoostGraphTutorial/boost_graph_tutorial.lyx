@@ -4,6 +4,12 @@
 \begin_header
 \textclass article
 \begin_preamble
+\usepackage[hidelinks,
+  bookmarksnumbered=true,
+  unicode=true,
+  pdftitle={A well-connected C++11 Boost.Graph tutorial},
+  pdfauthor={Richèl Bilderbeek}
+  ]{hyperref}
 \usepackage{tikz}
 \usepackage{tkz-graph}
 \usepackage{pgf}
@@ -100,7 +106,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is 'A well-connected C++11 Boost.Graph tutorial', version 1.10.
+This is `A well-connected C++11 Boost.Graph tutorial', version 1.10.
 \end_layout
 
 \begin_layout Subsection
@@ -191,31 +197,31 @@ For every concept, I will show
 \end_layout
 
 \begin_layout Itemize
-the 'do' function
+the `do' function
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-'do' function
+`do' function
 \end_layout
 
 \end_inset
 
-: a function that achieves a goal, for example 'create_empty_undirected_graph'
+: a function that achieves a goal, for example `create_empty_undirected_graph'
 \end_layout
 
 \begin_layout Itemize
-the 'demo' function
+the `demo' function
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-'demo' function
+`demo' function
 \end_layout
 
 \end_inset
 
-: a function that demonstrates how to call the first, for example 'create_empty_
+: a function that demonstrates how to call the first, for example `create_empty_
 undirected_graph_demo'
 \end_layout
 
@@ -273,7 +279,7 @@ It is good to write generic code.
  In this tutorial, however, I have chosen my functions to have no templated
  arguments for conciseness and readability.
  For example, a vertex name is std::string, the type for if a vertex is
- selected is a boolean, and the custom vertex type is of type 'my_custom_vertex'.
+ selected is a boolean, and the custom vertex type is of type `my_custom_vertex'.
  I think these choises are reasonable and that the resulting increase in
  readability is worth it.
 \end_layout
@@ -287,8 +293,8 @@ Due to my long function names and the limitation of ≈50 characters per line,
 \begin_layout Standard
 I prefer to use the keyword auto over doubling the lines of code for using
  statements.
- Because the 'do' functions return an explicit data type, these can be used
- for reference (until 'decltype(auto)'
+ Because the `do' functions return an explicit data type, these can be used
+ for reference (until `decltype(auto)'
 \begin_inset Index idx
 status open
 
@@ -299,7 +305,7 @@ decltype(auto)
 \end_inset
 
  gets into fashion as a return type).
- If you really want to know a type, you can use the 'get_type_name' function
+ If you really want to know a type, you can use the `get_type_name' function
  (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -313,8 +319,8 @@ reference "sub:get_type_name"
 
 \begin_layout Standard
 On the other hand, I am explicit in the namespaces of functions and classes
- I use, so to distinguish between types like 'std::array' and 'boost::array'.
- Some functions (for example, 'get'
+ I use, so to distinguish between types like `std::array' and `boost::array'.
+ Some functions (for example, `get'
 \begin_inset Index idx
 status open
 
@@ -326,7 +332,7 @@ get
 
 ) reside in the namespace of the graph to work on.
  In this tutorial, this is in the global namespace.
- Thus, I will write 'get', instead of 'boost::get'
+ Thus, I will write `get', instead of `boost::get'
 \begin_inset Index idx
 status open
 
@@ -359,8 +365,8 @@ key "meyers2005effective"
  Sometimes using these algorithms becomes a burden on the lines of code.
  This is because in C++11, a lambda function argument (use by the algorithm)
  must have its data type specified.
- It may take multiple lines of 'using' statements being able to do so.
- In C++14 one can use 'auto' there as well.
+ It may take multiple lines of `using' statements being able to do so.
+ In C++14 one can use `auto' there as well.
  So, only if it shortens the number of lines significantly, I use raw for-loops,
  even though you shouldn't.
 \end_layout
@@ -819,7 +825,7 @@ name "tab:Difference-between-bundled-and-custom-properties"
 \end_layout
 
 \begin_layout Standard
-Pivotal chapters are chapters like 'Finding the first vertex with ...', as
+Pivotal chapters are chapters like `Finding the first vertex with ...', as
  this opens up the door to finding a vertex and manipulating it.
 \end_layout
 
@@ -1550,7 +1556,7 @@ status open
 
 \end_inset
 
- tells the compiler to read the header file 'adjacency_list.hpp'.
+ tells the compiler to read the header file `adjacency_list.hpp'.
  A header file
 \begin_inset Index idx
 status open
@@ -1561,11 +1567,11 @@ header file
 
 \end_inset
 
- (often with a '.h' or '.hpp' extension) contains class and functions declarations
+ (often with a `.h' or `.hpp' extension) contains class and functions declarations
  and/or definitions.
- The header file 'adjacency_list.hpp' contains the boost::adjacency_list
+ The header file `adjacency_list.hpp' contains the boost::adjacency_list
  class definition.
- Without including this file, you will get compile errors like 'definition
+ Without including this file, you will get compile errors like `definition
  of boost::adjacency_list unknown'
 \begin_inset Foot
 status open
@@ -1578,12 +1584,12 @@ In practice, these compiler error messages will be longer, bordering the
 \end_inset
 
 .
- The function 'create_empty_directed_graph' has:
+ The function `create_empty_directed_graph' has:
 \end_layout
 
 \begin_layout Itemize
-a return type: The return type is 'boost::adjacency_list<>', that is a 'boost::a
-djacency_list with all template arguments set at their defaults
+a return type: The return type is `boost::adjacency_list<>', that is a `boost::a
+djacency_list' with all template arguments set at their defaults
 \end_layout
 
 \begin_layout Itemize
@@ -1630,8 +1636,8 @@ key "stroustrup2013"
 
 \begin_layout Itemize
 a function body: all the function body does is implicitly create its return
- type by using the '{}'.
- An alternative syntax would be 'return boost::adjacency_list<>()', which
+ type by using the `{}'.
+ An alternative syntax would be `return boost::adjacency_list<>()', which
  is needlessly longer
 \end_layout
 
@@ -1643,7 +1649,7 @@ reference "alg:create_empty_directed_graph_demo"
 
 \end_inset
 
- demonstrates the 'create_empty_directed_graph' function.
+ demonstrates the `create_empty_directed_graph' function.
  Note that it includes a header file with the same name as the function
 \begin_inset Foot
 status open
@@ -1655,7 +1661,7 @@ I do not think it is important to have creative names
 \end_inset
 
  first, to be able to use it.
- 'auto' is used, as this is preferred over explicit type declarations (
+ `auto' is used, as this is preferred over explicit type declarations (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroustrup2013"
@@ -1663,7 +1669,7 @@ key "stroustrup2013"
 \end_inset
 
  chapter 31.6).
- The keyword 'auto'
+ The keyword `auto'
 \begin_inset Index idx
 status open
 
@@ -1698,7 +1704,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_empty_directed_graph'
+Demonstration of `create_empty_directed_graph'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_graph_demo"
@@ -2025,7 +2031,7 @@ name "alg:create_empty_undirected_graph"
 \end_layout
 
 \begin_layout Standard
-This algorith differs from the 'create_empty_directed_graph' function (algoritm
+This algorith differs from the `create_empty_directed_graph' function (algoritm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2038,7 +2044,7 @@ reference "alg:create_empty_directed_graph"
 \end_layout
 
 \begin_layout Itemize
-the first 'boost::vecS'
+the first `boost::vecS'
 \begin_inset Index idx
 status open
 
@@ -2048,7 +2054,7 @@ boost::vecS
 
 \end_inset
 
-: select (that is what the 'S
+: select (that is what the `S
 \begin_inset Index idx
 status open
 
@@ -2063,7 +2069,7 @@ S
 \end_layout
 
 \begin_layout Itemize
-the second 'boost::vecS'
+the second `boost::vecS'
 \begin_inset Index idx
 status open
 
@@ -2078,7 +2084,7 @@ boost::vecS
 \end_layout
 
 \begin_layout Itemize
-'boost::undirectedS'
+`boost::undirectedS'
 \begin_inset Index idx
 status open
 
@@ -2111,7 +2117,7 @@ reference "alg:create_empty_undirected_graph_demo"
 
 \end_inset
 
- demonstrates the 'create_empty_undirected_graph' function.
+ demonstrates the `create_empty_undirected_graph' function.
 \end_layout
 
 \begin_layout Standard
@@ -2136,7 +2142,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_empty_undirected_graph'
+Demonstration of `create_empty_undirected_graph'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_graph_demo"
@@ -2281,7 +2287,7 @@ name "alg:get_n_vertices"
 \end_layout
 
 \begin_layout Standard
-The function 'get_n_vertices' takes the result of boost::num_vertices
+The function `get_n_vertices' takes the result of boost::num_vertices
 \begin_inset Index idx
 status open
 
@@ -2341,7 +2347,7 @@ key "stroustrup1997"
 \end_inset
 
  chapter 4.4) should be avoided.
- The integer 'n' is initialized using list-initialization, which is preferred
+ The integer `n' is initialized using list-initialization, which is preferred
  over the other initialization syntaxes (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2413,7 +2419,7 @@ key "lakos1996large"
 \end_layout
 
 \begin_layout Standard
-The function 'get_n_vertices' is demonstrated in algorithm 
+The function `get_n_vertices' is demonstrated in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_n_vertices_demo"
@@ -2446,7 +2452,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_n_vertices' function
+Demonstration of the `get_n_vertices' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_vertices_demo"
@@ -2586,14 +2592,14 @@ name "alg:get_n_edges"
 \end_layout
 
 \begin_layout Standard
-This code is similar to the 'get_n_vertices' function (algorithm 
+This code is similar to the `get_n_vertices' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_n_vertices"
 
 \end_inset
 
-, see rationale there) except 'boost::num_edges'
+, see rationale there) except `boost::num_edges'
 \begin_inset Index idx
 status open
 
@@ -2603,12 +2609,12 @@ boost::num_edges
 
 \end_inset
 
- is used, instead of 'boost::num_vertices', which also returns an unsigned
+ is used, instead of `boost::num_vertices', which also returns an unsigned
  long.
 \end_layout
 
 \begin_layout Standard
-The function 'get_n_edges' is demonstrated in algorithm 
+The function `get_n_edges' is demonstrated in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_n_edges_demo"
@@ -2640,7 +2646,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_n_edges' function
+Demonstration of the `get_n_edges' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_n_edges_demo"
@@ -2786,7 +2792,7 @@ static_assert
 \end_layout
 
 \begin_layout Standard
-Note that boost::add_vertex (in the 'add_vertex' function) returns a vertex
+Note that boost::add_vertex (in the `add_vertex' function) returns a vertex
  descriptor, which is ignored for now.
  Vertex descriptors are looked at in more details at the chapter 
 \begin_inset CommandInset ref
@@ -2796,7 +2802,7 @@ reference "sub:Vertex-descriptors"
 \end_inset
 
 , as we need these to add an edge.
- To allow for this already, 'add_vertex' also returns a vertex descriptor.
+ To allow for this already, `add_vertex' also returns a vertex descriptor.
  
 \end_layout
 
@@ -2833,7 +2839,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'add_vertex' function
+Demonstration of the `add_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_vertex_demo"
@@ -2948,7 +2954,7 @@ reference "sub:get_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-In this tutorial, vertex descriptors have named prefixed with 'vd_'
+In this tutorial, vertex descriptors have named prefixed with `vd_'
 \begin_inset Index idx
 status open
 
@@ -2958,7 +2964,7 @@ vd_
 
 \end_inset
 
-, for example 'vd_1'.
+, for example `vd_1'.
 \end_layout
 
 \begin_layout Subsection
@@ -3018,7 +3024,7 @@ Dereferencing a vertex iterator to obtain a vertex descriptor
 \end_layout
 
 \begin_layout Standard
-'vertices'
+`vertices'
 \begin_inset Index idx
 status open
 
@@ -3028,7 +3034,7 @@ vertices
 
 \end_inset
 
- (not 'boost::vertices' 
+ (not `boost::vertices' 
 \begin_inset Index idx
 status open
 
@@ -3068,7 +3074,7 @@ Vertex iterator
 
  points to the first vertex (its descriptor, to be precise), the second
  points to beyond the last vertex (its descriptor, to be precise).
- In this tutorial, vertex iterator pairs have named prefixed with 'vip_'
+ In this tutorial, vertex iterator pairs have named prefixed with `vip_'
 \begin_inset Index idx
 status open
 
@@ -3078,7 +3084,7 @@ vip_
 
 \end_inset
 
-, for example 'vip_1'.
+, for example `vip_1'.
 \end_layout
 
 \begin_layout Standard
@@ -3135,7 +3141,7 @@ name "alg:get_vertex_iterators"
 
 \begin_layout Standard
 This is a somewhat trivial function, as it forwards the function call to
- 'vertices'
+ `vertices'
 \begin_inset Index idx
 status open
 
@@ -3145,7 +3151,7 @@ vertices
 
 \end_inset
 
- (not 'boost::vertices' 
+ (not `boost::vertices' 
 \begin_inset Index idx
 status open
 
@@ -3160,7 +3166,7 @@ boost::vertices does not exist
 
 \begin_layout Standard
 These vertex iterators can be dereferenced to obtain the vertex descriptors.
- Note that 'get_vertex_iterators' will not be used often in isolation: usually
+ Note that `get_vertex_iterators' will not be used often in isolation: usually
  one obtains the vertex descriptors immediatly.
  Just for your reference, algorithm 
 \begin_inset CommandInset ref
@@ -3169,7 +3175,7 @@ reference "alg:get_vertex_iterators_demo"
 
 \end_inset
 
- demonstrates of the 'get_vertices' function, by showing that the vertex
+ demonstrates of the `get_vertices' function, by showing that the vertex
  iterators of an empty graph point to the same location.
 \end_layout
 
@@ -3195,7 +3201,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_vertex_iterators'
+Demonstration of `get_vertex_iterators'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_iterators_demo"
@@ -3317,7 +3323,7 @@ name "alg:get_vertex_descriptors"
 
 \begin_layout Standard
 This is the first more complex piece of code.
- In the first lines, some 'using' statements allow for shorter type names
+ In the first lines, some `using' statements allow for shorter type names
 \begin_inset Foot
 status collapsed
 
@@ -3339,7 +3345,7 @@ The std::vector to serve as a return value is created at the needed size,
 \end_layout
 
 \begin_layout Standard
-The function 'vertices'
+The function `vertices'
 \begin_inset Index idx
 status open
 
@@ -3390,7 +3396,7 @@ key "meyers2005effective"
 \end_layout
 
 \begin_layout Standard
-In this case, we copy all vertex descriptors in the range produced by 'vertices'
+In this case, we copy all vertex descriptors in the range produced by `vertices'
  to the std::vector.
 \end_layout
 
@@ -3433,7 +3439,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_vertex_descriptors'
+Demonstration of `get_vertex_descriptors'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_descriptors_demo"
@@ -3592,8 +3598,8 @@ reference "alg:add_edge"
 
  shows how to add an isolated edge to a graph (instead of allowing for graphs
  with higher connectivities).
- First, two vertices are created, using the function 'boost::add_vertex'.
- 'boost::add_vertex' returns a vertex descriptor (which I prefix with 'vd'
+ First, two vertices are created, using the function `boost::add_vertex'.
+ `boost::add_vertex' returns a vertex descriptor (which I prefix with `vd'
 \begin_inset Index idx
 status open
 
@@ -3604,7 +3610,7 @@ vd
 \end_inset
 
 ), both of which are stored.
- The vertex descriptors are used to add an edge to the graph, using 'boost::add_
+ The vertex descriptors are used to add an edge to the graph, using `boost::add_
 edge'
 \begin_inset Index idx
 status open
@@ -3616,7 +3622,7 @@ boost::add_edge
 \end_inset
 
 .
- 'boost::add_edge'
+ `boost::add_edge'
 \begin_inset Index idx
 status open
 
@@ -3687,7 +3693,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'add_edge'
+Demonstration of `add_edge'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_edge_demo"
@@ -3734,7 +3740,7 @@ boost::add_edge result
 \end_layout
 
 \begin_layout Standard
-When using the function 'boost::add_edge', a 'std::pair<edge_descriptor,bool>'
+When using the function `boost::add_edge', a `std::pair<edge_descriptor,bool>'
  is returned.
  It contains both the edge descriptor (see chapter 
 \begin_inset CommandInset ref
@@ -3747,7 +3753,7 @@ reference "sub:Edge-descriptors"
 \end_layout
 
 \begin_layout Standard
-In this tutorial, boost::add_edge results have named prefixed with 'aer_'
+In this tutorial, boost::add_edge results have named prefixed with `aer_'
 \begin_inset Index idx
 status open
 
@@ -3757,7 +3763,7 @@ aer_
 
 \end_inset
 
-, for example 'aer_1'.
+, for example `aer_1'.
 \end_layout
 
 \begin_layout Subsection
@@ -3785,7 +3791,7 @@ Dereference an edge iterator to obtain an edge descriptor
 \end_layout
 
 \begin_layout Standard
-'edges
+`edges
 \begin_inset Index idx
 status open
 
@@ -3828,7 +3834,7 @@ Edge iterator
 
  points to the first edge (its descriptor, to be precise), the second points
  to beyond the last edge (its descriptor, to be precise).
- In this tutorial, edge iterator pairs have named prefixed with 'eip_'
+ In this tutorial, edge iterator pairs have named prefixed with `eip_'
 \begin_inset Index idx
 status open
 
@@ -3838,7 +3844,7 @@ eip_
 
 \end_inset
 
-, for example 'eip_1'.
+, for example `eip_1'.
  Algoritm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3903,7 +3909,7 @@ name "alg:get_edge_iterators"
 
 \begin_layout Standard
 This is a somewhat trivial function, as all it does is forward to function
- call to 'edges' (not boost::edges
+ call to `edges' (not boost::edges
 \begin_inset Index idx
 status open
 
@@ -3926,7 +3932,7 @@ reference "alg:get_edge_iterators_demo"
 
 \end_inset
 
- demonstrates 'get_edge_iterators' by showing that both iterators of the
+ demonstrates `get_edge_iterators' by showing that both iterators of the
  edge iterator pair point to the same location, when the graph is empty.
 \end_layout
 
@@ -3952,7 +3958,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_edge_iterators'
+Demonstration of `get_edge_iterators'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_iterators_demo"
@@ -4012,7 +4018,7 @@ Edge descriptors are used to obtain the name, or other properties, of an
 \end_layout
 
 \begin_layout Standard
-In this tutorial, edge descriptors have named prefixed with 'ed_'
+In this tutorial, edge descriptors have named prefixed with `ed_'
 \begin_inset Index idx
 status open
 
@@ -4022,7 +4028,7 @@ ed_
 
 \end_inset
 
-, for example 'ed_1'.
+, for example `ed_1'.
 \end_layout
 
 \begin_layout Subsection
@@ -4128,7 +4134,7 @@ name "alg:get_edge_descriptors"
 \end_layout
 
 \begin_layout Standard
-The only difference is that instead of the function 'vertices' (not boost::verti
+The only difference is that instead of the function `vertices' (not boost::verti
 ces
 \begin_inset Index idx
 status open
@@ -4139,7 +4145,7 @@ boost::vertices does not exist
 
 \end_inset
 
-!), 'edges'
+!), `edges'
 \begin_inset Index idx
 status open
 
@@ -4171,7 +4177,7 @@ reference "alg:get_edge_descriptors_demo"
 
 \end_inset
 
- demonstrates the 'get_edge_descriptor', by showing that empty graphs do
+ demonstrates the `get_edge_descriptor', by showing that empty graphs do
  not have any edge descriptors.
 \end_layout
 
@@ -4462,7 +4468,7 @@ name "alg:create_markov_chain_graph"
 \end_layout
 
 \begin_layout Standard
-Instead of typing the complete type, we call the 'create_empty_directed_graph'
+Instead of typing the complete type, we call the `create_empty_directed_graph'
  function, and let auto figure out the type.
  The vertex descriptors (see chapter 
 \begin_inset CommandInset ref
@@ -4520,7 +4526,7 @@ reference "create_markov_chain_demo"
 
 \end_inset
 
- demonstrates the 'create_markov_chain_graph' function and checks if it
+ demonstrates the `create_markov_chain_graph' function and checks if it
  has the correct amount of edges and vertices:
 \end_layout
 
@@ -4546,7 +4552,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_markov_chain' 
+Demonstration of the `create_markov_chain' 
 \begin_inset CommandInset label
 LatexCommand label
 name "create_markov_chain_demo"
@@ -4579,7 +4585,7 @@ name "sub:create_markov_chain.dot"
 
 \begin_layout Standard
 Running a bit ahead, this graph can be converted to a .dot file using the
- 'save_graph_to_dot' function (algorithm 
+ `save_graph_to_dot' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_graph_to_dot"
@@ -4619,7 +4625,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_markov_chain_graph' function (algorithm
+.dot file created from the `create_markov_chain_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4659,13 +4665,13 @@ From the .dot file one can already see that the graph is directed, because:
 \end_layout
 
 \begin_layout Itemize
-The first word, 'digraph', denotes a directed graph (where 'graph' would
+The first word, `digraph', denotes a directed graph (where `graph' would
  have indicated an undirectional graph)
 \end_layout
 
 \begin_layout Itemize
-The edges are written as '->' (where undirected connections would be written
- as '--')
+The edges are written as `->' (where undirected connections would be written
+ as `--')
 \end_layout
 
 \begin_layout Subsubsection
@@ -4710,7 +4716,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_markov_chain' function (algorithm 
+.svg file created from the `create_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_markov_chain_graph"
@@ -4968,7 +4974,7 @@ name "alg:create_k2_graph"
 \end_layout
 
 \begin_layout Standard
-This code is very similar to the 'add_edge' function (algorithm 
+This code is very similar to the `add_edge' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:add_edge"
@@ -4976,7 +4982,7 @@ reference "alg:add_edge"
 \end_inset
 
 ).
- Instead of typing the graph its type, we call the 'create_empty_undirected_grap
+ Instead of typing the graph its type, we call the `create_empty_undirected_grap
 h' function and let auto figure it out.
  The vertex descriptors (see chapter 
 \begin_inset CommandInset ref
@@ -5033,7 +5039,7 @@ reference "alg:create_k2_graph_demo"
 
 \end_inset
 
- demonstrates how to 'create_k2_graph' and checks if it has the correct
+ demonstrates how to `create_k2_graph' and checks if it has the correct
  amount of edges and vertices:
 \end_layout
 
@@ -5059,7 +5065,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_k2_graph' 
+Demonstration of `create_k2_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k2_graph_demo"
@@ -5124,7 +5130,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_k2_graph' function (algorithm 
+.dot file created from the `create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
@@ -5163,13 +5169,13 @@ From the .dot file one can already see that the graph is undirected, because:
 \end_layout
 
 \begin_layout Itemize
-The first word, 'graph', denotes an undirected graph (where 'digraph' would
+The first word, `graph', denotes an undirected graph (where `digraph' would
  have indicated a directional graph)
 \end_layout
 
 \begin_layout Itemize
-The edge between 0 and 1 is written as '--' (where directed connections
- would be written as '->', '<-' or '<>')
+The edge between 0 and 1 is written as `--' (where directed connections
+ would be written as `->', `<-' or `<>')
 \end_layout
 
 \begin_layout Subsubsection
@@ -5215,7 +5221,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_k2_graph' function (algorithm 
+.svg file created from the `create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
@@ -5510,7 +5516,7 @@ reference "alg:create_k3_graph_demo"
 
 \end_inset
 
- demonstrates how to 'create_k2_graph' and checks if it has the correct
+ demonstrates how to `create_k2_graph' and checks if it has the correct
  amount of edges and vertices:
 \end_layout
 
@@ -5536,7 +5542,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_k3_graph' 
+Demonstration of `create_k3_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k3_graph_demo"
@@ -5600,7 +5606,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_k3_graph' function (algorithm 
+.dot file created from the `create_k3_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k3_graph"
@@ -5677,7 +5683,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_k3_graph' function (algorithm 
+.svg file created from the `create_k3_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k3_graph"
@@ -5967,7 +5973,7 @@ reference "alg:create_path_graph_demo"
 
 \end_inset
 
- demonstrates how to 'create_k2_graph' and checks if it has the correct
+ demonstrates how to `create_k2_graph' and checks if it has the correct
  amount of edges and vertices:
 \end_layout
 
@@ -5993,7 +5999,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_path_graph' 
+Demonstration of `create_path_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_path_graph_demo"
@@ -6057,7 +6063,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_path_graph' function (algorithm 
+.dot file created from the `create_path_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_path_graph"
@@ -6133,7 +6139,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_path_graph' function (algorithm 
+.svg file created from the `create_path_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_path_graph"
@@ -6353,7 +6359,7 @@ reference "alg:create_petersen_graph_demo"
 
 \end_inset
 
- demonstrates how to use 'create_petersen_graph' and checks if it has the
+ demonstrates how to use `create_petersen_graph' and checks if it has the
  correct amount of edges and vertices:
 \end_layout
 
@@ -6379,7 +6385,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_k3_graph' 
+Demonstration of `create_k3_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_petersen_graph_demo"
@@ -6443,7 +6449,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_petersen_graph' function (algorithm 
+.dot file created from the `create_petersen_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_petersen_graph"
@@ -6521,7 +6527,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_petersen_graph' function (algorithm 
+.svg file created from the `create_petersen_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_petersen_graph"
@@ -6645,12 +6651,12 @@ The out degree of a vertex is the number of edges that originate at it.
 \end_layout
 
 \begin_layout Standard
-The number of connections is called the 'degree' of the vertex.
+The number of connections is called the `degree' of the vertex.
  There are three types of degrees:
 \end_layout
 
 \begin_layout Itemize
-in degree: the number of incoming connections, using 'in_degree'
+in degree: the number of incoming connections, using `in_degree'
 \begin_inset Index idx
 status open
 
@@ -6660,7 +6666,7 @@ in_degree
 
 \end_inset
 
- (not 'boost::in_edgree'
+ (not `boost::in_edgree'
 \begin_inset Index idx
 status open
 
@@ -6674,7 +6680,7 @@ boost::in_degree does not exist
 \end_layout
 
 \begin_layout Itemize
-out degree: the number of outgoing connections, using 'out_degree'
+out degree: the number of outgoing connections, using `out_degree'
 \begin_inset Index idx
 status open
 
@@ -6684,7 +6690,7 @@ out_degree
 
 \end_inset
 
- (not 'boost::out_edgree'
+ (not `boost::out_edgree'
 \begin_inset Index idx
 status open
 
@@ -6698,7 +6704,7 @@ boost::out_degree does not exist
 \end_layout
 
 \begin_layout Itemize
-degree: sum of the in degree and out degree, using 'degree'
+degree: sum of the in degree and out degree, using `degree'
 \begin_inset Index idx
 status open
 
@@ -6708,7 +6714,7 @@ idegree
 
 \end_inset
 
- (not 'boost::edgree'
+ (not `boost::edgree'
 \begin_inset Index idx
 status open
 
@@ -6785,7 +6791,7 @@ name "alg:get_vertex_out_degrees"
 \end_layout
 
 \begin_layout Standard
-The structure of this algorithm is similar to 'get_vertex_descriptors' (algorith
+The structure of this algorithm is similar to `get_vertex_descriptors' (algorith
 m 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6794,7 +6800,7 @@ reference "alg:get_vertex_descriptors"
 \end_inset
 
 ), except that the out degrees from the vertex descriptors are stored.
- The out degree of a vertex iterator is obtained from the function 'out_degree'
+ The out degree of a vertex iterator is obtained from the function `out_degree'
 \begin_inset Index idx
 status open
 
@@ -6824,7 +6830,7 @@ Albeit that the
 \end_inset
 
  graph and the two-state Markov chain are rather simple, we can use it to
- demonstrate 'get_vertex_out_degrees' on, as shown in algorithm 
+ demonstrate `get_vertex_out_degrees' on, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_out_degrees_demo"
@@ -6856,7 +6862,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_vertex_out_degrees' function
+Demonstration of the `get_vertex_out_degrees' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_out_degrees_demo"
@@ -6954,7 +6960,7 @@ name "alg:has_edge_between_vertices"
 \end_layout
 
 \begin_layout Standard
-This code uses the function 'edge'
+This code uses the function `edge'
 \begin_inset Index idx
 status open
 
@@ -7011,7 +7017,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_edge_between_vertices' function
+Demonstration of the `has_edge_between_vertices' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_edge_between_vertices_demo"
@@ -7130,7 +7136,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_edge_between_vertices' function
+Demonstration of the `get_edge_between_vertices' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_between_vertices_demo"
@@ -7164,7 +7170,7 @@ Suppose you have a vertex of interest its vertex descriptor.
 \end_layout
 
 \begin_layout Standard
-Here is the 'create_direct_neighbour_subgraph' code:
+Here is the `create_direct_neighbour_subgraph' code:
 \end_layout
 
 \begin_layout Standard
@@ -7247,7 +7253,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_direct_neighbour_subgraph' function
+Demo of the `create_direct_neighbour_subgraph' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_direct_neighbour_subgraph_demo"
@@ -7356,7 +7362,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_all_direct_neighbour_subgraphs' function
+Demo of the `create_all_direct_neighbour_subgraphs' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_all_direct_neighbour_subgraphs_demo"
@@ -7474,7 +7480,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'is_isomorphic' function
+Demo of the `is_isomorphic' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:is_isomorphic_demo"
@@ -7633,7 +7639,7 @@ boost::write_graphviz
 \end_inset
 
  to write the DOT description of our graph to that stream.
- Instead of 'std::ofstream', one could use std::cout
+ Instead of `std::ofstream', one could use std::cout
 \begin_inset Index idx
 status open
 
@@ -7654,7 +7660,7 @@ reference "alg:save_graph_to_dot_demo"
 
 \end_inset
 
- shows how to use the 'save_graph_to_dot' function:
+ shows how to use the `save_graph_to_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -7679,7 +7685,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'save_graph_to_dot' function
+Demonstration of the `save_graph_to_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:save_graph_to_dot_demo"
@@ -7700,7 +7706,7 @@ name "alg:save_graph_to_dot_demo"
 \end_layout
 
 \begin_layout Standard
-When using the 'save_graph_to_dot' function (algorithm 
+When using the `save_graph_to_dot' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_graph_to_dot"
@@ -7816,7 +7822,7 @@ name "alg:load_directed_graph_from_dot"
 
 \begin_layout Standard
 In this algorithm, first it is checked if the file to load exists, using
- the 'is_regular_file' function (algorithm 
+ the `is_regular_file' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:is_regular_file"
@@ -7846,7 +7852,7 @@ boost::dynamic_properties
 
 \end_inset
 
- is created with the 'boost::ignore_other_properties'
+ is created with the `boost::ignore_other_properties'
 \begin_inset Index idx
 status open
 
@@ -7857,7 +7863,7 @@ boost::ignore_other_properties
 \end_inset
 
  in its constructor (using a default constructor here results in the run-time
- error 'property not found: node_id', see chapter 
+ error `property not found: node_id', see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:property_not_found_node_id"
@@ -7865,7 +7871,7 @@ reference "sub:property_not_found_node_id"
 \end_inset
 
 ).
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -7886,7 +7892,7 @@ reference "alg:load_directed_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_graph_from_dot' function:
+ shows how to use the `load_directed_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -7911,7 +7917,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_graph_from_dot' function
+Demonstration of the `load_directed_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_directed_graph_from_dot_demo"
@@ -7932,7 +7938,7 @@ name "alg:load_directed_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_marko
+This demonstration shows how the Markov chain is created using the `create_marko
 v_chain_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8069,7 +8075,7 @@ reference "alg:load_undirected_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_graph_from_dot' function:
+ shows how to use the `load_undirected_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -8094,7 +8100,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_graph_from_dot' function
+Demonstration of the `load_undirected_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_undirected_graph_from_dot_demo"
@@ -8119,7 +8125,7 @@ This demonstration shows how the
 \begin_inset Formula $K_{2}$
 \end_inset
 
- graph is created using the 'create_k2_graph' function (algorithm 
+ graph is created using the `create_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_k2_graph"
@@ -8490,7 +8496,7 @@ boost::adjacency_list
 
 \end_inset
 
- has a new, fourth template argument 'boost::property< boost::vertex_name_t,
+ has a new, fourth template argument `boost::property< boost::vertex_name_t,
  std::string>
 \begin_inset Index idx
 status open
@@ -8516,8 +8522,8 @@ boost::vertex_name_t
 \begin_inset Quotes eld
 \end_inset
 
-vertices have the property 'boost::vertex_name_t', that is of data type
- std::string'
+vertices have the property `boost::vertex_name_t', that is of data type
+ `std::string'
 \begin_inset Quotes erd
 \end_inset
 
@@ -8566,7 +8572,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_named_vertices_graph' function
+Demonstration of the `create_empty_directed_named_vertices_graph' function
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -8748,7 +8754,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_undirected_named_vertices_graph' function
+Demonstration of the `create_empty_undirected_named_vertices_graph' function
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -8883,7 +8889,7 @@ name "alg:add_named_vertex"
 \end_layout
 
 \begin_layout Standard
-Instead of calling 'boost::add_vertex' with an additional argument containing
+Instead of calling `boost::add_vertex' with an additional argument containing
  the name of the vertex
 \begin_inset Foot
 status open
@@ -8932,8 +8938,8 @@ reference "sub:Vertex-descriptors"
 \end_layout
 
 \begin_layout Standard
-The name map is obtained from the graph using 'get'.
- 'get' (not boost::get 
+The name map is obtained from the graph using `get'.
+ `get' (not boost::get 
 \begin_inset Index idx
 status open
 
@@ -8944,7 +8950,7 @@ boost::get does not exist
 \end_inset
 
 ) allow to obtain a property map.
- In this case, 'get(boost::vertex_name,g)
+ In this case, `get(boost::vertex_name,g)
 \begin_inset Index idx
 status open
 
@@ -8964,11 +8970,11 @@ boost::vertex_name
 
 \end_inset
 
-'), denotes that we want to obtain the property map associated with 'boost::vert
+' denotes that we want to obtain the property map associated with `boost::vert
 ex_name' from the graph.
- 'get' has no 'boost::' prepending it, as it lives in the same (global)
+ `get' has no `boost::' prepending it, as it lives in the same (global)
  namespace the function is in.
- Using 'boost::get' will not compile
+ Using `boost::get' will not compile
 \begin_inset Index idx
 status open
 
@@ -8984,7 +8990,7 @@ boost::get does not exist
 
 \begin_layout Standard
 With a name map and a vertex descriptor, the name of a vertex can be set
- using 'put'
+ using `put'
 \begin_inset Index idx
 status open
 
@@ -9005,11 +9011,11 @@ boost::put does not exist
 \end_inset
 
 ).
- 'put' is the opposite of 'get'.
- In this case 'put(vertex_name_map, vd, vertex_name)' is read as: in the
+ `put' is the opposite of `get'.
+ In this case `put(vertex_name_map, vd, vertex_name)' is read as: in the
  vertex name map, look up the spot where the vertex we have the descriptor
  of, and put the new vertex name there.
- An alternative syntax is 'vertex_name_map[vd] = vertex_name'
+ An alternative syntax is `vertex_name_map[vd] = vertex_name'
 \begin_inset Index idx
 status open
 
@@ -9030,12 +9036,12 @@ put, alternative syntax
 \end_inset
 
 .
- Because 'put' is more general, it is chosen to be the preferred syntax
+ Because `put' is more general, it is chosen to be the preferred syntax
  for this tutorial.
 \end_layout
 
 \begin_layout Standard
-Using 'add_named_vertex' is straightforward, as demonstrated by algorithm
+Using `add_named_vertex' is straightforward, as demonstrated by algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9068,7 +9074,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'add_named_vertex'
+Demonstration of `add_named_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_named_vertex_demo"
@@ -9157,7 +9163,7 @@ name "alg:get_vertex_names"
 \end_layout
 
 \begin_layout Standard
-This code is very similar to 'get_vertex_out_degrees' (algorithm 
+This code is very similar to `get_vertex_out_degrees' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_out_degrees"
@@ -9180,7 +9186,7 @@ The order of the vertex names may be different after saving and loading.
 
 \begin_layout Standard
 When trying to get the vertices' names from a graph without vertices with
- names, you will get the error 'formed reference to void' (see chapter 
+ names, you will get the error `formed reference to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:formed_reference_to_void"
@@ -9224,7 +9230,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_vertex_names'
+Demonstration of `get_vertex_names'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_names_demo"
@@ -9291,7 +9297,7 @@ reference "sub:create_markov_chain_graph"
 
 \end_inset
 
- by naming the vertices 'Good' and 'Not bad', as depicted in figure 
+ by naming the vertices `Good' and `Not bad', as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:named_vertices_markov_chain"
@@ -9480,7 +9486,7 @@ reference "alg:create_markov_chain_graph"
 
 \end_inset
 
-, 'create_markov_chain_graph'.
+, `create_markov_chain_graph'.
  In the end of the function body, the names are obtained as a boost::property_ma
 p and set to the desired values.
 \end_layout
@@ -9497,7 +9503,7 @@ reference "alg:create_named_vertices_markov_chain_demo"
 
 \end_inset
 
-) is very similar to the demonstration code of the 'create_markov_chain_graph'
+) is very similar to the demonstration code of the `create_markov_chain_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9530,7 +9536,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstrating the 'create_named_vertices_markov_chain' function
+Demonstrating the `create_named_vertices_markov_chain' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_vertices_markov_chain_demo"
@@ -9588,7 +9594,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_vertices_markov_chain' function
+.dot file created from the `create_named_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9626,7 +9632,7 @@ name "alg:create_named_vertices_markov_chain.dot"
 \begin_layout Standard
 As one can see, the names are stored as a label.
  Note that if a vertex name contains a space, the name will be surrounded
- by quotes, for example '1[label=
+ by quotes, for example `1[label=
 \begin_inset Quotes erd
 \end_inset
 
@@ -9672,7 +9678,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_vertices_markov_chain' function
+.svg file created from the `create_named_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9773,7 +9779,7 @@ reference "sub:create_k2_graph"
 
 \end_inset
 
- by naming the vertices 'Me' and 'My computer', as depicted in figure 
+ by naming the vertices `Me' and `My computer', as depicted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:named_vertices_k2_graph"
@@ -9969,7 +9975,7 @@ reference "alg:create_named_vertices_k2_graph_demo"
 
 \end_inset
 
-) is very similar to the demonstration code of the 'create_k2_graph function'
+) is very similar to the demonstration code of the `create_k2_graph function'
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10002,7 +10008,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstrating the 'create_k2_graph' function
+Demonstrating the `create_k2_graph' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_vertices_k2_graph_demo"
@@ -10060,7 +10066,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_vertices_k2' function (algorithm
+.dot file created from the `create_named_vertices_k2' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10098,7 +10104,7 @@ name "alg:create_named_vertices_k2_graph.dot"
 \begin_layout Standard
 As one can see, the names are stored as a label.
  Note that if a vertex name contains a space, the name will be surrounded
- by quotes, for example '1[label=
+ by quotes, for example `1[label=
 \begin_inset Quotes erd
 \end_inset
 
@@ -10144,7 +10150,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_vertices_k2_graph' function (algorithm
+.svg file created from the `create_named_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10465,7 +10471,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_named_vertices_path_graph' 
+Demonstration of `create_named_vertices_path_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_vertices_path_graph_demo"
@@ -10529,7 +10535,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_vertices_path_graph' function (algorithm
+.dot file created from the `create_named_vertices_path_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10606,7 +10612,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_vertices_path_graph' function (algorithm
+.svg file created from the `create_named_vertices_path_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10793,7 +10799,7 @@ reference "sub:load_undirected_named_vertices_graph_from_dot"
 \end_layout
 
 \begin_layout Standard
-Especially the 'find_first_vertex_by_name' function (chapter 
+Especially the `find_first_vertex_by_name' function (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_first_vertex_with_name"
@@ -10909,7 +10915,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_vertex_with_name' function
+Demonstration of the `has_vertex_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_vertex_with_name_demo"
@@ -11054,7 +11060,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_vertex_with_name' function
+Demonstration of the `find_first_vertex_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_vertex_with_name_demo"
@@ -11198,7 +11204,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_first_vertex_with_name_out_degree' function
+Demonstration of the `get_first_vertex_with_name_out_degree' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_first_vertex_with_name_out_degree_demo"
@@ -11237,7 +11243,7 @@ reference "sub:get_vertex_names"
 
 \end_inset
 
- describes the 'get_vertex_names' algorithm, in which we get all vertices'
+ describes the `get_vertex_names' algorithm, in which we get all vertices'
  names.
  But it does not allow to first find a vertex of interest and subsequently
  getting only that one its name.
@@ -11301,7 +11307,7 @@ name "alg:get_vertex_name"
 \end_layout
 
 \begin_layout Standard
-To use 'get_vertex_name', one first needs to obtain a vertex descriptor.
+To use `get_vertex_name', one first needs to obtain a vertex descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11334,7 +11340,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_vertex_name' function
+Demonstration if the `get_vertex_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_vertex_name_demo"
@@ -11430,7 +11436,7 @@ name "alg:set_vertex_name"
 \end_layout
 
 \begin_layout Standard
-To use 'set_vertex_name', one first needs to obtain a vertex descriptor.
+To use `set_vertex_name', one first needs to obtain a vertex descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11463,7 +11469,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_vertex_name' function
+Demonstration if the `set_vertex_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_vertex_name_demo"
@@ -11572,7 +11578,7 @@ name "alg:set_vertex_names"
 \end_layout
 
 \begin_layout Standard
-A new function makes its appearance here: 'put'
+A new function makes its appearance here: `put'
 \begin_inset Index idx
 status open
 
@@ -11582,7 +11588,7 @@ put
 
 \end_inset
 
- (not 'boost::put' 
+ (not `boost::put' 
 \begin_inset Index idx
 status open
 
@@ -11592,7 +11598,7 @@ boost::put does not exist!
 
 \end_inset
 
-), which is the opposite of 'get'
+), which is the opposite of `get'
 \begin_inset Index idx
 status open
 
@@ -11602,7 +11608,7 @@ get
 
 \end_inset
 
- (not 'boost::get' 
+ (not `boost::get' 
 \begin_inset Index idx
 status open
 
@@ -11665,7 +11671,7 @@ boost::clear_out_edges
 \end_inset
 
 : removes all outgoing edges from the vertex (in directed graphs only, else
- you will get a 'error: no matching function for call to clear_out_edges',
+ you will get a `error: no matching function for call to clear_out_edges',
  as described in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11688,7 +11694,7 @@ boost::clear_in_edges
 \end_inset
 
 : removes all incoming edges from the vertex (in directed graphs only, else
- you will get a 'error: no matching function for call to clear_in_edges',
+ you will get a `error: no matching function for call to clear_in_edges',
  as described in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11700,7 +11706,7 @@ reference "sub:no_matching_function_for_call_to_clear_in_edges"
 \end_layout
 
 \begin_layout Standard
-In the algorithm 'clear_first_vertex_with_name' the 'boost::clear_vertex'
+In the algorithm `clear_first_vertex_with_name' the `boost::clear_vertex'
  algorithm is used, as the graph used is undirectional:
 \end_layout
 
@@ -11789,7 +11795,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'clear_first_vertex_with_name' function
+Demonstration of the `clear_first_vertex_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:clear_first_vertex_with_name_demo"
@@ -11823,7 +11829,7 @@ name "sub:remove_first_vertex_with_name"
 \begin_layout Standard
 A vertex descriptor can be used to remove a vertex from a graph.
  It is necessary to remove these connections (e.g.
- using clear_first_vertex_with_name', algorithm 
+ using `clear_first_vertex_with_name', algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:clear_first_vertex_with_name"
@@ -11836,7 +11842,7 @@ reference "alg:clear_first_vertex_with_name"
 
 \begin_layout Standard
 Removing a named vertex goes as follows: use the name of the vertex to get
- a first vertex descriptor, then call 'boost::remove_vertex'
+ a first vertex descriptor, then call `boost::remove_vertex'
 \begin_inset Index idx
 status open
 
@@ -11941,7 +11947,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'remove_first_vertex_with_name' function
+Demonstration of the `remove_first_vertex_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_first_vertex_with_name_demo"
@@ -12122,7 +12128,7 @@ Instead of looking for an edge descriptor, one can also remove an edge from
  two vertex descriptors (which is: the edge between the two vertices).
  Removing an edge between two named vertices named edge goes as follows:
  use the names of the vertices to get both vertex descriptors, then call
- 'boost::remove_edge'
+ `boost::remove_edge'
 \begin_inset Index idx
 status open
 
@@ -12227,7 +12233,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'remove_edge_between_vertices_with_names' function
+Demonstration of the `remove_edge_between_vertices_with_names' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_edge_between_vertices_with_names_demo"
@@ -12361,7 +12367,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_vertex_with_name' function
+Demonstration of the `find_first_vertex_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:count_vertices_with_name_demo"
@@ -12406,7 +12412,7 @@ reference "sub:is_isomorphic"
 \end_layout
 
 \begin_layout Standard
-Here, it is checked if two graphs with named vertices are 'label isomorphic'
+Here, it is checked if two graphs with named vertices are `label isomorphic'
  (please email me a better term if you know one).
  That is: if they have the same shape with the same vertex names at the
  same places.
@@ -12425,9 +12431,9 @@ Compare the two graphs with that map
 \end_layout
 
 \begin_layout Standard
-Below the class 'named_vertex_invariant' is shown.
+Below the class `named_vertex_invariant' is shown.
  Its std::map maps the vertex names to an unsigned integer, which is done
- in the member function 'collect_names'.
+ in the member function `collect_names'.
  The purpose of this, is that is is easier to compare integers than std::strings.
 \end_layout
 
@@ -12484,8 +12490,8 @@ name "alg:named_vertex_invariant"
 \end_layout
 
 \begin_layout Standard
-To check for 'label isomorphism', multiple things need to be put in place
- for 'boost::isomorphism'
+To check for `label isomorphism', multiple things need to be put in place
+ for `boost::isomorphism'
 \begin_inset Index idx
 status open
 
@@ -12551,7 +12557,7 @@ name "alg:is_named_vertices_isomorphic"
 \end_layout
 
 \begin_layout Standard
-This demonstration code creates three path graphs, of which two are 'label
+This demonstration code creates three path graphs, of which two are `label
  isomorphic':
 \end_layout
 
@@ -12577,7 +12583,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'is_named_vertices_isomorphic' function
+Demo of the `is_named_vertices_isomorphic' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:is_named_vertices_isomorphic_demo"
@@ -12629,7 +12635,7 @@ Create .dot from graph with named vertices
 \end_layout
 
 \begin_layout Standard
-If you used the 'create_named_vertices_k2_graph' function (algorithm 
+If you used the `create_named_vertices_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_named_vertices_k2_graph"
@@ -12674,7 +12680,7 @@ You can use all characters in the vertex without problems (for example:
 \end_layout
 
 \begin_layout Standard
-The 'save_named_vertices_graph_to_dot' functions below only save the structure
+The `save_named_vertices_graph_to_dot' functions below only save the structure
  of the graph and its vertex names.
  It ignores other edge and vertex properties.
 \end_layout
@@ -12851,15 +12857,15 @@ A lambda function is an on-the-fly function that has these parts:
 \end_layout
 
 \begin_layout Itemize
-the capture brackets '[]', to take variables within the lambda function
+the capture brackets `[]', to take variables within the lambda function
 \end_layout
 
 \begin_layout Itemize
-the function argument parentheses '()', to put the function arguments in
+the function argument parentheses `()', to put the function arguments in
 \end_layout
 
 \begin_layout Itemize
-the function body '{}', where to write what it does
+the function body `{}', where to write what it does
 \end_layout
 
 \begin_layout Standard
@@ -12876,7 +12882,7 @@ We then create a vertex name map at function scope (in C++17 this can be
 \begin_layout Standard
 The lambda function arguments need to be two: a std::ostream& (a reference
  to a general out-stream) and a vertex descriptor.
- In the function body, we get the name of the vertex the same as the 'get_vertex
+ In the function body, we get the name of the vertex the same as the `get_vertex
 _name' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12899,7 +12905,7 @@ reference "alg:save_named_vertices_graph_to_dot_demo"
 
 \end_inset
 
- shows how to use (one of) the 'save_named_vertices_graph_to_dot' function(s):
+ shows how to use (one of) the `save_named_vertices_graph_to_dot' function(s):
 \end_layout
 
 \begin_layout Standard
@@ -12924,7 +12930,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'save_named_vertices_graph_to_dot' function
+Demonstration of the `save_named_vertices_graph_to_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:save_named_vertices_graph_to_dot_demo"
@@ -12945,7 +12951,7 @@ name "alg:save_named_vertices_graph_to_dot_demo"
 \end_layout
 
 \begin_layout Standard
-When using the 'save_named_vertices_graph_to_dot' function (algorithm 
+When using the `save_named_vertices_graph_to_dot' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:save_named_vertices_graph_to_dot"
@@ -13084,8 +13090,8 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map.
- From this and the empty graph, 'boost::read_graphviz'
+ to find a `node_id' and `label' in the vertex name map.
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -13106,7 +13112,7 @@ reference "alg:load_directed_named_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_graph_from_dot' function:
+ shows how to use the `load_directed_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -13131,7 +13137,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_named_vertices_graph_from_dot' function
+Demonstration of the `load_directed_named_vertices_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_directed_named_vertices_graph_from_dot_demo"
@@ -13152,7 +13158,7 @@ name "alg:load_directed_named_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_named
+This demonstration shows how the Markov chain is created using the `create_named
 _vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13162,7 +13168,7 @@ reference "alg:create_markov_chain_graph"
 
 ), saved and then loaded.
  The loaded graph is checked to be a directed graph similar to the Markov
- chain with the same vertex names (using the 'get_vertex_names' function,
+ chain with the same vertex names (using the `get_vertex_names' function,
  algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13291,7 +13297,7 @@ reference "alg:load_undirected_named_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_graph_from_dot' function:
+ shows how to use the `load_undirected_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -13316,7 +13322,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_graph_from_dot' function
+Demonstration of the `load_undirected_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_undirected_named_vertices_graph_from_dot_demo"
@@ -13341,7 +13347,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with named vertices is created using the 'create_named_vertices_k2_graph'
+ with named vertices is created using the `create_named_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13354,7 +13360,7 @@ reference "alg:create_named_vertices_k2_graph"
 \begin_inset Formula $K_{2}$
 \end_inset
 
- , with the same vertex names (using the 'get_vertex_names' function, algorithm
+ , with the same vertex names (using the `get_vertex_names' function, algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13684,7 +13690,7 @@ boost::adjacency_list
 
 \end_inset
 
- has a new, fifth template argument 'boost::property< boost::edge_name_t,std::st
+ has a new, fifth template argument `boost::property< boost::edge_name_t,std::st
 ring>
 \begin_inset Index idx
 status open
@@ -13710,7 +13716,7 @@ boost::edge_name_t
 \begin_inset Quotes eld
 \end_inset
 
-edges have the property 'boost::edge_name_t', that is of data type 'std::string'
+edges have the property `boost::edge_name_t', that is of data type `std::string'
 \begin_inset Quotes erd
 \end_inset
 
@@ -13761,7 +13767,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_directed_named_edges_and_vertices_graph'
+Demonstration if the `create_empty_directed_named_edges_and_vertices_graph'
  function 
 \begin_inset CommandInset label
 LatexCommand label
@@ -13995,7 +14001,7 @@ boost::adjacency_list
 
 \end_inset
 
- has a new, fifth template argument 'boost::property< boost::edge_name_t,std::st
+ has a new, fifth template argument `boost::property< boost::edge_name_t,std::st
 ring>
 \begin_inset Index idx
 status open
@@ -14021,7 +14027,7 @@ boost::edge_name_t
 \begin_inset Quotes eld
 \end_inset
 
-edges have the property 'boost::edge_name_t', that is of data type 'std::string'
+edges have the property `boost::edge_name_t', that is of data type `std::string'
 \begin_inset Quotes erd
 \end_inset
 
@@ -14072,7 +14078,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'create_empty_undirected_named_edges_and_vertices_graph'
+Demonstration if the `create_empty_undirected_named_edges_and_vertices_graph'
  function 
 \begin_inset CommandInset label
 LatexCommand label
@@ -14188,7 +14194,7 @@ reference "sub:Edge-descriptors"
 
 \end_inset
 
- if you need to refresh your memory) when using 'boost::add_edge
+ if you need to refresh your memory) when using `boost::add_edge
 \begin_inset Index idx
 status open
 
@@ -14211,7 +14217,7 @@ reference "alg:add_named_edge_demo"
 
  shows how to add a named edge to an empty graph.
  When trying to add named vertices to graph without this property, you will
- get the error 'formed reference to void' (see chapter 
+ get the error `formed reference to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:formed_reference_to_void"
@@ -14243,7 +14249,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'add_named_edge' function
+Demonstration of the `add_named_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_named_edge_demo"
@@ -14360,7 +14366,7 @@ The order of the edge names may be different after saving and loading.
 
 \begin_layout Standard
 Would you dare to try to get the edges' names from a graph without vertices
- with names, you will get the error 'formed reference to void' (see chapter
+ with names, you will get the error `formed reference to void' (see chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14393,7 +14399,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'get_edge_names' function
+Demonstration of the `get_edge_names' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_names_demo"
@@ -14647,7 +14653,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_named_edges_and_vertices_markov_chain' function (algorithm
+Demo of the `create_named_edges_and_vertices_markov_chain' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14701,7 +14707,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_edges_and_vertices_markov_chain'
+.dot file created from the `create_named_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14760,7 +14766,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_edges_and_vertices_markov_chain'
+.svg file created from the `create_named_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15085,7 +15091,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_named_edges_and_vertices_k3' function
+Demonstration of the `create_named_edges_and_vertices_k3' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_named_edges_and_vertices_k3_graph_demo"
@@ -15138,7 +15144,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_edges_and_vertices_k3_graph' function
+.dot file created from the `create_named_edges_and_vertices_k3_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15204,7 +15210,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_edges_and_vertices_k3_graph' function
+.svg file created from the `create_named_edges_and_vertices_k3_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15345,7 +15351,7 @@ reference "sub:find_first_edge_with_name"
 
 \end_inset
 
- with the 'find_first_edge_by_name' algorithm shows how to obtain an edge
+ with the `find_first_edge_by_name' algorithm shows how to obtain an edge
  descriptor, which is used in later algorithms.
 \end_layout
 
@@ -15454,7 +15460,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_edge_with_name' function
+Demonstration of the `has_edge_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_edge_with_name_demo"
@@ -15597,7 +15603,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_edge_by_name' function
+Demonstration of the `find_first_edge_by_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_edge_with_name_demo"
@@ -15636,7 +15642,7 @@ reference "sub:get_edge_names"
 
 \end_inset
 
- describes the 'get_edge_names' algorithm, in which we get all edges' names.
+ describes the `get_edge_names' algorithm, in which we get all edges' names.
  But it does not allow to first find an edge of interest and subsequently
  getting only that one its name.
 \end_layout
@@ -15699,7 +15705,7 @@ name "alg:get_edge_name"
 \end_layout
 
 \begin_layout Standard
-To use 'get_edge_name', one first needs to obtain an edge descriptor.
+To use `get_edge_name', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15732,7 +15738,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_edge_name' function
+Demonstration if the `get_edge_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_edge_name_demo"
@@ -15828,7 +15834,7 @@ name "alg:set_edge_name"
 \end_layout
 
 \begin_layout Standard
-To use 'set_edge_name', one first needs to obtain an edge descriptor.
+To use `set_edge_name', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15861,7 +15867,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_edge_name' function
+Demonstration if the `set_edge_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_edge_name_demo"
@@ -15899,7 +15905,7 @@ An edge descriptor can be used to remove an edge from a graph.
 
 \begin_layout Standard
 Removing a named edge goes as follows: use the name of the edge to get a
- first edge descriptor, then call 'boost::remove_edge'
+ first edge descriptor, then call `boost::remove_edge'
 \begin_inset Index idx
 status open
 
@@ -16004,7 +16010,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'remove_first_edge_with_name' function
+Demonstration of the `remove_first_edge_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_first_edge_with_name_demo"
@@ -16145,7 +16151,7 @@ reference "sub:save_custom_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-So, the 'save_named_edges_and_vertices_graph_to_dot' function (algorithm
+So, the `save_named_edges_and_vertices_graph_to_dot' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16276,9 +16282,9 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to find a `node_id' and `label' in the vertex name map, `edge_id' and `label'
  to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -16299,7 +16305,7 @@ reference "alg:load_directed_named_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_graph_from_dot' function:
+ shows how to use the `load_directed_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -16324,7 +16330,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_named_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_directed_named_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -16346,7 +16352,7 @@ name "alg:load_directed_named_edges_and_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_named
+This demonstration shows how the Markov chain is created using the `create_named
 _edges_and_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16356,7 +16362,7 @@ reference "alg:create_named_edges_and_vertices_markov_chain"
 
 ), saved and then loaded.
  The loaded graph is checked to be a directed graph similar to the Markov
- chain with the same edge and vertex names (using the 'get_edge_names' function
+ chain with the same edge and vertex names (using the `get_edge_names' function
  , algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16364,7 +16370,7 @@ reference "alg:get_edge_names"
 
 \end_inset
 
-, and the 'get_vertex_names' function, algorithm 
+, and the `get_vertex_names' function, algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_names"
@@ -16472,7 +16478,7 @@ reference "alg:load_undirected_named_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_graph_from_dot' function:
+ shows how to use the `load_undirected_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -16497,7 +16503,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_named_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_undirected_named_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -16523,7 +16529,7 @@ This demonstration shows how
 \begin_inset Formula $K_{3}$
 \end_inset
 
- with named edges and vertices is created using the 'create_named_edges_and_vert
+ with named edges and vertices is created using the `create_named_edges_and_vert
 ices_k3_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16536,7 +16542,7 @@ reference "alg:create_named_edges_and_vertices_k3_graph"
 \begin_inset Formula $K_{3}$
 \end_inset
 
- , with the same edge and vertex names (using the 'get_edge_names' function,
+ , with the same edge and vertex names (using the `get_edge_names' function,
  algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16544,7 +16550,7 @@ reference "alg:get_edge_names"
 
 \end_inset
 
-, and the 'get_vertex_names' function, algorithm 
+, and the `get_vertex_names' function, algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:get_vertex_names"
@@ -16569,7 +16575,7 @@ name "sec:Building-graphs-with-bundled-vertices"
 Up until now, the graphs created have had edges and vertices with the built-in
  name propery.
  In this chapter, graphs will be created, in which the vertices can have
- a bundled 'my_bundled_vertex' type
+ a bundled `my_bundled_vertex' type
 \begin_inset Foot
 status collapsed
 
@@ -16636,7 +16642,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Create the vertex class, called 'my_bundled_vertex': see chapter 
+Create the vertex class, called `my_bundled_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:my_bundled_vertex"
@@ -16647,7 +16653,7 @@ reference "sub:my_bundled_vertex"
 \end_layout
 
 \begin_layout Itemize
-Adding a 'my_bundled_vertex': see chapter 
+Adding a `my_bundled_vertex': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:add_bundled_vertex"
@@ -16658,7 +16664,7 @@ reference "sub:add_bundled_vertex"
 \end_layout
 
 \begin_layout Itemize
-Getting the vertices 'my_bundled_vertex'-es: see chapter 
+Getting the vertices `my_bundled_vertex'-es: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_bundled_vertex_my_vertexes"
@@ -16687,13 +16693,13 @@ name "sub:my_bundled_vertex"
 \begin_layout Standard
 Before creating an empty graph with bundled vertices, that bundled vertex
  class must be created.
- In this tutorial, it is called 'my_bundled_vertex'.
- 'my_bundled_vertex' is a class that is nonsensical, but it can be replaced
+ In this tutorial, it is called `my_bundled_vertex'.
+ `my_bundled_vertex' is a class that is nonsensical, but it can be replaced
  by any other class type.
 \end_layout
 
 \begin_layout Standard
-Here I will show the header file of 'my_bundled_vertex', as the implementation
+Here I will show the header file of `my_bundled_vertex', as the implementation
  of it is not important:
 \end_layout
 
@@ -16780,11 +16786,11 @@ name "alg:my_bundled_vertex_h"
 \end_layout
 
 \begin_layout Standard
-'my_bundled_vertex' is a class that has multiple properties: 
+`my_bundled_vertex' is a class that has multiple properties: 
 \end_layout
 
 \begin_layout Itemize
-It has four public member variables: the double 'm_x' ('m_
+It has four public member variables: the double `m_x' (`m_
 \begin_inset Index idx
 status open
 
@@ -16804,7 +16810,7 @@ member
 
 \end_inset
 
-), the double 'm_y', the std::string m_name and the std::string m_description.
+), the double `m_y', the std::string m_name and the std::string m_description.
  These variables must be public
 \end_layout
 
@@ -16821,7 +16827,7 @@ It is comparable for equality (it has operator==), which is needed for searching
 \end_layout
 
 \begin_layout Standard
-'my_bundled_vertex' does not have to have the stream operators defined for
+`my_bundled_vertex' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
 \end_layout
 
@@ -16936,7 +16942,7 @@ boost::directedS
 
 \begin_layout Itemize
 The vertices have one property: they have a bundled type, that is of data
- type 'my_bundled_vertex'
+ type `my_bundled_vertex'
 \end_layout
 
 \begin_layout Itemize
@@ -16948,7 +16954,7 @@ Edges are stored in a std::list
 \end_layout
 
 \begin_layout Standard
-The boost::adjacency_list has a new, fourth template argument 'my_bundled_vertex
+The boost::adjacency_list has a new, fourth template argument `my_bundled_vertex
 \begin_inset Index idx
 status open
 
@@ -16963,7 +16969,7 @@ my_bundled_vertex
 \begin_inset Quotes eld
 \end_inset
 
-vertices have the bundled property 'my_bundled_vertex'
+vertices have the bundled property `my_bundled_vertex'
 \begin_inset Quotes erd
 \end_inset
 
@@ -17141,7 +17147,7 @@ name "alg:add_bundled_vertex"
 
 \begin_layout Standard
 When having added a new (abstract) vertex to the graph, the vertex descriptor
- is used to set the 'my_bundled_vertex' in the graph.
+ is used to set the `my_bundled_vertex' in the graph.
 \end_layout
 
 \begin_layout Subsection
@@ -17150,7 +17156,7 @@ Getting the bundled vertices' my_vertexes
 status open
 
 \begin_layout Plain Layout
-the name 'my_vertexes' is chosen to indicate this function returns a container
+the name `my_vertexes' is chosen to indicate this function returns a container
  of my_vertex
 \end_layout
 
@@ -17167,7 +17173,7 @@ name "sub:get_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph have any bundled 'my_bundled_vertex', one can
+When the vertices of a graph have any bundled `my_bundled_vertex', one can
  extract these as such:
 \end_layout
 
@@ -17224,18 +17230,18 @@ name "alg:get_my_bundled_vertexes"
 \end_layout
 
 \begin_layout Standard
-The 'my_bundled_vertex' bundled in each vertex is obtained from a vertex
+The `my_bundled_vertex' bundled in each vertex is obtained from a vertex
  descriptor and then put into a std::vector.
 \end_layout
 
 \begin_layout Standard
-The order of the 'my_bundled_vertex' objects may be different after saving
+The order of the `my_bundled_vertex' objects may be different after saving
  and loading.
 \end_layout
 
 \begin_layout Standard
 When trying to get the vertices' my_bundled_vertex from a graph without
- these, you will get the error 'formed reference to void' (see chapter 
+ these, you will get the error `formed reference to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:formed_reference_to_void"
@@ -17483,7 +17489,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_bundled_vertices_markov_chain' function (algorithm 
+Demo of the `create_bundled_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_bundled_vertices_markov_chain"
@@ -17536,7 +17542,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_bundled_vertices_markov_chain' function
+.dot file created from the `create_bundled_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -17595,7 +17601,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_bundled_vertices_markov_chain' function
+.svg file created from the `create_bundled_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -17825,7 +17831,7 @@ name "alg:create_bundled_vertices_k2_graph"
 \end_layout
 
 \begin_layout Standard
-Most of the code is a slight modification of the 'create_named_vertices_k2_graph
+Most of the code is a slight modification of the `create_named_vertices_k2_graph
 ' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -17868,7 +17874,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_bundled_vertices_k2_graph' function (algorithm 
+Demo of the `create_bundled_vertices_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_bundled_vertices_k2_graph"
@@ -17921,7 +17927,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_bundled_vertices_k2_graph' function (algorithm
+.dot file created from the `create_bundled_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -17980,7 +17986,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_bundled_vertices_k2_graph' function (algorithm
+.svg file created from the `create_bundled_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18033,7 +18039,7 @@ When using graphs with bundled vertices, their state gives a way to find
 \end_layout
 
 \begin_layout Itemize
-Check if there exists a vertex with a certain 'my_bundled_vertex': chapter
+Check if there exists a vertex with a certain `my_bundled_vertex': chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18045,7 +18051,7 @@ reference "sub:has_bundled_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Find a vertex with a certain 'my_bundled_vertex': chapter 
+Find a vertex with a certain `my_bundled_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_bundled_vertex_with_my_vertex"
@@ -18056,7 +18062,7 @@ reference "sub:find_bundled_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Get a vertex its 'my_bundled_vertex' from its vertex descriptor: chapter
+Get a vertex its `my_bundled_vertex' from its vertex descriptor: chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18068,7 +18074,7 @@ reference "sub:get_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Set a vertex its 'my_bundled_vertex' using its vertex descriptor: chapter
+Set a vertex its `my_bundled_vertex' using its vertex descriptor: chapter
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18080,7 +18086,7 @@ reference "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Setting all vertices their 'my_bundled_vertex'-es: chapter 
+Setting all vertices their `my_bundled_vertex'-es: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_bundled_vertex_my_vertexes"
@@ -18139,9 +18145,9 @@ name "sub:has_bundled_vertex_with_my_vertex"
 
 \begin_layout Standard
 Before modifying our vertices, let's first determine if we can find a vertex
- by its bundled type ('my_bundled_vertex') in a graph.
+ by its bundled type (`my_bundled_vertex') in a graph.
  After obtain the vertex iterators, we can dereference each these to obtain
- the vertex descriptors and then compare each vertex its 'my_bundled_vertex'
+ the vertex descriptors and then compare each vertex its `my_bundled_vertex'
  with the one desired.
 \end_layout
 
@@ -18231,7 +18237,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_bundled_vertex_with_my_vertex' function
+Demonstration of the `has_bundled_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_bundled_vertex_with_my_vertex_demo"
@@ -18286,7 +18292,7 @@ reference "alg:find_first_bundled_vertex_with_my_vertex"
 \end_inset
 
  shows how to obtain a vertex descriptor to the first vertex found with
- a specific 'my_bundled_vertex' value.
+ a specific `my_bundled_vertex' value.
 \end_layout
 
 \begin_layout Standard
@@ -18376,7 +18382,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_bundled_vertex_with_my_vertex' function
+Demonstration of the `find_first_bundled_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_bundled_vertex_with_my_vertex_demo"
@@ -18397,7 +18403,7 @@ name "alg:find_first_bundled_vertex_with_my_vertex_demo"
 \end_layout
 
 \begin_layout Subsection
-Get a bundled vertex its 'my_bundled_vertex'
+Get a bundled vertex its `my_bundled_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:get_bundled_vertex_my_vertex"
@@ -18408,7 +18414,7 @@ name "sub:get_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To obtain the 'my_bundled_vertex' from a vertex descriptor is simple:
+To obtain the `my_bundled_vertex' from a vertex descriptor is simple:
 \end_layout
 
 \begin_layout Standard
@@ -18468,7 +18474,7 @@ One can just use the graph as a property map and let it be looked-up.
 \end_layout
 
 \begin_layout Standard
-To use 'get_bundled_vertex_my_vertex', one first needs to obtain a vertex
+To use `get_bundled_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Algorithm 
 \begin_inset CommandInset ref
@@ -18502,7 +18508,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_bundled_vertex_my_vertex' function
+Demonstration if the `get_bundled_vertex_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_bundled_vertex_my_vertex_demo"
@@ -18534,7 +18540,7 @@ name "sub:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-If you know how to get the 'my_bundled_vertex' from a vertex descriptor,
+If you know how to get the `my_bundled_vertex' from a vertex descriptor,
  setting it is just as easy, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18598,7 +18604,7 @@ name "alg:set_bundled_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'set_bundled_vertex_my_vertex', one first needs to obtain a vertex
+To use `set_bundled_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Algorithm 
 \begin_inset CommandInset ref
@@ -18632,7 +18638,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_bundled_vertex_my_vertex' function
+Demonstration if the `set_bundled_vertex_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_bundled_vertex_my_vertex_demo"
@@ -18664,7 +18670,7 @@ name "sub:set_bundled_vertex_my_vertexes"
 \end_layout
 
 \begin_layout Standard
-When the vertices of a graph are 'my_bundled_vertex' objects, one can set
+When the vertices of a graph are `my_bundled_vertex' objects, one can set
  these as such:
 \end_layout
 
@@ -18690,7 +18696,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Setting the bundled vertices' 'my_bundled_vertex'-es
+Setting the bundled vertices' `my_bundled_vertex'-es
 \begin_inset Index idx
 status open
 
@@ -18732,7 +18738,7 @@ name "sub:save_bundled_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-If you used the 'create_bundled_vertices_k2_graph' function (algorithm 
+If you used the `create_bundled_vertices_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_bundled_vertices_k2_graph"
@@ -18743,7 +18749,7 @@ reference "alg:create_bundled_vertices_k2_graph"
 \begin_inset Formula $K_{2}$
 \end_inset
 
- graph with vertices associated with 'my_bundled_vertex' objects, you can
+ graph with vertices associated with `my_bundled_vertex' objects, you can
  store these with algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18807,7 +18813,7 @@ name "alg:save_bundled_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-This code looks small, because we call the 'make_bundled_vertices_writer'
+This code looks small, because we call the `make_bundled_vertices_writer'
  function, which is shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18840,7 +18846,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The 'make_bundled_vertices_writer' function
+The `make_bundled_vertices_writer' function
 \begin_inset Index idx
 status open
 
@@ -18871,7 +18877,7 @@ name "alg:make_bundled_vertices_writer"
 \end_layout
 
 \begin_layout Standard
-Also this function is forwarding the real work to the 'bundled_vertices_writer',
+Also this function is forwarding the real work to the `bundled_vertices_writer',
  shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18904,7 +18910,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The 'bundled_vertices_writer' function
+The `bundled_vertices_writer' function
 \begin_inset Index idx
 status open
 
@@ -18937,7 +18943,7 @@ name "alg:bundled_vertices_writer"
 \begin_layout Standard
 Here, some interesting things are happening: the writer needs the bundled
  property maps to work with and thus copies the whole graph to its internals.
- I have chosen to map the 'my_bundled_vertex' member variables to Graphviz
+ I have chosen to map the `my_bundled_vertex' member variables to Graphviz
  attributes (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -19296,7 +19302,7 @@ boost::dynamic_properties
 
  is created with its default constructor, after which we set it to follow
  the same mapping as in the previous chapter.
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -19310,7 +19316,7 @@ boost::read_graphviz
 \end_layout
 
 \begin_layout Standard
-At the moment the graph is created, all 'my_bundled_vertex' their names
+At the moment the graph is created, all `my_bundled_vertex' their names
  and description are in a Graphviz-friendly format.
  By obtaining all vertex iterators and vertex descriptors, the encoding
  is made undone.
@@ -19324,7 +19330,7 @@ reference "alg:load_directed_bundled_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_bundled_vertices_graph_from_dot' function:
+ shows how to use the `load_directed_bundled_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -19349,7 +19355,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_bundled_vertices_graph_from_dot' function
+Demonstration of the `load_directed_bundled_vertices_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_directed_bundled_vertices_graph_from_dot_demo"
@@ -19370,7 +19376,7 @@ name "alg:load_directed_bundled_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_bundl
+This demonstration shows how the Markov chain is created using the `create_bundl
 ed_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -19480,7 +19486,7 @@ reference "alg:load_undirected_bundled_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_bundled_vertices_graph_from_dot'
+ shows how to use the `load_undirected_bundled_vertices_graph_from_dot'
  function:
 \end_layout
 
@@ -19506,7 +19512,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_bundled_vertices_graph_from_dot' function
+Demonstration of the `load_undirected_bundled_vertices_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_undirected_bundled_vertices_graph_from_dot_demo"
@@ -19531,7 +19537,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with bundled vertices is created using the 'create_bundled_vertices_k2_graph'
+ with bundled vertices is created using the `create_bundled_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -19550,7 +19556,7 @@ Building graphs with bundled edges and vertices
 \begin_layout Standard
 Up until now, the graphs created have had only bundled vertices.
  In this chapter, graphs will be created, in which both the edges and vertices
- have a bundled 'my_bundled_edge' and 'my_bundled_edge' type
+ have a bundled `my_bundled_edge' and `my_bundled_edge' type
 \begin_inset Foot
 status collapsed
 
@@ -19617,7 +19623,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Creating the 'my_bundled_edge' class: see chapter 
+Creating the `my_bundled_edge' class: see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:my_bundled_edge"
@@ -19628,7 +19634,7 @@ reference "sub:my_bundled_edge"
 \end_layout
 
 \begin_layout Itemize
-Adding a bundled 'my_bundled_edge': see chapter 
+Adding a bundled `my_bundled_edge': see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:add_bundled_edge"
@@ -19655,7 +19661,7 @@ name "sub:my_bundled_edge"
 \end_layout
 
 \begin_layout Standard
-In this example, I create a 'my_bundled_edge' class.
+In this example, I create a `my_bundled_edge' class.
  Here I will show the header file of it, as the implementation of it is
  not important yet.
 \end_layout
@@ -19743,8 +19749,8 @@ name "alg:my_bundled_edge_h"
 \end_layout
 
 \begin_layout Standard
-my_bundled_edge is a class that has multiple properties: two doubles 'm_width'
- ('m_
+my_bundled_edge is a class that has multiple properties: two doubles `m_width'
+ (`m_
 \begin_inset Index idx
 status open
 
@@ -19764,14 +19770,14 @@ member
 
 \end_inset
 
-) and 'm_height', and two std::strings m_name and m_description.
- 'my_bundled_edge' is copyable, but cannot trivially be converted to a std::stri
-ng.' 'my_bundled_edge' is comparable for equality (that is, operator== is
+) and `m_height', and two std::strings m_name and m_description.
+ `my_bundled_edge' is copyable, but cannot trivially be converted to a `std::stri
+ng.' `my_bundled_edge' is comparable for equality (that is, operator== is
  defined).
 \end_layout
 
 \begin_layout Standard
-'my_bundled_edge' does not have to have the stream operators defined for
+`my_bundled_edge' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
 \end_layout
 
@@ -19895,8 +19901,8 @@ This can be read as:
 \begin_inset Quotes eld
 \end_inset
 
-edges have the property 'boost::edge_bundled_type_t', which is of data type
- 'my_bundled_edge'
+edges have the property `boost::edge_bundled_type_t', which is of data type
+ `my_bundled_edge'
 \begin_inset Quotes erd
 \end_inset
 
@@ -19938,7 +19944,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_bundled_edges_and_vertices_graph'
+Demonstration of the `create_empty_directed_bundled_edges_and_vertices_graph'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -20070,7 +20076,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_undirected_bundled_edges_and_vertices_graph'
+Demonstration of the `create_empty_undirected_bundled_edges_and_vertices_graph'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -20196,7 +20202,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of 'add_bundled_edge'
+Demo of `add_bundled_edge'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_bundled_edge_demo"
@@ -20228,7 +20234,7 @@ name "sub:get_bundled_edge_my_edges"
 \end_layout
 
 \begin_layout Standard
-When the edges of a graph are 'my_bundled_edge' objects, one can extract
+When the edges of a graph are `my_bundled_edge' objects, one can extract
  these all as such:
 \end_layout
 
@@ -20285,7 +20291,7 @@ name "alg:get_bundled_edge_my_edges"
 \end_layout
 
 \begin_layout Standard
-The 'my_bundled_edge' object associated with the edges are obtained from
+The `my_bundled_edge' object associated with the edges are obtained from
  the graph its property_map and then put into a std::vector.
 \end_layout
 
@@ -20296,7 +20302,7 @@ Note: the order of the my_bundled_edge objects may be different after saving
 
 \begin_layout Standard
 When trying to get the edges' my_bundled_edge objects from a graph without
- bundled edges objects associated, you will get the error 'formed reference
+ bundled edges objects associated, you will get the error `formed reference
  to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -20545,7 +20551,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_bundled_edges_and_vertices_markov_chain' function (algorithm
+Demo of the `create_bundled_edges_and_vertices_markov_chain' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -20599,7 +20605,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
+.dot file created from the `create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -20658,7 +20664,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_bundled_edges_and_vertices_markov_chain'
+.svg file created from the `create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -20710,7 +20716,7 @@ name "sub:create_bundled_edges_and_vertices_k3"
 
 \begin_layout Standard
 Instead of using edges with a name, or other properties, here we use a bundled
- edge class called 'my_bundled_edge'.
+ edge class called `my_bundled_edge'.
 \end_layout
 
 \begin_layout Subsubsection
@@ -20909,7 +20915,7 @@ reference "alg:create_named_edges_and_vertices_k3_graph"
 
 .
  In the end, the my_edges and my_vertices are obtained as the graph its
- property_map and set with the 'my_bundled_edge' and 'my_bundled_vertex'
+ property_map and set with the `my_bundled_edge' and `my_bundled_vertex'
  objects.
 \end_layout
 
@@ -20943,7 +20949,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_bundled_edges_and_vertices_k3_graph' function (algorithm
+Demo of the `create_bundled_edges_and_vertices_k3_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -20997,7 +21003,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_bundled_edges_and_vertices_markov_chain'
+.dot file created from the `create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21057,7 +21063,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_bundled_edges_and_vertices_k3_graph' function
+.svg file created from the `create_bundled_edges_and_vertices_k3_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21109,7 +21115,7 @@ name "sub:has_bundled_edge_with_my_edge"
 
 \begin_layout Standard
 Before modifying our edges, let's first determine if we can find an edge
- by its bundled type ('my_bundled_edge') in a graph.
+ by its bundled type (`my_bundled_edge') in a graph.
  After obtaing a my_bundled_edge map, we obtain the edge iterators, dereference
  these to obtain the edge descriptors and then compare each edge its my_bundled_
 edge with the one desired.
@@ -21175,7 +21181,7 @@ reference "alg:has_bundled_edge_with_my_edge_demo"
 
 \end_inset
 
-, where a certain 'my_bundled_edge' cannot be found in an empty graph.
+, where a certain `my_bundled_edge' cannot be found in an empty graph.
  After adding the desired my_bundled_edge, it is found.
 \end_layout
 
@@ -21201,7 +21207,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_bundled_edge_with_my_edge' function
+Demonstration of the `has_bundled_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_bundled_edge_with_my_edge_demo"
@@ -21346,7 +21352,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_bundled_edge_with_my_edge' function
+Demonstration of the `find_first_bundled_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_bundled_edge_with_my_edge_demo"
@@ -21435,7 +21441,7 @@ name "alg:get_bundled_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'get_my_bundled_edge', one first needs to obtain an edge descriptor.
+To use `get_my_bundled_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21468,7 +21474,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_my_bundled_edge' function
+Demonstration if the `get_my_bundled_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_bundled_edge_my_edge_demo"
@@ -21564,7 +21570,7 @@ name "alg:set_bundled_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'set_bundled_edge_my_edge', one first needs to obtain an edge descriptor.
+To use `set_bundled_edge_my_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21597,7 +21603,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_bundled_edge_my_edge' function
+Demonstration if the `set_bundled_edge_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_bundled_edge_my_edge_demo"
@@ -21649,7 +21655,7 @@ Create .dot from graph with bundled edges and vertices
 \end_layout
 
 \begin_layout Standard
-If you used the 'create_bundled_edges_and_vertices_k3_graph' function (algorithm
+If you used the `create_bundled_edges_and_vertices_k3_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21825,9 +21831,9 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to find a `node_id' and `label' in the vertex name map, `edge_id' and `label'
  to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -21848,7 +21854,7 @@ reference "alg:load_directed_bundled_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_bundled_edges_and_vertices_graph_from_dot'
+ shows how to use the `load_directed_bundled_edges_and_vertices_graph_from_dot'
  function:
 \end_layout
 
@@ -21874,7 +21880,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_bundled_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_directed_bundled_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -21896,7 +21902,7 @@ name "alg:load_directed_bundled_edges_and_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_bundl
+This demonstration shows how the Markov chain is created using the `create_bundl
 ed_edges_and_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -22025,7 +22031,7 @@ reference "alg:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_bundled_vertices_graph_from_dot'
+ shows how to use the `load_undirected_bundled_vertices_graph_from_dot'
  function:
 \end_layout
 
@@ -22051,7 +22057,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_bundled_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_undirected_bundled_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -22077,7 +22083,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with bundled vertices is created using the 'create_bundled_vertices_k2_graph'
+ with bundled vertices is created using the `create_bundled_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -22110,7 +22116,7 @@ as
 \emph on
 an additional property
 \emph default
- where the 'my_custom_vertex' is stored, next to properties like vertex
+ where the `my_custom_vertex' is stored, next to properties like vertex
  name, edge delay (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -22174,7 +22180,7 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 \end_layout
 
 \begin_layout Itemize
-Installing a new vertex property, called 'vertex_custom_type
+Installing a new vertex property, called `vertex_custom_type
 \begin_inset Index idx
 status open
 
@@ -22235,13 +22241,13 @@ name "sub:my_custom_vertex"
 \begin_layout Standard
 Before creating an empty graph with custom vertices, that custom vertex
  class must be created.
- In this tutorial, it is called 'my_custom_vertex'.
- 'my_custom_vertex' is a class that is nonsensical, but it can be replaced
+ In this tutorial, it is called `my_custom_vertex'.
+ `my_custom_vertex' is a class that is nonsensical, but it can be replaced
  by any other class type.
 \end_layout
 
 \begin_layout Standard
-Here I will show the header file of 'my_custom_vertex', as the implementation
+Here I will show the header file of `my_custom_vertex', as the implementation
  of it is not important:
 \end_layout
 
@@ -22328,11 +22334,11 @@ name "alg:my_custom_vertex_h"
 \end_layout
 
 \begin_layout Standard
-'my_custom_vertex' is a class that has multiple properties: 
+`my_custom_vertex' is a class that has multiple properties: 
 \end_layout
 
 \begin_layout Itemize
-It has four private member variables: the double 'm_x' ('m_
+It has four private member variables: the double `m_x' (`m_
 \begin_inset Index idx
 status open
 
@@ -22352,7 +22358,7 @@ member
 
 \end_inset
 
-), the double 'm_y', the std::string m_name and the std::string m_description.
+), the double `m_y', the std::string m_name and the std::string m_description.
  These variables are private, but there are getters supplied
 \end_layout
 
@@ -22377,7 +22383,7 @@ It can be streamed (it has both operator<< and operator>>), which is needed
 \begin_layout Standard
 Special characters like comma's, quotes and whitespace cannot be streamed
  without problems.
- The function 'graphviz_encode' (algorithm 
+ The function `graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_encode"
@@ -22385,7 +22391,7 @@ reference "alg:graphviz_encode"
 \end_inset
 
 ) can convert the elements to be streamed to a Graphviz-friendly version,
- which can be decoded by 'graphviz_decode' (algorithm 
+ which can be decoded by `graphviz_decode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_decode"
@@ -22409,7 +22415,7 @@ name "sub:install_vertex_custom_type"
 \begin_layout Standard
 Before creating an empty graph with custom vertices, this type must be installed
  as a vertex property.
- Installing a new property would have been easier, if 'more C++ compilers
+ Installing a new property would have been easier, if `more C++ compilers
  were standards conformant' (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -22661,7 +22667,7 @@ boost::adjacency_list
 
 \end_inset
 
- has a new, fourth template argument 'boost::property< boost::vertex_custom_type
+ has a new, fourth template argument `boost::property< boost::vertex_custom_type
 _t,my_vertex>
 \begin_inset Index idx
 status open
@@ -22697,8 +22703,8 @@ my_vertex
 \begin_inset Quotes eld
 \end_inset
 
-vertices have the property 'boost::vertex_custom_type_t', which is of data
- type 'my_vertex'
+vertices have the property `boost::vertex_custom_type_t', which is of data
+ type `my_vertex'
 \begin_inset Quotes erd
 \end_inset
 
@@ -22968,7 +22974,7 @@ name "alg:add_custom_vertex"
 
 \begin_layout Standard
 When having added a new (abstract) vertex to the graph, the vertex descriptor
- is used to set the my_vertex in the graph its my_vertex map (using 'get(boost::
+ is used to set the my_vertex in the graph its my_vertex map (using `get(boost::
 vertex_custom_type,g)
 \begin_inset Index idx
 status open
@@ -23018,7 +23024,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of 'add_custom_vertex'
+Demo of `add_custom_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_custom_vertex_demo"
@@ -23044,7 +23050,7 @@ Getting the vertices' my_vertexes
 status open
 
 \begin_layout Plain Layout
-the name 'my_vertexes' is chosen to indicate this function returns a container
+the name `my_vertexes' is chosen to indicate this function returns a container
  of my_vertex
 \end_layout
 
@@ -23123,13 +23129,13 @@ perty_map and then put into a std::vector.
 \end_layout
 
 \begin_layout Standard
-The order of the 'my_custom_vertex' objects may be different after saving
+The order of the `my_custom_vertex' objects may be different after saving
  and loading.
 \end_layout
 
 \begin_layout Standard
 When trying to get the vertices' my_vertex from a graph without my_vertex
- objects associated, you will get the error 'formed reference to void' (see
+ objects associated, you will get the error `formed reference to void' (see
  chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23434,7 +23440,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_vertices_markov_chain' function (algorithm 
+Demo of the `create_custom_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_custom_vertices_markov_chain"
@@ -23487,7 +23493,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_vertices_markov_chain' function
+.dot file created from the `create_custom_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23535,7 +23541,7 @@ status open
 \end_inset
 
  thing.
- This is because the function 'graphviz_encode' (algorithm 
+ This is because the function `graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_encode"
@@ -23545,7 +23551,7 @@ reference "alg:graphviz_encode"
 ) made this conversion.
  In this example, I could have simply surrounded the content by quotes,
  and this would have worked.
- I chose to use 'graphviz_encode' because it works in all contexts.
+ I chose to use `graphviz_encode' because it works in all contexts.
 \end_layout
 
 \begin_layout Subsubsection
@@ -23572,7 +23578,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_vertices_markov_chain' function
+.svg file created from the `create_custom_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23620,7 +23626,7 @@ status open
 \end_inset
 
  thing.
- This is because the function 'graphviz_encode' (algorithm 
+ This is because the function `graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_encode"
@@ -23732,7 +23738,7 @@ name "alg:create_custom_vertices_k2_graph"
 \end_layout
 
 \begin_layout Standard
-Most of the code is a slight modification of the 'create_named_vertices_k2_graph
+Most of the code is a slight modification of the `create_named_vertices_k2_graph
 ' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23775,7 +23781,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_vertices_k2_graph' function (algorithm 
+Demo of the `create_custom_vertices_k2_graph' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:create_custom_vertices_k2_graph"
@@ -23828,7 +23834,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_vertices_k2_graph' function (algorithm
+.dot file created from the `create_custom_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -23887,7 +23893,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_vertices_k2_graph' function (algorithm
+.svg file created from the `create_custom_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -24204,7 +24210,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_named_vertices_path_graph' 
+Demonstration of `create_named_vertices_path_graph' 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_custom_vertices_path_graph_demo"
@@ -24268,7 +24274,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_named_vertices_path_graph' function (algorithm
+.dot file created from the `create_named_vertices_path_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -24345,7 +24351,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_named_vertices_path_graph' function (algorithm
+.svg file created from the `create_named_vertices_path_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -24391,7 +24397,7 @@ When using graphs with custom vertices, their state gives a way to find
 \end_layout
 
 \begin_layout Itemize
-Check if there exists a vertex with a certain 'my_vertex': chapter 
+Check if there exists a vertex with a certain `my_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:has_custom_vertex_with_my_vertex"
@@ -24402,7 +24408,7 @@ reference "sub:has_custom_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Find a vertex with a certain 'my_vertex': chapter 
+Find a vertex with a certain `my_vertex': chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:find_custom_vertex_with_my_vertex"
@@ -24413,7 +24419,7 @@ reference "sub:find_custom_vertex_with_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Get a vertex its 'my_vertex' from its vertex descriptor: chapter 
+Get a vertex its `my_vertex' from its vertex descriptor: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:get_custom_vertex_my_vertex"
@@ -24424,7 +24430,7 @@ reference "sub:get_custom_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Set a vertex its 'my_vertex' using its vertex descriptor: chapter 
+Set a vertex its `my_vertex' using its vertex descriptor: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_custom_vertex_my_vertex"
@@ -24435,7 +24441,7 @@ reference "sub:set_custom_vertex_my_vertex"
 \end_layout
 
 \begin_layout Itemize
-Setting all vertices their 'my_vertex'es: chapter 
+Setting all vertices their `my_vertex'es: chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:set_custom_vertex_my_vertexes"
@@ -24493,7 +24499,7 @@ name "sub:has_custom_vertex_with_my_vertex"
 
 \begin_layout Standard
 Before modifying our vertices, let's first determine if we can find a vertex
- by its custom type ('my_vertex') in a graph.
+ by its custom type (`my_vertex') in a graph.
  After obtaing a my_vertex map, we obtain the vertex iterators, dereference
  these to obtain the vertex descriptors and then compare each vertex its
  my_vertex with the one desired.
@@ -24585,7 +24591,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_custom_vertex_with_my_vertex' function
+Demonstration of the `has_custom_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_vertex_with_my_vertex_demo"
@@ -24730,7 +24736,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_custom_vertex_with_my_vertex' function
+Demonstration of the `find_first_custom_vertex_with_my_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_custom_vertex_with_my_vertex_demo"
@@ -24830,7 +24836,7 @@ name "alg:get_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'get_custom_vertex_my_vertex', one first needs to obtain a vertex
+To use `get_custom_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Algorithm 
 \begin_inset CommandInset ref
@@ -24864,7 +24870,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_my_custom_vertex' function
+Demonstration if the `get_my_custom_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_my_custom_vertex_demo"
@@ -24960,7 +24966,7 @@ name "alg:set_custom_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
-To use 'set_my_custom_vertex', one first needs to obtain a vertex descriptor.
+To use `set_my_custom_vertex', one first needs to obtain a vertex descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -24993,7 +24999,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_my_custom_vertex' function
+Demonstration if the `set_my_custom_vertex' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_custom_vertex_my_vertex_demo"
@@ -25084,7 +25090,7 @@ name "alg:set_my_custom_vertexes"
 \begin_layout Standard
 An impressive feature is that getting the property map holding the graph
  its names is not a copy, but a reference.
- Otherwise, modifying 'my_vertexes_map' (obtained by non-reference) would
+ Otherwise, modifying `my_vertexes_map' (obtained by non-reference) would
  only modify a copy.
 \end_layout
 
@@ -25107,7 +25113,7 @@ reference "sub:is_named_vertices_isomorphic"
 
 \end_inset
 
- checked if two graphs with named vertices are 'label isomorphic'.
+ checked if two graphs with named vertices are `label isomorphic'.
  Here, we do the same for custom vertices.
 \end_layout
 
@@ -25124,9 +25130,9 @@ Compare the two graphs with that map
 \end_layout
 
 \begin_layout Standard
-Below the class 'my_custom_vertex_invariant' is shown.
+Below the class `my_custom_vertex_invariant' is shown.
  Its std::map maps the vertex names to an unsigned integer, which is done
- in the member function 'collect_names'.
+ in the member function `collect_names'.
  The purpose of this, is that is is easier to compare integers than custom
  vertices.
  Note that operator<
@@ -25164,7 +25170,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The 'custom_vertex_invariant' functor
+The `custom_vertex_invariant' functor
 \begin_inset Index idx
 status open
 
@@ -25195,8 +25201,8 @@ name "alg:custom_vertex_invariant"
 \end_layout
 
 \begin_layout Standard
-To check for 'custom vertexness isomorphism', multiple things need to be
- put in place for 'boost::isomorphism'
+To check for `custom vertexness isomorphism', multiple things need to be
+ put in place for `boost::isomorphism'
 \begin_inset Index idx
 status open
 
@@ -25262,7 +25268,7 @@ name "alg:is_custom_vertices_isomorphic"
 \end_layout
 
 \begin_layout Standard
-This demonstration code creates three path graphs, of which two are 'label
+This demonstration code creates three path graphs, of which two are `label
  isomorphic':
 \end_layout
 
@@ -25288,7 +25294,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'is_named_vertices_isomorphic' function
+Demo of the `is_named_vertices_isomorphic' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:is_named_vertices_isomorphic_demo-1"
@@ -25494,9 +25500,9 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to find a `node_id' and `label' in the vertex name map, `edge_id' and `label'
  to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -25517,7 +25523,7 @@ reference "alg:load_directed_custom_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_directed_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -25542,7 +25548,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_custom_vertices_graph_from_dot' function
+Demonstration of the `load_directed_custom_vertices_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_directed_custom_vertices_graph_from_dot_demo"
@@ -25563,7 +25569,7 @@ name "alg:load_directed_custom_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_custo
+This demonstration shows how the Markov chain is created using the `create_custo
 m_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -25673,7 +25679,7 @@ reference "alg:load_undirected_custom_vertices_graph_from_dot_demo-1"
 
 \end_inset
 
- shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_undirected_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -25698,7 +25704,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_custom_vertices_graph_from_dot' function
+Demonstration of the `load_undirected_custom_vertices_graph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:load_undirected_custom_vertices_graph_from_dot_demo-1"
@@ -25723,7 +25729,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ with custom vertices is created using the `create_custom_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -25857,7 +25863,7 @@ vertex_is_selected_t
 \end_layout
 
 \begin_layout Standard
-Installing a new property would have been easier, if 'more C++ compilers
+Installing a new property would have been easier, if `more C++ compilers
  were standards conformant' (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -26079,7 +26085,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_custom_and_selectable_vertices_graph
+Demonstration of the `create_empty_directed_custom_and_selectable_vertices_graph
 ' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -26211,7 +26217,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_undirected_custom_and_selectable_vertices_gra
+Demonstration of the `create_empty_undirected_custom_and_selectable_vertices_gra
 ph' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -26339,7 +26345,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of 'add_custom_and_selectable_vertex'
+Demo of `add_custom_and_selectable_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_custom_and_selectable_vertex_demo"
@@ -26597,7 +26603,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_and_selectable_vertices_markov_chain' function
+Demo of the `create_custom_and_selectable_vertices_markov_chain' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26651,7 +26657,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_and_selectable_vertices_markov_chain'
+.dot file created from the `create_custom_and_selectable_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26710,7 +26716,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_and_selectable_vertices_markov_chain'
+.svg file created from the `create_custom_and_selectable_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26746,7 +26752,7 @@ name "fig:create_custom_and_selectable_vertices_markov_chain.svg"
 \end_layout
 
 \begin_layout Standard
-Note how the .svg changed it appearance due to the Graphviz 'regular' property
+Note how the .svg changed it appearance due to the Graphviz `regular' property
  (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26754,9 +26760,9 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-): the vertex labeled 'Sunny' is drawn according to the Graphviz 'regular'
+): the vertex labeled `Sunny' is drawn according to the Graphviz `regular'
  attribute, which makes it a circle.
- The other vertex, labeled 'Rainy' is not drawn as such and retained its
+ The other vertex, labeled `Rainy' is not drawn as such and retained its
  ellipsoid appearance.
  
 \end_layout
@@ -26910,7 +26916,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_and_selectable_vertices_k2_graph' function (algorithm
+Demo of the `create_custom_and_selectable_vertices_k2_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -26964,7 +26970,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_and_selectable_vertices_k2_graph'
+.dot file created from the `create_custom_and_selectable_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27023,7 +27029,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_and_selectable_vertices_k2_graph'
+.svg file created from the `create_custom_and_selectable_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27059,7 +27065,7 @@ name "fig:create_custom_and_selectable_vertices_k2_graph.svg"
 \end_layout
 
 \begin_layout Standard
-Note how the .svg changed it appearance due to the Graphviz 'regular' property
+Note how the .svg changed it appearance due to the Graphviz `regular' property
  (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27067,9 +27073,9 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-): the vertex labeled 'A' is drawn according to the Graphviz 'regular' attribute
+): the vertex labeled `A' is drawn according to the Graphviz `regular' attribute
 , which makes it a circle.
- The other vertex, labeled 'B' is not drawn as such and retained its ellipsoid
+ The other vertex, labeled `B' is not drawn as such and retained its ellipsoid
  appearance.
 \end_layout
 
@@ -27409,7 +27415,7 @@ name "sub:save_custom_and_selectable_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-If you used the 'create_custom_and_selectable_vertices_k2_graph' function
+If you used the `create_custom_and_selectable_vertices_k2_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27486,7 +27492,7 @@ name "alg:save_custom_and_selectable_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-This code looks small, because we call the 'make_custom_and_selectable_vertices_
+This code looks small, because we call the `make_custom_and_selectable_vertices_
 writer' function, which is shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27519,7 +27525,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The 'make_custom_and_selectable_vertices_writer' function
+The `make_custom_and_selectable_vertices_writer' function
 \begin_inset Index idx
 status open
 
@@ -27550,7 +27556,7 @@ name "alg:make_custom_and_selectable_vertices_writer"
 \end_layout
 
 \begin_layout Standard
-Also this function is forwarding the real work to the 'custom_and_selectable_ver
+Also this function is forwarding the real work to the `custom_and_selectable_ver
 tices_writer', shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27583,7 +27589,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The 'custom_and_selectable_vertices_writer' function
+The `custom_and_selectable_vertices_writer' function
 \begin_inset Index idx
 status open
 
@@ -27615,9 +27621,9 @@ name "alg:custom_and_selectable_vertices_writer"
 
 \begin_layout Standard
 Here, some interesting things are happening: the writer needs both property
- maps to work with (that is, the 'my_custom_vertex' and is_selected maps).
- The 'my_custom_vertex' are written to the Graphviz 'label' attribute, and
- the is_selected is written to the 'regular' attribute (see chapter 
+ maps to work with (that is, the `my_custom_vertex' and is_selected maps).
+ The `my_custom_vertex' are written to the Graphviz `label' attribute, and
+ the is_selected is written to the `regular' attribute (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Graphviz-attributes"
@@ -27725,24 +27731,24 @@ boost::dynamic_properties
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'node_id' (see chapter 
+The Graphviz attribute `node_id' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Graphviz-attributes"
 
 \end_inset
 
- for most Graphviz attributes) is connected to a vertex its 'my_custom_vertex'
+ for most Graphviz attributes) is connected to a vertex its `my_custom_vertex'
  property
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'label' is connected to a vertex its 'my_custom_vertex'
+The Graphviz attribute `label' is connected to a vertex its `my_custom_vertex'
  property
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'regular' is connected to a vertex its 'is_selected'
+The Graphviz attribute `regular' is connected to a vertex its `is_selected'
  vertex property
 \end_layout
 
@@ -27754,7 +27760,7 @@ reference "alg:load_directed_custom_and_selectable_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_directed_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -27779,7 +27785,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_custom_and_selectable_vertices_graph_from_do
+Demonstration of the `load_directed_custom_and_selectable_vertices_graph_from_do
 t' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -27801,7 +27807,7 @@ name "alg:load_directed_custom_and_selectable_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_custo
+This demonstration shows how the Markov chain is created using the `create_custo
 m_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27910,7 +27916,7 @@ reference "alg:load_undirected_custom_and_selectable_vertices_graph_from_dot_dem
 
 \end_inset
 
- shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_undirected_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -27935,7 +27941,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_custom_and_selectable_vertices_graph_from_
+Demonstration of the `load_undirected_custom_and_selectable_vertices_graph_from_
 dot' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -27961,7 +27967,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ with custom vertices is created using the `create_custom_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27980,7 +27986,7 @@ Building graphs with custom edges and vertices
 Up until now, the graphs created have had edges and vertices with the built-in
  name propery.
  In this chapter, graphs will be created, in which the edges and vertices
- can have a custom 'my_custom_edge' and 'my_custom_edge' type
+ can have a custom `my_custom_edge' and `my_custom_edge' type
 \begin_inset Foot
 status collapsed
 
@@ -28184,8 +28190,8 @@ name "alg:my_custom_edge_h"
 \end_layout
 
 \begin_layout Standard
-my_custom_edge is a class that has multiple properties: two doubles 'm_width'
- ('m_
+my_custom_edge is a class that has multiple properties: two doubles `m_width'
+ (`m_
 \begin_inset Index idx
 status open
 
@@ -28205,15 +28211,15 @@ member
 
 \end_inset
 
-) and 'm_height', and two std::strings m_name and m_description.
- 'my_custom_edge' is copyable, but cannot trivially be converted to a std::strin
-g.' 'my_custom_edge' is comparable for equality (that is, operator== is defined).
+) and `m_height', and two std::strings m_name and m_description.
+ `my_custom_edge' is copyable, but cannot trivially be converted to a `std::strin
+g.' `my_custom_edge' is comparable for equality (that is, operator== is defined).
 \end_layout
 
 \begin_layout Standard
 Special characters like comma's, quotes and whitespace cannot be streamed
  without problems.
- The function 'graphviz_encode' (algorithm 
+ The function `graphviz_encode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_encode"
@@ -28221,7 +28227,7 @@ reference "alg:graphviz_encode"
 \end_inset
 
 ) can convert the elements to be streamed to a Graphviz-friendly version,
- which can be decoded by 'graphviz_decode' (algorithm 
+ which can be decoded by `graphviz_decode' (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_decode"
@@ -28243,7 +28249,7 @@ name "sub:install_edge_custom_type"
 \end_layout
 
 \begin_layout Standard
-Installing a new property would have been easier, if 'more C++ compilers
+Installing a new property would have been easier, if `more C++ compilers
  were standards conformant' (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -28451,8 +28457,8 @@ This can be read as:
 \begin_inset Quotes eld
 \end_inset
 
-edges have the property 'boost::edge_custom_type_t', which is of data type
- 'my_custom_edge'
+edges have the property `boost::edge_custom_type_t', which is of data type
+ `my_custom_edge'
 \begin_inset Quotes erd
 \end_inset
 
@@ -28494,7 +28500,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_custom_edges_and_vertices_graph'
+Demonstration of the `create_empty_directed_custom_edges_and_vertices_graph'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -28626,7 +28632,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_undirected_custom_edges_and_vertices_graph'
+Demonstration of the `create_empty_undirected_custom_edges_and_vertices_graph'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -28723,7 +28729,7 @@ name "alg:add_custom_edge"
 
 \begin_layout Standard
 When having added a new (abstract) edge to the graph, the edge descriptor
- is used to set the my_edge in the graph its my_custom_edge map (using 'get(boos
+ is used to set the my_edge in the graph its my_custom_edge map (using `get(boos
 t::edge_custom_type,g)
 \begin_inset Index idx
 status open
@@ -28773,7 +28779,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of 'add_custom_edge'
+Demo of `add_custom_edge'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_custom_edge_demo"
@@ -28805,7 +28811,7 @@ name "sub:get_custom_edge_my_edges"
 \end_layout
 
 \begin_layout Standard
-When the edges of a graph have an associated 'my_custom_edge', one can extract
+When the edges of a graph have an associated `my_custom_edge', one can extract
  these all as such:
 \end_layout
 
@@ -28862,7 +28868,7 @@ name "alg:get_custom_edge_my_edges"
 \end_layout
 
 \begin_layout Standard
-The 'my_custom_edge' object associated with the edges are obtained from
+The `my_custom_edge' object associated with the edges are obtained from
  a boost::property_map and then put into a std::vector.
 \end_layout
 
@@ -28873,7 +28879,7 @@ Note: the order of the my_custom_edge objects may be different after saving
 
 \begin_layout Standard
 When trying to get the edges' my_custom_edge objects from a graph without
- custom edges objects associated, you will get the error 'formed reference
+ custom edges objects associated, you will get the error `formed reference
  to void' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29122,7 +29128,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_edges_and_vertices_markov_chain' function (algorithm
+Demo of the `create_custom_edges_and_vertices_markov_chain' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29176,7 +29182,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_edges_and_vertices_markov_chain'
+.dot file created from the `create_custom_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29235,7 +29241,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_edges_and_vertices_markov_chain'
+.svg file created from the `create_custom_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29287,7 +29293,7 @@ name "sub:create_custom_edges_and_vertices_k3"
 
 \begin_layout Standard
 Instead of using edges with a name, or other properties, here we use a custom
- edge class called 'my_custom_edge'.
+ edge class called `my_custom_edge'.
 \end_layout
 
 \begin_layout Subsubsection
@@ -29390,7 +29396,7 @@ reference "alg:create_named_edges_and_vertices_k3_graph"
 
 .
  In the end, the my_edges and my_vertices are obtained as a boost::property_map
- and set with the 'my_custom_edge' and 'my_custom_vertex' objects.
+ and set with the `my_custom_edge' and `my_custom_vertex' objects.
 \end_layout
 
 \begin_layout Subsubsection
@@ -29423,7 +29429,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_edges_and_vertices_k3_graph' function (algorithm
+Demo of the `create_custom_edges_and_vertices_k3_graph' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29477,7 +29483,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_edges_and_vertices_markov_chain'
+.dot file created from the `create_custom_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29536,7 +29542,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_edges_and_vertices_k3_graph' function
+.svg file created from the `create_custom_edges_and_vertices_k3_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -29588,7 +29594,7 @@ name "sub:has_custom_edge_with_my_edge"
 
 \begin_layout Standard
 Before modifying our edges, let's first determine if we can find an edge
- by its custom type ('my_custom_edge') in a graph.
+ by its custom type (`my_custom_edge') in a graph.
  After obtaing a my_custom_edge map, we obtain the edge iterators, dereference
  these to obtain the edge descriptors and then compare each edge its my_custom_e
 dge with the one desired.
@@ -29654,7 +29660,7 @@ reference "alg:has_custom_edge_with_my_edge_demo"
 
 \end_inset
 
-, where a certain 'my_custom_edge' cannot be found in an empty graph.
+, where a certain `my_custom_edge' cannot be found in an empty graph.
  After adding the desired my_custom_edge, it is found.
 \end_layout
 
@@ -29680,7 +29686,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'has_custom_edge_with_my_edge' function
+Demonstration of the `has_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:has_custom_edge_with_my_edge_demo"
@@ -29825,7 +29831,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'find_first_custom_edge_with_my_edge' function
+Demonstration of the `find_first_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:find_first_edge_with_my_custom_edge_demo"
@@ -29914,7 +29920,7 @@ name "alg:get_custom_edge_my_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'get_custom_edge_my_custom_edge', one first needs to obtain an edge
+To use `get_custom_edge_my_custom_edge', one first needs to obtain an edge
  descriptor.
  Algorithm 
 \begin_inset CommandInset ref
@@ -29948,7 +29954,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'get_custom_edge_my_edge' function
+Demonstration if the `get_custom_edge_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_custom_edge_my_edge_demo"
@@ -30044,7 +30050,7 @@ name "alg:set_edge_my_custom_edge"
 \end_layout
 
 \begin_layout Standard
-To use 'set_my_custom_edge', one first needs to obtain an edge descriptor.
+To use `set_my_custom_edge', one first needs to obtain an edge descriptor.
  Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -30077,7 +30083,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration if the 'set_my_custom_edge' function
+Demonstration if the `set_my_custom_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_my_custom_edge_demo"
@@ -30305,9 +30311,9 @@ boost::dynamic_properties
 
 \end_inset
 
- to find a 'node_id' and 'label' in the vertex name map, 'edge_id' and 'label
+ to find a `node_id' and `label' in the vertex name map, `edge_id' and `label'
  to the edge name map.
- From this and the empty graph, 'boost::read_graphviz'
+ From this and the empty graph, `boost::read_graphviz'
 \begin_inset Index idx
 status open
 
@@ -30328,7 +30334,7 @@ reference "alg:load_directed_custom_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_directed_custom_edges_and_vertices_graph_from_dot'
+ shows how to use the `load_directed_custom_edges_and_vertices_graph_from_dot'
  function:
 \end_layout
 
@@ -30354,7 +30360,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_custom_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_directed_custom_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -30376,7 +30382,7 @@ name "alg:load_directed_custom_edges_and_vertices_graph_from_dot_demo"
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_custo
+This demonstration shows how the Markov chain is created using the `create_custo
 m_edges_and_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -30505,7 +30511,7 @@ reference "alg:load_undirected_custom_edges_and_vertices_graph_from_dot_demo"
 
 \end_inset
 
- shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_undirected_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -30530,7 +30536,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_custom_edges_and_vertices_graph_from_dot'
+Demonstration of the `load_undirected_custom_edges_and_vertices_graph_from_dot'
  function
 \begin_inset CommandInset label
 LatexCommand label
@@ -30556,7 +30562,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ with custom vertices is created using the `create_custom_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -30689,7 +30695,7 @@ edge_is_selected_t
 \end_layout
 
 \begin_layout Standard
-Installing a new property would have been easier, if 'more C++ compilers
+Installing a new property would have been easier, if `more C++ compilers
  were standards conformant' (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -30911,7 +30917,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_directed_custom_and_selectable_edges_and_vert
+Demonstration of the `create_empty_directed_custom_and_selectable_edges_and_vert
 ices_graph' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -31044,7 +31050,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'create_empty_undirected_custom_and_selectable_edges_and_ve
+Demonstration of the `create_empty_undirected_custom_and_selectable_edges_and_ve
 rtices_graph' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -31172,7 +31178,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of 'add_custom_and_selectable_vertex'
+Demo of `add_custom_and_selectable_vertex'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:add_custom_and_selectable_edge_demo"
@@ -31430,7 +31436,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_and_selectable_edges_and_vertices_markov_chain'
+Demo of the `create_custom_and_selectable_edges_and_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31484,7 +31490,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_and_selectable_vertices_markov_chain'
+.dot file created from the `create_custom_and_selectable_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31543,7 +31549,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_and_selectable_vertices_markov_chain'
+.svg file created from the `create_custom_and_selectable_vertices_markov_chain'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31579,7 +31585,7 @@ name "fig:create_custom_and_selectable_edges_and_vertices_markov_chain.svg"
 \end_layout
 
 \begin_layout Standard
-Note how the .svg changed it appearance due to the Graphviz 'regular' property
+Note how the .svg changed it appearance due to the Graphviz `regular' property
  (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31587,9 +31593,9 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-): the vertex labeled 'Sunny' is drawn according to the Graphviz 'regular'
+): the vertex labeled `Sunny' is drawn according to the Graphviz `regular'
  attribute, which makes it a circle.
- The other vertex, labeled 'Rainy' is not drawn as such and retained its
+ The other vertex, labeled `Rainy' is not drawn as such and retained its
  ellipsoid appearance.
  
 \end_layout
@@ -31743,7 +31749,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the 'create_custom_and_selectable_edges_and_vertices_k2_graph' function
+Demo of the `create_custom_and_selectable_edges_and_vertices_k2_graph' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31797,7 +31803,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_custom_and_selectable_vertices_k2_graph'
+.dot file created from the `create_custom_and_selectable_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31856,7 +31862,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_custom_and_selectable_vertices_k2_graph'
+.svg file created from the `create_custom_and_selectable_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31892,7 +31898,7 @@ name "fig:create_custom_and_selectable_edges_and_vertices_k2_graph.svg"
 \end_layout
 
 \begin_layout Standard
-Note how the .svg changed it appearance due to the Graphviz 'regular' property
+Note how the .svg changed it appearance due to the Graphviz `regular' property
  (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -31900,9 +31906,9 @@ reference "sub:Graphviz-attributes"
 
 \end_inset
 
-): the vertex labeled 'A' is drawn according to the Graphviz 'regular' attribute
+): the vertex labeled `A' is drawn according to the Graphviz `regular' attribute
 , which makes it a circle.
- The other vertex, labeled 'B' is not drawn as such and retained its ellipsoid
+ The other vertex, labeled `B' is not drawn as such and retained its ellipsoid
  appearance.
 \end_layout
 
@@ -31963,7 +31969,7 @@ name "sub:save_custom_and_selectable_edges_and_vertices_graph_to_dot"
 \end_layout
 
 \begin_layout Standard
-If you used the 'create_custom_and_selectable_edges_and_vertices_k2_graph'
+If you used the `create_custom_and_selectable_edges_and_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32143,24 +32149,24 @@ boost::dynamic_properties
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'node_id' (see chapter 
+The Graphviz attribute `node_id' (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Graphviz-attributes"
 
 \end_inset
 
- for most Graphviz attributes) is connected to a vertex its 'my_custom_vertex'
+ for most Graphviz attributes) is connected to a vertex its `my_custom_vertex'
  property
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'label' is connected to a vertex its 'my_custom_vertex'
+The Graphviz attribute `label' is connected to a vertex its `my_custom_vertex'
  property
 \end_layout
 
 \begin_layout Itemize
-The Graphviz attribute 'regular' is connected to a vertex its 'is_selected'
+The Graphviz attribute `regular' is connected to a vertex its `is_selected'
  vertex property
 \end_layout
 
@@ -32172,7 +32178,7 @@ reference "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from
 
 \end_inset
 
- shows how to use the 'load_directed_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_directed_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -32197,7 +32203,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_directed_custom_and_selectable_edges_and_vertices_gra
+Demonstration of the `load_directed_custom_and_selectable_edges_and_vertices_gra
 ph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -32219,7 +32225,7 @@ name "alg:load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_
 \end_layout
 
 \begin_layout Standard
-This demonstration shows how the Markov chain is created using the 'create_custo
+This demonstration shows how the Markov chain is created using the `create_custo
 m_vertices_markov_chain' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32329,7 +32335,7 @@ reference "alg:load_undirected_custom_and_selectable_edges_and_vertices_graph_fr
 
 \end_inset
 
- shows how to use the 'load_undirected_custom_vertices_graph_from_dot' function:
+ shows how to use the `load_undirected_custom_vertices_graph_from_dot' function:
 \end_layout
 
 \begin_layout Standard
@@ -32354,7 +32360,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of the 'load_undirected_custom_and_selectable_edges_and_vertices_g
+Demonstration of the `load_undirected_custom_and_selectable_edges_and_vertices_g
 raph_from_dot' function
 \begin_inset CommandInset label
 LatexCommand label
@@ -32380,7 +32386,7 @@ This demonstration shows how
 \begin_inset Formula $K_{2}$
 \end_inset
 
- with custom vertices is created using the 'create_custom_vertices_k2_graph'
+ with custom vertices is created using the `create_custom_vertices_k2_graph'
  function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32527,7 +32533,7 @@ This boost::adjacency_list is of the following type:
 \end_layout
 
 \begin_layout Itemize
-the first 'boost::vecS'
+the first `boost::vecS'
 \begin_inset Index idx
 status open
 
@@ -32537,7 +32543,7 @@ boost::vecS
 
 \end_inset
 
-: select (that is what the 'S
+: select (that is what the `S
 \begin_inset Index idx
 status open
 
@@ -32552,7 +32558,7 @@ S
 \end_layout
 
 \begin_layout Itemize
-the second 'boost::vecS'
+the second `boost::vecS'
 \begin_inset Index idx
 status open
 
@@ -32567,7 +32573,7 @@ boost::vecS
 \end_layout
 
 \begin_layout Itemize
-'boost::directedS'
+`boost::directedS'
 \begin_inset Index idx
 status open
 
@@ -32582,7 +32588,7 @@ boost::directedS
 \end_layout
 
 \begin_layout Itemize
-the first 'boost::no_property'
+the first `boost::no_property'
 \begin_inset Index idx
 status open
 
@@ -32597,7 +32603,7 @@ boost::no_property
 \end_layout
 
 \begin_layout Itemize
-the second 'boost::no_property'
+the second `boost::no_property'
 \begin_inset Index idx
 status open
 
@@ -32612,7 +32618,7 @@ boost::no_property
 \end_layout
 
 \begin_layout Itemize
-'boost::property<boost::graph_name_t, std::string>'
+`boost::property<boost::graph_name_t, std::string>'
 \begin_inset Index idx
 status open
 
@@ -32653,7 +32659,7 @@ reference "alg:create_empty_directed_graph_with_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'create_empty_directed_graph_with_graph_name' function.
+ demonstrates the `create_empty_directed_graph_with_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -32678,7 +32684,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_empty_directed_graph_with_graph_name'
+Demonstration of `create_empty_directed_graph_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_directed_graph_with_graph_name_demo"
@@ -32802,7 +32808,7 @@ reference "alg:create_empty_undirected_graph_with_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'create_empty_undirected_graph_with_graph_name' function.
+ demonstrates the `create_empty_undirected_graph_with_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -32827,7 +32833,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_empty_undirected_graph_with_graph_name'
+Demonstration of `create_empty_undirected_graph_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_empty_undirected_graph_with_graph_name_demo"
@@ -32918,7 +32924,7 @@ reference "alg:get_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'get_graph_name' function.
+ demonstrates the `get_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -32943,7 +32949,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'get_graph_name'
+Demonstration of `get_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:get_graph_name_demo"
@@ -33034,7 +33040,7 @@ reference "alg:set_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'set_graph_name' function.
+ demonstrates the `set_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -33059,7 +33065,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'set_graph_name'
+Demonstration of `set_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_graph_name_demo"
@@ -33184,7 +33190,7 @@ reference "alg:create_markov_chain_with_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'create_markov_chain_with_graph_name' function.
+ demonstrates the `create_markov_chain_with_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -33209,7 +33215,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_markov_chain_with_graph_name'
+Demonstration of `create_markov_chain_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_markov_chain_with_graph_name_demo"
@@ -33255,7 +33261,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_markov_chain_with_graph_name' function
+.dot file created from the `create_markov_chain_with_graph_name' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -33314,7 +33320,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_markov_chain_with_graph_name' function
+.svg file created from the `create_markov_chain_with_graph_name' function
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -33454,7 +33460,7 @@ reference "alg:create_k2_graph_with_graph_name_demo"
 
 \end_inset
 
- demonstrates the 'create_k2_graph_with_graph_name' function.
+ demonstrates the `create_k2_graph_with_graph_name' function.
 \end_layout
 
 \begin_layout Standard
@@ -33479,7 +33485,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demonstration of 'create_k2_graph_with_graph_name'
+Demonstration of `create_k2_graph_with_graph_name'
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_k2_graph_with_graph_name_demo"
@@ -33525,7 +33531,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.dot file created from the 'create_k2_graph_with_graph_name' function (algorithm
+.dot file created from the `create_k2_graph_with_graph_name' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -33584,7 +33590,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-.svg file created from the 'create_k2_graph_with_graph_name' function (algorithm
+.svg file created from the `create_k2_graph_with_graph_name' function (algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -33921,7 +33927,7 @@ name "sub:graphviz_decode"
 \end_layout
 
 \begin_layout Standard
-This function undoes the 'graphviz_encode' function (algorithm 
+This function undoes the `graphviz_encode' function (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:graphviz_encode"
@@ -33999,7 +34005,7 @@ name "sub:is_graphviz_friendly"
 \begin_layout Standard
 There are pieces where I check if a std::string is Graphviz-friendly.
  This is done only where it matters.
- If it is tested not to matter, 'is_graphviz_friendly' is absent.
+ If it is tested not to matter, `is_graphviz_friendly' is absent.
 \end_layout
 
 \begin_layout Standard
@@ -34091,7 +34097,7 @@ http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
 \end_inset
 
  .
- Thanks to 'm-dudley' (Stack Overflow userpage at 
+ Thanks to `m-dudley' (Stack Overflow userpage at 
 \begin_inset Flex URL
 status open
 
@@ -34170,8 +34176,8 @@ name "sub:convert_dot_to_svg"
 
 \begin_layout Standard
 All illustrations in this tutorial are created by converting .dot to a .svg
- ('Scalable Vector Graphic') file.
- This function assumes the program 'dot' is installed, which is part of
+ (`Scalable Vector Graphic') file.
+ This function assumes the program `dot' is installed, which is part of
  Graphviz.
 \end_layout
 
@@ -34228,7 +34234,7 @@ name "alg:convert_dot_to_svg"
 \end_layout
 
 \begin_layout Standard
-'convert_dot_to_svg' makes a system call to the prgram 'dot' to convert
+`convert_dot_to_svg' makes a system call to the prgram `dot' to convert
  the .dot file to an .svg file.
 \end_layout
 
@@ -34352,7 +34358,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating the error 'formed reference to void'
+Creating the error `formed reference to void'
 \begin_inset Index idx
 status open
 
@@ -34398,7 +34404,7 @@ reference "alg:formed_reference_to_void"
 \end_layout
 
 \begin_layout Subsection
-No matching function for call to 'clear_out_edges'
+No matching function for call to `clear_out_edges'
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:no_matching_function_for_call_to_clear_out_edges"
@@ -34436,7 +34442,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating the error 'no matching function for call to clear_out_edges'
+Creating the error `no matching function for call to clear_out_edges'
 \begin_inset Index idx
 status open
 
@@ -34476,12 +34482,12 @@ reference "alg:no_matching_function_for_call_to_clear_out_edges"
 
  an undirected graph is created, a vertex descriptor is obtained, then its
  out edges are tried to be cleared.
- Either use a directed graph (which has out edges), or use the 'boost::clear_ver
+ Either use a directed graph (which has out edges), or use the `boost::clear_ver
 tex' function instead.
 \end_layout
 
 \begin_layout Subsection
-No matching function for call to 'clear_in_edges'
+No matching function for call to `clear_in_edges'
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:no_matching_function_for_call_to_clear_in_edges"
@@ -34656,7 +34662,7 @@ boost::dynamic_properties
 
 .
  When a graph does not have properties, do not use a default constructed
- version, but initializate with 'boost::ignore_other_properties'
+ version, but initializate with `boost::ignore_other_properties'
 \begin_inset Index idx
 status open
 
@@ -34699,7 +34705,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Creating the error 'Property not found: node_id'
+Creating the error `Property not found: node_id'
 \begin_inset Index idx
 status open
 
@@ -34914,8 +34920,8 @@ graph load_from_dot(const std::string& dot_filename)
 \end_layout
 
 \begin_layout Standard
-The explanation is that by setting the boost::dynamic_property 'node_id'
- to 'boost::vertex_custom_type', operator>> will receive the node indices.
+The explanation is that by setting the boost::dynamic_property `node_id'
+ to `boost::vertex_custom_type', operator>> will receive the node indices.
  
 \end_layout
 
@@ -35071,7 +35077,7 @@ Vertex properties
 \end_layout
 
 \begin_layout Standard
-The following list is obtained from the file 'boost/graph/properties.hpp'.
+The following list is obtained from the file `boost/graph/properties.hpp'.
 \end_layout
 
 \begin_layout Standard
