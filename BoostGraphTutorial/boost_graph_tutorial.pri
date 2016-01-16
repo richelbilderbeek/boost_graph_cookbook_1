@@ -198,7 +198,8 @@ HEADERS += \
     $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h \
     $$PWD/add_edge_between_two_selected_vertices.h \
     $$PWD/get_vertices_with_selectedness.h \
-    $$PWD/count_vertices_with_selectedness.h
+    $$PWD/count_vertices_with_selectedness.h \
+    $$PWD/count_edges_with_selectedness.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -393,7 +394,8 @@ SOURCES += \
     $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp \
     $$PWD/add_edge_between_two_selected_vertices.cpp \
     $$PWD/get_vertices_with_selectedness.cpp \
-    $$PWD/count_vertices_with_selectedness.cpp
+    $$PWD/count_vertices_with_selectedness.cpp \
+    $$PWD/count_edges_with_selectedness.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -711,5 +713,7 @@ OTHER_FILES += \
     $$PWD/add_edge_between_two_selected_vertices.impl \
     $$PWD/add_edge_between_two_selected_vertices_demo.impl \
     $$PWD/count_vertices_with_selectedness.impl \
-    $$PWD/count_vertices_with_selectedness_demo.impl
+    $$PWD/count_vertices_with_selectedness_demo.impl \
+    $$PWD/count_edges_with_selectedness.impl \
+    $$PWD/count_edges_with_selectedness_demo.impl
 

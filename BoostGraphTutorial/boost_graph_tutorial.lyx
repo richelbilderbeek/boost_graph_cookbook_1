@@ -8970,8 +8970,8 @@ boost::vertex_name
 
 \end_inset
 
-' denotes that we want to obtain the property map associated with `boost::vert
-ex_name' from the graph.
+' denotes that we want to obtain the property map associated with `boost::vertex
+_name' from the graph.
  `get' has no `boost::' prepending it, as it lives in the same (global)
  namespace the function is in.
  Using `boost::get' will not compile
@@ -19771,8 +19771,8 @@ member
 \end_inset
 
 ) and `m_height', and two std::strings m_name and m_description.
- `my_bundled_edge' is copyable, but cannot trivially be converted to a `std::stri
-ng.' `my_bundled_edge' is comparable for equality (that is, operator== is
+ `my_bundled_edge' is copyable, but cannot trivially be converted to a `std::str
+ing.' `my_bundled_edge' is comparable for equality (that is, operator== is
  defined).
 \end_layout
 
@@ -28212,8 +28212,9 @@ member
 \end_inset
 
 ) and `m_height', and two std::strings m_name and m_description.
- `my_custom_edge' is copyable, but cannot trivially be converted to a `std::strin
-g.' `my_custom_edge' is comparable for equality (that is, operator== is defined).
+ `my_custom_edge' is copyable, but cannot trivially be converted to a `std::stri
+ng.' `my_custom_edge' is comparable for equality (that is, operator== is
+ defined).
 \end_layout
 
 \begin_layout Standard
@@ -30087,6 +30088,141 @@ Demonstration if the `set_my_custom_edge' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:set_my_custom_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Counting the edges with a certain selectedness
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:count_edges_with_selectedness"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How often is an edge with a certain selectedness present? Here we'll find
+ out.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_edges_with_selectedness.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the edges with a certain selectedness
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Count edges with selectedness
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_edges_with_selectedness"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we use the STL std::count_if
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+std::count_if
+\end_layout
+
+\end_inset
+
+ algorithm to count how many vertices have the desired selectedness.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:count_edges_with_selectedness_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_edges_with_selectedness_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'count_edges_with_selectedness' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_edges_with_selectedness_demo"
 
 \end_inset
 

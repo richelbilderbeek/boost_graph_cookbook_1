@@ -170,10 +170,12 @@
 #include "load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
 #include "add_edge_between_two_selected_vertices.h"
 #include "count_vertices_with_selectedness.h"
+#include "count_edges_with_selectedness.h"
 #include <iostream>
 
 int main()
 {
+  count_edges_with_selectedness_test();
   count_vertices_with_selectedness_test();
   add_edge_between_two_selected_vertices_test();
   add_edge_between_named_vertices_test();
