@@ -1,12 +1,12 @@
 #include <type_traits>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
-#include "my_custom_vertex.h"
+//#include "my_custom_vertex.h"
 
-template <typename graph>
+template <typename graph, typename vertex_t>
 typename boost::graph_traits<graph>::vertex_descriptor
 add_custom_vertex(
-  const my_custom_vertex& v,
+  const vertex_t& v,
   graph& g
 ) noexcept
 {
