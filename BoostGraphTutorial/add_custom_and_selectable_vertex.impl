@@ -2,12 +2,12 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "install_vertex_is_selected.h"
-#include "my_custom_vertex.h"
+//#include "my_custom_vertex.h"
 
-template <typename graph>
+template <typename graph, typename vertex_t>
 typename boost::graph_traits<graph>::vertex_descriptor
 add_custom_and_selectable_vertex(
-  const my_custom_vertex& v,
+  const vertex_t& v,
   const bool is_selected,
   graph& g
 ) noexcept
