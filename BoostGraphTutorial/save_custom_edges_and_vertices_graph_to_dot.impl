@@ -4,6 +4,7 @@
 #include <boost/graph/properties.hpp>
 #include "get_my_custom_edge.h"
 #include "get_my_custom_vertex.h"
+#include "my_custom_vertex.h"
 
 template <typename graph>
 void save_custom_edges_and_vertices_graph_to_dot(
@@ -20,7 +21,7 @@ void save_custom_edges_and_vertices_graph_to_dot(
     g,
     [g](
       std::ostream& out, const vd& d) {
-      const my_custom_vertex& m{
+      const my_custom_vertex m{
         get_my_custom_vertex(d, g)
       };
       out << "[label=\"" << m << "\"]";
