@@ -1,6 +1,6 @@
 # A well-connected C++11 Boost.Graph tutorial
 
-![CC-BY-SA](BoostGraphTutorial/CC-BY-SA_icon.png)
+[![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)[![cc-by-sa](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 A well-connected C++11 Boost.Graph tutorial is a C++ tutorial about Boost.Graph.
 
