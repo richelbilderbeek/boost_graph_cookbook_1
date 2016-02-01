@@ -171,10 +171,14 @@
 #include "add_edge_between_two_selected_vertices.h"
 #include "count_vertices_with_selectedness.h"
 #include "count_edges_with_selectedness.h"
+#include "create_direct_neighbour_named_vertices_subgraph.h"
+#include "create_named_vertices_k3_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_named_vertices_k3_graph_test();
+  create_direct_neighbour_named_vertices_subgraph_test();
   count_edges_with_selectedness_test();
   count_vertices_with_selectedness_test();
   add_edge_between_two_selected_vertices_test();

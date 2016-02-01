@@ -1,0 +1,15 @@
+#include <cassert>
+
+#include "create_named_vertices_k3_graph.h"
+#include "get_vertex_names.h"
+
+void create_named_vertices_k3_graph_demo() noexcept
+{
+  const auto g = create_named_vertices_k3_graph();
+  const std::vector<std::string> expected_names{
+    "Karen", "Kristel","Kathleen"
+  };
+  const std::vector<std::string> vertex_names = get_vertex_names(g);
+  assert(expected_names == vertex_names);
+}
+

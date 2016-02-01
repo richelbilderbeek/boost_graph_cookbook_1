@@ -8,7 +8,8 @@
 #include "copy_file.h"
 #include "create_empty_undirected_graph.h"
 #include "is_regular_file.h"
-#include "save_graph_to_dot.h"
+#include "load_undirected_named_vertices_graph_from_dot.h"
+#include "save_named_vertices_graph_to_dot.h"
 #include "get_vertex_names.h"
 
 void create_named_vertices_path_graph_test() noexcept
@@ -48,8 +49,11 @@ void create_named_vertices_path_graph_test() noexcept
     const std::string base_filename{"create_named_vertices_path_graph_4"};
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
-    save_graph_to_dot(g,dot_filename);
+    save_named_vertices_graph_to_dot(g,dot_filename);
     assert(is_regular_file(dot_filename));
+    const auto h = load_undirected_named_vertices_graph_from_dot(dot_filename);
+    assert(get_vertex_names(g) == get_vertex_names(h)); //Maybe sort first?
+
     convert_dot_to_svg(dot_filename,svg_filename);
     assert(is_regular_file(svg_filename));
     copy_file(

@@ -1,0 +1,31 @@
+#include <cassert>
+#include "create_empty_undirected_named_vertices_graph.h"
+#include "add_named_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<boost::vertex_name_t,std::string>
+>
+create_named_vertices_k3_graph() noexcept
+{
+  auto g
+    = create_empty_undirected_named_vertices_graph();
+  const auto vd_a = add_named_vertex(
+    "Karen", g
+  );
+  const auto vd_b = add_named_vertex(
+    "Kristel", g
+  );
+  const auto vd_c = add_named_vertex(
+    "Kathleen", g
+  );
+  const auto aer_a = boost::add_edge(vd_a, vd_b, g);
+  assert(aer_a.second);
+  const auto aer_b = boost::add_edge(vd_b, vd_c, g);
+  assert(aer_b.second);
+  const auto aer_c = boost::add_edge(vd_c, vd_a, g);
+  assert(aer_c.second);
+  return g;
+}

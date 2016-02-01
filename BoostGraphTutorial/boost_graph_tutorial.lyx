@@ -10190,6 +10190,472 @@ The .svg now shows the vertex names, instead of the vertex indices.
 \end_layout
 
 \begin_layout Subsection
+▶ Creating 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k3_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{3}$
+\end_inset
+
+with named vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we create a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with names vertices
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named vertices (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_k3_graph"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[<->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+ semithick]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[state] (A)              {Karen};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[state] (B) [right of=A] {Kristel};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[state] (C) [below of=B] {Kathleen};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path (A) edge [bend right] node {} (B)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (B) edge [bend right] node {} (C)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (C) edge [bend left] node {} (A); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named vertices, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_k3_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_k3_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create K3 vertices path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k3_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k3_graph_demo"
+
+\end_inset
+
+ demonstrates how to create a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+ graph with named vertices and checks if it has the correct amount of edges
+ and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_k3_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of `create_named_vertices_k3_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k3_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k3_graph.dot"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_vertices_k3_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the `create_named_vertices_k3_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k3_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_k3_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_k3_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_vertices_k3_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the `create_named_vertices_k3_graph' function (algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k3_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 ▶ Creating a path graph with named vertices
 \begin_inset CommandInset label
 LatexCommand label
