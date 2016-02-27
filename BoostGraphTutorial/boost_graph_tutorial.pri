@@ -201,7 +201,9 @@ HEADERS += \
     $$PWD/count_vertices_with_selectedness.h \
     $$PWD/count_edges_with_selectedness.h \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.h \
-    $$PWD/create_named_vertices_k3_graph.h
+    $$PWD/create_named_vertices_k3_graph.h \
+    create_all_direct_neighbour_named_vertices_subgraphs.h \
+    create_named_vertices_petersen_graph.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -399,7 +401,9 @@ SOURCES += \
     $$PWD/count_vertices_with_selectedness.cpp \
     $$PWD/count_edges_with_selectedness.cpp \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.cpp \
-    $$PWD/create_named_vertices_k3_graph.cpp
+    $$PWD/create_named_vertices_k3_graph.cpp \
+    create_all_direct_neighbour_named_vertices_subgraphs.cpp \
+    create_named_vertices_petersen_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -723,5 +727,9 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_named_vertices_subgraph_demo.impl \
     $$PWD/create_named_vertices_k3_graph.impl \
-    $$PWD/create_named_vertices_k3_graph_demo.impl
+    $$PWD/create_named_vertices_k3_graph_demo.impl \
+    create_all_direct_neighbour_named_vertices_subgraphs.impl \
+    create_all_direct_neighbour_named_vertices_subgraphs_demo.impl \
+    create_named_vertices_petersen_graph.impl \
+    create_named_vertices_petersen_graph_demo.impl
 

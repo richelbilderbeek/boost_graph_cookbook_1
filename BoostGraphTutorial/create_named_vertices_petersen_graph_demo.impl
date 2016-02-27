@@ -1,0 +1,9 @@
+#include <cassert>
+#include "create_named_vertices_petersen_graph.h"
+
+void create_named_vertices_petersen_graph_demo() noexcept
+{
+  const auto g = create_named_vertices_petersen_graph();
+  assert(boost::num_edges(g) == 15);
+  assert(boost::num_vertices(g) == 10);
+}
