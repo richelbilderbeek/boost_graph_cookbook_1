@@ -1,0 +1,19 @@
+#include <cassert>
+#include "create_named_edges_and_vertices_path_graph.h"
+#include "get_edge_names.h"
+#include "get_vertex_names.h"
+
+void create_named_edges_and_vertices_path_graph_demo() noexcept
+{
+  const std::vector<std::string> vertex_names
+    = {"A", "B", "C", "D"};
+  const std::vector<std::string> edge_names
+    = { "1", "2", "3" };
+  const auto g = create_named_edges_and_vertices_path_graph(
+    edge_names, vertex_names
+  );
+  assert(boost::num_edges(g) == 3);
+  assert(boost::num_vertices(g) == 4);
+  assert(get_edge_names(g) == edge_names);
+  assert(get_vertex_names(g) == vertex_names);
+}

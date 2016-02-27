@@ -40,6 +40,5 @@ void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
       assert(boost::num_edges(g) == 3);
     }
   }
-  create_all_direct_neighbour_named_vertices_subgraphs_demo();
-  
+  create_all_direct_neighbour_named_vertices_subgraphs_demo();  
 }

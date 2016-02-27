@@ -1,0 +1,23 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+
+template <typename graph, typename vertex_descriptor>
+typename boost::graph_traits<graph>::edge_descriptor
+add_named_edge_between_vertices(
+  const std::string& edge_name,
+  const vertex_descriptor from,
+  const vertex_descriptor to,
+  graph& g
+) noexcept
+{
+  const auto aer = boost::add_edge(from, to, g);
+  assert(aer.second);
+
+  auto edge_name_map = get(
+      boost::edge_name,g
+    );
+  put(edge_name_map, aer.first, edge_name);
+
+  return aer.first;
+}

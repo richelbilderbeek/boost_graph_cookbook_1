@@ -1,5 +1,5 @@
-#ifndef create_empty_undirected_named_edges_and_vertices_graph_H
-#define create_empty_undirected_named_edges_and_vertices_graph_H
+#ifndef CREATE_EMPTY_UNDIRECTED_NAMED_EDGES_AND_VERTICES_GRAPH_H
+#define CREATE_EMPTY_UNDIRECTED_NAMED_EDGES_AND_VERTICES_GRAPH_H
 
 #include <boost/graph/adjacency_list.hpp>
 
@@ -14,4 +14,4 @@ create_empty_undirected_named_edges_and_vertices_graph() noexcept;
 
 void create_empty_undirected_named_edges_and_vertices_graph_test() noexcept;
 
-#endif // create_empty_undirected_named_edges_and_vertices_graph_H
+#endif // CREATE_EMPTY_UNDIRECTED_NAMED_EDGES_AND_VERTICES_GRAPH_H

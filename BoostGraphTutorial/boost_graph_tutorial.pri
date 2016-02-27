@@ -202,8 +202,14 @@ HEADERS += \
     $$PWD/count_edges_with_selectedness.h \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.h \
     $$PWD/create_named_vertices_k3_graph.h \
-    create_all_direct_neighbour_named_vertices_subgraphs.h \
-    create_named_vertices_petersen_graph.h
+    $$PWD/create_all_direct_neighbour_named_vertices_subgraphs.h \
+    $$PWD/create_named_vertices_petersen_graph.h \
+    $$PWD/create_named_edges_and_vertices_path_graph.h \
+    $$PWD/add_named_edge_between_vertices.h \
+    create_direct_neighbour_named_edges_and_vertices_subgraph.h \
+    create_named_edges_and_vertices_k2_graph.h \
+    create_all_direct_neighbour_named_edges_and_vertices_subgraphs.h \
+    create_named_edges_and_vertices_petersen_graph.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -402,8 +408,14 @@ SOURCES += \
     $$PWD/count_edges_with_selectedness.cpp \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.cpp \
     $$PWD/create_named_vertices_k3_graph.cpp \
-    create_all_direct_neighbour_named_vertices_subgraphs.cpp \
-    create_named_vertices_petersen_graph.cpp
+    $$PWD/create_all_direct_neighbour_named_vertices_subgraphs.cpp \
+    $$PWD/create_named_vertices_petersen_graph.cpp \
+    $$PWD/create_named_edges_and_vertices_path_graph.cpp \
+    $$PWD/add_named_edge_between_vertices.cpp \
+    create_direct_neighbour_named_edges_and_vertices_subgraph.cpp \
+    create_named_edges_and_vertices_k2_graph.cpp \
+    create_all_direct_neighbour_named_edges_and_vertices_subgraphs.cpp \
+    create_named_edges_and_vertices_petersen_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -728,8 +740,20 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_named_vertices_subgraph_demo.impl \
     $$PWD/create_named_vertices_k3_graph.impl \
     $$PWD/create_named_vertices_k3_graph_demo.impl \
-    create_all_direct_neighbour_named_vertices_subgraphs.impl \
-    create_all_direct_neighbour_named_vertices_subgraphs_demo.impl \
-    create_named_vertices_petersen_graph.impl \
-    create_named_vertices_petersen_graph_demo.impl
+    $$PWD/create_all_direct_neighbour_named_vertices_subgraphs.impl \
+    $$PWD/create_all_direct_neighbour_named_vertices_subgraphs_demo.impl \
+    $$PWD/create_named_vertices_petersen_graph.impl \
+    $$PWD/create_named_vertices_petersen_graph_demo.impl \
+    $$PWD/create_named_edges_and_vertices_path_graph.impl \
+    $$PWD/create_named_edges_and_vertices_path_graph_demo.impl \
+    $$PWD/add_named_edge_between_vertices.impl \
+    $$PWD/add_named_edge_between_vertices_demo.impl \
+    create_direct_neighbour_named_edges_and_vertices_subgraph.impl \
+    create_direct_neighbour_named_edges_and_vertices_subgraph_demo.impl \
+    create_named_edges_and_vertices_k2_graph.impl \
+    create_named_edges_and_vertices_k2_graph_demo.impl \
+    create_all_direct_neighbour_named_edges_and_vertices_subgraphs.impl \
+    create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo.impl \
+    create_named_edges_and_vertices_petersen_graph.impl \
+    create_named_edges_and_vertices_petersen_graph_demo.impl
 

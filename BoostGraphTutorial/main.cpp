@@ -176,10 +176,22 @@
 
 #include "create_all_direct_neighbour_named_vertices_subgraphs.h"
 #include "create_named_vertices_petersen_graph.h"
+#include "create_named_edges_and_vertices_path_graph.h"
+#include "add_named_edge_between_vertices.h"
+#include "create_direct_neighbour_named_edges_and_vertices_subgraph.h"
+#include "create_named_edges_and_vertices_k2_graph.h"
+#include "create_all_direct_neighbour_named_edges_and_vertices_subgraphs.h"
+#include "create_named_edges_and_vertices_petersen_graph.h"
 #include <iostream>
 
 int main()
 {
+  create_named_edges_and_vertices_petersen_graph_test();
+  create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test();
+  create_named_edges_and_vertices_k2_graph_test();
+  create_direct_neighbour_named_edges_and_vertices_subgraph_test();
+  add_named_edge_between_vertices_test();
+  create_named_edges_and_vertices_path_graph_test();
   create_named_vertices_petersen_graph_test();
   create_all_direct_neighbour_named_vertices_subgraphs_test();
 

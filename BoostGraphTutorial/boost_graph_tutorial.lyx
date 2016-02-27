@@ -11244,7 +11244,8 @@ Function to create such a graph
 \end_layout
 
 \begin_layout Standard
-To create a path graph, the following code can be used:
+To create a Petersen graph with named vertices, the following code can be
+ used:
 \end_layout
 
 \begin_layout Standard
@@ -11289,7 +11290,7 @@ Create named vertices Petersen graph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_named_vertices_path_graph-1"
+name "alg:create_named_vertices_petersen_graph"
 
 \end_inset
 
@@ -11412,7 +11413,7 @@ lstparams "breaklines=true,language={C++}"
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_vertices_path_graph-1"
+reference "alg:create_named_vertices_petersen_graph"
 
 \end_inset
 
@@ -11490,7 +11491,7 @@ status open
  (algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:create_named_vertices_path_graph-1"
+reference "alg:create_named_vertices_petersen_graph"
 
 \end_inset
 
@@ -13308,7 +13309,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get the direct-neighbour subgraph from a vertex descriptor
+Get the direct-neighbour named vertices subgraph from a vertex descriptor
 \begin_inset Index idx
 status open
 
@@ -13374,10 +13375,10 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the `create_direct_neighbour_subgraph' function
+Demo of the `create_direct_named_vertices_neighbour_subgraph' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_direct_neighbour_subgraph_demo-1"
+name "alg:create_direct_neighbour_named_vertices_subgraph_demo"
 
 \end_inset
 
@@ -13432,7 +13433,7 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Create all direct-neighbour subgraphs from a graph without properties
+Create all direct-neighbour subgraphs from a graph with named vertices 
 \begin_inset Index idx
 status open
 
@@ -15401,6 +15402,152 @@ name "alg:add_named_edge_demo"
 \end_layout
 
 \begin_layout Subsection
+Adding a named edge between vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_named_edge_between_vertices"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add named edge between vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Named edge, add between vertices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When having two vertex descriptors, you can add a named edge between those.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_edge_between_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add a vertex with a name between vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add named edge between vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_edge_between_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this code snippet, the edge is added between the two vertex descriptors,
+ after which the name of the edge is set.
+\end_layout
+
+\begin_layout Standard
+A demonstration is given by algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_named_edge_between_vertices_demo"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_named_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the `add_named_edge_between_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_named_edge_between_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Getting the edges' names
 \begin_inset CommandInset label
 LatexCommand label
@@ -15934,6 +16081,434 @@ name "fig:create_named_edges_and_vertices_markov_chain.svg"
 
 \begin_layout Subsection
 Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_k2"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+We extend the graph 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ with named vertices of chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_named_vertices_k2_graph"
+
+\end_inset
+
+ by adding names to the edges, as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (2,4) node[fill=black,shape=circle,text=white] {x} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (3,2) node[anchor=west] {between} 
+\end_layout
+
+\begin_layout Plain Layout
+
+   -- (4,0) node[fill=black,shape=circle,text=white] {y} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{2}$
+\end_inset
+
+: a fully connected graph with three named edges and vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:named_edges_and_vertices_k2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_k2_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:named_edges_and_vertices_k2"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create named edges and vertices 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k2_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of the code is a repeat of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_k2_graph"
+
+\end_inset
+
+.
+ In the end, the edge names are obtained as a boost::property_map and set.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k2_graph_demo"
+
+\end_inset
+
+ shows how to create the graph and measure its edge and vertex names.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_k2_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the `create_named_edges_and_vertices_k2' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k2_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_edges_and_vertices_k2_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the `create_named_edges_and_vertices_k2_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k2_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_k2_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_edges_and_vertices_k2_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the `create_named_edges_and_vertices_k2_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_k2_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_edges_and_vertices_k2_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating 
 \begin_inset Formula $K_{3}$
 \end_inset
 
@@ -16360,6 +16935,848 @@ reference "alg:convert_dot_to_svg"
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:create_named_edges_and_vertices_k3_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating a path graph with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create path graph with named edges and vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Path graph with named edges and vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we create a path graph with names edges and vertices
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a path graph with four vertices (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzset{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=black}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetGraphUnit{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Vertex{A}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(A){B}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(B){C}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EA(C){D}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](A)(B)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](B)(C)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Edge[](C)(D)   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A path graph with four vertices 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a path graph, the following code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_path_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a path graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create named edges and vertices path graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_path_graph_demo"
+
+\end_inset
+
+ demonstrates how to create a path graph with named edges and vertices and
+ checks if it has the correct amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_edges_and_vertices_path_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of `create_named_edges_and_vertices_path_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_path_graph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_path_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_path_graph.dot-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_edges_and_vertices_path_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the `create_named_edges_and_vertices_path_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_path_graph.dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_path_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_path_graph.svg-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_edges_and_vertices_path_graph_4.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the `create_named_edges_and_vertices_path_graph' function
+ (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_path_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_path_graph.svg-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating a Petersen graph with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_petersen_graph"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create Petersen graph with named vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Petersen graph with named vertices, create
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we create a Petersen graph with named edges and vertices.
+\end_layout
+
+\begin_layout Subsubsection
+Graph
+\end_layout
+
+\begin_layout Standard
+Here I show a Petersen graph (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_petersen_graph-1"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename named_vertices_petersen_graph.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A Petersen graph with named edges and vertices (modified from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Petersen_graph
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_vertices_petersen_graph-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Function to create such a graph
+\end_layout
+
+\begin_layout Standard
+To create a Petersen graph with named edges and vertices, the following
+ code can be used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_petersen_graph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Creating a Petersen graph as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_vertices_petersen_graph-1"
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create named edges and vertices Petersen graph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_edges_and_vertices_petersen_graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Creating such a graph
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_petersen_graph_demo-1"
+
+\end_inset
+
+ demonstrates how to create a path graph with named vertices and checks
+ if it has the correct amount of edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_named_vertices_petersen_graph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of `create_named_vertices_petersen_graph' 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_petersen_graph_demo-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .dot file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_petersen_graph.dot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph can be converted to the .dot file as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_vertices_petersen_graph.dot-1"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "create_named_edges_and_vertices_petersen_graph.dot"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.dot file created from the `create_named_edges_and_vertices_petersen_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_petersen_graph"
+
+\end_inset
+
+), converted from graph to .dot file using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:save_graph_to_dot"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_named_vertices_petersen_graph.dot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The .svg file produced
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_named_edges_and_vertices_petersen_graph.svg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The .dot file can be converted to the .svg as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:create_named_edges_and_vertices_petersen_graph.svg"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_named_edges_and_vertices_petersen_graph.svg
+	height 50pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+.svg file created from the `create_named_edges_and_vertices_petersen_graph'
+ function (algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:create_named_edges_and_vertices_petersen_graph"
+
+\end_inset
+
+) its .dot file, converted from .dot file to .svg using algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:convert_dot_to_svg"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_named_edges_and_vertices_petersen_graph.svg"
 
 \end_inset
 
@@ -17145,6 +18562,268 @@ Demonstration of the `remove_first_edge_with_name' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:remove_first_edge_with_name_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Create a direct-neighbour subgraph from a vertex descriptor of a graph
+ with named edges and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_direct_neighbour_named_edges_and_vertices_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose you have a vertex of interest its vertex descriptor.
+ Let's say you want to get a subgraph of that vertex and its direct neighbours
+ only.
+ This means that all vertices of that subgraph are adjacent vertices and
+ that the edges go either from focal vertex to its neighbours, or from adjacent
+ vertex to adjacent neighbour.
+\end_layout
+
+\begin_layout Standard
+Here is the `create_direct_neighbour_subgraph' code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_named_edges_and_vertices_subgraph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the direct-neighbour named edges and vertices subgraph from a vertex
+ descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create direct-neighbour named edges and vertices subgraph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_named_edges_and_vertices_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that the direct-neighbour graph of each vertex
+ of a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs is ...
+ a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_named_edges_and_vertices_subgraph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_direct_neighbour_named_edges_and_vertices_subgraph'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_named_edges_and_vertices_subgraph_demo-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating all direct-neighbour subgraphs from a graph with named edges
+ and vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_all_direct_neighbour_named_edges_and_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the previous function, it is easy to create all direct-neighbour subgraphs
+ from a graph with named edges and vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_named_edges_and_vertices_subgraphs.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create all direct-neighbour subgraphs from a graph with named edges and
+ vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create all direct-neighbour named edges and vertices subgraphs
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_named_edges_and_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that all two direct-neighbour graphs of a
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs are ...
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_all_direct_neighbour_named_edges_and_vertices_subgraphs'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo"
 
 \end_inset
 

@@ -1,0 +1,25 @@
+#include "create_direct_neighbour_named_edges_and_vertices_subgraph.h"
+#include "create_named_edges_and_vertices_k2_graph.h"
+#include "get_edge_names.h"
+#include "get_vertex_names.h"
+
+void create_direct_neighbour_named_edges_and_vertices_subgraph_demo() noexcept
+{
+  const auto g = create_named_edges_and_vertices_k2_graph();
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i=vip.first; i!=j; ++i) {
+    const auto h = create_direct_neighbour_named_edges_and_vertices_subgraph(
+      *i,g
+    );
+    assert(boost::num_vertices(h) == 2);
+    assert(boost::num_edges(h) == 1);
+    const auto v = get_vertex_names(h);
+    std::set<std::string> vs(std::begin(v),std::end(v));
+    assert(vs.count("x") == 1);
+    assert(vs.count("y") == 1);
+    const auto e = get_edge_names(h);
+    std::set<std::string> es(std::begin(e),std::end(e));
+    assert(es.count("between") == 1);
+  }
+}
