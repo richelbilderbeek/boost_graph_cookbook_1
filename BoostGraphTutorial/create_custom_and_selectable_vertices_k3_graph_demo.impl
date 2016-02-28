@@ -1,0 +1,16 @@
+#include <cassert>
+#include "create_custom_and_selectable_vertices_k3_graph.h"
+#include "has_custom_vertex_with_my_vertex.h"
+
+void create_custom_and_selectable_vertices_k3_graph_demo() noexcept
+{
+  const auto g = create_custom_and_selectable_vertices_k3_graph();
+  assert(boost::num_edges(g) == 3);
+  assert(boost::num_vertices(g) == 3);
+  const my_custom_vertex a("Karen","red",1.1,2.2);
+  const my_custom_vertex b("Kristel","black",3.3,4.4);
+  const my_custom_vertex c("Kathleen","blond",5.5,6.6);
+  assert(has_custom_vertex_with_my_custom_vertex(a, g));
+  assert(has_custom_vertex_with_my_custom_vertex(b, g));
+  assert(has_custom_vertex_with_my_custom_vertex(c, g));
+}

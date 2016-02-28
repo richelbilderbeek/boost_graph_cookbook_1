@@ -186,10 +186,20 @@
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
 
+#include "create_direct_neighbour_custom_and_selectable_vertices_subgraph.h"
+#include "create_custom_and_selectable_vertices_k3_graph.h"
+#include "create_custom_and_selectable_vertices_path_graph.h"
+#include "create_custom_and_selectable_vertices_petersen_graph.h"
+
 #include <iostream>
 
 int main()
 {
+  create_custom_and_selectable_vertices_petersen_graph_test();
+  create_custom_and_selectable_vertices_path_graph_test();
+  create_custom_and_selectable_vertices_k3_graph_test();
+  create_direct_neighbour_custom_and_selectable_vertices_subgraph_test();
+
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_edge_test();

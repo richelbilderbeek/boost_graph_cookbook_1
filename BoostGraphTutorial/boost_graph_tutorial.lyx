@@ -18896,6 +18896,62 @@ name "alg:create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo"
 
 \end_layout
 
+\begin_layout Standard
+All sub-graphs of a path graph are shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_edges_and_vertices_subgraphs_0.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_edges_and_vertices_subgraphs_1.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_edges_and_vertices_subgraphs_2.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+All subgraphs created
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Saving an undirected graph with named edges and vertices as a .dot
 \begin_inset CommandInset label
@@ -30574,6 +30630,303 @@ name "alg:add_edge_between_two_selected_vertices_demo"
 \end_layout
 
 \begin_layout Subsection
+▶ Create a direct-neighbour subgraph from a vertex descriptor of a graph
+ with custom and selectable vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_direct_neighbour_custom_and_selectable_vertices_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose you have a vertex of interest its vertex descriptor.
+ Let's say you want to get a subgraph of that vertex and its direct neighbours
+ only.
+ This means that all vertices of that subgraph are adjacent vertices and
+ that the edges go either from focal vertex to its neighbours, or from adjacent
+ vertex to adjacent neighbour.
+\end_layout
+
+\begin_layout Standard
+Here is the code that does exactly that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_custom_and_selectable_vertices_subgraph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the direct-neighbour custom and selectable vertices subgraph from a
+ vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create direct-neighbour custom and selectable vertices subgraph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_custom_and_selectable_vertices_subgraph-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Demo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_custom_and_selectable_vertices_subgraph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_direct_custom_and_selectable_vertices_neighbour_subgraph'
+ function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_custom_and_selectable_vertices_subgraph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating all direct-neighbour subgraphs from a graph with custom and selectabl
+e vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the previous function, it is easy to create all direct-neighbour subgraphs
+ from a graph with custom vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create all direct-neighbour subgraphs from a graph with custom vertices
+ 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create all direct-neighbour custom vertices subgraphs
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows how to extract the subgraphs from a path graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_all_direct_neighbour_custom_vertices_subgraphs' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The sub-graphs created from a path graph are shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_0.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_1.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_2.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+All subgraphs created
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Storing a graph with custom and selectable vertices as a .dot
 \begin_inset CommandInset label
 LatexCommand label
@@ -33406,6 +33759,10 @@ name "alg:count_edges_with_selectedness_demo"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 

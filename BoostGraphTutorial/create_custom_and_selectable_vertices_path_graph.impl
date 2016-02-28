@@ -1,0 +1,42 @@
+#include <cassert>
+#include <vector>
+#include "add_custom_and_selectable_vertex.h"
+#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<
+      boost::vertex_is_selected_t, bool
+    >
+  >
+>
+create_custom_and_selectable_vertices_path_graph(
+  const std::vector<my_custom_vertex>& custom_vertices,
+  const std::vector<bool>& selectednesses
+) noexcept
+{
+  assert(custom_vertices.size() == selectednesses.size());
+  auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
+  if (custom_vertices.size() == 0) { return g; }
+  auto vd_1 = add_custom_and_selectable_vertex(
+    *std::begin(custom_vertices),
+    *std::begin(selectednesses),
+    g
+  );
+  if (custom_vertices.size() == 1) return g;
+  const auto j = std::end(custom_vertices);
+  auto vi = std::begin(custom_vertices);
+  auto si = std::begin(selectednesses);
+  for (++vi, ++si; vi!=j; ++vi, ++si) //Skip first
+  {
+    auto vd_2 = add_custom_and_selectable_vertex(*vi, *si, g);
+    const auto aer = boost::add_edge(vd_1, vd_2, g);
+    assert(aer.second);
+    vd_1 = vd_2;
+  }
+  return g;
+}

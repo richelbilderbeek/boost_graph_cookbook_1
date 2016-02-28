@@ -12,15 +12,21 @@ boost::adjacency_list<
     >
   >
 >
-create_custom_and_selectable_vertices_k2_graph() noexcept
+create_custom_and_selectable_vertices_k3_graph() noexcept
 {
   auto g
     = create_empty_undirected_custom_and_selectable_vertices_graph();
-  const my_custom_vertex a("A","source",0.0,0.0);
-  const my_custom_vertex b("B","target",3.14,3.14);
+  const my_custom_vertex a("Karen","red",1.1,2.2);
+  const my_custom_vertex b("Kristel","black",3.3,4.4);
+  const my_custom_vertex c("Kathleen","blond",5.5,6.6);
   const auto vd_a = add_custom_and_selectable_vertex(a, true, g);
   const auto vd_b = add_custom_and_selectable_vertex(b, false, g);
-  const auto aer = boost::add_edge(vd_a, vd_b, g);
-  assert(aer.second);
+  const auto vd_c = add_custom_and_selectable_vertex(c, false, g);
+  const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
+  assert(aer_ab.second);
+  const auto aer_bc = boost::add_edge(vd_b, vd_c, g);
+  assert(aer_bc.second);
+  const auto aer_ca = boost::add_edge(vd_c, vd_a, g);
+  assert(aer_ca.second);
   return g;
 }

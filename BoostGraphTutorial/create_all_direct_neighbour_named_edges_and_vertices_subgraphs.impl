@@ -1,5 +1,5 @@
 #include <vector>
-#include "create_direct_neighbour_subgraph.h"
+#include "create_direct_neighbour_named_edges_and_vertices_subgraph.h"
 
 template <typename graph>
 std::vector<graph> create_all_direct_neighbour_named_edges_and_vertices_subgraphs(
@@ -16,7 +16,7 @@ std::vector<graph> create_all_direct_neighbour_named_edges_and_vertices_subgraph
     std::begin(v),
     [g](const vd& d)
     {
-      return create_direct_neighbour_subgraph(
+      return create_direct_neighbour_named_edges_and_vertices_subgraph(
         d, g
       );
     }

@@ -213,7 +213,11 @@ HEADERS += \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.h \
     $$PWD/create_custom_vertices_k3_graph.h \
     $$PWD/create_custom_vertices_petersen_graph.h \
-    create_all_direct_neighbour_custom_vertices_subgraphs.h
+    create_all_direct_neighbour_custom_vertices_subgraphs.h \
+    create_direct_neighbour_custom_and_selectable_vertices_subgraph.h \
+    create_custom_and_selectable_vertices_k3_graph.h \
+    create_custom_and_selectable_vertices_path_graph.h \
+    create_custom_and_selectable_vertices_petersen_graph.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -423,7 +427,11 @@ SOURCES += \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.cpp \
     $$PWD/create_custom_vertices_k3_graph.cpp \
     $$PWD/create_custom_vertices_petersen_graph.cpp \
-    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.cpp
+    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.cpp \
+    create_direct_neighbour_custom_and_selectable_vertices_subgraph.cpp \
+    create_custom_and_selectable_vertices_k3_graph.cpp \
+    create_custom_and_selectable_vertices_path_graph.cpp \
+    create_custom_and_selectable_vertices_petersen_graph.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -771,5 +779,13 @@ OTHER_FILES += \
     $$PWD/create_custom_vertices_petersen_graph.impl \
     $$PWD/create_custom_vertices_petersen_graph_demo.impl \
     $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.impl \
-    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs_demo.impl
+    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs_demo.impl \
+    create_direct_neighbour_custom_and_selectable_vertices_subgraph.impl \
+    create_direct_neighbour_custom_and_selectable_vertices_subgraph_demo.impl \
+    create_custom_and_selectable_vertices_k3_graph.impl \
+    create_custom_and_selectable_vertices_k3_graph_demo.impl \
+    create_custom_and_selectable_vertices_path_graph.impl \
+    create_custom_and_selectable_vertices_path_graph_demo.impl \
+    create_custom_and_selectable_vertices_petersen_graph.impl \
+    create_custom_and_selectable_vertices_petersen_graph_demo.impl
 
