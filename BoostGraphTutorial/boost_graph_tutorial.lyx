@@ -27905,6 +27905,264 @@ An impressive feature is that getting the property map holding the graph
 \end_layout
 
 \begin_layout Subsection
+▶ Create a direct-neighbour subgraph from a vertex descriptor of a graph
+ with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_direct_neighbour_custom_vertices_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose you have a vertex of interest its vertex descriptor.
+ Let's say you want to get a subgraph of that vertex and its direct neighbours
+ only.
+ This means that all vertices of that subgraph are adjacent vertices and
+ that the edges go either from focal vertex to its neighbours, or from adjacent
+ vertex to adjacent neighbour.
+\end_layout
+
+\begin_layout Standard
+Here is the code that does exactly that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_custom_vertices_subgraph.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the direct-neighbour custom vertices subgraph from a vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create direct-neighbour custom vertices subgraph
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_custom_vertices_subgraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that the direct-neighbour graph of each vertex
+ of a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs is ...
+ a 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graph!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_custom_vertices_subgraph_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_direct_custom_vertices_neighbour_subgraph' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_custom_vertices_subgraph_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Creating all direct-neighbour subgraphs from a graph with custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_all_direct_neighbour_custom_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the previous function, it is easy to create all direct-neighbour subgraphs
+ from a graph with custom vertices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_custom_vertices_subgraphs.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create all direct-neighbour subgraphs from a graph with custom vertices
+ 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create all direct-neighbour custom vertices subgraphs
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_custom_vertices_subgraphs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that all two direct-neighbour graphs of a
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs are ...
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ graphs!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_all_direct_neighbour_custom_vertices_subgraphs_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `create_all_direct_neighbour_custom_vertices_subgraphs' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_all_direct_neighbour_custom_vertices_subgraphs_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 ▶ Are two graphs with custom vertices isomorphic?
 \begin_inset CommandInset label
 LatexCommand label

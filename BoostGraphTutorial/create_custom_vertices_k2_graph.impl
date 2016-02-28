@@ -1,4 +1,5 @@
 #include "create_empty_undirected_custom_vertices_graph.h"
+#include "add_custom_vertex.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -11,20 +12,13 @@ boost::adjacency_list<
 create_custom_vertices_k2_graph() noexcept
 {
   auto g = create_empty_undirected_custom_vertices_graph();
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
+  const auto vd_a = add_custom_vertex(
+    my_custom_vertex("A","source",0.0,0.0), g
+  );
+  const auto vd_b = add_custom_vertex(
+    my_custom_vertex("B","target",3.14,3.14), g
+  );
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-
-  auto my_custom_vertex_map = get(
-    boost::vertex_custom_type,g
-  );
-  put(my_custom_vertex_map, vd_a,
-    my_custom_vertex("A","source",0.0,0.0)
-  );
-  put(my_custom_vertex_map, vd_b,
-    my_custom_vertex("B","target",3.14,3.14)
-  );
-
   return g;
 }

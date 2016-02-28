@@ -1,9 +1,9 @@
 #include <map>
 #include <boost/graph/adjacency_list.hpp>
-#include "add_named_vertex.h"
-#include "get_vertex_name.h"
+#include "add_custom_vertex.h"
+#include "get_my_custom_vertex.h"
 template <typename graph, typename vertex_descriptor>
-graph create_direct_neighbour_named_vertices_subgraph(
+graph create_direct_neighbour_custom_vertices_subgraph(
   const vertex_descriptor& vd,
   const graph& g
 )
@@ -12,8 +12,8 @@ graph create_direct_neighbour_named_vertices_subgraph(
 
   std::map<vertex_descriptor,vertex_descriptor> m;
   {
-    const auto vd_h = add_named_vertex(
-      get_vertex_name(vd, g), h
+    const auto vd_h = add_custom_vertex(
+      get_my_custom_vertex(vd, g), h
     );
     m.insert(std::make_pair(vd,vd_h));
   }
@@ -24,8 +24,8 @@ graph create_direct_neighbour_named_vertices_subgraph(
       std::inserter(m,std::begin(m)),
       [g, &h](const vertex_descriptor& d)
       {
-        const auto vd_h = add_named_vertex(
-          get_vertex_name(d,g), h
+        const auto vd_h = add_custom_vertex(
+          get_my_custom_vertex(d,g), h
         );
         return std::make_pair(d,vd_h);
       }
