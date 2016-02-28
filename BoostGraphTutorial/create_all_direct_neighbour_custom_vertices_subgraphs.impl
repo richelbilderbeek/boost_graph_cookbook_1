@@ -1,9 +1,8 @@
 #include <vector>
-#include "create_direct_neighbour_subgraph.h"
-#include "create_direct_neighbour_named_vertices_subgraph.h"
+#include "create_direct_neighbour_custom_vertices_subgraph.h"
 
 template <typename graph>
-std::vector<graph> create_all_direct_neighbour_named_vertices_subgraphs(
+std::vector<graph> create_all_direct_neighbour_custom_vertices_subgraphs(
   const graph g
 ) noexcept
 {
@@ -17,7 +16,7 @@ std::vector<graph> create_all_direct_neighbour_named_vertices_subgraphs(
     std::begin(v),
     [g](const vd& d)
     {
-      return create_direct_neighbour_named_vertices_subgraph(
+      return create_direct_neighbour_custom_vertices_subgraph(
         d, g
       );
     }

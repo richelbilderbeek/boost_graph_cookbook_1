@@ -17,6 +17,7 @@
 #include "count_edges_with_selectedness.h"
 #include "count_vertices_with_name.h"
 #include "count_vertices_with_selectedness.h"
+#include "create_all_direct_neighbour_custom_vertices_subgraphs.h"
 #include "create_all_direct_neighbour_named_edges_and_vertices_subgraphs.h"
 #include "create_all_direct_neighbour_named_vertices_subgraphs.h"
 #include "create_all_direct_neighbour_subgraphs.h"
@@ -208,6 +209,7 @@ int main()
   count_edges_with_selectedness_test();
   count_vertices_with_name_test();
   count_vertices_with_selectedness_test();
+  create_all_direct_neighbour_custom_vertices_subgraphs_test();
   create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test();
   create_all_direct_neighbour_named_vertices_subgraphs_test();
   create_all_direct_neighbour_subgraphs_test();

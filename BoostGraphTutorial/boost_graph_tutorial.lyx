@@ -13519,6 +13519,62 @@ name "alg:create_all_direct_neighbour_named_vertices_subgraphs_demo"
 
 \end_layout
 
+\begin_layout Standard
+The sub-graphs are shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_vertices_subgraphs_0.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_vertices_subgraphs_1.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_named_vertices_subgraphs_2.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+All subgraphs created
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_all_direct_neighbour_named_vertices_subgraphs_demo.svg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 ▶ Are two graphs with named vertices isomorphic?
 \begin_inset CommandInset label
@@ -28107,17 +28163,7 @@ name "alg:create_all_direct_neighbour_custom_vertices_subgraphs"
 \end_layout
 
 \begin_layout Standard
-This demonstration code shows that all two direct-neighbour graphs of a
- 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graphs are ...
- 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- graphs!
+This demonstration code shows how to extract the subgraphs from a path graph:
 \end_layout
 
 \begin_layout Standard
@@ -28146,6 +28192,62 @@ Demo of the `create_all_direct_neighbour_custom_vertices_subgraphs' function
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:create_all_direct_neighbour_custom_vertices_subgraphs_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The sub-graphs are shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_vertices_subgraphs_0.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_vertices_subgraphs_1.svg
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename create_all_direct_neighbour_custom_vertices_subgraphs_2.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+All subgraphs created
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:create_all_direct_neighbour_custom_vertices_subgraphs_demo.svg"
 
 \end_inset
 

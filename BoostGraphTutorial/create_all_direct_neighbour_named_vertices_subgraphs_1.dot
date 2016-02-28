@@ -1,0 +1,7 @@
+graph G {
+0[label=B];
+1[label=A];
+2[label=C];
+1--0 ;
+0--2 ;
+}

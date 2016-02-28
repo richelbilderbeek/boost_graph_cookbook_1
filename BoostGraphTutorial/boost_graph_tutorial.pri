@@ -212,7 +212,8 @@ HEADERS += \
     $$PWD/create_named_edges_and_vertices_petersen_graph.h \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.h \
     $$PWD/create_custom_vertices_k3_graph.h \
-    $$PWD/create_custom_vertices_petersen_graph.h
+    $$PWD/create_custom_vertices_petersen_graph.h \
+    create_all_direct_neighbour_custom_vertices_subgraphs.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -421,7 +422,8 @@ SOURCES += \
     $$PWD/create_named_edges_and_vertices_petersen_graph.cpp \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.cpp \
     $$PWD/create_custom_vertices_k3_graph.cpp \
-    $$PWD/create_custom_vertices_petersen_graph.cpp
+    $$PWD/create_custom_vertices_petersen_graph.cpp \
+    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -767,5 +769,7 @@ OTHER_FILES += \
     $$PWD/create_custom_vertices_k3_graph.impl \
     $$PWD/create_custom_vertices_k3_graph_demo.impl \
     $$PWD/create_custom_vertices_petersen_graph.impl \
-    $$PWD/create_custom_vertices_petersen_graph_demo.impl
+    $$PWD/create_custom_vertices_petersen_graph_demo.impl \
+    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.impl \
+    $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs_demo.impl
 
