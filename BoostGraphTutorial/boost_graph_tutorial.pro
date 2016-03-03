@@ -24,7 +24,12 @@ contains(QMAKE_HOST.name,maakplek-PC6-lubuntu) {
   QMAKE_CXXFLAGS += -std=c++17
 }
 contains(QMAKE_HOST.name,lubuntu-laptop-rotterdam) {
-  message("C++17: Host is Lubunt laptop from Rotterdam")
+  message("C++17: Host is Lubuntu laptop from Rotterdam")
+  QMAKE_CXXFLAGS += -std=c++17
+}
+
+contains(QMAKE_HOST.name,druten) {
+  message("C++17: Host is Lubuntu desktop from Druten")
   QMAKE_CXXFLAGS += -std=c++17
 }
 
@@ -38,7 +43,7 @@ TEMPLATE = app
 
 win32 {
   # Windows only (untested)
-  message("Boost, built for Windows")
+  message("Boost, built for Windows")f
   INCLUDEPATH += C:\boost_1_59_0
 }
 

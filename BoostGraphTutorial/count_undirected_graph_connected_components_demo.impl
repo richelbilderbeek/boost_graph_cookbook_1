@@ -1,0 +1,14 @@
+#include <cassert>
+#include "create_empty_undirected_graph.h"
+#include "add_edge.h"
+#include "count_undirected_graph_connected_components.h"
+
+void count_undirected_graph_connected_components_demo() noexcept
+{
+    auto g = create_empty_undirected_graph();
+    assert(count_undirected_graph_connected_components(g) == 0);
+    add_edge(g);
+    assert(count_undirected_graph_connected_components(g) == 1);
+    add_edge(g);
+    assert(count_undirected_graph_connected_components(g) == 2);
+}

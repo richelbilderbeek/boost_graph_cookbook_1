@@ -14,7 +14,9 @@
 #include "add_vertex.h"
 #include "clear_first_vertex_with_name.h"
 #include "copy_file.h"
+#include "count_directed_graph_connected_components.h"
 #include "count_edges_with_selectedness.h"
+#include "count_undirected_graph_connected_components.h"
 #include "count_vertices_with_name.h"
 #include "count_vertices_with_selectedness.h"
 #include "create_all_direct_neighbour_custom_vertices_subgraphs.h"
@@ -28,7 +30,10 @@
 #include "create_custom_and_selectable_edges_and_vertices_k2_graph.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
 #include "create_custom_and_selectable_vertices_k2_graph.h"
+#include "create_custom_and_selectable_vertices_k3_graph.h"
 #include "create_custom_and_selectable_vertices_markov_chain.h"
+#include "create_custom_and_selectable_vertices_path_graph.h"
+#include "create_custom_and_selectable_vertices_petersen_graph.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "create_custom_edges_and_vertices_markov_chain.h"
 #include "create_custom_vertices_k2_graph.h"
@@ -36,6 +41,7 @@
 #include "create_custom_vertices_markov_chain.h"
 #include "create_custom_vertices_path_graph.h"
 #include "create_custom_vertices_petersen_graph.h"
+#include "create_direct_neighbour_custom_and_selectable_vertices_subgraph.h"
 #include "create_direct_neighbour_custom_vertices_subgraph.h"
 #include "create_direct_neighbour_named_edges_and_vertices_subgraph.h"
 #include "create_direct_neighbour_named_vertices_subgraph.h"
@@ -186,20 +192,10 @@
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
 
-#include "create_direct_neighbour_custom_and_selectable_vertices_subgraph.h"
-#include "create_custom_and_selectable_vertices_k3_graph.h"
-#include "create_custom_and_selectable_vertices_path_graph.h"
-#include "create_custom_and_selectable_vertices_petersen_graph.h"
-
 #include <iostream>
 
 int main()
 {
-  create_custom_and_selectable_vertices_petersen_graph_test();
-  create_custom_and_selectable_vertices_path_graph_test();
-  create_custom_and_selectable_vertices_k3_graph_test();
-  create_direct_neighbour_custom_and_selectable_vertices_subgraph_test();
-
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_edge_test();
@@ -216,7 +212,9 @@ int main()
   add_named_vertex_test();
   add_vertex_test();
   clear_first_vertex_with_name_test();
+  count_directed_graph_connected_components_test();
   count_edges_with_selectedness_test();
+  count_undirected_graph_connected_components_test();
   count_vertices_with_name_test();
   count_vertices_with_selectedness_test();
   create_all_direct_neighbour_custom_vertices_subgraphs_test();
@@ -230,7 +228,10 @@ int main()
   create_custom_and_selectable_edges_and_vertices_k2_graph_test();
   create_custom_and_selectable_edges_and_vertices_markov_chain_test();
   create_custom_and_selectable_vertices_k2_graph_test();
+  create_custom_and_selectable_vertices_k3_graph_test();
   create_custom_and_selectable_vertices_markov_chain_test();
+  create_custom_and_selectable_vertices_path_graph_test();
+  create_custom_and_selectable_vertices_petersen_graph_test();
   create_custom_edges_and_vertices_k3_graph_test();
   create_custom_edges_and_vertices_markov_chain_test();
   create_custom_vertices_k2_graph_test();
@@ -238,6 +239,7 @@ int main()
   create_custom_vertices_markov_chain_test();
   create_custom_vertices_path_graph_test();
   create_custom_vertices_petersen_graph_test();
+  create_direct_neighbour_custom_and_selectable_vertices_subgraph_test();
   create_direct_neighbour_custom_vertices_subgraph_test();
   create_direct_neighbour_named_edges_and_vertices_subgraph_test();
   create_direct_neighbour_named_vertices_subgraph_test();
