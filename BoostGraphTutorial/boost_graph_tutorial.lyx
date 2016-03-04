@@ -34204,10 +34204,10 @@ name "alg:count_edges_with_selectedness_demo"
 
 \begin_layout Subsection
 ▶ Create a direct-neighbour subgraph from a vertex descriptor of a graph
- with custom vertices
+ with custom edges and vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:create_direct_neighbour_custom_vertices_subgraph-1"
+name "sub:create_direct_neighbour_custom_edges_and_vertices_subgraph"
 
 \end_inset
 
@@ -34237,7 +34237,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_direct_neighbour_custom_vertices_subgraph.impl"
+filename "create_direct_neighbour_custom_edges_and_vertices_subgraph.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -34249,12 +34249,13 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Get the direct-neighbour custom vertices subgraph from a vertex descriptor
+Get the direct-neighbour custom edges and vertices subgraph from a vertex
+ descriptor
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-Create direct-neighbour custom vertices subgraph
+Create direct-neighbour custom edges and vertices subgraph
 \end_layout
 
 \end_inset
@@ -34262,7 +34263,7 @@ Create direct-neighbour custom vertices subgraph
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_direct_neighbour_custom_vertices_subgraph-1"
+name "alg:create_direct_neighbour_custom_edges_and_vertices_subgraph"
 
 \end_inset
 
@@ -34303,7 +34304,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "create_direct_neighbour_custom_vertices_subgraph_demo.impl"
+filename "create_direct_neighbour_custom_edges_and_vertices_subgraph_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -34315,10 +34316,11 @@ lstparams "breaklines=true,language={C++}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Demo of the `create_direct_custom_vertices_neighbour_subgraph' function
+Demo of the `create_direct_custom_edges_and_vertices_neighbour_subgraph'
+ function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:create_direct_neighbour_custom_vertices_subgraph_demo-1"
+name "alg:create_direct_neighbour_custom_edges_and_vertices_subgraph_demo"
 
 \end_inset
 
