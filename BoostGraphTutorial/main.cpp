@@ -192,10 +192,14 @@
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
 
+#include "create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.h"
+
 #include <iostream>
 
 int main()
 {
+  create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_test();
+
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_edge_test();

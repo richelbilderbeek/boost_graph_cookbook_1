@@ -219,7 +219,8 @@ HEADERS += \
     $$PWD/set_my_custom_vertex.h \
     $$PWD/set_vertex_name.h \
     $$PWD/set_vertex_names.h \
-    $$PWD/show_dot.h
+    $$PWD/show_dot.h \
+    create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.h
 
 
 SOURCES += \
@@ -436,7 +437,8 @@ SOURCES += \
     $$PWD/set_my_custom_vertexes.cpp \
     $$PWD/set_vertex_name.cpp \
     $$PWD/set_vertex_names.cpp \
-    $$PWD/show_dot.cpp
+    $$PWD/show_dot.cpp \
+    create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.cpp
 
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
@@ -796,4 +798,6 @@ OTHER_FILES += \
     $$PWD/set_my_custom_vertex.impl \
     $$PWD/set_vertex_name_demo.impl \
     $$PWD/set_vertex_name.impl \
-    $$PWD/set_vertex_names.impl
+    $$PWD/set_vertex_names.impl \
+    create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.impl \
+    create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo.impl
