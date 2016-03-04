@@ -16,11 +16,5 @@ add_custom_edge_between_vertices(
   const auto aer = boost::add_edge(from, to, g);
   assert(aer.second);
   set_my_custom_edge(edge, aer.first, g);
-
-  //auto edge_name_map = get(
-  //    boost::edge_name,g
-  //  );
-  //put(edge_name_map, aer.first, edge_name);
-
   return aer.first;
 }

@@ -1,0 +1,16 @@
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "install_edge_is_selected.h"
+
+template <typename graph>
+void set_edge_selectedness(
+  const bool is_selected,
+  const typename boost::graph_traits<graph>::edge_descriptor& ed,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
+  auto selectedness_map = get(boost::edge_is_selected, g);
+  put(selectedness_map, ed, is_selected);
+}

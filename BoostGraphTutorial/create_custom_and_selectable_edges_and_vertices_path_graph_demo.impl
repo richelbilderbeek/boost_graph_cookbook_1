@@ -1,0 +1,21 @@
+#include <cassert>
+#include "create_custom_and_selectable_edges_and_vertices_path_graph.h"
+
+void create_custom_and_selectable_edges_and_vertices_path_graph_demo() noexcept
+{
+  const auto g = create_custom_and_selectable_edges_and_vertices_path_graph(
+    {
+      my_custom_edge("1"),
+      my_custom_edge("2")
+    },
+    { false, false },
+    {
+      my_custom_vertex("A"),
+      my_custom_vertex("B"),
+      my_custom_vertex("C")
+    },
+    { false, true, false }
+  );
+  assert(boost::num_edges(g) == 2);
+  assert(boost::num_vertices(g) == 3);
+}

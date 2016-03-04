@@ -1,0 +1,16 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include "install_vertex_is_selected.h"
+
+template <typename graph>
+bool get_vertex_selectedness(
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd,
+  const graph& g
+) noexcept
+{
+  const auto vertex_selectedness_map
+    = get(boost::vertex_is_selected, g
+    );
+  return get(vertex_selectedness_map, vd);
+}

@@ -1,7 +1,6 @@
 #include <type_traits>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
-//#include "my_custom_vertex.h"
 
 template <typename graph, typename vertex_t>
 typename boost::graph_traits<graph>::vertex_descriptor

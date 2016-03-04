@@ -4,8 +4,6 @@
 #include "add_named_vertex.h"
 #include "get_edge_name.h"
 #include "get_vertex_name.h"
-//#include "set_edge_name.h"
-//#include "set_vertex_name.h"
 template <typename graph, typename vertex_descriptor>
 graph create_direct_neighbour_named_edges_and_vertices_subgraph(
   const vertex_descriptor& vd,

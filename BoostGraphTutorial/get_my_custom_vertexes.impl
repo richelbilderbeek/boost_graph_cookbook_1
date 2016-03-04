@@ -14,13 +14,8 @@ std::vector<my_custom_vertex> get_my_custom_vertexes(
   std::vector<my_custom_vertex> v(boost::num_vertices(g));
   const auto vip = vertices(g); 
   std::transform(vip.first, vip.second, std::begin(v),
-    [g](const vd& d)
-    {
+    [g](const vd& d) {
       return get_my_custom_vertex(d, g);
-      //const auto my_custom_vertexes_map
-      //  = get(boost::vertex_custom_type,g
-      //);
-      //return get(my_custom_vertexes_map, d);
     }
   );
   return v;

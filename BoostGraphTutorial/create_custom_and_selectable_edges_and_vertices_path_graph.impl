@@ -1,0 +1,57 @@
+#include <vector>
+#include "add_custom_vertex.h"
+#include "add_custom_edge_between_vertices.h"
+#include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
+#include "set_edge_selectedness.h"
+#include "set_vertex_selectedness.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<
+      boost::vertex_is_selected_t, bool
+    >
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_custom_edge,
+    boost::property<
+      boost::edge_is_selected_t, bool
+    >
+  >
+>
+create_custom_and_selectable_edges_and_vertices_path_graph(
+  const std::vector<my_custom_edge>& my_custom_edges,
+  const std::vector<bool>& edge_selectednesses,
+  const std::vector<my_custom_vertex>& my_custom_vertexes,
+  const std::vector<bool>& vertex_selectednesses
+) noexcept
+{
+  assert(my_custom_vertexes.empty()
+    || my_custom_vertexes.size() - 1 == my_custom_edges.size()
+  );
+  assert(my_custom_edges.size() == edge_selectednesses.size());
+  assert(my_custom_vertexes.size() == vertex_selectednesses.size());
+  auto g = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
+  if (my_custom_vertexes.size() == 0) { return g; }
+  auto vd_1 = add_custom_vertex(*std::begin(my_custom_vertexes), g);
+  set_vertex_selectedness(vertex_selectednesses.front(), vd_1, g);
+
+  if (my_custom_vertexes.size() == 1) return g;
+  const auto j = std::end(my_custom_vertexes);
+  auto vi = std::begin(my_custom_vertexes);
+  auto vsi = std::begin(vertex_selectednesses);
+  auto ei = std::begin(my_custom_edges);
+  auto esi = std::begin(edge_selectednesses);
+  for (++vi, ++vsi; vi!=j; ++vi, ++vsi, ++ei, ++esi) //Skip first vertex
+  {
+    auto vd_2 = add_custom_vertex(*vi, g);
+    set_vertex_selectedness(*vsi, vd_1, g);
+    const auto ed = add_custom_edge_between_vertices(*ei, vd_1, vd_2, g);
+    set_edge_selectedness(*esi, ed, g);
+    vd_1 = vd_2;
+  }
+  return g;
+}
