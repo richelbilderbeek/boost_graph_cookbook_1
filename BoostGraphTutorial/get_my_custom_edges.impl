@@ -2,6 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
+#include "get_my_custom_edge.h"
 
 template <typename graph>
 std::vector<my_custom_edge> get_my_custom_edges(
@@ -14,9 +15,10 @@ std::vector<my_custom_edge> get_my_custom_edges(
   std::transform(eip.first, eip.second, std::begin(v),
     [g](const ed d)
     {
-      const auto my_custom_edges_map
-        = get(boost::edge_custom_type,g);
-      return get(my_custom_edges_map, d);
+      return get_my_custom_edge(d, g);
+      //const auto my_custom_edges_map
+      //  = get(boost::edge_custom_type,g);
+      //return get(my_custom_edges_map, d);
     }
   );
   return v;

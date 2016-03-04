@@ -1,12 +1,13 @@
 #include <cassert>
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
-#include "set_edge_name.h"
+#include "my_custom_edge.h"
+#include "set_my_custom_edge.h"
 
 template <typename graph, typename vertex_descriptor>
 typename boost::graph_traits<graph>::edge_descriptor
-add_named_edge_between_vertices(
-  const std::string& edge_name,
+add_custom_edge_between_vertices(
+  const my_custom_edge& edge,
   const vertex_descriptor from,
   const vertex_descriptor to,
   graph& g
@@ -14,7 +15,7 @@ add_named_edge_between_vertices(
 {
   const auto aer = boost::add_edge(from, to, g);
   assert(aer.second);
-  set_edge_name(edge_name, aer.first, g);
+  set_my_custom_edge(edge, aer.first, g);
 
   //auto edge_name_map = get(
   //    boost::edge_name,g

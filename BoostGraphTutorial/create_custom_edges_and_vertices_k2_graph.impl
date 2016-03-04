@@ -1,0 +1,27 @@
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include "add_custom_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_custom_edge
+  >
+>
+create_custom_edges_and_vertices_k2_graph() noexcept
+{
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
+  const auto vd_a = add_custom_vertex(
+    my_custom_vertex("A","source",0.0,0.0), g
+  );
+  const auto vd_b = add_custom_vertex(
+    my_custom_vertex("B","target",3.14,3.14), g
+  );
+  const auto aer = boost::add_edge(vd_a, vd_b, g);
+  assert(aer.second);
+  return g;
+}

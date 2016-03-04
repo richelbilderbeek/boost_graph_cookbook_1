@@ -110,6 +110,17 @@ bool operator!=(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept
   return !(lhs == rhs);
 }
 
+bool operator<(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept
+{
+  if (lhs.get_name() < rhs.get_name()) return true;
+  if (lhs.get_name() > rhs.get_name()) return false;
+  if (lhs.get_description() < rhs.get_description()) return true;
+  if (lhs.get_description() > rhs.get_description()) return false;
+  if (lhs.get_width() < rhs.get_width()) return true;
+  if (lhs.get_width() > rhs.get_width()) return false;
+  return lhs.get_height() < rhs.get_height();
+}
+
 std::ostream& operator<<(std::ostream& os, const my_custom_edge& v) noexcept
 {
   os

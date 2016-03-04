@@ -2,6 +2,7 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
+#include "get_my_custom_vertex.h"
 
 template <typename graph>
 std::vector<my_custom_vertex> get_my_custom_vertexes(
@@ -15,10 +16,11 @@ std::vector<my_custom_vertex> get_my_custom_vertexes(
   std::transform(vip.first, vip.second, std::begin(v),
     [g](const vd& d)
     {
-      const auto my_custom_vertexes_map
-        = get(boost::vertex_custom_type,g
-      );
-      return get(my_custom_vertexes_map, d);
+      return get_my_custom_vertex(d, g);
+      //const auto my_custom_vertexes_map
+      //  = get(boost::vertex_custom_type,g
+      //);
+      //return get(my_custom_vertexes_map, d);
     }
   );
   return v;

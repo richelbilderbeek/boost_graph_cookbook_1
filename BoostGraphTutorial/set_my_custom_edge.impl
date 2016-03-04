@@ -5,13 +5,13 @@
 
 template <typename graph>
 void set_my_custom_edge(
-  const my_custom_edge& name,
-  const typename boost::graph_traits<graph>::edge_descriptor& vd,
+  const my_custom_edge& edge,
+  const typename boost::graph_traits<graph>::edge_descriptor& ed,
   graph& g
 ) noexcept
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
 
   auto my_edge_map = get(boost::edge_custom_type, g);
-  put(my_edge_map, vd, name);
+  put(my_edge_map, ed, edge);
 }

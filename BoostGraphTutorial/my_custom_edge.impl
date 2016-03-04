@@ -23,6 +23,7 @@ public:
 
 bool operator==(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept;
 bool operator!=(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept;
+bool operator<(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept;
 std::ostream& operator<<(std::ostream& os, const my_custom_edge& v) noexcept;
 std::istream& operator>>(std::istream& os, my_custom_edge& v) noexcept;
 

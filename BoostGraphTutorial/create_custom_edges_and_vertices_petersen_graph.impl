@@ -1,0 +1,81 @@
+#include <cassert>
+#include <vector>
+#include "add_custom_edge_between_vertices.h"
+#include "add_custom_vertex.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_custom_edge
+  >
+>
+create_custom_edges_and_vertices_petersen_graph() noexcept
+{
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
+  using vd = decltype(create_empty_undirected_custom_edges_and_vertices_graph())::vertex_descriptor;
+
+
+  std::vector<vd> v; //Outer
+  for (int i=0; i!=5; ++i) {
+    v.push_back(
+      add_custom_vertex(
+        my_custom_vertex(
+          std::string(1,'A' + i),
+          std::string(1,'E' - i),
+          static_cast<double>(i) * 1.1,
+          static_cast<double>(i) * 2.2
+        ), g
+      )
+    );
+  }
+  std::vector<vd> w; //Inner
+  for (int i=0; i!=5; ++i) {
+    w.push_back(
+      add_custom_vertex(
+        my_custom_vertex(
+          std::string(1,'a' + i),
+          std::string(1,'e' - i),
+          static_cast<double>(i) * 3.3,
+          static_cast<double>(i) * 4.4
+        ), g
+      )
+    );
+  }
+
+  std::vector<my_custom_edge> custom_edges(15);
+  for (int i=0; i!=15; ++i)
+  {
+    custom_edges[i] = my_custom_edge(
+      std::string(1,'a' + i),
+      std::string(1,'A' + i),
+      static_cast<double>(i) * 5.5,
+      static_cast<double>(i) * 6.6
+    );
+  }
+
+  //Outer ring
+  for (int i=0; i!=5; ++i) {
+    add_custom_edge_between_vertices(
+      custom_edges[i], v[i], v[(i + 1) % 5], g
+    );
+  }
+  //Spoke
+  for (int i=0; i!=5; ++i) {
+    add_custom_edge_between_vertices(
+      custom_edges[5 + i], v[i], w[i], g
+    );
+  }
+  //Inner pentagram
+  for (int i=0; i!=5; ++i) {
+    add_custom_edge_between_vertices(
+      custom_edges[10 + i], w[i], w[(i + 2) % 5], g
+    );
+  }
+  return g;
+}

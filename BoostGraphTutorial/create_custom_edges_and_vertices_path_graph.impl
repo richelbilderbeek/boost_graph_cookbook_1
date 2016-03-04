@@ -1,0 +1,39 @@
+#include <vector>
+#include "add_custom_vertex.h"
+#include "add_custom_edge_between_vertices.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_custom_type_t, my_custom_vertex
+  >,
+  boost::property<
+    boost::edge_custom_type_t, my_custom_edge
+  >
+>
+create_custom_edges_and_vertices_path_graph(
+  const std::vector<my_custom_edge>& my_custom_edges,
+  const std::vector<my_custom_vertex>& my_custom_vertexes
+) noexcept
+{
+  assert(my_custom_vertexes.empty()
+    || my_custom_vertexes.size() - 1 == my_custom_edges.size()
+  );
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
+  if (my_custom_vertexes.size() == 0) { return g; }
+  auto vd_1 = add_custom_vertex(*my_custom_vertexes.begin(), g);
+  if (my_custom_vertexes.size() == 1) return g;
+  const auto j = std::end(my_custom_vertexes);
+  auto vi = std::begin(my_custom_vertexes);
+  auto ei = std::begin(my_custom_edges);
+  for (++vi; vi!=j; ++vi, ++ei) //Skip first
+  {
+    auto vd_2 = add_custom_vertex(*vi, g);
+    add_custom_edge_between_vertices(*ei, vd_1, vd_2, g);
+    vd_1 = vd_2;
+  }
+  return g;
+}

@@ -1,4 +1,6 @@
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include "add_custom_vertex.h"
+#include "add_custom_edge_between_vertices.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -15,39 +17,18 @@ create_custom_edges_and_vertices_k3_graph() noexcept
 {
   auto g
     = create_empty_undirected_custom_edges_and_vertices_graph();
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
-  const auto vd_c = boost::add_vertex(g);
-  const auto aer_a = boost::add_edge(vd_a, vd_b, g);
-  const auto aer_b = boost::add_edge(vd_b, vd_c, g);
-  const auto aer_c = boost::add_edge(vd_c, vd_a, g);
-  assert(aer_a.second);
-  assert(aer_b.second);
-  assert(aer_c.second);
 
-  auto my_custom_vertex_map  = get(
-      boost::vertex_custom_type,g
-    );
-  put(my_custom_vertex_map,vd_a,
-    my_custom_vertex("top","source",0.0,0.0)
-  );
-  put(my_custom_vertex_map, vd_b,
-    my_custom_vertex("right","target",3.14,0)
-  );
-  put(my_custom_vertex_map, vd_c,
-    my_custom_vertex("left","target",0,3.14)
-  );
-
-  auto my_edge_map = get(boost::edge_custom_type,g);
-  put(my_edge_map, aer_a.first,
-    my_custom_edge("AB","first",0.0,0.0)
-  );
-  put(my_edge_map, aer_b.first,
-    my_custom_edge("BC","second",3.14,3.14)
-  );
-  put(my_edge_map, aer_c.first,
-    my_custom_edge("CA","third",3.14,3.14)
-  );
-
+  const my_custom_vertex va("top","source",0.0,0.0);
+  const my_custom_vertex vb("right","target",3.14,0);
+  const my_custom_vertex vc("left","target",0,3.14);
+  const my_custom_edge ea("AB","first",0.0,0.0);
+  const my_custom_edge eb("BC","second",3.14,3.14);
+  const my_custom_edge ec("CA","third",3.14,3.14);
+  const auto vd_a = add_custom_vertex(va, g);
+  const auto vd_b = add_custom_vertex(vb, g);
+  const auto vd_c = add_custom_vertex(vc, g);
+  add_custom_edge_between_vertices(ea, vd_a, vd_b, g);
+  add_custom_edge_between_vertices(eb, vd_b, vd_c, g);
+  add_custom_edge_between_vertices(ec, vd_c, vd_a, g);
   return g;
 }
