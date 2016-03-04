@@ -52,14 +52,3 @@ For example, take the function `f`:
   * Siek, Jeremy G., Lie-Quan Lee, and Andrew Lumsdaine. Boost Graph Library: User Guide and Reference Manual, The. Pearson Education, 2001
   * The Boost.Graph website, [http://www.boost.org/doc/libs/release/libs/graph/doc](http://www.boost.org/doc/libs/release/libs/graph/doc)
 
-## Older downloads
-
- * [PDF](boost_graph_tutorial_v1_8.pdf) (v1.8)
- * [PDF](boost_graph_tutorial_v1_7.pdf) (v1.7)
- * [PDF](boost_graph_tutorial_v1_6.pdf) (v1.6)
- * [PDF](boost_graph_tutorial_v1_5.pdf) (v1.5)
- * [PDF](boost_graph_tutorial_v1_4.pdf) (v1.4)
- * [PDF](boost_graph_tutorial_v1_3.pdf) (v1.3)
- * [PDF](boost_graph_tutorial_v1_2.pdf) (v1.2)
- * [PDF](boost_graph_tutorial_v1_1.pdf) (v1.1)
- * [PDF](boost_graph_tutorial_v1_0.pdf) (v1.0)
