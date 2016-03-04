@@ -1,20 +1,20 @@
 #include <cassert>
 #include "add_custom_edge.h"
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 
-void has_custom_edge_with_my_edge_demo() noexcept
+void has_edge_with_my_edge_demo() noexcept
 {
   auto g
     = create_empty_undirected_custom_edges_and_vertices_graph();
   assert(
-    !has_custom_edge_with_my_edge(
+    !has_edge_with_my_edge(
       my_custom_edge("Edward"),g
     )
   );
   add_custom_edge(my_custom_edge("Edward"),g);
   assert(
-    has_custom_edge_with_my_edge(
+    has_edge_with_my_edge(
       my_custom_edge("Edward"),g
     )
   );

@@ -10,7 +10,7 @@ HEADERS += \
     $$PWD/add_custom_edge.h \
     $$PWD/add_custom_vertex.h \
     $$PWD/add_edge_between_named_vertices.h \
-    $$PWD/add_edge_between_two_selected_vertices.h \
+    $$PWD/add_edge_between_selected_vertices.h \
     $$PWD/add_edge.h \
     $$PWD/add_named_and_selectable_vertex.h \
     $$PWD/add_named_edge_between_vertices.h \
@@ -163,7 +163,7 @@ HEADERS += \
     $$PWD/graphviz_encode.h \
     $$PWD/has_bundled_edge_with_my_edge.h \
     $$PWD/has_bundled_vertex_with_my_vertex.h \
-    $$PWD/has_custom_edge_with_my_edge.h \
+    $$PWD/has_edge_with_my_edge.h \
     $$PWD/has_custom_vertex_with_my_vertex.h \
     $$PWD/has_dot.h \
     $$PWD/has_edge_between_vertices.h \
@@ -236,7 +236,9 @@ HEADERS += \
     $$PWD/set_vertex_name.h \
     $$PWD/set_vertex_names.h \
     $$PWD/set_vertex_selectedness.h \
-    $$PWD/show_dot.h
+    $$PWD/show_dot.h \
+    $$PWD/add_edge_between_custom_vertices.h \
+    $$PWD/has_vertex_with_my_vertex.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -248,7 +250,7 @@ SOURCES += \
     $$PWD/add_custom_edge.cpp \
     $$PWD/add_custom_vertex.cpp \
     $$PWD/add_edge_between_named_vertices.cpp \
-    $$PWD/add_edge_between_two_selected_vertices.cpp \
+    $$PWD/add_edge_between_selected_vertices.cpp \
     $$PWD/add_edge.cpp \
     $$PWD/add_named_and_selectable_vertex.cpp \
     $$PWD/add_named_edge_between_vertices.cpp \
@@ -400,7 +402,7 @@ SOURCES += \
     $$PWD/graphviz_encode.cpp \
     $$PWD/has_bundled_edge_with_my_edge.cpp \
     $$PWD/has_bundled_vertex_with_my_vertex.cpp \
-    $$PWD/has_custom_edge_with_my_edge.cpp \
+    $$PWD/has_edge_with_my_edge.cpp \
     $$PWD/has_custom_vertex_with_my_vertex.cpp \
     $$PWD/has_dot.cpp \
     $$PWD/has_edge_between_vertices.cpp \
@@ -469,7 +471,9 @@ SOURCES += \
     $$PWD/set_vertex_name.cpp \
     $$PWD/set_vertex_names.cpp \
     $$PWD/set_vertex_selectedness.cpp \
-    $$PWD/show_dot.cpp
+    $$PWD/show_dot.cpp \
+    $$PWD/add_edge_between_custom_vertices.cpp \
+    $$PWD/has_vertex_with_my_vertex.cpp
 
 
 # .impl files are the clean tutorial code snippets,
@@ -493,8 +497,8 @@ OTHER_FILES += \
     $$PWD/add_custom_vertex.impl \
     $$PWD/add_edge_between_named_vertices_demo.impl \
     $$PWD/add_edge_between_named_vertices.impl \
-    $$PWD/add_edge_between_two_selected_vertices_demo.impl \
-    $$PWD/add_edge_between_two_selected_vertices.impl \
+    $$PWD/add_edge_between_selected_vertices_demo.impl \
+    $$PWD/add_edge_between_selected_vertices.impl \
     $$PWD/add_edge_demo.impl \
     $$PWD/add_edge.impl \
     $$PWD/add_named_and_selectable_vertex_demo.impl \
@@ -745,8 +749,8 @@ OTHER_FILES += \
     $$PWD/has_bundled_edge_with_my_edge.impl \
     $$PWD/has_bundled_vertex_with_my_vertex_demo.impl \
     $$PWD/has_bundled_vertex_with_my_vertex.impl \
-    $$PWD/has_custom_edge_with_my_edge_demo.impl \
-    $$PWD/has_custom_edge_with_my_edge.impl \
+    $$PWD/has_edge_with_my_edge_demo.impl \
+    $$PWD/has_edge_with_my_edge.impl \
     $$PWD/has_custom_vertex_with_my_vertex_demo.impl \
     $$PWD/has_custom_vertex_with_my_vertex.impl \
     $$PWD/has_edge_between_vertices_demo.impl \
@@ -864,4 +868,8 @@ OTHER_FILES += \
     $$PWD/set_vertex_name.impl \
     $$PWD/set_vertex_names.impl \
     $$PWD/set_vertex_selectedness_demo.impl \
-    $$PWD/set_vertex_selectedness.impl
+    $$PWD/set_vertex_selectedness.impl \
+    $$PWD/add_edge_between_custom_vertices.impl \
+    $$PWD/add_edge_between_custom_vertices_demo.impl \
+    $$PWD/has_vertex_with_my_vertex.impl \
+    $$PWD/has_vertex_with_my_vertex_demo.impl

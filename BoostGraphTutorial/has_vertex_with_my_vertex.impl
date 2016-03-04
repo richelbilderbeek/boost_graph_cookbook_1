@@ -1,0 +1,22 @@
+#include <boost/graph/properties.hpp>
+#include "my_custom_vertex.h"
+#include "install_vertex_custom_type.h"
+
+template <typename graph>
+bool has_vertex_with_my_vertex(
+  const my_custom_vertex& my_vertex,
+  const graph& g
+) noexcept
+{
+  using vd = typename graph::vertex_descriptor;
+
+  const auto vip = vertices(g);
+  return std::find_if(vip.first, vip.second,
+    [g, my_vertex](const vd& d)
+    {
+      const auto my_custom_vertex_map
+        = get(boost::vertex_custom_type, g);
+      return get(my_custom_vertex_map, d) == my_vertex;
+    }
+  ) != vip.second;
+}

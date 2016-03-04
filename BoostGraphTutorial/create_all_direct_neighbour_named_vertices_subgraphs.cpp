@@ -34,6 +34,12 @@ void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
     {
       assert(boost::num_vertices(g) == 3);
       assert(boost::num_edges(g) == 3);
+      const std::string va("Karen");
+      const std::string vb("Kristel");
+      const std::string vc("Kathleen");
+      assert(has_vertex_with_name(va, g));
+      assert(has_vertex_with_name(vb, g));
+      assert(has_vertex_with_name(vc, g));
     }
   }
   //Path

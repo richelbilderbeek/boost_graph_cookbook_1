@@ -7,7 +7,7 @@
 #include "add_custom_edge.h"
 #include "add_custom_vertex.h"
 #include "add_edge_between_named_vertices.h"
-#include "add_edge_between_two_selected_vertices.h"
+#include "add_edge_between_selected_vertices.h"
 #include "add_edge.h"
 #include "add_named_and_selectable_vertex.h"
 #include "add_named_edge_between_vertices.h"
@@ -147,7 +147,7 @@
 #include "graphviz_encode.h"
 #include "has_bundled_edge_with_my_edge.h"
 #include "has_bundled_vertex_with_my_vertex.h"
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 #include "has_edge_between_vertices.h"
 #include "has_edge_with_name.h"
 #include "has_vertex_with_name.h"
@@ -209,10 +209,16 @@
 #include "set_vertex_names.h"
 #include "set_vertex_selectedness.h"
 
+#include "add_edge_between_custom_vertices.h"
+#include "has_vertex_with_my_vertex.h"
+
 #include <iostream>
 
 int main()
 {
+  has_vertex_with_my_vertex_test();
+  add_edge_between_custom_vertices_test();
+
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_edge_between_vertices_test();
@@ -223,7 +229,7 @@ int main()
   add_custom_edge_test();
   add_custom_vertex_test();
   add_edge_between_named_vertices_test();
-  add_edge_between_two_selected_vertices_test();
+  add_edge_between_selected_vertices_test();
   add_edge_test();
   add_named_and_selectable_vertex_test();
   add_named_edge_between_vertices_test();
@@ -360,7 +366,7 @@ int main()
   graphviz_encode_test();
   has_bundled_edge_with_my_edge_test();
   has_bundled_vertex_with_my_vertex_test();
-  has_custom_edge_with_my_edge_test();
+  has_edge_with_my_edge_test();
   has_custom_vertex_with_my_vertex_test();
   has_edge_between_vertices_test();
   has_edge_with_name_test();

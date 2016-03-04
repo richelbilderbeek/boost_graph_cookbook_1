@@ -11,6 +11,7 @@
 #include "save_custom_vertices_graph_to_dot.h"
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
+#include "has_vertex_with_my_vertex.h"
 
 void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
 {
@@ -26,12 +27,21 @@ void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
   }
   //K3
   {
-    const auto v = create_all_direct_neighbour_custom_vertices_subgraphs(create_custom_vertices_k3_graph());
+    const auto v
+      = create_all_direct_neighbour_custom_vertices_subgraphs(
+        create_custom_vertices_k3_graph()
+      );
     assert(v.size() == 3);
     for (const auto g: v)
     {
       assert(boost::num_vertices(g) == 3);
       assert(boost::num_edges(g) == 3);
+      const my_custom_vertex va("Karen","red",1.1,2.2);
+      const my_custom_vertex vb("Kristel","black",3.3,4.4);
+      const my_custom_vertex vc("Kathleen","blond",5.5,6.6);
+      assert(has_vertex_with_my_vertex(va, g));
+      assert(has_vertex_with_my_vertex(vb, g));
+      assert(has_vertex_with_my_vertex(vc, g));
     }
   }
   //Path

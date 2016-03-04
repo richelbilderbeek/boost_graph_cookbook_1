@@ -3,12 +3,12 @@
 #include "my_custom_edge.h"
 
 template <typename graph>
-my_custom_edge get_my_custom_edge(
-  const typename boost::graph_traits<graph>::edge_descriptor& vd,
+auto get_my_custom_edge(
+  const typename boost::graph_traits<graph>::edge_descriptor& ed,
   const graph& g
-) noexcept
+) noexcept -> decltype(get(get(boost::edge_custom_type,g), ed))
 {
   const auto my_edge_map
     = get(boost::edge_custom_type, g);
-  return get(my_edge_map, vd);
+  return get(my_edge_map, ed);
 }

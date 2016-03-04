@@ -12,15 +12,12 @@ create_named_vertices_k3_graph() noexcept
 {
   auto g
     = create_empty_undirected_named_vertices_graph();
-  const auto vd_a = add_named_vertex(
-    "Karen", g
-  );
-  const auto vd_b = add_named_vertex(
-    "Kristel", g
-  );
-  const auto vd_c = add_named_vertex(
-    "Kathleen", g
-  );
+  const std::string a("Karen");
+  const std::string b("Kristel");
+  const std::string c("Kathleen");
+  const auto vd_a = add_named_vertex(a, g);
+  const auto vd_b = add_named_vertex(b, g);
+  const auto vd_c = add_named_vertex(c, g);
   const auto aer_a = boost::add_edge(vd_a, vd_b, g);
   assert(aer_a.second);
   const auto aer_b = boost::add_edge(vd_b, vd_c, g);

@@ -28194,6 +28194,28 @@ name "alg:get_vertex_my_vertex"
 \end_layout
 
 \begin_layout Standard
+This function creates a property map from the graph, using the 'boost::vertex_cu
+stom_type' tag.
+ Then it uses the vertex descriptor to obtain the custom vertex associated
+ with that vertex.
+ 
+\end_layout
+
+\begin_layout Standard
+Note how this function deduces the date type of its return value using decltype
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+decltype
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 To use `get_custom_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Algorithm 
@@ -28450,6 +28472,147 @@ An impressive feature is that getting the property map holding the graph
  its names is not a copy, but a reference.
  Otherwise, modifying `my_vertexes_map' (obtained by non-reference) would
  only modify a copy.
+\end_layout
+
+\begin_layout Subsection
+▶ Adding an edge between two custom vertices
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:add_edge_between_custom_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of looking for an edge descriptor, one can also add an edge from
+ two vertex descriptors.
+ Adding an edge between two selected vertices goes as follows: use the my_custom
+_vertex of the vertices to get both vertex descriptors, then call 'boost::add_ed
+ge'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::add_edge
+\end_layout
+
+\end_inset
+
+ on those two, as shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_custom_vertices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_custom_vertices.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Add an edge between two custom vertices
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Add edge between custom vertices
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_custom_vertices"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:add_edge_between_custom_vertices_demo"
+
+\end_inset
+
+ shows how the edges can be added:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "add_edge_between_custom_vertices_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the 'add_edge_between_selected_vertices' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:add_edge_between_custom_vertices_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -30929,7 +31092,7 @@ name "alg:count_vertices_with_selectedness_demo"
 ▶ Adding an edge between two selected vertices
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:add_edge_between_two_selected_vertices"
+name "sub:add_edge_between_selected_vertices"
 
 \end_inset
 
@@ -30953,7 +31116,7 @@ boost::add_edge
  on those two, as shown in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:add_edge_between_two_selected_vertices"
+reference "alg:add_edge_between_selected_vertices"
 
 \end_inset
 
@@ -30970,7 +31133,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "add_edge_between_two_selected_vertices.impl"
+filename "add_edge_between_selected_vertices.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -30987,7 +31150,7 @@ Add an edge between two selected vertices
 status open
 
 \begin_layout Plain Layout
-Add edge between two selected vertices
+Add edge between selected vertices
 \end_layout
 
 \end_inset
@@ -30995,7 +31158,7 @@ Add edge between two selected vertices
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:add_edge_between_two_selected_vertices"
+name "alg:add_edge_between_selected_vertices"
 
 \end_inset
 
@@ -31016,7 +31179,7 @@ name "alg:add_edge_between_two_selected_vertices"
 Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:add_edge_between_two_selected_vertices_demo"
+reference "alg:add_edge_between_selected_vertices_demo"
 
 \end_inset
 
@@ -31033,7 +31196,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "add_edge_between_two_selected_vertices_demo.impl"
+filename "add_edge_between_selected_vertices_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -31048,7 +31211,7 @@ lstparams "breaklines=true,language={C++}"
 Demonstration of the 'add_edge_between_selected_vertices' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:add_edge_between_two_selected_vertices_demo"
+name "alg:add_edge_between_selected_vertices_demo"
 
 \end_inset
 
@@ -33545,7 +33708,7 @@ Working on graphs with custom edges and vertices
 Has a my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:has_custom_edge_with_my_edge"
+name "sub:has_edge_with_my_edge"
 
 \end_inset
 
@@ -33570,7 +33733,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_custom_edge_with_my_edge.impl"
+filename "has_edge_with_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -33587,7 +33750,7 @@ Find if there is a custom edge with a certain my_custom_edge
 status open
 
 \begin_layout Plain Layout
-Has custom edge with my_custom_edge
+Has edge with my_custom_edge
 \end_layout
 
 \end_inset
@@ -33595,7 +33758,7 @@ Has custom edge with my_custom_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_custom_edge_with_my_edge"
+name "alg:has_edge_with_my_edge"
 
 \end_inset
 
@@ -33616,7 +33779,7 @@ name "alg:has_custom_edge_with_my_edge"
 This function can be demonstrated as in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:has_custom_edge_with_my_edge_demo"
+reference "alg:has_edge_with_my_edge_demo"
 
 \end_inset
 
@@ -33634,7 +33797,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_custom_edge_with_my_edge_demo.impl"
+filename "has_edge_with_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -33649,7 +33812,7 @@ lstparams "breaklines=true,language={C++}"
 Demonstration of the `has_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_custom_edge_with_my_edge_demo"
+name "alg:has_edge_with_my_edge_demo"
 
 \end_inset
 

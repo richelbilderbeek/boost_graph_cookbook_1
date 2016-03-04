@@ -1,0 +1,23 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "has_vertex_with_my_vertex.h"
+#include "find_first_custom_vertex_with_my_vertex.h"
+#include "my_custom_vertex.h"
+
+template <typename graph>
+typename boost::graph_traits<graph>::edge_descriptor
+add_edge_between_custom_vertices(
+  const my_custom_vertex& vertex_from,
+  const my_custom_vertex& vertex_to,
+  graph& g
+) noexcept
+{
+  assert(has_vertex_with_my_vertex(vertex_from, g));
+  assert(has_vertex_with_my_vertex(vertex_to, g));
+  const auto vd_1 = find_first_custom_vertex_with_my_vertex(vertex_from, g);
+  const auto vd_2 = find_first_custom_vertex_with_my_vertex(vertex_to, g);
+  const auto aer = boost::add_edge(vd_1, vd_2, g);
+  assert(aer.second);
+  return aer.first;
+}

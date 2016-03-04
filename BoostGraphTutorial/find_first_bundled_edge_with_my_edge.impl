@@ -1,7 +1,7 @@
 #include <cassert>
 #include <boost/graph/graph_traits.hpp>
 #include "has_bundled_edge_with_my_edge.h"
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 #include "my_bundled_edge.h"
 
 template <typename graph>

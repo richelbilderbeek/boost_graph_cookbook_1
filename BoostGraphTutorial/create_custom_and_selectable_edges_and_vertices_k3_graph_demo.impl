@@ -1,7 +1,7 @@
 #include <cassert>
 #include "create_custom_and_selectable_edges_and_vertices_k3_graph.h"
 #include "has_custom_vertex_with_my_vertex.h"
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 
 void create_custom_and_selectable_edges_and_vertices_k3_graph_demo() noexcept
 {
@@ -17,7 +17,7 @@ void create_custom_and_selectable_edges_and_vertices_k3_graph_demo() noexcept
   assert(has_custom_vertex_with_my_custom_vertex(va, g));
   assert(has_custom_vertex_with_my_custom_vertex(vb, g));
   assert(has_custom_vertex_with_my_custom_vertex(vc, g));
-  assert(has_custom_edge_with_my_edge(ea, g));
-  assert(has_custom_edge_with_my_edge(eb, g));
-  assert(has_custom_edge_with_my_edge(ec, g));
+  assert(has_edge_with_my_edge(ea, g));
+  assert(has_edge_with_my_edge(eb, g));
+  assert(has_edge_with_my_edge(ec, g));
 }

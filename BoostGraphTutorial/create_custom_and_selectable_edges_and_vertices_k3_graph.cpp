@@ -7,7 +7,7 @@
 #include <cassert>
 #include <iostream>
 #include "has_custom_vertex_with_my_vertex.h"
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
@@ -28,9 +28,9 @@ void create_custom_and_selectable_edges_and_vertices_k3_graph_test() noexcept
     assert(has_custom_vertex_with_my_custom_vertex(va, g));
     assert(has_custom_vertex_with_my_custom_vertex(vb, g));
     assert(has_custom_vertex_with_my_custom_vertex(vc, g));
-    assert(has_custom_edge_with_my_edge(ea, g));
-    assert(has_custom_edge_with_my_edge(eb, g));
-    assert(has_custom_edge_with_my_edge(ec, g));
+    assert(has_edge_with_my_edge(ea, g));
+    assert(has_edge_with_my_edge(eb, g));
+    assert(has_edge_with_my_edge(ec, g));
   }
   //Create the .dot and .svg of the 'create_custom_and_selectable_edges_and_vertices_k3_graph' chapter
   {

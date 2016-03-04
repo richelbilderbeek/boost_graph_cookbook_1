@@ -1,6 +1,6 @@
 #include <cassert>
 #include <boost/graph/graph_traits.hpp>
-#include "has_custom_edge_with_my_edge.h"
+#include "has_edge_with_my_edge.h"
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
