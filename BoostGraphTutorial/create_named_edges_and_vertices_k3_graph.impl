@@ -15,12 +15,18 @@ create_named_edges_and_vertices_k3_graph() noexcept
 {
   auto g
     = create_empty_undirected_named_edges_and_vertices_graph();
-  const auto vd_a = add_named_vertex("top", g);
-  const auto vd_b = add_named_vertex("right", g);
-  const auto vd_c = add_named_vertex("left", g);
-  add_named_edge_between_vertices("AB", vd_a, vd_b, g);
-  add_named_edge_between_vertices("BC", vd_b, vd_c, g);
-  add_named_edge_between_vertices("CA", vd_c, vd_a, g);
+  const std::string va("top");
+  const std::string vb("right");
+  const std::string vc("left");
+  const std::string ea("AB");
+  const std::string eb("BC");
+  const std::string ec("CA");
+  const auto vd_a = add_named_vertex(va, g);
+  const auto vd_b = add_named_vertex(vb, g);
+  const auto vd_c = add_named_vertex(vc, g);
+  add_named_edge_between_vertices(ea, vd_a, vd_b, g);
+  add_named_edge_between_vertices(eb, vd_b, vd_c, g);
+  add_named_edge_between_vertices(ec, vd_c, vd_a, g);
   return g;
 }
 

@@ -1,7 +1,11 @@
 #include <map>
 #include <boost/graph/adjacency_list.hpp>
+#include "add_custom_and_selectable_edge_between_vertices.h"
 #include "add_custom_and_selectable_vertex.h"
+#include "get_edge_selectedness.h"
+#include "get_my_custom_edge.h"
 #include "get_my_custom_vertex.h"
+#include "get_vertex_selectedness.h"
 template <typename graph, typename vertex_descriptor>
 graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
   const vertex_descriptor& vd,
@@ -13,7 +17,9 @@ graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
   std::map<vertex_descriptor,vertex_descriptor> m;
   {
     const auto vd_h = add_custom_and_selectable_vertex(
-      get_my_custom_vertex(vd, g), false, h
+      get_my_custom_vertex(vd, g),
+      get_vertex_selectedness(vd, g),
+      h
     );
     m.insert(std::make_pair(vd,vd_h));
   }
@@ -41,8 +47,11 @@ graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
       const auto vd_to = target(*i, g);
       if (m.find(vd_from) == std::end(m)) continue;
       if (m.find(vd_to) == std::end(m)) continue;
-      const auto aer = boost::add_edge(m[vd_from],m[vd_to], h);
-      assert(aer.second);
+      add_custom_and_selectable_edge_between_vertices(
+        get_my_custom_edge(*i, g),
+        get_edge_selectedness(*i, g),
+        m[vd_from],m[vd_to], h
+      );
     }
   }
   return h;

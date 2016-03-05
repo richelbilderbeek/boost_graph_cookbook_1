@@ -37,12 +37,12 @@ void create_all_direct_neighbour_custom_edges_and_vertices_subgraphs_test() noex
     {
       assert(boost::num_vertices(g) == 3);
       assert(boost::num_edges(g) == 3);
-      const my_custom_vertex va("Karen","red",1.1,2.2);
-      const my_custom_vertex vb("Kristel","black",3.3,4.4);
-      const my_custom_vertex vc("Kathleen","blond",5.5,6.6);
-      const my_custom_edge ea("1");
-      const my_custom_edge eb("2");
-      const my_custom_edge ec("3");
+      const my_custom_vertex va("top","source",0.0,0.0);
+      const my_custom_vertex vb("right","target",3.14,0);
+      const my_custom_vertex vc("left","target",0,3.14);
+      const my_custom_edge ea("AB","first",0.0,0.0);
+      const my_custom_edge eb("BC","second",3.14,3.14);
+      const my_custom_edge ec("CA","third",3.14,3.14);
       assert(has_vertex_with_my_vertex(va, g));
       assert(has_vertex_with_my_vertex(vb, g));
       assert(has_vertex_with_my_vertex(vc, g));

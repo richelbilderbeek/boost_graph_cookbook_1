@@ -4,10 +4,10 @@
 #include "my_custom_edge.h"
 #include "set_my_custom_edge.h"
 
-template <typename graph, typename vertex_descriptor>
+template <typename graph, typename vertex_descriptor, typename custom_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 add_custom_edge_between_vertices(
-  const my_custom_edge& edge,
+  const custom_edge& edge,
   const vertex_descriptor from,
   const vertex_descriptor to,
   graph& g

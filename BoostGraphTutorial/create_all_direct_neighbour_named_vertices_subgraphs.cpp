@@ -11,17 +11,24 @@
 #include "create_named_vertices_path_graph.h"
 #include "create_named_vertices_petersen_graph.h"
 #include "save_named_vertices_graph_to_dot.h"
+#include "has_vertex_with_name.h"
 
 void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
 {
   //K2
   {
-    const auto v = create_all_direct_neighbour_named_vertices_subgraphs(create_named_vertices_k2_graph());
+    const auto v = create_all_direct_neighbour_named_vertices_subgraphs(
+      create_named_vertices_k2_graph()
+    );
     assert(v.size() == 2);
     for (const auto g: v)
     {
       assert(boost::num_vertices(g) == 2);
       assert(boost::num_edges(g) == 1);
+      const std::string va("Me");
+      const std::string vb("My computer");
+      assert(has_vertex_with_name(va, g));
+      assert(has_vertex_with_name(vb, g));
     }
   }
   //K3

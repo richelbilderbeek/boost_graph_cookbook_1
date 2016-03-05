@@ -1,14 +1,14 @@
 #include <cassert>
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
-#include "my_custom_edge.h"
+//#include "my_custom_edge.h"
 #include "add_custom_edge_between_vertices.h"
 #include "set_edge_selectedness.h"
 
-template <typename graph, typename vertex_descriptor>
+template <typename graph, typename vertex_descriptor, typename custom_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 add_custom_and_selectable_edge_between_vertices(
-  const my_custom_edge& edge,
+  const custom_edge& edge,
   const bool is_selected,
   const vertex_descriptor from,
   const vertex_descriptor to,

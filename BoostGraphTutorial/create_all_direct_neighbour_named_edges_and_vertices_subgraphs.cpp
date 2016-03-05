@@ -11,17 +11,27 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "create_named_edges_and_vertices_path_graph.h"
+#include "has_edge_with_name.h"
+#include "has_vertex_with_name.h"
 
 void create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test() noexcept
 {
   //K2
   {
-    const auto v = create_all_direct_neighbour_named_edges_and_vertices_subgraphs(create_named_edges_and_vertices_k2_graph());
+    const auto v = create_all_direct_neighbour_named_edges_and_vertices_subgraphs(
+      create_named_edges_and_vertices_k2_graph()
+    );
     assert(v.size() == 2);
     for (const auto g: v)
     {
       assert(boost::num_vertices(g) == 2);
       assert(boost::num_edges(g) == 1);
+      const std::string va("x");
+      const std::string vb("y");
+      const std::string ea("between");
+      assert(has_vertex_with_name(va, g));
+      assert(has_vertex_with_name(vb, g));
+      assert(has_edge_with_name(ea, g));
     }
   }
   //K3
@@ -35,18 +45,18 @@ void create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test() noexc
     {
       assert(boost::num_vertices(g) == 3);
       assert(boost::num_edges(g) == 3);
-      const my_custom_vertex va("Karen","red",1.1,2.2);
-      const my_custom_vertex vb("Kristel","black",3.3,4.4);
-      const my_custom_vertex vc("Kathleen","blond",5.5,6.6);
-      const my_custom_edge ea("1");
-      const my_custom_edge eb("2");
-      const my_custom_edge ec("3");
-      assert(has_vertex_with_my_vertex(va, g));
-      assert(has_vertex_with_my_vertex(vb, g));
-      assert(has_vertex_with_my_vertex(vc, g));
-      assert(has_edge_with_my_edge(ea, g));
-      assert(has_edge_with_my_edge(eb, g));
-      assert(has_edge_with_my_edge(ec, g));
+      const std::string va("top");
+      const std::string vb("right");
+      const std::string vc("left");
+      const std::string ea("AB");
+      const std::string eb("BC");
+      const std::string ec("CA");
+      assert(has_vertex_with_name(va, g));
+      assert(has_vertex_with_name(vb, g));
+      assert(has_vertex_with_name(vc, g));
+      assert(has_edge_with_name(ea, g));
+      assert(has_edge_with_name(eb, g));
+      assert(has_edge_with_name(ec, g));
     }
   }
   //Path

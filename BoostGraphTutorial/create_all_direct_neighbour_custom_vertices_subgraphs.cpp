@@ -36,9 +36,9 @@ void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
     {
       assert(boost::num_vertices(g) == 3);
       assert(boost::num_edges(g) == 3);
-      const my_custom_vertex va("Karen","red",1.1,2.2);
-      const my_custom_vertex vb("Kristel","black",3.3,4.4);
-      const my_custom_vertex vc("Kathleen","blond",5.5,6.6);
+      const my_custom_vertex va("Karen","red",0.0,0.0);
+      const my_custom_vertex vb("Kristel","black",1.1,1.1);
+      const my_custom_vertex vc("Kathleen","blond",2.2,2.2);
       assert(has_vertex_with_my_vertex(va, g));
       assert(has_vertex_with_my_vertex(vb, g));
       assert(has_vertex_with_my_vertex(vc, g));
