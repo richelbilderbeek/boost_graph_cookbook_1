@@ -31,7 +31,9 @@ graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
       [g, &h](const vertex_descriptor& d)
       {
         const auto vd_h = add_custom_and_selectable_vertex(
-          get_my_custom_vertex(d,g), false, h
+          get_my_custom_vertex(d,g),
+          get_vertex_selectedness(d, g),
+          h
         );
         return std::make_pair(d,vd_h);
       }
