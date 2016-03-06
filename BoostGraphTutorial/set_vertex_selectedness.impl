@@ -5,7 +5,7 @@
 template <typename graph>
 void set_vertex_selectedness(
   const bool is_selected,
-  const typename boost::graph_traits<graph>::vertex_descriptor& vd,
+  const typename boost::graph_traits<graph>::vertex_descriptor vd,
   graph& g
 ) noexcept
 {

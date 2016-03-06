@@ -8,7 +8,7 @@
 #include "copy_file.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
 #include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
-//#include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 #include "create_nasty_directed_custom_edges_and_vertices_graph.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 #include "get_sorted_vertex_selectednesses.h"
@@ -31,7 +31,6 @@ void load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_test(
     assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
   //Basic tests: graph with harder texts
-  /* TODO
   {
     auto g = create_nasty_directed_custom_and_selectable_edges_and_vertices_graph();
     const std::string filename{
@@ -43,7 +42,6 @@ void load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_test(
     assert(get_sorted_vertex_selectednesses(g) == get_sorted_vertex_selectednesses(h)
     );
   }
-  */
   load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo();
   
 }

@@ -20,6 +20,8 @@ void set_vertex_selectedness_test() noexcept
     assert(get_vertex_selectedness(vd, g) == true);
     set_vertex_selectedness(false, vd, g);
     assert(get_vertex_selectedness(vd, g) == false);
+    set_vertex_selectedness(true, vd, g);
+    assert(get_vertex_selectedness(vd, g) == true);
   }
   set_vertex_selectedness_demo();
   

@@ -1,0 +1,17 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "set_vertex_selectedness.h"
+
+template <typename graph>
+void select_random_vertex(
+  graph& g,
+  std::mt19937& rng_engine
+) noexcept
+{
+  assert(boost::num_vertices(g) > 0);
+  const int n{static_cast<int>(boost::num_vertices(g))};
+  std::uniform_int_distribution<int> indices(0,n - 1);
+  const int i{indices(rng_engine)};
+  assert(i < n);
+  auto vdi = vertices(g).first + i;
+  set_vertex_selectedness(true, *vdi, g);
+}
