@@ -208,17 +208,17 @@
 #include "set_vertex_name.h"
 #include "set_vertex_names.h"
 #include "set_vertex_selectedness.h"
-
 #include "add_edge_between_custom_vertices.h"
 #include "has_vertex_with_my_vertex.h"
+#include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 
 #include <iostream>
 
 int main()
 {
+  create_nasty_directed_custom_and_selectable_edges_and_vertices_graph_test();
   has_vertex_with_my_vertex_test();
   add_edge_between_custom_vertices_test();
-
   add_bundled_edge_test();
   add_bundled_vertex_test();
   add_custom_and_selectable_edge_between_vertices_test();

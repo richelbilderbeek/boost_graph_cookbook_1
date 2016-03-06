@@ -238,7 +238,8 @@ HEADERS += \
     $$PWD/set_vertex_selectedness.h \
     $$PWD/show_dot.h \
     $$PWD/add_edge_between_custom_vertices.h \
-    $$PWD/has_vertex_with_my_vertex.h
+    $$PWD/has_vertex_with_my_vertex.h \
+    $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -473,7 +474,8 @@ SOURCES += \
     $$PWD/set_vertex_selectedness.cpp \
     $$PWD/show_dot.cpp \
     $$PWD/add_edge_between_custom_vertices.cpp \
-    $$PWD/has_vertex_with_my_vertex.cpp
+    $$PWD/has_vertex_with_my_vertex.cpp \
+    $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp
 
 
 # .impl files are the clean tutorial code snippets,

@@ -13,7 +13,7 @@
 #include "helper.h"
 #include "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
-//#include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 #include "get_sorted_vertex_selectednesses.h"
 
 void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
@@ -29,7 +29,6 @@ void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
     assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
   //Basic tests: graph with harder texts
-  /*
   {
     auto g = create_nasty_directed_custom_and_selectable_edges_and_vertices_graph();
     const std::string filename{
@@ -40,6 +39,5 @@ void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
     assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
     assert(get_sorted_vertex_selectednesses(g) == get_sorted_vertex_selectednesses(h));
   }
-  */
   save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo();
 }
