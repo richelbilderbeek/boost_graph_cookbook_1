@@ -147,6 +147,10 @@ key "siek2001boost"
 Tutorial style
 \end_layout
 
+\begin_layout Paragraph
+Readable for beginners
+\end_layout
+
 \begin_layout Standard
 This tutorial is aimed at the beginner programmer.
  This tutorial is intended to take the reader to the level of understanding
@@ -162,6 +166,10 @@ key "siek2001boost"
  
 \end_layout
 
+\begin_layout Paragraph
+High verbosity
+\end_layout
+
 \begin_layout Standard
 This tutorial is intended to be as verbose, such that a beginner should
  be able to follow every step, from reading the tutorial from beginning
@@ -173,10 +181,18 @@ n to the storyline.
  
 \end_layout
 
+\begin_layout Paragraph
+Repetitiveness
+\end_layout
+
 \begin_layout Standard
 This tutorial is intended to be as repetitive, such that a beginner can
  spot the patterns in the code snippets their increasing complexity.
  Extending code from this tutorial should be as easy as extending the patterns.
+\end_layout
+
+\begin_layout Paragraph
+Index
 \end_layout
 
 \begin_layout Standard
@@ -260,6 +276,10 @@ www.github.com/richelbilderbeek/BoostGraphTutorial
 Coding style
 \end_layout
 
+\begin_layout Paragraph
+Coding standard
+\end_layout
+
 \begin_layout Standard
 I use the coding style from the Core C++ Guidelines.
  At the time of this writing, the Core C++ Guidelines were still in early
@@ -267,11 +287,19 @@ I use the coding style from the Core C++ Guidelines.
  are still Good Ideas.
 \end_layout
 
+\begin_layout Paragraph
+No comments in code
+\end_layout
+
 \begin_layout Standard
 It is important to add comments to code.
  In this tutorial, however, I have chosen not to put comments in code, as
  I already describe the function in the tutorial its text.
  This way, it prevents me from saying the same things twice.
+\end_layout
+
+\begin_layout Paragraph
+Trade-off between generic code and readability
 \end_layout
 
 \begin_layout Standard
@@ -284,17 +312,28 @@ It is good to write generic code.
  readability is worth it.
 \end_layout
 
+\begin_layout Paragraph
+Long function names and readability
+\end_layout
+
 \begin_layout Standard
 Due to my long function names and the limitation of ≈50 characters per line,
  sometimes the code does get to look a bit awkward.
  I am sorry for this.
 \end_layout
 
+\begin_layout Paragraph
+Use of auto
+\end_layout
+
 \begin_layout Standard
 I prefer to use the keyword auto over doubling the lines of code for using
  statements.
- Because the `do' functions return an explicit data type, these can be used
- for reference (until `decltype(auto)'
+ Often the `do' functions return an explicit data type, these can be used
+ for reference.
+ Sometime I deduce the return type using decltype and a function with the
+ same return type.
+ When C++17 gets accessible, I will use `decltype(auto)'
 \begin_inset Index idx
 status open
 
@@ -304,7 +343,7 @@ decltype(auto)
 
 \end_inset
 
- gets into fashion as a return type).
+.
  If you really want to know a type, you can use the `get_type_name' function
  (chapter 
 \begin_inset CommandInset ref
@@ -315,6 +354,10 @@ reference "sub:get_type_name"
 
 ).
  
+\end_layout
+
+\begin_layout Paragraph
+Explicity use of namespaces
 \end_layout
 
 \begin_layout Standard
@@ -345,6 +388,10 @@ boost::get does not exist
 , as the latter does not compile.
 \end_layout
 
+\begin_layout Paragraph
+Use of STL algorithms
+\end_layout
+
 \begin_layout Standard
 I try to use STL algorithms wherever I can.
  Also you should prefer algorithm calls over hand-written for-loops (
@@ -369,6 +416,15 @@ key "meyers2005effective"
  In C++14 one can use `auto' there as well.
  So, only if it shortens the number of lines significantly, I use raw for-loops,
  even though you shouldn't.
+\end_layout
+
+\begin_layout Paragraph
+Re-use of functions
+\end_layout
+
+\begin_layout Standard
+The functions I develop in this tutorial are re-used from that moment on.
+ This improves to readability of the code and decreases the number of lines.
 \end_layout
 
 \begin_layout Subsection
