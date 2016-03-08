@@ -17,8 +17,6 @@ before_install:
  - sudo apt-get install qt5-default qttools5-dev-tools
 
 script:
- - qmake -project
- - qmake BoostGraphTutorial.pro
+ - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - make
-
 

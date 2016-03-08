@@ -1,4 +1,4 @@
 #!/bin/bash
-qmake -project
-qmake BoostGraphTutorial.pro
+#qmake -project -Wall -Wparser -Wlogic
+qmake BoostGraphTutorial/boost_graph_tutorial.pro
 make
