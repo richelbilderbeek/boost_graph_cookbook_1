@@ -1,27 +1,20 @@
+sudo: false
 language: cpp
 compiler:
-  - clang
   - gcc
-
+  - clang
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 addons:
   apt:
     sources:
     - boost-latest
     - ubuntu-toolchain-r-test
     packages:
-    - libboost1.55-all-dev
     - gcc-4.8
     - g++-4.8
     - clang
-
-before_install:
- - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
- - sudo apt-get update -qq
- - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
- - sudo apt-get install qt5-default qttools5-dev-tools
-
-install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+    - libboost1.55-all-dev
 
 script:
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
