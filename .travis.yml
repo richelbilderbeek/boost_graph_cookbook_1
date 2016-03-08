@@ -3,6 +3,13 @@ compiler:
   - clang
   - gcc
 
+addons:
+  apt:
+    sources:
+    - boost-latest
+    packages:
+    - libboost1.55-all-dev
+
 before_install:
  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
  - sudo apt-get update -qq
@@ -13,3 +20,5 @@ script:
  - qmake -project
  - qmake BoostGraphTutorial.pro
  - make
+
+
