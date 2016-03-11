@@ -1,5 +1,6 @@
 #include "show_dot.h"
 
+#include <cassert>
 #include <sstream>
 
 void show_dot(const std::string& filename)
