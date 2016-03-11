@@ -432,6 +432,4 @@ int main()
   set_vertex_names_test();
   set_vertex_name_test();
   set_vertex_selectedness_test();
-
-  std::cout << "Done" << std::endl;
 }

@@ -30,3 +30,4 @@ script:
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - cat Makefile
  - make
+ - ./boost_graph_tutorial
