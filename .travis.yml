@@ -28,6 +28,12 @@ script:
  - $CXX --version
  - g++ --version
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
- - cat Makefile
+ - rm Makefile
+ - mv Makefile.Debug Makefile
+ - make
+ - ./boost_graph_tutorial
+ - make clean
+ - rm Makefile
+ - mv Makefile.Release Makefile
  - make
  - ./boost_graph_tutorial
