@@ -12,6 +12,9 @@ void convert_svg_to_png(
   assert(is_regular_file(svg_filename));
   std::stringstream s;
   s << "convert " << svg_filename << " " << png_filename;
-  std::system(s.str().c_str());
+  const int error {
+    std::system(s.str().c_str())
+  };
+  assert(!error);
   assert(is_regular_file(png_filename));
 }

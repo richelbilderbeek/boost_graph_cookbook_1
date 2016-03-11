@@ -12,8 +12,8 @@ bool has_dot() noexcept
 {
   std::stringstream cmd;
   cmd << "type dot > /dev/null";
-  const auto v = std::system(cmd.str().c_str());
-  const bool has_dot{v == 0};
+  const auto error = std::system(cmd.str().c_str());
+  const bool has_dot{error == 0};
   if (!has_dot) {
     std::cout << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
   }

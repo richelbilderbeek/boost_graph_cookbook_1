@@ -14,6 +14,9 @@ void convert_dot_to_svg(
   assert(is_valid_dot_file(dot_filename));
   std::stringstream cmd;
   cmd << "dot -Tsvg " << dot_filename << " -o " << svg_filename;
-  std::system(cmd.str().c_str());
+  const int error {
+    std::system(cmd.str().c_str())
+  };
+  assert(!error);
   assert(is_regular_file(svg_filename));
 }

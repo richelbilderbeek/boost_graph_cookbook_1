@@ -6,6 +6,9 @@ void show_dot(const std::string& filename)
 {
   std::stringstream cmd;
   cmd << "kgraphviewer " << filename;
-  std::system(cmd.str().c_str());
+  const int error {
+    std::system(cmd.str().c_str())
+  };
+  assert(!error);
 }
 
