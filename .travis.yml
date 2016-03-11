@@ -25,6 +25,7 @@ addons:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
 
 script: 
+ # There is a difference in versions
  - $CXX --version
  - g++ --version
  - qmake
