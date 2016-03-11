@@ -28,6 +28,6 @@ script:
  # There is a difference in versions
  - $CXX --version
  - g++ --version
- - qmake
+ - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - cat Makefile
  - make
