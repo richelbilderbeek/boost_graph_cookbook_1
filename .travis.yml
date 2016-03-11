@@ -1,13 +1,12 @@
-sudo: false
+sudo: true
 language: cpp
 
 compiler:
   - gcc
-  - clang
 
-install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
-  - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+before_install:
+  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
+  - sudo apt-get update -qq
 
 addons:
   apt:
@@ -20,11 +19,14 @@ addons:
     - g++-5
     - gcc-5
 
-script:
- - qmake BoostGraphTutorial/boost_graph_tutorial.pro
+#install:
+  # g++4.8.1
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+
+script: 
+ - $CXX --version
+ - g++ --version
+ - qmake
+ - cat Makefile
  - make
-
-
-
-
-
