@@ -1,0 +1,25 @@
+QT -= core
+QT -= gui
+CONFIG   += console
+CONFIG   -= app_bundle
+CONFIG += debug_and_release
+# CONFIG += c++11
+TEMPLATE = app
+
+# Use a new version
+QMAKE_CXX = g++-4.8
+QMAKE_CC = gcc-4.8
+
+QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror -std=c++11
+
+include(boost_graph_tutorial.pri)
+
+LIBS += \
+  -lboost_graph \
+  -lboost_regex
+
+SOURCES += main.cpp
+
+# gcov
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+LIBS += -lgcov

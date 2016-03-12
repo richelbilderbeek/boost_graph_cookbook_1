@@ -29,3 +29,14 @@ script:
  - g++ --version
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - make
+ - ./boost_graph_tutorial
+ # gcov
+ - qmake BoostGraphTutorial/boost_graph_tutorial_gcov.pro
+ - make
+ - ./boost_graph_tutorial
+ # Display gcov files
+ - for filename in `ls *.cpp`; do gcov $filename; done
+ - for filename in `ls *.h`; do gcov $filename; done
+ # Display gcov files
+ - for filename in `ls *.h.gcov`; do cat $filename; done
+ - for filename in `ls *.cpp.gcov`; do cat $filename; done
