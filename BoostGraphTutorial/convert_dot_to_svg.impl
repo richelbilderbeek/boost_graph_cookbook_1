@@ -17,6 +17,12 @@ void convert_dot_to_svg(
   const int error {
     std::system(cmd.str().c_str())
   };
+  if (error)
+  {
+    std::cerr << __func__ << ": command '"
+      << cmd.str() << "' resulting in error "
+      << error;
+  }
   assert(!error);
   assert(is_regular_file(svg_filename));
 }

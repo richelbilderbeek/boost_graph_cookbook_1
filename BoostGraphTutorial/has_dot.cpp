@@ -15,7 +15,7 @@ bool has_dot() noexcept
   const auto error = std::system(cmd.str().c_str());
   const bool has_dot{error == 0};
   if (!has_dot) {
-    std::cout << "Tip: type 'sudo apt get install graphviz' in the command line" << std::endl;
+    std::cout << "Tip: type 'sudo apt-get install graphviz' in the command line" << std::endl;
   }
   return has_dot;
 }
