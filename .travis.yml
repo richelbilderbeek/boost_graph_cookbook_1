@@ -28,6 +28,7 @@ script:
  # There is a difference in versions
  - $CXX --version
  - g++ --version
+ - type dot
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - make
  - ./boost_graph_tutorial

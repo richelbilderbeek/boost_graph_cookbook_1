@@ -41,8 +41,7 @@ graph create_direct_neighbour_custom_vertices_subgraph(
       const auto vd_to = target(*i, g);
       if (m.find(vd_from) == std::end(m)) continue;
       if (m.find(vd_to) == std::end(m)) continue;
-      const auto aer = boost::add_edge(m[vd_from],m[vd_to], h);
-      assert(aer.second);
+      boost::add_edge(m[vd_from],m[vd_to], h);
     }
   }
   return h;
