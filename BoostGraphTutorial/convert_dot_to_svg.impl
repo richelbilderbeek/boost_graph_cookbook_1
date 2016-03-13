@@ -1,5 +1,6 @@
 #include <cassert>
 #include <string>
+#include <iostream>
 #include <sstream>
 #include "has_dot.h"
 #include "is_regular_file.h"
