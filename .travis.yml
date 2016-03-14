@@ -4,30 +4,25 @@ language: cpp
 compiler:
   - gcc
 
+sudo: true
+
 before_install:
-  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
-  - sudo apt-get install graphviz
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo add-apt-repository -y ppa:lyx-devel/release
   - sudo apt-get update -qq
 
-addons:
-  apt:
-    sources:
-    - boost-latest
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.9
-    - g++-4.9
-    - libboost1.55-all-dev
+install: 
+  - sudo apt-get install -qq g++-5
+  - sudo apt-get install -qq lyx
+  - sudo apt-get install -qq texlive
+  - sudo apt-get install -qq graphviz
+  - sudo pip install codecov
 
-install:
-  # g++4.8.1
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+addons: 
+  apt: 
+    packages: libboost-all-dev
 
 script: 
- # There is a difference in versions
- - $CXX --version
- - g++ --version
  - type dot
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
  - make
@@ -42,3 +37,5 @@ script:
  # Display gcov files
  - for filename in `ls *.h.gcov`; do cat $filename; done
  - for filename in `ls *.cpp.gcov`; do cat $filename; done
+
+after_success: codecov
