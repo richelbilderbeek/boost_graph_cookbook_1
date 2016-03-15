@@ -1,21 +1,17 @@
 sudo: true
 language: cpp
-
-compiler:
-  - gcc
-
-sudo: true
+compiler: gcc
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo add-apt-repository -y ppa:lyx-devel/release
+#  - sudo add-apt-repository -y ppa:lyx-devel/release
   - sudo apt-get update -qq
 
 install: 
   - sudo apt-get install -qq g++-5
-  - sudo apt-get install -qq lyx
-  - sudo apt-get install -qq texlive
-  - sudo apt-get install -qq graphviz
+#  - sudo apt-get install -qq lyx
+#  - sudo apt-get install -qq texlive
+#  - sudo apt-get install -qq graphviz
   - sudo pip install codecov
 
 addons: 
