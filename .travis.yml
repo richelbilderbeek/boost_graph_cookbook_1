@@ -10,13 +10,11 @@ before_install:
 install: 
   - sudo apt-get install -qq g++-5
   - sudo apt-get install -qq graphviz
+  - sudo apt-get install -qq libboost-all-dev
 #  - sudo apt-get install -qq lyx
 #  - sudo apt-get install -qq texlive
   - sudo pip install codecov
 
-addons: 
-  apt: 
-    packages: libboost-all-dev
 
 script: 
  - type dot
