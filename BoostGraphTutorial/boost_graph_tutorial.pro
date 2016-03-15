@@ -3,7 +3,6 @@ QT -= gui
 CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG += debug_and_release
-# CONFIG += c++11
 TEMPLATE = app
 
 CONFIG(release, debug|release) {
