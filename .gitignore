@@ -34,3 +34,4 @@ Makefile
 BoostGraphTutorial.pro
 Makefile.Debug
 Makefile.Release
+.nfs*
