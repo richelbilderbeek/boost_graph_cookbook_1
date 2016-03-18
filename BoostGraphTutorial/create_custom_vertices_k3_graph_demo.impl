@@ -1,16 +1,16 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_k3_graph.h"
 #include "has_custom_vertex_with_my_vertex.h"
 
-void create_custom_vertices_k3_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_custom_vertices_k3_graph)
 {
   const auto g = create_custom_vertices_k3_graph();
-  assert(boost::num_edges(g) == 3);
-  assert(boost::num_vertices(g) == 3);
+  BOOST_CHECK(boost::num_edges(g) == 3);
+  BOOST_CHECK(boost::num_vertices(g) == 3);
   const my_custom_vertex a("Karen","red",0.0,0.0);
   const my_custom_vertex b("Kristel","black",1.1,1.1);
   const my_custom_vertex c("Kathleen","blond",2.2,2.2);
-  assert(has_custom_vertex_with_my_custom_vertex(a, g));
-  assert(has_custom_vertex_with_my_custom_vertex(b, g));
-  assert(has_custom_vertex_with_my_custom_vertex(c, g));
+  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(a, g));
+  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(b, g));
+  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(c, g));
 }

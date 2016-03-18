@@ -12,7 +12,4 @@ load_undirected_graph_from_dot(
   const std::string& dot_filename
 );
 
-void load_undirected_graph_from_dot_test() noexcept;
-
-
 #endif // LOAD_UNDIRECTED_GRAPH_FROM_DOT_H

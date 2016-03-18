@@ -2,8 +2,9 @@
 
 #include "save_named_vertices_graph_to_dot.h"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 #include <sstream>
 
 #include "copy_file.h"
@@ -108,7 +109,7 @@ create_tutorial_subchapters_graph() noexcept
 
 
 
-void create_tutorial_subchapters_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_tutorial_subchapters_graph_thorough)
 {
   {
     const auto g = create_tutorial_subchapters_graph();
@@ -116,7 +117,7 @@ void create_tutorial_subchapters_graph_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g,dot_filename);
-    assert(is_valid_dot_file(dot_filename));
+    BOOST_CHECK(is_valid_dot_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
     copy_file(
       dot_filename,

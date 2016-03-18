@@ -1,10 +1,10 @@
 #include "create_bundled_edges_and_vertices_k3_graph.h"
-
 #include "create_bundled_edges_and_vertices_k3_graph.impl"
 #include "create_bundled_edges_and_vertices_k3_graph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
@@ -14,12 +14,12 @@
 #include "copy_file.h"
 
 
-void create_bundled_edges_and_vertices_k3_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_bundled_edges_and_vertices_k3_graph_thorough)
 {
   {
     auto g = create_bundled_edges_and_vertices_k3_graph();
-    assert(boost::num_edges(g) == 3);
-    assert(boost::num_vertices(g) == 3);
+    BOOST_CHECK(boost::num_edges(g) == 3);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
   }
   //Create the .dot and .svg of the 'create_bundled_edges_and_vertices_k3_graph' chapter
   {
@@ -40,6 +40,4 @@ void create_bundled_edges_and_vertices_k3_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_bundled_edges_and_vertices_k3_graph_demo();
-  
 }

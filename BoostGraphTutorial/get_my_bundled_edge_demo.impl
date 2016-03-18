@@ -1,12 +1,11 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
 #include "find_first_bundled_edge_with_my_edge.h"
 #include "get_my_bundled_edge.h"
 
-void get_my_bundled_edge_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_my_bundled_edge)
 {
   auto g
     = create_empty_undirected_bundled_edges_and_vertices_graph();
@@ -20,5 +19,5 @@ void get_my_bundled_edge_demo() noexcept
   add_bundled_edge(vd_a, vd_b, edge, g);
   const auto ed
     = find_first_bundled_edge_with_my_edge(edge, g);
-  assert(get_my_bundled_edge(ed,g) == edge);
+  BOOST_CHECK(get_my_bundled_edge(ed,g) == edge);
 }

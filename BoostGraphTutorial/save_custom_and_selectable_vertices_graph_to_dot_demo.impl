@@ -1,15 +1,14 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_custom_and_selectable_vertices_graph.h"
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
 #include "is_regular_file.h"
 
-void save_custom_and_selectable_vertices_graph_to_dot_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_save_custom_and_selectable_vertices_graph_to_dot)
 {
   const auto g = create_empty_directed_custom_and_selectable_vertices_graph();
   const std::string filename{
     "save_custom_and_selectable_vertices_graph_to_dot.dot"
   };
   save_custom_and_selectable_vertices_graph_to_dot(g, filename);
-  assert(is_regular_file(filename));
+  BOOST_CHECK(is_regular_file(filename));
 }

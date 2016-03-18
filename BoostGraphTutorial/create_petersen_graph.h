@@ -10,6 +10,4 @@ boost::adjacency_list<
 >
 create_petersen_graph() noexcept;
 
-void create_petersen_graph_test() noexcept;
-
 #endif // CREATE_PETERSEN_GRAPH_H

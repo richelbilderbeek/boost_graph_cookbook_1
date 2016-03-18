@@ -1,8 +1,8 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "get_my_custom_edges.h"
 
-void get_my_custom_edges_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_my_custom_edges)
 {
   const auto g
     = create_custom_edges_and_vertices_k3_graph();
@@ -15,5 +15,5 @@ void get_my_custom_edges_demo() noexcept
   const std::vector<my_custom_edge> edges{
     get_my_custom_edges(g)
   };
-  assert(expected_my_edges == edges);
+  BOOST_CHECK(expected_my_edges == edges);
 }

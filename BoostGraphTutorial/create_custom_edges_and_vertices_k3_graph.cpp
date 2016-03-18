@@ -1,11 +1,11 @@
 #include "create_custom_edges_and_vertices_k3_graph.h"
-
 #include "create_custom_edges_and_vertices_k3_graph.impl"
-
 #include "create_custom_edges_and_vertices_k3_graph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 
 #include "add_custom_edge.h"
@@ -15,18 +15,18 @@
 #include "copy_file.h"
 
 
-void create_custom_edges_and_vertices_k3_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_custom_edges_and_vertices_k3_graph_thorough)
 {
   {
     auto g = create_custom_edges_and_vertices_k3_graph();
-    assert(boost::num_edges(g) == 3);
-    assert(boost::num_vertices(g) == 3);
+    BOOST_CHECK(boost::num_edges(g) == 3);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
     add_custom_vertex(my_custom_vertex("v"), g);
-    assert(boost::num_edges(g) == 3);
-    assert(boost::num_vertices(g) == 4);
+    BOOST_CHECK(boost::num_edges(g) == 3);
+    BOOST_CHECK(boost::num_vertices(g) == 4);
     add_custom_edge(my_custom_edge("e"), g);
-    assert(boost::num_edges(g) == 4);
-    assert(boost::num_vertices(g) == 6);
+    BOOST_CHECK(boost::num_edges(g) == 4);
+    BOOST_CHECK(boost::num_vertices(g) == 6);
   }
   //Create the .dot and .svg of the 'create_custom_edges_and_vertices_k3_graph' chapter
   {
@@ -47,6 +47,4 @@ void create_custom_edges_and_vertices_k3_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_custom_edges_and_vertices_k3_graph_demo();
-  
 }

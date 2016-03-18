@@ -23,21 +23,15 @@ create_petersen_graph() noexcept
   }
   //Outer ring
   for (int i=0; i!=5; ++i) {
-    const auto aer
-      = boost::add_edge(v[i], v[(i + 1) % 5], g);
-    assert(aer.second);
+    boost::add_edge(v[i], v[(i + 1) % 5], g);
   }
   //Spoke
   for (int i=0; i!=5; ++i) {
-    const auto aer
-      = boost::add_edge(v[i], w[i], g);
-    assert(aer.second);
+    boost::add_edge(v[i], w[i], g);
   }
   //Inner pentagram
   for (int i=0; i!=5; ++i) {
-    const auto aer
-      = boost::add_edge(w[i], w[(i + 2) % 5], g);
-    assert(aer.second);
+    boost::add_edge(w[i], w[(i + 2) % 5], g);
   }
   return g;
 }

@@ -3,6 +3,4 @@
 
 #include "count_directed_graph_connected_components.impl"
 
-void count_directed_graph_connected_components_test() noexcept;
-
 #endif // COUNT_DIRECTED_GRAPH_CONNECTED_COMPONENTS_H

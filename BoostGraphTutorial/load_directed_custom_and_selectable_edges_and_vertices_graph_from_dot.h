@@ -3,6 +3,4 @@
 
 #include "load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.impl"
 
-void load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_test() noexcept;
-
 #endif // LOAD_DIRECTED_CUSTOM_AND_SELECTABLE_EDGES_AND_VERTICES_GRAPH_FROM_DOT_H

@@ -13,11 +13,8 @@ create_k3_graph() noexcept
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto vd_c = boost::add_vertex(g);
-  const auto aer_a = boost::add_edge(vd_a, vd_b, g);
-  assert(aer_a.second);
-  const auto aer_b = boost::add_edge(vd_b, vd_c, g);
-  assert(aer_b.second);
-  const auto aer_c = boost::add_edge(vd_c, vd_a, g);
-  assert(aer_c.second);
+  boost::add_edge(vd_a, vd_b, g);
+  boost::add_edge(vd_b, vd_c, g);
+  boost::add_edge(vd_c, vd_a, g);
   return g;
 }

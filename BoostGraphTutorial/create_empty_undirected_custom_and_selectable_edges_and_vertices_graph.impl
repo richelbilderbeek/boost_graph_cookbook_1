@@ -1,3 +1,4 @@
+#include <boost/test/unit_test.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
 #include "install_edge_is_selected.h"

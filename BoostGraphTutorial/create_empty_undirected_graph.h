@@ -11,6 +11,4 @@ boost::adjacency_list<
 >
 create_empty_undirected_graph() noexcept;
 
-void create_empty_undirected_graph_test() noexcept;
-
 #endif // CREATE_EMPTY_UNDIRECTED_GRAPH_H

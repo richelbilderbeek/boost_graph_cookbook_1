@@ -1,15 +1,15 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "get_vertex_iterators.h"
 
-void get_vertex_iterators_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_vertex_iterators)
 {
   const auto g = create_empty_undirected_graph();
   const auto vip_g = get_vertex_iterators(g);
-  assert(vip_g.first == vip_g.second);
+  BOOST_CHECK(vip_g.first == vip_g.second);
 
   const auto h = create_empty_directed_graph();
   const auto vip_h = get_vertex_iterators(h);
-  assert(vip_h.first == vip_h.second);
+  BOOST_CHECK(vip_h.first == vip_h.second);
 }

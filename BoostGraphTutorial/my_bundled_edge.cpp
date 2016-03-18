@@ -1,8 +1,10 @@
 #include "my_bundled_edge.h"
+//#include "my_bundled_edge_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include <sstream>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 
 my_bundled_edge::my_bundled_edge(
@@ -17,11 +19,6 @@ my_bundled_edge::my_bundled_edge(
     m_height{height}
 {
 
-}
-
-void my_bundled_edge_test() noexcept
-{
-  
 }
 
 bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept

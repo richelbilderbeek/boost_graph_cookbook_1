@@ -1,20 +1,16 @@
 #include "has_edge_with_my_edge.h"
-
 #include "has_edge_with_my_edge_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
 
 #include "add_custom_edge.h"
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 
-void has_edge_with_my_edge_test() noexcept
+BOOST_AUTO_TEST_CASE(has_edge_with_my_edge_thorough)
 {
   auto g = create_empty_undirected_custom_edges_and_vertices_graph();
-  assert(!has_edge_with_my_edge(my_custom_edge("Felix"),g));
+  BOOST_CHECK(!has_edge_with_my_edge(my_custom_edge("Felix"),g));
   add_custom_edge(my_custom_edge("Felix"),g);
-  assert(has_edge_with_my_edge(my_custom_edge("Felix"),g));
-
-  has_edge_with_my_edge_demo();
-
+  BOOST_CHECK(has_edge_with_my_edge(my_custom_edge("Felix"),g));
 }

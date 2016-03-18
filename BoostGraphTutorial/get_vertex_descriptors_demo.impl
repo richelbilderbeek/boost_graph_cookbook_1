@@ -1,14 +1,15 @@
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "get_vertex_descriptors.h"
 
-void get_vertex_descriptors_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_vertex_descriptors)
 {
   const auto g = create_empty_undirected_graph();
   const auto vds_g = get_vertex_descriptors(g);
-  assert(vds_g.empty());
+  BOOST_CHECK(vds_g.empty());
 
   const auto h = create_empty_directed_graph();
   const auto vds_h = get_vertex_descriptors(h);
-  assert(vds_h.empty());
+  BOOST_CHECK(vds_h.empty());
 }

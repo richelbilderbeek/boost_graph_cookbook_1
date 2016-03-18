@@ -13,7 +13,4 @@ boost::adjacency_list<
 >
 create_markov_chain_with_graph_name() noexcept;
 
-void create_markov_chain_with_graph_name_test() noexcept;
-
-
 #endif // CREATE_MARKOV_CHAIN_WITH_GRAPH_NAME_H

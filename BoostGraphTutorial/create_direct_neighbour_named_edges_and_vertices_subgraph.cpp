@@ -1,8 +1,9 @@
 #include "create_direct_neighbour_named_edges_and_vertices_subgraph.h"
 #include "create_direct_neighbour_named_edges_and_vertices_subgraph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_named_edges_and_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
@@ -12,7 +13,7 @@
 #include "get_vertex_name.h"
 #include "get_vertex_names.h"
 
-void create_direct_neighbour_named_edges_and_vertices_subgraph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_direct_neighbour_named_edges_and_vertices_subgraph_though)
 {
   //K2
   {
@@ -23,15 +24,15 @@ void create_direct_neighbour_named_edges_and_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_named_edges_and_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 2);
-      assert(boost::num_edges(h) == 1);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
       const auto vertex_names = get_vertex_names(h);
       std::set<std::string> vertex_names_set(std::begin(vertex_names),std::end(vertex_names));
-      assert(vertex_names_set.count("x") == 1);
-      assert(vertex_names_set.count("y") == 1);
+      BOOST_CHECK(vertex_names_set.count("x") == 1);
+      BOOST_CHECK(vertex_names_set.count("y") == 1);
       const auto edge_names = get_edge_names(h);
       std::set<std::string> edge_names_set(std::begin(edge_names),std::end(edge_names));
-      assert(edge_names_set.count("between") == 1);
+      BOOST_CHECK(edge_names_set.count("between") == 1);
     }
   }
   //K3
@@ -43,18 +44,18 @@ void create_direct_neighbour_named_edges_and_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_named_edges_and_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 3);
-      assert(boost::num_edges(h) == 3);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
       const auto vertex_names = get_vertex_names(h);
       std::set<std::string> vertex_names_set(std::begin(vertex_names),std::end(vertex_names));
-      assert(vertex_names_set.count("top") == 1);
-      assert(vertex_names_set.count("right") == 1);
-      assert(vertex_names_set.count("left") == 1);
+      BOOST_CHECK(vertex_names_set.count("top") == 1);
+      BOOST_CHECK(vertex_names_set.count("right") == 1);
+      BOOST_CHECK(vertex_names_set.count("left") == 1);
       const auto edge_names = get_edge_names(h);
       std::set<std::string> edge_names_set(std::begin(edge_names),std::end(edge_names));
-      assert(edge_names_set.count("AB") == 1);
-      assert(edge_names_set.count("BC") == 1);
-      assert(edge_names_set.count("CA") == 1);
+      BOOST_CHECK(edge_names_set.count("AB") == 1);
+      BOOST_CHECK(edge_names_set.count("BC") == 1);
+      BOOST_CHECK(edge_names_set.count("CA") == 1);
     }
   }
   //Path graph
@@ -72,42 +73,40 @@ void create_direct_neighbour_named_edges_and_vertices_subgraph_test() noexcept
         *i,g
       );
       if (get_vertex_name(*i, g) == "A") {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto vertex_names = get_vertex_names(h);
         std::set<std::string> vertex_names_set(std::begin(vertex_names),std::end(vertex_names));
-        assert(vertex_names_set.count("A") == 1);
-        assert(vertex_names_set.count("B") == 1);
+        BOOST_CHECK(vertex_names_set.count("A") == 1);
+        BOOST_CHECK(vertex_names_set.count("B") == 1);
         const auto edge_names = get_edge_names(h);
         std::set<std::string> edge_names_set(std::begin(edge_names),std::end(edge_names));
-        assert(edge_names_set.count("1") == 1);
+        BOOST_CHECK(edge_names_set.count("1") == 1);
       }
       if (get_vertex_name(*i, g) == "B") {
-        assert(boost::num_vertices(h) == 3);
-        assert(boost::num_edges(h) == 2);
+        BOOST_CHECK(boost::num_vertices(h) == 3);
+        BOOST_CHECK(boost::num_edges(h) == 2);
         const auto vertex_names = get_vertex_names(h);
         std::set<std::string> vertex_names_set(std::begin(vertex_names),std::end(vertex_names));
-        assert(vertex_names_set.count("A") == 1);
-        assert(vertex_names_set.count("B") == 1);
-        assert(vertex_names_set.count("C") == 1);
+        BOOST_CHECK(vertex_names_set.count("A") == 1);
+        BOOST_CHECK(vertex_names_set.count("B") == 1);
+        BOOST_CHECK(vertex_names_set.count("C") == 1);
         const auto edge_names = get_edge_names(h);
         std::set<std::string> edge_names_set(std::begin(edge_names),std::end(edge_names));
-        assert(edge_names_set.count("1") == 1);
-        assert(edge_names_set.count("2") == 1);
+        BOOST_CHECK(edge_names_set.count("1") == 1);
+        BOOST_CHECK(edge_names_set.count("2") == 1);
       }
       if (get_vertex_name(*i, g) == "C") {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto vertex_names = get_vertex_names(h);
         std::set<std::string> vertex_names_set(std::begin(vertex_names),std::end(vertex_names));
-        assert(vertex_names_set.count("B") == 1);
-        assert(vertex_names_set.count("C") == 1);
+        BOOST_CHECK(vertex_names_set.count("B") == 1);
+        BOOST_CHECK(vertex_names_set.count("C") == 1);
         const auto edge_names = get_edge_names(h);
         std::set<std::string> edge_names_set(std::begin(edge_names),std::end(edge_names));
-        assert(edge_names_set.count("2") == 1);
+        BOOST_CHECK(edge_names_set.count("2") == 1);
       }
     }
   }
-
-  create_direct_neighbour_named_edges_and_vertices_subgraph_demo();
 }

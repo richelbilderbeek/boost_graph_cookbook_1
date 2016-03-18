@@ -9,7 +9,4 @@ std::vector<std::string> seperate_string(
   const char seperator
 ) noexcept;
 
-void seperate_string_test() noexcept;
-
-
 #endif // SEPERATE_STRING_H

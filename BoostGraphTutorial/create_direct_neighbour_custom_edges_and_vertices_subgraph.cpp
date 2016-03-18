@@ -1,8 +1,9 @@
 #include "create_direct_neighbour_custom_edges_and_vertices_subgraph.h"
 #include "create_direct_neighbour_custom_edges_and_vertices_subgraph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_custom_edges_and_vertices_k2_graph.h"
 #include "create_custom_edges_and_vertices_k3_graph.h"
@@ -12,7 +13,7 @@
 #include "get_my_custom_vertexes.h"
 #include "get_my_custom_edges.h"
 
-void create_direct_neighbour_custom_edges_and_vertices_subgraph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_direct_neighbour_custom_edges_and_vertices_subgraph_thorough)
 {
   //K2
   {
@@ -23,14 +24,14 @@ void create_direct_neighbour_custom_edges_and_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_custom_edges_and_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 2);
-      assert(boost::num_edges(h) == 1);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
       const auto v = get_my_custom_vertexes(h);
       std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
       const my_custom_vertex a("A","source",0.0,0.0);
       const my_custom_vertex b("B","target",3.14,3.14);
-      assert(vertexes.count(a) == 1);
-      assert(vertexes.count(b) == 1);
+      BOOST_CHECK(vertexes.count(a) == 1);
+      BOOST_CHECK(vertexes.count(b) == 1);
     }
   }
   //K3
@@ -42,8 +43,8 @@ void create_direct_neighbour_custom_edges_and_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_custom_edges_and_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 3);
-      assert(boost::num_edges(h) == 3);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
       const auto v = get_my_custom_vertexes(h);
       std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
       const auto e = get_my_custom_edges(h);
@@ -54,12 +55,12 @@ void create_direct_neighbour_custom_edges_and_vertices_subgraph_test() noexcept
       const my_custom_edge ea("AB","first",0.0,0.0);
       const my_custom_edge eb("BC","second",3.14,3.14);
       const my_custom_edge ec("CA","third",3.14,3.14);
-      assert(vertexes.count(va) == 1);
-      assert(vertexes.count(vb) == 1);
-      assert(vertexes.count(vc) == 1);
-      assert(edges.count(ea) == 1);
-      assert(edges.count(eb) == 1);
-      assert(edges.count(ec) == 1);
+      BOOST_CHECK(vertexes.count(va) == 1);
+      BOOST_CHECK(vertexes.count(vb) == 1);
+      BOOST_CHECK(vertexes.count(vc) == 1);
+      BOOST_CHECK(edges.count(ea) == 1);
+      BOOST_CHECK(edges.count(eb) == 1);
+      BOOST_CHECK(edges.count(ec) == 1);
     }
   }
   //Path graph
@@ -81,32 +82,30 @@ void create_direct_neighbour_custom_edges_and_vertices_subgraph_test() noexcept
       );
 
       if (get_my_custom_vertex(*i, g) == a) {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_my_custom_vertexes(h);
         std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
-        assert(vertexes.count(a) == 1);
-        assert(vertexes.count(b) == 1);
+        BOOST_CHECK(vertexes.count(a) == 1);
+        BOOST_CHECK(vertexes.count(b) == 1);
       }
       if (get_my_custom_vertex(*i, g) == b) {
-        assert(boost::num_vertices(h) == 3);
-        assert(boost::num_edges(h) == 2);
+        BOOST_CHECK(boost::num_vertices(h) == 3);
+        BOOST_CHECK(boost::num_edges(h) == 2);
         const auto v = get_my_custom_vertexes(h);
         std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
-        assert(vertexes.count(a) == 1);
-        assert(vertexes.count(b) == 1);
-        assert(vertexes.count(c) == 1);
+        BOOST_CHECK(vertexes.count(a) == 1);
+        BOOST_CHECK(vertexes.count(b) == 1);
+        BOOST_CHECK(vertexes.count(c) == 1);
       }
       if (get_my_custom_vertex(*i, g) == c) {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_my_custom_vertexes(h);
         std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
-        assert(vertexes.count(b) == 1);
-        assert(vertexes.count(c) == 1);
+        BOOST_CHECK(vertexes.count(b) == 1);
+        BOOST_CHECK(vertexes.count(c) == 1);
       }
     }
   }
-
-  create_direct_neighbour_custom_edges_and_vertices_subgraph_demo();
 }

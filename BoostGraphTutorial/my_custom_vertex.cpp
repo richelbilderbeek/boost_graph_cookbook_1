@@ -1,7 +1,8 @@
 #include "my_custom_vertex.h"
+//#include "my_custom_vertex_demo.impl"
 
-#include <iostream>
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include <sstream>
 #include <boost/lexical_cast.hpp>
 #include "helper.h"
@@ -20,12 +21,12 @@ my_custom_vertex::my_custom_vertex(
   m_x{x},
   m_y{y}
 {
-  assert(
+  BOOST_CHECK(
     graphviz_decode(
       graphviz_encode(m_name)
     ) == m_name
   );
-  assert(
+  BOOST_CHECK(
     graphviz_decode(
       graphviz_encode(m_description)
     ) == m_description
@@ -52,7 +53,7 @@ double my_custom_vertex::get_y() const noexcept
   return m_x;
 }
 
-void my_custom_vertex_test() noexcept
+BOOST_AUTO_TEST_CASE(my_custom_vertex_thorough)
 {
   //Conversion to string
   {
@@ -60,8 +61,8 @@ void my_custom_vertex_test() noexcept
     std::stringstream s;
     s << in;
     const std::string t{s.str()};
-    assert(t.find(' ') == std::string::npos);
-    assert(std::count(std::begin(t),std::end(t),',') == 3);
+    BOOST_CHECK(t.find(' ') == std::string::npos);
+    BOOST_CHECK(std::count(std::begin(t),std::end(t),',') == 3);
   }
   //Conversion to stream and back
   {
@@ -70,7 +71,7 @@ void my_custom_vertex_test() noexcept
     s << in;
     my_custom_vertex out;
     s >> out;
-    assert(in == out);
+    BOOST_CHECK(in == out);
   }
   //Conversion of two my_custom_vertex-es to stream and back
   {
@@ -81,8 +82,8 @@ void my_custom_vertex_test() noexcept
     my_custom_vertex c;
     my_custom_vertex d;
     s >> c >> d;
-    assert(a == c);
-    assert(b == d);
+    BOOST_CHECK(a == c);
+    BOOST_CHECK(b == d);
   }
   
 }
@@ -131,9 +132,9 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
 {
   std::string line;
   is >> line;
-  assert(line != "0");
+  BOOST_CHECK(line != "0");
   const auto w = seperate_string(line,',');
-  assert(w.size() == 4);
+  BOOST_CHECK(w.size() == 4);
   my_custom_vertex new_vertex(
     graphviz_decode(w[0]),
     graphviz_decode(w[1]),

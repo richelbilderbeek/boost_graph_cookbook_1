@@ -17,7 +17,4 @@ load_undirected_graph_with_graph_name_from_dot(
   const std::string& dot_filename
 );
 
-void load_undirected_graph_with_graph_name_from_dot_test() noexcept;
-
-
 #endif // LOAD_UNDIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H

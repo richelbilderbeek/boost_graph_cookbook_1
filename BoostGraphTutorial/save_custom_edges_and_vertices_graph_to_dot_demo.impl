@@ -1,7 +1,8 @@
+#include <boost/test/unit_test.hpp>
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
 
-void save_custom_edges_and_vertices_graph_to_dot_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_save_custom_edges_and_vertices_graph_to_dot)
 {
   const auto g
     = create_custom_edges_and_vertices_k3_graph();

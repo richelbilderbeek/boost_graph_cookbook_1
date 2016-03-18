@@ -1,8 +1,8 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_bundled_edges_and_vertices_k3_graph.h"
 #include "get_my_bundled_edges.h"
 
-void get_my_bundled_edges_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_my_bundled_edges)
 {
   const auto g
     = create_bundled_edges_and_vertices_k3_graph();
@@ -15,5 +15,5 @@ void get_my_bundled_edges_demo() noexcept
   const std::vector<my_bundled_edge> edges{
     get_my_bundled_edges(g)
   };
-  assert(expected_my_edges == edges);
+  BOOST_CHECK(expected_my_edges == edges);
 }

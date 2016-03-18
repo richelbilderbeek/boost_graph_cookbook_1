@@ -14,8 +14,7 @@ create_path_graph(const int n_vertices) noexcept
   for (int i=1; i!=n_vertices; ++i)
   {
     auto vd_2 = boost::add_vertex(g);
-    const auto aer = boost::add_edge(vd_1, vd_2, g);
-    assert(aer.second);
+    boost::add_edge(vd_1, vd_2, g);
     vd_1 = vd_2;
   }
   return g;

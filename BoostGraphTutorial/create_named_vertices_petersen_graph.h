@@ -13,6 +13,4 @@ boost::adjacency_list<
 >
 create_named_vertices_petersen_graph() noexcept;
 
-void create_named_vertices_petersen_graph_test() noexcept;
-
 #endif // CREATE_NAMED_VERTICES_PETERSEN_GRAPH_H

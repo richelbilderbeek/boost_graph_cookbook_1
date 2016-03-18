@@ -1,9 +1,8 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_named_vertices_k2_graph.h"
 #include "find_first_vertex_with_name.h"
 
-void find_first_vertex_with_name_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_find_first_vertex_with_name)
 {
   const auto g
     = create_named_vertices_k2_graph();
@@ -11,9 +10,9 @@ void find_first_vertex_with_name_demo() noexcept
     = find_first_vertex_with_name(
       "My computer", g
     );
-  assert(
+  BOOST_CHECK(
     out_degree(vd,g) == 1 
   );
-  assert(in_degree(vd,g) == 1); 
+  BOOST_CHECK(in_degree(vd,g) == 1);
 }
 

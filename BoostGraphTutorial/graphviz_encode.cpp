@@ -2,11 +2,11 @@
 
 #include "graphviz_encode.impl"
 
-#include <iostream>
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "graphviz_decode.h"
 
-void graphviz_encode_test() noexcept
+BOOST_AUTO_TEST_CASE(graphviz_encode_thorough)
 {
   //Graphviz encoding
   {
@@ -22,7 +22,7 @@ void graphviz_encode_test() noexcept
     {
       const auto t = graphviz_encode(s);
       const auto u = graphviz_decode(t);
-      assert(s == u);
+      BOOST_CHECK(s == u);
     }
   }
   

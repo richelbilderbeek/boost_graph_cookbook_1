@@ -1,22 +1,22 @@
 #include "create_petersen_graph.h"
-
 #include "create_petersen_graph.impl"
 #include "create_petersen_graph_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 #include "create_empty_undirected_graph.h"
 #include "is_regular_file.h"
 #include "save_graph_to_dot.h"
 
-void create_petersen_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_petersen_graph_thorough)
 {
   //Basic tests
   {
     const auto g = create_petersen_graph();
-    assert(boost::num_edges(g) == 15);
-    assert(boost::num_vertices(g) == 10);
+    BOOST_CHECK(boost::num_edges(g) == 15);
+    BOOST_CHECK(boost::num_vertices(g) == 10);
   }
   //Create the .dot and .svg of the 'create_k3_graph' chapter
   {
@@ -26,9 +26,9 @@ void create_petersen_graph_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
+    BOOST_CHECK(is_regular_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
-    assert(is_regular_file(svg_filename));
+    BOOST_CHECK(is_regular_file(svg_filename));
     copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,

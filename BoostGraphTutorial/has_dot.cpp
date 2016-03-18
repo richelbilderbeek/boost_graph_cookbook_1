@@ -1,6 +1,7 @@
 #include "has_dot.h"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include <iostream>
 #include <sstream>
 

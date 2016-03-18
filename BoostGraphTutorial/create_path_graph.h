@@ -10,7 +10,4 @@ boost::adjacency_list<
 >
 create_path_graph(const int n_vertices) noexcept;
 
-void create_path_graph_test() noexcept;
-
-
 #endif // CREATE_PATH_GRAPH_H

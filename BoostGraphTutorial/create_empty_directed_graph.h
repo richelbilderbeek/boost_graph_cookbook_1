@@ -5,6 +5,4 @@
 
 boost::adjacency_list<> create_empty_directed_graph() noexcept;
 
-void create_empty_directed_graph_test() noexcept;
-
 #endif // CREATE_EMPTY_DIRECTED_GRAPH_H

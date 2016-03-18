@@ -1,11 +1,11 @@
 #include "create_bundled_edges_and_vertices_markov_chain.h"
-
 #include "create_bundled_edges_and_vertices_markov_chain.impl"
-
 #include "create_bundled_edges_and_vertices_markov_chain_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 
@@ -23,30 +23,30 @@
 
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
 
-void create_bundled_edges_and_vertices_markov_chain_test() noexcept
+BOOST_AUTO_TEST_CASE(create_bundled_edges_and_vertices_markov_chain_thorough)
 {
   //Basic tests
   {
     const auto g = create_bundled_edges_and_vertices_markov_chain();
-    assert(boost::num_vertices(g) == 2);
-    assert(boost::num_edges(g) == 4);
-    assert(boost::num_vertices(g) == 2);
-    assert(boost::num_edges(g) == 4);
+    BOOST_CHECK(boost::num_vertices(g) == 2);
+    BOOST_CHECK(boost::num_edges(g) == 4);
+    BOOST_CHECK(boost::num_vertices(g) == 2);
+    BOOST_CHECK(boost::num_edges(g) == 4);
     const auto vip = get_vertex_iterators(g);
-    assert(vip.first != vip.second);
+    BOOST_CHECK(vip.first != vip.second);
     const auto vds = get_vertex_descriptors(g);
-    assert(vds.size() == 2);
+    BOOST_CHECK(vds.size() == 2);
     const auto eip = get_edge_iterators(g);
-    assert(eip.first != eip.second);
+    BOOST_CHECK(eip.first != eip.second);
     const auto eds = get_edge_descriptors(g);
-    assert(eds.size() == 4);
+    BOOST_CHECK(eds.size() == 4);
     const std::vector<my_bundled_vertex> vertex_my_bundled_vertexes{
       get_my_bundled_vertexes(g)   };
     const std::vector<my_bundled_vertex> expected_my_bundled_vertexes{
       my_bundled_vertex("Stable","Right",1.0,2.0),
       my_bundled_vertex("Not unstable","Not left",3.0,4.0)
     };
-    assert(expected_my_bundled_vertexes == vertex_my_bundled_vertexes);
+    BOOST_CHECK(expected_my_bundled_vertexes == vertex_my_bundled_vertexes);
 
     const std::vector<my_bundled_edge> edge_my_edges{
       get_my_bundled_edges(g)
@@ -57,7 +57,7 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
       my_bundled_edge("Yellow cold","Heat",5.0,6.0),
       my_bundled_edge("Green cold","Stay cool",7.0,8.0)
     };
-    assert(edge_my_edges == expected_my_edges);
+    BOOST_CHECK(edge_my_edges == expected_my_edges);
 
   }
   //Create the .dot and .svg of the 'create_bundled_edges_and_vertices_markov_chain' chapter
@@ -79,7 +79,4 @@ void create_bundled_edges_and_vertices_markov_chain_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-
-  create_bundled_edges_and_vertices_markov_chain_demo();
-  
 }

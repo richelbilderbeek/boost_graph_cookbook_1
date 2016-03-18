@@ -13,7 +13,4 @@ boost::adjacency_list<
 >
 create_k2_graph_with_graph_name() noexcept;
 
-void create_k2_graph_with_graph_name_test() noexcept;
-
-
 #endif // CREATE_K2_GRAPH_WITH_GRAPH_NAME_H

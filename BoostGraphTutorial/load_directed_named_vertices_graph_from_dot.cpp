@@ -1,19 +1,17 @@
 #include "load_directed_named_vertices_graph_from_dot.h"
-
 #include "load_directed_named_vertices_graph_from_dot.impl"
-
 #include "load_directed_named_vertices_graph_from_dot_demo.impl"
 
+#include <boost/test/unit_test.hpp>
 #include "copy_file.h"
-#include <iostream>
-
 #include "create_named_vertices_markov_chain.h"
 #include "convert_dot_to_svg.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "helper.h"
 #include "create_nasty_directed_named_vertices_graph.h"
 #include "get_sorted_vertex_names.h"
-void load_directed_named_vertices_graph_from_dot_test() noexcept
+
+BOOST_AUTO_TEST_CASE(load_directed_named_vertices_graph_from_dot_thorough)
 {
   //Basic
   {
@@ -22,7 +20,7 @@ void load_directed_named_vertices_graph_from_dot_test() noexcept
     save_named_vertices_graph_to_dot(g, dot_filename);
     const auto h = load_directed_named_vertices_graph_from_dot(dot_filename);
     save_named_vertices_graph_to_dot(h, dot_filename);
-    assert(get_vertex_names(g) == get_vertex_names(h));
+    BOOST_CHECK(get_vertex_names(g) == get_vertex_names(h));
   }
   //Nasty
   {
@@ -31,8 +29,7 @@ void load_directed_named_vertices_graph_from_dot_test() noexcept
     save_named_vertices_graph_to_dot(g, dot_filename);
     const auto h = load_directed_named_vertices_graph_from_dot(dot_filename);
     save_named_vertices_graph_to_dot(h, dot_filename);
-    assert(get_sorted_vertex_names(g) == get_sorted_vertex_names(h));
+    BOOST_CHECK(get_sorted_vertex_names(g) == get_sorted_vertex_names(h));
   }
-  load_directed_named_vertices_graph_from_dot_demo();
   
 }

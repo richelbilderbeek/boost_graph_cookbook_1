@@ -11,8 +11,4 @@ boost::adjacency_list<
 >
 create_nasty_directed_named_vertices_graph() noexcept;
 
-void create_nasty_directed_named_vertices_graph_test() noexcept;
-
-
-
 #endif // CREATE_NASTY_DIRECTED_NAMED_VERTICES_GRAPH_H

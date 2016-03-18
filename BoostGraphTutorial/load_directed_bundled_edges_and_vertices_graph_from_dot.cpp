@@ -1,10 +1,9 @@
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot.h"
-
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot.impl"
-
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl"
 
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
 #include <set>
 #include "add_bundled_edge.h"
 #include "convert_dot_to_svg.h"
@@ -12,12 +11,13 @@
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
 #include "create_bundled_edges_and_vertices_markov_chain.h"
 #include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
+#include "get_my_bundled_vertexes.h"
 #include "get_sorted_bundled_edge_my_edges.h"
 #include "helper.h"
 #include "my_bundled_vertex.h"
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
 
-void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(load_directed_bundled_edges_and_vertices_graph_from_dot_thorough)
 {
   //Basic tests: empty graph
   {
@@ -27,9 +27,9 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     };
     save_bundled_edges_and_vertices_graph_to_dot(g, filename);
     const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(filename);
-    assert(boost::num_edges(g) == boost::num_edges(h));
-    assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_my_bundled_edges(g) == get_my_bundled_edges(h));
+    BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
+    BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
+    BOOST_CHECK(get_my_bundled_edges(g) == get_my_bundled_edges(h));
   }
   //Basic tests: nasty graph
   {
@@ -45,9 +45,9 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
     save_bundled_edges_and_vertices_graph_to_dot(g, dot_filename);
     const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(dot_filename);
-    assert(boost::num_edges(g) == boost::num_edges(h));
-    assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_my_bundled_vertexes(g) == get_my_bundled_vertexes(h));
+    BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
+    BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
+    BOOST_CHECK(get_my_bundled_vertexes(g) == get_my_bundled_vertexes(h));
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(
       svg_filename,
@@ -71,14 +71,12 @@ void load_directed_bundled_edges_and_vertices_graph_from_dot_test() noexcept
       };
       save_bundled_edges_and_vertices_graph_to_dot(g, filename);
       const auto h = load_directed_bundled_edges_and_vertices_graph_from_dot(filename);
-      assert(!"Should not get here");
+      BOOST_CHECK(!"Should not get here");
     }
     catch (std::exception& e)
     {
-      assert(std::string(e.what())
+      BOOST_CHECK(std::string(e.what())
         == "read_graphviz: Tried to read an undirected graph into a directed graph.");
     }
   }
-  load_directed_bundled_edges_and_vertices_graph_from_dot_demo();
-  
 }

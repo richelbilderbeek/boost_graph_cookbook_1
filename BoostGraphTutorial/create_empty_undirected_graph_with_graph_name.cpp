@@ -1,24 +1,21 @@
 #include "create_empty_undirected_graph_with_graph_name.h"
-
 #include "create_empty_undirected_graph_with_graph_name.impl"
-
 #include "create_empty_undirected_graph_with_graph_name_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 
 
 
-void create_empty_undirected_graph_with_graph_name_test() noexcept
+BOOST_AUTO_TEST_CASE(create_empty_undirected_graph_with_graph_name_thorough)
 {
   {
     auto g = create_empty_undirected_graph_with_graph_name();
-    assert(boost::num_edges(g) == 0);
-    assert(boost::num_vertices(g) == 0);
+    BOOST_CHECK(boost::num_edges(g) == 0);
+    BOOST_CHECK(boost::num_vertices(g) == 0);
 
   }
-  create_empty_undirected_graph_with_graph_name_demo();
-  
-
 }

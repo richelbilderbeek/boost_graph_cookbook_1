@@ -3,6 +3,4 @@
 
 #include "add_named_vertex.impl"
 
-void add_named_vertex_test() noexcept;
-
 #endif // ADD_NAMED_VERTEX_H

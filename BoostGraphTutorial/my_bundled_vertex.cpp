@@ -1,7 +1,9 @@
 #include "my_bundled_vertex.h"
+//#include "my_bundled_vertex_demo.impl"
 
-#include <iostream>
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test.hpp>
+
 #include <sstream>
 
 my_bundled_vertex::my_bundled_vertex(
@@ -16,12 +18,6 @@ my_bundled_vertex::my_bundled_vertex(
   m_y{y}
 {
 
-}
-
-void my_bundled_vertex_test() noexcept
-{
-
-  
 }
 
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept

@@ -20,6 +20,4 @@ boost::adjacency_list<
 >
 create_custom_edges_and_vertices_k3_graph() noexcept;
 
-void create_custom_edges_and_vertices_k3_graph_test() noexcept;
-
 #endif // CREATE_CUSTOM_EDGES_AND_VERTICES_K3_GRAPH_H

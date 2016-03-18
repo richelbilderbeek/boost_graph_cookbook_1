@@ -3,6 +3,4 @@
 
 #include "create_all_direct_neighbour_named_vertices_subgraphs.impl"
 
-void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept;
-
 #endif // CREATE_ALL_DIRECT_NEIGHBOUR_NAMED_VERTICES_SUBGRAPHS_H

@@ -1,9 +1,8 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_named_vertices_markov_chain.h"
 #include "get_vertex_names.h"
 
-void create_named_vertices_markov_chain_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_named_vertices_markov_chain)
 {
   const auto g
     = create_named_vertices_markov_chain();
@@ -13,6 +12,6 @@ void create_named_vertices_markov_chain_demo() noexcept
   const std::vector<std::string> vertex_names{
     get_vertex_names(g)
   };
-  assert(expected_names == vertex_names);
+  BOOST_CHECK(expected_names == vertex_names);
 }
 

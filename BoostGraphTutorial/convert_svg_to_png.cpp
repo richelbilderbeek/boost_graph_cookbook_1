@@ -3,6 +3,7 @@
 #include <cassert>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 #include "is_regular_file.h"
 
 void convert_svg_to_png(
@@ -10,7 +11,16 @@ void convert_svg_to_png(
   const std::string& png_filename
 ) noexcept
 {
-  assert(is_regular_file(svg_filename));
+  if (!is_regular_file(svg_filename))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "input SVG file with name '"
+      << svg_filename
+      << "' not found"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   std::stringstream s;
   s << "convert " << svg_filename << " " << png_filename;
   const int error {

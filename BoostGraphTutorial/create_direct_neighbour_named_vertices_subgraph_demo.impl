@@ -1,8 +1,9 @@
+#include <boost/test/unit_test.hpp>
 #include "create_direct_neighbour_named_vertices_subgraph.h"
 #include "create_named_vertices_k2_graph.h"
 #include "get_vertex_names.h"
 
-void create_direct_neighbour_named_vertices_subgraph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_direct_neighbour_named_vertices_subgraph)
 {
   const auto g = create_named_vertices_k2_graph();
   const auto vip = vertices(g);
@@ -11,11 +12,11 @@ void create_direct_neighbour_named_vertices_subgraph_demo() noexcept
     const auto h = create_direct_neighbour_named_vertices_subgraph(
       *i,g
     );
-    assert(boost::num_vertices(h) == 2);
-    assert(boost::num_edges(h) == 1);
+    BOOST_CHECK(boost::num_vertices(h) == 2);
+    BOOST_CHECK(boost::num_edges(h) == 1);
     const auto v = get_vertex_names(h);
     std::set<std::string> names(std::begin(v),std::end(v));
-    assert(names.count("Me") == 1);
-    assert(names.count("My computer") == 1);
+    BOOST_CHECK(names.count("Me") == 1);
+    BOOST_CHECK(names.count("My computer") == 1);
   }
 }

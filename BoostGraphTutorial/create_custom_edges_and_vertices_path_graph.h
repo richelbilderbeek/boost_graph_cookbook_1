@@ -24,7 +24,4 @@ create_custom_edges_and_vertices_path_graph(
   const std::vector<my_custom_vertex>& vertices
 ) noexcept;
 
-void create_custom_edges_and_vertices_path_graph_test() noexcept;
-
-
 #endif // CREATE_CUSTOM_EDGES_AND_VERTICES_PATH_GRAPH_H

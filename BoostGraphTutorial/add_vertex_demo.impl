@@ -1,14 +1,15 @@
+#include <boost/test/unit_test.hpp>
 #include "add_vertex.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 
-void add_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_add_vertex)
 {
   auto g = create_empty_undirected_graph();
   add_vertex(g);
-  assert(boost::num_vertices(g) == 1);
+  BOOST_CHECK(boost::num_vertices(g) == 1);
 
   auto h = create_empty_directed_graph();
   add_vertex(h);
-  assert(boost::num_vertices(h) == 1);
+  BOOST_CHECK(boost::num_vertices(h) == 1);
 }

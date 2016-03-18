@@ -1,14 +1,14 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_empty_undirected_graph.h"
 #include "add_edge.h"
 #include "count_undirected_graph_connected_components.h"
 
-void count_undirected_graph_connected_components_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_count_undirected_graph_connected_components)
 {
-    auto g = create_empty_undirected_graph();
-    assert(count_undirected_graph_connected_components(g) == 0);
-    add_edge(g);
-    assert(count_undirected_graph_connected_components(g) == 1);
-    add_edge(g);
-    assert(count_undirected_graph_connected_components(g) == 2);
+  auto g = create_empty_undirected_graph();
+  BOOST_CHECK(count_undirected_graph_connected_components(g) == 0);
+  add_edge(g);
+  BOOST_CHECK(count_undirected_graph_connected_components(g) == 1);
+  add_edge(g);
+  BOOST_CHECK(count_undirected_graph_connected_components(g) == 2);
 }

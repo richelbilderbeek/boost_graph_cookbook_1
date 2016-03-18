@@ -1,8 +1,8 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_k2_graph.h"
 #include "get_my_custom_vertexes.h"
 
-void get_my_custom_vertexes_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_my_custom_vertexes)
 {
   const auto g = create_custom_vertices_k2_graph();
   const std::vector<my_custom_vertex> expected_my_custom_vertexes{
@@ -12,5 +12,5 @@ void get_my_custom_vertexes_demo() noexcept
   const std::vector<my_custom_vertex> vertexes{
     get_my_custom_vertexes(g)
   };
-  assert(expected_my_custom_vertexes == vertexes);
+  BOOST_CHECK(expected_my_custom_vertexes == vertexes);
 }

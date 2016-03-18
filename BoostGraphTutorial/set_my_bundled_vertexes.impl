@@ -15,7 +15,7 @@ void set_my_bundled_vertexes(
   );
 
   auto my_vertexes_begin = std::begin(my_vertexes);
-  const auto my_vertexes_end = std::end(my_vertexes);
+  //const auto my_vertexes_end = std::end(my_vertexes);
   const auto vip = vertices(g); 
   const auto j = vip.second;
   for (
@@ -23,7 +23,7 @@ void set_my_bundled_vertexes(
     i!=j; ++i,
     ++my_vertexes_begin
   ) {
-    assert(my_vertexes_begin != my_vertexes_end);
+    //assert(my_vertexes_begin != my_vertexes_end);
     g[*i] = *my_vertexes_begin;
   }
 }

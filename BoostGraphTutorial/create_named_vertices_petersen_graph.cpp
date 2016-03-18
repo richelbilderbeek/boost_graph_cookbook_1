@@ -1,9 +1,9 @@
 #include "create_named_vertices_petersen_graph.h"
-
 #include "create_named_vertices_petersen_graph.impl"
 #include "create_named_vertices_petersen_graph_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 #include "create_empty_undirected_graph.h"
@@ -12,14 +12,14 @@
 #include "find_first_vertex_with_name.h"
 #include "get_vertex_name.h"
 
-void create_named_vertices_petersen_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_named_vertices_petersen_graph_thorough)
 {
   //Basic tests
   {
     const auto g = create_named_vertices_petersen_graph();
     using vertex_descriptor = decltype(create_named_vertices_petersen_graph())::vertex_descriptor;
-    assert(boost::num_edges(g) == 15);
-    assert(boost::num_vertices(g) == 10);
+    BOOST_CHECK(boost::num_edges(g) == 15);
+    BOOST_CHECK(boost::num_vertices(g) == 10);
     //Neighbours of small 'a' are 'A', 'c' and 'd'
     {
       const auto focal_vertex = find_first_vertex_with_name("a", g);
@@ -33,7 +33,7 @@ void create_named_vertices_petersen_graph_test() noexcept
         }
       );
       std::set<std::string> expected = { "A", "c", "d"};
-      assert(neighbour_names == expected);
+      BOOST_CHECK(neighbour_names == expected);
     }
     //Neighbours of uppercase 'B' are 'A', 'C' and 'b'
     {
@@ -48,7 +48,7 @@ void create_named_vertices_petersen_graph_test() noexcept
         }
       );
       std::set<std::string> expected = { "A", "C", "b"};
-      assert(neighbour_names == expected);
+      BOOST_CHECK(neighbour_names == expected);
     }
     //Neighbours of lowercase 'c' are 'C', 'a' and 'e'
     {
@@ -63,7 +63,7 @@ void create_named_vertices_petersen_graph_test() noexcept
         }
       );
       std::set<std::string> expected = { "C", "a", "e"};
-      assert(neighbour_names == expected);
+      BOOST_CHECK(neighbour_names == expected);
     }
     //Neighbours of uppercase 'D' are 'd', 'C' and 'E'
     {
@@ -78,7 +78,7 @@ void create_named_vertices_petersen_graph_test() noexcept
         }
       );
       std::set<std::string> expected = { "d", "C", "E"};
-      assert(neighbour_names == expected);
+      BOOST_CHECK(neighbour_names == expected);
     }
     //Neighbours of lowercase 'e' are 'E', 'b' and 'c'
     {
@@ -93,7 +93,7 @@ void create_named_vertices_petersen_graph_test() noexcept
         }
       );
       std::set<std::string> expected = { "E", "b", "c"};
-      assert(neighbour_names == expected);
+      BOOST_CHECK(neighbour_names == expected);
     }
   }
   //Create the .dot and .svg of the 'create_k3_graph' chapter
@@ -104,9 +104,9 @@ void create_named_vertices_petersen_graph_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_named_vertices_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
+    BOOST_CHECK(is_regular_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
-    assert(is_regular_file(svg_filename));
+    BOOST_CHECK(is_regular_file(svg_filename));
     copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,

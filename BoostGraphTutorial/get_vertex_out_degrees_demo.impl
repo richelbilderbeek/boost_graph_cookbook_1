@@ -1,10 +1,9 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_k2_graph.h"
 #include "create_markov_chain.h"
 #include "get_vertex_out_degrees.h"
 
-void get_vertex_out_degrees_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_vertex_out_degrees)
 {
   const auto g = create_k2_graph();
   const std::vector<int> expected_out_degrees_g{1,1};

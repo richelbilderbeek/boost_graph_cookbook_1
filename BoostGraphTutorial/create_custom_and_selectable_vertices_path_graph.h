@@ -23,7 +23,4 @@ create_custom_and_selectable_vertices_path_graph(
     const std::vector<bool>& selectednesses
 ) noexcept;
 
-void create_custom_and_selectable_vertices_path_graph_test() noexcept;
-
-
 #endif // CREATE_CUSTOM_AND_SELECTABLE_VERTICES_PATH_GRAPH_H

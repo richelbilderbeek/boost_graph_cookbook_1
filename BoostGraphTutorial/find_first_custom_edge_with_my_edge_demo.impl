@@ -1,9 +1,8 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "find_first_custom_edge_with_my_edge.h"
 
-void find_first_custom_edge_with_my_edge_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_find_first_custom_edge_with_my_edge)
 {
   const auto g
     = create_custom_edges_and_vertices_k3_graph();
@@ -12,7 +11,7 @@ void find_first_custom_edge_with_my_edge_demo() noexcept
     my_custom_edge("AB","first",0.0,0.0),
     g
   );
-  assert(boost::source(ed,g)
+  BOOST_CHECK(boost::source(ed,g)
     != boost::target(ed,g)
   );
 }

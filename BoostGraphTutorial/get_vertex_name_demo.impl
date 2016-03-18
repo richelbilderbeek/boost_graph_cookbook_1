@@ -1,11 +1,10 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 #include "find_first_vertex_with_name.h"
 #include "get_vertex_name.h"
 
-void get_vertex_name_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_vertex_name)
 {
   auto g
     = create_empty_undirected_named_vertices_graph();
@@ -13,5 +12,5 @@ void get_vertex_name_demo() noexcept
   add_named_vertex(name, g);
   const auto vd
     = find_first_vertex_with_name(name,g);
-  assert(get_vertex_name(vd,g) == name);
+  BOOST_CHECK(get_vertex_name(vd,g) == name);
 }

@@ -1,10 +1,8 @@
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
-
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl"
 
-#include <cassert>
-#include <iostream>
 #include <sstream>
+#include <boost/test/unit_test.hpp>
 #include "copy_file.h"
 #include "create_custom_and_selectable_edges_and_vertices_k2_graph.h"
 #include "show_dot.h"
@@ -16,7 +14,7 @@
 #include "create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 #include "get_sorted_vertex_selectednesses.h"
 
-void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(save_custom_and_selectable_edges_and_vertices_graph_to_dot_thorough)
 {
   //Basic tests: empty graph
   {
@@ -26,7 +24,7 @@ void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
     };
     save_custom_and_selectable_edges_and_vertices_graph_to_dot(g, filename);
     const auto h = load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot(filename);
-    assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
+    BOOST_CHECK(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
   //Basic tests: graph with harder texts
   {
@@ -36,8 +34,7 @@ void save_custom_and_selectable_edges_and_vertices_graph_to_dot_test() noexcept
     };
     save_custom_and_selectable_edges_and_vertices_graph_to_dot(g, filename);
     const auto h = load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot(filename);
-    assert(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
-    assert(get_sorted_vertex_selectednesses(g) == get_sorted_vertex_selectednesses(h));
+    BOOST_CHECK(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
+    BOOST_CHECK(get_sorted_vertex_selectednesses(g) == get_sorted_vertex_selectednesses(h));
   }
-  save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo();
 }

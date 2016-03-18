@@ -3,6 +3,4 @@
 
 #include "get_n_vertices.impl"
 
-void get_n_vertices_test() noexcept;
-
 #endif // GET_N_VERTICES_H

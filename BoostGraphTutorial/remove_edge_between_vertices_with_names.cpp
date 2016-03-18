@@ -1,24 +1,18 @@
 #include "remove_edge_between_vertices_with_names.h"
-
 #include "remove_edge_between_vertices_with_names_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include "create_named_edges_and_vertices_k3_graph.h"
 
-
-
-void remove_edge_between_vertices_with_names_test() noexcept
+BOOST_AUTO_TEST_CASE(remove_edge_between_vertices_with_names_thorough)
 {
   {
     auto g = create_named_edges_and_vertices_k3_graph();
-    assert(boost::num_edges(g) == 3);
-    assert(boost::num_vertices(g) == 3);
+    BOOST_CHECK(boost::num_edges(g) == 3);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
     remove_edge_between_vertices_with_names("top","right",g);
-    assert(boost::num_edges(g) == 2);
-    assert(boost::num_vertices(g) == 3);
+    BOOST_CHECK(boost::num_edges(g) == 2);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
   }
-  remove_edge_between_vertices_with_names_demo();
-  
 }

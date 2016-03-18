@@ -1,15 +1,16 @@
 #include "create_direct_neighbour_subgraph.h"
 #include "create_direct_neighbour_subgraph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_k2_graph.h"
 #include "create_k3_graph.h"
 #include "create_petersen_graph.h"
 
 
-void create_direct_neighbour_subgraph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_direct_neighbour_subgraph_thorough)
 {
   //K2
   {
@@ -20,8 +21,8 @@ void create_direct_neighbour_subgraph_test() noexcept
       const auto h = create_direct_neighbour_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 2);
-      assert(boost::num_edges(h) == 1);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
 
     }
   }
@@ -34,8 +35,8 @@ void create_direct_neighbour_subgraph_test() noexcept
       const auto h = create_direct_neighbour_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 3);
-      assert(boost::num_edges(h) == 3);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
 
     }
   }
@@ -48,10 +49,8 @@ void create_direct_neighbour_subgraph_test() noexcept
       const auto h = create_direct_neighbour_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 4);
-      assert(boost::num_edges(h) == 3);
+      BOOST_CHECK(boost::num_vertices(h) == 4);
+      BOOST_CHECK(boost::num_edges(h) == 3);
     }
   }
-  create_direct_neighbour_subgraph_demo();
-  
 }

@@ -1,14 +1,14 @@
 #include "is_named_vertices_isomorphic.h"
-
 #include "is_named_vertices_isomorphic_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "create_path_graph.h"
 #include "create_k2_graph.h"
 #include "create_k3_graph.h"
 #include "create_named_vertices_path_graph.h"
 
-void is_named_vertices_isomorphic_test() noexcept
+BOOST_AUTO_TEST_CASE(is_named_vertices_isomorphic_thorough)
 {
   {
     const auto g = create_named_vertices_path_graph(
@@ -17,7 +17,7 @@ void is_named_vertices_isomorphic_test() noexcept
     const auto h = create_named_vertices_path_graph(
       { "Alpha", "Beta", "Gamma" }
     );
-    assert( is_named_vertices_isomorphic(g,h));
+    BOOST_CHECK( is_named_vertices_isomorphic(g,h));
   }
   {
     const auto g = create_named_vertices_path_graph(
@@ -26,7 +26,7 @@ void is_named_vertices_isomorphic_test() noexcept
     const auto h = create_named_vertices_path_graph(
       { "Gamma", "Beta", "Alpha" }
     );
-    assert( is_named_vertices_isomorphic(g,h));
+    BOOST_CHECK( is_named_vertices_isomorphic(g,h));
   }
   {
     const auto g = create_named_vertices_path_graph(
@@ -35,11 +35,9 @@ void is_named_vertices_isomorphic_test() noexcept
     const auto h = create_named_vertices_path_graph(
       { "Alpha", "Gamma", "Beta" }
     );
-    assert( is_named_vertices_isomorphic(g,g));
-    assert(!is_named_vertices_isomorphic(g,h));
+    BOOST_CHECK( is_named_vertices_isomorphic(g,g));
+    BOOST_CHECK(!is_named_vertices_isomorphic(g,h));
   }
-  is_named_vertices_isomorphic_demo();
-  
 }
 
 

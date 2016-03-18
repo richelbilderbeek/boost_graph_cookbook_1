@@ -1,11 +1,11 @@
 #include "get_my_bundled_vertexes.h"
+//#include "get_my_bundled_vertexes_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include "create_bundled_vertices_k2_graph.h"
 
-void get_my_bundled_vertexes_test() noexcept
+BOOST_AUTO_TEST_CASE(get_my_bundled_vertexes_thorough)
 {
   {
     const auto g = create_bundled_vertices_k2_graph();
@@ -16,7 +16,7 @@ void get_my_bundled_vertexes_test() noexcept
     const std::vector<my_bundled_vertex> vertexes{
       get_my_bundled_vertexes(g)
     };
-    assert(expected_my_vertexes == vertexes);
+    BOOST_CHECK(expected_my_vertexes == vertexes);
   }
   
 }

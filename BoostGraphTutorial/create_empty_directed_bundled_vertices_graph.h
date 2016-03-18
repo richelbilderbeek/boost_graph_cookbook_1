@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_empty_directed_bundled_vertices_graph() noexcept;
 
-void create_empty_directed_bundled_vertices_graph_test() noexcept;
-
 #endif // CREATE_EMPTY_DIRECTED_BUNDLED_VERTICES_GRAPH_H

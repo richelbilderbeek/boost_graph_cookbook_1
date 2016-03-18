@@ -16,6 +16,4 @@ boost::adjacency_list<
 >
 create_custom_and_selectable_vertices_k3_graph() noexcept;
 
-void create_custom_and_selectable_vertices_k3_graph_test() noexcept;
-
 #endif // CREATE_CUSTOM_AND_SELECTABLE_VERTICES_K3_GRAPH_H

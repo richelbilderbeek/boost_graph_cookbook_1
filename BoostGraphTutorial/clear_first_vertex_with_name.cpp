@@ -1,19 +1,17 @@
 #include "clear_first_vertex_with_name.h"
-
 #include "clear_first_vertex_with_name_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_named_vertices_k2_graph.h"
 
 
-void clear_first_vertex_with_name_test() noexcept
+BOOST_AUTO_TEST_CASE(clear_first_vertex_with_name_thorough)
 {
   auto g = create_named_vertices_k2_graph();
-  assert(boost::num_edges(g) == 1);
+  BOOST_CHECK(boost::num_edges(g) == 1);
   clear_first_vertex_with_name("My computer",g);
-  assert(boost::num_edges(g) == 0);
-  clear_first_vertex_with_name_demo();
-  
+  BOOST_CHECK(boost::num_edges(g) == 0);
 }

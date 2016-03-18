@@ -1,17 +1,17 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "add_named_and_selectable_vertex.h"
 #include "create_empty_directed_named_and_selectable_vertices_graph.h"
 #include "create_empty_undirected_named_and_selectable_vertices_graph.h"
 
-void add_named_and_selectable_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_add_named_and_selectable_vertex)
 {
   auto g
     = create_empty_directed_named_and_selectable_vertices_graph();
   add_named_and_selectable_vertex("Lex", true, g);
-  assert(boost::num_vertices(g) == 1);
+  BOOST_CHECK(boost::num_vertices(g) == 1);
 
   auto h
     = create_empty_undirected_named_and_selectable_vertices_graph();
   add_named_and_selectable_vertex("Luthor", false, h);
-  assert(boost::num_vertices(h) == 1);
+  BOOST_CHECK(boost::num_vertices(h) == 1);
 }

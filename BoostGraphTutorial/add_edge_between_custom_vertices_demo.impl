@@ -1,9 +1,9 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "add_edge_between_custom_vertices.h"
 #include "add_custom_vertex.h"
 #include "create_empty_undirected_custom_vertices_graph.h"
 
-void add_edge_between_custom_vertices_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_add_edge_between_custom_vertices)
 {
   auto g = create_empty_undirected_custom_vertices_graph();
   const my_custom_vertex va("Bert");
@@ -11,5 +11,5 @@ void add_edge_between_custom_vertices_demo() noexcept
   add_custom_vertex(va, g);
   add_custom_vertex(vb, g);
   add_edge_between_custom_vertices(va, vb, g);
-  assert(boost::num_edges(g) == 1);
+  BOOST_CHECK(boost::num_edges(g) == 1);
 }

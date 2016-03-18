@@ -3,6 +3,4 @@
 
 #include "create_direct_neighbour_custom_and_selectable_vertices_subgraph.impl"
 
-void create_direct_neighbour_custom_and_selectable_vertices_subgraph_test() noexcept;
-
 #endif // CREATE_DIRECT_NEIGHBOUR_CUSTOM_AND_SELECTABLE_VERTICES_SUBGRAPH_H

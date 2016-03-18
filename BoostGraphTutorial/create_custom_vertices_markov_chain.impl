@@ -1,4 +1,4 @@
-#include <cassert>
+#include "add_custom_vertex.h"
 #include "create_empty_directed_custom_vertices_graph.h"
 
 boost::adjacency_list<
@@ -13,25 +13,15 @@ create_custom_vertices_markov_chain() noexcept
 {
   auto g
     = create_empty_directed_custom_vertices_graph();
-  const auto vd_a = boost::add_vertex(g);
-  const auto vd_b = boost::add_vertex(g);
-  const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
-  assert(aer_aa.second);
-  const auto aer_ab = boost::add_edge(vd_a, vd_b, g);
-  assert(aer_ab.second);
-  const auto aer_ba = boost::add_edge(vd_b, vd_a, g);
-  assert(aer_ba.second);
-  const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
-  assert(aer_bb.second);
 
-  auto my_custom_vertex_map = get(
-    boost::vertex_custom_type,g
-  );
-  put(my_custom_vertex_map, vd_a,
-    my_custom_vertex("Sunny","Yellow thing",1.0,2.0)
-  );
-  put(my_custom_vertex_map, vd_b,
-    my_custom_vertex("Rainy", "Grey things",3.0,4.0)
-  );
+  const my_custom_vertex a("Sunny","Yellow thing",1.0,2.0);
+  const my_custom_vertex b("Rainy", "Grey things",3.0,4.0);
+
+  const auto vd_a = add_custom_vertex(a, g);
+  const auto vd_b = add_custom_vertex(b, g);
+  boost::add_edge(vd_a, vd_a, g);
+  boost::add_edge(vd_a, vd_b, g);
+  boost::add_edge(vd_b, vd_a, g);
+  boost::add_edge(vd_b, vd_b, g);
   return g;
 }

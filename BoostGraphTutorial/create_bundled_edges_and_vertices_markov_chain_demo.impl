@@ -1,9 +1,9 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_bundled_edges_and_vertices_markov_chain.h"
 #include "get_my_bundled_edges.h"
 #include "my_bundled_vertex.h"
 
-void create_bundled_edges_and_vertices_markov_chain_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_bundled_edges_and_vertices_markov_chain)
 {
   const auto g = create_bundled_edges_and_vertices_markov_chain();
   const std::vector<my_bundled_edge> edge_my_edges{
@@ -15,6 +15,6 @@ void create_bundled_edges_and_vertices_markov_chain_demo() noexcept
     my_bundled_edge("Yellow cold","Heat",5.0,6.0),
     my_bundled_edge("Green cold","Stay cool",7.0,8.0)
   };
-  assert(edge_my_edges == expected_my_edges);
+  BOOST_CHECK(edge_my_edges == expected_my_edges);
 }
 

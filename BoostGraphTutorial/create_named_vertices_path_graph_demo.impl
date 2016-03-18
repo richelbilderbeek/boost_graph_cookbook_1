@@ -1,11 +1,11 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_named_vertices_path_graph.h"
 
-void create_named_vertices_path_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_named_vertices_path_graph)
 {
   const auto g = create_named_vertices_path_graph(
     {"A", "B", "C", "D"}
   );
-  assert(boost::num_edges(g) == 3);
-  assert(boost::num_vertices(g) == 4);
+  BOOST_CHECK(boost::num_edges(g) == 3);
+  BOOST_CHECK(boost::num_vertices(g) == 4);
 }

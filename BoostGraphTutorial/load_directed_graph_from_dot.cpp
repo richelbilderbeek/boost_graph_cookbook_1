@@ -1,16 +1,14 @@
 #include "load_directed_graph_from_dot.h"
-
 #include "load_directed_graph_from_dot.impl"
-
 #include "load_directed_graph_from_dot_demo.impl"
 
+#include <boost/test/unit_test.hpp>
 #include "copy_file.h"
-#include <iostream>
-
 #include "create_markov_chain.h"
 #include "convert_dot_to_svg.h"
+#include "save_graph_to_dot.h"
 
-void load_directed_graph_from_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(load_directed_graph_from_dot_thorough)
 {
   //Create graphs, save it to dot
   //Create another graph by loading it, then save it to .dot, convert that .dot to .svg
@@ -20,9 +18,8 @@ void load_directed_graph_from_dot_test() noexcept
     save_graph_to_dot(g, dot_filename);
     const auto h = load_directed_graph_from_dot(dot_filename);
     save_graph_to_dot(h, dot_filename);
-    assert(boost::num_edges(g) == boost::num_edges(h));
-    assert(boost::num_vertices(g) == boost::num_vertices(h));
+    BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
+    BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
   }
-  load_directed_graph_from_dot_demo();
   
 }

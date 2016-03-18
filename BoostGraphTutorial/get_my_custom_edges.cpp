@@ -1,14 +1,13 @@
 #include "get_my_custom_edges.h"
-
 #include "get_my_custom_edges_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "get_my_custom_vertexes.h"
 
-void get_my_custom_edges_test() noexcept
+BOOST_AUTO_TEST_CASE(get_my_custom_edges_thorough)
 {
   {
     const auto g = create_custom_edges_and_vertices_k3_graph();
@@ -21,7 +20,7 @@ void get_my_custom_edges_test() noexcept
     const std::vector<my_custom_vertex> vertexes{
       get_my_custom_vertexes(g)
     };
-    assert(expected_my_custom_vertexes == vertexes);
+    BOOST_CHECK(expected_my_custom_vertexes == vertexes);
 
     const std::vector<my_custom_edge> expected_my_edges{
       my_custom_edge("AB","first",0.0,0.0),
@@ -31,8 +30,6 @@ void get_my_custom_edges_test() noexcept
     const std::vector<my_custom_edge> edges{
       get_my_custom_edges(g)
     };
-    assert(expected_my_edges == edges);
+    BOOST_CHECK(expected_my_edges == edges);
   }
-  get_my_custom_edges_demo();
-  
 }

@@ -5,6 +5,4 @@
 
 std::string graphviz_encode(std::string s) noexcept;
 
-void graphviz_encode_test() noexcept;
-
 #endif // GRAPHVIZ_ENCODE_H

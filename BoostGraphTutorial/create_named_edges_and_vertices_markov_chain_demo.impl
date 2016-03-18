@@ -1,10 +1,9 @@
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 #include "create_named_edges_and_vertices_markov_chain.h"
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
 
-void create_named_edges_and_vertices_markov_chain_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_named_edges_and_vertices_markov_chain)
 {
   using strings = std::vector<std::string>;
 
@@ -17,12 +16,12 @@ void create_named_edges_and_vertices_markov_chain_demo() noexcept
   const strings vertex_names{
     get_vertex_names(g)
   };
-  assert(expected_vertex_names == vertex_names);
+  BOOST_CHECK(expected_vertex_names == vertex_names);
 
   const strings expected_edge_names{
     "Fruit","No chocolate","Chocolate","Other candy"
   };
 
   const strings edge_names{get_edge_names(g)};
-  assert(expected_edge_names == edge_names);
+  BOOST_CHECK(expected_edge_names == edge_names);
 }

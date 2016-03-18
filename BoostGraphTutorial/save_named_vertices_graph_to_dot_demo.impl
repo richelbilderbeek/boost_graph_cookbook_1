@@ -1,8 +1,9 @@
+#include <boost/test/unit_test.hpp>
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_vertices_markov_chain.h"
 #include "save_named_vertices_graph_to_dot.h"
 
-void save_named_vertices_graph_to_dot_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_save_named_vertices_graph_to_dot)
 {
   const auto g = create_named_vertices_k2_graph();
   save_named_vertices_graph_to_dot(

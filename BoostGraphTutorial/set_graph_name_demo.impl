@@ -1,13 +1,12 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph_with_graph_name.h"
 #include "get_graph_name.h"
 #include "set_graph_name.h"
 
-void set_graph_name_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_set_graph_name)
 {
   auto g = create_empty_directed_graph_with_graph_name();
   const std::string name{"Dex"};
   set_graph_name(name, g);
-  assert(get_graph_name(g) == name);
+  BOOST_CHECK(get_graph_name(g) == name);
 }

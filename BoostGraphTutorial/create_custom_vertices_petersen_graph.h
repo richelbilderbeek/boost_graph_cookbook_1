@@ -15,6 +15,4 @@ boost::adjacency_list<
 >
 create_custom_vertices_petersen_graph() noexcept;
 
-void create_custom_vertices_petersen_graph_test() noexcept;
-
 #endif // CREATE_CUSTOM_VERTICES_PETERSEN_GRAPH_H

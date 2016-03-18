@@ -1,21 +1,20 @@
 #include "has_vertex_with_name.h"
-
 #include "has_vertex_with_name_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 
-void has_vertex_with_name_test() noexcept
+BOOST_AUTO_TEST_CASE(has_vertex_with_name_thorough)
 {
   {
     auto g = create_empty_undirected_named_vertices_graph();
-    assert(!has_vertex_with_name("Felix",g));
+    BOOST_CHECK(!has_vertex_with_name("Felix",g));
     add_named_vertex("Felix",g);
-    assert(has_vertex_with_name("Felix",g));
+    BOOST_CHECK(has_vertex_with_name("Felix",g));
   }
-  has_vertex_with_name_demo();
-
 }

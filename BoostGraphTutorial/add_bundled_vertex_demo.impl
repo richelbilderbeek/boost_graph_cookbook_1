@@ -1,23 +1,21 @@
+#include <boost/test/unit_test.hpp>
 #include "add_bundled_vertex.h"
 #include "create_empty_directed_bundled_vertices_graph.h"
 #include "create_empty_undirected_bundled_vertices_graph.h"
 
-void add_bundled_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_add_bundled_vertex)
 {
   auto g = create_empty_directed_bundled_vertices_graph();
-  assert(boost::num_vertices(g) == 0);
-  assert(boost::num_edges(g) == 0);
+  BOOST_CHECK(boost::num_vertices(g) == 0);
+  BOOST_CHECK(boost::num_edges(g) == 0);
   add_bundled_vertex(my_bundled_vertex("X"), g);
-  assert(boost::num_vertices(g) == 1);
-  assert(boost::num_edges(g) == 0);
+  BOOST_CHECK(boost::num_vertices(g) == 1);
+  BOOST_CHECK(boost::num_edges(g) == 0);
 
   auto h = create_empty_undirected_bundled_vertices_graph();
-  assert(boost::num_vertices(h) == 0);
-  assert(boost::num_edges(h) == 0);
+  BOOST_CHECK(boost::num_vertices(h) == 0);
+  BOOST_CHECK(boost::num_edges(h) == 0);
   add_bundled_vertex(my_bundled_vertex("X"), h);
-  assert(boost::num_vertices(h) == 1);
-  assert(boost::num_edges(h) == 0);
+  BOOST_CHECK(boost::num_vertices(h) == 1);
+  BOOST_CHECK(boost::num_edges(h) == 0);
 }
-
-
-

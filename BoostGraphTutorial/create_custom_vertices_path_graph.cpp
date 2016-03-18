@@ -1,9 +1,9 @@
 #include "create_custom_vertices_path_graph.h"
-
 #include "create_custom_vertices_path_graph.impl"
 #include "create_custom_vertices_path_graph_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 #include "create_empty_undirected_graph.h"
@@ -11,22 +11,22 @@
 #include "save_graph_to_dot.h"
 #include "get_my_custom_vertexes.h"
 
-void create_custom_vertices_path_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_custom_vertices_path_graph_thorough)
 {
   //Basic tests
   {
     const auto g = create_custom_vertices_path_graph( {} );
-    assert(boost::num_edges(g) == 0);
-    assert(boost::num_vertices(g) == 0);
+    BOOST_CHECK(boost::num_edges(g) == 0);
+    BOOST_CHECK(boost::num_vertices(g) == 0);
   }
   {
     const std::vector<my_custom_vertex> my_custom_vertexes {
       my_custom_vertex("X")
     };
     const auto g = create_custom_vertices_path_graph(my_custom_vertexes);
-    assert(boost::num_edges(g) == 0);
-    assert(boost::num_vertices(g) == 1);
-    assert(get_my_custom_vertexes(g) == my_custom_vertexes);
+    BOOST_CHECK(boost::num_edges(g) == 0);
+    BOOST_CHECK(boost::num_vertices(g) == 1);
+    BOOST_CHECK(get_my_custom_vertexes(g) == my_custom_vertexes);
   }
   {
     const std::vector<my_custom_vertex> my_custom_vertexes {
@@ -34,9 +34,9 @@ void create_custom_vertices_path_graph_test() noexcept
       my_custom_vertex("Y")
     };
     const auto g = create_custom_vertices_path_graph(my_custom_vertexes);
-    assert(boost::num_edges(g) == 1);
-    assert(boost::num_vertices(g) == 2);
-    assert(get_my_custom_vertexes(g) == my_custom_vertexes);
+    BOOST_CHECK(boost::num_edges(g) == 1);
+    BOOST_CHECK(boost::num_vertices(g) == 2);
+    BOOST_CHECK(get_my_custom_vertexes(g) == my_custom_vertexes);
   }
   {
     const std::vector<my_custom_vertex> my_custom_vertexes {
@@ -45,9 +45,9 @@ void create_custom_vertices_path_graph_test() noexcept
       my_custom_vertex("Z")
     };
     const auto g = create_custom_vertices_path_graph(my_custom_vertexes);
-    assert(boost::num_edges(g) == 2);
-    assert(boost::num_vertices(g) == 3);
-    assert(get_my_custom_vertexes(g) == my_custom_vertexes);
+    BOOST_CHECK(boost::num_edges(g) == 2);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
+    BOOST_CHECK(get_my_custom_vertexes(g) == my_custom_vertexes);
   }
   //Create the .dot and .svg of the 'create_custom_vertices_path_graph' chapter
   //for (const int n: {3,4, 5} )
@@ -63,9 +63,9 @@ void create_custom_vertices_path_graph_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
+    BOOST_CHECK(is_regular_file(dot_filename));
     convert_dot_to_svg(dot_filename,svg_filename);
-    assert(is_regular_file(svg_filename));
+    BOOST_CHECK(is_regular_file(svg_filename));
     copy_file(
       dot_filename,
       "../BoostGraphTutorial/" + dot_filename,
@@ -77,6 +77,4 @@ void create_custom_vertices_path_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_custom_vertices_path_graph_demo();
-  
 }

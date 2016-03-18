@@ -1,6 +1,7 @@
 #include "copy_file.h"
 
 #include <cassert>
+
 #include <stdexcept>
 #include <fstream>
 

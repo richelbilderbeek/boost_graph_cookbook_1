@@ -1,10 +1,11 @@
 #include "is_graphviz_friendly.h"
 #include "is_graphviz_friendly.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 
-void is_graphviz_friendly_test() noexcept
+
+BOOST_AUTO_TEST_CASE(is_graphviz_friendly_thorough)
 {
-  assert( is_graphviz_friendly("abcdef"));
-  assert(!is_graphviz_friendly("ab< \" \\ cd$ef"));
+  BOOST_CHECK( is_graphviz_friendly("abcdef"));
+  BOOST_CHECK(!is_graphviz_friendly("ab< \" \\ cd$ef"));
 }

@@ -1,9 +1,10 @@
 #include "create_all_direct_neighbour_custom_vertices_subgraphs.h"
-
 #include "create_all_direct_neighbour_custom_vertices_subgraphs_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_k2_graph.h"
 #include "create_custom_vertices_k3_graph.h"
 #include "create_custom_vertices_path_graph.h"
@@ -13,16 +14,16 @@
 #include "convert_dot_to_svg.h"
 #include "has_vertex_with_my_vertex.h"
 
-void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
+BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_vertices_subgraphs_thorough)
 {
   //K2
   {
     const auto v = create_all_direct_neighbour_custom_vertices_subgraphs(create_custom_vertices_k2_graph());
-    assert(v.size() == 2);
+    BOOST_CHECK(v.size() == 2);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 2);
-      assert(boost::num_edges(g) == 1);
+      BOOST_CHECK(boost::num_vertices(g) == 2);
+      BOOST_CHECK(boost::num_edges(g) == 1);
     }
   }
   //K3
@@ -31,17 +32,17 @@ void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
       = create_all_direct_neighbour_custom_vertices_subgraphs(
         create_custom_vertices_k3_graph()
       );
-    assert(v.size() == 3);
+    BOOST_CHECK(v.size() == 3);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 3);
-      assert(boost::num_edges(g) == 3);
+      BOOST_CHECK(boost::num_vertices(g) == 3);
+      BOOST_CHECK(boost::num_edges(g) == 3);
       const my_custom_vertex va("Karen","red",0.0,0.0);
       const my_custom_vertex vb("Kristel","black",1.1,1.1);
       const my_custom_vertex vc("Kathleen","blond",2.2,2.2);
-      assert(has_vertex_with_my_vertex(va, g));
-      assert(has_vertex_with_my_vertex(vb, g));
-      assert(has_vertex_with_my_vertex(vc, g));
+      BOOST_CHECK(has_vertex_with_my_vertex(va, g));
+      BOOST_CHECK(has_vertex_with_my_vertex(vb, g));
+      BOOST_CHECK(has_vertex_with_my_vertex(vc, g));
     }
   }
   //Path
@@ -56,7 +57,7 @@ void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
       )
     );
     const int sz{3};
-    assert(sz == static_cast<int>(v.size()));
+    BOOST_CHECK(sz == static_cast<int>(v.size()));
     for (int i=0; i!=sz; ++i)
     {
       const auto g = v[i];
@@ -80,12 +81,11 @@ void create_all_direct_neighbour_custom_vertices_subgraphs_test() noexcept
   //Petersen Graph
   {
     const auto v = create_all_direct_neighbour_custom_vertices_subgraphs(create_custom_vertices_petersen_graph());
-    assert(v.size() == 10);
+    BOOST_CHECK(v.size() == 10);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 4);
-      assert(boost::num_edges(g) == 3);
+      BOOST_CHECK(boost::num_vertices(g) == 4);
+      BOOST_CHECK(boost::num_edges(g) == 3);
     }
   }
-  create_all_direct_neighbour_custom_vertices_subgraphs_demo();
 }

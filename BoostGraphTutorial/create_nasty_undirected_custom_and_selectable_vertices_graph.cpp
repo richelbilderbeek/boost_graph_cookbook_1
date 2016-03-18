@@ -1,6 +1,7 @@
 #include "create_nasty_undirected_custom_and_selectable_vertices_graph.h"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include "add_custom_and_selectable_vertex.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
@@ -49,7 +50,7 @@ create_nasty_undirected_custom_and_selectable_vertices_graph() noexcept
   return g;
 }
 
-void create_nasty_undirected_custom_and_selectable_vertices_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_nasty_undirected_custom_and_selectable_vertices_graph_thorough)
 {
   //Create the .dot and .svg of the 'create_nasty_undirected_custom_and_selectable_vertices_graph' chapter
   {
@@ -59,12 +60,12 @@ void create_nasty_undirected_custom_and_selectable_vertices_graph_test() noexcep
     const std::string svg_filename{base_filename + ".svg"};
     save_custom_and_selectable_vertices_graph_to_dot(g, dot_filename);
     const auto h = load_undirected_custom_and_selectable_vertices_graph_from_dot(dot_filename);
-    assert(boost::num_edges(g) == boost::num_edges(h));
-    assert(boost::num_vertices(g) == boost::num_vertices(h));
-    assert(get_sorted_custom_vertex_my_vertexes(g)
+    BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
+    BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
+    BOOST_CHECK(get_sorted_custom_vertex_my_vertexes(g)
       ==  get_sorted_custom_vertex_my_vertexes(h)
     );
-    assert(get_sorted_vertex_selectednesses(g)
+    BOOST_CHECK(get_sorted_vertex_selectednesses(g)
       == get_sorted_vertex_selectednesses(h)
     );
     convert_dot_to_svg(dot_filename, svg_filename);

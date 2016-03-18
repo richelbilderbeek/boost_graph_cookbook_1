@@ -23,8 +23,7 @@ create_named_vertices_path_graph(
   for (++i; i!=j; ++i) //Skip first
   {
     auto vd_2 = add_named_vertex(*i, g);
-    const auto aer = boost::add_edge(vd_1, vd_2, g);
-    assert(aer.second);
+    boost::add_edge(vd_1, vd_2, g);
     vd_1 = vd_2;
   }
   return g;

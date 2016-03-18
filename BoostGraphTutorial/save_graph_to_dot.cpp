@@ -1,9 +1,9 @@
 #include "save_graph_to_dot.h"
+#include "save_graph_to_dot_demo.impl"
 
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 #include <sstream>
 
-#include "save_graph_to_dot_demo.impl"
 #include "copy_file.h"
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
@@ -15,7 +15,7 @@
 #include "is_valid_dot_file.h"
 #include "helper.h"
 
-void save_graph_to_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
 {
   
   //create_empty_directed_graph
@@ -24,7 +24,7 @@ void save_graph_to_dot_test() noexcept
     const std::string base_filename{"save_graph_to_dot_test_empty_directed_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_valid_dot_file(dot_filename));
+    BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
@@ -32,7 +32,7 @@ void save_graph_to_dot_test() noexcept
       "digraph G {",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
   //create_empty_undirected_graph
   {
@@ -40,7 +40,7 @@ void save_graph_to_dot_test() noexcept
     const std::string base_filename{"save_graph_to_dot_test_empty_undirected_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_valid_dot_file(dot_filename));
+    BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
@@ -48,7 +48,7 @@ void save_graph_to_dot_test() noexcept
       "graph G {",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
   //create_k2_graph
   {
@@ -56,7 +56,7 @@ void save_graph_to_dot_test() noexcept
     const std::string base_filename{"save_graph_to_dot_test_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_valid_dot_file(dot_filename));
+    BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
@@ -67,7 +67,7 @@ void save_graph_to_dot_test() noexcept
       "0--1 ;",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
   //Show it does not store the vertex names
   {
@@ -75,7 +75,7 @@ void save_graph_to_dot_test() noexcept
     const std::string base_filename{"save_graph_to_dot_test_named_vertices_k2_graph"};
     const std::string dot_filename{base_filename + ".dot"};
     save_graph_to_dot(g,dot_filename);
-    assert(is_valid_dot_file(dot_filename));
+    BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
@@ -86,9 +86,8 @@ void save_graph_to_dot_test() noexcept
       "0--1 ;",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
 
-  save_graph_to_dot_demo();
   
 }

@@ -1,8 +1,10 @@
 #include "my_custom_edge.h"
+//#include "my_custom_edge_demo.impl"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include <sstream>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include <boost/lexical_cast.hpp>
 
@@ -22,12 +24,12 @@ my_custom_edge::my_custom_edge(
     m_width{width},
     m_height{height}
 {
-  assert(
+  BOOST_CHECK(
     graphviz_decode(
       graphviz_encode(m_name)
     ) == m_name
   );
-  assert(
+  BOOST_CHECK(
     graphviz_decode(
       graphviz_encode(m_description)
     ) == m_description
@@ -55,12 +57,12 @@ double my_custom_edge::get_height() const noexcept
 }
 
 
-void my_custom_edge_test() noexcept
+BOOST_AUTO_TEST_CASE(my_custom_edge_thorough)
 {
   {
     const my_custom_edge a("A B","c d",1.0,2.0);
     const my_custom_edge b{a};
-    assert(a == b);
+    BOOST_CHECK(a == b);
   }
   //Conversion to string
   {
@@ -68,8 +70,8 @@ void my_custom_edge_test() noexcept
     std::stringstream s;
     s << in;
     const std::string t{s.str()};
-    assert(t.find(' ') == std::string::npos);
-    assert(std::count(std::begin(t),std::end(t),',') == 3);
+    BOOST_CHECK(t.find(' ') == std::string::npos);
+    BOOST_CHECK(std::count(std::begin(t),std::end(t),',') == 3);
   }
   //Conversion to stream and back
   {
@@ -78,7 +80,7 @@ void my_custom_edge_test() noexcept
     s << in;
     my_custom_edge out;
     s >> out;
-    assert(in == out);
+    BOOST_CHECK(in == out);
   }
   //Conversion of two my_custom_edges to stream and back
   {
@@ -89,8 +91,8 @@ void my_custom_edge_test() noexcept
     my_custom_edge c;
     my_custom_edge d;
     s >> c >> d;
-    assert(a == c);
-    assert(b == d);
+    BOOST_CHECK(a == c);
+    BOOST_CHECK(b == d);
   }
   
 }
@@ -139,10 +141,10 @@ std::istream& operator>>(std::istream& is, my_custom_edge& the_edge) noexcept
 {
   std::string line;
   is >> line;
-  assert(line != "0");
+  BOOST_CHECK(line != "0");
   const auto w = seperate_string(line,',');
   if (w.size() != 4) { the_edge = my_custom_edge(); return is; }
-  assert(w.size() == 4);
+  BOOST_CHECK(w.size() == 4);
   the_edge = my_custom_edge(
     graphviz_decode(w[0]),
     graphviz_decode(w[1]),

@@ -1,6 +1,7 @@
 #include "seperate_string.h"
 
-#include <cassert>
+#include <boost/test/unit_test.hpp>
+
 #include <sstream>
 
 std::vector<std::string> seperate_string(
@@ -20,29 +21,29 @@ std::vector<std::string> seperate_string(
   return v;
 }
 
-void seperate_string_test() noexcept
+BOOST_AUTO_TEST_CASE(test_seperate_string)
 {
  { //Single input, seperator of type char
     const std::vector<std::string> v = seperate_string("a",',');
-    assert(v[0]=="a");
+    BOOST_CHECK(v[0]=="a");
   }
   { //Two inputs, seperator of type char
     const std::vector<std::string> v = seperate_string("a,b",',');
-    assert(v[0]=="a");
-    assert(v[1]=="b");
+    BOOST_CHECK(v[0]=="a");
+    BOOST_CHECK(v[1]=="b");
   }
   { //Five inputs, seperator of type char
     const std::vector<std::string> v = seperate_string("a,bb,ccc,dddd,eeeee",',');
-    assert(v[0]=="a");
-    assert(v[1]=="bb");
-    assert(v[2]=="ccc");
-    assert(v[3]=="dddd");
-    assert(v[4]=="eeeee");
+    BOOST_CHECK(v[0]=="a");
+    BOOST_CHECK(v[1]=="bb");
+    BOOST_CHECK(v[2]=="ccc");
+    BOOST_CHECK(v[3]=="dddd");
+    BOOST_CHECK(v[4]=="eeeee");
   }
   { //Three inputs, of which one empty, seperator of type char
     const std::vector<std::string> v = seperate_string("a, ,ccc",',');
-    assert(v[0]=="a");
-    assert(v[1]==" ");
-    assert(v[2]=="ccc");
+    BOOST_CHECK(v[0]=="a");
+    BOOST_CHECK(v[1]==" ");
+    BOOST_CHECK(v[2]=="ccc");
   }
 }

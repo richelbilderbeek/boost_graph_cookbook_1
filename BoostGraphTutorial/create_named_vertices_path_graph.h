@@ -16,7 +16,4 @@ create_named_vertices_path_graph(
     const std::vector<std::string>& names
 ) noexcept;
 
-void create_named_vertices_path_graph_test() noexcept;
-
-
 #endif // CREATE_NAMED_VERTICES_PATH_GRAPH_H

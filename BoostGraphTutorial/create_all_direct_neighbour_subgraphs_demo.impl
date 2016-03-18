@@ -1,15 +1,15 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_all_direct_neighbour_subgraphs.h"
 #include "create_k2_graph.h"
 
-void create_all_direct_neighbour_subgraphs_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_all_direct_neighbour_subgraphs)
 {
   const auto v
     = create_all_direct_neighbour_subgraphs(create_k2_graph());
-  assert(v.size() == 2);
+  BOOST_CHECK(v.size() == 2);
   for (const auto g: v)
   {
-    assert(boost::num_vertices(g) == 2);
-    assert(boost::num_edges(g) == 1);
+    BOOST_CHECK(boost::num_vertices(g) == 2);
+    BOOST_CHECK(boost::num_edges(g) == 1);
   }
 }

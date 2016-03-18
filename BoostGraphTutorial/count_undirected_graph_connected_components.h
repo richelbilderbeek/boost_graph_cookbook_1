@@ -3,6 +3,4 @@
 
 #include "count_undirected_graph_connected_components.impl"
 
-void count_undirected_graph_connected_components_test() noexcept;
-
 #endif // COUNT_UNDIRECTED_GRAPH_CONNECTED_COMPONENTS_H

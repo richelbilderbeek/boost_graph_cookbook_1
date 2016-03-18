@@ -3,6 +3,4 @@
 
 #include "add_custom_and_selectable_edge_between_vertices.impl"
 
-void add_custom_and_selectable_edge_between_vertices_test() noexcept;
-
 #endif // ADD_CUSTOM_AND_SELECTABLE_EDGE_BETWEEN_VERTICES_H

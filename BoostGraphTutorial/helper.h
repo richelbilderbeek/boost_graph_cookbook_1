@@ -22,9 +22,6 @@ public:
   ///Encode string to be useable by Graphiv,
   ///Use graphviz_decode to recover the original string
   std::string graphviz_encode(std::string s) const noexcept;
-
-private:
-  void test() noexcept;
 };
 
 #endif // HELPER_H

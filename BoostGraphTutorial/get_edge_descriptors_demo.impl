@@ -1,15 +1,15 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "get_edge_descriptors.h"
 
-void get_edge_descriptors_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_edge_descriptors)
 {
   const auto g = create_empty_directed_graph();
   const auto eds_g = get_edge_descriptors(g);
-  assert(eds_g.empty());
+  BOOST_CHECK(eds_g.empty());
 
   const auto h = create_empty_undirected_graph();
   const auto eds_h = get_edge_descriptors(h);
-  assert(eds_h.empty());
+  BOOST_CHECK(eds_h.empty());
 }

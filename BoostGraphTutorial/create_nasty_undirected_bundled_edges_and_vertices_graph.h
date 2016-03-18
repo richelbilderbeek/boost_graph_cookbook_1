@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_nasty_undirected_bundled_edges_and_vertices_graph() noexcept;
 
-void create_nasty_undirected_bundled_edges_and_vertices_graph_test() noexcept;
-
 #endif // CREATE_NASTY_UNDIRECTED_BUNDLED_EDGES_AND_VERTICES_GRAPH_H

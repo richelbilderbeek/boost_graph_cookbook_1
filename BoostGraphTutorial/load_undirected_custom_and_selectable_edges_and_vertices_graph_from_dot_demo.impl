@@ -1,9 +1,9 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_and_selectable_edges_and_vertices_k2_graph.h"
 #include "is_regular_file.h"
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 
-void load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot)
 {
   const auto g
     = create_custom_and_selectable_edges_and_vertices_k2_graph();
@@ -14,5 +14,5 @@ void load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_dem
     g,
     filename
   );
-  assert(is_regular_file(filename));
+  BOOST_CHECK(is_regular_file(filename));
 }

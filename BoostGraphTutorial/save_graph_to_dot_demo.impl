@@ -1,8 +1,9 @@
+#include <boost/test/unit_test.hpp>
 #include "create_k2_graph.h"
 #include "create_markov_chain.h"
 #include "save_graph_to_dot.h"
 
-void save_graph_to_dot_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_save_graph_to_dot)
 {
   const auto g = create_k2_graph();
   save_graph_to_dot(g,"create_k2_graph.dot");

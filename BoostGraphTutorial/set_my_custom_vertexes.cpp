@@ -1,11 +1,12 @@
 #include "set_my_custom_vertexes.h"
+//#include "set_my_custom_vertexes_demo.impl"
 
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include "create_custom_vertices_k2_graph.h"
 #include "get_my_custom_vertexes.h"
 
-void set_my_custom_vertexes_test() noexcept
+BOOST_AUTO_TEST_CASE(set_my_custom_vertexes_thorough)
 {
   //Named K2 graph
   {
@@ -14,9 +15,9 @@ void set_my_custom_vertexes_test() noexcept
       my_custom_vertex("alpha"),
       my_custom_vertex("beta")
     };
-    assert(get_my_custom_vertexes(g) != my_custom_vertexes);
+    BOOST_CHECK(get_my_custom_vertexes(g) != my_custom_vertexes);
     set_my_custom_vertexes(g,my_custom_vertexes);
-    assert(get_my_custom_vertexes(g) == my_custom_vertexes);
+    BOOST_CHECK(get_my_custom_vertexes(g) == my_custom_vertexes);
   }
 
   

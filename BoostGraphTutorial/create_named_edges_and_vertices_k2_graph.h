@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_named_edges_and_vertices_k2_graph() noexcept;
 
-void create_named_edges_and_vertices_k2_graph_test() noexcept;
-
 #endif // CREATE_NAMED_EDGES_AND_VERTICES_K2_GRAPH_H

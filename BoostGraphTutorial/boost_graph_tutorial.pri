@@ -477,7 +477,8 @@ SOURCES += \
     $$PWD/add_edge_between_custom_vertices.cpp \
     $$PWD/has_vertex_with_my_vertex.cpp \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
-    $$PWD/select_random_vertex.cpp
+    $$PWD/select_random_vertex.cpp \
+    get_edge_iterators.cpp
 
 
 # .impl files are the clean tutorial code snippets,
@@ -717,6 +718,7 @@ OTHER_FILES += \
     $$PWD/get_my_bundled_edge.impl \
     $$PWD/get_my_bundled_edges_demo.impl \
     $$PWD/get_my_bundled_edges.impl \
+    $$PWD/get_my_bundled_vertex_demo.impl \
     $$PWD/get_my_bundled_vertexes.impl \
     $$PWD/get_my_bundled_vertex.impl \
     $$PWD/get_my_bundled_vertexmpl \

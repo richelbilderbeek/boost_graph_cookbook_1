@@ -1,10 +1,10 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "add_bundled_vertex.h"
 #include "create_empty_undirected_bundled_vertices_graph.h"
 #include "find_first_bundled_vertex_with_my_vertex.h"
 #include "get_my_bundled_vertex.h"
 
-void get_my_bundled_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_my_bundled_vertex)
 {
   auto g
     = create_empty_undirected_bundled_vertices_graph();
@@ -12,5 +12,6 @@ void get_my_bundled_vertex_demo() noexcept
   add_bundled_vertex(v, g);
   const auto vd
     = find_first_bundled_vertex_with_my_vertex(v, g);
-  assert(get_my_bundled_vertex(vd, g) == v);
+  BOOST_CHECK(get_my_bundled_vertex(vd, g) == v);
 }
+

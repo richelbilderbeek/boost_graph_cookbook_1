@@ -3,6 +3,4 @@
 
 #include "create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.impl"
 
-void create_all_direct_neighbour_custom_edges_and_vertices_subgraphs_test() noexcept;
-
 #endif // CREATE_ALL_DIRECT_NEIGHBOUR_CUSTOM_EDGES_AND_VERTICES_SUBGRAPHS_H

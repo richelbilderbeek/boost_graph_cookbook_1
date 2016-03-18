@@ -1,7 +1,7 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_path_graph.h"
 
-void create_custom_vertices_path_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_custom_vertices_path_graph)
 {
   const auto g = create_custom_vertices_path_graph(
     {
@@ -10,6 +10,6 @@ void create_custom_vertices_path_graph_demo() noexcept
       my_custom_vertex("C")
     }
   );
-  assert(boost::num_edges(g) == 2);
-  assert(boost::num_vertices(g) == 3);
+  BOOST_CHECK(boost::num_edges(g) == 2);
+  BOOST_CHECK(boost::num_vertices(g) == 3);
 }

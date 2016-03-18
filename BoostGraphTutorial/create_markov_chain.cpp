@@ -1,17 +1,14 @@
 #include "create_markov_chain.h"
-
 #include "create_markov_chain.impl"
-
 #include "create_markov_chain_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "save_graph_to_dot.h"
 
-void create_markov_chain_test() noexcept
+BOOST_AUTO_TEST_CASE(create_markov_chain_thorough)
 {
   //Create the .dot and .svg of the 'create_markov_chain' chapter
   {
@@ -32,6 +29,4 @@ void create_markov_chain_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_markov_chain_demo();
-  
 }

@@ -1,8 +1,9 @@
 #include "create_direct_neighbour_named_vertices_subgraph.h"
 #include "create_direct_neighbour_named_vertices_subgraph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_vertices_k3_graph.h"
@@ -11,7 +12,7 @@
 #include "get_vertex_name.h"
 #include "get_vertex_names.h"
 
-void create_direct_neighbour_named_vertices_subgraph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_direct_neighbour_named_vertices_subgraph_thorough)
 {
   //K2
   {
@@ -22,12 +23,12 @@ void create_direct_neighbour_named_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_named_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 2);
-      assert(boost::num_edges(h) == 1);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
       const auto v = get_vertex_names(h);
       std::set<std::string> names(std::begin(v),std::end(v));
-      assert(names.count("Me") == 1);
-      assert(names.count("My computer") == 1);
+      BOOST_CHECK(names.count("Me") == 1);
+      BOOST_CHECK(names.count("My computer") == 1);
     }
   }
   //K3
@@ -39,13 +40,13 @@ void create_direct_neighbour_named_vertices_subgraph_test() noexcept
       const auto h = create_direct_neighbour_named_vertices_subgraph(
         *i,g
       );
-      assert(boost::num_vertices(h) == 3);
-      assert(boost::num_edges(h) == 3);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
       const auto v = get_vertex_names(h);
       std::set<std::string> names(std::begin(v),std::end(v));
-      assert(names.count("Karen") == 1);
-      assert(names.count("Kristel") == 1);
-      assert(names.count("Kathleen") == 1);
+      BOOST_CHECK(names.count("Karen") == 1);
+      BOOST_CHECK(names.count("Kristel") == 1);
+      BOOST_CHECK(names.count("Kathleen") == 1);
     }
   }
   //Path graph
@@ -59,32 +60,30 @@ void create_direct_neighbour_named_vertices_subgraph_test() noexcept
         *i,g
       );
       if (get_vertex_name(*i, g) == "A") {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_vertex_names(h);
         std::set<std::string> names(std::begin(v),std::end(v));
-        assert(names.count("A") == 1);
-        assert(names.count("B") == 1);
+        BOOST_CHECK(names.count("A") == 1);
+        BOOST_CHECK(names.count("B") == 1);
       }
       if (get_vertex_name(*i, g) == "B") {
-        assert(boost::num_vertices(h) == 3);
-        assert(boost::num_edges(h) == 2);
+        BOOST_CHECK(boost::num_vertices(h) == 3);
+        BOOST_CHECK(boost::num_edges(h) == 2);
         const auto v = get_vertex_names(h);
         std::set<std::string> names(std::begin(v),std::end(v));
-        assert(names.count("A") == 1);
-        assert(names.count("B") == 1);
-        assert(names.count("C") == 1);
+        BOOST_CHECK(names.count("A") == 1);
+        BOOST_CHECK(names.count("B") == 1);
+        BOOST_CHECK(names.count("C") == 1);
       }
       if (get_vertex_name(*i, g) == "C") {
-        assert(boost::num_vertices(h) == 2);
-        assert(boost::num_edges(h) == 1);
+        BOOST_CHECK(boost::num_vertices(h) == 2);
+        BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_vertex_names(h);
         std::set<std::string> names(std::begin(v),std::end(v));
-        assert(names.count("B") == 1);
-        assert(names.count("C") == 1);
+        BOOST_CHECK(names.count("B") == 1);
+        BOOST_CHECK(names.count("C") == 1);
       }
     }
   }
-
-  create_direct_neighbour_named_vertices_subgraph_demo();
 }

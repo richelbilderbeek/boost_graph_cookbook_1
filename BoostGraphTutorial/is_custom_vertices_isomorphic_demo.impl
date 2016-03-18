@@ -1,8 +1,8 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_path_graph.h"
 #include "is_custom_vertices_isomorphic.h"
 
-void is_custom_vertices_isomorphic_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_is_custom_vertices_isomorphic)
 {
   const auto g = create_custom_vertices_path_graph(
     {
@@ -25,6 +25,6 @@ void is_custom_vertices_isomorphic_demo() noexcept
       my_custom_vertex("Beta")
     }
   );
-  assert( is_custom_vertices_isomorphic(g,h));
-  assert(!is_custom_vertices_isomorphic(g,i));
+  BOOST_CHECK( is_custom_vertices_isomorphic(g,h));
+  BOOST_CHECK(!is_custom_vertices_isomorphic(g,i));
 }

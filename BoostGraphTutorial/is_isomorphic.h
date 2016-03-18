@@ -3,6 +3,4 @@
 
 #include "is_isomorphic.impl"
 
-void is_isomorphic_test() noexcept;
-
 #endif // IS_ISOMORPHIC_H

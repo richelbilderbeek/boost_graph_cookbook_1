@@ -1,10 +1,8 @@
 #include "save_custom_vertices_graph_to_dot.h"
-
 #include "save_custom_vertices_graph_to_dot_demo.impl"
 
-#include <cassert>
-#include <iostream>
 #include <sstream>
+#include <boost/test/unit_test.hpp>
 
 #include "copy_file.h"
 #include "create_custom_vertices_k2_graph.h"
@@ -13,7 +11,7 @@
 #include "is_regular_file.h"
 #include "helper.h"
 
-void save_custom_vertices_graph_to_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(save_custom_vertices_graph_to_dot_thorough)
 {
   //Show it does store the vertex names
   {
@@ -24,16 +22,16 @@ void save_custom_vertices_graph_to_dot_test() noexcept
     const std::string svg_filename{base_filename + ".svg"};
 
     save_custom_vertices_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
+    BOOST_CHECK(is_regular_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
-    assert(!text.empty());
+    BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
       "digraph G {",
       "}"
     };
-    assert(text != expected_text);
+    BOOST_CHECK(text != expected_text);
   }
   //Show it does not store the edges' names
   {
@@ -45,7 +43,7 @@ void save_custom_vertices_graph_to_dot_test() noexcept
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
-    assert(!text.empty());
+    BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
       "0[label=top];",
@@ -56,8 +54,7 @@ void save_custom_vertices_graph_to_dot_test() noexcept
       "2--0 ;",
       "}"
     };
-    assert(text != expected_text);
+    BOOST_CHECK(text != expected_text);
   }
-  save_custom_vertices_graph_to_dot_demo();
   
 }

@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_named_edges_and_vertices_markov_chain() noexcept;
 
-void create_named_edges_and_vertices_markov_chain_test() noexcept;
-
 #endif // CREATE_NAMED_EDGES_AND_VERTICES_MARKOV_CHAIN_GRAPH_H

@@ -11,6 +11,4 @@ boost::adjacency_list<
 >
 create_tutorial_subchapters_graph() noexcept;
 
-void create_tutorial_subchapters_graph_test() noexcept;
-
 #endif // CREATE_TUTORIAL_SUBCHAPTERS_GRAPH_H

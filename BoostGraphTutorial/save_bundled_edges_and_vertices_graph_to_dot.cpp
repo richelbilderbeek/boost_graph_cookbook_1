@@ -1,9 +1,7 @@
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
-
 #include "save_bundled_edges_and_vertices_graph_to_dot_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 #include <sstream>
 
 #include "copy_file.h"
@@ -13,7 +11,7 @@
 #include "helper.h"
 #include "is_regular_file.h"
 
-void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(save_bundled_edges_and_vertices_graph_to_dot_thorough)
 {
   //Show how it stores the create_bundled_edges_and_vertices_k3_graph
   {
@@ -23,12 +21,12 @@ void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
     const std::string dot_filename{base_filename + ".dot"};
 
     save_bundled_edges_and_vertices_graph_to_dot(g,dot_filename);
-    assert(is_regular_file(dot_filename));
+    BOOST_CHECK(is_regular_file(dot_filename));
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
     //for (const auto s: text) { std::cerr << s << '\n'; }
-    assert(!text.empty());
+    BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
       "0[label=\"Red\",comment=\"Not$$$SPACE$$$green\",width=1,height=2];",
@@ -39,8 +37,6 @@ void save_bundled_edges_and_vertices_graph_to_dot_test() noexcept
       "2--0 [label=\"Stable$$$SPACE$$$temperature\",comment=\"Here\",width=5,height=6];",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
-  save_bundled_edges_and_vertices_graph_to_dot_demo();
-  
 }

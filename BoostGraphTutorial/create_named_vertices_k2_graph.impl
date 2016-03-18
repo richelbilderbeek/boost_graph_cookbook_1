@@ -16,7 +16,6 @@ create_named_vertices_k2_graph() noexcept
   const std::string vb("My computer");
   const auto vd_a = add_named_vertex(va, g);
   const auto vd_b = add_named_vertex(vb, g);
-  const auto aer = boost::add_edge(vd_a, vd_b, g);
-  assert(aer.second);
+  boost::add_edge(vd_a, vd_b, g);
   return g;
 }

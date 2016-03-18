@@ -3,6 +3,4 @@
 
 #include "clear_first_vertex_with_name.impl"
 
-void clear_first_vertex_with_name_test() noexcept;
-
 #endif // CLEAR_FIRST_VERTEX_WITH_NAME_H

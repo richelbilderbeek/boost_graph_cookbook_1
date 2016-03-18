@@ -14,7 +14,7 @@ install:
 #  - sudo apt-get install -qq lyx
 #  - sudo apt-get install -qq texlive
 #  - sudo apt-get install -qq pgf
-  - sudo pip install codecov
+#  - sudo pip install codecov
 
 addons:
   apt:
@@ -28,18 +28,18 @@ addons:
 
 script:
  - type dot
- - qmake BoostGraphTutorial/boost_graph_tutorial.pro
+ - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
  - make
- - ./boost_graph_tutorial
+ - ./boost_graph_tutorial_test
  # gcov
- - qmake BoostGraphTutorial/boost_graph_tutorial_gcov.pro
- - make
- - ./boost_graph_tutorial
+ #- qmake BoostGraphTutorial/boost_graph_tutorial_gcov.pro
+ #- make
+ #- ./boost_graph_tutorial
  # Display gcov files
- - for filename in `ls *.cpp`; do gcov $filename; done
- - for filename in `ls *.h`; do gcov $filename; done
+ #- for filename in `ls *.cpp`; do gcov $filename; done
+ #- for filename in `ls *.h`; do gcov $filename; done
  # Display gcov files
- - for filename in `ls *.h.gcov`; do cat $filename; done
- - for filename in `ls *.cpp.gcov`; do cat $filename; done
+ #- for filename in `ls *.h.gcov`; do cat $filename; done
+ #- for filename in `ls *.cpp.gcov`; do cat $filename; done
 
-after_success: codecov
+#after_success: codecov

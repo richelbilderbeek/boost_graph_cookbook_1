@@ -1,15 +1,14 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_named_vertices_k3_graph.h"
 #include "get_vertex_names.h"
 
-void create_named_vertices_k3_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_named_vertices_k3_graph)
 {
   const auto g = create_named_vertices_k3_graph();
   const std::vector<std::string> expected_names{
     "Karen", "Kristel","Kathleen"
   };
   const std::vector<std::string> vertex_names = get_vertex_names(g);
-  assert(expected_names == vertex_names);
+  BOOST_CHECK(expected_names == vertex_names);
 }
 

@@ -1,10 +1,9 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "add_custom_and_selectable_vertex.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "get_vertex_selectednesses.h"
 
-void get_vertex_selectednesses_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_vertex_selectednesses)
 {
   auto g
     = create_empty_undirected_custom_and_selectable_vertices_graph();
@@ -24,7 +23,7 @@ void get_vertex_selectednesses_demo() noexcept
   const std::vector<bool> vertex_selectednesses{
     get_vertex_selectednesses(g)
   };
-  assert(expected_selectednesses
+  BOOST_CHECK(expected_selectednesses
     == vertex_selectednesses
   );
 }

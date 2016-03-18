@@ -1,8 +1,9 @@
+#include <boost/test/unit_test.hpp>
 #include "create_k3_graph.h"
 
-void create_k3_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_k3_graph)
 {
   const auto g = create_k3_graph();
-  assert(boost::num_edges(g) == 3);
-  assert(boost::num_vertices(g) == 3);
+  BOOST_CHECK(boost::num_edges(g) == 3);
+  BOOST_CHECK(boost::num_vertices(g) == 3);
 }

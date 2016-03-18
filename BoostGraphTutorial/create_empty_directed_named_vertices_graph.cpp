@@ -1,11 +1,11 @@
 #include "create_empty_directed_named_vertices_graph.h"
-
 #include "create_empty_directed_named_vertices_graph.impl"
-
 #include "create_empty_directed_named_vertices_graph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 
 
 
@@ -16,28 +16,26 @@
 #include "add_edge.h"
 #include "add_named_vertex.h"
 
-void create_empty_directed_named_vertices_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_empty_directed_named_vertices_graph_thorough)
 {
   //Basic testing
   {
     auto g = create_empty_directed_named_vertices_graph();
     const auto vip = get_vertex_iterators(g);
-    assert(vip.first == vip.second);
+    BOOST_CHECK(vip.first == vip.second);
     const auto vds = get_vertex_descriptors(g);
-    assert(vds.empty());
+    BOOST_CHECK(vds.empty());
     const auto eip = get_edge_iterators(g);
-    assert(eip.first == eip.second);
+    BOOST_CHECK(eip.first == eip.second);
     const auto eds = get_edge_descriptors(g);
-    assert(eds.empty());
-    assert(boost::num_edges(g) == 0);
-    assert(boost::num_vertices(g) == 0);
+    BOOST_CHECK(eds.empty());
+    BOOST_CHECK(boost::num_edges(g) == 0);
+    BOOST_CHECK(boost::num_vertices(g) == 0);
     add_named_vertex("A",g);
-    assert(boost::num_edges(g) == 0);
-    assert(boost::num_vertices(g) == 1);
+    BOOST_CHECK(boost::num_edges(g) == 0);
+    BOOST_CHECK(boost::num_vertices(g) == 1);
     add_edge(g);
-    assert(boost::num_edges(g) == 1);
-    assert(boost::num_vertices(g) == 3);
+    BOOST_CHECK(boost::num_edges(g) == 1);
+    BOOST_CHECK(boost::num_vertices(g) == 3);
   }
-  create_empty_named_directed_vertices_graph_demo();
-  
 }

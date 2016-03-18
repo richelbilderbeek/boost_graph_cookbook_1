@@ -1,14 +1,12 @@
 #include "find_first_vertex_with_name.h"
-
 #include "find_first_vertex_with_name_demo.impl"
 
-#include <cassert>
-#include <iostream>
+#include <boost/test/unit_test.hpp>
 
 #include "create_named_vertices_k2_graph.h"
 #include "get_vertex_name.h"
 
-void find_first_vertex_with_name_test() noexcept
+BOOST_AUTO_TEST_CASE(find_first_vertex_with_name_thorough)
 {
   {
     const auto g = create_named_vertices_k2_graph();
@@ -16,12 +14,9 @@ void find_first_vertex_with_name_test() noexcept
       = find_first_vertex_with_name(
         "My computer", g
       );
-    assert(out_degree(vd,g) == 1); //not boost::out_degree
-    assert(in_degree(vd,g) == 1); //not boost::in_degree
-    assert(get_vertex_name(vd,g) == "My computer");
+    BOOST_CHECK(out_degree(vd,g) == 1); //not boost::out_degree
+    BOOST_CHECK(in_degree(vd,g) == 1); //not boost::in_degree
+    BOOST_CHECK(get_vertex_name(vd,g) == "My computer");
   }
-
-  find_first_vertex_with_name_demo();
-  
 }
 

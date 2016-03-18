@@ -15,7 +15,4 @@ load_directed_custom_vertices_graph_from_dot(
   const std::string& dot_filename
 );
 
-void load_directed_custom_vertices_graph_from_dot_test() noexcept;
-
-
 #endif // LOAD_DIRECTED_CUSTOM_VERTICES_GRAPH_FROM_DOT_H

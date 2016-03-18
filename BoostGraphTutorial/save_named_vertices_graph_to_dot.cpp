@@ -1,11 +1,11 @@
 #include "save_named_vertices_graph_to_dot.h"
-
 #include "save_named_vertices_graph_to_dot_demo.impl"
+
 
 #include "save_named_vertices_graph_to_dot_using_lambda.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
 #include <sstream>
 
 #include "copy_file.h"
@@ -20,7 +20,7 @@
 #include "helper.h"
 
 
-void save_named_vertices_graph_to_dot_test() noexcept
+BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
 {
   //Create figure of named K2 graph
   {
@@ -70,7 +70,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
-    assert(!text.empty());
+    BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
       "0[label=Me];",
@@ -78,7 +78,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
       "0--1 ;",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
   //Show it does not store the edges' names
   {
@@ -89,7 +89,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
     const std::vector<std::string> text{
       helper().file_to_vector(dot_filename)
     };
-    assert(!text.empty());
+    BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
       "graph G {",
       "0[label=top];",
@@ -100,7 +100,7 @@ void save_named_vertices_graph_to_dot_test() noexcept
       "2--0 ;",
       "}"
     };
-    assert(text == expected_text);
+    BOOST_CHECK(text == expected_text);
   }
   //Will it break if the vertices have named with spaces
   {
@@ -117,10 +117,9 @@ void save_named_vertices_graph_to_dot_test() noexcept
     save_named_vertices_graph_to_dot_using_lambda(g,"g2.dot");
     save_named_vertices_graph_to_dot(h,"h1.dot");
     save_named_vertices_graph_to_dot_using_lambda(h,"h2.dot");
-    assert(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
-    assert(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
-    assert(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
+    BOOST_CHECK(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
+    BOOST_CHECK(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
+    BOOST_CHECK(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
   }
-  save_named_vertices_graph_to_dot_demo();
   
 }

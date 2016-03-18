@@ -34,7 +34,5 @@ create_custom_and_selectable_edges_and_vertices_path_graph(
   const std::vector<bool>& vertex_selectednesses
 ) noexcept;
 
-void create_custom_and_selectable_edges_and_vertices_path_graph_test() noexcept;
-
 
 #endif // CREATE_CUSTOM_AND_SELECTABLE_EDGES_AND_VERTICES_PATH_GRAPH_H

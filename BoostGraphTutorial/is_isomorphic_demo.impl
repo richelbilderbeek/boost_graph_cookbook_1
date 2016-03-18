@@ -1,12 +1,12 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_path_graph.h"
 #include "create_k3_graph.h"
 #include "is_isomorphic.h"
 
-void is_isomorphic_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_is_isomorphic)
 {
   const auto g = create_path_graph(3);
   const auto h = create_k3_graph();
-  assert( is_isomorphic(g,g));
-  assert(!is_isomorphic(g,h));
+  BOOST_CHECK( is_isomorphic(g,g));
+  BOOST_CHECK(!is_isomorphic(g,h));
 }

@@ -1,16 +1,15 @@
-#include <cassert>
-
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_k2_graph.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
 
-void find_first_custom_vertex_with_my_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_find_first_custom_vertex_with_my_vertex)
 {
   const auto g = create_custom_vertices_k2_graph();
   const auto vd = find_first_custom_vertex_with_my_vertex(
     my_custom_vertex("A","source",0.0,0.0),
     g
   );
-  assert(out_degree(vd,g) == 1);
-  assert(in_degree(vd,g) == 1);
+  BOOST_CHECK(out_degree(vd,g) == 1);
+  BOOST_CHECK(in_degree(vd,g) == 1);
 }
 

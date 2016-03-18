@@ -1,22 +1,21 @@
+#include "add_named_edge_between_vertices.h"
 #include "add_named_edge_between_vertices_demo.impl"
 
-#include "add_named_edge_between_vertices.h"
+#include <boost/test/unit_test.hpp>
 
-#include <cassert>
 
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "add_named_edge_between_vertices.h"
 #include "add_named_vertex.h"
 
-void add_named_edge_between_vertices_test() noexcept
+BOOST_AUTO_TEST_CASE(add_named_edge_between_vertices_thorough)
 {
   {
     auto g = create_empty_undirected_named_edges_and_vertices_graph();
     const auto from = add_named_vertex("Bert", g);
     const auto to = add_named_vertex("Ernie", g);
     add_named_edge_between_vertices("Friends", from, to, g);
-    assert(boost::num_edges(g) == 1);
+    BOOST_CHECK(boost::num_edges(g) == 1);
   }
-  add_named_edge_between_vertices_demo();
 }
 

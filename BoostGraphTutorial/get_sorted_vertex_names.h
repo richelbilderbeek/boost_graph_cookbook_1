@@ -15,6 +15,4 @@ std::vector<std::string> get_sorted_vertex_names(
   return v;
 }
 
-void get_sorted_vertex_names_test() noexcept;
-
 #endif // GET_SORTED_VERTEX_NAMES_H

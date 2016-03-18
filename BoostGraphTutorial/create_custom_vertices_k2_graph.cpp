@@ -1,25 +1,25 @@
 #include "create_custom_vertices_k2_graph.h"
-
 #include "create_custom_vertices_k2_graph.impl"
-
 #include "create_custom_vertices_k2_graph_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 #include "has_custom_vertex_with_my_vertex.h"
 #include "save_custom_vertices_graph_to_dot.h"
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 
-void create_custom_vertices_k2_graph_test() noexcept
+BOOST_AUTO_TEST_CASE(create_custom_vertices_k2_graph_thorough)
 {
   //Basic tests
   {
     const auto g = create_custom_vertices_k2_graph();
-    assert(boost::num_edges(g) == 1);
-    assert(boost::num_vertices(g) == 2);
-    assert(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("A", "source" ,0.0, 0.0), g));
-    assert(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("B", "target" ,3.14, 3.14), g));
+    BOOST_CHECK(boost::num_edges(g) == 1);
+    BOOST_CHECK(boost::num_vertices(g) == 2);
+    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("A", "source" ,0.0, 0.0), g));
+    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("B", "target" ,3.14, 3.14), g));
   }
   //Create the .dot and .svg of the 'create_custom_vertices_k2_graph' chapter
   {
@@ -40,7 +40,4 @@ void create_custom_vertices_k2_graph_test() noexcept
       copy_file_mode::allow_overwrite
     );
   }
-  create_custom_vertices_k2_graph_demo();
-  
-
 }

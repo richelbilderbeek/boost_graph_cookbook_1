@@ -1,7 +1,6 @@
 #include <cassert>
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
-//#include "my_custom_edge.h"
 #include "add_custom_edge_between_vertices.h"
 #include "set_edge_selectedness.h"
 

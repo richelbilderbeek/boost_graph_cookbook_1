@@ -20,6 +20,4 @@ boost::adjacency_list<
 >
 create_custom_edges_and_vertices_markov_chain() noexcept;
 
-void create_custom_edges_and_vertices_markov_chain_test() noexcept;
-
 #endif // CREATE_CUSTOM_EDGES_AND_VERTICES_MARKOV_CHAIN_H

@@ -1,14 +1,14 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
 #include "get_n_vertices.h"
 
-void get_n_vertices_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_get_n_vertices)
 {
   const auto g = create_empty_directed_graph();
-  assert(get_n_vertices(g) == 0);
+  BOOST_CHECK(get_n_vertices(g) == 0);
 
   const auto h = create_empty_undirected_graph();
-  assert(get_n_vertices(h) == 0);
+  BOOST_CHECK(get_n_vertices(h) == 0);
 }
 

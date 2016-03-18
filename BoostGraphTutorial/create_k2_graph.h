@@ -10,6 +10,4 @@ boost::adjacency_list<
 >
 create_k2_graph() noexcept;
 
-void create_k2_graph_test() noexcept;
-
 #endif // CREATE_K2_GRAPH_H

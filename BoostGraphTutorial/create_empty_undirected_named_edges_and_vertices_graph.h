@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_empty_undirected_named_edges_and_vertices_graph() noexcept;
 
-void create_empty_undirected_named_edges_and_vertices_graph_test() noexcept;
-
 #endif // CREATE_EMPTY_UNDIRECTED_NAMED_EDGES_AND_VERTICES_GRAPH_H

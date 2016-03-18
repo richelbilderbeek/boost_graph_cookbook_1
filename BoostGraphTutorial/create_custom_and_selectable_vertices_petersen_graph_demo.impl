@@ -1,9 +1,9 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_and_selectable_vertices_petersen_graph.h"
 
-void create_custom_and_selectable_vertices_petersen_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_custom_and_selectable_vertices_petersen_graph)
 {
   const auto g = create_custom_and_selectable_vertices_petersen_graph();
-  assert(boost::num_edges(g) == 15);
-  assert(boost::num_vertices(g) == 10);
+  BOOST_CHECK(boost::num_edges(g) == 15);
+  BOOST_CHECK(boost::num_vertices(g) == 10);
 }

@@ -1,11 +1,11 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #include "create_empty_undirected_named_vertices_graph.h"
 
-void create_empty_undirected_named_vertices_graph_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_empty_undirected_named_vertices_graph)
 {
   const auto g
     = create_empty_undirected_named_vertices_graph();
-  assert(boost::num_vertices(g) == 0);
-  assert(boost::num_edges(g) == 0);
+  BOOST_CHECK(boost::num_vertices(g) == 0);
+  BOOST_CHECK(boost::num_edges(g) == 0);
 }

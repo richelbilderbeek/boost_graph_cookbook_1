@@ -1,9 +1,10 @@
 #include "create_all_direct_neighbour_named_vertices_subgraphs.h"
-
 #include "create_all_direct_neighbour_named_vertices_subgraphs_demo.impl"
 
-#include <cassert>
-#include <iostream>
+
+#include <boost/test/unit_test.hpp>
+
+#include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 #include "create_named_vertices_k2_graph.h"
@@ -13,22 +14,22 @@
 #include "save_named_vertices_graph_to_dot.h"
 #include "has_vertex_with_name.h"
 
-void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
+BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_named_vertices_subgraphs_thorough)
 {
   //K2
   {
     const auto v = create_all_direct_neighbour_named_vertices_subgraphs(
       create_named_vertices_k2_graph()
     );
-    assert(v.size() == 2);
+    BOOST_CHECK(v.size() == 2);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 2);
-      assert(boost::num_edges(g) == 1);
+      BOOST_CHECK(boost::num_vertices(g) == 2);
+      BOOST_CHECK(boost::num_edges(g) == 1);
       const std::string va("Me");
       const std::string vb("My computer");
-      assert(has_vertex_with_name(va, g));
-      assert(has_vertex_with_name(vb, g));
+      BOOST_CHECK(has_vertex_with_name(va, g));
+      BOOST_CHECK(has_vertex_with_name(vb, g));
     }
   }
   //K3
@@ -36,17 +37,17 @@ void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
     const auto v = create_all_direct_neighbour_named_vertices_subgraphs(
       create_named_vertices_k3_graph()
     );
-    assert(v.size() == 3);
+    BOOST_CHECK(v.size() == 3);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 3);
-      assert(boost::num_edges(g) == 3);
+      BOOST_CHECK(boost::num_vertices(g) == 3);
+      BOOST_CHECK(boost::num_edges(g) == 3);
       const std::string va("Karen");
       const std::string vb("Kristel");
       const std::string vc("Kathleen");
-      assert(has_vertex_with_name(va, g));
-      assert(has_vertex_with_name(vb, g));
-      assert(has_vertex_with_name(vc, g));
+      BOOST_CHECK(has_vertex_with_name(va, g));
+      BOOST_CHECK(has_vertex_with_name(vb, g));
+      BOOST_CHECK(has_vertex_with_name(vc, g));
     }
   }
   //Path
@@ -55,7 +56,7 @@ void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
       create_named_vertices_path_graph( {"A","B","C"} )
     );
     const int sz{3};
-    assert(sz == static_cast<int>(v.size()));
+    BOOST_CHECK(sz == static_cast<int>(v.size()));
     for (int i=0; i!=sz; ++i)
     {
       const auto g = v[i];
@@ -79,12 +80,11 @@ void create_all_direct_neighbour_named_vertices_subgraphs_test() noexcept
   //Petersen Graph
   {
     const auto v = create_all_direct_neighbour_named_vertices_subgraphs(create_named_vertices_petersen_graph());
-    assert(v.size() == 10);
+    BOOST_CHECK(v.size() == 10);
     for (const auto g: v)
     {
-      assert(boost::num_vertices(g) == 4);
-      assert(boost::num_edges(g) == 3);
+      BOOST_CHECK(boost::num_vertices(g) == 4);
+      BOOST_CHECK(boost::num_edges(g) == 3);
     }
   }
-  create_all_direct_neighbour_named_vertices_subgraphs_demo();  
 }

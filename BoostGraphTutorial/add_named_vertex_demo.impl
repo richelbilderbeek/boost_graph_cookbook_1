@@ -1,11 +1,11 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 
-void add_named_vertex_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_add_named_vertex)
 {
   auto g
     = create_empty_undirected_named_vertices_graph();
   add_named_vertex("Lex", g);
-  assert(boost::num_vertices(g) == 1);
+  BOOST_CHECK(boost::num_vertices(g) == 1);
 }

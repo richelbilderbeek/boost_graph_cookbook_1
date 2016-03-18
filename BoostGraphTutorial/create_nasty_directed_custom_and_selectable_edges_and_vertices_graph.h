@@ -22,6 +22,4 @@ boost::adjacency_list<
 >
 create_nasty_directed_custom_and_selectable_edges_and_vertices_graph() noexcept;
 
-void create_nasty_directed_custom_and_selectable_edges_and_vertices_graph_test() noexcept;
-
 #endif // CREATE_NASTY_DIRECTED_CUSTOM_AND_SELECTABLE_EDGES_AND_VERTICES_GRAPH_H

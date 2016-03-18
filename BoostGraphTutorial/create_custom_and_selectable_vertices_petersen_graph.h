@@ -19,6 +19,4 @@ boost::adjacency_list<
 >
 create_custom_and_selectable_vertices_petersen_graph() noexcept;
 
-void create_custom_and_selectable_vertices_petersen_graph_test() noexcept;
-
 #endif // CREATE_CUSTOM_AND_SELECTABLE_VERTICES_PETERSEN_GRAPH_H

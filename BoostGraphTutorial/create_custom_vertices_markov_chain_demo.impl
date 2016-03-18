@@ -1,8 +1,8 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_markov_chain.h"
 #include "get_my_custom_vertexes.h"
 
-void create_custom_vertices_markov_chain_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_create_custom_vertices_markov_chain)
 {
   const auto g
     = create_custom_vertices_markov_chain();
@@ -15,7 +15,7 @@ void create_custom_vertices_markov_chain_demo() noexcept
     vertex_my_custom_vertexes{
     get_my_custom_vertexes(g)
   };
-  assert(expected_my_custom_vertexes
+  BOOST_CHECK(expected_my_custom_vertexes
     == vertex_my_custom_vertexes
   );
 }

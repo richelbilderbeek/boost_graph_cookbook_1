@@ -12,6 +12,4 @@ boost::adjacency_list<
 >
 create_bundled_vertices_markov_chain() noexcept;
 
-void create_bundled_vertices_markov_chain_test() noexcept;
-
 #endif // CREATE_BUNDLED_VERTICES_MARKOV_CHAIN_H

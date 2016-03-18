@@ -1,12 +1,12 @@
-#include <cassert>
+#include <boost/test/unit_test.hpp>
 #include "create_bundled_edges_and_vertices_k3_graph.h"
 #include "has_bundled_edge_with_my_edge.h"
 
-void has_bundled_edge_with_my_edge_demo() noexcept
+BOOST_AUTO_TEST_CASE(test_has_bundled_edge_with_my_edge)
 {
   auto g
     = create_bundled_edges_and_vertices_k3_graph();
-  assert(
+  BOOST_CHECK(
     has_bundled_edge_with_my_edge(
       my_bundled_edge("Oxygen","Air",1.0,2.0),g
     )

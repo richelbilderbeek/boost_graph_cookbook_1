@@ -18,6 +18,4 @@ boost::adjacency_list<
 >
 create_empty_directed_named_and_selectable_vertices_graph() noexcept;
 
-void create_empty_directed_named_and_selectable_vertices_graph_test() noexcept;
-
 #endif // CREATE_EMPTY_DIRECTED_NAMED_AND_SELECTABLE_VERTICES_GRAPH_H
