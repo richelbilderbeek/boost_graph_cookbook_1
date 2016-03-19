@@ -1,0 +1,8 @@
+graph G {
+0[label="Karen,red,0,0"];
+1[label="Kristel,black,1.1,1.1"];
+2[label="Kathleen,blond,2.2,2.2"];
+0--1 ;
+1--2 ;
+2--0 ;
+}

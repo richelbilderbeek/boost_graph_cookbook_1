@@ -1,0 +1,5 @@
+graph G {
+0[label="A,source,0,0", regular="1"];
+1[label="B,target,3.14,3.14", regular="0"];
+0--1 ;
+}

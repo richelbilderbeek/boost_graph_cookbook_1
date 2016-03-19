@@ -1,0 +1,27 @@
+graph G {
+0[label=A];
+1[label=B];
+2[label=C];
+3[label=D];
+4[label=E];
+5[label=a];
+6[label=b];
+7[label=c];
+8[label=d];
+9[label=e];
+0--1 [label="F"];
+1--2 [label="G"];
+2--3 [label="H"];
+3--4 [label="I"];
+4--0 [label="J"];
+0--5 [label="0"];
+1--6 [label="1"];
+2--7 [label="2"];
+3--8 [label="3"];
+4--9 [label="4"];
+5--7 [label="f"];
+6--8 [label="g"];
+7--9 [label="h"];
+8--5 [label="i"];
+9--6 [label="j"];
+}

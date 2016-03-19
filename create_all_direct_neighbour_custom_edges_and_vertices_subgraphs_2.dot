@@ -1,0 +1,5 @@
+graph G {
+0[label="Klaasje,blond,5.5,5.5"];
+1[label="Marthe,black,3.3,3.3"];
+1--0 [label="Even$$$SPACE$$$favorite$$$SPACE$$$number,4$$$SPACE$$$and$$$SPACE$$$8,3.3,4.4"];
+}

@@ -1,0 +1,29 @@
+digraph G {
+0[label="A,BCDEFGHIJKLMN,0,0", regular="0"];
+1[label="A$$$SPACE$$$B,$$$SPACE$$$C$$$SPACE$$$D,0,0", regular="0"];
+2[label="$$$SPACE$$$A$$$SPACE$$$B$$$SPACE$$$,$$$SPACE$$$$$$SPACE$$$C$$$SPACE$$$$$$SPACE$$$D$$$SPACE$$$$$$SPACE$$$,0,0", regular="0"];
+3[label="A_B,C_D,0,0", regular="0"];
+4[label="A\B,C\D,0,0", regular="0"];
+5[label="A$$$QUOTE$$$B,C$$$QUOTE$$$D,0,0", regular="0"];
+6[label="A$$$COMMA$$$B,$$$COMMA$$$C$$$COMMA$$$D$$$COMMA$$$,0,0", regular="0"];
+7[label="A<B,$$$COMMA$$$C>D$$$COMMA$$$,0,0", regular="0"];
+8[label="A$$$QUOTE$$$];,B$$$QUOTE$$$];,0,0", regular="0"];
+9[label="A,BCDEFGHIJKLMN,0,0", regular="1"];
+10[label="A$$$SPACE$$$B,$$$SPACE$$$C$$$SPACE$$$D,0,0", regular="1"];
+11[label="$$$SPACE$$$A$$$SPACE$$$B$$$SPACE$$$,$$$SPACE$$$$$$SPACE$$$C$$$SPACE$$$$$$SPACE$$$D$$$SPACE$$$$$$SPACE$$$,0,0", regular="1"];
+12[label="A_B,C_D,0,0", regular="1"];
+13[label="A\B,C\D,0,0", regular="1"];
+14[label="A$$$QUOTE$$$B,C$$$QUOTE$$$D,0,0", regular="1"];
+15[label="A$$$COMMA$$$B,$$$COMMA$$$C$$$COMMA$$$D$$$COMMA$$$,0,0", regular="1"];
+16[label="A<B,$$$COMMA$$$C>D$$$COMMA$$$,0,0", regular="1"];
+17[label="A$$$QUOTE$$$];,B$$$QUOTE$$$];,0,0", regular="1"];
+18[label="A,BCDEFGHIJKLMN,0,0", regular="0"];
+19[label="A$$$SPACE$$$B,$$$SPACE$$$C$$$SPACE$$$D,0,0", regular="0"];
+20[label="$$$SPACE$$$A$$$SPACE$$$B$$$SPACE$$$,$$$SPACE$$$$$$SPACE$$$C$$$SPACE$$$$$$SPACE$$$D$$$SPACE$$$$$$SPACE$$$,0,0", regular="0"];
+21[label="A_B,C_D,0,0", regular="0"];
+22[label="A\B,C\D,0,0", regular="0"];
+23[label="A$$$QUOTE$$$B,C$$$QUOTE$$$D,0,0", regular="0"];
+24[label="A$$$COMMA$$$B,$$$COMMA$$$C$$$COMMA$$$D$$$COMMA$$$,0,0", regular="0"];
+25[label="A<B,$$$COMMA$$$C>D$$$COMMA$$$,0,0", regular="0"];
+26[label="A$$$QUOTE$$$];,B$$$QUOTE$$$];,0,0", regular="0"];
+}

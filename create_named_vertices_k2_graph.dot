@@ -1,0 +1,5 @@
+graph G {
+0[label=Me];
+1[label="My computer"];
+0--1 ;
+}
