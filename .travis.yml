@@ -29,15 +29,15 @@ addons:
 script:
  - type dot
  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
- - make debug
- - ./boost_graph_tutorial
+ #- make debug
+ #- ./boost_graph_tutorial
  - make release
  - ./boost_graph_tutorial
  - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
  - make debug
  - ./boost_graph_tutorial_test
- - make release
- - ./boost_graph_tutorial_test
+ #- make release
+ #- ./boost_graph_tutorial_test
  # gcov
  #- qmake BoostGraphTutorial/boost_graph_tutorial_gcov.pro
  #- make
