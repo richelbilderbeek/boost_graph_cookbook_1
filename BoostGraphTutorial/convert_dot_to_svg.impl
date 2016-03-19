@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 #include "has_dot.h"
 #include "is_regular_file.h"
 #include "is_valid_dot_file.h"
@@ -11,8 +12,22 @@ void convert_dot_to_svg(
   const std::string& svg_filename
 )
 {
-  assert(has_dot());
-  assert(is_valid_dot_file(dot_filename));
+  if (!has_dot())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": 'dot' cannot be found. "
+      << "type 'sudo apt-get install graphviz' in the command line"
+    ;
+    throw std::runtime_error(msg.str());
+  }
+  if (!is_valid_dot_file(dot_filename))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": file '" << dot_filename
+      << "' is not a valid DOT language"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   std::stringstream cmd;
   cmd << "dot -Tsvg " << dot_filename << " -o " << svg_filename;
   const int error {
@@ -20,10 +35,16 @@ void convert_dot_to_svg(
   };
   if (error)
   {
-    std::cerr << __func__ << ": command '"
+    std::cerr << __func__ << ": warning: command '"
       << cmd.str() << "' resulting in error "
       << error;
   }
-  assert(!error);
-  assert(is_regular_file(svg_filename));
+  if (!is_regular_file(svg_filename))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": failed to create SVG output file '"
+      << svg_filename << "'"
+    ;
+    throw std::runtime_error(msg.str());
+  }
 }
