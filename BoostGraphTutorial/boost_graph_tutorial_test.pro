@@ -15,7 +15,7 @@ QMAKE_CC = gcc-5
 QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror -std=c++14
 
 include(boost_graph_tutorial.pri)
-#include(boost_graph_tutorial_test.pri)
+include(boost_graph_tutorial_test.pri)
 
 LIBS += \
   -lboost_graph \

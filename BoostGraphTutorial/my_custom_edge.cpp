@@ -1,10 +1,6 @@
 #include "my_custom_edge.h"
-//#include "my_custom_edge_demo.impl"
-
-#include <boost/test/unit_test.hpp>
-
+#include <cassert>
 #include <sstream>
-#include <boost/test/unit_test.hpp>
 
 #include <boost/lexical_cast.hpp>
 
@@ -24,16 +20,26 @@ my_custom_edge::my_custom_edge(
     m_width{width},
     m_height{height}
 {
-  BOOST_CHECK(
-    graphviz_decode(
-      graphviz_encode(m_name)
-    ) == m_name
-  );
-  BOOST_CHECK(
-    graphviz_decode(
-      graphviz_encode(m_description)
-    ) == m_description
-  );
+  if(graphviz_decode(graphviz_encode(m_name)) != m_name)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": cannot successfully encode and decode the name '"
+      << m_name << "', it will be turned into '"
+      << graphviz_decode(graphviz_encode(m_name))
+      << "'"
+    ;
+    throw std::logic_error(msg.str());
+  }
+  if(graphviz_decode(graphviz_encode(m_description)) != m_description)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": cannot successfully encode and decode the description '"
+      << m_description << "', it will be turned into '"
+      << graphviz_decode(graphviz_encode(m_description))
+      << "'"
+    ;
+    throw std::logic_error(msg.str());
+  }
 }
 
 const std::string& my_custom_edge::get_description() const noexcept
@@ -54,47 +60,6 @@ double my_custom_edge::get_width() const noexcept
 double my_custom_edge::get_height() const noexcept
 {
   return m_height;
-}
-
-
-BOOST_AUTO_TEST_CASE(my_custom_edge_thorough)
-{
-  {
-    const my_custom_edge a("A B","c d",1.0,2.0);
-    const my_custom_edge b{a};
-    BOOST_CHECK(a == b);
-  }
-  //Conversion to string
-  {
-    const my_custom_edge in("A B","c d",1.0,2.0);
-    std::stringstream s;
-    s << in;
-    const std::string t{s.str()};
-    BOOST_CHECK(t.find(' ') == std::string::npos);
-    BOOST_CHECK(std::count(std::begin(t),std::end(t),',') == 3);
-  }
-  //Conversion to stream and back
-  {
-    const my_custom_edge in("AB","cd",1.0,2.0);
-    std::stringstream s;
-    s << in;
-    my_custom_edge out;
-    s >> out;
-    BOOST_CHECK(in == out);
-  }
-  //Conversion of two my_custom_edges to stream and back
-  {
-    const my_custom_edge a("AB","cd",1.0,2.0);
-    const my_custom_edge b("C D","d e",3.0,4.0);
-    std::stringstream s;
-    s << a << " " << b;
-    my_custom_edge c;
-    my_custom_edge d;
-    s >> c >> d;
-    BOOST_CHECK(a == c);
-    BOOST_CHECK(b == d);
-  }
-  
 }
 
 bool operator==(const my_custom_edge& lhs, const my_custom_edge& rhs) noexcept
@@ -141,10 +106,10 @@ std::istream& operator>>(std::istream& is, my_custom_edge& the_edge) noexcept
 {
   std::string line;
   is >> line;
-  BOOST_CHECK(line != "0");
+  assert(line != "0");
   const auto w = seperate_string(line,',');
   if (w.size() != 4) { the_edge = my_custom_edge(); return is; }
-  BOOST_CHECK(w.size() == 4);
+  assert(w.size() == 4);
   the_edge = my_custom_edge(
     graphviz_decode(w[0]),
     graphviz_decode(w[1]),

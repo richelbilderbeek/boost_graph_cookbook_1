@@ -73,7 +73,7 @@
 \begin_body
 
 \begin_layout Title
-A well-connected C++11 Boost.Graph tutorial
+A well-connected C++14 Boost.Graph tutorial
 \end_layout
 
 \begin_layout Author
@@ -205,7 +205,11 @@ In the index, I did first put all my long-named functions there literally,
 \end_layout
 
 \begin_layout Subsection
-Code snippets
+Coding style
+\end_layout
+
+\begin_layout Paragraph
+Concept
 \end_layout
 
 \begin_layout Standard
@@ -213,67 +217,34 @@ For every concept, I will show
 \end_layout
 
 \begin_layout Itemize
-the `do' function
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-`do' function
-\end_layout
-
-\end_inset
-
-: a function that achieves a goal, for example `create_empty_undirected_graph'
+a function that achieves a goal, for example `create_empty_undirected_graph'
 \end_layout
 
 \begin_layout Itemize
-the `demo' function
+a test case
 \begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
-`demo' function
+test case
 \end_layout
 
 \end_inset
 
-: a function that demonstrates how to call the first, for example `create_empty_
-undirected_graph_demo'
+ of that function, that demonstrates how to use the function, for example
+ `create_empty_undirected_graph_test'
+\end_layout
+
+\begin_layout Paragraph*
+C++14 
 \end_layout
 
 \begin_layout Standard
-I enjoy to show concepts by putting those in (long-named) functions.
- These functions sometimes border the trivial, by, for example, only calling
- a single Boost.Graph function.
- On the other hand, these functions have more English-sounding names, resulting
- in demonstration code that is readable.
- Additionally, they explicitly mention their return type (in a simpler way),
- which may be considered informative.
-\end_layout
-
-\begin_layout Standard
-All coding snippets are taken from compiled C++11 code.
- I chose to use C++11 because (1) C++14 was not installable on all my computers
- (2) the step to C++14 is small.
- All code is tested to compile cleanly under GCC at the highest warning
- level.
- The code, as well as this tutorial, can be downloaded from the GitHub at
+All coding snippets are taken from compiled and tested C++14 code.
+ I chose to use C++14 because it was available to me on all local and remote
+ computers.
+ Next to this, it makes code even shorter then just C++11.
  
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-www.github.com/richelbilderbeek/BoostGraphTutorial
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Coding style
 \end_layout
 
 \begin_layout Paragraph
@@ -310,6 +281,20 @@ It is good to write generic code.
  selected is a boolean, and the custom vertex type is of type `my_custom_vertex'.
  I think these choises are reasonable and that the resulting increase in
  readability is worth it.
+\end_layout
+
+\begin_layout Paragraph
+Long function names
+\end_layout
+
+\begin_layout Standard
+I enjoy to show concepts by putting those in (long-named) functions.
+ These functions sometimes border the trivial, by, for example, only calling
+ a single Boost.Graph function.
+ On the other hand, these functions have more English-sounding names, resulting
+ in demonstration code that is readable.
+ Additionally, they explicitly mention their return type (in a simpler way),
+ which may be considered informative.
 \end_layout
 
 \begin_layout Paragraph
@@ -444,6 +429,26 @@ Tested to work
 \begin_layout Standard
 All functions in this tutorial are tested, using the Boost.Test library.
  Travis CI calls these tests after each push to the repository.
+\end_layout
+
+\begin_layout Paragraph
+Availability
+\end_layout
+
+\begin_layout Standard
+The code, as well as this tutorial, can be downloaded from the GitHub at
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.github.com/richelbilderbeek/BoostGraphTutorial
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection

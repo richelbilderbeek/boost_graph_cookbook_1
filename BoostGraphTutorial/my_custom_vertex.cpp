@@ -1,9 +1,7 @@
 #include "my_custom_vertex.h"
-//#include "my_custom_vertex_demo.impl"
-
-#include <boost/test/unit_test.hpp>
 
 #include <sstream>
+#include <stdexcept>
 #include <boost/lexical_cast.hpp>
 #include "helper.h"
 #include "seperate_string.h"
@@ -21,16 +19,26 @@ my_custom_vertex::my_custom_vertex(
   m_x{x},
   m_y{y}
 {
-  BOOST_CHECK(
-    graphviz_decode(
-      graphviz_encode(m_name)
-    ) == m_name
-  );
-  BOOST_CHECK(
-    graphviz_decode(
-      graphviz_encode(m_description)
-    ) == m_description
-  );
+  if(graphviz_decode(graphviz_encode(m_name)) != m_name)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": cannot successfully encode and decode the name '"
+      << m_name << "', it will be turned into '"
+      << graphviz_decode(graphviz_encode(m_name))
+      << "'"
+    ;
+    throw std::logic_error(msg.str());
+  }
+  if(graphviz_decode(graphviz_encode(m_description)) != m_description)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": cannot successfully encode and decode the description '"
+      << m_description << "', it will be turned into '"
+      << graphviz_decode(graphviz_encode(m_description))
+      << "'"
+    ;
+    throw std::logic_error(msg.str());
+  }
 }
 
 const std::string& my_custom_vertex::get_description() const noexcept
@@ -51,41 +59,6 @@ double my_custom_vertex::get_x() const noexcept
 double my_custom_vertex::get_y() const noexcept
 {
   return m_x;
-}
-
-BOOST_AUTO_TEST_CASE(my_custom_vertex_thorough)
-{
-  //Conversion to string
-  {
-    const my_custom_vertex in("A B","c d",1.0,2.0);
-    std::stringstream s;
-    s << in;
-    const std::string t{s.str()};
-    BOOST_CHECK(t.find(' ') == std::string::npos);
-    BOOST_CHECK(std::count(std::begin(t),std::end(t),',') == 3);
-  }
-  //Conversion to stream and back
-  {
-    const my_custom_vertex in("A B","c d",1.0,2.0);
-    std::stringstream s;
-    s << in;
-    my_custom_vertex out;
-    s >> out;
-    BOOST_CHECK(in == out);
-  }
-  //Conversion of two my_custom_vertex-es to stream and back
-  {
-    const my_custom_vertex a("A B","c d",1.0,2.0);
-    const my_custom_vertex b("C","d",3.0,4.0);
-    std::stringstream s;
-    s << a << " " << b;
-    my_custom_vertex c;
-    my_custom_vertex d;
-    s >> c >> d;
-    BOOST_CHECK(a == c);
-    BOOST_CHECK(b == d);
-  }
-  
 }
 
 bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept
@@ -132,9 +105,9 @@ std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
 {
   std::string line;
   is >> line;
-  BOOST_CHECK(line != "0");
+  assert(line != "0");
   const auto w = seperate_string(line,',');
-  BOOST_CHECK(w.size() == 4);
+  assert(w.size() == 4);
   my_custom_vertex new_vertex(
     graphviz_decode(w[0]),
     graphviz_decode(w[1]),
