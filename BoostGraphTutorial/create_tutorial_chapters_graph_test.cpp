@@ -1,6 +1,4 @@
 #include "create_tutorial_chapters_graph.h"
-
-
 #include <boost/test/unit_test.hpp>
 #include <sstream>
 
@@ -13,103 +11,6 @@
 #include "is_valid_dot_file.h"
 #include "save_named_vertices_graph_to_dot.h"
 #include "save_graph_to_dot.h"
-
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<boost::vertex_name_t,std::string>
->
-create_tutorial_chapters_graph() noexcept
-{
-  auto g = create_empty_directed_named_vertices_graph();
-  add_named_vertex("Graphs without properties", g);
-  add_named_vertex("Graphs with named vertices", g);
-  add_named_vertex("Graphs with named edges and vertices", g);
-  add_named_vertex("Graphs with bundled vertices", g);
-  add_named_vertex("Graphs with bundled edges and vertices", g);
-  add_named_vertex("Graphs with custom vertices", g);
-  add_named_vertex("Graphs with custom and selectable vertices", g);
-  add_named_vertex("Graphs with custom edges and vertices", g);
-  add_named_vertex("Graphs with custom and selectable edges and vertices", g);
-  add_named_vertex("Graphs with a graph name", g);
-
-  {
-    const std::string s = "Graphs without properties";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with named vertices";
-    add_edge_between_named_vertices(s, "Graphs with named edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with named edges and vertices";
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with bundled vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with bundled edges and vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with custom vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom and selectable vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with custom and selectable vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom and selectable edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-  {
-    const std::string s = "Graphs with custom edges and vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom and selectable vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom and selectable edges and vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-
-  {
-    const std::string s = "Graphs with custom and selectable edges and vertices";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with a graph name", g);
-  }
-
-
-  {
-    const std::string s = "Graphs with a graph name";
-    add_edge_between_named_vertices(s, "Graphs with named vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with bundled vertices", g);
-    add_edge_between_named_vertices(s, "Graphs with custom vertices", g);
-  }
-  return g;
-}
-
-
 
 BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
 {

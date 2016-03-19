@@ -1,5 +1,4 @@
 #include "create_k2_graph.h"
-#include "create_k2_graph.impl"
 #include "create_k2_graph_demo.impl"
 
 #include <boost/test/unit_test.hpp>

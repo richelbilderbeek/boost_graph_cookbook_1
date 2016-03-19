@@ -1,5 +1,4 @@
 #include "create_petersen_graph.h"
-#include "create_petersen_graph.impl"
 #include "create_petersen_graph_demo.impl"
 
 #include <boost/test/unit_test.hpp>

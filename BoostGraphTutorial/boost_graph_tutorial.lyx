@@ -1730,7 +1730,9 @@ reference "alg:create_empty_directed_graph_demo"
 \end_inset
 
  demonstrates the `create_empty_directed_graph' function.
- Note that it includes a header file with the same name as the function
+ This demonstration is embedded within a Boost.Test unit testcase.
+ It includes a Boost.Test header to allow to use the Boost.Test framework.
+ Additionally, a header file is included with the same name as the function
 \begin_inset Foot
 status open
 
@@ -1740,16 +1742,10 @@ I do not think it is important to have creative names
 
 \end_inset
 
- first, to be able to use it.
- `auto' is used, as this is preferred over explicit type declarations (
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroustrup2013"
-
-\end_inset
-
- chapter 31.6).
- The keyword `auto'
+.
+ This allows use to be able to use the function.
+ The test case creates an empty graph and stores it.
+ Instead of specifying the data type explicitly, `auto'
 \begin_inset Index idx
 status open
 
@@ -1759,7 +1755,14 @@ auto
 
 \end_inset
 
- lets the compiler figure out the type itself.
+ is used (this is preferred, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup2013"
+
+\end_inset
+
+ chapter 31.6), which lets the compiler figure out the type itself.
 \end_layout
 
 \begin_layout Standard

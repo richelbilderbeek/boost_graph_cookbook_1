@@ -2,8 +2,6 @@
 //#include "save_bundled_vertices_graph_to_dot_demo.impl"
 
 #include <boost/test/unit_test.hpp>
-
-#include <boost/test/unit_test.hpp>
 #include <sstream>
 
 #include "copy_file.h"

@@ -1,5 +1,4 @@
 #include "create_empty_directed_graph_with_graph_name.h"
-#include "create_empty_directed_graph_with_graph_name.impl"
 #include "create_empty_directed_graph_with_graph_name_demo.impl"
 
 #include <boost/test/unit_test.hpp>

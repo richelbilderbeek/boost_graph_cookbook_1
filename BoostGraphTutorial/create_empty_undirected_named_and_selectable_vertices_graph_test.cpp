@@ -1,9 +1,5 @@
 #include "create_empty_undirected_named_and_selectable_vertices_graph.h"
-#include "create_empty_undirected_named_and_selectable_vertices_graph.impl"
 #include "create_empty_undirected_named_and_selectable_vertices_graph_demo.impl"
-
-
-#include <boost/test/unit_test.hpp>
 
 #include <boost/test/unit_test.hpp>
 

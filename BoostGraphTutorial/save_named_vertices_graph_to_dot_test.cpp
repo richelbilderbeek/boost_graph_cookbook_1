@@ -2,12 +2,9 @@
 #include "save_named_vertices_graph_to_dot_demo.impl"
 
 
-#include "save_named_vertices_graph_to_dot_using_lambda.impl"
-
-
 #include <boost/test/unit_test.hpp>
 #include <sstream>
-
+#include "save_named_vertices_graph_to_dot_using_lambda.impl"
 #include "copy_file.h"
 #include "create_k2_graph.h"
 #include "create_named_vertices_k2_graph.h"

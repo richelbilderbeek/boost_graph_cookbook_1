@@ -1,3 +1,4 @@
+/*
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
@@ -214,8 +215,8 @@
 #include "select_random_vertex.h"
 
 #include <iostream>
-
+*/
 int main()
 {
-
+  //Does nothing ...
 }

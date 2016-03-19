@@ -1,5 +1,4 @@
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot.h"
-#include "load_directed_bundled_edges_and_vertices_graph_from_dot.impl"
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl"
 
 

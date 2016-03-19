@@ -1,3 +1,4 @@
+/*
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
@@ -214,8 +215,19 @@
 #include "select_random_vertex.h"
 
 #include <iostream>
+*/
+#include <fstream>
 
-int main()
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE boost_graph_tutorial_test_module
+#include <boost/test/unit_test.hpp>
+
+BOOST_AUTO_TEST_CASE(inform_travis)
 {
-
+  #ifndef NDEBUG
+  std::ofstream f("test_debug.txt");
+  #else
+  std::ofstream f("test_release.txt");
+  #endif
+  f << "OK\n";
 }

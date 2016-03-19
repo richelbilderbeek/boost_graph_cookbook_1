@@ -1,7 +1,5 @@
 #include "graphviz_encode.h"
 
-#include "graphviz_encode.impl"
-
 #include <boost/test/unit_test.hpp>
 
 #include "graphviz_decode.h"

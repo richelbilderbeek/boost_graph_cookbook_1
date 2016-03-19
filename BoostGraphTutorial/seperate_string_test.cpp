@@ -1,25 +1,7 @@
 #include "seperate_string.h"
 
 #include <boost/test/unit_test.hpp>
-
 #include <sstream>
-
-std::vector<std::string> seperate_string(
-  const std::string& input,
-  const char seperator
-) noexcept
-{
-  std::istringstream is(input);
-  std::vector<std::string> v;
-  for (
-    std::string sub;
-    std::getline(is, sub, seperator);
-    v.emplace_back(sub))
-  {
-    //Empty for loop
-  }
-  return v;
-}
 
 BOOST_AUTO_TEST_CASE(test_seperate_string)
 {

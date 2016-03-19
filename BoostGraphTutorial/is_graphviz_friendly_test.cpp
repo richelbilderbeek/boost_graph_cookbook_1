@@ -1,5 +1,4 @@
 #include "is_graphviz_friendly.h"
-#include "is_graphviz_friendly.impl"
 
 #include <boost/test/unit_test.hpp>
 
