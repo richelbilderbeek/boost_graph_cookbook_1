@@ -36,6 +36,7 @@ script:
  - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
  - make debug
  - ./boost_graph_tutorial_test
+ - cat create_markov_chain_with_graph_name.dot
  #- make release
  #- ./boost_graph_tutorial_test
  # gcov
