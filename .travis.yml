@@ -30,6 +30,7 @@ script:
  - type dot
  - ./build_test_debug.sh
  - ./boost_graph_tutorial_test
+ - cat create_markov_chain_with_graph_name.dot
  - ./get_code_cov.sh
  - ./clean.sh
  - ./build_exe_release.sh

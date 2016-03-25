@@ -1,5 +1,0 @@
-graph G {
-0[label="Me",comment="Myself",width=1,height=2];
-1[label="My$$$SPACE$$$computer",comment="Not$$$SPACE$$$me",width=3,height=4];
-0--1 ;
-}

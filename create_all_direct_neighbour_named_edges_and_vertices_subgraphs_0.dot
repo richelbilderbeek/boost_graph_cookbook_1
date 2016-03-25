@@ -1,5 +1,0 @@
-graph G {
-0[label=A];
-1[label=B];
-0--1 [label="1"];
-}
