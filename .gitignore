@@ -36,3 +36,4 @@ Makefile.Debug
 Makefile.Release
 .nfs*
 debug/
+boost_graph_tutorial_test
