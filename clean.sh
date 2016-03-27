@@ -2,6 +2,7 @@
 function clean {
   rm *.o
   rm *.gcov
+  rm *.gcno
   rm Makefile
   rm Makefile.Debug
   rm Makefile.Release
@@ -12,6 +13,9 @@ function clean {
   rm exe_release.txt
   rm test_debug.txt
   rm test_release.txt
+  rm moc_*
+  rm ui_*
+  rm qrc_*
   rm -rf debug
   rm -rf release
 }
