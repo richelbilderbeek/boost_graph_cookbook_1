@@ -37,3 +37,13 @@ Makefile.Release
 .nfs*
 debug/
 boost_graph_tutorial_test
+*.gcov
+./*.dot
+save_*.dot
+load_*.dot
+create_*.dot
+create_*.svg
+g1.dot
+g2.dot
+h2.dot
+h1.dot

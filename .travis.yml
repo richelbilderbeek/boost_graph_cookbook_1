@@ -32,11 +32,6 @@ script:
  - ./boost_graph_tutorial_test
  - cat create_markov_chain_with_graph_name.dot
  - ./get_code_cov.sh
+ - codecov
  - ./clean.sh
  - ./build_exe_release.sh
-
-after_failure: 
- - codecov
-
-after_success: 
- - codecov

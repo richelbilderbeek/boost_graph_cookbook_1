@@ -34,5 +34,6 @@ std::vector<std::string> helper::file_to_vector(
   }
   //Remove empty line at back of vector
   if (!v.empty() && v.back().empty()) v.pop_back();
+  assert(!v.back().empty());
   return v;
 }

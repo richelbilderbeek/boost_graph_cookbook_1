@@ -4,10 +4,10 @@
 
 bool is_valid_dot_file(const std::string& dot_filename) noexcept
 {
-
   if (!is_regular_file(dot_filename)) { return false; }
   const auto v = helper().file_to_vector(dot_filename);
   if (v.size() <= 1) return false;
+  //Remove trailing newlines
   assert(!v.back().empty());
   return v.back()[0] == '}';
 }

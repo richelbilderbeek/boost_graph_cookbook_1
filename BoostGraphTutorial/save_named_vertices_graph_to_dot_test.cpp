@@ -108,15 +108,23 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
   // - use boost::make_label_writes
   // - use lambda in C++11
   {
+    const std::string g1_dot_filename{"g1.dot"};
+    const std::string g2_dot_filename{"g2.dot"};
+    const std::string h1_dot_filename{"h1.dot"};
+    const std::string h2_dot_filename{"h2.dot"};
     const auto g = create_named_vertices_k2_graph();
     const auto h = create_named_vertices_markov_chain();
-    save_named_vertices_graph_to_dot(g,"g1.dot");
-    save_named_vertices_graph_to_dot_using_lambda(g,"g2.dot");
-    save_named_vertices_graph_to_dot(h,"h1.dot");
-    save_named_vertices_graph_to_dot_using_lambda(h,"h2.dot");
-    BOOST_CHECK(helper().file_to_vector("g1.dot") == helper().file_to_vector("g2.dot"));
-    BOOST_CHECK(helper().file_to_vector("h1.dot") == helper().file_to_vector("h2.dot"));
-    BOOST_CHECK(helper().file_to_vector("g1.dot") != helper().file_to_vector("h2.dot"));
+    save_named_vertices_graph_to_dot(g,g1_dot_filename);
+    save_named_vertices_graph_to_dot_using_lambda(g,g2_dot_filename);
+    save_named_vertices_graph_to_dot(h,h1_dot_filename);
+    save_named_vertices_graph_to_dot_using_lambda(h,h2_dot_filename);
+    BOOST_CHECK(helper().file_to_vector(g1_dot_filename) == helper().file_to_vector(g2_dot_filename));
+    BOOST_CHECK(helper().file_to_vector(h1_dot_filename) == helper().file_to_vector(h2_dot_filename));
+    BOOST_CHECK(helper().file_to_vector(g1_dot_filename) != helper().file_to_vector(h2_dot_filename));
+    std::remove(g1_dot_filename.c_str());
+    std::remove(g2_dot_filename.c_str());
+    std::remove(h1_dot_filename.c_str());
+    std::remove(h2_dot_filename.c_str());
   }
   
 }
