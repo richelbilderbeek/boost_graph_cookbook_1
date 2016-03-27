@@ -2,6 +2,7 @@
 function clean {
   rm *.o
   rm *.gcov
+  rm *.gcda
   rm *.gcno
   rm Makefile
   rm Makefile.Debug
@@ -18,6 +19,7 @@ function clean {
   rm qrc_*
   rm -rf debug
   rm -rf release
+  rm tmp*
 }
 
 rm -rf build-boost_graph_tutorial-Desktop-Debug

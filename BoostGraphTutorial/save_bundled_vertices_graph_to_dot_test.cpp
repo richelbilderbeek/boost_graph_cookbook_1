@@ -31,6 +31,7 @@ BOOST_AUTO_TEST_CASE(save_bundled_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text != expected_text);
+    std::remove(dot_filename.c_str());
   }
   //Show it does not store the edges' names
   {
@@ -54,6 +55,6 @@ BOOST_AUTO_TEST_CASE(save_bundled_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text != expected_text);
-
+    std::remove(dot_filename.c_str());
   }
 }

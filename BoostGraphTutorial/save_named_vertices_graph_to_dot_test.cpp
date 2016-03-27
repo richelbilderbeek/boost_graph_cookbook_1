@@ -37,6 +37,7 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
+    std::remove(dot_filename.c_str());
   }
   //Create figure of named Markov chain graph
   {
@@ -56,6 +57,8 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
+    std::remove(dot_filename.c_str());
+    std::remove(svg_filename.c_str());
   }
   //Show it does store the vertex names
   {
@@ -76,6 +79,7 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
   //Show it does not store the edges' names
   {
@@ -98,6 +102,7 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
   //Will it break if the vertices have named with spaces
   {

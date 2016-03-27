@@ -48,8 +48,10 @@ BOOST_AUTO_TEST_CASE(create_k2_graph_thorough)
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
+    std::remove(dot_filename.c_str());
+    std::remove(svg_filename.c_str());
   }
-  //Copy
+  //Copy a graph
   {
     const auto g = create_k2_graph();
     const auto h(g);

@@ -65,5 +65,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_path_graph_thorough)
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
+    std::remove(dot_filename.c_str());
+    std::remove(svg_filename.c_str());
   }
 }

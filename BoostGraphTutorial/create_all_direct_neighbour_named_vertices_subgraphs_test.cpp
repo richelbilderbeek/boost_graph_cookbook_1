@@ -75,6 +75,8 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_named_vertices_subgraphs_thorou
         "../BoostGraphTutorial/" + svg_filename,
         copy_file_mode::allow_overwrite
       );
+      std::remove(dot_filename.c_str());
+      std::remove(svg_filename.c_str());
     }
   }
   //Petersen Graph

@@ -19,7 +19,6 @@ BOOST_AUTO_TEST_CASE(save_custom_vertices_graph_to_dot_thorough)
 
     const std::string base_filename{"save_custom_vertices_graph_to_dot_test"};
     const std::string dot_filename{base_filename + ".dot"};
-    const std::string svg_filename{base_filename + ".svg"};
 
     save_custom_vertices_graph_to_dot(g,dot_filename);
     BOOST_CHECK(is_regular_file(dot_filename));
@@ -32,6 +31,7 @@ BOOST_AUTO_TEST_CASE(save_custom_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text != expected_text);
+    std::remove(dot_filename.c_str());
   }
   //Show it does not store the edges' names
   {
@@ -55,6 +55,7 @@ BOOST_AUTO_TEST_CASE(save_custom_vertices_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text != expected_text);
+    std::remove(dot_filename.c_str());
   }
   
 }

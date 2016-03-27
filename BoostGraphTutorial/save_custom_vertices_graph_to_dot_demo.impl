@@ -14,4 +14,5 @@ BOOST_AUTO_TEST_CASE(test_save_custom_vertices_graph_to_dot)
     dot_filename
   );
   BOOST_CHECK(is_regular_file(dot_filename));
+  std::remove(dot_filename.c_str());
 }

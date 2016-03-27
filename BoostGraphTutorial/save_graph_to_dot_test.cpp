@@ -33,6 +33,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
   //create_empty_undirected_graph
   {
@@ -49,6 +50,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
   //create_k2_graph
   {
@@ -68,6 +70,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
   //Show it does not store the vertex names
   {
@@ -87,6 +90,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
       "}"
     };
     BOOST_CHECK(text == expected_text);
+    std::remove(dot_filename.c_str());
   }
 
   

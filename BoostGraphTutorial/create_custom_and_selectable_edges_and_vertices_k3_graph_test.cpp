@@ -49,5 +49,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_k3_graph_th
       "../BoostGraphTutorial/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
+    std::remove(dot_filename.c_str());
+    std::remove(svg_filename.c_str());
   }
 }
