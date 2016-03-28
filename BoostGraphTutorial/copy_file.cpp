@@ -1,7 +1,7 @@
 #include "copy_file.h"
 
 #include <cassert>
-
+#include <sstream>
 #include <stdexcept>
 #include <fstream>
 
@@ -13,10 +13,26 @@ void copy_file(
   const copy_file_mode copy_mode
 )
 {
-  assert(is_regular_file(filename_from) && "Cannot copy a non-existing file");
+  if (!is_regular_file(filename_from))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot copy a non-existing file, "
+      << "filename supplied was '"
+      << filename_from
+      << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   if (copy_mode == copy_file_mode::prevent_overwrite && is_regular_file(filename_to))
   {
-    throw std::logic_error("Copying to an existing file is not allowed");
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "Copying to existing file '"
+      << filename_to << "'is not allowed, "
+      << "use copy_file_mode::allow_overwrite if you really want to"
+    ;
+    throw std::invalid_argument(msg.str());
   }
   if (is_regular_file(filename_to))
   {

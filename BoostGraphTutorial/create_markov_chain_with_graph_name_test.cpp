@@ -4,6 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include "is_valid_dot_file.h"
+#include "is_regular_file.h"
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "save_graph_with_graph_name_to_dot.h"
@@ -34,7 +35,9 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_create_pictures)
   const auto g = create_markov_chain_with_graph_name();
   const std::string base_filename{"create_markov_chain_with_graph_name"};
   const std::string dot_filename{base_filename + ".dot"};
+  BOOST_CHECK(!is_regular_file(dot_filename));
   save_graph_with_graph_name_to_dot(g, dot_filename);
+  BOOST_CHECK(is_regular_file(dot_filename));
   BOOST_CHECK(is_valid_dot_file(dot_filename));
   copy_file(
     dot_filename,
