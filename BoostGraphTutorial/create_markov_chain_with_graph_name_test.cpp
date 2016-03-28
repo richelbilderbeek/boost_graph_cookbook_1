@@ -37,6 +37,11 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_create_pictures)
     const auto g = create_markov_chain_with_graph_name();
     const std::string base_filename{"create_markov_chain_with_graph_name"};
     const std::string dot_filename{base_filename + ".dot"};
+    //Clean up
+    if (is_regular_file(dot_filename))
+    {
+      std::remove(dot_filename.c_str());
+    }
     BOOST_CHECK(!is_regular_file(dot_filename));
     save_graph_with_graph_name_to_dot(g, dot_filename);
     BOOST_CHECK(is_regular_file(dot_filename));
