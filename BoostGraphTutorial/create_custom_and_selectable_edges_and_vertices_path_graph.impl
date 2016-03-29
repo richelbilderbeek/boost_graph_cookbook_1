@@ -29,11 +29,46 @@ create_custom_and_selectable_edges_and_vertices_path_graph(
   const std::vector<bool>& vertex_selectednesses
 ) noexcept
 {
-  assert(my_custom_vertexes.empty()
-    || my_custom_vertexes.size() - 1 == my_custom_edges.size()
-  );
-  assert(my_custom_edges.size() == edge_selectednesses.size());
-  assert(my_custom_vertexes.size() == vertex_selectednesses.size());
+  if (my_custom_vertexes.empty() && !my_custom_edges.empty())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": supplied non-zero edges"
+      << "for zero vertices"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (!my_custom_vertexes.empty()
+    && my_custom_vertexes.size() - 1 != my_custom_edges.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
+      << "n_vertices: " << my_custom_vertexes.size() << ", "
+      << "n_edges: " << my_custom_edges.size()
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (my_custom_edges.size() != edge_selectednesses.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need as much my_custom_edges (supplied: "
+      << my_custom_edges.size()
+      << ") as edge_selectednesses (supplied: "
+      << edge_selectednesses.size()
+      << ")"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (my_custom_vertexes.size() != vertex_selectednesses.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need as much my_custom_vertexes (supplied: "
+      << my_custom_vertexes.size()
+      << ") as vertex_selectednesses (supplied: "
+      << vertex_selectednesses.size()
+      << ")"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   auto g = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
   if (my_custom_vertexes.size() == 0) { return g; }
   auto vd_1 = add_custom_vertex(*std::begin(my_custom_vertexes), g);

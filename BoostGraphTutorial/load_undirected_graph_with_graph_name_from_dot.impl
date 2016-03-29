@@ -28,8 +28,14 @@ load_undirected_graph_with_graph_name_from_dot(
       boost::graph_name_t, std::string
     >
   >;
-
-  assert(is_regular_file(dot_filename));
+  if (!is_regular_file(dot_filename))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": file '"
+      << dot_filename << "' not found"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   graph g;
 
   boost::ref_property_map<graph*,std::string>

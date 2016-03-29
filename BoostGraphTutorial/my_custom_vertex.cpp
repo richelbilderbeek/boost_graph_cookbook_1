@@ -101,13 +101,20 @@ std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept
   return os;
 }
 
-std::istream& operator>>(std::istream& is, my_custom_vertex& v) noexcept
+std::istream& operator>>(std::istream& is, my_custom_vertex& v)
 {
   std::string line;
   is >> line;
-  assert(line != "0");
   const auto w = seperate_string(line,',');
-  assert(w.size() == 4);
+  if (w.size() != 4)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "invalid line with " << w.size()
+      << " instead of four elements"
+    ;
+    throw std::runtime_error(msg.str());
+  }
   my_custom_vertex new_vertex(
     graphviz_decode(w[0]),
     graphviz_decode(w[1]),

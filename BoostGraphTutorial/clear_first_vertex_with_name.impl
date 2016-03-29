@@ -1,3 +1,5 @@
+#include <sstream>
+#include <stdexcept>
 #include <boost/graph/adjacency_list.hpp>
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
@@ -6,13 +8,20 @@ template <typename graph>
 void clear_first_vertex_with_name(
   const std::string& name,
   graph& g
-) noexcept
+)
 {
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"
   );
-
-  assert(has_vertex_with_name(name,g));
+  if (!has_vertex_with_name(name,g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "unknown vertex name '"
+      << name << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   const auto vd
     = find_first_vertex_with_name(name,g);
   boost::clear_vertex(vd,g);

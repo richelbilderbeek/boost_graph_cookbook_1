@@ -10,7 +10,7 @@ BOOST_AUTO_TEST_CASE(test_get_vertex_out_degrees)
   const std::vector<int> vertex_out_degrees_g{
     get_vertex_out_degrees(g)
   };
-  assert(expected_out_degrees_g
+  BOOST_CHECK(expected_out_degrees_g
     == vertex_out_degrees_g
   );
 
@@ -19,7 +19,7 @@ BOOST_AUTO_TEST_CASE(test_get_vertex_out_degrees)
   const std::vector<int> vertex_out_degrees_h{
     get_vertex_out_degrees(h)
   };
-  assert(expected_out_degrees_h
+  BOOST_CHECK(expected_out_degrees_h
     == vertex_out_degrees_h
   );
 }

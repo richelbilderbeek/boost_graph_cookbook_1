@@ -1,10 +1,8 @@
 #include "my_bundled_vertex.h"
 
-
-
-
-
 #include <sstream>
+#include "graphviz_decode.h"
+#include "graphviz_encode.h"
 
 my_bundled_vertex::my_bundled_vertex(
   const std::string& name,
@@ -18,6 +16,20 @@ my_bundled_vertex::my_bundled_vertex(
   m_y{y}
 {
 
+}
+
+std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& v) noexcept
+{
+  os
+    << graphviz_encode(v.m_name)
+    << ","
+    << graphviz_encode(v.m_description)
+    << ","
+    << v.m_x
+    << ","
+    << v.m_y
+  ;
+  return os;
 }
 
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept

@@ -19,7 +19,18 @@ create_custom_and_selectable_vertices_path_graph(
   const std::vector<bool>& selectednesses
 ) noexcept
 {
-  assert(custom_vertices.size() == selectednesses.size());
+  if (custom_vertices.size() != selectednesses.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need as much custom_vertices (supplied: "
+      << custom_vertices.size()
+      << ") as selectednesses (supplied: "
+      << selectednesses.size()
+      << ")"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  //assert(custom_vertices.size() == selectednesses.size());
   auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
   if (custom_vertices.size() == 0) { return g; }
   auto vd_1 = add_custom_and_selectable_vertex(

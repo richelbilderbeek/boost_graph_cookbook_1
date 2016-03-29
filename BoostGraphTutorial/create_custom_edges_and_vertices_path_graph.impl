@@ -19,9 +19,24 @@ create_custom_edges_and_vertices_path_graph(
   const std::vector<my_custom_vertex>& my_custom_vertexes
 ) noexcept
 {
-  assert(my_custom_vertexes.empty()
-    || my_custom_vertexes.size() - 1 == my_custom_edges.size()
-  );
+  if (my_custom_vertexes.empty() && !my_custom_edges.empty())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": supplied non-zero edges"
+      << "for zero vertices"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (!my_custom_vertexes.empty()
+    && my_custom_vertexes.size() - 1 != my_custom_edges.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
+      << "n_vertices: " << my_custom_vertexes.size() << ", "
+      << "n_edges: " << my_custom_edges.size()
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   auto g = create_empty_undirected_custom_edges_and_vertices_graph();
   if (my_custom_vertexes.size() == 0) { return g; }
   auto vd_1 = add_custom_vertex(*my_custom_vertexes.begin(), g);

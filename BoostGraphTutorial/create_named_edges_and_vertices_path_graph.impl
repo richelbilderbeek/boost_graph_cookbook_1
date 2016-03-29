@@ -15,9 +15,24 @@ create_named_edges_and_vertices_path_graph(
   const std::vector<std::string>& vertex_names
 ) noexcept
 {
-  assert(vertex_names.empty()
-    || vertex_names.size() == edge_names.size() + 1
-  );
+  if (vertex_names.empty() && !edge_names.empty())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": supplied non-zero edges"
+      << "for zero vertices"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (!vertex_names.empty()
+    && vertex_names.size() - 1 != edge_names.size())
+  {
+    std::stringstream msg;
+    msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
+      << "n_vertices: " << vertex_names.size() << ", "
+      << "n_edges: " << edge_names.size()
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   auto g = create_empty_undirected_named_edges_and_vertices_graph();
   if (vertex_names.size() == 0) { return g; }
   auto vd_1 = add_named_vertex(*vertex_names.begin(), g);

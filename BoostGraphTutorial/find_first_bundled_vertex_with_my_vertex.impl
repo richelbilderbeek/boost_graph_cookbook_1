@@ -17,6 +17,14 @@ find_first_bundled_vertex_with_my_vertex(
     vip.first, vip.second,
     [v,g](const vd d) { return g[d] == v; }
   );
-  assert(i != vip.second);
+  if (i == vip.second)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find my_bundled_vertex '"
+      << v << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   return *i;
 }

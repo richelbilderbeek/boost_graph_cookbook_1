@@ -1,8 +1,7 @@
 #include "my_bundled_edge.h"
 
-
-
-
+#include "graphviz_decode.h"
+#include "graphviz_encode.h"
 #include <sstream>
 
 
@@ -19,6 +18,20 @@ my_bundled_edge::my_bundled_edge(
     m_height{height}
 {
 
+}
+
+std::ostream& operator<<(std::ostream& os, const my_bundled_edge& v) noexcept
+{
+  os
+    << graphviz_encode(v.m_name)
+    << ","
+    << graphviz_encode(v.m_description)
+    << ","
+    << v.m_width
+    << ","
+    << v.m_height
+  ;
+  return os;
 }
 
 bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept

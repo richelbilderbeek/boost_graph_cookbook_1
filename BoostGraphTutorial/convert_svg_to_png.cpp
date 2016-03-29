@@ -28,10 +28,21 @@ void convert_svg_to_png(
   };
   if (error)
   {
-    std::cerr << __func__ << ": command '"
+    std::stringstream msg;
+    msg << __func__ << ": command '"
       << s.str() << "' resulting in error "
-      << error;
+      << error
+    ;
+    throw std::runtime_error(msg.str());
   }
-  assert(!error);
-  assert(is_regular_file(png_filename));
+  if (!is_regular_file(png_filename))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": command '"
+      << s.str() << "' did not results in "
+      << "a PNG file with filename '"
+      << png_filename << "'"
+    ;
+    throw std::runtime_error(msg.str());
+  }
 }

@@ -12,13 +12,38 @@ void remove_edge_between_vertices_with_names(
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"
   );
+  if (!has_vertex_with_name(name_1,g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot find vertex #1 with name '"
+      << name_1 << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (!has_vertex_with_name(name_2,g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot find vertex #2 with name '"
+      << name_1 << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
 
-  assert(has_vertex_with_name(name_1, g));
-  assert(has_vertex_with_name(name_2, g));
   const auto vd_1
     = find_first_vertex_with_name(name_1, g);
   const auto vd_2
     = find_first_vertex_with_name(name_2, g);
-  assert(has_edge_between_vertices(vd_1, vd_2, g));
+
+  if (!has_edge_between_vertices(vd_1, vd_2, g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "no edge between vertices"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+
   boost::remove_edge(vd_1, vd_2, g);
 }

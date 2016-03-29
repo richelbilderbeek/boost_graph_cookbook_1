@@ -1,5 +1,7 @@
 #include <cassert>
 #include <string>
+#include <sstream>
+#include <stdexcept>
 #include <boost/graph/adjacency_list.hpp>
 #include "has_vertex_with_my_vertex.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
@@ -13,8 +15,24 @@ add_edge_between_custom_vertices(
   graph& g
 ) noexcept
 {
-  assert(has_vertex_with_my_vertex(vertex_from, g));
-  assert(has_vertex_with_my_vertex(vertex_to, g));
+  if (!has_vertex_with_my_vertex(vertex_from, g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find vertex with my_vertex 'from' with value '"
+      << vertex_from << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  if (!has_vertex_with_my_vertex(vertex_to, g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find vertex with my_vertex 'to' with value '"
+      << vertex_to << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   const auto vd_1 = find_first_custom_vertex_with_my_vertex(vertex_from, g);
   const auto vd_2 = find_first_custom_vertex_with_my_vertex(vertex_to, g);
   const auto aer = boost::add_edge(vd_1, vd_2, g);

@@ -21,6 +21,14 @@ find_first_custom_vertex_with_my_vertex(
       return get(my_vertex_map, d) == v;
     }
   );
-  assert(i != vip.second);
+  if (i == vip.second)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find custom_vertex '"
+      << v << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   return *i;
 }

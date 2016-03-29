@@ -1,7 +1,7 @@
 #include <cassert>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "has_vertex_with_name.h"
+#include "get_vertex_name.h"
 
 template <typename graph>
 typename boost::graph_traits<graph>::vertex_descriptor
@@ -15,10 +15,19 @@ find_first_vertex_with_name(
   const auto i = std::find_if(
     vip.first, vip.second,
     [g, name](const vd d) {
-      const auto vertex_name_map = get(boost::vertex_name, g);
-      return get(vertex_name_map, d) == name;
+      return get_vertex_name(d, g) == name;
+      //const auto vertex_name_map = get(boost::vertex_name, g);
+      //return get(vertex_name_map, d) == name;
     }
   );
-  assert(i != vip.second);
+  if (i == vip.second)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find vertex with name '"
+      << name << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   return *i;
 }

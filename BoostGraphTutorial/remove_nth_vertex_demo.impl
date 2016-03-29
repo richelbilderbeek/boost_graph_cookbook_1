@@ -1,0 +1,13 @@
+#include <boost/test/unit_test.hpp>
+#include "remove_nth_vertex.h"
+#include "create_k3_graph.h"
+#include "remove_nth_vertex.h"
+
+BOOST_AUTO_TEST_CASE(test_remove_nth_vertex)
+{
+  auto g = create_k3_graph();
+  BOOST_CHECK(boost::num_vertices(g) == 3);
+  BOOST_CHECK_THROW(remove_nth_vertex(3, g), std::invalid_argument);
+  remove_nth_vertex(1, g);
+  BOOST_CHECK(boost::num_vertices(g) == 2);
+}

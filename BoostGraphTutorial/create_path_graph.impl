@@ -5,13 +5,13 @@ boost::adjacency_list<
   boost::vecS,
   boost::undirectedS
 >
-create_path_graph(const int n_vertices) noexcept
+create_path_graph(const size_t n_vertices) noexcept
 {
-  assert(n_vertices >= 2);
   auto g = create_empty_undirected_graph();
-
+  if (n_vertices == 0) return g;
   auto vd_1 = boost::add_vertex(g);
-  for (int i=1; i!=n_vertices; ++i)
+  if (n_vertices == 1) return g;
+  for (size_t i=1; i!=n_vertices; ++i)
   {
     auto vd_2 = boost::add_vertex(g);
     boost::add_edge(vd_1, vd_2, g);

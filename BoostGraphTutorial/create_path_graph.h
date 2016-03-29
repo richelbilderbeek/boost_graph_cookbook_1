@@ -8,6 +8,6 @@ boost::adjacency_list<
   boost::vecS,
   boost::undirectedS
 >
-create_path_graph(const int n_vertices) noexcept;
+create_path_graph(const size_t n_vertices) noexcept;
 
 #endif // CREATE_PATH_GRAPH_H

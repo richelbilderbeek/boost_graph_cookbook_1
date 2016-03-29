@@ -18,6 +18,14 @@ find_first_edge_with_name(
       return get(edge_name_map, d) == name;
     }
   );
-  assert(i != eip.second);
+  if (i == eip.second)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find edge with name '"
+      << name << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   return *i;
 }

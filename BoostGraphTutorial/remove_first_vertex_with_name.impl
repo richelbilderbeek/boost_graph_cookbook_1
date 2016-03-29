@@ -11,11 +11,29 @@ void remove_first_vertex_with_name(
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"
   );
+  if (!has_vertex_with_name(name,g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot find vertex with name '"
+      << name << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
 
-  assert(has_vertex_with_name(name,g));
   const auto vd
     = find_first_vertex_with_name(name,g);
-  assert(degree(vd,g) == 0);
+
+  if (degree(vd,g) != 0)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot remove connected vertex with name '"
+      << name << "' and degree " << degree(vd,g)
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+
   boost::remove_vertex(vd,g);
 }
 

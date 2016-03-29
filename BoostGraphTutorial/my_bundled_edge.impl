@@ -16,5 +16,6 @@ public:
   double m_height;
 };
 
+std::ostream& operator<<(std::ostream& os, const my_bundled_edge& e) noexcept;
 bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept;
 bool operator!=(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept;

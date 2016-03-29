@@ -7,11 +7,18 @@ void select_random_vertex(
   std::mt19937& rng_engine
 ) noexcept
 {
-  assert(boost::num_vertices(g) > 0);
+  if (boost::num_vertices(g) == 0)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "cannot select a random vertex from an empty graph"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
   const int n{static_cast<int>(boost::num_vertices(g))};
   std::uniform_int_distribution<int> indices(0,n - 1);
   const int i{indices(rng_engine)};
-  assert(i < n);
+  assert(i >= 0 && i < n);
   auto vdi = vertices(g).first + i;
   set_vertex_selectedness(true, *vdi, g);
 }
