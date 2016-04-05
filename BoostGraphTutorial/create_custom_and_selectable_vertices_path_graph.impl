@@ -30,7 +30,6 @@ create_custom_and_selectable_vertices_path_graph(
     ;
     throw std::invalid_argument(msg.str());
   }
-  //assert(custom_vertices.size() == selectednesses.size());
   auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
   if (custom_vertices.size() == 0) { return g; }
   auto vd_1 = add_custom_and_selectable_vertex(

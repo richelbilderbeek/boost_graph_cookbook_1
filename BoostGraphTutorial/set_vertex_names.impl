@@ -20,7 +20,6 @@ void set_vertex_names(
   const auto j = vip.second;
   for (auto i = vip.first; i!=j; ++i, ++ni)
   {
-    //assert(ni != names_end);
     put(vertex_name_map, *i, *ni);
   }
 }

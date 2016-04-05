@@ -14,7 +14,11 @@ add_custom_edge_between_vertices(
 ) noexcept
 {
   const auto aer = boost::add_edge(from, to, g);
-  assert(aer.second);
+  if (!aer.second) {
+    std::stringstream msg;
+    msg << __func__ << ": edge insertion failed";
+    throw std::invalid_argument(msg.str());
+  }
   set_my_custom_edge(edge, aer.first, g);
   return aer.first;
 }

@@ -25,6 +25,10 @@ add_edge_between_selected_vertices(graph& g) noexcept
   const auto vds = get_vertices_with_selectedness(true, g);
   assert(vds.size() == 2);
   const auto aer = boost::add_edge(vds[0], vds[1], g);
-  assert(aer.second);
+  if (!aer.second) {
+    std::stringstream msg;
+    msg << __func__ << ": edge insertion failed";
+    throw std::invalid_argument(msg.str());
+  }
   return aer.first;
 }

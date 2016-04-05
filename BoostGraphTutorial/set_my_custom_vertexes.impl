@@ -27,7 +27,6 @@ void set_my_custom_vertexes(
     i!=j; ++i,
     ++my_custom_vertexes_begin
   ) {
-    //assert(my_custom_vertexes_begin != my_custom_vertexes_end);
     put(my_custom_vertex_map, *i,*my_custom_vertexes_begin);
   }
 }
