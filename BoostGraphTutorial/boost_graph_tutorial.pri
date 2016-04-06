@@ -241,7 +241,9 @@ HEADERS += \
     $$PWD/add_edge_between_custom_vertices.h \
     $$PWD/has_vertex_with_my_vertex.h \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h \
-    $$PWD/select_random_vertex.h
+    $$PWD/select_random_vertex.h \
+    $$PWD/count_max_number_of_pieces.h \
+    $$PWD/get_bits.h
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
@@ -480,7 +482,9 @@ SOURCES += \
     $$PWD/has_vertex_with_my_vertex.cpp \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
     $$PWD/select_random_vertex.cpp \
-    $$PWD/get_edge_iterators.cpp
+    $$PWD/get_edge_iterators.cpp \
+    $$PWD/count_max_number_of_pieces.cpp \
+    $$PWD/get_bits.cpp
 
 
 # .impl files are the clean tutorial code snippets,

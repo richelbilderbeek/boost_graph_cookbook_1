@@ -237,7 +237,9 @@ SOURCES += \
     $$PWD/has_vertex_with_my_vertex_test.cpp \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph_test.cpp \
     $$PWD/select_random_vertex_test.cpp \
-    $$PWD/get_edge_iterators_test.cpp
+    $$PWD/get_edge_iterators_test.cpp \
+    $$PWD/count_max_number_of_pieces_test.cpp \
+    get_bits_test.cpp
 
 
 OTHER_FILES += \
