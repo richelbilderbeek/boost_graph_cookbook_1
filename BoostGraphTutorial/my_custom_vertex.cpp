@@ -3,7 +3,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <boost/lexical_cast.hpp>
-#include "helper.h"
+#include "file_to_vector.h"
 #include "seperate_string.h"
 #include "graphviz_decode.h"
 #include "graphviz_encode.h"

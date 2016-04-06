@@ -10,7 +10,7 @@
 #include "create_k2_graph_with_graph_name.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "is_regular_file.h"
 
 BOOST_AUTO_TEST_CASE(save_graph_with_graph_name_to_dot_thorough)
@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(save_graph_with_graph_name_to_dot_thorough)
     save_graph_with_graph_name_to_dot(g,dot_filename);
     BOOST_CHECK(is_regular_file(dot_filename));
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(save_graph_with_graph_name_to_dot_thorough)
 
     save_graph_with_graph_name_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{

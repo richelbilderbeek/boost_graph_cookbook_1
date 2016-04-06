@@ -7,7 +7,7 @@
 
 #include "is_regular_file.h"
 #include "copy_file.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 bool has_dot() noexcept
 {

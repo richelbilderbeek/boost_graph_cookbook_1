@@ -9,7 +9,7 @@
 #include "create_custom_edges_and_vertices_markov_chain.h"
 #include "create_nasty_directed_custom_edges_and_vertices_graph.h"
 #include "get_sorted_custom_edge_my_edges.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 #include "save_custom_edges_and_vertices_graph_to_dot.h"
@@ -53,10 +53,10 @@ BOOST_AUTO_TEST_CASE(load_directed_custom_edges_and_vertices_graph_from_dot_thor
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_custom_edges_and_vertices_graph_to_dot(g, dot_filename);
-    const auto old_text = helper().file_to_vector(dot_filename);
+    const auto old_text = file_to_vector(dot_filename);
     const auto h = load_directed_custom_edges_and_vertices_graph_from_dot(dot_filename);
     save_custom_edges_and_vertices_graph_to_dot(h, dot_filename);
-    const auto new_text = helper().file_to_vector(dot_filename);
+    const auto new_text = file_to_vector(dot_filename);
     BOOST_CHECK(old_text == new_text);
     convert_dot_to_svg(dot_filename, svg_filename);
     BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));

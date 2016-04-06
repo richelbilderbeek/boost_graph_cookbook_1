@@ -7,7 +7,7 @@
 #include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"

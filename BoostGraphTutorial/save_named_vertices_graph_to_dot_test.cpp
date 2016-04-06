@@ -14,7 +14,7 @@
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "set_vertex_names.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 
 BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
     const std::string dot_filename{base_filename + ".dot"};
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
     const std::string dot_filename{base_filename + ".dot"};
     save_named_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{
@@ -123,9 +123,9 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
     save_named_vertices_graph_to_dot_using_lambda(g,g2_dot_filename);
     save_named_vertices_graph_to_dot(h,h1_dot_filename);
     save_named_vertices_graph_to_dot_using_lambda(h,h2_dot_filename);
-    BOOST_CHECK(helper().file_to_vector(g1_dot_filename) == helper().file_to_vector(g2_dot_filename));
-    BOOST_CHECK(helper().file_to_vector(h1_dot_filename) == helper().file_to_vector(h2_dot_filename));
-    BOOST_CHECK(helper().file_to_vector(g1_dot_filename) != helper().file_to_vector(h2_dot_filename));
+    BOOST_CHECK(file_to_vector(g1_dot_filename) == file_to_vector(g2_dot_filename));
+    BOOST_CHECK(file_to_vector(h1_dot_filename) == file_to_vector(h2_dot_filename));
+    BOOST_CHECK(file_to_vector(g1_dot_filename) != file_to_vector(h2_dot_filename));
     std::remove(g1_dot_filename.c_str());
     std::remove(g2_dot_filename.c_str());
     std::remove(h1_dot_filename.c_str());

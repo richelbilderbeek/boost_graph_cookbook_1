@@ -11,7 +11,7 @@
 #include "create_named_vertices_k2_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "show_dot.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 BOOST_AUTO_TEST_CASE(save_named_edges_and_vertices_graph_to_dot_thorough)
 {
@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_CASE(save_named_edges_and_vertices_graph_to_dot_thorough)
     const std::string dot_filename{base_filename + ".dot"};
     save_named_edges_and_vertices_graph_to_dot(g,dot_filename);
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     BOOST_CHECK(!text.empty());
     const std::vector<std::string> expected_text{

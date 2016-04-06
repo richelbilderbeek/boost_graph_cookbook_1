@@ -168,7 +168,7 @@ SOURCES += \
     $$PWD/has_edge_between_vertices_test.cpp \
     $$PWD/has_edge_with_name_test.cpp \
     $$PWD/has_vertex_with_name_test.cpp \
-    $$PWD/helper_test.cpp \
+    $$PWD/file_to_vector_test.cpp \
     $$PWD/install_edge_is_selected_test.cpp \
     $$PWD/is_custom_vertices_isomorphic_test.cpp \
     $$PWD/is_graphviz_friendly_test.cpp \

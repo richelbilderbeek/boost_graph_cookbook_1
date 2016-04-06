@@ -7,7 +7,7 @@
 #include "create_k3_graph.h"
 #include "copy_file.h"
 #include "save_graph_to_dot.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "is_regular_file.h"
 
 BOOST_AUTO_TEST_CASE(is_valid_dot_file_empty_undirected_graph)

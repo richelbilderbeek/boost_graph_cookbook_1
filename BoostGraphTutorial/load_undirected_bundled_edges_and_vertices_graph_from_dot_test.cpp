@@ -9,7 +9,7 @@
 #include "create_bundled_edges_and_vertices_k3_graph.h"
 #include "create_nasty_undirected_bundled_edges_and_vertices_graph.h"
 #include "get_sorted_bundled_edge_my_edges.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "my_bundled_vertex.h"
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
 
@@ -40,10 +40,10 @@ BOOST_AUTO_TEST_CASE(load_undirected_bundled_edges_and_vertices_graph_from_dot_t
     const std::string dot_filename{base_filename + ".dot"};
     const std::string svg_filename{base_filename + ".svg"};
     save_bundled_edges_and_vertices_graph_to_dot(g, dot_filename);
-    const auto old_text = helper().file_to_vector(dot_filename);
+    const auto old_text = file_to_vector(dot_filename);
     const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot(dot_filename);
     save_bundled_edges_and_vertices_graph_to_dot(h, dot_filename);
-    const auto new_text = helper().file_to_vector(dot_filename);
+    const auto new_text = file_to_vector(dot_filename);
     BOOST_CHECK(old_text == new_text);
     convert_dot_to_svg(dot_filename, svg_filename);
     BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));

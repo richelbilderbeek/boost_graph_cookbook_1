@@ -17,6 +17,6 @@
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "set_vertex_names.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 

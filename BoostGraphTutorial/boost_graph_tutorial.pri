@@ -169,7 +169,7 @@ HEADERS += \
     $$PWD/has_edge_between_vertices.h \
     $$PWD/has_edge_with_name.h \
     $$PWD/has_vertex_with_name.h \
-    $$PWD/helper.h \
+    $$PWD/file_to_vector.h \
     $$PWD/install_edge_custom_type.h \
     $$PWD/install_edge_is_selected.h \
     $$PWD/install_vertex_custom_type.h \
@@ -411,7 +411,7 @@ SOURCES += \
     $$PWD/has_edge_between_vertices.cpp \
     $$PWD/has_edge_with_name.cpp \
     $$PWD/has_vertex_with_name.cpp \
-    $$PWD/helper.cpp \
+    $$PWD/file_to_vector.cpp \
     $$PWD/install_edge_is_selected.cpp \
     $$PWD/is_custom_vertices_isomorphic.cpp \
     $$PWD/is_graphviz_friendly.cpp \

@@ -9,6 +9,6 @@
 #include "create_custom_edges_and_vertices_k3_graph.h"
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "is_regular_file.h"
 

@@ -6,7 +6,7 @@
 #include "create_named_vertices_k2_graph.h"
 #include "convert_dot_to_svg.h"
 #include "save_named_vertices_graph_to_dot.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 BOOST_AUTO_TEST_CASE(load_undirected_named_vertices_graph_from_dot_thorough)
 {

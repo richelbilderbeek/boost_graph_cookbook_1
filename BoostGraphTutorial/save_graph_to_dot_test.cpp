@@ -13,7 +13,7 @@
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "is_valid_dot_file.h"
-#include "helper.h"
+#include "file_to_vector.h"
 
 BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
 {
@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
     save_graph_to_dot(g,dot_filename);
     BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "digraph G {",
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
     save_graph_to_dot(g,dot_filename);
     BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
     save_graph_to_dot(g,dot_filename);
     BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",
@@ -80,7 +80,7 @@ BOOST_AUTO_TEST_CASE(save_graph_to_dot_thorough)
     save_graph_to_dot(g,dot_filename);
     BOOST_CHECK(is_valid_dot_file(dot_filename));
     const std::vector<std::string> text{
-      helper().file_to_vector(dot_filename)
+      file_to_vector(dot_filename)
     };
     const std::vector<std::string> expected_text{
       "graph G {",

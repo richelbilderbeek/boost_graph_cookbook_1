@@ -13,7 +13,7 @@
 #include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
 #include "get_my_bundled_vertexes.h"
 #include "get_sorted_bundled_edge_my_edges.h"
-#include "helper.h"
+#include "file_to_vector.h"
 #include "my_bundled_vertex.h"
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
 

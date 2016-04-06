@@ -11,5 +11,5 @@
 #include "show_dot.h"
 #include "convert_dot_to_svg.h"
 #include "is_regular_file.h"
-#include "helper.h"
+#include "file_to_vector.h"
 

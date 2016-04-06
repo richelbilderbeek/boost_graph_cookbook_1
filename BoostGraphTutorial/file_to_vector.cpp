@@ -1,4 +1,4 @@
-#include "helper.h"
+#include "file_to_vector.h"
 
 #include <algorithm>
 #include <cassert>
@@ -7,13 +7,9 @@
 #include <stdexcept>
 #include "is_regular_file.h"
 
-helper::helper()
-{
-}
-
-std::vector<std::string> helper::file_to_vector(
+std::vector<std::string> file_to_vector(
   const std::string& filename
-) const noexcept
+)
 {
   if (!is_regular_file(filename))
   {
