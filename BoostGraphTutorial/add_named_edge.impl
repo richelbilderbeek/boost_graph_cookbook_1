@@ -2,10 +2,10 @@
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
 
-template <typename graph>
+template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::edge_descriptor
 add_named_edge(
-  const std::string& edge_name,
+  const name_type& edge_name,
   graph& g
 ) noexcept
 {
@@ -20,7 +20,6 @@ add_named_edge(
     msg << __func__ << ": edge insertion failed";
     throw std::invalid_argument(msg.str());
   }
-
   auto edge_name_map = get(
       boost::edge_name,g
     );

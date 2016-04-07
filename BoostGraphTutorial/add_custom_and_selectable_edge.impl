@@ -7,13 +7,13 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
-#include "my_custom_edge.h"
+//#include "my_custom_edge.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
 
-template <typename graph>
+template <typename graph, typename custom_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 add_custom_and_selectable_edge(
-  const my_custom_edge& edge,
+  const custom_edge& edge,
   const bool is_selected,
   graph& g
 ) noexcept

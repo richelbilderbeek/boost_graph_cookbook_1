@@ -1,5 +1,4 @@
 #include <boost/graph/adjacency_list.hpp>
-#include "has_edge_between_vertices.h"
 
 template <
   typename graph,
@@ -12,7 +11,8 @@ get_edge_between_vertices(
   const graph& g
 ) noexcept
 {
-  if (!has_edge_between_vertices(vd_from, vd_to, g))
+  const auto er = edge(vd_from, vd_to, g);
+  if (!er.second)
   {
     std::stringstream msg;
     msg << __func__ << ": "
@@ -20,7 +20,5 @@ get_edge_between_vertices(
     ;
     throw std::invalid_argument(msg.str());
   }
-  const auto er = edge(vd_from, vd_to, g);
-  assert(er.second);
   return er.first;
 }

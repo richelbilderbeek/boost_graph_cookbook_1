@@ -1,8 +1,8 @@
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+template <typename graph, typename name_type>
 bool has_vertex_with_name(
-  const std::string& vertex_name,
+  const name_type& vertex_name,
   const graph& g
 ) noexcept
 {

@@ -1,10 +1,10 @@
 #include <boost/graph/properties.hpp>
-#include "my_custom_vertex.h"
+//#include "my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
 
-template <typename graph>
+template <typename graph, typename custom_vertex>
 bool has_vertex_with_my_vertex(
-  const my_custom_vertex& my_vertex,
+  const custom_vertex& my_vertex,
   const graph& g
 ) noexcept
 {

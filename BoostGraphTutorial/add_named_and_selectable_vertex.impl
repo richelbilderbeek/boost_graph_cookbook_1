@@ -3,10 +3,10 @@
 #include "install_vertex_is_selected.h"
 #include "my_custom_vertex.h"
 
-template <typename graph>
+template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::vertex_descriptor
 add_named_and_selectable_vertex(
-  const std::string& vertex_name,
+  const name_type& vertex_name,
   const bool is_selected,
   graph& g
 ) noexcept

@@ -5,11 +5,11 @@
 #include "has_vertex_with_name.h"
 #include "find_first_vertex_with_name.h"
 
-template <typename graph>
+template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::edge_descriptor
 add_edge_between_named_vertices(
-  const std::string& vertex_name_1,
-  const std::string& vertex_name_2,
+  const name_type& vertex_name_1,
+  const name_type& vertex_name_2,
   graph& g
 )
 {

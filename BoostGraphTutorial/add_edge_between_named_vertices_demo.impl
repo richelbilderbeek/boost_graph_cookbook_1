@@ -6,8 +6,10 @@
 BOOST_AUTO_TEST_CASE(test_add_edge_between_named_vertices)
 {
   auto g = create_empty_undirected_named_vertices_graph();
-  add_named_vertex("Bert", g);
-  add_named_vertex("Ernie", g);
-  add_edge_between_named_vertices("Bert", "Ernie", g);
+  const std::string name1{"Bert"};
+  const std::string name2{"Ernie"};
+  add_named_vertex(name1, g);
+  add_named_vertex(name2, g);
+  add_edge_between_named_vertices(name1, name2, g);
   BOOST_CHECK(boost::num_edges(g) == 1);
 }

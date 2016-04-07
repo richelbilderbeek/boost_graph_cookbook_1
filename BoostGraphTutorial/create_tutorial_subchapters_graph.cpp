@@ -42,60 +42,60 @@ create_tutorial_subchapters_graph() noexcept
 
   {
     const std::string s = "Creating an empty directed graph";
-    add_edge_between_named_vertices(s, "Creating an empty undirected graph", g);
-    add_edge_between_named_vertices(s, "Add a vertex with a property", g);
+    add_edge_between_named_vertices(s, std::string("Creating an empty undirected graph"), g);
+    add_edge_between_named_vertices(s, std::string("Add a vertex with a property"), g);
   }
   {
     const std::string s = "Creating an empty undirected graph";
-    add_edge_between_named_vertices(s, "Add a vertex with a property", g);
+    add_edge_between_named_vertices(s, std::string("Add a vertex with a property"), g);
   }
   {
     const std::string s = "Add a vertex with a property";
-    add_edge_between_named_vertices(s, "Getting the vertices' properties", g);
-    add_edge_between_named_vertices(s, "Creating a non-empty directed graph", g);
-    add_edge_between_named_vertices(s, "Creating a non-empty undirected graph", g);
+    add_edge_between_named_vertices(s, std::string("Getting the vertices' properties"), g);
+    add_edge_between_named_vertices(s, std::string("Creating a non-empty directed graph"), g);
+    add_edge_between_named_vertices(s, std::string("Creating a non-empty undirected graph"), g);
   }
   {
     const std::string s = "Getting the vertices' properties";
-    add_edge_between_named_vertices(s, "Creating a non-empty directed graph", g);
-    add_edge_between_named_vertices(s, "Creating a non-empty undirected graph", g);
+    add_edge_between_named_vertices(s, std::string("Creating a non-empty directed graph"), g);
+    add_edge_between_named_vertices(s, std::string("Creating a non-empty undirected graph"), g);
   }
   {
     const std::string s = "Creating a non-empty directed graph";
-    add_edge_between_named_vertices(s, "Has a vertex with a certain property", g);
-    add_edge_between_named_vertices(s, "Find a vertex by its property", g);
-    add_edge_between_named_vertices(s, "Save the graph with those properties", g);
+    add_edge_between_named_vertices(s, std::string("Has a vertex with a certain property"), g);
+    add_edge_between_named_vertices(s, std::string("Find a vertex by its property"), g);
+    add_edge_between_named_vertices(s, std::string("Save the graph with those properties"), g);
   }
   {
     const std::string s = "Creating a non-empty undirected graph";
-    add_edge_between_named_vertices(s, "Has a vertex with a certain property", g);
-    add_edge_between_named_vertices(s, "Find a vertex by its property", g);
-    add_edge_between_named_vertices(s, "Save the graph with those properties", g);
+    add_edge_between_named_vertices(s, std::string("Has a vertex with a certain property"), g);
+    add_edge_between_named_vertices(s, std::string("Find a vertex by its property"), g);
+    add_edge_between_named_vertices(s, std::string("Save the graph with those properties"), g);
   }
   {
     const std::string s = "Has a vertex with a certain property";
-    add_edge_between_named_vertices(s, "Find a vertex by its property", g);
+    add_edge_between_named_vertices(s, std::string("Find a vertex by its property"), g);
   }
   {
     const std::string s = "Find a vertex by its property";
-    add_edge_between_named_vertices(s, "Get a vertex its property", g);
+    add_edge_between_named_vertices(s, std::string("Get a vertex its property"), g);
   }
   {
     const std::string s = "Get a vertex its property";
-    add_edge_between_named_vertices(s, "Set a vertex its property", g);
+    add_edge_between_named_vertices(s, std::string("Set a vertex its property"), g);
   }
   {
     const std::string s = "Set a vertex its property";
-    add_edge_between_named_vertices(s, "Set all vertices' properties", g);
+    add_edge_between_named_vertices(s, std::string("Set all vertices' properties"), g);
   }
   {
     const std::string s = "Set all vertices' properties";
-    add_edge_between_named_vertices(s, "Save the graph with those properties", g);
+    add_edge_between_named_vertices(s, std::string("Save the graph with those properties"), g);
   }
   {
     const std::string s = "Save the graph with those properties";
-    add_edge_between_named_vertices(s, "Load a directed graph with those properties from file", g);
-    add_edge_between_named_vertices(s, "Load an undirected graph with those properties from file", g);
+    add_edge_between_named_vertices(s, std::string("Load a directed graph with those properties from file"), g);
+    add_edge_between_named_vertices(s, std::string("Load an undirected graph with those properties from file"), g);
   }
   {
     const std::string s = "Load a directed graph with those properties from file";

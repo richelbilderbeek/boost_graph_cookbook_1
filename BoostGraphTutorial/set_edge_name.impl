@@ -1,9 +1,9 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+template <typename graph, typename name_type>
 void set_edge_name(
-  const std::string& any_edge_name,
+  const name_type& any_edge_name,
   const typename boost::graph_traits<graph>::edge_descriptor& vd,
   graph& g
 ) noexcept

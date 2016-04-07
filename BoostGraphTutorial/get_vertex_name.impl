@@ -3,13 +3,12 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
-std::string get_vertex_name(
+auto get_vertex_name(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
   const graph& g
-) noexcept
+) noexcept -> decltype(get(get(boost::vertex_name, g), vd))
 {
   const auto vertex_name_map
-    = get(boost::vertex_name, g
-    );
+    = get(boost::vertex_name, g);
   return get(vertex_name_map, vd);
 }

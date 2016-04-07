@@ -1,20 +1,21 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
-#include "my_custom_edge.h"
+//#include "my_custom_edge.h"
+#include "add_custom_edge_between_vertices.h"
 
-template <typename graph>
+template <typename graph, typename custom_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 add_custom_edge(
-  const my_custom_edge& v,
+  const custom_edge& edge,
   graph& g
-) noexcept
+)
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
-
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
-
+  return add_custom_edge_between_vertices(edge, vd_a, vd_b, g);
+  /*
   const auto aer
     = boost::add_edge(vd_a, vd_b, g);
   if (!aer.second) {
@@ -26,4 +27,5 @@ add_custom_edge(
     = get(boost::edge_custom_type, g);
   put(my_edge_map, aer.first, v);
   return aer.first;
+  */
 }

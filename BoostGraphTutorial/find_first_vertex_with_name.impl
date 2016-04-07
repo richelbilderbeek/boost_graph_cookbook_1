@@ -3,10 +3,10 @@
 #include <boost/graph/properties.hpp>
 #include "get_vertex_name.h"
 
-template <typename graph>
+template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_vertex_with_name(
-  const std::string& name,
+  const name_type& name,
   const graph& g
 ) noexcept
 {
@@ -16,8 +16,6 @@ find_first_vertex_with_name(
     vip.first, vip.second,
     [g, name](const vd d) {
       return get_vertex_name(d, g) == name;
-      //const auto vertex_name_map = get(boost::vertex_name, g);
-      //return get(vertex_name_map, d) == name;
     }
   );
   if (i == vip.second)

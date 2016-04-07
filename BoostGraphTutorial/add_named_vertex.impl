@@ -2,10 +2,10 @@
 #include <type_traits>
 #include <boost/graph/adjacency_list.hpp>
 
-template <typename graph>
+template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::vertex_descriptor
 add_named_vertex(
-  const std::string& vertex_name,
+  const name_type& vertex_name,
   graph& g
 ) noexcept
 {

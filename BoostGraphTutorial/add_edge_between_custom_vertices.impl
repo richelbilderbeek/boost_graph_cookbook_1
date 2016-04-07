@@ -5,15 +5,15 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "has_vertex_with_my_vertex.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
-#include "my_custom_vertex.h"
+//#include "my_custom_vertex.h"
 
-template <typename graph>
+template <typename graph, typename custom_vertex>
 typename boost::graph_traits<graph>::edge_descriptor
 add_edge_between_custom_vertices(
-  const my_custom_vertex& vertex_from,
-  const my_custom_vertex& vertex_to,
+  const custom_vertex& vertex_from,
+  const custom_vertex& vertex_to,
   graph& g
-) noexcept
+)
 {
   if (!has_vertex_with_my_vertex(vertex_from, g))
   {
