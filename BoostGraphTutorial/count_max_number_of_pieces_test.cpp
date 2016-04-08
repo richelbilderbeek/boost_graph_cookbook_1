@@ -1,6 +1,7 @@
 #include "count_max_number_of_pieces.h"
 #include <boost/test/unit_test.hpp>
 #include "create_path_graph.h"
+#include "create_petersen_graph.h"
 
 BOOST_AUTO_TEST_CASE(test_count_max_number_of_pieces)
 {
@@ -27,6 +28,10 @@ BOOST_AUTO_TEST_CASE(test_count_max_number_of_pieces)
   {
     const auto g = create_path_graph(5);
     BOOST_CHECK_EQUAL(count_max_number_of_pieces(g), 3);
+  }
+  {
+    const auto g = create_petersen_graph();
+    BOOST_CHECK_EQUAL(count_max_number_of_pieces(g), 4); //SHOULD FAIL
   }
 }
 

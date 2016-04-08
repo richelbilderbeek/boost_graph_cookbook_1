@@ -54,8 +54,7 @@ BOOST_AUTO_TEST_CASE(add_named_vertex_add_another_type)
     boost::property<
       boost::vertex_name_t, std::string
     >
-  >
-
+  >;
   another_graph g;
   BOOST_CHECK(boost::num_vertices(g) == 0);
   BOOST_CHECK(boost::num_edges(g) == 0);

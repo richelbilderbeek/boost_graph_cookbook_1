@@ -9,7 +9,7 @@
 void convert_svg_to_png(
   const std::string& svg_filename,
   const std::string& png_filename
-) noexcept
+)
 {
   if (!is_regular_file(svg_filename))
   {

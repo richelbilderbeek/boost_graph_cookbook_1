@@ -1,9 +1,9 @@
 #include <string>
 #include <boost/graph/properties.hpp>
 
-template <typename graph>
+template <typename graph, typename name_type>
 int count_vertices_with_name(
-  const std::string& name,
+  const name_type& name,
   const graph& g
 ) noexcept
 {

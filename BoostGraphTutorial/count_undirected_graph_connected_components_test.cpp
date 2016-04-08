@@ -9,18 +9,16 @@
 #include "create_k3_graph.h"
 #include "add_edge.h"
 
-BOOST_AUTO_TEST_CASE(count_undirected_graph_connected_components_thorough)
+BOOST_AUTO_TEST_CASE(count_undirected_graph_connected_components_k2_graph)
 {
-  //Basic tests: K2 == path graph of 2 vertices
-  {
-    const auto g = create_k2_graph();
-    BOOST_CHECK(count_undirected_graph_connected_components(g) == 1);
-  }
-  //Basic tests: adding two isolated edges results in two connected components
-  {
-    auto g = create_empty_undirected_graph();
-    add_edge(g);
-    add_edge(g);
-    BOOST_CHECK(count_undirected_graph_connected_components(g) == 2);
-  }
+  const auto g = create_k2_graph();
+  BOOST_CHECK_EQUAL(count_undirected_graph_connected_components(g), 1);
+}
+
+BOOST_AUTO_TEST_CASE(count_undirected_graph_connected_components_two_unconnected_edges)
+{
+  auto g = create_empty_undirected_graph();
+  add_edge(g);
+  add_edge(g);
+  BOOST_CHECK_EQUAL(count_undirected_graph_connected_components(g), 2);
 }
