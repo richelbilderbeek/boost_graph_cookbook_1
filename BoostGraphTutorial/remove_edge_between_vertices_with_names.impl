@@ -7,7 +7,7 @@ void remove_edge_between_vertices_with_names(
   const std::string& name_1,
   const std::string& name_2,
   graph& g
-) noexcept
+)
 {
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"

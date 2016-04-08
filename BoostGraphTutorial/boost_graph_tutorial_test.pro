@@ -17,10 +17,9 @@ QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror -std=c++14
 include(boost_graph_tutorial.pri)
 include(boost_graph_tutorial_test.pri)
 
-LIBS += \
-  -lboost_graph \
-  -lboost_regex \
-  -lboost_unit_test_framework
+LIBS += -lboost_graph -lboost_regex
+
+LIBS += -lboost_unit_test_framework
 
 SOURCES += main_test.cpp
 
