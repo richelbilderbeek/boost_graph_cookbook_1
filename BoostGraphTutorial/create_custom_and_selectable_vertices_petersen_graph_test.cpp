@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_petersen_graph_thorou
     //Neighbours of small 'a' are 'A', 'c' and 'd'
     {
       const my_custom_vertex v("a","e",0.0,0.0);
-      BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(v, g));
+      BOOST_CHECK(has_custom_vertex_with_my_vertex(v, g));
       const auto focal_vertex = find_first_custom_vertex_with_my_vertex(v,g);
       const auto neighbours = boost::adjacent_vertices(focal_vertex, g);
       std::set<std::string> neighbour_names;
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_petersen_graph_thorou
     //Neighbours of uppercase 'B' are 'A', 'C' and 'b'
     {
       const my_custom_vertex v("B","D",1.1,2.2);
-      BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(v, g));
+      BOOST_CHECK(has_custom_vertex_with_my_vertex(v, g));
       const auto focal_vertex = find_first_custom_vertex_with_my_vertex(v,g);
       const auto neighbours = boost::adjacent_vertices(focal_vertex, g);
       std::set<std::string> neighbour_names;
@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_petersen_graph_thorou
     //Neighbours of lowercase 'c' are 'C', 'a' and 'e'
     {
       const my_custom_vertex v("c","c",2.0 * 3.3,2.0 * 4.4);
-      BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(v, g));
+      BOOST_CHECK(has_custom_vertex_with_my_vertex(v, g));
       const auto focal_vertex = find_first_custom_vertex_with_my_vertex(v,g);
       const auto neighbours = boost::adjacent_vertices(focal_vertex, g);
       std::set<std::string> neighbour_names;
@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_petersen_graph_thorou
     //Neighbours of uppercase 'D' are 'd', 'C' and 'E'
     {
       const my_custom_vertex v("D","B",3.0 * 1.1,3.0 * 2.2);
-      BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(v, g));
+      BOOST_CHECK(has_custom_vertex_with_my_vertex(v, g));
       const auto focal_vertex = find_first_custom_vertex_with_my_vertex(v,g);
       const auto neighbours = boost::adjacent_vertices(focal_vertex, g);
       std::set<std::string> neighbour_names;
@@ -90,7 +90,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_petersen_graph_thorou
     //Neighbours of lowercase 'e' are 'E', 'b' and 'c'
     {
       const my_custom_vertex v("e","a",4.0 * 3.3,4.0 * 4.4);
-      BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(v, g));
+      BOOST_CHECK(has_custom_vertex_with_my_vertex(v, g));
       const auto focal_vertex = find_first_custom_vertex_with_my_vertex(v, g);
       const auto neighbours = boost::adjacent_vertices(focal_vertex, g);
       std::set<std::string> neighbour_names;

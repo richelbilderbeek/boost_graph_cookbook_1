@@ -27,16 +27,8 @@ create_custom_and_selectable_edges_and_vertices_path_graph(
   const std::vector<bool>& edge_selectednesses,
   const std::vector<my_custom_vertex>& my_custom_vertexes,
   const std::vector<bool>& vertex_selectednesses
-) noexcept
+)
 {
-  if (my_custom_vertexes.empty() && !my_custom_edges.empty())
-  {
-    std::stringstream msg;
-    msg << __func__ << ": supplied non-zero edges"
-      << "for zero vertices"
-    ;
-    throw std::invalid_argument(msg.str());
-  }
   if (!my_custom_vertexes.empty()
     && my_custom_vertexes.size() - 1 != my_custom_edges.size())
   {

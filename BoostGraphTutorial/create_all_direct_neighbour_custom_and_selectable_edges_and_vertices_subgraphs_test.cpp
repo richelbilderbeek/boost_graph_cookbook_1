@@ -8,7 +8,7 @@
 #include "create_custom_and_selectable_edges_and_vertices_k3_graph.h"
 #include "create_custom_and_selectable_edges_and_vertices_path_graph.h"
 #include "create_custom_and_selectable_edges_and_vertices_petersen_graph.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 #include "has_vertex_with_my_vertex.h"
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 #include "copy_file.h"
@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and
     const my_custom_edge ea("between");
     BOOST_CHECK(has_vertex_with_my_vertex(va, g));
     BOOST_CHECK(has_vertex_with_my_vertex(vb, g));
-    BOOST_CHECK(has_edge_with_my_edge(ea, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(ea, g));
   }
 }
 
@@ -54,9 +54,9 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and
     BOOST_CHECK(has_vertex_with_my_vertex(va, g));
     BOOST_CHECK(has_vertex_with_my_vertex(vb, g));
     BOOST_CHECK(has_vertex_with_my_vertex(vc, g));
-    BOOST_CHECK(has_edge_with_my_edge(ea, g));
-    BOOST_CHECK(has_edge_with_my_edge(eb, g));
-    BOOST_CHECK(has_edge_with_my_edge(ec, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(ea, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(eb, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(ec, g));
   }
 }
 

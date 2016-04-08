@@ -14,6 +14,7 @@
 #include "file_to_vector.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
+#include "is_regular_file.h"
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
 
 BOOST_AUTO_TEST_CASE(load_undirected_custom_and_selectable_vertices_graph_from_dot_thorough)
@@ -46,4 +47,16 @@ BOOST_AUTO_TEST_CASE(load_undirected_custom_and_selectable_vertices_graph_from_d
     );
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_undirected_custom_and_selectable_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_undirected_custom_and_selectable_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_undirected_custom_and_selectable_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

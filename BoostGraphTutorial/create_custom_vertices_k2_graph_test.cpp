@@ -17,8 +17,8 @@ BOOST_AUTO_TEST_CASE(create_custom_vertices_k2_graph_thorough)
     const auto g = create_custom_vertices_k2_graph();
     BOOST_CHECK(boost::num_edges(g) == 1);
     BOOST_CHECK(boost::num_vertices(g) == 2);
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("A", "source" ,0.0, 0.0), g));
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(my_custom_vertex("B", "target" ,3.14, 3.14), g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(my_custom_vertex("A", "source" ,0.0, 0.0), g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(my_custom_vertex("B", "target" ,3.14, 3.14), g));
   }
   //Create the .dot and .svg of the 'create_custom_vertices_k2_graph' chapter
   {

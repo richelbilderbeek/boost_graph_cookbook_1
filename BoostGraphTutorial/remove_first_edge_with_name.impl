@@ -6,7 +6,7 @@ template <typename graph>
 void remove_first_edge_with_name(
   const std::string& name,
   graph& g
-) noexcept
+)
 {
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"

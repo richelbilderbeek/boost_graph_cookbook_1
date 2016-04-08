@@ -9,7 +9,7 @@ get_edge_between_vertices(
   const vertex_descriptor& vd_from,
   const vertex_descriptor& vd_to,
   const graph& g
-) noexcept
+)
 {
   const auto er = edge(vd_from, vd_to, g);
   if (!er.second)

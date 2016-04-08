@@ -1,7 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include "create_custom_and_selectable_edges_and_vertices_k3_graph.h"
 #include "has_custom_vertex_with_my_vertex.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 
 BOOST_AUTO_TEST_CASE(test_create_custom_and_selectable_edges_and_vertices_k3_graph)
 {
@@ -14,10 +14,10 @@ BOOST_AUTO_TEST_CASE(test_create_custom_and_selectable_edges_and_vertices_k3_gra
   const my_custom_edge ea("1");
   const my_custom_edge eb("2");
   const my_custom_edge ec("3");
-  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(va, g));
-  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(vb, g));
-  BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(vc, g));
-  BOOST_CHECK(has_edge_with_my_edge(ea, g));
-  BOOST_CHECK(has_edge_with_my_edge(eb, g));
-  BOOST_CHECK(has_edge_with_my_edge(ec, g));
+  BOOST_CHECK(has_custom_vertex_with_my_vertex(va, g));
+  BOOST_CHECK(has_custom_vertex_with_my_vertex(vb, g));
+  BOOST_CHECK(has_custom_vertex_with_my_vertex(vc, g));
+  BOOST_CHECK(has_custom_edge_with_my_edge(ea, g));
+  BOOST_CHECK(has_custom_edge_with_my_edge(eb, g));
+  BOOST_CHECK(has_custom_edge_with_my_edge(ec, g));
 }

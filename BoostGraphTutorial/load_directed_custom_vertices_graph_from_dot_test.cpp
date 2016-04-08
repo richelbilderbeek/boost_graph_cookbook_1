@@ -14,6 +14,7 @@
 #include "file_to_vector.h"
 #include "my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
+#include "is_regular_file.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 
 
@@ -44,4 +45,16 @@ BOOST_AUTO_TEST_CASE(load_directed_custom_vertices_graph_from_dot_thorough)
     BOOST_CHECK(get_sorted_custom_vertex_my_vertexes(g) == get_sorted_custom_vertex_my_vertexes(h));
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_directed_custom_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_directed_custom_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_directed_custom_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

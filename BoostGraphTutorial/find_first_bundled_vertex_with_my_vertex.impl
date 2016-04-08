@@ -9,7 +9,7 @@ typename boost::graph_traits<graph>::vertex_descriptor
 find_first_bundled_vertex_with_my_vertex(
   const my_bundled_vertex& v,
   const graph& g
-) noexcept
+)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);

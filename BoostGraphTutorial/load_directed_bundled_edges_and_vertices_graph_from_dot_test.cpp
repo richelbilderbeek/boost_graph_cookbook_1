@@ -13,6 +13,7 @@
 #include "get_my_bundled_vertexes.h"
 #include "get_sorted_bundled_edge_my_edges.h"
 #include "file_to_vector.h"
+#include "is_regular_file.h"
 #include "my_bundled_vertex.h"
 #include "save_bundled_edges_and_vertices_graph_to_dot.h"
 
@@ -78,4 +79,16 @@ BOOST_AUTO_TEST_CASE(load_directed_bundled_edges_and_vertices_graph_from_dot_tho
         == "read_graphviz: Tried to read an undirected graph into a directed graph.");
     }
   }
+}
+
+BOOST_AUTO_TEST_CASE(load_directed_bundled_edges_and_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_directed_bundled_edges_and_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_directed_bundled_edges_and_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

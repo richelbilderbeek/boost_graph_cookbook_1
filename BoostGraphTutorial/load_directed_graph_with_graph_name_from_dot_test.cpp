@@ -8,6 +8,7 @@
 #include "save_graph_with_graph_name_to_dot.h"
 #include "create_markov_chain_with_graph_name.h"
 #include "convert_dot_to_svg.h"
+#include "is_regular_file.h"
 #include "file_to_vector.h"
 #include "set_graph_name.h"
 
@@ -40,4 +41,16 @@ BOOST_AUTO_TEST_CASE(load_directed_graph_with_graph_name_from_dot_thorough)
     );
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_directed_graph_with_graph_name_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_directed_graph_with_graph_name_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_directed_graph_with_graph_name_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

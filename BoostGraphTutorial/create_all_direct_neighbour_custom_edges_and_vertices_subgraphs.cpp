@@ -13,5 +13,5 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "has_vertex_with_my_vertex.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 

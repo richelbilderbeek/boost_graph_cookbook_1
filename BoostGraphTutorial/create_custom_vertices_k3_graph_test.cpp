@@ -20,9 +20,9 @@ BOOST_AUTO_TEST_CASE(create_custom_vertices_k3_graph_thorough)
     const my_custom_vertex a("Karen","red",0.0,0.0);
     const my_custom_vertex b("Kristel","black",1.1,1.1);
     const my_custom_vertex c("Kathleen","blond",2.2,2.2);
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(a, g));
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(b, g));
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(c, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(a, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(b, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(c, g));
   }
   //Create the .dot and .svg of the 'create_custom_vertices_k3_graph' chapter
   {

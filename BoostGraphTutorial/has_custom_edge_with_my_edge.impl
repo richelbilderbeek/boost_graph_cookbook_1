@@ -3,7 +3,7 @@
 #include "my_custom_edge.h"
 
 template <typename graph>
-bool has_edge_with_my_edge(
+bool has_custom_edge_with_my_edge(
   const my_custom_edge& e,
   const graph& g
 ) noexcept

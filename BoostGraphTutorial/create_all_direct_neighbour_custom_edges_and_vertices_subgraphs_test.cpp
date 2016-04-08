@@ -13,7 +13,7 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 #include "has_vertex_with_my_vertex.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 
 BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_edges_and_vertices_subgraphs_thorough)
 {
@@ -47,9 +47,9 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_edges_and_vertices_subgr
       BOOST_CHECK(has_vertex_with_my_vertex(va, g));
       BOOST_CHECK(has_vertex_with_my_vertex(vb, g));
       BOOST_CHECK(has_vertex_with_my_vertex(vc, g));
-      BOOST_CHECK(has_edge_with_my_edge(ea, g));
-      BOOST_CHECK(has_edge_with_my_edge(eb, g));
-      BOOST_CHECK(has_edge_with_my_edge(ec, g));
+      BOOST_CHECK(has_custom_edge_with_my_edge(ea, g));
+      BOOST_CHECK(has_custom_edge_with_my_edge(eb, g));
+      BOOST_CHECK(has_custom_edge_with_my_edge(ec, g));
     }
   }
   //Path

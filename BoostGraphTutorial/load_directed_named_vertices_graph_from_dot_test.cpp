@@ -8,6 +8,7 @@
 #include "save_named_vertices_graph_to_dot.h"
 #include "file_to_vector.h"
 #include "create_nasty_directed_named_vertices_graph.h"
+#include "is_regular_file.h"
 #include "get_sorted_vertex_names.h"
 
 BOOST_AUTO_TEST_CASE(load_directed_named_vertices_graph_from_dot_thorough)
@@ -31,4 +32,16 @@ BOOST_AUTO_TEST_CASE(load_directed_named_vertices_graph_from_dot_thorough)
     BOOST_CHECK(get_sorted_vertex_names(g) == get_sorted_vertex_names(h));
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_directed_named_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_directed_named_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_directed_named_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

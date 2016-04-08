@@ -4,7 +4,7 @@
 #include "my_custom_vertex.h"
 
 template <typename graph>
-bool has_custom_vertex_with_my_custom_vertex(
+bool has_custom_vertex_with_my_vertex(
   const my_custom_vertex& v,
   const graph& g
 ) noexcept

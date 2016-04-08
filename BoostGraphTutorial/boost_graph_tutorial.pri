@@ -163,7 +163,7 @@ HEADERS += \
     $$PWD/graphviz_encode.h \
     $$PWD/has_bundled_edge_with_my_edge.h \
     $$PWD/has_bundled_vertex_with_my_vertex.h \
-    $$PWD/has_edge_with_my_edge.h \
+    $$PWD/has_custom_edge_with_my_edge.h \
     $$PWD/has_custom_vertex_with_my_vertex.h \
     $$PWD/has_dot.h \
     $$PWD/has_edge_between_vertices.h \
@@ -407,7 +407,7 @@ SOURCES += \
     $$PWD/graphviz_encode.cpp \
     $$PWD/has_bundled_edge_with_my_edge.cpp \
     $$PWD/has_bundled_vertex_with_my_vertex.cpp \
-    $$PWD/has_edge_with_my_edge.cpp \
+    $$PWD/has_custom_edge_with_my_edge.cpp \
     $$PWD/has_custom_vertex_with_my_vertex.cpp \
     $$PWD/has_dot.cpp \
     $$PWD/has_edge_between_vertices.cpp \
@@ -632,7 +632,7 @@ OTHER_FILES += \
     $$PWD/graphviz_encode.impl \
     $$PWD/has_bundled_edge_with_my_edge.impl \
     $$PWD/has_bundled_vertex_with_my_vertex.impl \
-    $$PWD/has_edge_with_my_edge.impl \
+    $$PWD/has_custom_edge_with_my_edge.impl \
     $$PWD/has_custom_vertex_with_my_vertex.impl \
     $$PWD/has_edge_between_vertices.impl \
     $$PWD/has_edge_with_name.impl \

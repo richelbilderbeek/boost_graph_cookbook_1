@@ -17,16 +17,8 @@ boost::adjacency_list<
 create_custom_edges_and_vertices_path_graph(
   const std::vector<my_custom_edge>& my_custom_edges,
   const std::vector<my_custom_vertex>& my_custom_vertexes
-) noexcept
+)
 {
-  if (my_custom_vertexes.empty() && !my_custom_edges.empty())
-  {
-    std::stringstream msg;
-    msg << __func__ << ": supplied non-zero edges"
-      << "for zero vertices"
-    ;
-    throw std::invalid_argument(msg.str());
-  }
   if (!my_custom_vertexes.empty()
     && my_custom_vertexes.size() - 1 != my_custom_edges.size())
   {

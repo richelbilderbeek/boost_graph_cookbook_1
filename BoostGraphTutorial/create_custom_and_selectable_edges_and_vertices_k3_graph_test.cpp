@@ -6,7 +6,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include "has_custom_vertex_with_my_vertex.h"
-#include "has_edge_with_my_edge.h"
+#include "has_custom_edge_with_my_edge.h"
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
@@ -24,12 +24,12 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_k3_graph_th
     const my_custom_edge ea("1");
     const my_custom_edge eb("2");
     const my_custom_edge ec("3");
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(va, g));
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(vb, g));
-    BOOST_CHECK(has_custom_vertex_with_my_custom_vertex(vc, g));
-    BOOST_CHECK(has_edge_with_my_edge(ea, g));
-    BOOST_CHECK(has_edge_with_my_edge(eb, g));
-    BOOST_CHECK(has_edge_with_my_edge(ec, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(va, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(vb, g));
+    BOOST_CHECK(has_custom_vertex_with_my_vertex(vc, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(ea, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(eb, g));
+    BOOST_CHECK(has_custom_edge_with_my_edge(ec, g));
   }
   //Create the .dot and .svg of the 'create_custom_and_selectable_edges_and_vertices_k3_graph' chapter
   {

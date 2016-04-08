@@ -2,7 +2,7 @@
 #include "file_to_vector.h"
 #include "is_regular_file.h"
 
-bool is_valid_dot_file(const std::string& dot_filename) noexcept
+bool is_valid_dot_file(const std::string& dot_filename)
 {
   if (!is_regular_file(dot_filename)) { return false; }
   const auto v = file_to_vector(dot_filename);

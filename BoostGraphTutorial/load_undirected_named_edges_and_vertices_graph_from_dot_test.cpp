@@ -7,6 +7,7 @@
 #include "convert_dot_to_svg.h"
 #include "save_named_edges_and_vertices_graph_to_dot.h"
 #include "file_to_vector.h"
+#include "is_regular_file.h"
 
 BOOST_AUTO_TEST_CASE(load_undirected_named_edges_and_vertices_graph_from_dot_thorough)
 {
@@ -24,4 +25,16 @@ BOOST_AUTO_TEST_CASE(load_undirected_named_edges_and_vertices_graph_from_dot_tho
     BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_undirected_named_edges_and_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_undirected_named_edges_and_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_undirected_named_edges_and_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }

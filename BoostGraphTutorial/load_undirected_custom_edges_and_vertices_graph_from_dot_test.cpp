@@ -12,6 +12,7 @@
 #include "my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
 #include "create_nasty_undirected_custom_edges_and_vertices_graph.h"
+#include "is_regular_file.h"
 #include "get_sorted_custom_edge_my_edges.h"
 
 BOOST_AUTO_TEST_CASE(load_undirected_custom_edges_and_vertices_graph_from_dot_thorough)
@@ -66,4 +67,16 @@ BOOST_AUTO_TEST_CASE(load_undirected_custom_edges_and_vertices_graph_from_dot_th
     );
   }
   
+}
+
+BOOST_AUTO_TEST_CASE(load_undirected_custom_edges_and_vertices_graph_from_dot_when_file_is_absent)
+{
+  const std::string dot_filename{
+    "load_undirected_custom_edges_and_vertices_graph_from_dot_when_file_is_absent.dot"
+  };
+  assert(!is_regular_file(dot_filename));
+  BOOST_CHECK_THROW(
+    load_undirected_custom_edges_and_vertices_graph_from_dot(dot_filename),
+    std::invalid_argument
+  );
 }
