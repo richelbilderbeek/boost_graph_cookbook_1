@@ -5,7 +5,7 @@ template <typename graph>
 void select_random_vertex(
   graph& g,
   std::mt19937& rng_engine
-) noexcept
+)
 {
   if (boost::num_vertices(g) == 0)
   {

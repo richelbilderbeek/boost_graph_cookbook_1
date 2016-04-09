@@ -68,3 +68,11 @@ BOOST_AUTO_TEST_CASE(test_get_bits)
     );
   }
 }
+
+BOOST_AUTO_TEST_CASE(test_get_bits_for_negative_value)
+{
+  BOOST_CHECK_THROW(
+    get_bits(-42),
+    std::invalid_argument
+  );
+}

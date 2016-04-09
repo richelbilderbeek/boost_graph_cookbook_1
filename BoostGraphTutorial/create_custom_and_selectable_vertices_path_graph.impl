@@ -17,7 +17,7 @@ boost::adjacency_list<
 create_custom_and_selectable_vertices_path_graph(
   const std::vector<my_custom_vertex>& custom_vertices,
   const std::vector<bool>& selectednesses
-) noexcept
+)
 {
   if (custom_vertices.size() != selectednesses.size())
   {

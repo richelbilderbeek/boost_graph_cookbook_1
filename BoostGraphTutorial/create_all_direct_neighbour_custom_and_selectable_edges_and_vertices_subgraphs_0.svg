@@ -12,12 +12,12 @@
 <!-- 0 -->
 <g id="node1" class="node"><title>0</title>
 <ellipse fill="none" stroke="black" cx="85" cy="-163" rx="74.6146" ry="74.9875"/>
-<text text-anchor="middle" x="85" y="-159.3" font-family="Times,serif" font-size="14.00">Hanne,red,1.1,1.1</text>
+<text text-anchor="middle" x="85" y="-159.3" font-family="Times,serif" font-size="14.00">Hanne,red,1.1,2.2</text>
 </g>
 <!-- 1 -->
 <g id="node2" class="node"><title>1</title>
 <ellipse fill="none" stroke="black" cx="85" cy="-18" rx="85.2138" ry="18"/>
-<text text-anchor="middle" x="85" y="-14.3" font-family="Times,serif" font-size="14.00">Marthe,black,3.3,3.3</text>
+<text text-anchor="middle" x="85" y="-14.3" font-family="Times,serif" font-size="14.00">Marthe,black,3.3,4.4</text>
 </g>
 <!-- 0&#45;&#45;1 -->
 <g id="edge1" class="edge"><title>0&#45;&#45;1</title>

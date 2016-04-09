@@ -7,7 +7,7 @@ typename boost::graph_traits<graph>::edge_descriptor
 find_first_edge_with_name(
   const std::string& name,
   const graph& g
-) noexcept
+)
 {
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
   const auto eip = edges(g);

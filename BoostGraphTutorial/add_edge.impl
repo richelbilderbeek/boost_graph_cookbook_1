@@ -14,10 +14,6 @@ add_edge(graph& g) noexcept
   const auto aer = boost::add_edge(
     vd_a, vd_b, g
   );
-  if (!aer.second) {
-    std::stringstream msg;
-    msg << __func__ << ": edge insertion failed";
-    throw std::invalid_argument(msg.str());
-  }
+  assert(aer.second);
   return aer.first;
 }

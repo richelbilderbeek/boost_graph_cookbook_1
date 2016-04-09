@@ -21,16 +21,7 @@ std::vector<std::string> file_to_vector(
   }
   std::vector<std::string> v;
   std::ifstream in{filename.c_str()};
-
-  if (!in.is_open())
-  {
-    std::stringstream msg;
-    msg << __func__ << ": file '"
-      << filename << "' could not be opened"
-    ;
-    throw std::runtime_error(msg.str());
-  }
-
+  assert(in.is_open());
   for (int i=0; !in.eof(); ++i)
   {
     std::string s;

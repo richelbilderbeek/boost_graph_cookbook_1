@@ -102,7 +102,7 @@ std::ostream& operator<<(std::ostream& os, const my_custom_edge& v) noexcept
   return os;
 }
 
-std::istream& operator>>(std::istream& is, my_custom_edge& the_edge) noexcept
+std::istream& operator>>(std::istream& is, my_custom_edge& the_edge)
 {
   std::string line;
   is >> line;

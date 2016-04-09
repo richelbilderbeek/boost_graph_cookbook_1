@@ -11,16 +11,26 @@
 
 BOOST_AUTO_TEST_CASE(select_random_vertex_thorough)
 {
-  {
-    const int seed{42};
-    std::mt19937 rng_engine(seed);
-    auto g
-      = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
-    add_custom_and_selectable_vertex(
-      my_custom_vertex(), false, g
-    );
-    BOOST_CHECK(count_vertices_with_selectedness(true, g) == 0);
-    select_random_vertex(g, rng_engine);
-    BOOST_CHECK(count_vertices_with_selectedness(true, g) == 1);
-  }
+  const int seed{42};
+  std::mt19937 rng_engine(seed);
+  auto g
+    = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
+  add_custom_and_selectable_vertex(
+    my_custom_vertex(), false, g
+  );
+  BOOST_CHECK(count_vertices_with_selectedness(true, g) == 0);
+  select_random_vertex(g, rng_engine);
+  BOOST_CHECK(count_vertices_with_selectedness(true, g) == 1);
+}
+
+BOOST_AUTO_TEST_CASE(select_random_vertex_in_empty_graph)
+{
+  const int seed{42};
+  std::mt19937 rng_engine(seed);
+  auto g = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
+  BOOST_CHECK_THROW(
+    select_random_vertex(g, rng_engine),
+    std::invalid_argument
+  );
+
 }

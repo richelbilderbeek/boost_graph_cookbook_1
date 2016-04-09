@@ -1,7 +1,5 @@
 #include "has_dot.h"
 
-
-
 #include <iostream>
 #include <sstream>
 

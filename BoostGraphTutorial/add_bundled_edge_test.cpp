@@ -44,6 +44,22 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_edge_two_edges)
   BOOST_CHECK(edges == expected_edges);
 }
 
+BOOST_AUTO_TEST_CASE(test_add_bundled_edge_twice)
+{
+  auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
+  BOOST_CHECK(boost::num_vertices(g) == 0);
+  BOOST_CHECK(boost::num_edges(g) == 0);
+  const auto vd_a = add_bundled_vertex(my_bundled_vertex("A"), g);
+  const auto vd_b = add_bundled_vertex(my_bundled_vertex("B"), g);
+  const my_bundled_edge edge_1("X");
+  add_bundled_edge(vd_a, vd_b, edge_1, g);
+  BOOST_CHECK_THROW(
+    add_bundled_edge(vd_a, vd_b, edge_1, g),
+    std::invalid_argument
+  );
+}
+
+
 BOOST_AUTO_TEST_CASE(test_add_bundled_edge_for_another_edge_type)
 {
   using another_bundled_edge = std::string;

@@ -13,16 +13,8 @@ boost::adjacency_list<
 create_named_edges_and_vertices_path_graph(
   const std::vector<std::string>& edge_names,
   const std::vector<std::string>& vertex_names
-) noexcept
+)
 {
-  if (vertex_names.empty() && !edge_names.empty())
-  {
-    std::stringstream msg;
-    msg << __func__ << ": supplied non-zero edges"
-      << "for zero vertices"
-    ;
-    throw std::invalid_argument(msg.str());
-  }
   if (!vertex_names.empty()
     && vertex_names.size() - 1 != edge_names.size())
   {

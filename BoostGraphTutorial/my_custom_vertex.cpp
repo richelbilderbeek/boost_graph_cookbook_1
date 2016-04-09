@@ -58,7 +58,7 @@ double my_custom_vertex::get_x() const noexcept
 
 double my_custom_vertex::get_y() const noexcept
 {
-  return m_x;
+  return m_y;
 }
 
 bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept

@@ -1,6 +1,6 @@
 digraph G {
-0[label="Sunny,Yellow$$$SPACE$$$thing,1,1"];
-1[label="Rainy,Grey$$$SPACE$$$things,3,3"];
+0[label="Sunny,Yellow$$$SPACE$$$thing,1,2"];
+1[label="Rainy,Grey$$$SPACE$$$things,3,4"];
 0->0 [label="Sometimes,20%,1,2"];
 0->1 [label="Often,80%,3,4"];
 1->0 [label="Rarely,10%,5,6"];

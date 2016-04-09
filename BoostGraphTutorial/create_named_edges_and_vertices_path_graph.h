@@ -14,6 +14,6 @@ boost::adjacency_list<
 create_named_edges_and_vertices_path_graph(
   const std::vector<std::string>& edge_names,
   const std::vector<std::string>& vertex_names
-) noexcept;
+);
 
 #endif // CREATE_NAMED_EDGES_AND_VERTICES_PATH_GRAPH_H

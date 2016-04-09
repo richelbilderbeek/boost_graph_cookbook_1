@@ -19,9 +19,14 @@ BOOST_AUTO_TEST_CASE(find_first_custom_vertex_with_my_vertex_when_vertex_is_abse
 {
   const auto g = create_empty_directed_custom_vertices_graph();
   const my_custom_vertex v;
+  const my_custom_vertex w;
   assert(!has_custom_vertex_with_my_vertex(v, g));
   BOOST_CHECK_THROW(
     find_first_custom_vertex_with_my_vertex(v, g),
+    std::invalid_argument
+  );
+  BOOST_CHECK_THROW(
+    find_first_custom_vertex_with_my_vertex(w, g),
     std::invalid_argument
   );
 }
