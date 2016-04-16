@@ -10,7 +10,7 @@ before_install:
 install:
   - sudo apt-get install -qq g++-5
   - sudo apt-get install -qq graphviz
-  - sudo apt-get install -qq babel*
+  - sudo apt-get install -qq babel
   - sudo apt-get install -qq libboost-all-dev
   - sudo apt-get install -qq lyx
   - sudo apt-get install -qq texlive
@@ -28,12 +28,15 @@ addons:
     - libboost1.55-all-dev
 
 script:
- - type dot
- - ./build_test_debug.sh
- - ./boost_graph_tutorial_test
- - cat create_markov_chain_with_graph_name.dot
- - ./get_code_cov.sh
- - codecov
- - ./clean.sh
- - ./build_exe_release.sh
- - ./build_pdf.sh
+  - type dot
+  - ./build_test_debug.sh
+  - ./boost_graph_tutorial_test
+  - cat create_markov_chain_with_graph_name.dot
+  - ./get_code_cov.sh
+  - codecov
+  - ./clean.sh
+  - ./build_exe_release.sh
+  - ./build_pdf.sh
+
+after_failure:
+ - apt-cache search babel | egrep "^babel"
