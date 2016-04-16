@@ -23,10 +23,6 @@ LIBS += -lboost_unit_test_framework
 
 SOURCES += main_test.cpp
 
-#QMAKE_MAKEFLAGS += -j
-#QMAKE_CXXFLAGS += -j4
-#QMAKE_CXX = ccache g++
-
 # gcov
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += -lgcov
