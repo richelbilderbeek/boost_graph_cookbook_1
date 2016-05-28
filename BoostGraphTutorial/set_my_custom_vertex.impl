@@ -3,7 +3,7 @@
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 
-template <typename graph>
+template <typename graph, typename my_custom_vertex>
 void set_my_custom_vertex(
   const my_custom_vertex& v,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
