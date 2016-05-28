@@ -11,7 +11,6 @@ install:
   - sudo apt-get install -qq g++-5
   - sudo apt-get install -qq graphviz
   - sudo apt-get install -qq babel
-  - sudo apt-get install -qq libboost-all-dev
   - sudo apt-get install -qq lyx
   - sudo apt-get install -qq texlive
   - sudo apt-get install -qq pgf
