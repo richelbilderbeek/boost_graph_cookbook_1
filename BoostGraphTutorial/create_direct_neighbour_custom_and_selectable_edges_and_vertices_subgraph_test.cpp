@@ -120,10 +120,10 @@ BOOST_AUTO_TEST_CASE(create_direct_neighbour_custom_and_selectable_edges_and_ver
     const my_custom_edge ec("3","third",3.3,4.4);
     auto g
       = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
-    const auto vd_center = add_custom_and_selectable_vertex(v_center, true, g);
     const auto vd_a = add_custom_and_selectable_vertex(va, true, g);
     const auto vd_b = add_custom_and_selectable_vertex(vb, false, g);
     const auto vd_c = add_custom_and_selectable_vertex(vc, false, g);
+    const auto vd_center = add_custom_and_selectable_vertex(v_center, true, g);
     add_custom_and_selectable_edge_between_vertices(ea, false, vd_center, vd_a, g);
     add_custom_and_selectable_edge_between_vertices(eb, false, vd_center, vd_b, g);
     add_custom_and_selectable_edge_between_vertices(ec, false, vd_center, vd_c, g);

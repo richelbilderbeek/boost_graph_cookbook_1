@@ -66,6 +66,7 @@ HEADERS += \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.h \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.h \
     $$PWD/create_direct_neighbour_subgraph.h \
+    $$PWD/create_direct_neighbour_subgraph_including_in_edges.h \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.h \
     $$PWD/create_empty_directed_bundled_vertices_graph.h \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h \
@@ -311,6 +312,7 @@ SOURCES += \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.cpp \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.cpp \
     $$PWD/create_direct_neighbour_subgraph.cpp \
+    $$PWD/create_direct_neighbour_subgraph_including_in_edges.cpp \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_directed_bundled_vertices_graph.cpp \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
@@ -553,6 +555,7 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_named_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_subgraph.impl \
+    $$PWD/create_direct_neighbour_subgraph_including_in_edges.impl \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.impl \
     $$PWD/create_empty_directed_bundled_vertices_graph.impl \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl \

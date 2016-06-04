@@ -66,6 +66,7 @@ SOURCES += \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_named_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_subgraph_test.cpp \
+    $$PWD/create_direct_neighbour_subgraph_including_in_edges_test.cpp \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph_test.cpp \
     $$PWD/create_empty_directed_bundled_vertices_graph_test.cpp \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph_test.cpp \
@@ -303,6 +304,7 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph_demo.impl \
     $$PWD/create_direct_neighbour_named_vertices_subgraph_demo.impl \
     $$PWD/create_direct_neighbour_subgraph_demo.impl \
+    $$PWD/create_direct_neighbour_subgraph_including_in_edges_demo.impl \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph_demo.impl \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph_demo.impl \
     $$PWD/create_empty_directed_custom_and_selectable_vertices_graph_demo.impl \

@@ -7366,6 +7366,87 @@ name "alg:create_direct_neighbour_subgraph_demo"
 
 \end_layout
 
+\begin_layout Standard
+Note that this algorithm works on both undirectional and directional graphs.
+ If the graph is directional, only the out edges will be copied.
+ To also copy the vertices connected connected with inward edges, use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:create_direct_neighbour_subgraph_including_in_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+▶ Create a direct-neighbour subgraph from a vertex descriptor including
+ inward edges
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:create_direct_neighbour_subgraph_including_in_edges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Too bad, this algorithm does not work yet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "create_direct_neighbour_subgraph_including_in_edges.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Get the direct-neighbour subgraph from a vertex descriptor
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Create direct-neighbour subgraph_including_in_edges
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:create_direct_neighbour_subgraph_including_in_edges"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 ▶ Creating all direct-neighbour subgraphs from a graph without properties
 \begin_inset CommandInset label
@@ -33816,7 +33897,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_edge_with_my_edge.impl"
+filename "has_custom_edge_with_my_edge.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -33833,7 +33914,7 @@ Find if there is a custom edge with a certain my_custom_edge
 status open
 
 \begin_layout Plain Layout
-Has edge with my_custom_edge
+Has custom edge with my_custom_edge
 \end_layout
 
 \end_inset
@@ -33841,7 +33922,7 @@ Has edge with my_custom_edge
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_edge_with_my_edge"
+name "alg:has_custom_edge_with_my_edge"
 
 \end_inset
 
@@ -33862,7 +33943,7 @@ name "alg:has_edge_with_my_edge"
 This function can be demonstrated as in algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:has_edge_with_my_edge_demo"
+reference "alg:has_custom_edge_with_my_edge_demo"
 
 \end_inset
 
@@ -33880,7 +33961,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "has_edge_with_my_edge_demo.impl"
+filename "has_custom_edge_with_my_edge_demo.impl"
 lstparams "breaklines=true,language={C++}"
 
 \end_inset
@@ -33895,7 +33976,7 @@ lstparams "breaklines=true,language={C++}"
 Demonstration of the `has_custom_edge_with_my_edge' function
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:has_edge_with_my_edge_demo"
+name "alg:has_custom_edge_with_my_edge_demo"
 
 \end_inset
 
