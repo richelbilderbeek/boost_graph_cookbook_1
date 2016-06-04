@@ -102,4 +102,106 @@ BOOST_AUTO_TEST_CASE(create_direct_neighbour_custom_and_selectable_edges_and_ver
       }
     }
   }
+  // Create a star graph
+  //
+  //
+  //  A --- Center --- B
+  //          |
+  //          |
+  //          |
+  //          C
+  {
+    const my_custom_vertex v_center("center","in the middle",0.0,0.0);
+    const my_custom_vertex va("A","first",1.1,2.2);
+    const my_custom_vertex vb("B","second",3.3,4.4);
+    const my_custom_vertex vc("C","third",5.5,6.6);
+    const my_custom_edge ea("1","first",1.1,2.2);
+    const my_custom_edge eb("2","second",3.3,4.4);
+    const my_custom_edge ec("3","third",3.3,4.4);
+    auto g
+      = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
+    const auto vd_center = add_custom_and_selectable_vertex(v_center, true, g);
+    const auto vd_a = add_custom_and_selectable_vertex(va, true, g);
+    const auto vd_b = add_custom_and_selectable_vertex(vb, false, g);
+    const auto vd_c = add_custom_and_selectable_vertex(vc, false, g);
+    add_custom_and_selectable_edge_between_vertices(ea, false, vd_center, vd_a, g);
+    add_custom_and_selectable_edge_between_vertices(eb, false, vd_center, vd_b, g);
+    add_custom_and_selectable_edge_between_vertices(ec, false, vd_center, vd_c, g);
+    //From the center, the subgraph should have four nodes
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_center, g);
+      BOOST_CHECK(boost::num_vertices(h) == 4);
+      BOOST_CHECK(boost::num_edges(h) == 3);
+    }
+    //From A, B and C, the subgraph should have two nodes
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_a, g);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
+    }
+    //From A, B and C, the subgraph should have two nodes
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_b, g);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
+    }
+    //From A, B and C, the subgraph should have two nodes
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_c, g);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
+    }
+
+  }
+  // Create a star graph with an assymmetry
+  //
+  //
+  //  A --- Center --- B
+  //    \    |
+  //      \  |
+  //        \|
+  //         C
+  {
+    const my_custom_vertex v_center("center","in the middle",0.0,0.0);
+    const my_custom_vertex va("A","first",1.1,2.2);
+    const my_custom_vertex vb("B","second",3.3,4.4);
+    const my_custom_vertex vc("C","third",5.5,6.6);
+    const my_custom_edge ea("1","first",1.1,2.2);
+    const my_custom_edge eb("2","second",3.3,4.4);
+    const my_custom_edge ec("3","third",3.3,4.4);
+    auto g
+      = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
+    const auto vd_center = add_custom_and_selectable_vertex(v_center, true, g);
+    const auto vd_a = add_custom_and_selectable_vertex(va, true, g);
+    const auto vd_b = add_custom_and_selectable_vertex(vb, false, g);
+    const auto vd_c = add_custom_and_selectable_vertex(vc, false, g);
+    add_custom_and_selectable_edge_between_vertices(ea, false, vd_center, vd_a, g);
+    add_custom_and_selectable_edge_between_vertices(eb, false, vd_center, vd_b, g);
+    add_custom_and_selectable_edge_between_vertices(ec, false, vd_center, vd_c, g);
+    add_custom_and_selectable_edge_between_vertices(ec, false, vd_a, vd_c, g); //New
+    //From center
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_center, g);
+      BOOST_CHECK(boost::num_vertices(h) == 4);
+      BOOST_CHECK(boost::num_edges(h) == 4);
+    }
+    //From A
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_a, g);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
+    }
+    //From B
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_b, g);
+      BOOST_CHECK(boost::num_vertices(h) == 2);
+      BOOST_CHECK(boost::num_edges(h) == 1);
+    }
+    //From C
+    {
+      const auto h = create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(vd_c, g);
+      BOOST_CHECK(boost::num_vertices(h) == 3);
+      BOOST_CHECK(boost::num_edges(h) == 3);
+    }
+  }
 }
