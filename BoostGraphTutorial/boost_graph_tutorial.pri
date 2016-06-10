@@ -26,6 +26,7 @@ HEADERS += \
     $$PWD/count_directed_graph_connected_components.h \
     $$PWD/count_edges_with_selectedness.h \
     $$PWD/count_undirected_graph_connected_components.h \
+    $$PWD/count_undirected_graph_levels.h \
     $$PWD/count_vertices_with_name.h \
     $$PWD/count_vertices_with_selectedness.h \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.h \
@@ -272,6 +273,7 @@ SOURCES += \
     $$PWD/count_directed_graph_connected_components.cpp \
     $$PWD/count_edges_with_selectedness.cpp \
     $$PWD/count_undirected_graph_connected_components.cpp \
+    $$PWD/count_undirected_graph_levels.cpp \
     $$PWD/count_vertices_with_name.cpp \
     $$PWD/count_vertices_with_selectedness.cpp \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.cpp \
@@ -515,6 +517,7 @@ OTHER_FILES += \
     $$PWD/count_directed_graph_connected_components.impl \
     $$PWD/count_edges_with_selectedness.impl \
     $$PWD/count_undirected_graph_connected_components.impl \
+    $$PWD/count_undirected_graph_levels.impl \
     $$PWD/count_vertices_with_name.impl \
     $$PWD/count_vertices_with_selectedness.impl \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.impl \

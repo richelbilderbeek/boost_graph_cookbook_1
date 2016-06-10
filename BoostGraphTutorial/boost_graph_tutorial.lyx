@@ -8126,6 +8126,203 @@ name "alg:count_undirected_graph_connected_components_demo"
 \end_layout
 
 \begin_layout Subsection
+▶ Count the number of levels in an undirected graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:count_undirected_graph_levels"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Graphs may have a hierarchical structure.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+(6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of an undirected graph with two components
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:count_undirected_graph_levels"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This algorithm counts the number of levels in an unidirected graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_undirected_graph_levels.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Count the number of levels in an undirected graph 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Count undirected graph levels
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_undirected_graph_levels"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This demonstration code shows that ...:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "count_undirected_graph_levels_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demo of the `count_undirected_graph_levels' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:count_undirected_graph_levels_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Saving a graph to a .dot file
 \begin_inset CommandInset label
 LatexCommand label

@@ -26,6 +26,7 @@ SOURCES += \
     $$PWD/count_directed_graph_connected_components_test.cpp \
     $$PWD/count_edges_with_selectedness_test.cpp \
     $$PWD/count_undirected_graph_connected_components_test.cpp \
+    $$PWD/count_undirected_graph_levels_test.cpp \
     $$PWD/count_vertices_with_name_test.cpp \
     $$PWD/count_vertices_with_selectedness_test.cpp \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_test.cpp \
@@ -264,6 +265,7 @@ OTHER_FILES += \
     $$PWD/count_directed_graph_connected_components_demo.impl \
     $$PWD/count_edges_with_selectedness_demo.impl \
     $$PWD/count_undirected_graph_connected_components_demo.impl \
+    $$PWD/count_undirected_graph_levels_demo.impl \
     $$PWD/count_vertices_with_name_demo.impl \
     $$PWD/count_vertices_with_selectedness_demo.impl \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_demo.impl \
