@@ -13,6 +13,7 @@ install:
   - sudo apt-get install -qq babel
   - sudo apt-get install -qq lyx
   - sudo apt-get install -qq texlive
+  - sudo apt-get install -qq texlive-latex-base # For pdflatex
   - sudo apt-get install -qq pgf
   - sudo pip install codecov
 
