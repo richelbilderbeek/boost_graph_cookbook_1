@@ -39,4 +39,6 @@ script:
   - ./build_pdf.sh
 
 after_failure:
- - apt-cache search babel | egrep "^babel"
+ - pdflatex -v
+ - cd ~; find . | egrep "\.tex"
+ - cd ~; find . | egrep "\.log"
