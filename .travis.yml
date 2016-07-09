@@ -44,6 +44,7 @@ after_failure:
  - pdflatex -v
  - cd ~; find . | egrep "\.tex"
  - cd ~; find . | egrep "\.log"
+ - cd /; find . | egrep "/texlive$"
  #- which tlmgr
  - echo $PATH
  - cat /home/travis/build/richelbilderbeek/BoostGraphTutorial/BoostGraphTutorial/boost_graph_tutorial.tex
