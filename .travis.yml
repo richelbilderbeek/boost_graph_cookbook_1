@@ -15,7 +15,8 @@ install:
   - sudo apt-get install -qq texlive-* # For pdflatex
   #- sudo apt-get install -qq texlive-full # For pdflatex
   #- sudo apt-get install -qq texlive-latex-base # For pdflatex
-  - sudo apt-get install -qq pgf
+  - sudo apt-get source -qq pgf # TikZ
+  - sudo apt-get install -qq pgf # TikZ
   - sudo pip install codecov
 
 addons:
@@ -44,7 +45,9 @@ after_failure:
  - pdflatex -v
  - cd ~; find . | egrep "\.tex"
  - cd ~; find . | egrep "\.log"
+ - cd /usr; find . | egrep "/texlive$"
+ - cd /opt; find . | egrep "/texlive$"
  - cd /; find . | egrep "/texlive$"
- #- which tlmgr
+  #- which tlmgr
  - echo $PATH
  - cat /home/travis/build/richelbilderbeek/BoostGraphTutorial/BoostGraphTutorial/boost_graph_tutorial.tex
