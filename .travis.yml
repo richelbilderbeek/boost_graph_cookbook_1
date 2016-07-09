@@ -16,7 +16,6 @@ install:
   - sudo apt-get install -qq texlive-latex-base # For pdflatex
   - sudo apt-get install -qq pgf
   - sudo pip install codecov
-  - sudo tlmgr update --all # Update Tex packages to get TikZ
 
 addons:
   apt:
@@ -29,6 +28,7 @@ addons:
     - libboost1.55-all-dev
 
 script:
+  - sudo tlmgr update --all # Update Tex packages to get TikZ
   - type dot
   - ./build_test_debug.sh
   - ./boost_graph_tutorial_test
