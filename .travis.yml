@@ -40,7 +40,7 @@ script:
   - codecov
   - ./clean.sh
   - ./build_exe_release.sh
-  - ./build_pdf.sh
+  # - ./build_pdf.sh
 
 after_failure:
  - pdflatex -v
