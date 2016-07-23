@@ -2,9 +2,9 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-template <typename graph>
+template <typename graph, typename custom_edge>
 bool has_custom_edge_with_my_edge(
-  const my_custom_edge& e,
+  const custom_edge& e,
   const graph& g
 ) noexcept
 {
