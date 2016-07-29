@@ -714,4 +714,6 @@ OTHER_FILES += \
     $$PWD/set_vertex_selectedness.impl \
     $$PWD/add_edge_between_custom_vertices.impl \
     $$PWD/has_vertex_with_my_vertex.impl \
-    $$PWD/select_random_vertex.impl
+    $$PWD/select_random_vertex.impl \
+    ../BoostGraphTutorial/BoostGraphTutorial/has_custom_edge_with_my_edge_f.impl \
+    ../BoostGraphTutorial/BoostGraphTutorial/find_first_custom_edge_with_my_edge_f.impl

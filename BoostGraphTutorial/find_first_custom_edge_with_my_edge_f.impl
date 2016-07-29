@@ -1,0 +1,34 @@
+#include <cassert>
+#include <boost/graph/graph_traits.hpp>
+#include "has_custom_edge_with_my_edge.h"
+#include "install_edge_custom_type.h"
+#include "my_custom_edge.h"
+
+template <typename graph, typename custom_edge, typename function>
+typename boost::graph_traits<graph>::edge_descriptor
+find_first_custom_edge_with_my_edge(
+  const custom_edge& e,
+  const graph& g,
+  const function& edge_equivalence_function
+)
+{
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
+  const auto eip = edges(g);
+  const auto i = std::find_if(
+    eip.first, eip.second,
+    [e,g,edge_equivalence_function](const ed d) {
+      const auto my_edges_map = get(boost::edge_custom_type, g);
+      return edge_equivalence_function(get(my_edges_map, d), e);
+    }
+  );
+  if (i == eip.second)
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "could not find custom_edge '"
+      << e << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  return *i;
+}
