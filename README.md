@@ -7,6 +7,7 @@
 
 [![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial.svg?branch=master)](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial)
 [![codecov.io](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial?branch=master)
+[![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/boostgraphtutorial)
 
 A well-connected C++11 Boost.Graph tutorial is a C++ tutorial about Boost.Graph.
 
