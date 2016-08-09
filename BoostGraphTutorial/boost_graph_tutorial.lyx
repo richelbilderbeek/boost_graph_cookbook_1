@@ -34191,6 +34191,145 @@ Note that this function only finds if there is at least one edge with that
 \end_layout
 
 \begin_layout Subsection
+Find first my_custom_edge satisfying a predicate
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:find_first_custom_edge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where STL functions work with iterators, here we obtain an edge descriptor
+ (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Edge-descriptors"
+
+\end_inset
+
+) to obtain a handle to the desired edge.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_custom_edge"
+
+\end_inset
+
+ shows how to obtain an edge descriptor to the first edge found that satisfies
+ a predicate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_custom_edge.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Find the first custom edge satisfying a predicate
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Find first custom edge
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_custom_edge"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the edge descriptor obtained, one can read and modify the edge and
+ the vertices surrounding it.
+ Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:find_first_custom_edge_demo"
+
+\end_inset
+
+ shows some examples of how to do so.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "find_first_custom_edge_demo.impl"
+lstparams "breaklines=true,language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Demonstration of the `find_first_custom_edge' function
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:find_first_custom_edge_demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Find a my_custom_edge
 \begin_inset CommandInset label
 LatexCommand label
