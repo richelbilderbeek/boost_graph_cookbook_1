@@ -122,6 +122,7 @@ HEADERS += \
     $$PWD/custom_vertex_invariant.h \
     $$PWD/find_first_bundled_edge_with_my_edge.h \
     $$PWD/find_first_bundled_vertex_with_my_vertex.h \
+    $$PWD/find_first_custom_edge.h \
     $$PWD/find_first_custom_edge_with_my_edge.h \
     $$PWD/find_first_custom_vertex_with_my_vertex.h \
     $$PWD/find_first_edge_with_name.h \
@@ -602,6 +603,7 @@ OTHER_FILES += \
     $$PWD/custom_vertex_invariant.impl \
     $$PWD/find_first_bundled_edge_with_my_edge.impl \
     $$PWD/find_first_bundled_vertex_with_my_vertex.impl \
+    $$PWD/find_first_custom_edge.impl \
     $$PWD/find_first_custom_edge_with_my_edge.impl \
     $$PWD/find_first_custom_vertex_with_my_vertex.impl \
     $$PWD/find_first_edge_with_name.impl \
@@ -715,5 +717,5 @@ OTHER_FILES += \
     $$PWD/add_edge_between_custom_vertices.impl \
     $$PWD/has_vertex_with_my_vertex.impl \
     $$PWD/select_random_vertex.impl \
-    ../BoostGraphTutorial/BoostGraphTutorial/has_custom_edge_with_my_edge_f.impl \
-    ../BoostGraphTutorial/BoostGraphTutorial/find_first_custom_edge_with_my_edge_f.impl
+    $$PWD/has_custom_edge_with_my_edge_f.impl \
+    $$PWD/find_first_custom_edge_with_my_edge_f.impl
