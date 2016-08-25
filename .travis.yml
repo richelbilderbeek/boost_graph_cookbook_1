@@ -42,6 +42,9 @@ script:
   - ./build_exe_release.sh
   # - ./build_pdf.sh
 
+after_success: 
+  - bash <(curl -s https://codecov.io/bash)
+
 after_failure:
  - pdflatex -v
  - cd ~; find . | egrep "\.tex"
