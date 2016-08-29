@@ -16,7 +16,7 @@
 #include "add_named_vertex.h"
 #include "add_edge_between_named_vertices.h"
 
-boost::adjacency_list<
+boost::adjacency_list< //!OCLINT Sure it is too long, but this is just a fun function
   boost::vecS,
   boost::vecS,
   boost::directedS,
@@ -94,16 +94,13 @@ create_tutorial_subchapters_graph() noexcept
   }
   {
     const std::string s = "Save the graph with those properties";
-    add_edge_between_named_vertices(s, std::string("Load a directed graph with those properties from file"), g);
-    add_edge_between_named_vertices(s, std::string("Load an undirected graph with those properties from file"), g);
+    add_edge_between_named_vertices(
+      s, std::string("Load a directed graph with those properties from file"), g
+    );
+    add_edge_between_named_vertices(
+      s, std::string("Load an undirected graph with those properties from file"), g
+    );
   }
-  {
-    const std::string s = "Load a directed graph with those properties from file";
-  }
-  {
-    const std::string s = "Load an undirected graph with those properties from file";
-  }
-
   return g;
 }
 

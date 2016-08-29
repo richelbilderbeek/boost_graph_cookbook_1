@@ -50,3 +50,4 @@ h1.dot
 BoostGraphTutorial/boost_graph_tutorial.log
 *.tar.gz
 oclint-0.10.3/
+do_oclint.sh

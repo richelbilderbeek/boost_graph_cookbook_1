@@ -43,7 +43,9 @@ create_nasty_undirected_custom_and_selectable_vertices_graph() noexcept
     //Commas
     add_custom_and_selectable_vertex(my_custom_vertex("A,B",",C,D,"), i % 2, g);
     //Long name
-    add_custom_and_selectable_vertex(my_custom_vertex(std::string(999,'A'),std::string(999,'B')), i % 2, g);
+    add_custom_and_selectable_vertex(
+      my_custom_vertex(std::string(999,'A'),std::string(999,'B')), i % 2, g
+    );
     //Escape sequence
     add_custom_and_selectable_vertex(my_custom_vertex("A\"];","B\"];"), i % 2, g);
   }
