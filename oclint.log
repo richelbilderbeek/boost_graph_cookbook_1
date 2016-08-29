@@ -1,0 +1,25 @@
+
+Compiler Errors:
+(please be aware that these errors will prevent OCLint from analyzing this source code)
+
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:23:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:31:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_bundled_edge.impl:22:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_custom_edge_between_vertices.impl:20:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_named_edge_between_vertices.impl:23:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/find_first_vertex_with_name.impl:28:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_named_vertices.impl:23:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_named_vertices.impl:32:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_named_vertices.impl:40:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/find_first_custom_vertex_with_my_vertex.impl:31:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_custom_vertices.impl:25:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_custom_vertices.impl:34:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_custom_vertices.impl:42:5: cannot use 'throw' with exceptions disabled
+
+
+OCLint Report
+
+Summary: TotalFiles=42 FilesWithViolations=0 P1=0 P2=0 P3=0 
+
+
+[OCLint (http://oclint.org) v0.10.3]

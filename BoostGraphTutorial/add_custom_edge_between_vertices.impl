@@ -11,7 +11,7 @@ add_custom_edge_between_vertices(
   const vertex_descriptor from,
   const vertex_descriptor to,
   graph& g
-) noexcept
+)
 {
   const auto aer = boost::add_edge(from, to, g);
   if (!aer.second) {

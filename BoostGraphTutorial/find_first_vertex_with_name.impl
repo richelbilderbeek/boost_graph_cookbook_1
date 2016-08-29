@@ -8,7 +8,7 @@ typename boost::graph_traits<graph>::vertex_descriptor
 find_first_vertex_with_name(
   const name_type& name,
   const graph& g
-) noexcept
+)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);

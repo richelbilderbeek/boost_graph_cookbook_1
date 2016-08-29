@@ -19,6 +19,7 @@ install:
   - sudo apt-get source -qq pgf # TikZ
   - sudo apt-get install -qq pgf # TikZ
   - sudo pip install codecov
+  - ./install_oclint.sh
 
 addons:
   apt:
@@ -31,13 +32,12 @@ addons:
     - libboost1.55-all-dev
 
 script:
-  #- sudo tlmgr update --all # Update Tex packages to get TikZ
   - type dot
   - ./build_test_debug.sh
   - ./boost_graph_tutorial_test
-  - cat create_markov_chain_with_graph_name.dot
   - ./get_code_cov.sh
   - codecov
+  - ./do_oclint.sh
   - ./clean.sh
   - ./build_exe_release.sh
   # - ./build_pdf.sh
