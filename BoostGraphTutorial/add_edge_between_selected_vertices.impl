@@ -3,8 +3,6 @@
 #include <stdexcept>
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
-//#include "has_vertex_with_name.h"
-//#include "find_first_vertex_with_name.h"
 #include "get_vertices_with_selectedness.h"
 #include "count_vertices_with_selectedness.h"
 

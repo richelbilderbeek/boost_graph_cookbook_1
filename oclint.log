@@ -2,8 +2,8 @@
 Compiler Errors:
 (please be aware that these errors will prevent OCLint from analyzing this source code)
 
-/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:23:5: cannot use 'throw' with exceptions disabled
-/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:31:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:21:5: cannot use 'throw' with exceptions disabled
+/home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_edge_between_selected_vertices.impl:29:5: cannot use 'throw' with exceptions disabled
 /home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_bundled_edge.impl:22:5: cannot use 'throw' with exceptions disabled
 /home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_custom_edge_between_vertices.impl:20:5: cannot use 'throw' with exceptions disabled
 /home/p230198/GitHubs/BoostGraphTutorial/BoostGraphTutorial/add_named_edge_between_vertices.impl:23:5: cannot use 'throw' with exceptions disabled
@@ -19,7 +19,7 @@ Compiler Errors:
 
 OCLint Report
 
-Summary: TotalFiles=42 FilesWithViolations=0 P1=0 P2=0 P3=0 
+Summary: TotalFiles=25 FilesWithViolations=0 P1=0 P2=0 P3=0 
 
 
 [OCLint (http://oclint.org) v0.10.3]

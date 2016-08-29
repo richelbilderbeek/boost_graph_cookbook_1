@@ -31,7 +31,8 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_k3_graph_th
     BOOST_CHECK(has_custom_edge_with_my_edge(eb, g));
     BOOST_CHECK(has_custom_edge_with_my_edge(ec, g));
   }
-  //Create the .dot and .svg of the 'create_custom_and_selectable_edges_and_vertices_k3_graph' chapter
+  //Create the .dot and .svg of the
+  //'create_custom_and_selectable_edges_and_vertices_k3_graph' chapter
   {
     const auto g = create_custom_and_selectable_edges_and_vertices_k3_graph();
     const std::string base_filename{"create_custom_and_selectable_edges_and_vertices_k3_graph"};
