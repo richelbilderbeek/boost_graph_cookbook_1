@@ -7,7 +7,7 @@ template <typename graph>
 std::vector<my_bundled_vertex> get_sorted_bundled_vertex_my_vertexes(const graph& g) noexcept
 {
   auto v = get_my_bundled_vertexes(g);
-  const auto my_bundled_vertex_comparer
+  const auto mbvc //my_bundled_vertex_comparer
     = [](const my_bundled_vertex& lhs,const my_bundled_vertex& rhs)
         {
           if (lhs.m_name < rhs.m_name) return true;
@@ -19,7 +19,7 @@ std::vector<my_bundled_vertex> get_sorted_bundled_vertex_my_vertexes(const graph
           return lhs.m_y < rhs.m_y;
         }
   ;
-  std::sort(std::begin(v),std::end(v), my_bundled_vertex_comparer);
+  std::sort(std::begin(v),std::end(v), mbvc);
   return v;
 }
 

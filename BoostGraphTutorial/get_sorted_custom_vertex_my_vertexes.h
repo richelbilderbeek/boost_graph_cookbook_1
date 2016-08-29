@@ -10,7 +10,7 @@ std::vector<my_custom_vertex> get_sorted_custom_vertex_my_vertexes(const graph& 
 {
   auto v = get_my_custom_vertexes(g);
 
-  const auto my_custom_vertex_comparer
+  const auto mcvc //my_custom_vertex_comparer
     = [](const my_custom_vertex& lhs,const my_custom_vertex& rhs)
         {
           if (lhs.get_name() < rhs.get_name()) return true;
@@ -22,7 +22,7 @@ std::vector<my_custom_vertex> get_sorted_custom_vertex_my_vertexes(const graph& 
           return lhs.get_y() < rhs.get_y();
         }
   ;
-  std::sort(std::begin(v),std::end(v), my_custom_vertex_comparer);
+  std::sort(std::begin(v),std::end(v), mcvc);
   return v;
 }
 

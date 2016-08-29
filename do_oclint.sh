@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cpp_files=`find . | egrep -v "^\./BoostGraphTutorial/.*_.*_test\.cpp$" | egrep "^\./BoostGraphTutorial/create_.*\.cpp$"`
-h_files=`find .  | egrep "^\./BoostGraphTutorial/create_.*\.h$"`
+cpp_files=`find . | egrep -v "^\./BoostGraphTutorial/.*_.*_test\.cpp$" | egrep "^\./BoostGraphTutorial/get_.*\.cpp$"`
+h_files=`find .  | egrep "^\./BoostGraphTutorial/get_.*\.h$"`
 
 echo $cpp_files
 echo $h_files

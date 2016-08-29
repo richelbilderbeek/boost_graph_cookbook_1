@@ -20,7 +20,7 @@ std::vector<int> get_bits(int value)
   int index = 0;
   while (value > 0)
   {
-    if (value % 2 == 1)
+    if (value % 2 != 0) // value % 2 == 1 does not work for negative numbers
     {
       v.push_back(index);
     }

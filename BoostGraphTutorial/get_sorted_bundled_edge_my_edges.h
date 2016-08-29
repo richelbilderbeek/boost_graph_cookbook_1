@@ -13,7 +13,7 @@ std::vector<my_bundled_edge> get_sorted_bundled_edge_my_edges(const graph& g) no
 {
   auto v = get_my_bundled_edges(g);
 
-  const auto my_bundled_edge_comparer
+  const auto mbec // my_bundled_edge_comparer
     = [](const my_bundled_edge& lhs,const my_bundled_edge& rhs)
         {
           if (lhs.m_name < rhs.m_name) return true;
@@ -25,7 +25,7 @@ std::vector<my_bundled_edge> get_sorted_bundled_edge_my_edges(const graph& g) no
           return lhs.m_height < rhs.m_width;
         }
   ;
-  std::sort(std::begin(v),std::end(v), my_bundled_edge_comparer);
+  std::sort(std::begin(v),std::end(v), mbec);
   return v;
 }
 
