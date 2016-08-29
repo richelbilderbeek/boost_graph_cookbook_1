@@ -53,6 +53,7 @@ load_directed_bundled_edges_and_vertices_graph_from_dot(
   {
     const auto eip = edges(g);
     const auto j = eip.second;
+    #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
     for (auto i = eip.first; i!=j; ++i)
     {

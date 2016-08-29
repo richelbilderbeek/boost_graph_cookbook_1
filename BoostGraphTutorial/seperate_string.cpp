@@ -15,9 +15,7 @@ std::vector<std::string> seperate_string(
     std::string sub;
     std::getline(is, sub, seperator);
     v.emplace_back(sub))
-  {
-    //Empty for loop
-  }
+  {} //!OCLINT Indeed, an empty for loop
   return v;
 }
 
