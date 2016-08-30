@@ -37,9 +37,9 @@ script:
   - ./boost_graph_tutorial_test
   - ./get_code_cov.sh
   - codecov
-  - ./do_oclint.sh
-  - ./clean.sh
-  - ./build_exe_release.sh
+  - travis_wait 30 ./do_oclint.sh
+  #- ./clean.sh
+  #- ./build_exe_release.sh
   # - ./build_pdf.sh
 
 after_success: 
