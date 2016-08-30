@@ -2,7 +2,6 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
 #include "install_edge_is_selected.h"
-//#include "my_custom_edge.h"
 #include "install_edge_custom_type.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
 

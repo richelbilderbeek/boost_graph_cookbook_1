@@ -1,10 +1,10 @@
 #!/bin/bash
 
 cpp_files=`find . | egrep "^\./BoostGraphTutorial/.*\.cpp$"| egrep -v "_test\.cpp$"`
-h_files=`find . | egrep "^\./BoostGraphTutorial/.*_.*\.h$`
+h_files=`find . | egrep "^\./BoostGraphTutorial/.*_.*\.h$"`
 
-#echo $cpp_files
-#echo $h_files
+echo $cpp_files
+echo $h_files
 
 ./oclint-0.10.3/bin/oclint -o oclint.log \
   -disable-rule ShortVariableName \

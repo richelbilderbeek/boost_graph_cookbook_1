@@ -1,7 +1,6 @@
 #include <cassert>
 #include <boost/graph/adjacency_list.hpp>
 #include "install_edge_custom_type.h"
-//#include "my_custom_edge.h"
 #include "add_custom_edge_between_vertices.h"
 
 template <typename graph, typename custom_edge>
