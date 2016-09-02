@@ -211,6 +211,9 @@ SOURCES += \
     $$PWD/remove_edge_between_vertices_with_names_test.cpp \
     $$PWD/remove_first_edge_with_name_test.cpp \
     $$PWD/remove_first_vertex_with_name_test.cpp \
+    $$PWD/remove_selected_custom_edges_test.cpp \
+    $$PWD/remove_selected_custom_edges_and_vertices_test.cpp \
+    $$PWD/remove_selected_custom_vertices_test.cpp \
     $$PWD/remove_nth_vertex_test.cpp \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot_test.cpp \
     $$PWD/save_bundled_vertices_graph_to_dot_test.cpp \
@@ -410,6 +413,9 @@ OTHER_FILES += \
     $$PWD/remove_first_edge_with_name_demo.impl \
     $$PWD/remove_first_vertex_with_name_demo.impl \
     $$PWD/remove_nth_vertex_demo.impl \
+    $$PWD/remove_selected_custom_edges_demo.impl \
+    $$PWD/remove_selected_custom_edges_and_vertices_demo.impl \
+    $$PWD/remove_selected_custom_vertices_demo.impl \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot_demo.impl \

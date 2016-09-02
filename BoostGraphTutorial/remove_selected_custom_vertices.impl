@@ -1,0 +1,34 @@
+#include <boost/graph/adjacency_list.hpp>
+#include "install_vertex_is_selected.h"
+
+template <typename graph>
+graph remove_selected_custom_vertices(
+  graph g
+)
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  while (1)
+  {
+    const auto vip = vertices(g);
+    const auto i = std::find_if(vip.first, vip.second,
+      [g](const typename boost::graph_traits<graph>::vertex_descriptor vd)
+      {
+        const auto is_selected_map = get(boost::vertex_is_selected, g);
+        return get(is_selected_map,vd);
+      }
+    );
+    if (i == vip.second)
+    {
+      break;
+    }
+    else
+    {
+      boost::clear_vertex(*i,g);
+      boost::remove_vertex(*i,g);
+    }
+  }
+  return g;
+}

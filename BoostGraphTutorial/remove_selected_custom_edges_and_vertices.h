@@ -1,0 +1,6 @@
+#ifndef REMOVE_SELECTED_CUSTOM_EDGES_AND_VERTICES_H
+#define REMOVE_SELECTED_CUSTOM_EDGES_AND_VERTICES_H
+
+#include "remove_selected_custom_edges_and_vertices.impl"
+
+#endif // REMOVE_SELECTED_CUSTOM_EDGES_AND_VERTICES_H

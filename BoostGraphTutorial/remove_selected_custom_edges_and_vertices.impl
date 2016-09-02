@@ -1,0 +1,20 @@
+#include <boost/graph/adjacency_list.hpp>
+
+#include "remove_selected_custom_edges.h"
+#include "remove_selected_custom_vertices.h"
+
+#include "install_edge_is_selected.h"
+
+template <typename graph>
+graph remove_selected_custom_edges_and_vertices(
+  graph g
+)
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+  return
+    remove_selected_custom_edges(
+      remove_selected_custom_vertices(g)
+    );
+}

@@ -216,6 +216,9 @@ HEADERS += \
     $$PWD/remove_edge_between_vertices_with_names.h \
     $$PWD/remove_first_edge_with_name.h \
     $$PWD/remove_first_vertex_with_name.h \
+    $$PWD/remove_selected_custom_edges.h \
+    $$PWD/remove_selected_custom_edges_and_vertices.h \
+    $$PWD/remove_selected_custom_vertices.h \
     $$PWD/remove_nth_vertex.h \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_bundled_vertices_graph_to_dot.h \
@@ -458,6 +461,9 @@ SOURCES += \
     $$PWD/remove_edge_between_vertices_with_names.cpp \
     $$PWD/remove_first_edge_with_name.cpp \
     $$PWD/remove_first_vertex_with_name.cpp \
+    $$PWD/remove_selected_custom_edges.cpp \
+    $$PWD/remove_selected_custom_edges_and_vertices.cpp \
+    $$PWD/remove_selected_custom_vertices.cpp \
     $$PWD/remove_nth_vertex.cpp \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_bundled_vertices_graph_to_dot.cpp \
@@ -688,6 +694,9 @@ OTHER_FILES += \
     $$PWD/remove_edge_between_vertices_with_names.impl \
     $$PWD/remove_first_edge_with_name.impl \
     $$PWD/remove_first_vertex_with_name.impl \
+    $$PWD/remove_selected_custom_edges.impl \
+    $$PWD/remove_selected_custom_edges_and_vertices.impl \
+    $$PWD/remove_selected_custom_vertices.impl \
     $$PWD/remove_nth_vertex.impl \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_bundled_vertices_graph_to_dot.impl \
