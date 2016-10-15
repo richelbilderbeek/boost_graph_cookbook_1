@@ -43,9 +43,11 @@ script:
   # - ./build_pdf.sh
 
 after_success: 
+  - ls
   - bash <(curl -s https://codecov.io/bash)
 
 after_failure:
+  - ls
   - pdflatex -v
   - cd ~; find . | egrep "\.tex"
   - cd ~; find . | egrep "\.log"
