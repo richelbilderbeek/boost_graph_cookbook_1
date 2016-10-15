@@ -36,6 +36,12 @@ script:
   - ./build_test_debug.sh
   - ./boost_graph_tutorial_test
   - ./get_code_cov.sh
+  - cp debug/*.gcda BoostGraphTutorial # Will this work?
+  - cp debug/*.gcno BoostGraphTutorial # Will this work?
+  - cp debug/*.o BoostGraphTutorial # Will this work?
+  - cp debug/*.gcda . # Will this work?
+  - cp debug/*.gcno . # Will this work?
+  - cp debug/*.o . # Will this work?
   - codecov
   - travis_wait 30 ./do_oclint.sh
   #- ./clean.sh
@@ -43,11 +49,10 @@ script:
   # - ./build_pdf.sh
 
 after_success: 
-  - ls
   - bash <(curl -s https://codecov.io/bash)
 
 after_failure:
-  - ls
+  - bash <(curl -s https://codecov.io/bash)
   - pdflatex -v
   - cd ~; find . | egrep "\.tex"
   - cd ~; find . | egrep "\.log"
