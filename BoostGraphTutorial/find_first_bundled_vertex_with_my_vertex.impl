@@ -4,10 +4,10 @@
 #include "has_bundled_vertex_with_my_vertex.h"
 #include "my_bundled_vertex.h"
 
-template <typename graph>
+template <typename graph, typename bundled_vertex_t>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_bundled_vertex_with_my_vertex(
-  const my_bundled_vertex& v,
+  const bundled_vertex_t& v,
   const graph& g
 )
 {
