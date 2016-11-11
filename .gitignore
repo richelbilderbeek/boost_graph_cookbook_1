@@ -53,3 +53,6 @@ oclint-0.10.3/
 do_oclint.sh
 oclint.log
 *.gcno
+*.pro.user.*
+Makefile
+BoostGraphTutorial/Makefile

@@ -1,58 +1,48 @@
 sudo: true
 language: cpp
 compiler: gcc
+addons: 
+  apt: 
+    packages: libboost-all-dev
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo add-apt-repository -y ppa:lyx-devel/release
   - sudo apt-get update -qq
+  - sudo pip install codecov
+  - ./install_oclint.sh
 
-install:
+install: 
   - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+  - # GraphVix
   - sudo apt-get install -qq graphviz
+  - # PDF
   - sudo apt-get install -qq babel
   - sudo apt-get install -qq lyx
   - sudo apt-get install -qq texlive # For pdflatex
   - sudo apt-get install -qq texlive-* # For pdflatex
-  #- sudo apt-get install -qq texlive-full # For pdflatex
-  #- sudo apt-get install -qq texlive-latex-base # For pdflatex
-  - sudo apt-get source -qq pgf # TikZ
-  - sudo apt-get install -qq pgf # TikZ
-  - sudo pip install codecov
-  - ./install_oclint.sh
 
-addons:
-  apt:
-    sources:
-    - boost-latest
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-5
-    - g++-5
-    - libboost1.55-all-dev
-
-script:
+script: 
   - type dot
-  - ./build_test_debug.sh
+  - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
+  - make debug
   - ./boost_graph_tutorial_test
-  - ./get_code_cov.sh
   - cp debug/*.gcda BoostGraphTutorial # Will this work?
   - cp debug/*.gcno BoostGraphTutorial # Will this work?
   - cp debug/*.o BoostGraphTutorial # Will this work?
   - cp debug/*.gcda . # Will this work?
   - cp debug/*.gcno . # Will this work?
   - cp debug/*.o . # Will this work?
+  # Get code coverage
+  - ./get_code_cov.sh
   - codecov
+  # Call OCLint
   - travis_wait 30 ./do_oclint.sh
-  #- ./clean.sh
-  #- ./build_exe_release.sh
-  # - ./build_pdf.sh
 
-after_success: 
+after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 after_failure:
-  - bash <(curl -s https://codecov.io/bash)
   - pdflatex -v
   - cd ~; find . | egrep "\.tex"
   - cd ~; find . | egrep "\.log"
