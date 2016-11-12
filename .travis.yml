@@ -39,8 +39,8 @@ script:
   # Get code coverage
   - ./get_code_cov.sh
   - codecov
-  # Call OCLint
-  - travis_wait 30 ./do_oclint.sh
+  # Call OCLint, takes to long...
+  # - travis_wait 60 ./do_oclint.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
