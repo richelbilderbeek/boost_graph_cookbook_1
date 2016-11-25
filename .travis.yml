@@ -1,6 +1,6 @@
-sudo: true
 language: cpp
 compiler: gcc
+sudo: require
 dist: trusty # Qt5, from https://gist.github.com/jreese/6207161#gistcomment-1462109
 
 # Boost
@@ -9,15 +9,19 @@ addons:
     packages: libboost-all-dev
 
 before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  # C++14
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
-  - sudo pip install codecov
-  - ./install_oclint.sh
 
 install: 
+  # C++14
   - sudo apt-get install -qq g++-5
+  # gcov
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
-  - # GraphVix
+  - sudo pip install codecov
+  # OCLint
+  - ./install_oclint.sh
+  - # GraphViz
   - sudo apt-get install -qq graphviz
   - # PDF
   - sudo apt-get install -qq babel
