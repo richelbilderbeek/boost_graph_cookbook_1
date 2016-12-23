@@ -1,7 +1,8 @@
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot.h"
+
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "load_directed_custom_and_selectable_vertices_graph_from_dot.impl"
-
-
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 #include "add_custom_and_selectable_vertex.h"
 #include "convert_dot_to_svg.h"
