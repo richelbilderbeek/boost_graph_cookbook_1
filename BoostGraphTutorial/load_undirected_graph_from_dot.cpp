@@ -1,6 +1,8 @@
 #include "load_undirected_graph_from_dot.h"
-#include "load_undirected_graph_from_dot.impl"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#include "load_undirected_graph_from_dot.impl"
+#endif //BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 
 #include "create_k2_graph.h"
