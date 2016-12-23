@@ -3709,7 +3709,7 @@ boost::add_edge
 
 \end_inset
 
- returns returns a std::pair
+ returns a std::pair
 \begin_inset Index idx
 status open
 
@@ -6738,7 +6738,7 @@ in_degree
 
 \end_inset
 
- (not `boost::in_edgree'
+ (not `boost::in_degree'
 \begin_inset Index idx
 status open
 
@@ -7363,7 +7363,7 @@ name "alg:create_direct_neighbour_subgraph_demo"
 \begin_layout Standard
 Note that this algorithm works on both undirectional and directional graphs.
  If the graph is directional, only the out edges will be copied.
- To also copy the vertices connected connected with inward edges, use 
+ To also copy the vertices connected with inward edges, use 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:create_direct_neighbour_subgraph_including_in_edges"
