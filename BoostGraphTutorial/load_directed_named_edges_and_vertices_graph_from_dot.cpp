@@ -2,5 +2,5 @@
 
 #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "load_directed_named_edges_and_vertices_graph_from_dot.impl"
-#endif //BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
