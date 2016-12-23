@@ -1,6 +1,7 @@
 #include "load_undirected_custom_and_selectable_vertices_graph_from_dot.h"
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "load_undirected_custom_and_selectable_vertices_graph_from_dot.impl"
-
+#endif //BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 
 
