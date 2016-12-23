@@ -1,3 +1,5 @@
 #include "load_directed_bundled_edges_and_vertices_graph_from_dot.h"
-#include "load_directed_bundled_edges_and_vertices_graph_from_dot.impl"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#include "load_directed_bundled_edges_and_vertices_graph_from_dot.impl"
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
