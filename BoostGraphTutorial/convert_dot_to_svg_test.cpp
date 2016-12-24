@@ -1,8 +1,6 @@
 #include "convert_dot_to_svg.h"
 #include <boost/test/unit_test.hpp>
 
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
-
 BOOST_AUTO_TEST_CASE(test_convert_dot_to_svg)
 {
   BOOST_CHECK_THROW(
@@ -10,5 +8,3 @@ BOOST_AUTO_TEST_CASE(test_convert_dot_to_svg)
     std::invalid_argument
   );
 }
-
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

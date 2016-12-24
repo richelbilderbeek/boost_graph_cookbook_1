@@ -19,7 +19,6 @@ HEADERS += \
     $$PWD/add_named_edge.h \
     $$PWD/add_named_vertex.h \
     $$PWD/add_vertex.h \
-    $$PWD/bundled_vertices_writer.h \
     $$PWD/clear_first_vertex_with_name.h \
     $$PWD/convert_svg_to_png.h \
     $$PWD/copy_file.h \
@@ -234,7 +233,6 @@ SOURCES += \
     $$PWD/add_named_edge.cpp \
     $$PWD/add_named_vertex.cpp \
     $$PWD/add_vertex.cpp \
-    $$PWD/bundled_vertices_writer.cpp \
     $$PWD/clear_first_vertex_with_name.cpp \
     $$PWD/convert_svg_to_png.cpp \
     $$PWD/copy_file.cpp \
@@ -447,7 +445,6 @@ OTHER_FILES += \
     $$PWD/add_named_vertex.impl \
     $$PWD/add_vertex.impl \
     $$PWD/bundled_edges_writer.impl \
-    $$PWD/bundled_vertices_writer.impl \
     $$PWD/clear_first_vertex_with_name.impl \
     $$PWD/convert_dot_to_svg.impl \
     $$PWD/count_directed_graph_connected_components.impl \

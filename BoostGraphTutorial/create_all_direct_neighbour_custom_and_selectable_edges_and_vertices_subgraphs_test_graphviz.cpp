@@ -76,7 +76,6 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and
       }, { false, true, false }
     )
   );
-
   const int sz{3};
   BOOST_CHECK(sz == static_cast<int>(v.size()));
   for (int i=0; i!=sz; ++i)

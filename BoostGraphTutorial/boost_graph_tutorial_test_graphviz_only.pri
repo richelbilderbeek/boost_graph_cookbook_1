@@ -21,7 +21,6 @@ SOURCES += \
     $$PWD/bundled_vertices_writer_test.cpp \
     $$PWD/clear_first_vertex_with_name_test.cpp \
     $$PWD/convert_dot_to_svg_test.cpp \
-    $$PWD/convert_svg_to_png_test.cpp \
     $$PWD/copy_file_test.cpp \
     $$PWD/count_directed_graph_connected_components_test.cpp \
     $$PWD/count_edges_with_selectedness_test.cpp \
@@ -33,7 +32,7 @@ SOURCES += \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_test.cpp \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs_test.cpp \
     $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs_test.cpp \
-    $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test.cpp \
+    $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_test_graphviz.cpp
     $$PWD/create_all_direct_neighbour_named_vertices_subgraphs_test.cpp \
     $$PWD/create_all_direct_neighbour_subgraphs_test.cpp \
     $$PWD/create_bundled_edges_and_vertices_k3_graph_test.cpp \
