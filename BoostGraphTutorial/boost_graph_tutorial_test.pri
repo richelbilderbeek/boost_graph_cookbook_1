@@ -1,5 +1,6 @@
-INCLUDEPATH += $$PWD
+# boost_graph_tutorial_test.pri
 
+INCLUDEPATH += $$PWD
 SOURCES += \
     $$PWD/add_bundled_edge_test.cpp \
     $$PWD/add_bundled_vertex_test.cpp \
@@ -20,7 +21,6 @@ SOURCES += \
     $$PWD/bundled_edges_writer_test.cpp \
     $$PWD/bundled_vertices_writer_test.cpp \
     $$PWD/clear_first_vertex_with_name_test.cpp \
-    $$PWD/convert_dot_to_svg_test.cpp \
     $$PWD/convert_svg_to_png_test.cpp \
     $$PWD/copy_file_test.cpp \
     $$PWD/count_directed_graph_connected_components_test.cpp \
