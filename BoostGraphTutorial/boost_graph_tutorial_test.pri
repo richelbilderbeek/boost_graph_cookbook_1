@@ -18,7 +18,6 @@ SOURCES += \
     $$PWD/add_named_edge_test.cpp \
     $$PWD/add_named_vertex_test.cpp \
     $$PWD/add_vertex_test.cpp \
-    $$PWD/bundled_edges_writer_test.cpp \
     $$PWD/bundled_vertices_writer_test.cpp \
     $$PWD/clear_first_vertex_with_name_test.cpp \
     $$PWD/convert_svg_to_png_test.cpp \
@@ -199,7 +198,6 @@ SOURCES += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot_test.cpp \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot_test.cpp \
     $$PWD/load_undirected_named_vertices_graph_from_dot_test.cpp \
-    $$PWD/make_bundled_edges_writer_test.cpp \
     $$PWD/make_bundled_vertices_writer_test.cpp \
     $$PWD/make_custom_and_selectable_vertices_writer_test.cpp \
     $$PWD/my_bundled_edge_test.cpp \
@@ -215,7 +213,6 @@ SOURCES += \
     $$PWD/remove_selected_custom_edges_and_vertices_test.cpp \
     $$PWD/remove_selected_custom_vertices_test.cpp \
     $$PWD/remove_nth_vertex_test.cpp \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot_test.cpp \
     $$PWD/save_bundled_vertices_graph_to_dot_test.cpp \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot_test.cpp \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot_test.cpp \
@@ -416,7 +413,6 @@ OTHER_FILES += \
     $$PWD/remove_selected_custom_edges_demo.impl \
     $$PWD/remove_selected_custom_edges_and_vertices_demo.impl \
     $$PWD/remove_selected_custom_vertices_demo.impl \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot_demo.impl \

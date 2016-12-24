@@ -17,7 +17,6 @@ HEADERS += \
     $$PWD/add_named_edge.h \
     $$PWD/add_named_vertex.h \
     $$PWD/add_vertex.h \
-    $$PWD/bundled_edges_writer.h \
     $$PWD/bundled_vertices_writer.h \
     $$PWD/clear_first_vertex_with_name.h \
     $$PWD/convert_svg_to_png.h \
@@ -202,7 +201,6 @@ HEADERS += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.h \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.h \
     $$PWD/load_undirected_named_vertices_graph_from_dot.h \
-    $$PWD/make_bundled_edges_writer.h \
     $$PWD/make_bundled_vertices_writer.h \
     $$PWD/make_custom_and_selectable_vertices_writer.h \
     $$PWD/my_bundled_edge.h \
@@ -219,7 +217,6 @@ HEADERS += \
     $$PWD/remove_selected_custom_edges_and_vertices.h \
     $$PWD/remove_selected_custom_vertices.h \
     $$PWD/remove_nth_vertex.h \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_bundled_vertices_graph_to_dot.h \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.h \
@@ -267,7 +264,6 @@ SOURCES += \
     $$PWD/add_named_edge.cpp \
     $$PWD/add_named_vertex.cpp \
     $$PWD/add_vertex.cpp \
-    $$PWD/bundled_edges_writer.cpp \
     $$PWD/bundled_vertices_writer.cpp \
     $$PWD/clear_first_vertex_with_name.cpp \
     $$PWD/convert_svg_to_png.cpp \
@@ -447,7 +443,6 @@ SOURCES += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.cpp \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
     $$PWD/load_undirected_named_vertices_graph_from_dot.cpp \
-    $$PWD/make_bundled_edges_writer.cpp \
     $$PWD/make_bundled_vertices_writer.cpp \
     $$PWD/make_custom_and_selectable_vertices_writer.cpp \
     $$PWD/my_bundled_edge.cpp \
@@ -463,7 +458,6 @@ SOURCES += \
     $$PWD/remove_selected_custom_edges_and_vertices.cpp \
     $$PWD/remove_selected_custom_vertices.cpp \
     $$PWD/remove_nth_vertex.cpp \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_bundled_vertices_graph_to_dot.cpp \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.cpp \
@@ -515,7 +509,6 @@ OTHER_FILES += \
     $$PWD/add_named_edge.impl \
     $$PWD/add_named_vertex.impl \
     $$PWD/add_vertex.impl \
-    $$PWD/bundled_edges_writer.impl \
     $$PWD/bundled_vertices_writer.impl \
     $$PWD/clear_first_vertex_with_name.impl \
     $$PWD/count_directed_graph_connected_components.impl \
@@ -678,7 +671,6 @@ OTHER_FILES += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.impl \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_named_vertices_graph_from_dot.impl \
-    $$PWD/make_bundled_edges_writer.impl \
     $$PWD/make_bundled_vertices_writer.impl \
     $$PWD/make_custom_and_selectable_vertices_writer.impl \
     $$PWD/my_bundled_edge.impl \
@@ -695,7 +687,6 @@ OTHER_FILES += \
     $$PWD/remove_selected_custom_edges_and_vertices.impl \
     $$PWD/remove_selected_custom_vertices.impl \
     $$PWD/remove_nth_vertex.impl \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_bundled_vertices_graph_to_dot.impl \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.impl \
