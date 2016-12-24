@@ -1,6 +1,6 @@
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "save_named_vertices_graph_to_dot.h"
 #include "save_named_vertices_graph_to_dot_demo.impl"
-
 
 #include <boost/test/unit_test.hpp>
 #include <sstream>
@@ -133,3 +133,5 @@ BOOST_AUTO_TEST_CASE(save_named_vertices_graph_to_dot_thorough)
   }
   
 }
+
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

@@ -8,6 +8,7 @@
 #include "load_undirected_custom_edges_and_vertices_graph_from_dot.h"
 #include "get_sorted_custom_edge_my_edges.h"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_nasty_undirected_custom_edges_and_vertices_graph_thorough)
 {
   {
@@ -23,5 +24,5 @@ BOOST_AUTO_TEST_CASE(create_nasty_undirected_custom_edges_and_vertices_graph_tho
     const auto b = get_sorted_custom_edge_my_edges(h);
     BOOST_CHECK(a == b);
   }
-  
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

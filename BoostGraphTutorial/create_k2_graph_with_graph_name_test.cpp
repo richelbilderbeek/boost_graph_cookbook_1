@@ -28,6 +28,7 @@ BOOST_AUTO_TEST_CASE(create_k2_graph_with_graph_name_thorough)
     BOOST_CHECK(boost::num_vertices(g) == 2);
     BOOST_CHECK(get_graph_name(g) == "K2");
   }
+  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the .dot and .svg of the 'create_k2_graph_with_graph_name' chapter
   {
 
@@ -52,4 +53,5 @@ BOOST_AUTO_TEST_CASE(create_k2_graph_with_graph_name_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
+  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

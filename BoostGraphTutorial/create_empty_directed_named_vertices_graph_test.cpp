@@ -1,12 +1,7 @@
 #include "create_empty_directed_named_vertices_graph.h"
 #include "create_empty_directed_named_vertices_graph_demo.impl"
 
-
 #include <boost/test/unit_test.hpp>
-
-#include <boost/test/unit_test.hpp>
-
-
 
 #include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"

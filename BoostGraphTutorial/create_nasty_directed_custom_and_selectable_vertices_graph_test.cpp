@@ -17,6 +17,7 @@
 #include "my_custom_vertex.h"
 #include "add_custom_and_selectable_vertex.h"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_nasty_directed_custom_and_selectable_vertices_graph_thorough)
 {
   //Create the .dot and .svg of the 'create_nasty_directed_custom_and_selectable_vertices_graph' chapter
@@ -51,3 +52,4 @@ BOOST_AUTO_TEST_CASE(create_nasty_directed_custom_and_selectable_vertices_graph_
   }
   
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

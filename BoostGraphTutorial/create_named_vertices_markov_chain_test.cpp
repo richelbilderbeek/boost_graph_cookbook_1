@@ -37,6 +37,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_markov_chain_thorough)
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     BOOST_CHECK(expected_names == vertex_names);
   }
+  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Nasty graph
   {
     auto g = create_nasty_directed_named_vertices_graph();
@@ -71,4 +72,5 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_markov_chain_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
+  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

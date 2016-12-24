@@ -17,6 +17,7 @@ BOOST_AUTO_TEST_CASE(create_k3_graph_thorough)
     BOOST_CHECK(boost::num_edges(g) == 3);
     BOOST_CHECK(boost::num_vertices(g) == 3);
   }
+  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the .dot and .svg of the 'create_k3_graph' chapter
   {
 
@@ -41,4 +42,5 @@ BOOST_AUTO_TEST_CASE(create_k3_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
+  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

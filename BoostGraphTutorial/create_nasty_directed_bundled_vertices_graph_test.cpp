@@ -1,7 +1,5 @@
 #include "create_nasty_directed_bundled_vertices_graph.h"
 
-#include "create_nasty_directed_bundled_vertices_graph.h"
-
 #include <boost/test/unit_test.hpp>
 
 #include "add_bundled_vertex.h"
@@ -10,7 +8,7 @@
 #include "load_directed_bundled_vertices_graph_from_dot.h"
 #include "get_sorted_bundled_vertex_my_vertexes.h"
 
-
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_nasty_directed_bundled_vertices_graph_thorough)
 {
   {
@@ -28,3 +26,4 @@ BOOST_AUTO_TEST_CASE(create_nasty_directed_bundled_vertices_graph_thorough)
   }
   
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

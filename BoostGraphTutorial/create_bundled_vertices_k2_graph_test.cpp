@@ -25,6 +25,7 @@ BOOST_AUTO_TEST_CASE(create_bundled_vertices_k2_graph_thorough)
       my_bundled_vertex("My computer","Not me",3.0,4.0), g)
     );
   }
+    #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the picture 'create_bundled_vertices_markov_chain.svg'
   //Create graphs, save it to dot
   //Create another graph by loading it, then save it to .dot, convert that .dot to .svg
@@ -56,4 +57,5 @@ BOOST_AUTO_TEST_CASE(create_bundled_vertices_k2_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
+  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

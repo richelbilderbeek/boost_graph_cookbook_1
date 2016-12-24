@@ -1,3 +1,4 @@
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "save_bundled_vertices_graph_to_dot.h"
 //#include "save_bundled_vertices_graph_to_dot_demo.impl"
 
@@ -58,3 +59,5 @@ BOOST_AUTO_TEST_CASE(save_bundled_vertices_graph_to_dot_thorough)
     std::remove(dot_filename.c_str());
   }
 }
+
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

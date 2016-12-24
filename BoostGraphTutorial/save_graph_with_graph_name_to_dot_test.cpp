@@ -1,3 +1,4 @@
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "save_graph_with_graph_name_to_dot.h"
 //#include "save_graph_with_graph_name_to_dot_demo.impl"
 
@@ -61,3 +62,5 @@ BOOST_AUTO_TEST_CASE(save_graph_with_graph_name_to_dot_thorough)
   }
   
 }
+
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

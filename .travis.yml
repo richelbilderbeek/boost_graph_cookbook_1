@@ -21,8 +21,9 @@ install:
   - sudo pip install codecov
   # OCLint
   - ./install_oclint.sh
-  - # GraphViz
-  - sudo apt-get install -qq graphviz
+  # GraphViz
+  # Not yet, do this in script
+  # sudo apt-get install -qq graphviz
   - # PDF
   - sudo apt-get install -qq babel
   - sudo apt-get install -qq lyx
@@ -31,6 +32,11 @@ install:
 
 script: 
   - type dot
+  - qmake BoostGraphTutorial/boost_graph_tutorial_test_no_graphviz.pro
+  - make debug
+  - ./boost_graph_tutorial_test_no_graphviz
+  # GraphViz
+  - sudo apt-get install -qq graphviz
   - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
   - make debug
   - ./boost_graph_tutorial_test

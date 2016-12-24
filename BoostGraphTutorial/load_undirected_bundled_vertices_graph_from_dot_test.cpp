@@ -1,3 +1,4 @@
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "load_undirected_bundled_vertices_graph_from_dot.h"
 #include "load_undirected_bundled_vertices_graph_from_dot_demo.impl"
 
@@ -57,3 +58,5 @@ BOOST_AUTO_TEST_CASE(load_undirected_bundled_vertices_graph_from_dot_when_file_i
     std::invalid_argument
   );
 }
+
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

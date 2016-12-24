@@ -69,6 +69,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_named_edges_and_vertices_subgra
     );
     const int sz{3};
     BOOST_CHECK(sz == static_cast<int>(v.size()));
+    #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
     for (int i=0; i!=sz; ++i)
     {
       const auto g = v[i];
@@ -90,6 +91,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_named_edges_and_vertices_subgra
       std::remove(dot_filename.c_str());
       std::remove(svg_filename.c_str());
     }
+    #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   }
   //Petersen Graph
   {

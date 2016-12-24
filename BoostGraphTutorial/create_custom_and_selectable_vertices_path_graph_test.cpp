@@ -69,6 +69,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_path_graph_two_edges)
   BOOST_CHECK(get_my_custom_vertexes(g) == my_custom_vertexes);
 }
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_path_graph_create_pictures)
 {
 //Create the .dot and .svg of the 'create_custom_and_selectable_vertices_path_graph' chapter
@@ -103,3 +104,4 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_vertices_path_graph_create_pic
   std::remove(dot_filename.c_str());
   std::remove(svg_filename.c_str());
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

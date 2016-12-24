@@ -1,3 +1,5 @@
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+
 #include "load_directed_named_vertices_graph_from_dot.h"
 #include "load_directed_named_vertices_graph_from_dot_demo.impl"
 
@@ -45,3 +47,5 @@ BOOST_AUTO_TEST_CASE(load_directed_named_vertices_graph_from_dot_when_file_is_ab
     std::invalid_argument
   );
 }
+
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

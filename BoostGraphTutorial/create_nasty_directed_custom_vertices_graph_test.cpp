@@ -8,6 +8,7 @@
 #include "load_directed_custom_vertices_graph_from_dot.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_nasty_directed_custom_vertices_graph_thorough)
 {
   {
@@ -22,6 +23,6 @@ BOOST_AUTO_TEST_CASE(create_nasty_directed_custom_vertices_graph_thorough)
     const auto a = get_sorted_custom_vertex_my_vertexes(g);
     const auto b = get_sorted_custom_vertex_my_vertexes(h);
     BOOST_CHECK(a == b);
-  }
-  
+  } 
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

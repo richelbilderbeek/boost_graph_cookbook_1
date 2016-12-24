@@ -59,6 +59,7 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_markov_chai
     BOOST_CHECK(expected_selectednesses == vertex_selectednesses);
 
   }
+  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the .dot and .svg of the 'create_custom_and_selectable_edges_and_vertices_markov_chain' chapter
   {
     const auto g = create_custom_and_selectable_edges_and_vertices_markov_chain();
@@ -85,4 +86,5 @@ BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_markov_chai
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
+  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

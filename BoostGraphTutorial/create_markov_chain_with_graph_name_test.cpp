@@ -18,6 +18,7 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_basic)
   BOOST_CHECK(get_graph_name(g) == "Two-state Markov chain");
 }
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_save_and_load_should_be_equal)
 {
   const auto g = create_markov_chain_with_graph_name();
@@ -81,3 +82,4 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_create_pictures)
   }
   BOOST_TEST_PASSPOINT();
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

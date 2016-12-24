@@ -60,6 +60,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and
   }
 }
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_path_graph)
 {
   const auto v = create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs(
@@ -99,6 +100,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and
     std::remove(svg_filename.c_str());
   }
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_petersen_graph)
 {
