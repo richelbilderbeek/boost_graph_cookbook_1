@@ -1,8 +1,5 @@
 #include "create_nasty_directed_bundled_edges_and_vertices_graph.h"
 
-
-
-
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
 #include "create_empty_directed_bundled_edges_and_vertices_graph.h"

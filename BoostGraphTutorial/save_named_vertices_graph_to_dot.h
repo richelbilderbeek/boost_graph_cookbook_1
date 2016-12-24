@@ -1,6 +1,8 @@
 #ifndef SAVE_NAMED_VERTICES_GRAPH_TO_DOT_H
 #define SAVE_NAMED_VERTICES_GRAPH_TO_DOT_H
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 #include "save_named_vertices_graph_to_dot.impl"
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 #endif // SAVE_NAMED_VERTICES_GRAPH_TO_DOT_H

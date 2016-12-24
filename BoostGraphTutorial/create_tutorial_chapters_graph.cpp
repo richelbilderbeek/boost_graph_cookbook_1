@@ -1,7 +1,5 @@
 #include "create_tutorial_chapters_graph.h"
 
-
-
 #include <sstream>
 
 #include "add_edge_between_named_vertices.h"

@@ -1,7 +1,5 @@
 #include "seperate_string.h"
 
-
-
 #include <sstream>
 
 std::vector<std::string> seperate_string(
