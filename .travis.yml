@@ -31,12 +31,15 @@ install:
   - sudo apt-get install -qq texlive-* # For pdflatex
 
 script: 
-  - type dot
+  # Build and run tests without GraphViz
   - qmake BoostGraphTutorial/boost_graph_tutorial_test_no_graphviz.pro
   - make debug
   - ./boost_graph_tutorial_test_no_graphviz
   # GraphViz
   - sudo apt-get install -qq graphviz
+  # Check if GraphViz has been installed successfully
+  - type dot
+  # Build and run tests with GraphViz
   - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
   - make debug
   - ./boost_graph_tutorial_test
