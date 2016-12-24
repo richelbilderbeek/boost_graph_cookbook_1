@@ -242,7 +242,7 @@ SOURCES += \
     $$PWD/select_random_vertex_test.cpp \
     $$PWD/get_edge_iterators_test.cpp \
     $$PWD/count_max_number_of_pieces_test.cpp \
-    get_bits_test.cpp
+    $$PWD/get_bits_test.cpp
 
 
 OTHER_FILES += \

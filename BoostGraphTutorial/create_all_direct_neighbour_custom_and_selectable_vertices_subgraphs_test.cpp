@@ -1,7 +1,6 @@
 #include "create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.h"
 #include "create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo.impl"
 
-
 #include <boost/test/unit_test.hpp>
 
 #include <boost/test/unit_test.hpp>
@@ -9,9 +8,6 @@
 #include "create_custom_and_selectable_vertices_k3_graph.h"
 #include "create_custom_and_selectable_vertices_path_graph.h"
 #include "create_custom_and_selectable_vertices_petersen_graph.h"
-#include "save_custom_and_selectable_vertices_graph_to_dot.h"
-#include "copy_file.h"
-#include "convert_dot_to_svg.h"
 #include "has_vertex_with_my_vertex.h"
 
 BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_thorough)
@@ -61,29 +57,6 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_vertices_
     );
     const int sz{3};
     BOOST_CHECK(sz == static_cast<int>(v.size()));
-    #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
-    for (int i=0; i!=sz; ++i)
-    {
-      const auto g = v[i];
-      const std::string base_filename{"create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_" + std::to_string(i)};
-      const std::string dot_filename{base_filename + ".dot"};
-      const std::string svg_filename{base_filename + ".svg"};
-      save_custom_and_selectable_vertices_graph_to_dot(g, dot_filename);
-      convert_dot_to_svg(dot_filename, svg_filename);
-      copy_file(
-        dot_filename,
-        "../BoostGraphTutorial/" + dot_filename,
-        copy_file_mode::allow_overwrite
-      );
-      copy_file(
-        svg_filename,
-        "../BoostGraphTutorial/" + svg_filename,
-        copy_file_mode::allow_overwrite
-      );
-      std::remove(dot_filename.c_str());
-      std::remove(svg_filename.c_str());
-    }
-    #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   }
   //Petersen Graph
   {
@@ -96,3 +69,4 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_custom_and_selectable_vertices_
     }
   }
 }
+
