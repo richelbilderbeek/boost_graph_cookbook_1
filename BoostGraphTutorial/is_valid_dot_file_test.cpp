@@ -1,5 +1,6 @@
 #include "is_valid_dot_file.h"
 
+#include <fstream>
 #include <boost/test/unit_test.hpp>
 #include "create_empty_directed_graph.h"
 #include "create_empty_undirected_graph.h"
@@ -10,6 +11,7 @@
 #include "file_to_vector.h"
 #include "is_regular_file.h"
 
+#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(is_valid_dot_file_empty_undirected_graph)
 {
   //An empty undirected graph should be convertable to a valid .dot file
@@ -57,6 +59,7 @@ BOOST_AUTO_TEST_CASE(is_valid_dot_file_k3_graph)
   BOOST_CHECK(is_valid_dot_file(filename));
   std::remove(filename.c_str());
 }
+#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 BOOST_AUTO_TEST_CASE(is_valid_dot_file_20160319)
 {
