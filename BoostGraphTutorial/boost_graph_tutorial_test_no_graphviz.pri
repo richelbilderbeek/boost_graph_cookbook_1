@@ -18,7 +18,6 @@ SOURCES += \
     $$PWD/add_named_edge_test.cpp \
     $$PWD/add_named_vertex_test.cpp \
     $$PWD/add_vertex_test.cpp \
-    $$PWD/bundled_edges_writer_test.cpp \
     $$PWD/clear_first_vertex_with_name_test.cpp \
     $$PWD/convert_svg_to_png_test.cpp \
     $$PWD/copy_file_test.cpp \
@@ -124,7 +123,6 @@ SOURCES += \
     $$PWD/is_isomorphic_test.cpp \
     $$PWD/is_named_vertices_isomorphic_test.cpp \
     $$PWD/is_regular_file_test.cpp \
-    $$PWD/make_bundled_edges_writer_test.cpp \
     $$PWD/make_bundled_vertices_writer_test.cpp \
     $$PWD/make_custom_and_selectable_vertices_writer_test.cpp \
     $$PWD/my_bundled_edge_test.cpp \
