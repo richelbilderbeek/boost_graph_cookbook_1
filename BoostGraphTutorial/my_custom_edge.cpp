@@ -14,7 +14,7 @@ my_custom_edge::my_custom_edge(
   const std::string& description,
   const double width,
   const double height
-) noexcept
+)
   : m_name{name},
     m_description{description},
     m_width{width},

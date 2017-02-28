@@ -9,7 +9,7 @@ public:
     const std::string& description = "",
     const double width = 1.0,
     const double height = 1.0
-  ) noexcept;
+  );
   const std::string& get_description() const noexcept;
   const std::string& get_name() const noexcept;
   double get_width() const noexcept;
