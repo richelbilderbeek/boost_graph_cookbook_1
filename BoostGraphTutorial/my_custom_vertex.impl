@@ -9,7 +9,7 @@ public:
     const std::string& description = "",
     const double x = 0.0,
     const double y = 0.0
-  ) noexcept;
+  );
   const std::string& get_description() const noexcept;
   const std::string& get_name() const noexcept;
   double get_x() const noexcept;
