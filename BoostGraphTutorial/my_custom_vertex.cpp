@@ -13,11 +13,10 @@ my_custom_vertex::my_custom_vertex(
   const std::string& description,
   const double x,
   const double y
-) noexcept :
-  m_name{name},
-  m_description{description},
-  m_x{x},
-  m_y{y}
+) : m_name{name},
+    m_description{description},
+    m_x{x},
+    m_y{y}
 {
   if(graphviz_decode(graphviz_encode(m_name)) != m_name)
   {
