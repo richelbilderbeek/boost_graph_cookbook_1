@@ -9,11 +9,10 @@ int count_undirected_graph_connected_components(
 ) noexcept
 {
   std::vector<int> c(boost::num_vertices(g));
-  const int n = boost::connected_components(g,
+  return boost::connected_components(g,
     boost::make_iterator_property_map(
       std::begin(c),
       get(boost::vertex_index, g)
     )
   );
-  return n;
 }
