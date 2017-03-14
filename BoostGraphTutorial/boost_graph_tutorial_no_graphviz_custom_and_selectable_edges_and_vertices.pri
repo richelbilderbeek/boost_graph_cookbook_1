@@ -1,8 +1,6 @@
-# This .pri file includes all files that do not use Graphviz
-INCLUDEPATH += $$PWD
-
-# custom_and_selectable_edges_and_vertices
 HEADERS += \
+    $$PWD/add_custom_and_selectable_edge_between_vertices.h \
+    $$PWD/add_custom_and_selectable_edge.h \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.h \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.h \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k3_graph.h \
@@ -15,6 +13,8 @@ HEADERS += \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h
 
 SOURCES += \
+    $$PWD/add_custom_and_selectable_edge_between_vertices.cpp \
+    $$PWD/add_custom_and_selectable_edge.cpp \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k3_graph.cpp \
@@ -27,6 +27,8 @@ SOURCES += \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp
 
 OTHER_FILES += \
+    $$PWD/add_custom_and_selectable_edge_between_vertices.impl \
+    $$PWD/add_custom_and_selectable_edge.impl \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.impl \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph.impl \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k3_graph.impl \
