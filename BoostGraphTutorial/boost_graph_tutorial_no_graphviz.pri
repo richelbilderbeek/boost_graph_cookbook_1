@@ -3,6 +3,9 @@ INCLUDEPATH += $$PWD
 
 include(boost_graph_tutorial_no_graphviz_custom_and_selectable_edges_and_vertices.pri)
 
+include(boost_graph_tutorial_no_graphviz_custom_and_selectable_vertices.pri)
+
+
 HEADERS += \
     $$PWD/add_bundled_edge.h \
     $$PWD/add_bundled_vertex.h \
@@ -31,7 +34,6 @@ HEADERS += \
     $$PWD/count_undirected_graph_levels.h \
     $$PWD/count_vertices_with_name.h \
     $$PWD/count_vertices_with_selectedness.h \
-    $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.h \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.h \
     $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.h \
     $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs.h \
@@ -41,11 +43,6 @@ HEADERS += \
     $$PWD/create_bundled_edges_and_vertices_markov_chain.h \
     $$PWD/create_bundled_vertices_k2_graph.h \
     $$PWD/create_bundled_vertices_markov_chain.h \
-    $$PWD/create_custom_and_selectable_vertices_k2_graph.h \
-    $$PWD/create_custom_and_selectable_vertices_k3_graph.h \
-    $$PWD/create_custom_and_selectable_vertices_markov_chain.h \
-    $$PWD/create_custom_and_selectable_vertices_path_graph.h \
-    $$PWD/create_custom_and_selectable_vertices_petersen_graph.h \
     $$PWD/create_custom_edges_and_vertices_k2_graph.h \
     $$PWD/create_custom_edges_and_vertices_k3_graph.h \
     $$PWD/create_custom_edges_and_vertices_markov_chain.h \
@@ -56,7 +53,6 @@ HEADERS += \
     $$PWD/create_custom_vertices_markov_chain.h \
     $$PWD/create_custom_vertices_path_graph.h \
     $$PWD/create_custom_vertices_petersen_graph.h \
-    $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph.h \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph.h \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.h \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.h \
@@ -65,7 +61,6 @@ HEADERS += \
     $$PWD/create_direct_neighbour_subgraph_including_in_edges.h \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.h \
     $$PWD/create_empty_directed_bundled_vertices_graph.h \
-    $$PWD/create_empty_directed_custom_and_selectable_vertices_graph.h \
     $$PWD/create_empty_directed_custom_edges_and_vertices_graph.h \
     $$PWD/create_empty_directed_custom_vertices_graph.h \
     $$PWD/create_empty_directed_graph.h \
@@ -75,7 +70,6 @@ HEADERS += \
     $$PWD/create_empty_directed_named_vertices_graph.h \
     $$PWD/create_empty_undirected_bundled_edges_and_vertices_graph.h \
     $$PWD/create_empty_undirected_bundled_vertices_graph.h \
-    $$PWD/create_empty_undirected_custom_and_selectable_vertices_graph.h \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.h \
     $$PWD/create_empty_undirected_custom_vertices_graph.h \
     $$PWD/create_empty_undirected_graph.h \
@@ -100,18 +94,15 @@ HEADERS += \
     $$PWD/create_named_vertices_petersen_graph.h \
     $$PWD/create_nasty_directed_bundled_edges_and_vertices_graph.h \
     $$PWD/create_nasty_directed_bundled_vertices_graph.h \
-    $$PWD/create_nasty_directed_custom_and_selectable_vertices_graph.h \
     $$PWD/create_nasty_directed_custom_edges_and_vertices_graph.h \
     $$PWD/create_nasty_directed_custom_vertices_graph.h \
     $$PWD/create_nasty_directed_named_vertices_graph.h \
     $$PWD/create_nasty_undirected_bundled_edges_and_vertices_graph.h \
-    $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph.h \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph.h \
     $$PWD/create_path_graph.h \
     $$PWD/create_petersen_graph.h \
     $$PWD/create_tutorial_chapters_graph.h \
     $$PWD/create_tutorial_subchapters_graph.h \
-    $$PWD/custom_and_selectable_vertices_writer.h \
     $$PWD/custom_vertex_invariant.h \
     $$PWD/file_to_vector.h \
     $$PWD/find_first_bundled_edge_with_my_edge.h \
@@ -177,7 +168,6 @@ HEADERS += \
     $$PWD/is_valid_dot_file.h \
     $$PWD/make_bundled_edges_writer.h \
     $$PWD/make_bundled_vertices_writer.h \
-    $$PWD/make_custom_and_selectable_vertices_writer.h \
     $$PWD/my_bundled_edge.h \
     $$PWD/my_bundled_vertex.h \
     $$PWD/my_custom_edge.h \
@@ -235,7 +225,6 @@ SOURCES += \
     $$PWD/count_undirected_graph_levels.cpp \
     $$PWD/count_vertices_with_name.cpp \
     $$PWD/count_vertices_with_selectedness.cpp \
-    $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.cpp \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.cpp \
     $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.cpp \
     $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs.cpp \
@@ -245,11 +234,6 @@ SOURCES += \
     $$PWD/create_bundled_edges_and_vertices_markov_chain.cpp \
     $$PWD/create_bundled_vertices_k2_graph.cpp \
     $$PWD/create_bundled_vertices_markov_chain.cpp \
-    $$PWD/create_custom_and_selectable_vertices_k2_graph.cpp \
-    $$PWD/create_custom_and_selectable_vertices_k3_graph.cpp \
-    $$PWD/create_custom_and_selectable_vertices_markov_chain.cpp \
-    $$PWD/create_custom_and_selectable_vertices_path_graph.cpp \
-    $$PWD/create_custom_and_selectable_vertices_petersen_graph.cpp \
     $$PWD/create_custom_edges_and_vertices_k2_graph.cpp \
     $$PWD/create_custom_edges_and_vertices_k3_graph.cpp \
     $$PWD/create_custom_edges_and_vertices_markov_chain.cpp \
@@ -260,7 +244,6 @@ SOURCES += \
     $$PWD/create_custom_vertices_markov_chain.cpp \
     $$PWD/create_custom_vertices_path_graph.cpp \
     $$PWD/create_custom_vertices_petersen_graph.cpp \
-    $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph.cpp \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph.cpp \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.cpp \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.cpp \
@@ -269,7 +252,6 @@ SOURCES += \
     $$PWD/create_direct_neighbour_subgraph_including_in_edges.cpp \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_directed_bundled_vertices_graph.cpp \
-    $$PWD/create_empty_directed_custom_and_selectable_vertices_graph.cpp \
     $$PWD/create_empty_directed_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_directed_custom_vertices_graph.cpp \
     $$PWD/create_empty_directed_graph.cpp \
@@ -279,7 +261,6 @@ SOURCES += \
     $$PWD/create_empty_directed_named_vertices_graph.cpp \
     $$PWD/create_empty_undirected_bundled_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_undirected_bundled_vertices_graph.cpp \
-    $$PWD/create_empty_undirected_custom_and_selectable_vertices_graph.cpp \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_undirected_custom_vertices_graph.cpp \
     $$PWD/create_empty_undirected_graph.cpp \
@@ -303,15 +284,12 @@ SOURCES += \
     $$PWD/create_named_vertices_path_graph.cpp \
     $$PWD/create_named_vertices_petersen_graph.cpp \
     $$PWD/create_nasty_directed_bundled_vertices_graph.cpp \
-    $$PWD/create_nasty_directed_custom_and_selectable_vertices_graph.cpp \
     $$PWD/create_nasty_directed_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_nasty_directed_custom_vertices_graph.cpp \
     $$PWD/create_nasty_directed_named_vertices_graph.cpp \
-    $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph.cpp \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_path_graph.cpp \
     $$PWD/create_petersen_graph.cpp \
-    $$PWD/custom_and_selectable_vertices_writer.cpp \
     $$PWD/file_to_vector.cpp \
     $$PWD/find_first_bundled_edge_with_my_edge.cpp \
     $$PWD/find_first_bundled_vertex_with_my_vertex.cpp \
@@ -376,7 +354,6 @@ SOURCES += \
     $$PWD/is_valid_dot_file.cpp \
     $$PWD/make_bundled_edges_writer.cpp \
     $$PWD/make_bundled_vertices_writer.cpp \
-    $$PWD/make_custom_and_selectable_vertices_writer.cpp \
     $$PWD/my_bundled_edge.cpp \
     $$PWD/my_bundled_vertex.cpp \
     $$PWD/my_custom_edge.cpp \
@@ -435,7 +412,6 @@ OTHER_FILES += \
     $$PWD/count_undirected_graph_levels.impl \
     $$PWD/count_vertices_with_name.impl \
     $$PWD/count_vertices_with_selectedness.impl \
-    $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs.impl \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.impl \
     $$PWD/create_all_direct_neighbour_custom_vertices_subgraphs.impl \
     $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs.impl \
@@ -445,11 +421,6 @@ OTHER_FILES += \
     $$PWD/create_bundled_edges_and_vertices_markov_chain.impl \
     $$PWD/create_bundled_vertices_k2_graph.impl \
     $$PWD/create_bundled_vertices_markov_chain.impl \
-    $$PWD/create_custom_and_selectable_vertices_k2_graph.impl \
-    $$PWD/create_custom_and_selectable_vertices_k3_graph.impl \
-    $$PWD/create_custom_and_selectable_vertices_markov_chain.impl \
-    $$PWD/create_custom_and_selectable_vertices_path_graph.impl \
-    $$PWD/create_custom_and_selectable_vertices_petersen_graph.impl \
     $$PWD/create_custom_edges_and_vertices_k2_graph.impl \
     $$PWD/create_custom_edges_and_vertices_k3_graph.impl \
     $$PWD/create_custom_edges_and_vertices_markov_chain.impl \
@@ -460,7 +431,6 @@ OTHER_FILES += \
     $$PWD/create_custom_vertices_markov_chain.impl \
     $$PWD/create_custom_vertices_path_graph.impl \
     $$PWD/create_custom_vertices_petersen_graph.impl \
-    $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_custom_vertices_subgraph.impl \
     $$PWD/create_direct_neighbour_named_edges_and_vertices_subgraph.impl \
@@ -469,7 +439,6 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_subgraph_including_in_edges.impl \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.impl \
     $$PWD/create_empty_directed_bundled_vertices_graph.impl \
-    $$PWD/create_empty_directed_custom_and_selectable_vertices_graph.impl \
     $$PWD/create_empty_directed_custom_edges_and_vertices_graph.impl \
     $$PWD/create_empty_directed_custom_vertices_graph.impl \
     $$PWD/create_empty_directed_graph.impl \
@@ -479,7 +448,6 @@ OTHER_FILES += \
     $$PWD/create_empty_directed_named_vertices_graph.impl \
     $$PWD/create_empty_undirected_bundled_edges_and_vertices_graph.impl \
     $$PWD/create_empty_undirected_bundled_vertices_graph.impl \
-    $$PWD/create_empty_undirected_custom_and_selectable_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_vertices_graph.impl \
     $$PWD/create_empty_undirected_graph.impl \
@@ -504,7 +472,6 @@ OTHER_FILES += \
     $$PWD/create_named_vertices_petersen_graph.impl \
     $$PWD/create_path_graph.impl \
     $$PWD/create_petersen_graph.impl \
-    $$PWD/custom_and_selectable_vertices_writer.impl \
     $$PWD/custom_vertex_invariant.impl \
     $$PWD/find_first_bundled_edge_with_my_edge.impl \
     $$PWD/find_first_bundled_vertex_with_my_vertex.impl \
@@ -565,7 +532,6 @@ OTHER_FILES += \
     $$PWD/is_valid_dot_file.impl \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_directed_bundled_vertices_graph_from_dot.impl \
-    $$PWD/load_directed_custom_and_selectable_vertices_graph_from_dot.impl \
     $$PWD/load_directed_custom_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_directed_custom_vertices_graph_from_dot.impl \
     $$PWD/load_directed_graph_from_dot.impl \
@@ -574,7 +540,6 @@ OTHER_FILES += \
     $$PWD/load_directed_named_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_bundled_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_and_selectable_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_custom_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_custom_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_graph_from_dot.impl \
@@ -583,7 +548,6 @@ OTHER_FILES += \
     $$PWD/load_undirected_named_vertices_graph_from_dot.impl \
     $$PWD/make_bundled_edges_writer.impl \
     $$PWD/make_bundled_vertices_writer.impl \
-    $$PWD/make_custom_and_selectable_vertices_writer.impl \
     $$PWD/my_bundled_edge.impl \
     $$PWD/my_bundled_vertex.impl \
     $$PWD/my_custom_edge.impl \
@@ -600,7 +564,6 @@ OTHER_FILES += \
     $$PWD/remove_selected_custom_vertices.impl \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_bundled_vertices_graph_to_dot.impl \
-    $$PWD/save_custom_and_selectable_vertices_graph_to_dot.impl \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_custom_vertices_graph_to_dot.impl \
     $$PWD/save_custom_vertices_graph_to_dot.impl \
