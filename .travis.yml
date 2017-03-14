@@ -34,7 +34,7 @@ script:
   # Can compile without GraphViz correctly?
   - qmake BoostGraphTutorial/boost_graph_tutorial_no_graphviz.pro
   - make debug
-  - ./boost_graph_tutorial_test_no_graphviz
+  - ./boost_graph_tutorial_no_graphviz
   # Build and run tests without GraphViz
   - qmake BoostGraphTutorial/boost_graph_tutorial_test_no_graphviz.pro
   - make debug
