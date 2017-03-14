@@ -1,4 +1,8 @@
 HEADERS += \
+    $$PWD/install_edge_is_selected.h \
+    $$PWD/count_edges_with_selectedness.h \
+    $$PWD/get_edge_selectedness.h \
+    $$PWD/set_edge_selectedness.h \
     $$PWD/add_custom_and_selectable_edge_between_vertices.h \
     $$PWD/add_custom_and_selectable_edge.h \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.h \
@@ -13,6 +17,10 @@ HEADERS += \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.h
 
 SOURCES += \
+    $$PWD/install_edge_is_selected.cpp \
+    $$PWD/count_edges_with_selectedness.cpp \
+    $$PWD/get_edge_selectedness.cpp \
+    $$PWD/set_edge_selectedness.cpp \
     $$PWD/add_custom_and_selectable_edge_between_vertices.cpp \
     $$PWD/add_custom_and_selectable_edge.cpp \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.cpp \
@@ -27,6 +35,10 @@ SOURCES += \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp
 
 OTHER_FILES += \
+    $$PWD/install_edge_is_selected.impl \
+    $$PWD/count_edges_with_selectedness.impl \
+    $$PWD/get_edge_selectedness.impl \
+    $$PWD/set_edge_selectedness.impl \
     $$PWD/add_custom_and_selectable_edge_between_vertices.impl \
     $$PWD/add_custom_and_selectable_edge.impl \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs.impl \
@@ -39,5 +51,4 @@ OTHER_FILES += \
     $$PWD/create_empty_directed_custom_and_selectable_edges_and_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.impl \
     $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.impl
+    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot.impl

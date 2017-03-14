@@ -4,11 +4,9 @@
 
 #include "add_custom_and_selectable_vertex.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
-#include "save_custom_and_selectable_vertices_graph_to_dot.h"
 #include "load_undirected_custom_and_selectable_vertices_graph_from_dot.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 #include "get_sorted_vertex_selectednesses.h"
-#include "convert_dot_to_svg.h"
 #include "copy_file.h"
 
 boost::adjacency_list<

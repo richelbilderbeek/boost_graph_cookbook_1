@@ -1,4 +1,7 @@
 HEADERS += \
+    $$PWD/install_edge_custom_type.h \
+    $$PWD/add_custom_edge_between_vertices.h \
+    $$PWD/add_custom_edge.h \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.h \
     $$PWD/create_custom_edges_and_vertices_k2_graph.h \
     $$PWD/create_custom_edges_and_vertices_k3_graph.h \
@@ -10,9 +13,20 @@ HEADERS += \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.h \
     $$PWD/create_nasty_directed_custom_edges_and_vertices_graph.h \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph.h \
-    $$PWD/remove_selected_custom_edges_and_vertices.h
+    $$PWD/find_first_custom_edge.h \
+    $$PWD/find_first_custom_edge_with_my_edge.h \
+    $$PWD/get_my_custom_edge.h \
+    $$PWD/get_my_custom_edges.h \
+    $$PWD/get_sorted_custom_edge_my_edges.h \
+    $$PWD/has_custom_edge_with_my_edge.h \
+    $$PWD/my_custom_edge.h \
+    $$PWD/remove_selected_custom_edges_and_vertices.h \
+    $$PWD/remove_selected_custom_edges.h \
+    $$PWD/set_my_custom_edge.h
 
 SOURCES += \
+    $$PWD/add_custom_edge_between_vertices.cpp \
+    $$PWD/add_custom_edge.cpp \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.cpp \
     $$PWD/create_custom_edges_and_vertices_k2_graph.cpp \
     $$PWD/create_custom_edges_and_vertices_k3_graph.cpp \
@@ -24,9 +38,20 @@ SOURCES += \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_nasty_directed_custom_edges_and_vertices_graph.cpp \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
-    $$PWD/remove_selected_custom_edges_and_vertices.cpp
+    $$PWD/find_first_custom_edge_with_my_edge.cpp \
+    $$PWD/get_my_custom_edge.cpp \
+    $$PWD/get_my_custom_edges.cpp \
+    $$PWD/get_sorted_custom_edge_my_edges.cpp \
+    $$PWD/has_custom_edge_with_my_edge.cpp \
+    $$PWD/my_custom_edge.cpp \
+    $$PWD/remove_selected_custom_edges_and_vertices.cpp \
+    $$PWD/remove_selected_custom_edges.cpp \
+    $$PWD/set_my_custom_edge.cpp
 
 OTHER_FILES += \
+    $$PWD/install_edge_custom_type.impl \
+    $$PWD/add_custom_edge_between_vertices.impl \
+    $$PWD/add_custom_edge.impl \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.impl \
     $$PWD/create_custom_edges_and_vertices_k2_graph.impl \
     $$PWD/create_custom_edges_and_vertices_k3_graph.impl \
@@ -36,7 +61,16 @@ OTHER_FILES += \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph.impl \
     $$PWD/create_empty_directed_custom_edges_and_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_edges_and_vertices_graph.impl \
+    $$PWD/find_first_custom_edge.impl \
+    $$PWD/find_first_custom_edge_with_my_edge_f.impl \
+    $$PWD/find_first_custom_edge_with_my_edge.impl \
+    $$PWD/get_my_custom_edge.impl \
+    $$PWD/get_my_custom_edges.impl \
+    $$PWD/has_custom_edge_with_my_edge_f.impl \
+    $$PWD/has_custom_edge_with_my_edge.impl \
     $$PWD/load_directed_custom_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_custom_edges_and_vertices_graph_from_dot.impl \
+    $$PWD/my_custom_edge.impl \
     $$PWD/remove_selected_custom_edges_and_vertices.impl \
-    $$PWD/save_custom_edges_and_vertices_graph_to_dot.impl
+    $$PWD/remove_selected_custom_edges.impl \
+    $$PWD/set_my_custom_edge.impl
