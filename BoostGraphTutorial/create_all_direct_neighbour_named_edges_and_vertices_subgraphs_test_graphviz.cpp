@@ -1,6 +1,4 @@
 #include "create_all_direct_neighbour_named_edges_and_vertices_subgraphs.h"
-#include "create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo.impl"
-
 
 #include <boost/test/unit_test.hpp>
 #include "create_named_edges_and_vertices_k2_graph.h"
