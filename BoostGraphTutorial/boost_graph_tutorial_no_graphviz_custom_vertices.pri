@@ -70,8 +70,6 @@ OTHER_FILES += \
     $$PWD/get_my_custom_vertex.impl \
     $$PWD/has_custom_vertex_with_my_vertex.impl \
     $$PWD/is_custom_vertices_isomorphic.impl \
-    $$PWD/load_directed_custom_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_vertices_graph_from_dot.impl \
     $$PWD/my_custom_vertex.impl \
     $$PWD/remove_selected_custom_vertices.impl \
     $$PWD/set_my_custom_vertexes.impl \

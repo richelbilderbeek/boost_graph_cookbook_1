@@ -56,6 +56,4 @@ OTHER_FILES += \
     $$PWD/create_named_edges_and_vertices_k3_graph.impl \
     $$PWD/create_named_edges_and_vertices_markov_chain.impl \
     $$PWD/create_named_edges_and_vertices_path_graph.impl \
-    $$PWD/create_named_edges_and_vertices_petersen_graph.impl \
-    $$PWD/load_directed_named_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.impl
+    $$PWD/create_named_edges_and_vertices_petersen_graph.impl

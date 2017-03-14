@@ -66,6 +66,4 @@ OTHER_FILES += \
     $$PWD/create_empty_directed_custom_and_selectable_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_and_selectable_vertices_graph.impl \
     $$PWD/custom_and_selectable_vertices_writer.impl \
-    $$PWD/load_directed_custom_and_selectable_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_and_selectable_vertices_graph_from_dot.impl \
     $$PWD/make_custom_and_selectable_vertices_writer.impl

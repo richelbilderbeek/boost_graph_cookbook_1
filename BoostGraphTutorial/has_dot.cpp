@@ -3,10 +3,6 @@
 #include <iostream>
 #include <sstream>
 
-#include "is_regular_file.h"
-#include "copy_file.h"
-#include "file_to_vector.h"
-
 bool has_dot() noexcept
 {
   std::stringstream cmd;

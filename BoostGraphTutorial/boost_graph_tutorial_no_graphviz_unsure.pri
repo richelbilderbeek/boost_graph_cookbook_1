@@ -13,6 +13,4 @@ OTHER_FILES += \
     $$PWD/graphviz_decode.impl \
     $$PWD/graphviz_encode.impl \
     $$PWD/is_graphviz_friendly.impl \
-    $$PWD/load_directed_graph_from_dot.impl \
-    $$PWD/load_undirected_graph_from_dot.impl \
     $$PWD/property_not_found_node_id.impl

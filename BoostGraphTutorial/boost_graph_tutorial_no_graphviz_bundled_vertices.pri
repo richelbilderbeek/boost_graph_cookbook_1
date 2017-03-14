@@ -43,8 +43,6 @@ OTHER_FILES += \
     $$PWD/get_my_bundled_vertex.impl \
     $$PWD/get_my_bundled_vertexmpl \
     $$PWD/has_bundled_vertex_with_my_vertex.impl \
-    $$PWD/load_directed_bundled_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_bundled_vertices_graph_from_dot.impl \
     $$PWD/make_bundled_vertices_writer.impl \
     $$PWD/my_bundled_vertex.impl \
     $$PWD/set_my_bundled_vertexes.impl \

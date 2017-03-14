@@ -68,8 +68,6 @@ OTHER_FILES += \
     $$PWD/get_my_custom_edges.impl \
     $$PWD/has_custom_edge_with_my_edge_f.impl \
     $$PWD/has_custom_edge_with_my_edge.impl \
-    $$PWD/load_directed_custom_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_custom_edges_and_vertices_graph_from_dot.impl \
     $$PWD/my_custom_edge.impl \
     $$PWD/remove_selected_custom_edges_and_vertices.impl \
     $$PWD/remove_selected_custom_edges.impl \

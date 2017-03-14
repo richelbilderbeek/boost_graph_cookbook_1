@@ -19,6 +19,8 @@ load_directed_graph_with_graph_name_from_dot(
   const std::string& dot_filename
 );
 
+#else
+#error(Do not include this file when BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ is defined)
 #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 #endif // LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H

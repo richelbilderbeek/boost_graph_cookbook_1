@@ -1,7 +1,7 @@
 #include "create_nasty_directed_named_vertices_graph.h"
+
 #include "add_named_vertex.h"
 #include "create_empty_directed_named_vertices_graph.h"
-#include "load_directed_named_vertices_graph_from_dot.h"
 #include "get_sorted_named_vertex_my_vertexes.h"
 
 boost::adjacency_list<

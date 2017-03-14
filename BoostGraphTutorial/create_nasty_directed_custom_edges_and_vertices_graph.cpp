@@ -1,10 +1,7 @@
 #include "create_nasty_directed_custom_edges_and_vertices_graph.h"
 
-
-
 #include "add_custom_edge.h"
 #include "create_empty_directed_custom_edges_and_vertices_graph.h"
-#include "load_directed_custom_edges_and_vertices_graph_from_dot.h"
 #include "get_sorted_custom_edge_my_edges.h"
 
 boost::adjacency_list<

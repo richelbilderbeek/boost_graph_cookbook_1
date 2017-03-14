@@ -20,6 +20,4 @@ OTHER_FILES += \
     $$PWD/create_k2_graph_with_graph_name.impl \
     $$PWD/create_markov_chain_with_graph_name.impl \
     $$PWD/get_graph_name.impl \
-    $$PWD/load_directed_graph_with_graph_name_from_dot.impl \
-    $$PWD/load_undirected_graph_with_graph_name_from_dot.impl \
     $$PWD/set_graph_name.impl

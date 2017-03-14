@@ -1,10 +1,7 @@
 #include "create_nasty_directed_custom_vertices_graph.h"
 
-
-
 #include "add_custom_vertex.h"
 #include "create_empty_directed_custom_vertices_graph.h"
-#include "load_directed_custom_vertices_graph_from_dot.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 
 boost::adjacency_list<

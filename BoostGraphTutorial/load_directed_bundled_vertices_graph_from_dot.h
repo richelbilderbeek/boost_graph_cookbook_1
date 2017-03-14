@@ -14,6 +14,8 @@ load_directed_bundled_vertices_graph_from_dot(
   const std::string& dot_filename
 );
 
+#else
+#error(Do not include this file when BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ is defined)
 #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
 #endif // LOAD_DIRECTED_BUNDLED_VERTICES_GRAPH_FROM_DOT_H

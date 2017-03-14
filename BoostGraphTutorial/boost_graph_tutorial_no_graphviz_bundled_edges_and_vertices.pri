@@ -41,8 +41,6 @@ OTHER_FILES += \
     $$PWD/get_my_bundled_edge.impl \
     $$PWD/get_my_bundled_edges.impl \
     $$PWD/has_bundled_edge_with_my_edge.impl \
-    $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.impl \
-    $$PWD/load_undirected_bundled_edges_and_vertices_graph_from_dot.impl \
     $$PWD/make_bundled_edges_writer.impl \
     $$PWD/my_bundled_edge.impl \
     $$PWD/set_my_bundled_edge.impl
