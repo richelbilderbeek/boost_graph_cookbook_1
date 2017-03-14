@@ -10,7 +10,6 @@ include(boost_graph_tutorial_no_graphviz_bundled_edges_and_vertices.pri)
 include(boost_graph_tutorial_no_graphviz_custom_edges_and_vertices.pri)
 
 HEADERS += \
-    $$PWD/add_bundled_edge.h \
     $$PWD/add_bundled_vertex.h \
     $$PWD/add_custom_and_selectable_vertex.h \
     $$PWD/add_custom_edge_between_vertices.h \
@@ -89,7 +88,6 @@ HEADERS += \
     $$PWD/create_tutorial_subchapters_graph.h \
     $$PWD/custom_vertex_invariant.h \
     $$PWD/file_to_vector.h \
-    $$PWD/find_first_bundled_edge_with_my_edge.h \
     $$PWD/find_first_bundled_vertex_with_my_vertex.h \
     $$PWD/find_first_custom_edge.h \
     $$PWD/find_first_custom_edge_with_my_edge.h \
@@ -106,8 +104,6 @@ HEADERS += \
     $$PWD/get_edge_selectedness.h \
     $$PWD/get_first_vertex_with_name_out_degree.h \
     $$PWD/get_graph_name.h \
-    $$PWD/get_my_bundled_edge.h \
-    $$PWD/get_my_bundled_edges.h \
     $$PWD/get_my_bundled_vertexes.h \
     $$PWD/get_my_bundled_vertex.h \
     $$PWD/get_my_custom_edge.h \
@@ -116,7 +112,6 @@ HEADERS += \
     $$PWD/get_my_custom_vertex.h \
     $$PWD/get_n_edges.h \
     $$PWD/get_n_vertices.h \
-    $$PWD/get_sorted_bundled_edge_my_edges.h \
     $$PWD/get_sorted_bundled_vertex_my_vertexes.h \
     $$PWD/get_sorted_custom_edge_my_edges.h \
     $$PWD/get_sorted_custom_vertex_my_vertexes.h \
@@ -132,7 +127,6 @@ HEADERS += \
     $$PWD/get_vertex_selectednesses.h \
     $$PWD/get_vertex_selectedness.h \
     $$PWD/get_vertices_with_selectedness.h \
-    $$PWD/has_bundled_edge_with_my_edge.h \
     $$PWD/has_bundled_vertex_with_my_vertex.h \
     $$PWD/has_custom_edge_with_my_edge.h \
     $$PWD/has_custom_vertex_with_my_vertex.h \
@@ -150,9 +144,7 @@ HEADERS += \
     $$PWD/is_named_vertices_isomorphic.h \
     $$PWD/is_regular_file.h \
     $$PWD/is_valid_dot_file.h \
-    $$PWD/make_bundled_edges_writer.h \
     $$PWD/make_bundled_vertices_writer.h \
-    $$PWD/my_bundled_edge.h \
     $$PWD/my_bundled_vertex.h \
     $$PWD/my_custom_edge.h \
     $$PWD/my_custom_vertex.h \
@@ -169,7 +161,6 @@ HEADERS += \
     $$PWD/set_edge_name.h \
     $$PWD/set_edge_selectedness.h \
     $$PWD/set_graph_name.h \
-    $$PWD/set_my_bundled_edge.h \
     $$PWD/set_my_bundled_vertexes.h \
     $$PWD/set_my_bundled_vertex.h \
     $$PWD/set_my_custom_edge.h \
@@ -181,7 +172,6 @@ HEADERS += \
     $$PWD/show_dot.h
 
 SOURCES += \
-    $$PWD/add_bundled_edge.cpp \
     $$PWD/add_bundled_vertex.cpp \
     $$PWD/add_custom_and_selectable_vertex.cpp \
     $$PWD/add_custom_edge_between_vertices.cpp \
@@ -257,7 +247,6 @@ SOURCES += \
     $$PWD/create_path_graph.cpp \
     $$PWD/create_petersen_graph.cpp \
     $$PWD/file_to_vector.cpp \
-    $$PWD/find_first_bundled_edge_with_my_edge.cpp \
     $$PWD/find_first_bundled_vertex_with_my_vertex.cpp \
     $$PWD/find_first_custom_edge_with_my_edge.cpp \
     $$PWD/find_first_custom_vertex_with_my_vertex.cpp \
@@ -274,8 +263,6 @@ SOURCES += \
     $$PWD/get_edge_selectedness.cpp \
     $$PWD/get_first_vertex_with_name_out_degree.cpp \
     $$PWD/get_graph_name.cpp \
-    $$PWD/get_my_bundled_edge.cpp \
-    $$PWD/get_my_bundled_edges.cpp \
     $$PWD/get_my_bundled_vertex.cpp \
     $$PWD/get_my_bundled_vertexes.cpp \
     $$PWD/get_my_custom_edge.cpp \
@@ -284,7 +271,6 @@ SOURCES += \
     $$PWD/get_my_custom_vertexes.cpp \
     $$PWD/get_n_edges.cpp \
     $$PWD/get_n_vertices.cpp \
-    $$PWD/get_sorted_bundled_edge_my_edges.cpp \
     $$PWD/get_sorted_bundled_vertex_my_vertexes.cpp \
     $$PWD/get_sorted_custom_edge_my_edges.cpp \
     $$PWD/get_sorted_custom_vertex_my_vertexes.cpp \
@@ -302,7 +288,6 @@ SOURCES += \
     $$PWD/get_vertices_with_selectedness.cpp \
     $$PWD/graphviz_decode.cpp \
     $$PWD/graphviz_encode.cpp \
-    $$PWD/has_bundled_edge_with_my_edge.cpp \
     $$PWD/has_bundled_vertex_with_my_vertex.cpp \
     $$PWD/has_custom_edge_with_my_edge.cpp \
     $$PWD/has_custom_vertex_with_my_vertex.cpp \
@@ -318,9 +303,7 @@ SOURCES += \
     $$PWD/is_named_vertices_isomorphic.cpp \
     $$PWD/is_regular_file.cpp \
     $$PWD/is_valid_dot_file.cpp \
-    $$PWD/make_bundled_edges_writer.cpp \
     $$PWD/make_bundled_vertices_writer.cpp \
-    $$PWD/my_bundled_edge.cpp \
     $$PWD/my_bundled_vertex.cpp \
     $$PWD/my_custom_edge.cpp \
     $$PWD/my_custom_vertex.cpp \
@@ -336,7 +319,6 @@ SOURCES += \
     $$PWD/set_edge_name.cpp \
     $$PWD/set_edge_selectedness.cpp \
     $$PWD/set_graph_name.cpp \
-    $$PWD/set_my_bundled_edge.cpp \
     $$PWD/set_my_bundled_vertex.cpp \
     $$PWD/set_my_bundled_vertexes.cpp \
     $$PWD/set_my_custom_edge.cpp \
@@ -351,7 +333,6 @@ SOURCES += \
 # .impl files are the clean tutorial code snippets,
 # without header guards and other housekeeping
 OTHER_FILES += \
-    $$PWD/add_bundled_edge.impl \
     $$PWD/add_bundled_vertex.impl \
     $$PWD/add_custom_and_selectable_vertex.impl \
     $$PWD/add_custom_edge_between_vertices.impl \
@@ -366,7 +347,6 @@ OTHER_FILES += \
     $$PWD/add_named_edge.impl \
     $$PWD/add_named_vertex.impl \
     $$PWD/add_vertex.impl \
-    $$PWD/bundled_edges_writer.impl \
     $$PWD/clear_first_vertex_with_name.impl \
     $$PWD/convert_dot_to_svg.impl \
     $$PWD/count_directed_graph_connected_components.impl \
@@ -423,7 +403,6 @@ OTHER_FILES += \
     $$PWD/create_path_graph.impl \
     $$PWD/create_petersen_graph.impl \
     $$PWD/custom_vertex_invariant.impl \
-    $$PWD/find_first_bundled_edge_with_my_edge.impl \
     $$PWD/find_first_bundled_vertex_with_my_vertex.impl \
     $$PWD/find_first_custom_edge.impl \
     $$PWD/find_first_custom_edge_with_my_edge_f.impl \
@@ -440,8 +419,6 @@ OTHER_FILES += \
     $$PWD/get_edge_selectedness.impl \
     $$PWD/get_first_vertex_with_name_out_degree.impl \
     $$PWD/get_graph_name.impl \
-    $$PWD/get_my_bundled_edge.impl \
-    $$PWD/get_my_bundled_edges.impl \
     $$PWD/get_my_bundled_vertexes.impl \
     $$PWD/get_my_bundled_vertex.impl \
     $$PWD/get_my_bundled_vertexmpl \
@@ -461,7 +438,6 @@ OTHER_FILES += \
     $$PWD/get_vertex_selectedness.impl \
     $$PWD/graphviz_decode.impl \
     $$PWD/graphviz_encode.impl \
-    $$PWD/has_bundled_edge_with_my_edge.impl \
     $$PWD/has_bundled_vertex_with_my_vertex.impl \
     $$PWD/has_custom_edge_with_my_edge_f.impl \
     $$PWD/has_custom_edge_with_my_edge.impl \
@@ -492,9 +468,7 @@ OTHER_FILES += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.impl \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.impl \
     $$PWD/load_undirected_named_vertices_graph_from_dot.impl \
-    $$PWD/make_bundled_edges_writer.impl \
     $$PWD/make_bundled_vertices_writer.impl \
-    $$PWD/my_bundled_edge.impl \
     $$PWD/my_bundled_vertex.impl \
     $$PWD/my_custom_edge.impl \
     $$PWD/my_custom_vertex.impl \
@@ -520,7 +494,6 @@ OTHER_FILES += \
     $$PWD/set_edge_name.impl \
     $$PWD/set_edge_selectedness.impl \
     $$PWD/set_graph_name.impl \
-    $$PWD/set_my_bundled_edge.impl \
     $$PWD/set_my_bundled_vertexes.impl \
     $$PWD/set_my_bundled_vertex.impl \
     $$PWD/set_my_custom_edge.impl \
