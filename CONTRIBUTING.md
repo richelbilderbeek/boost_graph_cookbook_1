@@ -23,6 +23,7 @@ Submitted code should follow these quality guidelines:
  * All tests pass cleanly/silently
  * Code coverage above 95%
  * OCLint must be clean
+ * Code follows the file organisation (see `File organisation`) of this project
 
 These are all checked by Travis CI when submitting
 a Pull Request. 
@@ -61,6 +62,8 @@ Then just follow OCLint
 
 ## File management
 
+### A function `f`
+
 When writing code, please follow the coding standards and patterns used 
 in this project. 
 
@@ -70,3 +73,13 @@ For example, take the function `f`:
  * If `f` is a template function, `f` its definition will be reachable from `f.h`, by `#include "f.impl"`
  * If `f` is a non-template function, `f` its definition will be reachable from `f.cpp`, by `#include "f.impl"`
  * The function `f` will be tested in `f_test.cpp` using Boost.Test
+
+### The many `.pri` files
+
+Files are split up in these dimensions:
+
+ * Use GraphViz? Filename has `_graphviz.pri`
+ * Contains tests? Put in `_test.cpp`
+ * Book chapter? Put in `c.cpp`
+
+

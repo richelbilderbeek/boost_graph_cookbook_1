@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/add_bundled_vertex.h \
     $$PWD/create_bundled_vertices_k2_graph.h \

@@ -1,0 +1,2 @@
+include(boost_graph_tutorial_graphviz_only_named_graph.pri)
+include(boost_graph_tutorial_no_graphviz_named_graph.pri)

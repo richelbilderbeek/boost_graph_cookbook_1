@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/add_named_and_selectable_vertex.h \
     $$PWD/create_empty_directed_named_and_selectable_vertices_graph.h \

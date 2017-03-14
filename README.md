@@ -28,31 +28,7 @@ Boost.Graph is a C++ library that is part of [Boost](http://www.boost.org).
 
 ## I want to contribute!
 
-Awesome! As I am aware, that there are some corners in the manual that are unfinished. 
-
-You can:
-
- * Fix an existing Issue
- * Add an Issue
- * Submit a Pull Request
- * Send me an email
-
-Also typo's and writing suggestions are welcome.
-
-When writing code, please follow the coding standards and patterns used 
-in this project. 
-
-For example, take the function `f`:
-
- * `f` will be defined in `f.impl`. This file will be shown in the LyX document
- * If `f` is a template function, `f` its definition will be reachable from `f.h`, by `#include "f.impl"`
- * If `f` is a non-template function, `f` its definition will be reachable from `f.cpp`, by `#include "f.impl"`
- * The function `f_demo` will demonstrate the use of `f`. This file will be shown in the LyX document
- * The function `void f_demo() noexcept` will be defined in `f_demo.impl`. 
- * The function `f_test` will test `f` and also call the function `f_demo`
- * The function `void f_test() noexcept` will be declared in `f.h`
- * The function `void f_test() noexcept` will be defined in `f.cpp`
- * The function `f_test` will be called in the `main` function
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Other resources
 

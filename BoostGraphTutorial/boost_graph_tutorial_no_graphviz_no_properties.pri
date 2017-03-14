@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/add_edge.h \
     $$PWD/add_vertex.h \

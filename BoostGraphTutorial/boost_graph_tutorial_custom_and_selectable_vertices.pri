@@ -1,0 +1,2 @@
+include(boost_graph_tutorial_graphviz_only_custom_and_selectable_vertices.pri)
+include(boost_graph_tutorial_no_graphviz_custom_and_selectable_vertices.pri)

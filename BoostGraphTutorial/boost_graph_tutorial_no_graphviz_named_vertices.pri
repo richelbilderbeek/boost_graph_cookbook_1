@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/get_sorted_vertex_names.h \
     $$PWD/get_vertex_name.h \

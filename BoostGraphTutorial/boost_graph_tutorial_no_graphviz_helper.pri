@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/convert_svg_to_png.h \
     $$PWD/copy_file.h \

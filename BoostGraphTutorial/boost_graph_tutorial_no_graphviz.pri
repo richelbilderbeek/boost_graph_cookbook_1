@@ -1,6 +1,3 @@
-# This .pri file includes all files that do not use Graphviz
-INCLUDEPATH += $$PWD
-
 include(boost_graph_tutorial_no_graphviz_bundled_edges_and_vertices.pri)
 include(boost_graph_tutorial_no_graphviz_bundled_vertices.pri)
 include(boost_graph_tutorial_no_graphviz_custom_and_selectable_edges_and_vertices.pri)

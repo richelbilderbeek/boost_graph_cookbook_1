@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/add_bundled_edge.h \
     $$PWD/create_bundled_edges_and_vertices_k3_graph.h \
