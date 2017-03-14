@@ -1,6 +1,8 @@
 HEADERS += \
     $$PWD/bundled_edges_writer.h \
     $$PWD/convert_dot_to_svg.h \
+    $$PWD/create_tutorial_chapters_graph.h \
+    $$PWD/create_tutorial_subchapters_graph.h \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.h \
     $$PWD/load_directed_bundled_vertices_graph_from_dot.h \
     $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.h \
@@ -22,20 +24,22 @@ HEADERS += \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.h \
     $$PWD/load_undirected_named_vertices_graph_from_dot.h \
     $$PWD/make_bundled_edges_writer.h \
-    $$PWD/save_bundled_vertices_graph_to_dot.h \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.h \
+    $$PWD/save_bundled_vertices_graph_to_dot.h \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.h \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot.h \
-    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_custom_vertices_graph_to_dot.h \
+    $$PWD/save_graph_to_dot.h \
     $$PWD/save_graph_with_graph_name_to_dot.h \
     $$PWD/save_named_edges_and_vertices_graph_to_dot.h \
     $$PWD/save_named_vertices_graph_to_dot.h \
-    $$PWD/save_named_vertices_graph_to_dot_using_lambda.h \
-    $$PWD/save_graph_to_dot.h
+    $$PWD/save_named_vertices_graph_to_dot_using_lambda.h
 
 SOURCES += \
     $$PWD/convert_dot_to_svg.cpp \
+    $$PWD/create_tutorial_chapters_graph.cpp \
+    $$PWD/create_tutorial_subchapters_graph.cpp \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.cpp \
     $$PWD/load_directed_bundled_vertices_graph_from_dot.cpp \
     $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot.cpp \
@@ -56,17 +60,17 @@ SOURCES += \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.cpp \
     $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot.cpp \
     $$PWD/load_undirected_named_vertices_graph_from_dot.cpp \
-    $$PWD/save_bundled_vertices_graph_to_dot.cpp \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot.cpp \
+    $$PWD/save_bundled_vertices_graph_to_dot.cpp \
+    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.cpp \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot.cpp \
-    $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_custom_vertices_graph_to_dot.cpp \
+    $$PWD/save_graph_to_dot.cpp \
     $$PWD/save_graph_with_graph_name_to_dot.cpp \
     $$PWD/save_named_edges_and_vertices_graph_to_dot.cpp \
     $$PWD/save_named_vertices_graph_to_dot.cpp \
-    $$PWD/save_named_vertices_graph_to_dot_using_lambda.cpp \
-    $$PWD/save_graph_to_dot.cpp
+    $$PWD/save_named_vertices_graph_to_dot_using_lambda.cpp
 
 OTHER_FILES += \
     $$PWD/bundled_edges_writer.impl \
@@ -98,8 +102,8 @@ OTHER_FILES += \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot.impl \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_custom_vertices_graph_to_dot.impl \
+    $$PWD/save_graph_to_dot.impl \
     $$PWD/save_graph_with_graph_name_to_dot.impl \
     $$PWD/save_named_edges_and_vertices_graph_to_dot.impl \
     $$PWD/save_named_vertices_graph_to_dot.impl \
-    $$PWD/save_named_vertices_graph_to_dot_using_lambda.impl \
-    $$PWD/save_graph_to_dot.impl
+    $$PWD/save_named_vertices_graph_to_dot_using_lambda.impl
