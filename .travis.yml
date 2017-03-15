@@ -79,7 +79,7 @@ script:
   - ./get_code_cov.sh
   - codecov
   # cppcheck
-  - cppcheck -q .
+  - cppcheck --quiet --error-exitcode=1 . 
   # Call OCLint, takes to long...
   # - travis_wait 60 ./do_oclint.sh
 
