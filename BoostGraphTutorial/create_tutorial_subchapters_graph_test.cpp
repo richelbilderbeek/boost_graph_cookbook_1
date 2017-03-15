@@ -1,12 +1,10 @@
 #include "create_tutorial_chapters_graph.h"
 #include "create_tutorial_subchapters_graph.h"
 
-
 #include "save_named_vertices_graph_to_dot.h"
 
 #include <boost/test/unit_test.hpp>
 
-#include <boost/test/unit_test.hpp>
 #include <sstream>
 
 #include "copy_file.h"
@@ -18,8 +16,6 @@
 #include "add_named_vertex.h"
 #include "add_edge_between_named_vertices.h"
 
-
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_tutorial_subchapters_graph_thorough)
 {
   {
@@ -43,6 +39,4 @@ BOOST_AUTO_TEST_CASE(create_tutorial_subchapters_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  
 }
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ

@@ -323,26 +323,6 @@ OTHER_FILES += \
     $$PWD/is_custom_vertices_isomorphic_demo.impl \
     $$PWD/is_isomorphic_demo.impl \
     $$PWD/is_named_vertices_isomorphic_demo.impl \
-    $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_bundled_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_custom_and_selectable_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_custom_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_custom_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_graph_from_dot_demo.impl \
-    $$PWD/load_directed_graph_with_graph_name_from_dot_demo.impl \
-    $$PWD/load_directed_named_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_directed_named_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_bundled_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_custom_and_selectable_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_custom_and_selectable_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_custom_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_custom_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_graph_with_graph_name_from_dot_demo.impl \
-    $$PWD/load_undirected_named_edges_and_vertices_graph_from_dot_demo.impl \
-    $$PWD/load_undirected_named_vertices_graph_from_dot_demo.impl \
     $$PWD/remove_edge_between_vertices_with_names_demo.impl \
     $$PWD/remove_first_edge_with_name_demo.impl \
     $$PWD/remove_first_vertex_with_name_demo.impl \

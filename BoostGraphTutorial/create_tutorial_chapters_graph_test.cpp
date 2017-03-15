@@ -14,7 +14,6 @@
 
 BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
 {
-  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the 'relation between chapters' figure
   {
     const auto g = create_tutorial_chapters_graph();
@@ -37,9 +36,7 @@ BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
-  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
   //Create the title figure
   {
     const auto g = create_tutorial_chapters_graph();
@@ -71,5 +68,4 @@ BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
     std::remove(png_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 }

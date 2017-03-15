@@ -32,9 +32,6 @@ CONFIG(debug, debug|release) {
 # Boost.Test
 LIBS += -lboost_unit_test_framework
 
-# Comment this out
-# LIBS += -lboost_graph
-
 # No Qt
 QT -= core gui
 

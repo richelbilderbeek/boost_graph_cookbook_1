@@ -9,7 +9,6 @@
 #include "copy_file.h"
 #include "convert_dot_to_svg.h"
 
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_named_edges_and_vertices_markov_chain_thorough)
 {
   //Basic functions
@@ -48,4 +47,3 @@ BOOST_AUTO_TEST_CASE(create_named_edges_and_vertices_markov_chain_thorough)
     std::remove(svg_filename.c_str());
   }
 }
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
