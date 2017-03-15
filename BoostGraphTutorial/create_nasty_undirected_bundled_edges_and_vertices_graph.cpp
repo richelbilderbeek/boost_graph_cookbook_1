@@ -1,17 +1,7 @@
 #include "create_nasty_undirected_bundled_edges_and_vertices_graph.h"
 
-
-
 #include "add_bundled_edge.h"
 #include "add_bundled_vertex.h"
-#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
-
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
-#include "save_bundled_edges_and_vertices_graph_to_dot.h"
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
-
-#include "load_undirected_bundled_edges_and_vertices_graph_from_dot.h"
-#include "get_sorted_bundled_edge_my_edges.h"
 
 boost::adjacency_list<
   boost::vecS,
@@ -20,7 +10,7 @@ boost::adjacency_list<
   my_bundled_vertex,
   my_bundled_edge
 >
-create_nasty_undirected_bundled_edges_and_vertices_graph() noexcept
+create_nasty_undirected_bundled_edges_and_vertices_graph()
 {
   auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
 

@@ -20,7 +20,7 @@ boost::adjacency_list<
     >
   >
 >
-create_custom_and_selectable_edges_and_vertices_markov_chain() noexcept
+create_custom_and_selectable_edges_and_vertices_markov_chain()
 {
   auto g
     = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();

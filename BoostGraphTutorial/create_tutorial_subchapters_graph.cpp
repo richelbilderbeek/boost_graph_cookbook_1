@@ -1,10 +1,6 @@
 #include "create_tutorial_chapters_graph.h"
 
 #include "save_named_vertices_graph_to_dot.h"
-
-
-
-
 #include <sstream>
 
 #include "copy_file.h"
@@ -22,7 +18,7 @@ boost::adjacency_list< //!OCLINT Sure it is too long, but this is just a fun fun
   boost::directedS,
   boost::property<boost::vertex_name_t,std::string>
 >
-create_tutorial_subchapters_graph() noexcept
+create_tutorial_subchapters_graph()
 {
   auto g = create_empty_directed_named_vertices_graph();
   add_named_vertex("Creating an empty directed graph", g);

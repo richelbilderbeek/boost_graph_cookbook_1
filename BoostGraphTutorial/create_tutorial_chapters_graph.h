@@ -9,6 +9,6 @@ boost::adjacency_list<
   boost::directedS,
   boost::property<boost::vertex_name_t,std::string>
 >
-create_tutorial_chapters_graph() noexcept;
+create_tutorial_chapters_graph();
 
 #endif // CREATE_TUTORIAL_CHAPTERS_GRAPH_H

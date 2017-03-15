@@ -17,10 +17,12 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/add_bundled_edge.cpp \
+    $$PWD/create_nasty_undirected_bundled_edges_and_vertices_graph.cpp \
     $$PWD/create_bundled_edges_and_vertices_k3_graph.cpp \
     $$PWD/create_bundled_edges_and_vertices_markov_chain.cpp \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.cpp \
     $$PWD/create_empty_undirected_bundled_edges_and_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_bundled_edges_and_vertices_graph.cpp \
     $$PWD/find_first_bundled_edge_with_my_edge.cpp \
     $$PWD/get_my_bundled_edge.cpp \
     $$PWD/get_my_bundled_edges.cpp \
@@ -33,9 +35,11 @@ SOURCES += \
 OTHER_FILES += \
     $$PWD/add_bundled_edge.impl \
     $$PWD/bundled_edges_writer.impl \
+    $$PWD/create_nasty_undirected_bundled_edges_and_vertices_graph.impl \
     $$PWD/create_bundled_edges_and_vertices_k3_graph.impl \
     $$PWD/create_bundled_edges_and_vertices_markov_chain.impl \
     $$PWD/create_empty_directed_bundled_edges_and_vertices_graph.impl \
+    $$PWD/create_nasty_directed_bundled_edges_and_vertices_graph.impl \
     $$PWD/create_empty_undirected_bundled_edges_and_vertices_graph.impl \
     $$PWD/find_first_bundled_edge_with_my_edge.impl \
     $$PWD/get_my_bundled_edge.impl \

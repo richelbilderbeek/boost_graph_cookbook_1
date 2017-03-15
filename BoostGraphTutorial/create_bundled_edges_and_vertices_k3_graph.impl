@@ -9,7 +9,7 @@ boost::adjacency_list<
   my_bundled_vertex,
   my_bundled_edge
 >
-create_bundled_edges_and_vertices_k3_graph() noexcept
+create_bundled_edges_and_vertices_k3_graph()
 {
   auto g
     = create_empty_undirected_bundled_edges_and_vertices_graph();

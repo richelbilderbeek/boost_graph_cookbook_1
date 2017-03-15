@@ -10,7 +10,7 @@ boost::adjacency_list<
   my_bundled_vertex,
   my_bundled_edge
 >
-create_bundled_edges_and_vertices_markov_chain() noexcept
+create_bundled_edges_and_vertices_markov_chain()
 {
   auto g
     = create_empty_directed_bundled_edges_and_vertices_graph();

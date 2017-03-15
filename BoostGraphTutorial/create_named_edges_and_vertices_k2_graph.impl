@@ -10,7 +10,7 @@ boost::adjacency_list<
   boost::property<boost::vertex_name_t,std::string>,
   boost::property<boost::edge_name_t,std::string>
 >
-create_named_edges_and_vertices_k2_graph() noexcept
+create_named_edges_and_vertices_k2_graph()
 {
   auto g
     = create_empty_undirected_named_edges_and_vertices_graph();

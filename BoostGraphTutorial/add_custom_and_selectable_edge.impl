@@ -11,7 +11,7 @@ add_custom_and_selectable_edge(
   const custom_edge& edge,
   const bool is_selected,
   graph& g
-) noexcept
+)
 {
   static_assert(!std::is_const<graph>::value,"graph cannot be const");
   const auto vd_a = boost::add_vertex(g);

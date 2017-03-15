@@ -14,17 +14,4 @@ add_custom_edge(
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   return add_custom_edge_between_vertices(edge, vd_a, vd_b, g);
-  /*
-  const auto aer
-    = boost::add_edge(vd_a, vd_b, g);
-  if (!aer.second) {
-    std::stringstream msg;
-    msg << __func__ << ": edge insertion failed";
-    throw std::invalid_argument(msg.str());
-  }
-  const auto my_edge_map
-    = get(boost::edge_custom_type, g);
-  put(my_edge_map, aer.first, v);
-  return aer.first;
-  */
 }

@@ -26,7 +26,7 @@ boost::adjacency_list<
     >
   >
 >
-create_nasty_directed_custom_and_selectable_edges_and_vertices_graph() noexcept
+create_nasty_directed_custom_and_selectable_edges_and_vertices_graph()
 {
   auto g = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();
 

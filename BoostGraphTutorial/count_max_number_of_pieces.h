@@ -18,7 +18,7 @@
 template <typename graph>
 int count_max_number_of_pieces(
   const graph& g
-) noexcept
+)
 {
   const int sz{static_cast<int>(boost::num_vertices(g))};
   if (sz <= 1) { return sz; }

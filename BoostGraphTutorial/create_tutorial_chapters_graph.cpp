@@ -18,7 +18,7 @@ boost::adjacency_list< //!OCLINT Sure it is too long, but this is just a fun fun
   boost::directedS,
   boost::property<boost::vertex_name_t,std::string>
 >
-create_tutorial_chapters_graph() noexcept
+create_tutorial_chapters_graph()
 {
   auto g = create_empty_directed_named_vertices_graph();
   add_named_vertex("Graphs without properties", g);

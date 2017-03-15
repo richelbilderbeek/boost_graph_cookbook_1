@@ -4,7 +4,7 @@
 template <typename graph>
 std::vector<graph> create_all_direct_neighbour_custom_edges_and_vertices_subgraphs(
   const graph g
-) noexcept
+)
 {
   using vd = typename graph::vertex_descriptor;
 

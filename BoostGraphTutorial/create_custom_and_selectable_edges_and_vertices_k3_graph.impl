@@ -19,7 +19,7 @@ boost::adjacency_list<
     >
   >
 >
-create_custom_and_selectable_edges_and_vertices_k3_graph() noexcept
+create_custom_and_selectable_edges_and_vertices_k3_graph()
 {
   auto g
     = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();

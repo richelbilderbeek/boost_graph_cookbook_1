@@ -5,7 +5,7 @@
 template <typename graph>
 int get_first_vertex_with_name_out_degree(
   const std::string& name,
-  const graph& g) noexcept
+  const graph& g)
 {
   const auto vd
     = find_first_vertex_with_name(name, g);
