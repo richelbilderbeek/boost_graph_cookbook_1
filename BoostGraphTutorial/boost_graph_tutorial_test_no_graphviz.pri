@@ -1,5 +1,6 @@
 INCLUDEPATH += $$PWD
 
+
 SOURCES += \
     $$PWD/add_bundled_edge_test.cpp \
     $$PWD/add_bundled_vertex_test.cpp \
@@ -29,6 +30,31 @@ SOURCES += \
     $$PWD/count_vertices_with_name_test.cpp \
     $$PWD/count_vertices_with_selectedness_test.cpp \
     $$PWD/create_all_direct_neighbour_subgraphs_test.cpp \
+    $$PWD/create_bundled_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_bundled_vertices_markov_chain_test.cpp \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_custom_and_selectable_edges_and_vertices_petersen_graph_test.cpp \
+    $$PWD/create_custom_and_selectable_vertices_markov_chain_test.cpp \
+    $$PWD/create_custom_and_selectable_vertices_petersen_graph_test.cpp \
+    $$PWD/create_custom_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_custom_edges_and_vertices_petersen_graph_test.cpp \
+    $$PWD/create_custom_vertices_markov_chain_test.cpp \
+    $$PWD/create_custom_vertices_petersen_graph_test.cpp \
+    $$PWD/create_k2_graph_with_graph_name_test.cpp \
+    $$PWD/create_markov_chain_with_graph_name_test.cpp \
+    $$PWD/create_named_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_named_vertices_markov_chain_test.cpp \
+    $$PWD/create_named_vertices_petersen_graph_test.cpp \
+    $$PWD/create_nasty_directed_bundled_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_custom_and_selectable_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_custom_edges_and_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_custom_vertices_graph.cpp \
+    $$PWD/create_nasty_directed_named_vertices_graph.cpp \
+    $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph.cpp \
+    $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph.cpp \
+    $$PWD/create_tutorial_chapters_graph.cpp \
+    $$PWD/create_tutorial_subchapters_graph.cpp \
     $$PWD/create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph_test.cpp \
