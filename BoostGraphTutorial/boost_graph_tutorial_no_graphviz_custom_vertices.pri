@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/has_vertex_with_my_vertex.h \
     $$PWD/install_vertex_custom_type.h \

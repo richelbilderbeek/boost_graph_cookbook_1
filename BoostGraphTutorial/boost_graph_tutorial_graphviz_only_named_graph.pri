@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/load_directed_graph_with_graph_name_from_dot.h \
     $$PWD/load_undirected_graph_with_graph_name_from_dot.h \

@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 
 SOURCES += \
     $$PWD/add_bundled_edge_test.cpp \

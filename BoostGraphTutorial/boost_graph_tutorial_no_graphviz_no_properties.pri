@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/save_graph_to_dot.h \
     $$PWD/add_edge.h \

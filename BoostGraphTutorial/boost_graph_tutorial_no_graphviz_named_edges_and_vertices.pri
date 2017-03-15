@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/get_edge_name.h \
     $$PWD/get_edge_names.h \

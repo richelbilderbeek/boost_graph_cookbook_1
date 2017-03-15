@@ -1,7 +1,3 @@
-INCLUDEPATH += $$PWD
-
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/convert_dot_to_svg.h \
     $$PWD/convert_svg_to_png.h \

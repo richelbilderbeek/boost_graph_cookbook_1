@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/create_empty_directed_graph_with_graph_name.h \
     $$PWD/create_empty_undirected_graph_with_graph_name.h \

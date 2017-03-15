@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/load_directed_custom_edges_and_vertices_graph_from_dot.h \
     $$PWD/load_undirected_custom_edges_and_vertices_graph_from_dot.h \

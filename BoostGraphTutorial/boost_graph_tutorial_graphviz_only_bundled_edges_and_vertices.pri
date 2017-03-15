@@ -1,5 +1,3 @@
-INCLUDEPATH += $$PWD
-
 HEADERS += \
     $$PWD/bundled_edges_writer.h \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot.h \

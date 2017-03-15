@@ -1,7 +1,1 @@
-INCLUDEPATH += $$PWD
-
-HEADERS +=
-
-SOURCES +=
-
-OTHER_FILES +=
+# Nothing indeed
