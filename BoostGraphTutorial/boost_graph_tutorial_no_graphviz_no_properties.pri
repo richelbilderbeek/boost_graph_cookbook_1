@@ -1,5 +1,4 @@
 HEADERS += \
-    $$PWD/save_graph_to_dot.h \
     $$PWD/add_edge.h \
     $$PWD/add_vertex.h \
     $$PWD/count_directed_graph_connected_components.h \
@@ -26,10 +25,10 @@ HEADERS += \
     $$PWD/get_vertex_out_degrees.h \
     $$PWD/has_edge_between_vertices.h \
     $$PWD/is_isomorphic.h \
-    $$PWD/remove_nth_vertex.h
+    $$PWD/remove_nth_vertex.h \
+    $$PWD/save_graph_to_dot.h
 
 SOURCES += \
-    $$PWD/save_graph_to_dot.cpp \
     $$PWD/add_edge.cpp \
     $$PWD/add_vertex.cpp \
     $$PWD/count_directed_graph_connected_components.cpp \
@@ -57,10 +56,10 @@ SOURCES += \
     $$PWD/get_vertex_out_degrees.cpp \
     $$PWD/has_edge_between_vertices.cpp \
     $$PWD/is_isomorphic.cpp \
-    $$PWD/remove_nth_vertex.cpp
+    $$PWD/remove_nth_vertex.cpp \
+    $$PWD/save_graph_to_dot.cpp
 
 OTHER_FILES += \
-    $$PWD/save_graph_to_dot.impl \
     $$PWD/add_edge.impl \
     $$PWD/add_vertex.impl \
     $$PWD/count_directed_graph_connected_components.impl \
@@ -86,4 +85,5 @@ OTHER_FILES += \
     $$PWD/get_vertex_out_degrees.impl \
     $$PWD/has_edge_between_vertices.impl \
     $$PWD/is_isomorphic.impl \
-    $$PWD/remove_nth_vertex.impl
+    $$PWD/remove_nth_vertex.impl \
+    $$PWD/save_graph_to_dot.impl

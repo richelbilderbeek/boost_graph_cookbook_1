@@ -37,17 +37,17 @@ script:
   - make debug
   - ./boost_graph_tutorial_test_no_graphviz
   # No Graphviz, normal
-  - qmake BoostGraphTutorial/boost_graph_tutorial_no_graphviz.pro
-  - make debug
-  - ./boost_graph_tutorial_no_graphviz
-  # Graphviz, normal
-  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
-  - make debug
-  - ./boost_graph_tutorial
+  #- qmake BoostGraphTutorial/boost_graph_tutorial_no_graphviz.pro
+  #- make debug
+  #- ./boost_graph_tutorial_no_graphviz
   # Graphviz, test
   - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
   - make debug
   - ./boost_graph_tutorial_test
+  # Graphviz, normal
+  #- qmake BoostGraphTutorial/boost_graph_tutorial.pro
+  #- make debug
+  #- ./boost_graph_tutorial
   # Prepare to get code coverag
   - cp debug/*.gcda BoostGraphTutorial # Will this work?
   - cp debug/*.gcno BoostGraphTutorial # Will this work?

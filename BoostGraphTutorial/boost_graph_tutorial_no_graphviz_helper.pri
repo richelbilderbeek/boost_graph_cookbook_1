@@ -35,6 +35,6 @@ OTHER_FILES += \
     $$PWD/get_type_name.impl \
     $$PWD/graphviz_decode.impl \
     $$PWD/graphviz_encode.impl \
-    $$PWD/is_regular_file.impl \
     $$PWD/is_graphviz_friendly.impl \
+    $$PWD/is_regular_file.impl \
     $$PWD/is_valid_dot_file.impl
