@@ -72,3 +72,4 @@ after_failure:
   #- which tlmgr
   - echo $PATH
   - cat /home/travis/build/richelbilderbeek/BoostGraphTutorial/BoostGraphTutorial/boost_graph_tutorial.tex
+
