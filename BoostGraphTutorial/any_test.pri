@@ -1,8 +1,8 @@
 # C++14
 CONFIG += c++14
-#QMAKE_CXX = g++-5
-#QMAKE_LINK = g++-5
-#QMAKE_CC = gcc-5
+QMAKE_CXX = g++-5
+QMAKE_LINK = g++-5
+QMAKE_CC = gcc-5
 QMAKE_CXXFLAGS += -std=c++14
 
 # High warning levels
@@ -32,8 +32,8 @@ CONFIG(debug, debug|release) {
 # Boost.Test
 LIBS += -lboost_unit_test_framework
 
-# Boost.Graph
-LIBS += -lboost_graph
+# Comment this out
+# LIBS += -lboost_graph
 
 # No Qt
 QT -= core gui

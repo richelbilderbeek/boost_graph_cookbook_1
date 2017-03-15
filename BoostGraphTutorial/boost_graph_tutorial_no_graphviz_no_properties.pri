@@ -1,6 +1,7 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
+    $$PWD/save_graph_to_dot.h \
     $$PWD/add_edge.h \
     $$PWD/add_vertex.h \
     $$PWD/count_directed_graph_connected_components.h \
@@ -30,6 +31,7 @@ HEADERS += \
     $$PWD/remove_nth_vertex.h
 
 SOURCES += \
+    $$PWD/save_graph_to_dot.cpp \
     $$PWD/add_edge.cpp \
     $$PWD/add_vertex.cpp \
     $$PWD/count_directed_graph_connected_components.cpp \
@@ -60,6 +62,7 @@ SOURCES += \
     $$PWD/remove_nth_vertex.cpp
 
 OTHER_FILES += \
+    $$PWD/save_graph_to_dot.impl \
     $$PWD/add_edge.impl \
     $$PWD/add_vertex.impl \
     $$PWD/count_directed_graph_connected_components.impl \

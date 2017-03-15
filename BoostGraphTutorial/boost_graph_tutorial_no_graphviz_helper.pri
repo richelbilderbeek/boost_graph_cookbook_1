@@ -1,6 +1,9 @@
 INCLUDEPATH += $$PWD
 
+INCLUDEPATH += $$PWD
+
 HEADERS += \
+    $$PWD/convert_dot_to_svg.h \
     $$PWD/convert_svg_to_png.h \
     $$PWD/copy_file.h \
     $$PWD/file_to_vector.h \
@@ -16,6 +19,7 @@ HEADERS += \
     $$PWD/show_dot.h
 
 SOURCES += \
+    $$PWD/convert_dot_to_svg.cpp \
     $$PWD/convert_svg_to_png.cpp \
     $$PWD/copy_file.cpp \
     $$PWD/file_to_vector.cpp \
@@ -31,6 +35,7 @@ SOURCES += \
     $$PWD/show_dot.cpp
 
 OTHER_FILES += \
+    $$PWD/convert_dot_to_svg.impl \
     $$PWD/get_type_name.impl \
     $$PWD/graphviz_decode.impl \
     $$PWD/graphviz_encode.impl \
