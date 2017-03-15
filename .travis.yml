@@ -38,6 +38,8 @@ install:
   # gcov
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
   - sudo pip install codecov
+  # cppcheck
+  - sudo apt-get install -qq cppcheck
   # OCLint
   - ./install_oclint.sh
   # GraphViz
@@ -76,6 +78,8 @@ script:
   # Get code coverage
   - ./get_code_cov.sh
   - codecov
+  # cppcheck
+  - cppcheck -q .
   # Call OCLint, takes to long...
   # - travis_wait 60 ./do_oclint.sh
 
