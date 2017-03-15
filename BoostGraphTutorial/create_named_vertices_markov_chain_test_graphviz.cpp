@@ -1,5 +1,4 @@
 #include "create_named_vertices_markov_chain.h"
-#include "create_named_vertices_markov_chain_demo.impl"
 
 #include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"

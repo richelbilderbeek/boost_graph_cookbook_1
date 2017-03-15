@@ -3,7 +3,6 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "file_to_vector.h"
 #include "get_edge_iterators.h"
 #include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
@@ -12,8 +11,6 @@
 #include "get_my_custom_vertexes.h"
 #include "get_vertex_selectednesses.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
-#include "save_custom_and_selectable_vertices_graph_to_dot.h"
-#include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
 
 BOOST_AUTO_TEST_CASE(create_custom_and_selectable_edges_and_vertices_markov_chain_use)

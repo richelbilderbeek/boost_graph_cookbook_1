@@ -1,9 +1,7 @@
 #include "create_custom_and_selectable_edges_and_vertices_markov_chain.h"
-#include "create_custom_and_selectable_edges_and_vertices_markov_chain_demo.impl"
 
 #include <boost/test/unit_test.hpp>
 
-#include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
 #include "file_to_vector.h"
