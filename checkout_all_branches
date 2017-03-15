@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git checkout -b coverity_scan origin/coverity_scan
+git checkout -b develop origin/develop
