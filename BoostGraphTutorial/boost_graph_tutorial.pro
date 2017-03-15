@@ -1,6 +1,7 @@
 include(any_normal.pri)
 
-#include(boost_graph_tutorial.pri)
+# Equivalent to:
+# include(boost_graph_tutorial.pri)
 
 include(boost_graph_tutorial_bundled_edges_and_vertices.pri)
 include(boost_graph_tutorial_bundled_vertices.pri)
@@ -17,7 +18,7 @@ include(boost_graph_tutorial_named_vertices.pri)
 include(boost_graph_tutorial_no_properties.pri)
 include(boost_graph_tutorial_tutorial.pri)
 
-#LIBS += -lboost_regex
-
 SOURCES += main.cpp
 
+# USe Graphviz
+LIBS += -lboost_graph

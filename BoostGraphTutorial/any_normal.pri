@@ -27,8 +27,5 @@ CONFIG(debug, debug|release) {
   LIBS += -lubsan
 }
 
-# Boost.Graph
-LIBS += -lboost_graph
-
 # No Qt
 QT -= core gui
