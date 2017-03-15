@@ -23,8 +23,7 @@ install:
   # OCLint
   - ./install_oclint.sh
   # GraphViz
-  # Not yet, do this in script
-  # sudo apt-get install -qq graphviz
+  - sudo apt-get install -qq graphviz
   - # PDF
   - sudo apt-get install -qq babel
   - sudo apt-get install -qq lyx
@@ -32,22 +31,24 @@ install:
   - sudo apt-get install -qq texlive-* # For pdflatex
 
 script: 
-  # Can compile without GraphViz correctly?
-  - qmake BoostGraphTutorial/boost_graph_tutorial_no_graphviz.pro
-  - make debug
-  - ./boost_graph_tutorial_no_graphviz
-  # Build and run tests without GraphViz
+  - type dot
+  # No GraphViz, test
   - qmake BoostGraphTutorial/boost_graph_tutorial_test_no_graphviz.pro
   - make debug
   - ./boost_graph_tutorial_test_no_graphviz
-  # GraphViz
-  - sudo apt-get install -qq graphviz
-  # Check if GraphViz has been installed successfully
-  - type dot
-  # Build and run tests with GraphViz
+  # No Graphviz, normal
+  - qmake BoostGraphTutorial/boost_graph_tutorial_no_graphviz.pro
+  - make debug
+  - ./boost_graph_tutorial_no_graphviz
+  # Graphviz, normal
+  - qmake BoostGraphTutorial/boost_graph_tutorial.pro
+  - make debug
+  - ./boost_graph_tutorial
+  # Graphviz, test
   - qmake BoostGraphTutorial/boost_graph_tutorial_test.pro
   - make debug
   - ./boost_graph_tutorial_test
+  # Prepare to get code coverag
   - cp debug/*.gcda BoostGraphTutorial # Will this work?
   - cp debug/*.gcno BoostGraphTutorial # Will this work?
   - cp debug/*.o BoostGraphTutorial # Will this work?
