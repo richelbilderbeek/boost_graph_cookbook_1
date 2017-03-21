@@ -8,8 +8,5 @@ add_bundled_vertex(const bundled_vertex& v, graph& g) noexcept
   static_assert(!std::is_const<graph>::value,
     "graph cannot be const"
   );
-
-  const auto vd = boost::add_vertex(g);
-  g[vd] = v;
-  return vd;
+  return boost::add_vertex(v, g);
 }
