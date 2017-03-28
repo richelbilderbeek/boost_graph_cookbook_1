@@ -26,6 +26,7 @@ HEADERS += \
     $$PWD/has_edge_between_vertices.h \
     $$PWD/is_isomorphic.h \
     $$PWD/remove_nth_vertex.h \
+    $$PWD/remove_vertex_if.h \
     $$PWD/save_graph_to_dot.h
 
 SOURCES += \
@@ -57,6 +58,7 @@ SOURCES += \
     $$PWD/has_edge_between_vertices.cpp \
     $$PWD/is_isomorphic.cpp \
     $$PWD/remove_nth_vertex.cpp \
+    $$PWD/remove_vertex_if.cpp \
     $$PWD/save_graph_to_dot.cpp
 
 OTHER_FILES += \
@@ -86,4 +88,5 @@ OTHER_FILES += \
     $$PWD/has_edge_between_vertices.impl \
     $$PWD/is_isomorphic.impl \
     $$PWD/remove_nth_vertex.impl \
+    $$PWD/remove_vertex_if.impl \
     $$PWD/save_graph_to_dot.impl

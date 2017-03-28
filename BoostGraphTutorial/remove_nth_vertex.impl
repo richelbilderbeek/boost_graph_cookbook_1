@@ -21,10 +21,16 @@ void remove_nth_vertex(
     ;
     throw std::invalid_argument(msg.str());
   }
-  const auto vds = vertices(g);
-  const auto vd = vds.first + i;
-  boost::clear_vertex(*vd, g);
-  boost::remove_vertex(*vd, g);
+  #ifdef USE_IMPLEMENTATION_1_9
+  const auto vip = vertices(g);
+  const auto vi = vip.first + i;
+  boost::clear_vertex(*vi, g);
+  boost::remove_vertex(*vi, g);
+  #else
+  const auto vd = boost::vertex(i, g);
+  boost::clear_vertex(vd, g);
+  boost::remove_vertex(vd, g);
+  #endif
 }
 
 

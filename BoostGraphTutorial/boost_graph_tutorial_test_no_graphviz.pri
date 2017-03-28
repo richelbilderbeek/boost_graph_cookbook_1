@@ -158,6 +158,7 @@ SOURCES += \
     $$PWD/remove_first_edge_with_name_test.cpp \
     $$PWD/remove_first_vertex_with_name_test.cpp \
     $$PWD/remove_nth_vertex_test.cpp \
+    $$PWD/remove_vertex_if_test.cpp \
     $$PWD/remove_selected_custom_edges_and_vertices_test.cpp \
     $$PWD/remove_selected_custom_edges_test.cpp \
     $$PWD/remove_selected_custom_vertices_test.cpp \
@@ -325,6 +326,7 @@ OTHER_FILES += \
     $$PWD/remove_first_edge_with_name_demo.impl \
     $$PWD/remove_first_vertex_with_name_demo.impl \
     $$PWD/remove_nth_vertex_demo.impl \
+    $$PWD/remove_vertex_if_demo.impl \
     $$PWD/remove_selected_custom_edges_and_vertices_demo.impl \
     $$PWD/remove_selected_custom_edges_demo.impl \
     $$PWD/remove_selected_custom_vertices_demo.impl \
