@@ -12,6 +12,8 @@ void remove_vertex_if(
     "graph cannot be const"
   );
   const auto vip = boost::vertices(g);
+
+  //Dangerous algorithm
   for (auto vi = vip.first; vi != vip.second; ++vi)
   {
     if (p(*vi, g))
