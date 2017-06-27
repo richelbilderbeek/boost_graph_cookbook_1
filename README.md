@@ -7,7 +7,6 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutori
 coverity_scan|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial.svg?branch=coverity_scan)](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial)|[![codecov.io](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/coverage.svg?branch=coverity_scan)](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/branch/coverity_scan)
 
 [![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)[![cc-by-sa](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
-[![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/boostgraphtutorial)
 
 <a href="https://scan.coverity.com/projects/richelbilderbeek-boostgraphtutorial">
   <img alt="Coverity Scan Build Status"
