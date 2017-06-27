@@ -158,11 +158,12 @@ SOURCES += \
     $$PWD/remove_first_edge_with_name_test.cpp \
     $$PWD/remove_first_vertex_with_name_test.cpp \
     $$PWD/remove_nth_vertex_test.cpp \
-    $$PWD/remove_vertex_if_test.cpp \
+    $$PWD/select_random_vertex_test.cpp \
     $$PWD/remove_selected_custom_edges_and_vertices_test.cpp \
     $$PWD/remove_selected_custom_edges_test.cpp \
     $$PWD/remove_selected_custom_vertices_test.cpp \
-    $$PWD/select_random_vertex_test.cpp \
+    $$PWD/remove_self_loops_test.cpp \
+    $$PWD/remove_vertex_if_test.cpp \
     $$PWD/seperate_string_test.cpp \
     $$PWD/set_edge_name_test.cpp \
     $$PWD/set_edge_selectedness_test.cpp \
@@ -326,10 +327,11 @@ OTHER_FILES += \
     $$PWD/remove_first_edge_with_name_demo.impl \
     $$PWD/remove_first_vertex_with_name_demo.impl \
     $$PWD/remove_nth_vertex_demo.impl \
-    $$PWD/remove_vertex_if_demo.impl \
     $$PWD/remove_selected_custom_edges_and_vertices_demo.impl \
     $$PWD/remove_selected_custom_edges_demo.impl \
     $$PWD/remove_selected_custom_vertices_demo.impl \
+    $$PWD/remove_self_loops_demo.impl \
+    $$PWD/remove_vertex_if_demo.impl \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot_demo.impl \
