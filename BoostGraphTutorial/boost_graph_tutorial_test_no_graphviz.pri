@@ -90,6 +90,7 @@ SOURCES += \
     $$PWD/find_first_bundled_vertex_with_my_vertex_test.cpp \
     $$PWD/find_first_custom_edge_test.cpp \
     $$PWD/find_first_custom_edge_with_my_edge_test.cpp \
+    $$PWD/find_first_custom_vertex_test.cpp \
     $$PWD/find_first_custom_vertex_with_my_vertex_test.cpp \
     $$PWD/find_first_edge_with_name_test.cpp \
     $$PWD/find_first_vertex_with_name_test.cpp \
@@ -285,6 +286,7 @@ OTHER_FILES += \
     $$PWD/find_first_bundled_vertex_with_my_vertex_demo.impl \
     $$PWD/find_first_custom_edge.impl \
     $$PWD/find_first_custom_edge_with_my_edge_demo.impl \
+    $$PWD/find_first_custom_vertex_demo.impl \
     $$PWD/find_first_custom_vertex_with_my_vertex_demo.impl \
     $$PWD/find_first_edge_with_name_demo.impl \
     $$PWD/find_first_vertex_with_name_demo.impl \

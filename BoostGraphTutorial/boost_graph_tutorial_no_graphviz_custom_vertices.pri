@@ -14,6 +14,7 @@ HEADERS += \
     $$PWD/create_empty_undirected_custom_vertices_graph.h \
     $$PWD/create_nasty_directed_custom_vertices_graph.h \
     $$PWD/custom_vertex_invariant.h \
+    $$PWD/find_first_custom_vertex.h \
     $$PWD/find_first_custom_vertex_with_my_vertex.h \
     $$PWD/get_my_custom_vertexes.h \
     $$PWD/get_my_custom_vertex.h \
@@ -39,6 +40,7 @@ SOURCES += \
     $$PWD/create_empty_directed_custom_vertices_graph.cpp \
     $$PWD/create_empty_undirected_custom_vertices_graph.cpp \
     $$PWD/create_nasty_directed_custom_vertices_graph.cpp \
+    $$PWD/find_first_custom_vertex.cpp \
     $$PWD/find_first_custom_vertex_with_my_vertex.cpp \
     $$PWD/get_my_custom_vertex.cpp \
     $$PWD/get_my_custom_vertexes.cpp \
@@ -65,6 +67,7 @@ OTHER_FILES += \
     $$PWD/create_empty_directed_custom_vertices_graph.impl \
     $$PWD/create_empty_undirected_custom_vertices_graph.impl \
     $$PWD/custom_vertex_invariant.impl \
+    $$PWD/find_first_custom_vertex.impl \
     $$PWD/find_first_custom_vertex_with_my_vertex.impl \
     $$PWD/get_my_custom_vertexes.impl \
     $$PWD/get_my_custom_vertex.impl \

@@ -1,0 +1,20 @@
+#include <boost/test/unit_test.hpp>
+#include "create_custom_vertices_k2_graph.h"
+#include "my_custom_vertex.h"
+#include "find_first_custom_vertex.h"
+#include "get_my_custom_vertex.h"
+
+BOOST_AUTO_TEST_CASE(test_find_first_custom_vertex)
+{
+  const auto g = create_custom_vertices_k2_graph();
+  const auto vd = find_first_custom_vertex(
+    g,
+    [](const my_custom_vertex& v)
+    {
+      return v.get_name() == "A";
+    }
+  );
+
+  BOOST_CHECK(get_my_custom_vertex(vd, g).get_description() == "source");
+}
+
