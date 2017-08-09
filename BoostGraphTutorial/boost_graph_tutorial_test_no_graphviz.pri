@@ -135,6 +135,7 @@ SOURCES += \
     $$PWD/graphviz_encode_test.cpp \
     $$PWD/has_bundled_edge_with_my_edge_test.cpp \
     $$PWD/has_bundled_vertex_with_my_vertex_test.cpp \
+    $$PWD/has_custom_edge_test.cpp \
     $$PWD/has_custom_edge_with_my_edge_test.cpp \
     $$PWD/has_custom_vertex_test.cpp \
     $$PWD/has_custom_vertex_with_my_vertex_test.cpp \
@@ -317,6 +318,7 @@ OTHER_FILES += \
     $$PWD/get_vertex_selectednesses_demo.impl \
     $$PWD/has_bundled_edge_with_my_edge_demo.impl \
     $$PWD/has_bundled_vertex_with_my_vertex_demo.impl \
+    $$PWD/has_custom_edge_demo.impl \
     $$PWD/has_custom_edge_with_my_edge_demo.impl \
     $$PWD/has_custom_vertex_demo.impl \
     $$PWD/has_custom_vertex_with_my_vertex_demo.impl \

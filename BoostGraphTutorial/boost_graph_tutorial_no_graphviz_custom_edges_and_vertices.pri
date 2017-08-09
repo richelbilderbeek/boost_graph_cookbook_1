@@ -1,5 +1,4 @@
 HEADERS += \
-    $$PWD/install_edge_custom_type.h \
     $$PWD/add_custom_edge_between_vertices.h \
     $$PWD/add_custom_edge.h \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.h \
@@ -18,7 +17,9 @@ HEADERS += \
     $$PWD/get_my_custom_edge.h \
     $$PWD/get_my_custom_edges.h \
     $$PWD/get_sorted_custom_edge_my_edges.h \
+    $$PWD/has_custom_edge.h \
     $$PWD/has_custom_edge_with_my_edge.h \
+    $$PWD/install_edge_custom_type.h \
     $$PWD/my_custom_edge.h \
     $$PWD/remove_selected_custom_edges_and_vertices.h \
     $$PWD/remove_selected_custom_edges.h \
@@ -42,6 +43,7 @@ SOURCES += \
     $$PWD/get_my_custom_edge.cpp \
     $$PWD/get_my_custom_edges.cpp \
     $$PWD/get_sorted_custom_edge_my_edges.cpp \
+    $$PWD/has_custom_edge.cpp \
     $$PWD/has_custom_edge_with_my_edge.cpp \
     $$PWD/my_custom_edge.cpp \
     $$PWD/remove_selected_custom_edges_and_vertices.cpp \
@@ -49,7 +51,6 @@ SOURCES += \
     $$PWD/set_my_custom_edge.cpp
 
 OTHER_FILES += \
-    $$PWD/install_edge_custom_type.impl \
     $$PWD/add_custom_edge_between_vertices.impl \
     $$PWD/add_custom_edge.impl \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs.impl \
@@ -66,8 +67,10 @@ OTHER_FILES += \
     $$PWD/find_first_custom_edge_with_my_edge.impl \
     $$PWD/get_my_custom_edge.impl \
     $$PWD/get_my_custom_edges.impl \
+    $$PWD/has_custom_edge.impl \
     $$PWD/has_custom_edge_with_my_edge_f.impl \
     $$PWD/has_custom_edge_with_my_edge.impl \
+    $$PWD/install_edge_custom_type.impl \
     $$PWD/my_custom_edge.impl \
     $$PWD/remove_selected_custom_edges_and_vertices.impl \
     $$PWD/remove_selected_custom_edges.impl \

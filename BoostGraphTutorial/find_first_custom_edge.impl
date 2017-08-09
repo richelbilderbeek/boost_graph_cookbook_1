@@ -3,10 +3,12 @@
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
 
-template <typename graph, typename function>
+/// @param predicate a function that returns a boolean,
+///   and takes a custom edge as an argument
+template <typename graph, typename predicate>
 typename boost::graph_traits<graph>::edge_descriptor
 find_first_custom_edge(
-  const function& predicate,
+  const predicate& p,
   const graph& g
 )
 {
@@ -14,10 +16,10 @@ find_first_custom_edge(
   const auto eip = edges(g);
   const auto i = std::find_if(
     eip.first, eip.second,
-    [g,predicate](const ed d) {
+    [g,p](const ed d) {
       const auto my_edges_map = get(boost::edge_custom_type, g);
       const auto edge = get(my_edges_map, d);
-      return predicate(edge);
+      return p(edge);
     }
   );
   if (i == eip.second)

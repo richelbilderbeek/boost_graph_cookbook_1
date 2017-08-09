@@ -1,3 +1,4 @@
+#ifdef I_THINK_ONE_SHOULD_NOT_USE_has_custom_edge_INSTEAD
 #include <boost/graph/properties.hpp>
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
@@ -20,3 +21,4 @@ bool has_custom_edge_with_my_edge(
     }
   ) != eip.second;
 }
+#endif //I_THINK_ONE_SHOULD_NOT_USE_has_custom_edge_INSTEAD
