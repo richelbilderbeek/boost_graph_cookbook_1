@@ -11,20 +11,23 @@ BOOST_AUTO_TEST_CASE(find_first_custom_vertex_thorough)
   {
     //Find A by name
     const auto vd = find_first_custom_vertex(
-      g, [](const my_custom_vertex& v)
+      [](const my_custom_vertex& v)
       {
         return v.get_name() == "A";
-      }
+      },
+      g
     );
     BOOST_CHECK(get_my_custom_vertex(vd, g).get_description() == "source");
   }
+
   {
     //Find B by x coordinat
     const auto vd = find_first_custom_vertex(
-      g, [](const my_custom_vertex& v)
+      [](const my_custom_vertex& v)
       {
         return v.get_x() > 3.0;
-      }
+      },
+      g
     );
     BOOST_CHECK(get_my_custom_vertex(vd, g).get_name() == "B");
   }
@@ -36,10 +39,11 @@ BOOST_AUTO_TEST_CASE(find_first_custom_vertex_when_vertex_is_absent)
 
   BOOST_CHECK_THROW(
     find_first_custom_vertex(
-      g, [](const my_custom_vertex& v)
+      [](const my_custom_vertex& v)
       {
         return v.get_name() == "absent";
-      }
+      },
+      g
     ),
     std::invalid_argument
   );

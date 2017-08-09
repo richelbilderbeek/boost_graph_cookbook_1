@@ -1,0 +1,21 @@
+#include <string>
+#include <boost/graph/properties.hpp>
+#include "install_vertex_custom_type.h"
+#include "find_first_custom_vertex.h"
+
+template <typename graph, typename predicate>
+bool has_custom_vertex(
+  const predicate& p,
+  const graph& g
+) noexcept
+{
+  try
+  {
+    find_first_custom_vertex(p, g);
+    return true;
+  }
+  catch (std::exception&)
+  {
+    return false;
+  }
+}

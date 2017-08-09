@@ -1,3 +1,6 @@
+#ifdef I_THINK_THIS_IS_RELEVANT_20170808
+//Just use find_first_custom_vertex
+
 #include <cassert>
 #include <boost/graph/graph_traits.hpp>
 #include "has_custom_edge_with_my_edge.h"
@@ -32,3 +35,4 @@ find_first_custom_edge_with_my_edge(
   }
   return *i;
 }
+#ifdef I_THINK_THIS_IS_RELEVANT_20170808

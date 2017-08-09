@@ -136,6 +136,7 @@ SOURCES += \
     $$PWD/has_bundled_edge_with_my_edge_test.cpp \
     $$PWD/has_bundled_vertex_with_my_vertex_test.cpp \
     $$PWD/has_custom_edge_with_my_edge_test.cpp \
+    $$PWD/has_custom_vertex_test.cpp \
     $$PWD/has_custom_vertex_with_my_vertex_test.cpp \
     $$PWD/has_dot_test.cpp \
     $$PWD/has_edge_between_vertices_test.cpp \
@@ -317,6 +318,7 @@ OTHER_FILES += \
     $$PWD/has_bundled_edge_with_my_edge_demo.impl \
     $$PWD/has_bundled_vertex_with_my_vertex_demo.impl \
     $$PWD/has_custom_edge_with_my_edge_demo.impl \
+    $$PWD/has_custom_vertex_demo.impl \
     $$PWD/has_custom_vertex_with_my_vertex_demo.impl \
     $$PWD/has_edge_between_vertices_demo.impl \
     $$PWD/has_edge_with_name_demo.impl \
