@@ -11,15 +11,13 @@ before_install:
   # C++14
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
-  # Coverity Scan
-  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 install: 
   # C++14
-  - sudo apt-get install -qq g++-5
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   # gcov
-  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 90
   - sudo pip install codecov
   # cppcheck
   - sudo apt-get install -qq cppcheck
@@ -59,7 +57,7 @@ script:
   - cp debug/*.gcno . # Will this work?
   - cp debug/*.o . # Will this work?
   # Get code coverage
-  - ./get_code_cov.sh
+  - ./get_code_cov
   - codecov
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
