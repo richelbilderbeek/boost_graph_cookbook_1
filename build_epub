@@ -1,0 +1,6 @@
+#!/bin/bash
+cd BoostGraphTutorial
+lyx --export pdflatex boost_graph_tutorial.lyx
+pandoc boost_graph_tutorial.tex -o boost_graph_tutorial.epub
+epubcheck boost_graph_tutorial.epub
+cd ..
