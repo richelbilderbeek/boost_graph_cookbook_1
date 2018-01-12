@@ -34,7 +34,16 @@
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -111,7 +120,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is `A well-connected C++11 Boost.Graph tutorial', version 2.0.
+This is `A well-connected C++14 Boost.Graph tutorial', version 2.0.
 \end_layout
 
 \begin_layout Subsection
@@ -14644,7 +14653,7 @@ Using boost::make_label_writer
 \end_layout
 
 \begin_layout Itemize
-Using a C++11 lambda function
+Using a lambda function
 \end_layout
 
 \begin_layout Standard
@@ -14770,7 +14779,7 @@ boost::make_label_writer
 \end_layout
 
 \begin_layout Subsubsection
-Using a C++11 lambda function
+Using a lambda function
 \end_layout
 
 \begin_layout Standard

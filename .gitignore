@@ -111,3 +111,4 @@ BoostGraphTutorial/create_named_edges_and_vertices_petersen_graph.pdf
 BoostGraphTutorial/create_named_vertices_k3_graph.pdf
 BoostGraphTutorial/create_named_vertices_petersen_graph.pdf
 BoostGraphTutorial/named_vertices_petersen_graph.pdf
+*.autosave
