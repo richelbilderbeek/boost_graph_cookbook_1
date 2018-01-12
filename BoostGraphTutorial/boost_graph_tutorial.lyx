@@ -355,7 +355,7 @@ reference "subsec:get_type_name"
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 Explicity use of namespaces
 \end_layout
 
