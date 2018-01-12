@@ -20,7 +20,7 @@ void save_custom_vertices_graph_to_dot(
       const auto my_custom_vertexes_map
         = get(boost::vertex_custom_type,g)
       ;
-      const my_custom_vertex m{get(my_custom_vertexes_map,v)};
+      const auto m = get(my_custom_vertexes_map,v);
       out << "[label=\"" << m << "\"]";
     }
   );

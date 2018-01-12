@@ -3,22 +3,7 @@
 
 #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
 
-#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
-
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge
-  >
->
-load_undirected_custom_edges_and_vertices_graph_from_dot(
-  const std::string& dot_filename
-);
+#include "load_undirected_custom_edges_and_vertices_graph_from_dot.impl"
 
 #else
 #error(Do not include this file when BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ is defined)

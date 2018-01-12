@@ -83,6 +83,6 @@ BOOST_AUTO_TEST_CASE(get_type_name_thorough)
   );
   //std::cout
   //  <<  get_type_name<decltype(boost::vertices(create_empty_directed_graph()))>()
-  //  << std::endl;
+  //  << '\n';
   
 }

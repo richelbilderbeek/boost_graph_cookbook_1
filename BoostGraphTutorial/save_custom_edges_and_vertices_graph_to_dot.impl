@@ -21,15 +21,11 @@ void save_custom_edges_and_vertices_graph_to_dot(
     g,
     [g](
       std::ostream& out, const vd& d) {
-      const my_custom_vertex m{
-        get_my_custom_vertex(d, g)
-      };
+      const auto& m = get_my_custom_vertex(d, g);
       out << "[label=\"" << m << "\"]";
     },
     [g](std::ostream& out, const ed& d) {
-      const my_custom_edge& m{
-        get_my_custom_edge(d, g)
-      };
+      const auto& m = get_my_custom_edge(d, g);
       out << "[label=\"" << m << "\"]";
     }
   );
