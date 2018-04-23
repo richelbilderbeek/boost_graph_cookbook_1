@@ -3014,7 +3014,7 @@ Vertex descriptors are used to:
 \end_layout
 
 \begin_layout Itemize
-add and edge between two vertices, see chapter 
+add an edge between two vertices, see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:add_edge"
