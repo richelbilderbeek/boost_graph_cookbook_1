@@ -17,29 +17,28 @@ graph create_direct_neighbour_subgraph_including_in_edges(
   //Copy vertices
   {
     const auto vdsi = boost::adjacent_vertices(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&h](const vertex_descriptor& d)
+    for (auto i = vdsi.first; i != vdsi.second; ++i)
+    {
+      if (m.find(*i) == m.end())
       {
         const auto vd_h = boost::add_vertex(h);
-        return std::make_pair(d,vd_h);
+        m.insert(std::make_pair(*i, vd_h));
       }
-    );
+    }
   }
-  //Copy in-edge vertices (only difference from create_direct_neighbour_subgraph)
-  /* Does not work, no idea why. Please email me if you know
+  //Copy in-edge vertices
   {
-    const auto vdsi = boost::in_edges(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&h](const vertex_descriptor& d)
+    const auto eip = boost::in_edges(vd, g);
+    for (auto ei = eip.first; ei != eip.second; ++ei)
+    {
+      const auto vd_in = source(*ei, g);
+      if (m.find(vd_in) == m.end())
       {
         const auto vd_h = boost::add_vertex(h);
-        return std::make_pair(d,vd_h);
+        m.insert(std::make_pair(vd_in, vd_h));
       }
-    );
+    }
   }
-  */
   //Copy edges
   {
     const auto eip = edges(g);
