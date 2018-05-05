@@ -17,14 +17,14 @@ graph create_direct_neighbour_subgraph(
   //Copy vertices
   {
     const auto vdsi = boost::adjacent_vertices(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&h](const vertex_descriptor& d)
+    for (auto i = vdsi.first; i != vdsi.second; ++i)
+    {
+      if (m.find(*i) == m.end())
       {
         const auto vd_h = boost::add_vertex(h);
-        return std::make_pair(d,vd_h);
+        m.insert(std::make_pair(*i, vd_h));
       }
-    );
+    }
   }
   //Copy edges
   {
