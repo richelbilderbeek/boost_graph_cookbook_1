@@ -8151,8 +8151,12 @@ name "subsec:count_undirected_graph_levels"
 \end_layout
 
 \begin_layout Standard
-Graphs may have a hierarchical structure.
- 
+Graphs can have a hierarchical structure.
+ From a starting vertex, the number of levels can be counted.
+ A graph of one vertex has zero levels.
+ A graph with one edge has one level.
+ A linear graph of three vertices and two edges has one or two levels, depending
+ on the starting vertex.
 \end_layout
 
 \begin_layout Standard
@@ -8235,7 +8239,17 @@ name "fig:count_undirected_graph_levels"
 \end_layout
 
 \begin_layout Standard
-This algorithm counts the number of levels in an unidirected graph:
+This algorithm counts the number of levels in an undirected graph, starting
+ at a certain vertex.
+ 
+\end_layout
+
+\begin_layout Standard
+It does so, by collecting the neighbours of the traversed vertices.
+ Each sweep, all neighbours of traversed neighbours are added to a set of
+ known vertices.
+ As long as vertices can be added, the algorithm continues.
+ If no vertices can be added, the number of level equals the number of sweeps.
 \end_layout
 
 \begin_layout Standard
@@ -8291,7 +8305,10 @@ name "alg:count_undirected_graph_levels"
 \end_layout
 
 \begin_layout Standard
-This demonstration code shows that ...:
+This demonstration code shows the number of levels from a certain vertex,
+ while adding edges to form a linear graph.
+ The vertex, when still without edges, has zero levels.
+ After adding one edge, the graph has one level, etc.
 \end_layout
 
 \begin_layout Standard
