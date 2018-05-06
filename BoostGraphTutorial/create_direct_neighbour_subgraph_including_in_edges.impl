@@ -1,57 +1,38 @@
-#include <map>
 #include <boost/graph/adjacency_list.hpp>
+#include <unordered_map>
+#include <vector>
 
-template <typename graph, typename vertex_descriptor>
+template <typename graph>
 graph create_direct_neighbour_subgraph_including_in_edges(
-  const vertex_descriptor& vd,
-  const graph& g
-)
+    const typename graph::vertex_descriptor& vd, const graph& g)
 {
-  graph h;
+    using vertex_descriptor = typename graph::vertex_descriptor;
+    using edge_descriptor = typename graph::edge_descriptor;
+    using vpair = std::pair<vertex_descriptor, vertex_descriptor>;
 
-  std::map<vertex_descriptor,vertex_descriptor> m;
-  {
-    const auto vd_h = boost::add_vertex(h);
-    m.insert(std::make_pair(vd,vd_h));
-  }
-  //Copy vertices
-  {
-    const auto vdsi = boost::adjacent_vertices(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&h](const vertex_descriptor& d)
-      {
-        const auto vd_h = boost::add_vertex(h);
-        return std::make_pair(d,vd_h);
+    std::vector<vpair> conn_edges;
+    std::unordered_map<vertex_descriptor, vertex_descriptor> m;
+
+    vertex_descriptor vd_h = 0;
+    m.insert(std::make_pair(vd, vd_h++));
+
+    for (const edge_descriptor ed : boost::make_iterator_range(edges(g))) {
+      const auto vd_from = source(ed, g);
+      const auto vd_to = target(ed, g);
+      if (vd == vd_from) {
+        conn_edges.emplace_back(vd_from, vd_to);
+        m.insert(std::make_pair(vd_to, vd_h++));
       }
-    );
-  }
-  //Copy in-edge vertices (only difference from create_direct_neighbour_subgraph)
-  /* Does not work, no idea why. Please email me if you know
-  {
-    const auto vdsi = boost::in_edges(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&h](const vertex_descriptor& d)
-      {
-        const auto vd_h = boost::add_vertex(h);
-        return std::make_pair(d,vd_h);
+      if (vd == vd_to) {
+        conn_edges.emplace_back(vd_from, vd_to);
+        m.insert(std::make_pair(vd_from, vd_h++));
       }
-    );
-  }
-  */
-  //Copy edges
-  {
-    const auto eip = edges(g);
-    const auto j = eip.second;
-    for (auto i = eip.first; i!=j; ++i)
-    {
-      const auto vd_from = source(*i, g);
-      const auto vd_to = target(*i, g);
-      if (m.find(vd_from) == std::end(m)) continue;
-      if (m.find(vd_to) == std::end(m)) continue;
-      boost::add_edge(m[vd_from],m[vd_to], h);
     }
-  }
-  return h;
+
+    for (vpair& vp : conn_edges) {
+      vp.first = m[vp.first];
+      vp.second = m[vp.second];
+    }
+
+    return graph(conn_edges.begin(), conn_edges.end(), m.size());
 }
