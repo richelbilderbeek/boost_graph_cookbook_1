@@ -14,7 +14,7 @@ find_first_vertex_with_name(
   const auto vip = vertices(g);
   const auto i = std::find_if(
     vip.first, vip.second,
-    [g, name](const vd d) {
+    [&g, &name](const vd d) {
       return get_vertex_name(d, g) == name;
     }
   );

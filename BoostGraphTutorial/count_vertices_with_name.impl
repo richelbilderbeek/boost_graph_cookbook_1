@@ -12,7 +12,7 @@ int count_vertices_with_name(
   const auto vip = vertices(g);
   const auto cnt = std::count_if(
     vip.first, vip.second,
-    [g, name](const vd& d)
+    [&g, &name](const vd& d)
     {
       const auto vertex_name_map
         = get(boost::vertex_name,g);
