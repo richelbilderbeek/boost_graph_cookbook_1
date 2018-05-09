@@ -19,12 +19,12 @@ void save_custom_edges_and_vertices_graph_to_dot(
   boost::write_graphviz(
     f,
     g,
-    [g](
+    [&g](
       std::ostream& out, const vd& d) {
       const auto& m = get_my_custom_vertex(d, g);
       out << "[label=\"" << m << "\"]";
     },
-    [g](std::ostream& out, const ed& d) {
+    [&g](std::ostream& out, const ed& d) {
       const auto& m = get_my_custom_edge(d, g);
       out << "[label=\"" << m << "\"]";
     }

@@ -11,7 +11,7 @@ std::vector<std::string> get_edge_names(const graph& g) noexcept
   std::vector<std::string> v(boost::num_edges(g));
   const auto eip = edges(g); 
   std::transform(eip.first, eip.second, std::begin(v),
-    [g](const ed& d)
+    [&g](const ed& d)
     {
       const auto edge_name_map = get(boost::edge_name,g);
       return get(edge_name_map, d);

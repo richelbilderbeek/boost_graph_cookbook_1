@@ -11,7 +11,7 @@ std::vector<my_bundled_edge> get_my_bundled_edges(
   std::vector<my_bundled_edge> v(boost::num_edges(g));
   const auto eip = edges(g);
   std::transform(eip.first, eip.second,std::begin(v),
-    [g](const ed e) { return g[e]; }
+    [&g](const ed e) { return g[e]; }
   );
   return v;
 }

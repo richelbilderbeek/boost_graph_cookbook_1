@@ -13,7 +13,7 @@ int count_vertices_with_selectedness(
   const auto vip = vertices(g);
   const auto cnt = std::count_if(
     vip.first, vip.second,
-    [g, selectedness](const vd& d)
+    [&g, &selectedness](const vd& d)
     {
       const auto is_selected_map
         = get(boost::vertex_is_selected, g);

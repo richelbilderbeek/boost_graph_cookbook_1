@@ -12,7 +12,7 @@ bool has_custom_vertex_with_my_vertex(
 
   const auto vip = vertices(g);
   return std::find_if(vip.first, vip.second,
-    [v, g](const vd& d)
+    [&v, &g](const vd& d)
     {
       const auto my_custom_vertexes_map
         = get(boost::vertex_custom_type, g);

@@ -14,7 +14,7 @@ std::vector<my_bundled_vertex> get_my_bundled_vertexes(
   std::vector<my_bundled_vertex> v(boost::num_vertices(g));
   const auto vip = vertices(g);
   std::transform(vip.first, vip.second, std::begin(v),
-    [g](const vd& d) { return g[d]; }
+    [&g](const vd& d) { return g[d]; }
   );
   return v;
 }

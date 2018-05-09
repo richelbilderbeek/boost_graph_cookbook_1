@@ -12,7 +12,7 @@ bool has_bundled_vertex_with_my_vertex(
 
   const auto vip = vertices(g); 
   return std::find_if(vip.first, vip.second,
-    [v, g](const vd& d)
+    [&v, &g](const vd& d)
     {
       return g[d] == v;
     }
