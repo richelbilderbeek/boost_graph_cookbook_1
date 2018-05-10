@@ -12,7 +12,7 @@ std::vector<bool> get_vertex_selectednesses(
   const auto vip = vertices(g); 
   std::vector<bool> v(boost::num_vertices(g));
   std::transform(vip.first, vip.second, std::begin(v),
-    [g](const vd& d) {
+    [&g](const vd& d) {
       const auto is_selected_map = get(
         boost::vertex_is_selected, g
       );

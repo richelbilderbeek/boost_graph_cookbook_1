@@ -10,7 +10,7 @@ bool has_edge_with_name(
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
   const auto eip = edges(g);
   return std::find_if(eip.first, eip.second,
-    [edge_name, g](const ed& d)
+    [&edge_name, &g](const ed& d)
     {
       const auto edge_name_map
         = get(boost::edge_name, g);

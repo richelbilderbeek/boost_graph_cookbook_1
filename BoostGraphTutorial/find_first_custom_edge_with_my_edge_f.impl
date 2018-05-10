@@ -19,7 +19,7 @@ find_first_custom_edge_with_my_edge(
   const auto eip = edges(g);
   const auto i = std::find_if(
     eip.first, eip.second,
-    [e,g,edge_equivalence_function](const ed d) {
+    [&e, &g, &edge_equivalence_function](const ed d) {
       const auto my_edges_map = get(boost::edge_custom_type, g);
       return edge_equivalence_function(get(my_edges_map, d), e);
     }

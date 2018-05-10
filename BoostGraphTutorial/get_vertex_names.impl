@@ -14,7 +14,7 @@ std::vector<std::string> get_vertex_names(
   std::vector<std::string> v(boost::num_vertices(g));
   const auto vip = vertices(g); 
   std::transform(vip.first, vip.second, std::begin(v),
-    [g](const vd& d)
+    [&g](const vd& d)
     {
       const auto vertex_name_map = get(
         boost::vertex_name, g

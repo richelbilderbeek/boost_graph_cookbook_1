@@ -13,7 +13,7 @@ graph remove_selected_custom_edges(
   {
     const auto eip = edges(g);
     const auto i = std::find_if(eip.first, eip.second,
-      [g](const typename boost::graph_traits<graph>::edge_descriptor ed)
+      [&g](const typename boost::graph_traits<graph>::edge_descriptor ed)
       {
         const auto is_selected_map = get(boost::edge_is_selected, g);
         return get(is_selected_map, ed);

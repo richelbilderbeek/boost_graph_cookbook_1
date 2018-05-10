@@ -10,7 +10,7 @@ bool has_bundled_edge_with_my_edge(
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
   const auto eip = edges(g); 
   return std::find_if(eip.first, eip.second,
-    [e, g](const ed& d)
+    [&e, &g](const ed& d)
     {
       return g[d] == e;
     }

@@ -28,7 +28,7 @@ graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
     const auto vdsi = boost::adjacent_vertices(vd, g);
     std::transform(vdsi.first, vdsi.second,
       std::inserter(m,std::begin(m)),
-      [g, &h](const vertex_descriptor& d)
+      [&g, &h](const vertex_descriptor& d)
       {
         const auto vd_h = add_custom_and_selectable_vertex(
           get_my_custom_vertex(d,g),

@@ -17,7 +17,7 @@ void save_named_vertices_graph_to_dot_using_lambda(
   boost::write_graphviz(
     f,
     g,
-    [name_map](std::ostream& os, const vd_t& vd) {
+    [&name_map](std::ostream& os, const vd_t& vd) {
       const std::string s{name_map[vd]};
       if (s.find(' ') == std::string::npos) {
         //No space, no quotes around string

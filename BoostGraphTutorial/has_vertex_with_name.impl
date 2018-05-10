@@ -10,7 +10,7 @@ bool has_vertex_with_name(
 
   const auto vip = vertices(g);
   return std::find_if(vip.first, vip.second,
-    [g, vertex_name](const vd& d)
+    [&g, &vertex_name](const vd& d)
     {
       const auto vertex_name_map
         = get(boost::vertex_name, g);

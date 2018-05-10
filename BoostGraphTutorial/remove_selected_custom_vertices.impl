@@ -14,7 +14,7 @@ graph remove_selected_custom_vertices(
   {
     const auto vip = vertices(g);
     const auto i = std::find_if(vip.first, vip.second,
-      [g](const typename boost::graph_traits<graph>::vertex_descriptor vd)
+      [&g](const typename boost::graph_traits<graph>::vertex_descriptor vd)
       {
         const auto is_selected_map = get(boost::vertex_is_selected, g);
         return get(is_selected_map,vd);

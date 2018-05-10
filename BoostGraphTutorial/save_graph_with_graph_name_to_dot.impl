@@ -20,7 +20,7 @@ void save_graph_with_graph_name_to_dot(
     //Unsure if this results in a graph
     //that can be loaded correctly
     //from a .dot file
-    [g](std::ostream& os) {
+    [&g](std::ostream& os) {
       os << "name=\""
         << get_graph_name(g)
         << "\";\n";

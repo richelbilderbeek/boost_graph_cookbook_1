@@ -14,7 +14,7 @@ std::vector<graph> create_all_direct_neighbour_custom_edges_and_vertices_subgrap
   std::transform(
     vip.first, vip.second,
     std::begin(v),
-    [g](const vd& d)
+    [&g](const vd& d)
     {
       return create_direct_neighbour_custom_edges_and_vertices_subgraph(
         d, g
