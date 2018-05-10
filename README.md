@@ -11,8 +11,8 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutori
 
 Downloads:
 
- * Stable: [PDF](boost_graph_tutorial.pdf) (v2.0)
- * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v3.0)
+ * Stable: [PDF](boost_graph_tutorial.pdf) (v3.0)
+ * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v3.0.?)
  * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_tutorial_oldskool.pdf) (v2.0)
 
 ![Title graph](BoostGraphTutorial/title_graph.png)
