@@ -7,7 +7,12 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutori
 
 [![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)[![cc-by-sa](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-'Boost.Graph Cookbook 1: Basics' is a C++ tutorial about Boost.Graph.
+
+'Boost.Graph Cookbook 1: Basics' is a C++ tutorial about Boost.Graph that is part of a series:
+
+ * [Boost.Graph Cookbook 1: Basics](https://github.com/richelbilderbeek/BoostGraphTutorial)
+ * [Boost.Graph Cookbook 2: Algorithms](https://github.com/mywtfmp3/boost_graph_cookbook_2)
+
 
 Downloads:
 
