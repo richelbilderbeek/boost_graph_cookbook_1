@@ -1,13 +1,10 @@
 #include <boost/graph/adjacency_list.hpp>
 
-template <
-  typename graph,
-  typename vertex_descriptor
->
+template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 get_edge_between_vertices(
-  const vertex_descriptor& vd_from,
-  const vertex_descriptor& vd_to,
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_from,
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd_to,
   const graph& g
 )
 {
