@@ -1,4 +1,4 @@
-# A well-connected C++14 Boost.Graph tutorial
+# Boost.Graph Cookbook 1: Basics
 
 Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo](Codecov.png)](https://www.codecov.io)
 ---|---|---
@@ -7,13 +7,13 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutori
 
 [![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)[![cc-by-sa](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-A well-connected C++14 Boost.Graph tutorial is a C++ tutorial about Boost.Graph.
+'Boost.Graph Cookbook 1: Basics' is a C++ tutorial about Boost.Graph.
 
 Downloads:
 
  * Stable: [PDF](boost_graph_tutorial.pdf) (v2.0)
- * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_tutorial_oldskool.pdf) (v2.0)
  * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v3.0)
+ * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_tutorial_oldskool.pdf) (v2.0)
 
 ![Title graph](BoostGraphTutorial/title_graph.png)
 
