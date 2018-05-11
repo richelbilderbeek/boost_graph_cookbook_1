@@ -7,7 +7,7 @@
 #include "convert_dot_to_svg.h"
 #include "save_graph_to_dot.h"
 
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 BOOST_AUTO_TEST_CASE(create_markov_chain_thorough)
 {
   //Create the .dot and .svg of the 'create_markov_chain' chapter
@@ -32,4 +32,4 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_thorough)
     std::remove(svg_filename.c_str());
   }
 }
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ

@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(create_named_edges_and_vertices_k3_graph_thorough)
     const std::vector<std::string> edge_names{get_edge_names(g)};
     BOOST_CHECK(expected_edge_names == edge_names);
   }
-  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
   //Create the create_named_edges_and_vertices_k3_graph .dot and .svg files
   {
     const auto g = create_named_edges_and_vertices_k3_graph();
@@ -45,5 +45,5 @@ BOOST_AUTO_TEST_CASE(create_named_edges_and_vertices_k3_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 }

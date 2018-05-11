@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_k2_graph_thorough)
     const std::vector<std::string> vertex_names = get_vertex_names(g);
     BOOST_CHECK(expected_names == vertex_names);
   }
-  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
   //Create the .dot and .svg of the 'create_named_vertices_markov_chain' chapter
   {
     const auto g = create_named_vertices_k2_graph();
@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_k2_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
   //Copy from named-vertices graph to graph without properties
   //CANNOT
   //{

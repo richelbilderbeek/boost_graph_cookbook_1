@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_path_graph_thorough)
     BOOST_CHECK(boost::num_vertices(g) == 3);
     BOOST_CHECK(get_vertex_names(g) == names);
   }
-  #ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
   //Create the .dot and .svg of the 'create_named_vertices_path_graph' chapter
   //for (const int n: {3,4, 5} )
   {
@@ -69,6 +69,6 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_path_graph_thorough)
     std::remove(dot_filename.c_str());
     std::remove(svg_filename.c_str());
   }
-  #endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+  #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 }

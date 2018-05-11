@@ -1,4 +1,4 @@
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot.h"
 #include "save_custom_and_selectable_edges_and_vertices_graph_to_dot_demo.impl"
 
@@ -40,4 +40,4 @@ BOOST_AUTO_TEST_CASE(save_custom_and_selectable_edges_and_vertices_graph_to_dot_
   }
 }
 
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ

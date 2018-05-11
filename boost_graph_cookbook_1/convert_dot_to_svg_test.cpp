@@ -1,7 +1,7 @@
 #include "convert_dot_to_svg.h"
 #include <boost/test/unit_test.hpp>
 
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 BOOST_AUTO_TEST_CASE(test_convert_dot_to_svg)
 {
@@ -11,4 +11,4 @@ BOOST_AUTO_TEST_CASE(test_convert_dot_to_svg)
   );
 }
 
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ

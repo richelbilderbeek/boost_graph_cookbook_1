@@ -1,7 +1,7 @@
 #ifndef LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 #define LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H
 
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 #include "create_empty_directed_graph_with_graph_name.h"
 
@@ -20,7 +20,7 @@ load_directed_graph_with_graph_name_from_dot(
 );
 
 #else
-#error(Do not include this file when BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ is defined)
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#error(Do not include this file when BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ is defined)
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 #endif // LOAD_DIRECTED_GRAPH_WITH_GRAPH_NAMES_FROM_DOT_H

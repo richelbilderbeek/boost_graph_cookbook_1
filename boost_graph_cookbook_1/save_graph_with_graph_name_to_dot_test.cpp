@@ -1,4 +1,4 @@
-#ifndef BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 #include "save_graph_with_graph_name_to_dot.h"
 //#include "save_graph_with_graph_name_to_dot_demo.impl"
 
@@ -63,4 +63,4 @@ BOOST_AUTO_TEST_CASE(save_graph_with_graph_name_to_dot_thorough)
   
 }
 
-#endif // BOOST_GRAPH_TUTORIAL_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
