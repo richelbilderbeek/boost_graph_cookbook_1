@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cpp_files=`find . | egrep "^\./BoostGraphTutorial/.*\.cpp$"| egrep -v "_test\.cpp$"`
-h_files=`find . | egrep "^\./BoostGraphTutorial/.*_.*\.h$"`
+cpp_files=`find . | egrep "^\./boost_graph_cookbook_1/.*\.cpp$"| egrep -v "_test\.cpp$"`
+h_files=`find . | egrep "^\./boost_graph_cookbook_1/.*_.*\.h$"`
 
 ./oclint-0.10.3/bin/oclint -o oclint.log \
   -disable-rule ShortVariableName \
@@ -9,7 +9,7 @@ h_files=`find . | egrep "^\./BoostGraphTutorial/.*_.*\.h$"`
   $h_files \
   -- \
   -std=c++11 \
-  -I/BoostGraphTutorial \
+  -I/boost_graph_cookbook_1 \
   -I/usr/include/c++/5 \
   -I/usr/include/x86_64-linux-gnu/c++/5
 

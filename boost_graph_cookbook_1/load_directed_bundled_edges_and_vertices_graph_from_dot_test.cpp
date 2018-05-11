@@ -52,12 +52,12 @@ BOOST_AUTO_TEST_CASE(load_directed_bundled_edges_and_vertices_graph_from_dot_tho
     convert_dot_to_svg(dot_filename, svg_filename);
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
     copy_file(
       dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
+      "../boost_graph_cookbook_1/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
   }

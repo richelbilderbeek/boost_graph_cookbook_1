@@ -31,12 +31,12 @@ BOOST_AUTO_TEST_CASE(create_k3_graph_thorough)
     BOOST_CHECK(is_regular_file(svg_filename));
     copy_file(
       dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
+      "../boost_graph_cookbook_1/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
     std::remove(dot_filename.c_str());

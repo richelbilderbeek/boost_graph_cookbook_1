@@ -46,7 +46,7 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_create_pictures)
     BOOST_CHECK(is_valid_dot_file(dot_filename));
     copy_file(
       dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
+      "../boost_graph_cookbook_1/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
     BOOST_TEST_PASSPOINT();
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(create_markov_chain_with_graph_name_create_pictures)
     BOOST_TEST_PASSPOINT();
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
     BOOST_TEST_PASSPOINT();

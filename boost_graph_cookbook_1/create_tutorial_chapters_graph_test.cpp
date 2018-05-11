@@ -25,12 +25,12 @@ BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
     convert_dot_to_svg(dot_filename,svg_filename);
     copy_file(
       dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
+      "../boost_graph_cookbook_1/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
     std::remove(dot_filename.c_str());
@@ -51,17 +51,17 @@ BOOST_AUTO_TEST_CASE(create_tutorial_chapters_graph_thorough)
     convert_svg_to_png(svg_filename,png_filename);
     copy_file(
       dot_filename,
-      "../BoostGraphTutorial/" + dot_filename,
+      "../boost_graph_cookbook_1/" + dot_filename,
       copy_file_mode::allow_overwrite
     );
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
     copy_file(
       png_filename,
-      "../BoostGraphTutorial/" + png_filename,
+      "../boost_graph_cookbook_1/" + png_filename,
       copy_file_mode::allow_overwrite
     );
     std::remove(dot_filename.c_str());

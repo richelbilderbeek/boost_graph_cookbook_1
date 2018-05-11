@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(load_directed_custom_edges_and_vertices_graph_from_dot_thor
     BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
     copy_file(
       svg_filename,
-      "../BoostGraphTutorial/" + svg_filename,
+      "../boost_graph_cookbook_1/" + svg_filename,
       copy_file_mode::allow_overwrite
     );
   }
