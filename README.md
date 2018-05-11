@@ -2,25 +2,25 @@
 
 Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo](Codecov.png)](https://www.codecov.io)
 ---|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial.svg?branch=master)](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial)|[![codecov.io](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/BoostGraphTutorial)|[![codecov.io](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/BoostGraphTutorial/branch/develop)
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/boost_graph_cookbook_1.svg?branch=master)](https://travis-ci.org/richelbilderbeek/boost_graph_cookbook_1)|[![codecov.io](https://codecov.io/github/richelbilderbeek/boost_graph_cookbook_1/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/boost_graph_cookbook_1/branch/master)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/boost_graph_cookbook_1.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/boost_graph_cookbook_1)|[![codecov.io](https://codecov.io/github/richelbilderbeek/boost_graph_cookbook_1/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/boost_graph_cookbook_1/branch/develop)
 
 [![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)[![cc-by-sa](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 
 'Boost.Graph Cookbook 1: Basics' is a C++ tutorial about Boost.Graph that is part of a series:
 
- * [Boost.Graph Cookbook 1: Basics](https://github.com/richelbilderbeek/BoostGraphTutorial)
+ * [Boost.Graph Cookbook 1: Basics](https://github.com/richelbilderbeek/boost_graph_cookbook_1)
  * [Boost.Graph Cookbook 2: Algorithms](https://github.com/mywtfmp3/boost_graph_cookbook_2)
 
 
 Downloads:
 
  * Stable: [PDF](boost_graph_tutorial.pdf) (v3.0)
- * Unstable: [PDF](BoostGraphTutorial/boost_graph_tutorial.pdf) (v3.0.?)
+ * Unstable: [PDF](boost_graph_cookbook_1/boost_graph_tutorial.pdf) (v3.0.?)
  * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_tutorial_oldskool.pdf) (v2.0)
 
-![Title graph](BoostGraphTutorial/title_graph.png)
+![Title graph](boost_graph_cookbook_1/title_graph.png)
 
 This tutorial offers examples to use Boost.Graph that are:
 
