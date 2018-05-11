@@ -1,8 +1,0 @@
-graph G {
-0[label=Karen];
-1[label=Kristel];
-2[label=Kathleen];
-0--1 ;
-1--2 ;
-2--0 ;
-}

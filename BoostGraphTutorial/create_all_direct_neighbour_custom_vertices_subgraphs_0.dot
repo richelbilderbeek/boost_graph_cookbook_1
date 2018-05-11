@@ -1,5 +1,0 @@
-graph G {
-0[label="Hanne,red,1.1,2.2"];
-1[label="Marthe,black,3.3,4.4"];
-0--1 ;
-}

@@ -1,8 +1,0 @@
-digraph G {
-0[label="Sunny,Yellow$$$SPACE$$$thing,1,2", regular="1"];
-1[label="Rainy,Grey$$$SPACE$$$things,3,4", regular="0"];
-0->0 ;
-0->1 ;
-1->0 ;
-1->1 ;
-}

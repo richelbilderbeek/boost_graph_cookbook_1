@@ -1,8 +1,0 @@
-graph G {
-0[label="Red",comment="Not$$$SPACE$$$green",width=1,height=2];
-1[label="Light$$$SPACE$$$red",comment="Not$$$SPACE$$$dark",width=3,height=4];
-2[label="Orange",comment="Orangy",width=5,height=6];
-0--1 [label="Oxygen",comment="Air",width=1,height=2];
-1--2 [label="Helium",comment="From$$$SPACE$$$tube",width=3,height=4];
-2--0 [label="Stable$$$SPACE$$$temperature",comment="Here",width=5,height=6];
-}
