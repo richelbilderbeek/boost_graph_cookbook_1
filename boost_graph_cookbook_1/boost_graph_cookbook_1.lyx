@@ -20462,7 +20462,7 @@ viewport
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "boost_graph_tutorial"
+bibfiles "boost_graph_cookbook_1"
 options "plain"
 
 \end_inset

@@ -16,9 +16,9 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/boost_graph_cook
 
 Downloads:
 
- * Stable: [PDF](boost_graph_tutorial.pdf) (v3.0)
- * Unstable: [PDF](boost_graph_cookbook_1/boost_graph_tutorial.pdf) (v3.0.?)
- * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_tutorial_oldskool.pdf) (v2.0)
+ * Stable: [PDF](boost_graph_cookbook_1.pdf) (v3.0)
+ * Unstable: [PDF](boost_graph_cookbook_1/boost_graph_cookbook_1.pdf) (v3.0.?)
+ * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_cookbook_1_oldskool.pdf) (v2.0)
 
 ![Title graph](boost_graph_cookbook_1/title_graph.png)
 

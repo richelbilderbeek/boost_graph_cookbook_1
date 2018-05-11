@@ -36,7 +36,7 @@ Makefile.Debug
 Makefile.Release
 .nfs*
 debug/
-boost_graph_tutorial_test
+boost_graph_cookbook_1_test
 *.gcov
 ./*.dot
 save_*.dot
@@ -47,7 +47,7 @@ g1.dot
 g2.dot
 h2.dot
 h1.dot
-boost_graph_cookbook_1/boost_graph_tutorial.log
+boost_graph_cookbook_1/boost_graph_cookbook_1.log
 *.tar.gz
 oclint-0.10.3/
 do_oclint.sh
@@ -58,7 +58,7 @@ Makefile
 boost_graph_cookbook_1/Makefile
 boost_graph_cookbook_1/CC-BY-SA_icon.pdf
 boost_graph_cookbook_1/Petersen_graph.pdf
-boost_graph_cookbook_1/boost_graph_tutorial.tex
+boost_graph_cookbook_1/boost_graph_cookbook_1.tex
 boost_graph_cookbook_1/create_bundled_edges_and_vertices_k3_graph.pdf
 boost_graph_cookbook_1/create_bundled_edges_and_vertices_markov_chain.pdf
 boost_graph_cookbook_1/create_bundled_vertices_k2_graph.pdf

@@ -80,16 +80,16 @@ Source files are split up in multiple dimensions.
 
 Selection|Filename
 ---|---
-All|`boost_graph_tutorial.pri`
-No GraphViz|`boost_graph_tutorial_no_graphviz.pri`
-Bundled edges and vertices|`boost_graph_tutorial_bundled_edges_and_vertices.pri`
-Bundled vertices|`boost_graph_tutorial_bundled_vertices.pri`
-Custom and selectable edges and vertices|`boost_graph_tutorial_custom_and_selectable_edges_and_vertices.pri`
-Custom and selectable vertices|`boost_graph_tutorial_custom_and_selectable_vertices.pri`
-Custom edges and vertices|`boost_graph_tutorial_custom_edges_and_vertices.pri`
-Custom vertices|`boost_graph_tutorial_custom_vertices.pri`
-Helper functions|`boost_graph_tutorial_helper.pri`
-Named and selectable vertices|`boost_graph_tutorial_named_and_selectable_vertices.pri`
-Named edges and vertices|`boost_graph_tutorial_named_edges_and_vertices.pri`
-Named graph|`boost_graph_tutorial_named_graph.pri`
-Named vertices|`boost_graph_tutorial_named_vertices.pri`
+All|`boost_graph_cookbook_1.pri`
+No GraphViz|`boost_graph_cookbook_1_no_graphviz.pri`
+Bundled edges and vertices|`boost_graph_cookbook_1_bundled_edges_and_vertices.pri`
+Bundled vertices|`boost_graph_cookbook_1_bundled_vertices.pri`
+Custom and selectable edges and vertices|`boost_graph_cookbook_1_custom_and_selectable_edges_and_vertices.pri`
+Custom and selectable vertices|`boost_graph_cookbook_1_custom_and_selectable_vertices.pri`
+Custom edges and vertices|`boost_graph_cookbook_1_custom_edges_and_vertices.pri`
+Custom vertices|`boost_graph_cookbook_1_custom_vertices.pri`
+Helper functions|`boost_graph_cookbook_1_helper.pri`
+Named and selectable vertices|`boost_graph_cookbook_1_named_and_selectable_vertices.pri`
+Named edges and vertices|`boost_graph_cookbook_1_named_edges_and_vertices.pri`
+Named graph|`boost_graph_cookbook_1_named_graph.pri`
+Named vertices|`boost_graph_cookbook_1_named_vertices.pri`
