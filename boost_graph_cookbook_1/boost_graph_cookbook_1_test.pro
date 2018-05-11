@@ -1,4 +1,3 @@
-
 include(any_test.pri)
 
 include(boost_graph_cookbook_1.pri)

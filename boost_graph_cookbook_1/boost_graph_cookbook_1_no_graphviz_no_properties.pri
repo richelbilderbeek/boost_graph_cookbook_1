@@ -1,13 +1,13 @@
 HEADERS += \
     $$PWD/add_edge.h \
     $$PWD/add_vertex.h \
-    $$PWD/count_directed_graph_connected_components.h \
-    $$PWD/count_max_number_of_pieces.h \
-    $$PWD/count_undirected_graph_connected_components.h \
-    $$PWD/count_undirected_graph_levels.h \
-    $$PWD/create_all_direct_neighbour_subgraphs.h \
-    $$PWD/create_direct_neighbour_subgraph.h \
-    $$PWD/create_direct_neighbour_subgraph_including_in_edges.h \
+    #$$PWD/count_directed_graph_connected_components.h \
+    #$$PWD/count_max_number_of_pieces.h \
+    #$$PWD/count_undirected_graph_connected_components.h \
+    #$$PWD/count_undirected_graph_levels.h \
+    #$$PWD/create_all_direct_neighbour_subgraphs.h \
+    #$$PWD/create_direct_neighbour_subgraph.h \
+    #$$PWD/create_direct_neighbour_subgraph_including_in_edges.h \
     $$PWD/create_empty_directed_graph.h \
     $$PWD/create_empty_undirected_graph.h \
     $$PWD/create_k2_graph.h \
@@ -33,13 +33,13 @@ HEADERS += \
 SOURCES += \
     $$PWD/add_edge.cpp \
     $$PWD/add_vertex.cpp \
-    $$PWD/count_directed_graph_connected_components.cpp \
-    $$PWD/count_max_number_of_pieces.cpp \
-    $$PWD/count_undirected_graph_connected_components.cpp \
-    $$PWD/count_undirected_graph_levels.cpp \
-    $$PWD/create_all_direct_neighbour_subgraphs.cpp \
-    $$PWD/create_direct_neighbour_subgraph.cpp \
-    $$PWD/create_direct_neighbour_subgraph_including_in_edges.cpp \
+    #$$PWD/count_directed_graph_connected_components.cpp \
+    #$$PWD/count_max_number_of_pieces.cpp \
+    #$$PWD/count_undirected_graph_connected_components.cpp \
+    #$$PWD/count_undirected_graph_levels.cpp \
+    #$$PWD/create_all_direct_neighbour_subgraphs.cpp \
+    #$$PWD/create_direct_neighbour_subgraph.cpp \
+    #$$PWD/create_direct_neighbour_subgraph_including_in_edges.cpp \
     $$PWD/create_empty_directed_graph.cpp \
     $$PWD/create_empty_undirected_graph.cpp \
     $$PWD/create_k2_graph.cpp \
@@ -66,12 +66,12 @@ SOURCES += \
 OTHER_FILES += \
     $$PWD/add_edge.impl \
     $$PWD/add_vertex.impl \
-    $$PWD/count_directed_graph_connected_components.impl \
-    $$PWD/count_undirected_graph_connected_components.impl \
-    $$PWD/count_undirected_graph_levels.impl \
-    $$PWD/create_all_direct_neighbour_subgraphs.impl \
-    $$PWD/create_direct_neighbour_subgraph.impl \
-    $$PWD/create_direct_neighbour_subgraph_including_in_edges.impl \
+    #$$PWD/count_directed_graph_connected_components.impl \
+    #$$PWD/count_undirected_graph_connected_components.impl \
+    #$$PWD/count_undirected_graph_levels.impl \
+    #$$PWD/create_all_direct_neighbour_subgraphs.impl \
+    #$$PWD/create_direct_neighbour_subgraph.impl \
+    #$$PWD/create_direct_neighbour_subgraph_including_in_edges.impl \
     $$PWD/create_empty_directed_graph.impl \
     $$PWD/create_empty_undirected_graph.impl \
     $$PWD/create_k2_graph.impl \
