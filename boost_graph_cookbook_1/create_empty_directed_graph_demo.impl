@@ -4,4 +4,5 @@
 BOOST_AUTO_TEST_CASE(test_create_empty_directed_graph)
 {
   const auto g = create_empty_directed_graph();
+  BOOST_CHECK(boost::is_directed(g));
 }

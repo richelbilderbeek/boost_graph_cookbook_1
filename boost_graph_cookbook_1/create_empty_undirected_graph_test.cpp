@@ -6,6 +6,8 @@
 BOOST_AUTO_TEST_CASE(create_empty_undirected_graph_thorough)
 {
   auto g = create_empty_undirected_graph();
+
+  BOOST_CHECK(boost::is_undirected(g));
   BOOST_CHECK(boost::num_edges(g) == 0);
   BOOST_CHECK(boost::num_vertices(g) == 0);
 
