@@ -18,6 +18,8 @@ install:
   # gcov
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 90
   - sudo pip install codecov
+  # gdb
+  - gdb -v
   # cppcheck
   - sudo apt-get install -qq cppcheck
   # OCLint
