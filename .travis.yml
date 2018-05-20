@@ -9,28 +9,29 @@ addons:
 before_install:
   # C++14
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update -qq
+  - sudo apt update -qq
 
 install: 
   # C++14
-  - sudo apt-get install -qq g++-6
+  - sudo apt install -qq g++-6
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   # gcov
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 90
   - sudo pip install codecov
   # gdb
+  - sudo apt install -qq gdb
   - gdb -v
   # cppcheck
-  - sudo apt-get install -qq cppcheck
+  - sudo apt install -qq cppcheck
   # OCLint
   - ./install_oclint.sh
   # GraphViz
-  - sudo apt-get install -qq graphviz
+  - sudo apt install -qq graphviz
   - # PDF
-  - sudo apt-get install -qq babel
-  - sudo apt-get install -qq lyx
-  - sudo apt-get install -qq texlive # For pdflatex
-  - sudo apt-get install -qq texlive-* # For pdflatex
+  - sudo apt install -qq babel
+  - sudo apt install -qq lyx
+  - sudo apt install -qq texlive # For pdflatex
+  - sudo apt install -qq texlive-* # For pdflatex
 
 script: 
   - type dot
