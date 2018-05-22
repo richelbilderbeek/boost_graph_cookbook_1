@@ -39,8 +39,8 @@ void copy_file(
     std::remove(filename_to.c_str());
     assert(!is_regular_file(filename_to));
   }
-  std::ifstream in{filename_from.c_str()};
-  std::ofstream out{filename_to.c_str()};
+  std::ifstream in{filename_from};
+  std::ofstream out{filename_to};
   out << in.rdbuf();
   out.close();
   in.close();

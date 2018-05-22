@@ -16640,7 +16640,7 @@ graph load_from_dot(const std::string& dot_filename)
 
 \begin_layout Plain Layout
 
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
 \end_layout
 
 \begin_layout Plain Layout
@@ -16704,7 +16704,7 @@ graph load_from_dot(const std::string& dot_filename)
 
 \begin_layout Plain Layout
 
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
 \end_layout
 
 \begin_layout Plain Layout

@@ -16,7 +16,7 @@ graph load_undirected_custom_edges_and_vertices_graph_from_dot(
     ;
     throw std::invalid_argument(msg.str());
   }
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
   graph g;
   boost::dynamic_properties dp(boost::ignore_other_properties); 
   dp.property("label", get(boost::vertex_custom_type, g));

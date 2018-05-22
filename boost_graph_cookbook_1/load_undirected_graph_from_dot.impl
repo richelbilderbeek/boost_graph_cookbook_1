@@ -20,7 +20,7 @@ load_undirected_graph_from_dot(
     ;
     throw std::invalid_argument(msg.str());
   }
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
   auto g = create_empty_undirected_graph();
   boost::dynamic_properties p(
     boost::ignore_other_properties

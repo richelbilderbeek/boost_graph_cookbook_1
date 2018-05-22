@@ -48,7 +48,7 @@ load_directed_graph_with_graph_name_from_dot(
   dp.property("name",graph_name);
 
 
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
   boost::read_graphviz(f,g,dp);
   return g;
 }
