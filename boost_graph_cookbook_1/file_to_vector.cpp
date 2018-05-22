@@ -20,7 +20,7 @@ std::vector<std::string> file_to_vector(
     throw std::invalid_argument(msg.str());
   }
   std::vector<std::string> v;
-  std::ifstream in{filename.c_str()};
+  std::ifstream in{filename};
   assert(in.is_open());
   for (int i=0; !in.eof(); ++i)
   {

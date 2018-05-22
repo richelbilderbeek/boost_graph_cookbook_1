@@ -16,7 +16,7 @@ void property_not_found_node_id() noexcept
   }
 
   //Try to read that file
-  std::ifstream f(dot_filename.c_str());
+  std::ifstream f(dot_filename);
   auto g = create_empty_undirected_graph();
 
   //Line below should have been
