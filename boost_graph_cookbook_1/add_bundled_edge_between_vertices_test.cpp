@@ -32,12 +32,8 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_edge_between_vertices_for_another_edge)
     boost::vecS,
     boost::vecS,
     boost::undirectedS,
-    boost::property<
-      boost::vertex_bundled_type_t, another_vertex
-    >,
-    boost::property<
-      boost::edge_bundled_type_t, another_edge
-    >
+    another_vertex,
+    another_edge
   >;
   another_graph g;
   const auto from = add_bundled_vertex(
