@@ -1,5 +1,6 @@
 
 SOURCES += \
+    $$PWD/add_bundled_edge_between_vertices_test.cpp \
     $$PWD/add_bundled_edge_test.cpp \
     $$PWD/add_bundled_vertex_test.cpp \
     $$PWD/add_custom_and_selectable_edge_between_vertices_test.cpp \
@@ -184,6 +185,7 @@ SOURCES += \
 
 
 OTHER_FILES += \
+    $$PWD/add_bundled_edge_between_vertices_demo.impl \
     $$PWD/add_bundled_edge_demo.impl \
     $$PWD/add_bundled_vertex_demo.impl \
     $$PWD/add_custom_and_selectable_edge_between_vertices_demo.impl \

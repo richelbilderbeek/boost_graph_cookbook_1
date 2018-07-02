@@ -1,5 +1,6 @@
 HEADERS += \
     $$PWD/add_bundled_vertex.h \
+    $$PWD/add_bundled_edge_between_vertices.h \
     $$PWD/create_bundled_vertices_k2_graph.h \
     $$PWD/create_bundled_vertices_markov_chain.h \
     $$PWD/create_empty_directed_bundled_vertices_graph.h \
@@ -17,6 +18,7 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/add_bundled_vertex.cpp \
+    $$PWD/add_bundled_edge_between_vertices.cpp \
     $$PWD/create_bundled_vertices_k2_graph.cpp \
     $$PWD/create_bundled_vertices_markov_chain.cpp \
     $$PWD/create_empty_directed_bundled_vertices_graph.cpp \
@@ -34,6 +36,7 @@ SOURCES += \
 
 OTHER_FILES += \
     $$PWD/add_bundled_vertex.impl \
+    $$PWD/add_bundled_edge_between_vertices.impl \
     $$PWD/create_bundled_vertices_k2_graph.impl \
     $$PWD/create_bundled_vertices_markov_chain.impl \
     $$PWD/create_empty_directed_bundled_vertices_graph.impl \
