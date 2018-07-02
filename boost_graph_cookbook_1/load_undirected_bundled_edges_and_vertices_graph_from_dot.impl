@@ -1,12 +1,15 @@
-#include <fstream>
-#include <boost/graph/graphviz.hpp>
-#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
-#include "is_regular_file.h"
-#include "graphviz_decode.h"
+//#include <fstream>
+//#include <boost/graph/graphviz.hpp>
+//#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+//#include "is_regular_file.h"
+//#include "graphviz_decode.h"
 
-/*
-template <class graph = decltype(create_empty_undirected_bundled_edges_and_vertices_graph())>
-load_undirected_bundled_edges_and_vertices_graph_from_dot(
+#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include <boost/graph/graphviz.hpp>
+#include "is_regular_file.h"
+
+template <class graph>
+graph load_undirected_bundled_edges_and_vertices_graph_from_dot(
   const std::string& dot_filename
 )
 {
@@ -19,9 +22,9 @@ load_undirected_bundled_edges_and_vertices_graph_from_dot(
     throw std::invalid_argument(msg.str());
   }
   std::ifstream f(dot_filename);
-  auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
+  graph g;
 
-  boost::dynamic_properties dp(boost::ignore_other_properties); 
+  boost::dynamic_properties dp(boost::ignore_other_properties);
   dp.property("label",get(&my_bundled_vertex::m_name, g));
   dp.property("comment", get(&my_bundled_vertex::m_description, g));
   dp.property("width", get(&my_bundled_vertex::m_x, g));
@@ -57,4 +60,3 @@ load_undirected_bundled_edges_and_vertices_graph_from_dot(
 
   return g;
 }
-*/
