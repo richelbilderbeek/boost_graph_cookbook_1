@@ -4,13 +4,8 @@
 #include "is_regular_file.h"
 #include "graphviz_decode.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  my_bundled_vertex,
-  my_bundled_edge
->
+/*
+template <class graph = decltype(create_empty_undirected_bundled_edges_and_vertices_graph())>
 load_undirected_bundled_edges_and_vertices_graph_from_dot(
   const std::string& dot_filename
 )
@@ -62,3 +57,4 @@ load_undirected_bundled_edges_and_vertices_graph_from_dot(
 
   return g;
 }
+*/
