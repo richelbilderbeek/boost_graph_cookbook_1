@@ -20,6 +20,26 @@ my_bundled_edge::my_bundled_edge(
 
 }
 
+const std::string& my_bundled_edge::get_description() const noexcept
+{
+  return m_description;
+}
+
+double my_bundled_edge::get_height() const noexcept
+{
+  return m_height;
+}
+
+const std::string& my_bundled_edge::get_name() const noexcept
+{
+  return m_name;
+}
+
+double my_bundled_edge::get_width() const noexcept
+{
+  return m_width;
+}
+
 std::ostream& operator<<(std::ostream& os, const my_bundled_edge& v) noexcept
 {
   os
@@ -47,4 +67,15 @@ bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept
 bool operator!=(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept
 {
   return !(lhs == rhs);
+}
+
+bool operator<(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept
+{
+  if (lhs.get_name() < rhs.get_name()) return true;
+  if (lhs.get_name() > rhs.get_name()) return false;
+  if (lhs.get_description() < rhs.get_description()) return true;
+  if (lhs.get_description() > rhs.get_description()) return false;
+  if (lhs.get_width() < rhs.get_width()) return true;
+  if (lhs.get_width() > rhs.get_width()) return false;
+  return lhs.get_height() < rhs.get_height();
 }

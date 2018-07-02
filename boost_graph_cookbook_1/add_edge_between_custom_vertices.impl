@@ -3,7 +3,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <boost/graph/adjacency_list.hpp>
-#include "has_vertex_with_my_vertex.h"
+#include "has_custom_vertex_with_my_vertex.h"
 #include "find_first_custom_vertex_with_my_vertex.h"
 
 template <typename graph, typename custom_vertex>
@@ -14,7 +14,7 @@ add_edge_between_custom_vertices(
   graph& g
 )
 {
-  if (!has_vertex_with_my_vertex(vertex_from, g))
+  if (!has_custom_vertex_with_my_vertex(vertex_from, g))
   {
     std::stringstream msg;
     msg << __func__ << ": "
@@ -23,7 +23,7 @@ add_edge_between_custom_vertices(
     ;
     throw std::invalid_argument(msg.str());
   }
-  if (!has_vertex_with_my_vertex(vertex_to, g))
+  if (!has_custom_vertex_with_my_vertex(vertex_to, g))
   {
     std::stringstream msg;
     msg << __func__ << ": "

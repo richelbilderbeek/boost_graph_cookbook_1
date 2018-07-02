@@ -10,6 +10,10 @@ struct my_bundled_vertex
     const double x = 0.0,
     const double y = 0.0
   ) noexcept;
+  const std::string& get_description() const noexcept;
+  const std::string& get_name() const noexcept;
+  double get_x() const noexcept;
+  double get_y() const noexcept;
   std::string m_name;
   std::string m_description;
   double m_x;
@@ -19,3 +23,4 @@ struct my_bundled_vertex
 std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& e) noexcept;
 bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
 bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+bool operator<(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;

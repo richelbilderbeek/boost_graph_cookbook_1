@@ -4,14 +4,8 @@
 #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  my_bundled_vertex,
-  my_bundled_edge
->
-load_undirected_bundled_edges_and_vertices_graph_from_dot(
+template <class graph = decltype(create_empty_undirected_bundled_edges_and_vertices_graph())>
+graph load_undirected_bundled_edges_and_vertices_graph_from_dot(
   const std::string& dot_filename
 );
 

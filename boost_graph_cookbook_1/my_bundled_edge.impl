@@ -10,6 +10,11 @@ public:
     const double width = 1.0,
     const double height = 1.0
   ) noexcept;
+  const std::string& get_description() const noexcept;
+  const std::string& get_name() const noexcept;
+  double get_height() const noexcept;
+  double get_width() const noexcept;
+
   std::string m_name;
   std::string m_description;
   double m_width;
@@ -19,3 +24,4 @@ public:
 std::ostream& operator<<(std::ostream& os, const my_bundled_edge& e) noexcept;
 bool operator==(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept;
 bool operator!=(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept;
+bool operator<(const my_bundled_edge& lhs, const my_bundled_edge& rhs) noexcept;

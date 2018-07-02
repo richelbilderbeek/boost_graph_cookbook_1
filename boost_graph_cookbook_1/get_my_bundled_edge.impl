@@ -2,10 +2,10 @@
 #include "my_bundled_edge.h"
 
 template <typename graph>
-my_bundled_edge get_my_bundled_edge(
+auto get_my_bundled_edge(
   const typename boost::graph_traits<graph>::edge_descriptor& ed,
   const graph& g
-) noexcept
+) noexcept -> decltype(g[ed])
 {
   return g[ed];
 }

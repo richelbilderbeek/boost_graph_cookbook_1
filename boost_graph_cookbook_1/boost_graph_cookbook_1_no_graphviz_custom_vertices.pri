@@ -19,7 +19,6 @@ HEADERS += \
     $$PWD/get_sorted_custom_vertex_my_vertexes.h \
     $$PWD/has_custom_vertex.h \
     $$PWD/has_custom_vertex_with_my_vertex.h \
-    $$PWD/has_vertex_with_my_vertex.h \
     $$PWD/install_vertex_custom_type.h \
     $$PWD/is_custom_vertices_isomorphic.h \
     $$PWD/my_custom_vertex.h \

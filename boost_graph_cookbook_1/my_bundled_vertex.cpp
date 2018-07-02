@@ -18,6 +18,26 @@ my_bundled_vertex::my_bundled_vertex(
 
 }
 
+const std::string& my_bundled_vertex::get_description() const noexcept
+{
+  return m_description;
+}
+
+const std::string& my_bundled_vertex::get_name() const noexcept
+{
+  return m_name;
+}
+
+double my_bundled_vertex::get_x() const noexcept
+{
+  return m_x;
+}
+
+double my_bundled_vertex::get_y() const noexcept
+{
+  return m_y;
+}
+
 std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& v) noexcept
 {
   os
@@ -45,4 +65,15 @@ bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noex
 bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept
 {
   return !(lhs == rhs);
+}
+
+bool operator<(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept
+{
+  if (lhs.get_name() < rhs.get_name()) return true;
+  if (lhs.get_name() > rhs.get_name()) return false;
+  if (lhs.get_description() < rhs.get_description()) return true;
+  if (lhs.get_description() > rhs.get_description()) return false;
+  if (lhs.get_x() < rhs.get_x()) return true;
+  if (lhs.get_x() > rhs.get_x()) return false;
+  return lhs.get_y() < rhs.get_y();
 }

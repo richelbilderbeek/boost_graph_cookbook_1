@@ -28,8 +28,12 @@ SOURCES += \
     $$PWD/count_undirected_graph_levels_test.cpp \
     $$PWD/count_vertices_with_name_test.cpp \
     $$PWD/count_vertices_with_selectedness_test.cpp \
+    $$PWD/create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs_test.cpp \
     $$PWD/create_all_direct_neighbour_subgraphs_test.cpp \
+    $$PWD/create_bundled_edges_and_vertices_k2_graph_test.cpp \
     $$PWD/create_bundled_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_bundled_edges_and_vertices_path_graph_test.cpp \
+    $$PWD/create_bundled_edges_and_vertices_petersen_graph_test.cpp \
     $$PWD/create_bundled_vertices_markov_chain_test.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_test.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_petersen_graph_test.cpp \
@@ -54,6 +58,7 @@ SOURCES += \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph_test.cpp \
     $$PWD/create_tutorial_chapters_graph_test.cpp \
     $$PWD/create_tutorial_subchapters_graph_test.cpp \
+    $$PWD/create_direct_neighbour_bundled_edges_and_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph_test.cpp \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph_test.cpp \
@@ -210,6 +215,7 @@ OTHER_FILES += \
     $$PWD/count_undirected_graph_levels_demo.impl \
     $$PWD/count_vertices_with_name_demo.impl \
     $$PWD/count_vertices_with_selectedness_demo.impl \
+    $$PWD/create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs_test.cpp \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraphs_demo.impl \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_demo.impl \
     $$PWD/create_all_direct_neighbour_custom_edges_and_vertices_subgraphs_demo.impl \
@@ -217,8 +223,11 @@ OTHER_FILES += \
     $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs_demo.impl \
     $$PWD/create_all_direct_neighbour_named_vertices_subgraphs_demo.impl \
     $$PWD/create_all_direct_neighbour_subgraphs_demo.impl \
+    $$PWD/create_bundled_edges_and_vertices_k2_graph_demo.impl \
     $$PWD/create_bundled_edges_and_vertices_k3_graph_demo.impl \
     $$PWD/create_bundled_edges_and_vertices_markov_chain_demo.impl \
+    $$PWD/create_bundled_edges_and_vertices_path_demo.impl \
+    $$PWD/create_bundled_edges_and_vertices_petersen_demo.impl \
     $$PWD/create_bundled_vertices_k2_graph_demo.impl \
     $$PWD/create_bundled_vertices_markov_chain_demo.impl \
     $$PWD/create_custom_and_selectable_edges_and_vertices_k2_graph_demo.impl \
@@ -241,6 +250,7 @@ OTHER_FILES += \
     $$PWD/create_custom_vertices_markov_chain_demo.impl \
     $$PWD/create_custom_vertices_path_graph_demo.impl \
     $$PWD/create_custom_vertices_petersen_graph_demo.impl \
+    $$PWD/create_direct_neighbour_bundled_edges_and_vertices_subgraph_demo.impl \
     $$PWD/create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph_demo.impl \
     $$PWD/create_direct_neighbour_custom_and_selectable_vertices_subgraph_demo.impl \
     $$PWD/create_direct_neighbour_custom_edges_and_vertices_subgraph_demo.impl \

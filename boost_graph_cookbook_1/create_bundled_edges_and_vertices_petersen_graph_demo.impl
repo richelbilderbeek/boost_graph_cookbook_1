@@ -1,0 +1,9 @@
+#include <boost/test/unit_test.hpp>
+#include "create_bundled_edges_and_vertices_petersen_graph.h"
+
+BOOST_AUTO_TEST_CASE(test_create_bundled_edges_and_vertices_petersen_graph)
+{
+  const auto g = create_bundled_edges_and_vertices_petersen_graph();
+  BOOST_CHECK(boost::num_edges(g) == 15);
+  BOOST_CHECK(boost::num_vertices(g) == 10);
+}

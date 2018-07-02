@@ -4,7 +4,7 @@
 #include "has_custom_edge_with_my_edge.h"
 #include "my_bundled_edge.h"
 
-template <typename graph>
+template <typename graph, typename my_bundled_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 find_first_bundled_edge_with_my_edge(
   const my_bundled_edge& e,

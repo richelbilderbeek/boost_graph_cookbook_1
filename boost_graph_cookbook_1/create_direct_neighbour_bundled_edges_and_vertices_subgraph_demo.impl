@@ -1,0 +1,24 @@
+#include <boost/test/unit_test.hpp>
+#include "create_direct_neighbour_bundled_edges_and_vertices_subgraph.h"
+#include "create_bundled_edges_and_vertices_k2_graph.h"
+#include "get_my_bundled_vertexes.h"
+
+BOOST_AUTO_TEST_CASE(test_create_direct_neighbour_bundled_edges_and_vertices_subgraph)
+{
+  const auto g = create_bundled_edges_and_vertices_k2_graph();
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i=vip.first; i!=j; ++i) {
+    const auto h = create_direct_neighbour_bundled_edges_and_vertices_subgraph(
+      *i,g
+    );
+    BOOST_CHECK(boost::num_vertices(h) == 2);
+    BOOST_CHECK(boost::num_edges(h) == 1);
+    const auto v = get_my_bundled_vertexes(h);
+    std::set<my_bundled_vertex> vertexes(std::begin(v),std::end(v));
+    const my_bundled_vertex a("A","source",0.0,0.0);
+    const my_bundled_vertex b("B","target",3.14,3.14);
+    BOOST_CHECK(vertexes.count(a) == 1);
+    BOOST_CHECK(vertexes.count(b) == 1);
+  }
+}

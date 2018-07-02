@@ -1,0 +1,22 @@
+#include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include "add_bundled_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  my_bundled_vertex,
+  my_bundled_edge
+>
+create_bundled_edges_and_vertices_k2_graph() noexcept
+{
+  auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
+  const auto vd_a = add_bundled_vertex(
+    my_bundled_vertex("A","source",0.0,0.0), g
+  );
+  const auto vd_b = add_bundled_vertex(
+    my_bundled_vertex("B","target",3.14,3.14), g
+  );
+  boost::add_edge(vd_a, vd_b, g);
+  return g;
+}
