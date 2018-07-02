@@ -25,7 +25,9 @@ BOOST_AUTO_TEST_CASE(load_undirected_bundled_edges_and_vertices_graph_from_dot_t
       "load_undirected_bundled_edges_and_vertices_graph_from_dot_test.dot"
     };
     save_bundled_edges_and_vertices_graph_to_dot(g, filename);
-    const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot(filename);
+    const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot<
+      decltype(create_bundled_edges_and_vertices_k3_graph())
+    >(filename);
     BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
     BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
     BOOST_CHECK(get_my_bundled_edges(g) == get_my_bundled_edges(h));
@@ -44,7 +46,9 @@ BOOST_AUTO_TEST_CASE(load_undirected_bundled_edges_and_vertices_graph_from_dot_t
     const std::string svg_filename{base_filename + ".svg"};
     save_bundled_edges_and_vertices_graph_to_dot(g, dot_filename);
     const auto old_text = file_to_vector(dot_filename);
-    const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot(dot_filename);
+    const auto h = load_undirected_bundled_edges_and_vertices_graph_from_dot<
+      decltype(create_bundled_edges_and_vertices_k3_graph())
+    >(dot_filename);
     save_bundled_edges_and_vertices_graph_to_dot(h, dot_filename);
     const auto new_text = file_to_vector(dot_filename);
     BOOST_CHECK(old_text == new_text);
@@ -72,7 +76,9 @@ BOOST_AUTO_TEST_CASE(load_undirected_bundled_edges_and_vertices_graph_from_dot_w
   };
   assert(!is_regular_file(dot_filename));
   BOOST_CHECK_THROW(
-    load_undirected_bundled_edges_and_vertices_graph_from_dot(dot_filename),
+    load_undirected_bundled_edges_and_vertices_graph_from_dot<
+      decltype(create_bundled_edges_and_vertices_k3_graph())
+    >(dot_filename),
     std::invalid_argument
   );
 }

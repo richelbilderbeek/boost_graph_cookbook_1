@@ -16,9 +16,10 @@ BOOST_AUTO_TEST_CASE(test_load_undirected_bundled_edges_and_vertices_graph_from_
   };
   save_bundled_edges_and_vertices_graph_to_dot(g, filename);
   const auto h
-    = load_undirected_bundled_edges_and_vertices_graph_from_dot(
-      filename
-    );
+    = load_undirected_bundled_edges_and_vertices_graph_from_dot<
+      decltype(create_bundled_edges_and_vertices_k3_graph())
+    >(filename)
+  ;
   BOOST_CHECK(num_edges(g) == num_edges(h));
   BOOST_CHECK(num_vertices(g) == num_vertices(h));
   BOOST_CHECK(get_sorted_bundled_vertex_my_vertexes(g)
