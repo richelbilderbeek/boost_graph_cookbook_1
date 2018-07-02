@@ -112,3 +112,4 @@ boost_graph_cookbook_1/create_named_vertices_k3_graph.pdf
 boost_graph_cookbook_1/create_named_vertices_petersen_graph.pdf
 boost_graph_cookbook_1/named_vertices_petersen_graph.pdf
 *.autosave
+.Rhistory
