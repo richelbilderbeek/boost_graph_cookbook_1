@@ -1,16 +1,16 @@
 #include "create_text_vertices_markov_chain.h"
 #include "create_text_vertices_markov_chain_demo.impl"
 
-#include <boost/test/unit_test.hpp>
 #include "add_text_vertex.h"
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
-#include "get_edge_descriptors.h"
-#include "get_vertex_descriptors.h"
-#include "get_vertex_texts.h"
-#include "create_text_vertices_markov_chain.h"
-#include "get_sorted_text_vertex_my_vertexes.h"
 #include "create_nasty_directed_text_vertices_graph.h"
+#include "create_text_vertices_markov_chain.h"
+#include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
+#include "get_sorted_text_vertex_my_vertexes.h"
+#include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
+#include "get_vertex_texts.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(create_text_vertices_markov_chain_use)
 {
@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(create_text_vertices_markov_chain_use)
   BOOST_CHECK(eip.first != eip.second);
   const auto eds = get_edge_descriptors(g);
   BOOST_CHECK(eds.size() == 4);
-  const std::vector<std::string> expected_texts{"Good", "Not bad"};
+  const std::vector<std::string> expected_texts{ "Good", "Not bad" };
   const std::vector<std::string> vertex_texts = get_vertex_texts(g);
   BOOST_CHECK(expected_texts == vertex_texts);
 }

@@ -1,8 +1,8 @@
 #include "get_first_vertex_with_text_out_degree.h"
 #include "get_first_vertex_with_text_out_degree_demo.impl"
 
-#include <boost/test/unit_test.hpp>
 #include "create_text_vertices_k2_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(get_first_vertex_with_text_out_degree_thorough)
 {

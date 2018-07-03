@@ -1,9 +1,9 @@
 #include "remove_nth_vertex.h"
 #include "remove_nth_vertex_demo.impl"
 
-#include <boost/test/unit_test.hpp>
 #include "create_k3_graph.h"
 #include "create_petersen_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(remove_nth_vertex_detailed_on_k3)
 {
@@ -24,8 +24,7 @@ BOOST_AUTO_TEST_CASE(remove_nth_vertex_detailed_on_k3)
 BOOST_AUTO_TEST_CASE(remove_nth_vertex_rough_on_petersen_graph)
 {
   auto g = create_petersen_graph();
-  for (int i=0; i!=10; ++i)
-  {
+  for (int i = 0; i != 10; ++i) {
     BOOST_CHECK_EQUAL(static_cast<int>(boost::num_vertices(g)), 10 - i);
     remove_nth_vertex(0, g);
   }

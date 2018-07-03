@@ -2,8 +2,8 @@
 
 #include "add_bundled_edge_demo.impl"
 
-#include <boost/test/unit_test.hpp>
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include <boost/test/unit_test.hpp>
 
 #include "add_bundled_vertex.h"
 #include "get_my_bundled_edges.h"
@@ -20,8 +20,8 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_edge_one_edge)
   add_bundled_edge(vd_from, vd_to, edge, g);
   BOOST_CHECK(boost::num_vertices(g) == 2);
   BOOST_CHECK(boost::num_edges(g) == 1);
-  const std::vector<my_bundled_edge> edges{get_my_bundled_edges(g)};
-  const std::vector<my_bundled_edge> expected_edges{edge};
+  const std::vector<my_bundled_edge> edges{ get_my_bundled_edges(g) };
+  const std::vector<my_bundled_edge> expected_edges{ edge };
   BOOST_CHECK(edges == expected_edges);
 }
 
@@ -39,8 +39,8 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_edge_two_edges)
   add_bundled_edge(vd_b, vd_c, edge_2, g);
   BOOST_CHECK(boost::num_vertices(g) == 3);
   BOOST_CHECK(boost::num_edges(g) == 2);
-  const std::vector<my_bundled_edge> edges{get_my_bundled_edges(g)};
-  const std::vector<my_bundled_edge> expected_edges{edge_1, edge_2};
+  const std::vector<my_bundled_edge> edges{ get_my_bundled_edges(g) };
+  const std::vector<my_bundled_edge> expected_edges{ edge_1, edge_2 };
   BOOST_CHECK(edges == expected_edges);
 }
 
@@ -54,23 +54,15 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_edge_twice)
   const my_bundled_edge edge_1("X");
   add_bundled_edge(vd_a, vd_b, edge_1, g);
   BOOST_CHECK_THROW(
-    add_bundled_edge(vd_a, vd_b, edge_1, g),
-    std::invalid_argument
-  );
+    add_bundled_edge(vd_a, vd_b, edge_1, g), std::invalid_argument);
 }
-
 
 BOOST_AUTO_TEST_CASE(test_add_bundled_edge_for_another_edge_type)
 {
   using another_bundled_edge = std::string;
   using another_bundled_vertex = std::string;
-  using another_graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    another_bundled_vertex,
-    another_bundled_edge
-  >;
+  using another_graph = boost::adjacency_list<boost::vecS, boost::vecS,
+    boost::undirectedS, another_bundled_vertex, another_bundled_edge>;
   another_graph g;
   BOOST_CHECK(boost::num_vertices(g) == 0);
   BOOST_CHECK(boost::num_edges(g) == 0);

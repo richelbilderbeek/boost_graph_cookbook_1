@@ -1,9 +1,9 @@
 #include "add_vertex.h"
 #include "add_vertex_demo.impl"
 
-#include <boost/test/unit_test.hpp>
-#include "create_empty_undirected_graph.h"
 #include "create_empty_directed_graph.h"
+#include "create_empty_undirected_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(add_vertex_undirected_graph)
 {

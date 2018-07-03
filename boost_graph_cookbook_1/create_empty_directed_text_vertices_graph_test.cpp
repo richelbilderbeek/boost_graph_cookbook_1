@@ -3,16 +3,16 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
-#include "get_edge_descriptors.h"
-#include "get_vertex_descriptors.h"
 #include "add_edge.h"
 #include "add_text_vertex.h"
+#include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
+#include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
 
 BOOST_AUTO_TEST_CASE(create_empty_directed_text_vertices_graph_thorough)
 {
-  //Basic testing
+  // Basic testing
   {
     auto g = create_empty_directed_text_vertices_graph();
     const auto vip = get_vertex_iterators(g);
@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(create_empty_directed_text_vertices_graph_thorough)
     BOOST_CHECK(eds.empty());
     BOOST_CHECK(boost::num_edges(g) == 0);
     BOOST_CHECK(boost::num_vertices(g) == 0);
-    add_text_vertex("A",g);
+    add_text_vertex("A", g);
     BOOST_CHECK(boost::num_edges(g) == 0);
     BOOST_CHECK(boost::num_vertices(g) == 1);
     add_edge(g);

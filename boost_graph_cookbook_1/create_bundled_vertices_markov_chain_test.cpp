@@ -1,21 +1,20 @@
 #include "create_bundled_vertices_markov_chain.h"
 #include "create_bundled_vertices_markov_chain_demo.impl"
 
-
 #include <boost/test/unit_test.hpp>
 
-#include <boost/test/unit_test.hpp>
 #include "convert_dot_to_svg.h"
 #include "copy_file.h"
+#include <boost/test/unit_test.hpp>
 
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
-#include "get_edge_descriptors.h"
-#include "get_vertex_descriptors.h"
-#include "get_vertex_names.h"
 #include "create_bundled_vertices_markov_chain.h"
-#include "save_bundled_vertices_graph_to_dot.h"
+#include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
 #include "get_sorted_bundled_vertex_my_vertexes.h"
+#include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
+#include "get_vertex_names.h"
+#include "save_bundled_vertices_graph_to_dot.h"
 
 BOOST_AUTO_TEST_CASE(create_bundled_vertices_markov_chain_use)
 {
@@ -36,8 +35,8 @@ BOOST_AUTO_TEST_CASE(create_bundled_vertices_markov_chain_use)
     get_my_bundled_vertexes(g)
   };
   const std::vector<my_bundled_vertex> expected_my_vertexes{
-    my_bundled_vertex("Sunny","Yellow",1.0,2.0),
-    my_bundled_vertex("Not rainy","Not grey",3.0,4.0)
+    my_bundled_vertex("Sunny", "Yellow", 1.0, 2.0),
+    my_bundled_vertex("Not rainy", "Not grey", 3.0, 4.0)
   };
   BOOST_CHECK(expected_my_vertexes == vertex_my_vertexes);
 }

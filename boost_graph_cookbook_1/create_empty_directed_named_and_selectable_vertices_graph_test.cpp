@@ -3,17 +3,18 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
-#include "get_edge_descriptors.h"
-#include "get_vertex_descriptors.h"
 #include "add_edge.h"
 #include "add_named_and_selectable_vertex.h"
 #include "add_named_vertex.h"
+#include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
+#include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
 
-BOOST_AUTO_TEST_CASE(create_empty_directed_named_and_selectable_vertices_graph_thorough)
+BOOST_AUTO_TEST_CASE(
+  create_empty_directed_named_and_selectable_vertices_graph_thorough)
 {
-  //Basic testing
+  // Basic testing
   {
     auto g = create_empty_directed_named_and_selectable_vertices_graph();
     const auto vip = get_vertex_iterators(g);
@@ -26,7 +27,7 @@ BOOST_AUTO_TEST_CASE(create_empty_directed_named_and_selectable_vertices_graph_t
     BOOST_CHECK(eds.empty());
     BOOST_CHECK(boost::num_edges(g) == 0);
     BOOST_CHECK(boost::num_vertices(g) == 0);
-    add_named_and_selectable_vertex("A",true,g);
+    add_named_and_selectable_vertex("A", true, g);
     BOOST_CHECK(boost::num_edges(g) == 0);
     BOOST_CHECK(boost::num_vertices(g) == 1);
     add_edge(g);

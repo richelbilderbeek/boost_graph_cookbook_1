@@ -4,9 +4,9 @@
 
 #include "add_named_vertex.h"
 #include "create_empty_directed_named_vertices_graph.h"
-#include "save_named_vertices_graph_to_dot.h"
-#include "load_directed_named_vertices_graph_from_dot.h"
 #include "get_sorted_named_vertex_my_vertexes.h"
+#include "load_directed_named_vertices_graph_from_dot.h"
+#include "save_named_vertices_graph_to_dot.h"
 
 BOOST_AUTO_TEST_CASE(create_nasty_directed_named_vertices_graph_thorough)
 {

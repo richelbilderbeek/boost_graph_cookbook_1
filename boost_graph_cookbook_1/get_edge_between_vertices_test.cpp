@@ -3,8 +3,8 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "create_k2_graph.h"
 #include "create_empty_directed_graph.h"
+#include "create_k2_graph.h"
 
 BOOST_AUTO_TEST_CASE(get_edge_between_vertices_thorough)
 {
@@ -12,8 +12,8 @@ BOOST_AUTO_TEST_CASE(get_edge_between_vertices_thorough)
   const auto vd_1 = *vertices(g).first;
   const auto vd_2 = *(++vertices(g).first);
   BOOST_CHECK(!has_edge_between_vertices(vd_1, vd_1, g));
-  BOOST_CHECK( has_edge_between_vertices(vd_1, vd_2, g));
-  BOOST_CHECK( has_edge_between_vertices(vd_2, vd_1, g));
+  BOOST_CHECK(has_edge_between_vertices(vd_1, vd_2, g));
+  BOOST_CHECK(has_edge_between_vertices(vd_2, vd_1, g));
   BOOST_CHECK(!has_edge_between_vertices(vd_2, vd_2, g));
   const auto ed = get_edge_between_vertices(vd_1, vd_2, g);
   boost::remove_edge(ed, g);
@@ -26,7 +26,5 @@ BOOST_AUTO_TEST_CASE(get_edge_between_vertices_when_no_edge_is_present)
   const auto vd_1 = boost::add_vertex(g);
   const auto vd_2 = boost::add_vertex(g);
   BOOST_CHECK_THROW(
-    get_edge_between_vertices(vd_1, vd_2, g),
-    std::invalid_argument
-  );
+    get_edge_between_vertices(vd_1, vd_2, g), std::invalid_argument);
 }

@@ -14,56 +14,50 @@
 
 BOOST_AUTO_TEST_CASE(create_direct_neighbour_text_vertices_subgraph_thorough)
 {
-  //K2
+  // K2
   {
     const auto g = create_text_vertices_k2_graph();
     const auto vip = vertices(g);
     const auto j = vip.second;
-    for (auto i=vip.first; i!=j; ++i) {
-      const auto h = create_direct_neighbour_text_vertices_subgraph(
-        *i,g
-      );
+    for (auto i = vip.first; i != j; ++i) {
+      const auto h = create_direct_neighbour_text_vertices_subgraph(*i, g);
       BOOST_CHECK(boost::num_vertices(h) == 2);
       BOOST_CHECK(boost::num_edges(h) == 1);
       const auto v = get_vertex_texts(h);
-      std::set<std::string> texts(std::begin(v),std::end(v));
+      std::set<std::string> texts(std::begin(v), std::end(v));
       BOOST_CHECK(texts.count("Me") == 1);
       BOOST_CHECK(texts.count("My computer") == 1);
     }
   }
-  //K3
+  // K3
   {
     const auto g = create_text_vertices_k3_graph();
     const auto vip = vertices(g);
     const auto j = vip.second;
-    for (auto i=vip.first; i!=j; ++i) {
-      const auto h = create_direct_neighbour_text_vertices_subgraph(
-        *i,g
-      );
+    for (auto i = vip.first; i != j; ++i) {
+      const auto h = create_direct_neighbour_text_vertices_subgraph(*i, g);
       BOOST_CHECK(boost::num_vertices(h) == 3);
       BOOST_CHECK(boost::num_edges(h) == 3);
       const auto v = get_vertex_texts(h);
-      std::set<std::string> texts(std::begin(v),std::end(v));
+      std::set<std::string> texts(std::begin(v), std::end(v));
       BOOST_CHECK(texts.count("Karen") == 1);
       BOOST_CHECK(texts.count("Kristel") == 1);
       BOOST_CHECK(texts.count("Kathleen") == 1);
     }
   }
-  //Path graph
+  // Path graph
   {
-    const auto g = create_text_vertices_path_graph( { "A", "B", "C" } );
+    const auto g = create_text_vertices_path_graph({ "A", "B", "C" });
     const auto vip = vertices(g);
     const auto j = vip.second;
-    for (auto i=vip.first; i!=j; ++i) {
+    for (auto i = vip.first; i != j; ++i) {
 
-      const auto h = create_direct_neighbour_text_vertices_subgraph(
-        *i,g
-      );
+      const auto h = create_direct_neighbour_text_vertices_subgraph(*i, g);
       if (get_vertex_text(*i, g) == "A") {
         BOOST_CHECK(boost::num_vertices(h) == 2);
         BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_vertex_texts(h);
-        std::set<std::string> texts(std::begin(v),std::end(v));
+        std::set<std::string> texts(std::begin(v), std::end(v));
         BOOST_CHECK(texts.count("A") == 1);
         BOOST_CHECK(texts.count("B") == 1);
       }
@@ -71,7 +65,7 @@ BOOST_AUTO_TEST_CASE(create_direct_neighbour_text_vertices_subgraph_thorough)
         BOOST_CHECK(boost::num_vertices(h) == 3);
         BOOST_CHECK(boost::num_edges(h) == 2);
         const auto v = get_vertex_texts(h);
-        std::set<std::string> texts(std::begin(v),std::end(v));
+        std::set<std::string> texts(std::begin(v), std::end(v));
         BOOST_CHECK(texts.count("A") == 1);
         BOOST_CHECK(texts.count("B") == 1);
         BOOST_CHECK(texts.count("C") == 1);
@@ -80,7 +74,7 @@ BOOST_AUTO_TEST_CASE(create_direct_neighbour_text_vertices_subgraph_thorough)
         BOOST_CHECK(boost::num_vertices(h) == 2);
         BOOST_CHECK(boost::num_edges(h) == 1);
         const auto v = get_vertex_texts(h);
-        std::set<std::string> texts(std::begin(v),std::end(v));
+        std::set<std::string> texts(std::begin(v), std::end(v));
         BOOST_CHECK(texts.count("B") == 1);
         BOOST_CHECK(texts.count("C") == 1);
       }

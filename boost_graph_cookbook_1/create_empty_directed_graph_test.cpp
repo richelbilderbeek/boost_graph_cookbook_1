@@ -5,7 +5,6 @@
 
 #include "get_graph_name.h"
 
-
 BOOST_AUTO_TEST_CASE(create_empty_directed_graph_thorough)
 {
   auto g = create_empty_directed_graph();
@@ -14,6 +13,6 @@ BOOST_AUTO_TEST_CASE(create_empty_directed_graph_thorough)
   BOOST_CHECK(boost::num_edges(g) == 0);
   BOOST_CHECK(boost::num_vertices(g) == 0);
 
-  //Sure, can
+  // Sure, can
   add_vertex(g);
 }

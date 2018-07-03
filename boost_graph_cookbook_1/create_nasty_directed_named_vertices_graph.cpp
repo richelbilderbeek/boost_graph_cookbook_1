@@ -4,38 +4,32 @@
 #include "create_empty_directed_named_vertices_graph.h"
 #include "get_sorted_named_vertex_my_vertexes.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<boost::vertex_name_t,std::string>
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_name_t, std::string>>
 create_nasty_directed_named_vertices_graph() noexcept
 {
   auto g = create_empty_directed_named_vertices_graph();
-  for (int i=0; i!=2; ++i) //Duplicate labels
+  for (int i = 0; i != 2; ++i) // Duplicate labels
   {
-    //Normal
+    // Normal
     add_named_vertex("A", g);
-    //Spaces
+    // Spaces
     add_named_vertex("A B", g);
-    //Spaces in end and front
+    // Spaces in end and front
     add_named_vertex(" A B", g);
     add_named_vertex("A B ", g);
-    //Underscores
+    // Underscores
     add_named_vertex(" _A_B _ ", g);
-    //Backslash
+    // Backslash
     add_named_vertex(" \\\\A\\B\\ ", g);
-    //Quotes
+    // Quotes
     add_named_vertex(" \"A\"B\"\" ", g);
-    //Commas
+    // Commas
     add_named_vertex(" A,B,, ", g);
-    //Long name
-    add_named_vertex(std::string(999,'A') + std::string(999,'B'), g);
-    //Escape sequence
+    // Long name
+    add_named_vertex(std::string(999, 'A') + std::string(999, 'B'), g);
+    // Escape sequence
     add_named_vertex("A\"];", g);
   }
   return g;
 }
-
-

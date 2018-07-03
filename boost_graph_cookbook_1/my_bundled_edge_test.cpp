@@ -13,16 +13,11 @@ BOOST_AUTO_TEST_CASE(test_my_bundled_edge_default_construction)
 
 BOOST_AUTO_TEST_CASE(test_my_bundled_edge_copy_construction)
 {
-  const std::string description{"description"};
-  const std::string name{"name"};
-  const double height{12.34};
-  const double width{123.456};
-  const my_bundled_edge a(
-    name,
-    description,
-    width,
-    height
-  );
+  const std::string description{ "description" };
+  const std::string name{ "name" };
+  const double height{ 12.34 };
+  const double width{ 123.456 };
+  const my_bundled_edge a(name, description, width, height);
   const my_bundled_edge b(a);
   BOOST_CHECK_EQUAL(b.m_description, description);
   BOOST_CHECK_EQUAL(b.m_height, height);
@@ -32,16 +27,11 @@ BOOST_AUTO_TEST_CASE(test_my_bundled_edge_copy_construction)
 
 BOOST_AUTO_TEST_CASE(test_my_bundled_edge_comparison)
 {
-  const std::string description{"description"};
-  const std::string name{"name"};
-  const double height{12.34};
-  const double width{123.456};
-  const my_bundled_edge a(
-    name,
-    description,
-    width,
-    height
-  );
+  const std::string description{ "description" };
+  const std::string name{ "name" };
+  const double height{ 12.34 };
+  const double width{ 123.456 };
+  const my_bundled_edge a(name, description, width, height);
   const my_bundled_edge b(a);
   const my_bundled_edge c;
   BOOST_CHECK(a == b);

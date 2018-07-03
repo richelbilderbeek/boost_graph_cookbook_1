@@ -3,10 +3,10 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
 #include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
 #include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
 
 BOOST_AUTO_TEST_CASE(create_empty_undirected_named_vertices_graph_thorough)
 {
@@ -23,6 +23,6 @@ BOOST_AUTO_TEST_CASE(create_empty_undirected_named_vertices_graph_thorough)
   BOOST_CHECK(boost::num_edges(g) == 0);
   BOOST_CHECK(boost::num_vertices(g) == 0);
 
-  //Sure, can
-  //add_vertex(g);
+  // Sure, can
+  // add_vertex(g);
 }

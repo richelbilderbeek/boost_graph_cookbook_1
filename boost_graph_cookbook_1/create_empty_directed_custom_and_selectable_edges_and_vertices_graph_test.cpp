@@ -3,10 +3,12 @@
 
 #include <boost/test/unit_test.hpp>
 
-BOOST_AUTO_TEST_CASE(create_empty_directed_custom_and_selectable_edges_and_vertices_graph_thorough)
+BOOST_AUTO_TEST_CASE(
+  create_empty_directed_custom_and_selectable_edges_and_vertices_graph_thorough)
 {
   {
-    const auto g = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();
+    const auto g
+      = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();
     BOOST_CHECK(boost::num_edges(g) == 0);
     BOOST_CHECK(boost::num_vertices(g) == 0);
   }

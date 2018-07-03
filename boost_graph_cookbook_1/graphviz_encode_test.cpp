@@ -6,22 +6,17 @@
 
 BOOST_AUTO_TEST_CASE(graphviz_encode_thorough)
 {
-  //Graphviz encoding
+  // Graphviz encoding
   {
-    for (const auto s:
-      {
-        "A", "ABCDEFGHIJKLMN",
-        "A B", " A B ", "  A  B  ", //Spaces
-        "A\"B", "\"A\"B\"", "\"\"A\"\"B\"\"", //Quotes
-        "A\\B", "\\A\\B\\", "\\\\A\\\\B\\\\", //Backslash
-        "A,B", ",A,B,", ",,A,,B,," //Comma
-      }
-    )
-    {
+    for (const auto s : {
+           "A", "ABCDEFGHIJKLMN", "A B", " A B ", "  A  B  ", // Spaces
+           "A\"B", "\"A\"B\"", "\"\"A\"\"B\"\"", // Quotes
+           "A\\B", "\\A\\B\\", "\\\\A\\\\B\\\\", // Backslash
+           "A,B", ",A,B,", ",,A,,B,," // Comma
+         }) {
       const auto t = graphviz_encode(s);
       const auto u = graphviz_decode(t);
       BOOST_CHECK(s == u);
     }
   }
-  
 }

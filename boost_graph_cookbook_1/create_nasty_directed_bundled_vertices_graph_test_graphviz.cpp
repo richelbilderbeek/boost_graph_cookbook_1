@@ -4,9 +4,9 @@
 
 #include "add_bundled_vertex.h"
 #include "create_empty_directed_bundled_vertices_graph.h"
-#include "save_bundled_vertices_graph_to_dot.h"
-#include "load_directed_bundled_vertices_graph_from_dot.h"
 #include "get_sorted_bundled_vertex_my_vertexes.h"
+#include "load_directed_bundled_vertices_graph_from_dot.h"
+#include "save_bundled_vertices_graph_to_dot.h"
 
 BOOST_AUTO_TEST_CASE(create_nasty_directed_bundled_vertices_graph_save_and_load)
 {

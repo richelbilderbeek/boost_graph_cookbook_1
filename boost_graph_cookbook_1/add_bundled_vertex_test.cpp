@@ -1,8 +1,8 @@
 #include "add_bundled_vertex.h"
 
-#include <boost/test/unit_test.hpp>
 #include "add_bundled_vertex_demo.impl"
 #include "create_empty_undirected_bundled_vertices_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_add_bundled_vertex_add_one)
 {
@@ -31,12 +31,8 @@ BOOST_AUTO_TEST_CASE(test_add_bundled_vertex_add_two)
 BOOST_AUTO_TEST_CASE(test_add_bundled_vertex_for_another_vertex_type)
 {
   using another_bundled_vertex = std::string;
-  using another_graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    another_bundled_vertex
-  >;
+  using another_graph = boost::adjacency_list<boost::vecS, boost::vecS,
+    boost::undirectedS, another_bundled_vertex>;
   another_graph g;
   BOOST_CHECK(boost::num_vertices(g) == 0);
   BOOST_CHECK(boost::num_edges(g) == 0);

@@ -13,30 +13,28 @@
 
 BOOST_AUTO_TEST_CASE(load_undirected_text_vertices_graph_from_dot_thorough)
 {
-  //Basic test
+  // Basic test
   {
     const auto g = create_text_vertices_k2_graph();
-    const std::string base_filetext{"create_text_vertices_k2_graph.dot"};
-    const std::string dot_filetext{base_filetext + ".dot"};
+    const std::string base_filetext{ "create_text_vertices_k2_graph.dot" };
+    const std::string dot_filetext{ base_filetext + ".dot" };
     save_text_vertices_graph_to_dot(g, dot_filetext);
     const auto h = load_undirected_text_vertices_graph_from_dot(dot_filetext);
     BOOST_CHECK(boost::num_edges(g) == boost::num_edges(h));
     BOOST_CHECK(boost::num_vertices(g) == boost::num_vertices(h));
     BOOST_CHECK(get_vertex_texts(g) == get_vertex_texts(h));
   }
-  
 }
 
-BOOST_AUTO_TEST_CASE(load_undirected_text_vertices_graph_from_dot_when_file_is_absent)
+BOOST_AUTO_TEST_CASE(
+  load_undirected_text_vertices_graph_from_dot_when_file_is_absent)
 {
   const std::string dot_filetext{
     "load_undirected_text_vertices_graph_from_dot_when_file_is_absent.dot"
   };
   assert(!is_regular_file(dot_filetext));
-  BOOST_CHECK_THROW(
-    load_undirected_text_vertices_graph_from_dot(dot_filetext),
-    std::invalid_argument
-  );
+  BOOST_CHECK_THROW(load_undirected_text_vertices_graph_from_dot(dot_filetext),
+    std::invalid_argument);
 }
 
 #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ

@@ -1,11 +1,10 @@
 #include "no_matching_function_for_call_to_clear_out_edges.h"
 
-
 #ifdef DO_NOT_INCLUDE
 
 #include "no_matching_function_for_call_to_clear_out_edges.impl"
 
-#endif //DO_NOT_INCLUDE
+#endif // DO_NOT_INCLUDE
 
 /*
 

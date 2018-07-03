@@ -5,10 +5,8 @@
 
 BOOST_AUTO_TEST_CASE(test_convert_dot_to_svg)
 {
-  BOOST_CHECK_THROW(
-    convert_dot_to_svg("dont_exists.dot", "dont_exists.svg"),
-    std::invalid_argument
-  );
+  BOOST_CHECK_THROW(convert_dot_to_svg("dont_exists.dot", "dont_exists.svg"),
+    std::invalid_argument);
 }
 
 #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ

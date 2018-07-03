@@ -1,9 +1,7 @@
 #include "load_undirected_custom_and_selectable_vertices_graph_from_dot.h"
 #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 #include "load_undirected_custom_and_selectable_vertices_graph_from_dot.impl"
-#endif //BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
-
-
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 #include "add_custom_and_selectable_vertex.h"
 #include "convert_dot_to_svg.h"
@@ -11,10 +9,9 @@
 #include "create_custom_and_selectable_vertices_k2_graph.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "create_nasty_undirected_custom_and_selectable_vertices_graph.h"
+#include "file_to_vector.h"
 #include "get_sorted_custom_vertex_my_vertexes.h"
 #include "get_sorted_vertex_selectednesses.h"
-#include "file_to_vector.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
 #include "save_custom_and_selectable_vertices_graph_to_dot.h"
-

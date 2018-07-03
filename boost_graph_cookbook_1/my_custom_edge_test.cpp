@@ -3,20 +3,20 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <sstream>
 #include <boost/test/unit_test.hpp>
+#include <sstream>
 
 #include <boost/lexical_cast.hpp>
 
 #include "file_to_vector.h"
-#include "seperate_string.h"
 #include "graphviz_decode.h"
 #include "graphviz_encode.h"
+#include "seperate_string.h"
 
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_copy_construction)
 {
-  const my_custom_edge a("A B","c d",1.0,2.0);
-  const my_custom_edge b{a};
+  const my_custom_edge a("A B", "c d", 1.0, 2.0);
+  const my_custom_edge b{ a };
   BOOST_CHECK(a == b);
 }
 
@@ -35,11 +35,11 @@ BOOST_AUTO_TEST_CASE(test_my_custom_edge_construction)
 
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_compare_operators)
 {
-  const my_custom_edge a("A B","c d",1.0,2.0);
-  const my_custom_edge b("A B","c d",1.0,2.0);
-  const my_custom_edge c("A B","x x",1.0,2.0);
-  const my_custom_edge d("A B","c d",9.9,2.0);
-  const my_custom_edge e("A B","c d",1.0,9.9);
+  const my_custom_edge a("A B", "c d", 1.0, 2.0);
+  const my_custom_edge b("A B", "c d", 1.0, 2.0);
+  const my_custom_edge c("A B", "x x", 1.0, 2.0);
+  const my_custom_edge d("A B", "c d", 9.9, 2.0);
+  const my_custom_edge e("A B", "c d", 1.0, 9.9);
   BOOST_CHECK_EQUAL(a, b);
   BOOST_CHECK_NE(a, c);
   BOOST_CHECK_NE(b, c);
@@ -50,17 +50,17 @@ BOOST_AUTO_TEST_CASE(test_my_custom_edge_compare_operators)
 
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_conversion_to_string)
 {
-  const my_custom_edge in("A B","c d",1.0,2.0);
+  const my_custom_edge in("A B", "c d", 1.0, 2.0);
   std::stringstream s;
   s << in;
-  const std::string t{s.str()};
+  const std::string t{ s.str() };
   BOOST_CHECK(t.find(' ') == std::string::npos);
-  BOOST_CHECK(std::count(std::begin(t),std::end(t),',') == 3);
+  BOOST_CHECK(std::count(std::begin(t), std::end(t), ',') == 3);
 }
 
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_conversion_to_stream_and_back)
 {
-  const my_custom_edge in("AB","cd",1.0,2.0);
+  const my_custom_edge in("AB", "cd", 1.0, 2.0);
   std::stringstream s;
   s << in;
   my_custom_edge out;
@@ -70,8 +70,8 @@ BOOST_AUTO_TEST_CASE(test_my_custom_edge_conversion_to_stream_and_back)
 
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_two_edges_to_stream_and_back)
 {
-  const my_custom_edge a("AB","cd",1.0,2.0);
-  const my_custom_edge b("C D","d e",3.0,4.0);
+  const my_custom_edge a("AB", "cd", 1.0, 2.0);
+  const my_custom_edge b("C D", "d e", 3.0, 4.0);
   std::stringstream s;
   s << a << " " << b;
   my_custom_edge c;
@@ -80,7 +80,7 @@ BOOST_AUTO_TEST_CASE(test_my_custom_edge_two_edges_to_stream_and_back)
   BOOST_CHECK(a == c);
   BOOST_CHECK(b == d);
 }
-  
+
 BOOST_AUTO_TEST_CASE(test_my_custom_edge_stream_from_invalid_input)
 {
   std::stringstream s;
@@ -88,4 +88,3 @@ BOOST_AUTO_TEST_CASE(test_my_custom_edge_stream_from_invalid_input)
   my_custom_edge e;
   BOOST_CHECK_THROW(s >> e, std::runtime_error);
 }
-

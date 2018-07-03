@@ -1,7 +1,7 @@
 #include "my_bundled_vertex.h"
 
-#include <sstream>
 #include <boost/test/unit_test.hpp>
+#include <sstream>
 
 BOOST_AUTO_TEST_CASE(test_my_bundled_vertex_default_construction)
 {
@@ -14,16 +14,11 @@ BOOST_AUTO_TEST_CASE(test_my_bundled_vertex_default_construction)
 
 BOOST_AUTO_TEST_CASE(test_my_bundled_vertex_copy_construction)
 {
-  const std::string description{"description"};
-  const std::string name{"name"};
-  const double y{12.34};
-  const double x{123.456};
-  const my_bundled_vertex a(
-    name,
-    description,
-    x,
-    y
-  );
+  const std::string description{ "description" };
+  const std::string name{ "name" };
+  const double y{ 12.34 };
+  const double x{ 123.456 };
+  const my_bundled_vertex a(name, description, x, y);
   const my_bundled_vertex b(a);
   BOOST_CHECK_EQUAL(b.m_description, description);
   BOOST_CHECK_EQUAL(b.m_y, y);
@@ -33,16 +28,11 @@ BOOST_AUTO_TEST_CASE(test_my_bundled_vertex_copy_construction)
 
 BOOST_AUTO_TEST_CASE(test_my_bundled_vertex_comparison)
 {
-  const std::string description{"description"};
-  const std::string name{"name"};
-  const double y{12.34};
-  const double x{123.456};
-  const my_bundled_vertex a(
-    name,
-    description,
-    x,
-    y
-  );
+  const std::string description{ "description" };
+  const std::string name{ "name" };
+  const double y{ 12.34 };
+  const double x{ 123.456 };
+  const my_bundled_vertex a(name, description, x, y);
   const my_bundled_vertex b(a);
   const my_bundled_vertex c;
   BOOST_CHECK(a == b);

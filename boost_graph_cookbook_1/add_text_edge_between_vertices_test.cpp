@@ -3,10 +3,9 @@
 
 #include <boost/test/unit_test.hpp>
 
-
-#include "create_empty_undirected_text_edges_and_vertices_graph.h"
 #include "add_text_edge_between_vertices.h"
 #include "add_text_vertex.h"
+#include "create_empty_undirected_text_edges_and_vertices_graph.h"
 
 BOOST_AUTO_TEST_CASE(add_text_edge_between_vertices_add_one)
 {

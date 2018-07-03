@@ -1,16 +1,16 @@
 #include "create_named_vertices_markov_chain.h"
 #include "create_named_vertices_markov_chain_demo.impl"
 
-#include <boost/test/unit_test.hpp>
 #include "add_named_vertex.h"
-#include "get_edge_iterators.h"
-#include "get_vertex_iterators.h"
-#include "get_edge_descriptors.h"
-#include "get_vertex_descriptors.h"
-#include "get_vertex_names.h"
 #include "create_named_vertices_markov_chain.h"
-#include "get_sorted_named_vertex_my_vertexes.h"
 #include "create_nasty_directed_named_vertices_graph.h"
+#include "get_edge_descriptors.h"
+#include "get_edge_iterators.h"
+#include "get_sorted_named_vertex_my_vertexes.h"
+#include "get_vertex_descriptors.h"
+#include "get_vertex_iterators.h"
+#include "get_vertex_names.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(create_named_vertices_markov_chain_use)
 {
@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(create_named_vertices_markov_chain_use)
   BOOST_CHECK(eip.first != eip.second);
   const auto eds = get_edge_descriptors(g);
   BOOST_CHECK(eds.size() == 4);
-  const std::vector<std::string> expected_names{"Good", "Not bad"};
+  const std::vector<std::string> expected_names{ "Good", "Not bad" };
   const std::vector<std::string> vertex_names = get_vertex_names(g);
   BOOST_CHECK(expected_names == vertex_names);
 }

@@ -3,11 +3,11 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "create_path_graph.h"
+#include "add_edge.h"
 #include "create_empty_directed_graph.h"
 #include "create_k2_graph.h"
 #include "create_k3_graph.h"
-#include "add_edge.h"
+#include "create_path_graph.h"
 
 BOOST_AUTO_TEST_CASE(test_count_undirected_graph_levels_thorough)
 {

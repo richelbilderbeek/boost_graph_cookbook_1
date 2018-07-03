@@ -3,9 +3,10 @@
 
 #include <boost/test/unit_test.hpp>
 
-BOOST_AUTO_TEST_CASE(create_empty_directed_custom_edges_and_vertices_graph_thorough)
+BOOST_AUTO_TEST_CASE(
+  create_empty_directed_custom_edges_and_vertices_graph_thorough)
 {
-  //Basic tests
+  // Basic tests
   {
     const auto g = create_empty_directed_custom_edges_and_vertices_graph();
     BOOST_CHECK(boost::num_edges(g) == 0);
