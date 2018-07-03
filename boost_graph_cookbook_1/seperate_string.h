@@ -5,8 +5,6 @@
 #include <vector>
 
 std::vector<std::string> seperate_string(
-  const std::string& input,
-  const char seperator
-) noexcept;
+  const std::string& input, const char seperator) noexcept;
 
 #endif // SEPERATE_STRING_H

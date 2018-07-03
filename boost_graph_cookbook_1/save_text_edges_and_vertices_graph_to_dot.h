@@ -4,4 +4,3 @@
 #include "save_text_edges_and_vertices_graph_to_dot.impl"
 
 #endif // SAVE_TEXT_EDGES_AND_VERTICES_GRAPH_TO_DOT
-
