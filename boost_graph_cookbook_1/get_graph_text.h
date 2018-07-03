@@ -1,6 +1,6 @@
-#ifndef GET_GRAPH_NAME_H
-#define GET_GRAPH_NAME_H
+#ifndef GET_GRAPH_TEXT_H
+#define GET_GRAPH_TEXT_H
 
 #include "get_graph_text.impl"
 
-#endif // GET_GRAPH_NAME_H
+#endif // GET_GRAPH_TEXT_H

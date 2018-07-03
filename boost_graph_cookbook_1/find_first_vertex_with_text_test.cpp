@@ -3,13 +3,13 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "create_textd_vertices_k2_graph.h"
+#include "create_text_vertices_k2_graph.h"
 #include "get_vertex_text.h"
 
 BOOST_AUTO_TEST_CASE(find_first_vertex_with_text_thorough)
 {
   {
-    const auto g = create_textd_vertices_k2_graph();
+    const auto g = create_text_vertices_k2_graph();
     const auto vd
       = find_first_vertex_with_text(
         "My computer", g

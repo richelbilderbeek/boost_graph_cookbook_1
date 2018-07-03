@@ -3,7 +3,7 @@
 #include <typeinfo>
 #include <cxxabi.h>
 
-template<typetext T>
+template<typename T>
 std::string get_type_text() noexcept
 {
   std::string ttext = typeid(T).text();

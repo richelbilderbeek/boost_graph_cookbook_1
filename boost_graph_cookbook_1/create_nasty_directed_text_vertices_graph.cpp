@@ -8,7 +8,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
-  boost::property<boost::vertex_name_t,std::string>
+  std::string
 >
 create_nasty_directed_text_vertices_graph() noexcept
 {

@@ -46,7 +46,6 @@ SOURCES += \
     $$PWD/get_sorted_custom_vertex_my_vertexes.cpp \
     $$PWD/has_custom_vertex.cpp \
     $$PWD/has_custom_vertex_with_my_vertex.cpp \
-    $$PWD/has_vertex_with_my_vertex.cpp \
     $$PWD/is_custom_vertices_isomorphic.cpp \
     $$PWD/my_custom_vertex.cpp \
     $$PWD/remove_selected_custom_vertices.cpp \
@@ -72,7 +71,6 @@ OTHER_FILES += \
     $$PWD/get_my_custom_vertex.impl \
     $$PWD/has_custom_vertex.impl \
     $$PWD/has_custom_vertex_with_my_vertex.impl \
-    $$PWD/has_vertex_with_my_vertex.impl \
     $$PWD/install_vertex_custom_type.impl \
     $$PWD/is_custom_vertices_isomorphic.impl \
     $$PWD/my_custom_vertex.impl \

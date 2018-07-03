@@ -1,7 +1,7 @@
 #include <map>
 #include <boost/graph/adjacency_list.hpp>
 #include "add_text_vertex.h"
-#include "get_vertex_name.h"
+#include "get_vertex_text.h"
 template <typename graph, typename vertex_descriptor>
 graph create_direct_neighbour_text_vertices_subgraph(
   const vertex_descriptor& vd,
@@ -13,7 +13,7 @@ graph create_direct_neighbour_text_vertices_subgraph(
   std::map<vertex_descriptor,vertex_descriptor> m;
   {
     const auto vd_h = add_text_vertex(
-      get_vertex_name(vd, g), h
+      get_vertex_text(vd, g), h
     );
     m.insert(std::make_pair(vd,vd_h));
   }
@@ -25,7 +25,7 @@ graph create_direct_neighbour_text_vertices_subgraph(
       [&g, &h](const vertex_descriptor& d)
       {
         const auto vd_h = add_text_vertex(
-          get_vertex_name(d,g), h
+          get_vertex_text(d,g), h
         );
         return std::make_pair(d,vd_h);
       }

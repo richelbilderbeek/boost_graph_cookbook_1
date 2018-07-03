@@ -1,16 +1,16 @@
 #include <boost/test/unit_test.hpp>
-#include "add_textd_vertex.h"
-#include "create_empty_undirected_textd_vertices_graph.h"
+#include "add_text_vertex.h"
+#include "create_empty_undirected_text_vertices_graph.h"
 #include "get_vertex_texts.h"
 
 BOOST_AUTO_TEST_CASE(test_get_vertex_texts)
 {
   auto g
-    = create_empty_undirected_textd_vertices_graph();
+    = create_empty_undirected_text_vertices_graph();
   const std::string vertex_text_1{"Chip"};
   const std::string vertex_text_2{"Chap"};
-  add_textd_vertex(vertex_text_1, g);
-  add_textd_vertex(vertex_text_2, g);
+  add_text_vertex(vertex_text_1, g);
+  add_text_vertex(vertex_text_2, g);
   const std::vector<std::string> expected_texts{
     vertex_text_1, vertex_text_2
   };

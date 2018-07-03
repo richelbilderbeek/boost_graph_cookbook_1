@@ -6,7 +6,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  boost::property<boost::vertex_name_t,std::string>
+  std::string
 >
 create_text_vertices_k2_graph() noexcept
 {

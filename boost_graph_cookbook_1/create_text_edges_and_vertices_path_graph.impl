@@ -7,8 +7,8 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  boost::property<boost::vertex_name_t,std::string>,
-  boost::property<boost::edge_name_t,std::string>
+  std::string,
+  std::string
 >
 create_text_edges_and_vertices_path_graph(
   const std::vector<std::string>& edge_names,

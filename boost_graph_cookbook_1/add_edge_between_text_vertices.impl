@@ -2,8 +2,8 @@
 #include <string>
 #include <stdexcept>
 #include <boost/graph/adjacency_list.hpp>
-#include "has_vertex_with_name.h"
-#include "find_first_vertex_with_name.h"
+#include "has_vertex_with_text.h"
+#include "find_first_vertex_with_text.h"
 
 template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::edge_descriptor
@@ -13,16 +13,16 @@ add_edge_between_text_vertices(
   graph& g
 )
 {
-  if (!has_vertex_with_name(vertex_name_1, g))
+  if (!has_vertex_with_text(vertex_name_1, g))
   {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find vertex #1 with name '"
+      << "could not find vertex #1 with text '"
       << vertex_name_1 << "'"
     ;
     throw std::invalid_argument(msg.str());
   }
-  if (!has_vertex_with_name(vertex_name_2, g))
+  if (!has_vertex_with_text(vertex_name_2, g))
   {
     std::stringstream msg;
     msg << __func__ << ": "
@@ -31,8 +31,8 @@ add_edge_between_text_vertices(
     ;
     throw std::invalid_argument(msg.str());
   }
-  const auto vd_1 = find_first_vertex_with_name(vertex_name_1, g);
-  const auto vd_2 = find_first_vertex_with_name(vertex_name_2, g);
+  const auto vd_1 = find_first_vertex_with_text(vertex_name_1, g);
+  const auto vd_2 = find_first_vertex_with_text(vertex_name_2, g);
   const auto aer = boost::add_edge(vd_1, vd_2, g);
   if (!aer.second) {
     std::stringstream msg;

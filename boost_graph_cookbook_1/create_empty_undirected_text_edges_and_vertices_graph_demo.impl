@@ -1,8 +1,8 @@
 #include <boost/test/unit_test.hpp>
 #include "add_text_edge.h"
 #include "create_empty_undirected_text_edges_and_vertices_graph.h"
-#include "get_edge_names.h"
-#include "get_vertex_names.h"
+#include "get_edge_texts.h"
+#include "get_vertex_texts.h"
 
 BOOST_AUTO_TEST_CASE(test_create_empty_undirected_text_edges_and_vertices_graph)
 {
@@ -10,10 +10,10 @@ BOOST_AUTO_TEST_CASE(test_create_empty_undirected_text_edges_and_vertices_graph)
   auto g
     = create_empty_undirected_text_edges_and_vertices_graph();
   add_text_edge("Reed", g);
-  const strings expected_vertex_names{"",""};
-  const strings vertex_names = get_vertex_names(g);
-  BOOST_CHECK(expected_vertex_names == vertex_names);
-  const strings expected_edge_names{"Reed"};
-  const strings edge_names = get_edge_names(g);
-  BOOST_CHECK(expected_edge_names == edge_names);
+  const strings expected_vertex_texts{"",""};
+  const strings vertex_texts = get_vertex_texts(g);
+  BOOST_CHECK(expected_vertex_texts == vertex_texts);
+  const strings expected_edge_texts{"Reed"};
+  const strings edge_texts = get_edge_texts(g);
+  BOOST_CHECK(expected_edge_texts == edge_texts);
 }

@@ -1,6 +1,6 @@
-#ifndef NAMED_VERTEX_INVARIANT_H
-#define NAMED_VERTEX_INVARIANT_H
+#ifndef TEXT_VERTEX_INVARIANT_H
+#define TEXT_VERTEX_INVARIANT_H
 
 #include "text_vertex_invariant.impl"
 
-#endif // NAMED_VERTEX_INVARIANT_H
+#endif // TEXT_VERTEX_INVARIANT_H

@@ -4,7 +4,7 @@
 #include "find_first_vertex_with_text.h"
 #include "has_vertex_with_text.h"
 
-template <typetext graph, typetext text_type>
+template <typename graph, typename text_type>
 void clear_first_vertex_with_text(
   const text_type& text,
   graph& g

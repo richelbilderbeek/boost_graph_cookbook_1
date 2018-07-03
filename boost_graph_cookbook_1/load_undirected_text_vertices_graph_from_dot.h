@@ -1,5 +1,5 @@
-#ifndef LOAD_UNDIRECTED_NAMED_VERTICES_GRAPH_FROM_DOT_H
-#define LOAD_UNDIRECTED_NAMED_VERTICES_GRAPH_FROM_DOT_H
+#ifndef LOAD_UNDIRECTED_TEXT_VERTICES_GRAPH_FROM_DOT_H
+#define LOAD_UNDIRECTED_TEXT_VERTICES_GRAPH_FROM_DOT_H
 
 #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
@@ -9,9 +9,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  boost::property<
-    boost::vertex_name_t,std::string
-  >
+  std::string
 >
 load_undirected_text_vertices_graph_from_dot(
   const std::string& dot_filename
@@ -21,4 +19,4 @@ load_undirected_text_vertices_graph_from_dot(
 #error(Do not include this file when BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ is defined)
 #endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
-#endif // LOAD_UNDIRECTED_NAMED_VERTICES_GRAPH_FROM_DOT_H
+#endif // LOAD_UNDIRECTED_TEXT_VERTICES_GRAPH_FROM_DOT_H

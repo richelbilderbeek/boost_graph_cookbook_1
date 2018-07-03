@@ -1,10 +1,10 @@
 #include <boost/test/unit_test.hpp>
-#include "create_textd_edges_and_vertices_k3_graph.h"
+#include "create_text_edges_and_vertices_k3_graph.h"
 #include "remove_first_edge_with_text.h"
 
 BOOST_AUTO_TEST_CASE(test_remove_first_edge_with_text)
 {
-  auto g = create_textd_edges_and_vertices_k3_graph();
+  auto g = create_text_edges_and_vertices_k3_graph();
   BOOST_CHECK(boost::num_edges(g) == 3);
   BOOST_CHECK(boost::num_vertices(g) == 3);
   remove_first_edge_with_text("AB",g);

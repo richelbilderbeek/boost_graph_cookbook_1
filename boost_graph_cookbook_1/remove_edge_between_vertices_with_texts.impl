@@ -2,7 +2,7 @@
 #include "has_vertex_with_text.h"
 #include "has_edge_between_vertices.h"
 
-template <typetext graph>
+template <typename graph>
 void remove_edge_between_vertices_with_texts(
   const std::string& text_1,
   const std::string& text_2,

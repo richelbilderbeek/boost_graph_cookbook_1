@@ -1,8 +1,8 @@
 #include <boost/test/unit_test.hpp>
 #include "create_direct_neighbour_text_edges_and_vertices_subgraph.h"
 #include "create_text_edges_and_vertices_k2_graph.h"
-#include "get_edge_names.h"
-#include "get_vertex_names.h"
+#include "get_edge_texts.h"
+#include "get_vertex_texts.h"
 
 BOOST_AUTO_TEST_CASE(test_create_direct_neighbour_text_edges_and_vertices_subgraph)
 {
@@ -15,11 +15,11 @@ BOOST_AUTO_TEST_CASE(test_create_direct_neighbour_text_edges_and_vertices_subgra
     );
     BOOST_CHECK(boost::num_vertices(h) == 2);
     BOOST_CHECK(boost::num_edges(h) == 1);
-    const auto v = get_vertex_names(h);
+    const auto v = get_vertex_texts(h);
     std::set<std::string> vs(std::begin(v),std::end(v));
     BOOST_CHECK(vs.count("x") == 1);
     BOOST_CHECK(vs.count("y") == 1);
-    const auto e = get_edge_names(h);
+    const auto e = get_edge_texts(h);
     std::set<std::string> es(std::begin(e),std::end(e));
     BOOST_CHECK(es.count("between") == 1);
   }

@@ -4,12 +4,14 @@
 #include "add_bundled_edge_between_vertices.h"
 #include "get_my_bundled_edge.h"
 #include "get_my_bundled_vertex.h"
-template <typename graph, typename vertex_descriptor>
+template <typename graph>
 graph create_direct_neighbour_bundled_edges_and_vertices_subgraph(
-  const vertex_descriptor& vd,
+  const typename boost::graph_traits<graph>::vertex_descriptor& vd,
   const graph& g
 )
 {
+  using vertex_descriptor = typename boost::graph_traits<graph>::vertex_descriptor;
+
   graph h;
 
   std::map<vertex_descriptor,vertex_descriptor> m;

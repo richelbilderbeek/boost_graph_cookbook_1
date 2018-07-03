@@ -2,7 +2,7 @@
 #include "create_text_edges_and_vertices_k3_graph.h"
 #include "load_undirected_text_edges_and_vertices_graph_from_dot.h"
 #include "save_text_edges_and_vertices_graph_to_dot.h"
-#include "get_vertex_names.h"
+#include "get_vertex_texts.h"
 
 BOOST_AUTO_TEST_CASE(test_load_undirected_text_edges_and_vertices_graph_from_dot)
 {
@@ -11,15 +11,15 @@ BOOST_AUTO_TEST_CASE(test_load_undirected_text_edges_and_vertices_graph_from_dot
 
   const auto g
     = create_text_edges_and_vertices_k3_graph();
-  const std::string filename{
+  const std::string filetext{
     "create_text_edges_and_vertices_k3_graph.dot"
   };
-  save_text_edges_and_vertices_graph_to_dot(g, filename);
+  save_text_edges_and_vertices_graph_to_dot(g, filetext);
   const auto h
     = load_undirected_text_edges_and_vertices_graph_from_dot(
-      filename
+      filetext
     );
   BOOST_CHECK(num_edges(g) == num_edges(h));
   BOOST_CHECK(num_vertices(g) == num_vertices(h));
-  BOOST_CHECK(get_vertex_names(g) == get_vertex_names(h));
+  BOOST_CHECK(get_vertex_texts(g) == get_vertex_texts(h));
 }

@@ -3,14 +3,14 @@
 #include <boost/graph/properties.hpp>
 #include "get_vertex_text.h"
 
-template <typetext graph, typetext text_type>
-typetext boost::graph_traits<graph>::vertex_descriptor
+template <typename graph, typename text_type>
+typename boost::graph_traits<graph>::vertex_descriptor
 find_first_vertex_with_text(
   const text_type& text,
   const graph& g
 )
 {
-  using vd = typetext graph::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
   const auto i = std::find_if(
     vip.first, vip.second,

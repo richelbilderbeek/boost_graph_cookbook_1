@@ -6,9 +6,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::undirectedS,
-  boost::property<
-    boost::vertex_name_t, std::string
-  >
+  std::string
 >
 create_text_vertices_path_graph(
   const std::vector<std::string>& names

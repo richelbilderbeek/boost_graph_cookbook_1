@@ -6,8 +6,8 @@
 #include "create_text_edges_and_vertices_k3_graph.h"
 #include "create_text_edges_and_vertices_petersen_graph.h"
 #include "create_text_edges_and_vertices_path_graph.h"
-#include "has_edge_with_name.h"
-#include "has_vertex_with_name.h"
+#include "has_edge_with_text.h"
+#include "has_vertex_with_text.h"
 
 BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_text_edges_and_vertices_subgraphs_thorough)
 {
@@ -24,9 +24,9 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_text_edges_and_vertices_subgrap
       const std::string va("x");
       const std::string vb("y");
       const std::string ea("between");
-      BOOST_CHECK(has_vertex_with_name(va, g));
-      BOOST_CHECK(has_vertex_with_name(vb, g));
-      BOOST_CHECK(has_edge_with_name(ea, g));
+      BOOST_CHECK(has_vertex_with_text(va, g));
+      BOOST_CHECK(has_vertex_with_text(vb, g));
+      BOOST_CHECK(has_edge_with_text(ea, g));
     }
   }
   //K3
@@ -46,12 +46,12 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_text_edges_and_vertices_subgrap
       const std::string ea("AB");
       const std::string eb("BC");
       const std::string ec("CA");
-      BOOST_CHECK(has_vertex_with_name(va, g));
-      BOOST_CHECK(has_vertex_with_name(vb, g));
-      BOOST_CHECK(has_vertex_with_name(vc, g));
-      BOOST_CHECK(has_edge_with_name(ea, g));
-      BOOST_CHECK(has_edge_with_name(eb, g));
-      BOOST_CHECK(has_edge_with_name(ec, g));
+      BOOST_CHECK(has_vertex_with_text(va, g));
+      BOOST_CHECK(has_vertex_with_text(vb, g));
+      BOOST_CHECK(has_vertex_with_text(vc, g));
+      BOOST_CHECK(has_edge_with_text(ea, g));
+      BOOST_CHECK(has_edge_with_text(eb, g));
+      BOOST_CHECK(has_edge_with_text(ec, g));
     }
   }
   //Path

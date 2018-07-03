@@ -7,9 +7,7 @@ boost::adjacency_list<
   boost::vecS,
   boost::vecS,
   boost::directedS,
-  boost::property<
-    boost::vertex_name_t,std::string
-  >
+  std::string
 >
 load_directed_text_vertices_graph_from_dot(
   const std::string& dot_filename
@@ -26,7 +24,7 @@ load_directed_text_vertices_graph_from_dot(
   std::ifstream f(dot_filename);
   auto g = create_empty_directed_text_vertices_graph();
   boost::dynamic_properties dp(boost::ignore_other_properties); 
-  dp.property("label", get(boost::vertex_name, g));
-  boost::read_graphviz(f,g,dp);
+  dp.property("label", get(boost::vertex_bundle, g));
+  boost::read_graphviz(f, g, dp);
   return g;
 }

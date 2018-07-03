@@ -44,30 +44,3 @@ BOOST_AUTO_TEST_CASE(add_text_and_selectable_vertex_add_two)
   const std::vector<std::string> expected_names{vertex_name_1,vertex_name_2};
   BOOST_CHECK(vertex_names == expected_names);
 }
-
-BOOST_AUTO_TEST_CASE(add_text_and_selectable_vertex_another_type)
-{
-  using another_name = int;
-  using another_graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::directedS,
-    boost::property<
-      boost::vertex_name_t, another_name,
-      boost::property<
-        boost::vertex_is_selected_t, bool
-      >
-    >
-  >;
-
-  another_graph g;
-  BOOST_CHECK(boost::num_vertices(g) == 0);
-  BOOST_CHECK(boost::num_edges(g) == 0);
-  const another_name vertex_name_1{42};
-  const another_name vertex_name_2{314};
-  add_text_and_selectable_vertex(vertex_name_1, true, g);
-  add_text_and_selectable_vertex(vertex_name_2, false, g);
-  BOOST_CHECK(boost::num_vertices(g) == 2);
-  BOOST_CHECK(boost::num_edges(g) == 0);
-}
-

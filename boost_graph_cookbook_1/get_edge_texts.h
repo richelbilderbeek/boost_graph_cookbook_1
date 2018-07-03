@@ -1,6 +1,6 @@
-#ifndef GET_EDGE_NAMES_H
-#define GET_EDGE_NAMES_H
+#ifndef GET_EDGE_TEXTS_H
+#define GET_EDGE_TEXTS_H
 
 #include "get_edge_texts.impl"
 
-#endif // GET_EDGE_NAMES_H
+#endif // GET_EDGE_TEXTS_H

@@ -2,20 +2,19 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
 
-template <typetext graph>
-typetext boost::graph_traits<graph>::edge_descriptor
+template <typename graph>
+typename boost::graph_traits<graph>::edge_descriptor
 find_first_edge_with_text(
   const std::string& text,
   const graph& g
 )
 {
-  using ed = typetext boost::graph_traits<graph>::edge_descriptor;
+  using ed = typename boost::graph_traits<graph>::edge_descriptor;
   const auto eip = edges(g);
   const auto i = std::find_if(
     eip.first, eip.second,
     [&g, &text](const ed d) {
-      const auto edge_text_map = get(boost::edge_text, g);
-      return get(edge_text_map, d) == text;
+      return g[d] == text;
     }
   );
   if (i == eip.second)

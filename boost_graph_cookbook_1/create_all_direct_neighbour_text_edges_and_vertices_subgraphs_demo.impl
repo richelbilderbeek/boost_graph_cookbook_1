@@ -5,7 +5,9 @@
 BOOST_AUTO_TEST_CASE(test_create_all_direct_neighbour_text_edges_and_vertices_subgraphs)
 {
   const auto v
-    = create_all_direct_neighbour_text_edges_and_vertices_subgraphs(create_text_edges_and_vertices_k2_graph());
+    = create_all_direct_neighbour_text_edges_and_vertices_subgraphs(
+    create_text_edges_and_vertices_k2_graph()
+  );
   BOOST_CHECK(v.size() == 2);
   for (const auto g: v)
   {

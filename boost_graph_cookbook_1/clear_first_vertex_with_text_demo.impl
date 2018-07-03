@@ -1,10 +1,10 @@
 #include <boost/test/unit_test.hpp>
 #include "clear_first_vertex_with_text.h"
-#include "create_textd_vertices_k2_graph.h"
+#include "create_text_vertices_k2_graph.h"
 
 BOOST_AUTO_TEST_CASE(test_clear_first_vertex_with_text)
 {
-  auto g = create_textd_vertices_k2_graph();
+  auto g = create_text_vertices_k2_graph();
   BOOST_CHECK(boost::num_edges(g) == 1);
   clear_first_vertex_with_text("My computer",g);
   BOOST_CHECK(boost::num_edges(g) == 0);

@@ -1,16 +1,15 @@
 #include <cassert>
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
-#include "set_edge_name.h"
+#include "set_edge_text.h"
 
 template <
   typename graph,
-  typename vertex_descriptor,
-  typename name_type
+  typename vertex_descriptor
 >
 typename boost::graph_traits<graph>::edge_descriptor
 add_text_edge_between_vertices(
-  const name_type& edge_name,
+  const std::string& edge_name,
   const vertex_descriptor from,
   const vertex_descriptor to,
   graph& g
@@ -22,6 +21,6 @@ add_text_edge_between_vertices(
     msg << __func__ << ": edge insertion failed";
     throw std::invalid_argument(msg.str());
   }
-  set_edge_name(edge_name, aer.first, g);
+  set_edge_text(edge_name, aer.first, g);
   return aer.first;
 }

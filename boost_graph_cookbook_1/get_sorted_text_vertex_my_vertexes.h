@@ -1,5 +1,5 @@
-#ifndef GET_SORTED_NAMED_VERTEX_MY_VERTEXES_H
-#define GET_SORTED_NAMED_VERTEX_MY_VERTEXES_H
+#ifndef GET_SORTED_TEXT_VERTEX_MY_VERTEXES_H
+#define GET_SORTED_TEXT_VERTEX_MY_VERTEXES_H
 
 #include "get_vertex_names.h"
 
@@ -12,4 +12,4 @@ get_sorted_vertex_names(const graph& g) noexcept
   return v;
 }
 
-#endif // GET_SORTED_NAMED_VERTEX_MY_VERTEXES_H
+#endif // GET_SORTED_TEXT_VERTEX_MY_VERTEXES_H

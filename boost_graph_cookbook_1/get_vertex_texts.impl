@@ -4,22 +4,19 @@
 #include <boost/graph/properties.hpp>
 #include <boost/graph/graph_traits.hpp>
 
-template <typetext graph>
+template <typename graph>
 std::vector<std::string> get_vertex_texts(
   const graph& g
 ) noexcept
 {
-  using vd = typetext graph::vertex_descriptor;
+  using vd = typename graph::vertex_descriptor;
 
   std::vector<std::string> v(boost::num_vertices(g));
   const auto vip = vertices(g); 
   std::transform(vip.first, vip.second, std::begin(v),
     [&g](const vd& d)
     {
-      const auto vertex_text_map = get(
-        boost::vertex_text, g
-      );
-      return get(vertex_text_map, d);
+      return g[d];
     }
   );
   return v;

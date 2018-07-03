@@ -1,17 +1,17 @@
 #include <boost/test/unit_test.hpp>
 #include "create_text_vertices_markov_chain.h"
-#include "get_vertex_names.h"
+#include "get_vertex_texts.h"
 
 BOOST_AUTO_TEST_CASE(test_create_text_vertices_markov_chain)
 {
   const auto g
     = create_text_vertices_markov_chain();
-  const std::vector<std::string> expected_names{
+  const std::vector<std::string> expected_texts{
     "Good", "Not bad"
   };
-  const std::vector<std::string> vertex_names{
-    get_vertex_names(g)
+  const std::vector<std::string> vertex_texts{
+    get_vertex_texts(g)
   };
-  BOOST_CHECK(expected_names == vertex_names);
+  BOOST_CHECK(expected_texts == vertex_texts);
 }
 

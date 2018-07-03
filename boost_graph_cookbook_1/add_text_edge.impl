@@ -2,10 +2,10 @@
 #include <string>
 #include <boost/graph/adjacency_list.hpp>
 
-template <typename graph, typename name_type>
+template <typename graph>
 typename boost::graph_traits<graph>::edge_descriptor
 add_text_edge(
-  const name_type& edge_name,
+  const std::string& edge_name,
   graph& g
 ) noexcept
 {
@@ -16,9 +16,6 @@ add_text_edge(
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(vd_a, vd_b, g);
   assert(aer.second);
-  auto edge_name_map = get(
-      boost::edge_name,g
-    );
-  put(edge_name_map, aer.first, edge_name);
+  g[aer.first] = edge_name;
   return aer.first;
 }

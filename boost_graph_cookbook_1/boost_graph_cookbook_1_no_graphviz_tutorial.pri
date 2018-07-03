@@ -5,5 +5,3 @@ HEADERS += \
 SOURCES += \
     $$PWD/create_tutorial_chapters_graph.cpp \
     $$PWD/create_tutorial_subchapters_graph.cpp
-
-OTHER_FILES +=

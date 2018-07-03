@@ -1,5 +1,5 @@
-#ifndef GET_SORTED_VERTEX_NAMES_H
-#define GET_SORTED_VERTEX_NAMES_H
+#ifndef GET_SORTED_VERTEX_TEXTS_H
+#define GET_SORTED_VERTEX_TEXTS_H
 
 #include <string>
 #include <vector>
@@ -15,4 +15,4 @@ std::vector<std::string> get_sorted_vertex_texts(
   return v;
 }
 
-#endif // GET_SORTED_VERTEX_NAMES_H
+#endif // GET_SORTED_VERTEX_TEXTS_H

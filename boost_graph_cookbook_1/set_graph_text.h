@@ -1,6 +1,6 @@
-#ifndef SET_GRAPH_NAME_H
-#define SET_GRAPH_NAME_H
+#ifndef SET_GRAPH_TEXT_H
+#define SET_GRAPH_TEXT_H
 
 #include "set_graph_text.impl"
 
-#endif // SET_GRAPH_NAME_H
+#endif // SET_GRAPH_TEXT_H
