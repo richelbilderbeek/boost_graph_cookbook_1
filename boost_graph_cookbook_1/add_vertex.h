@@ -4,4 +4,3 @@
 #include "add_vertex.impl"
 
 #endif // ADD_VERTEX
-

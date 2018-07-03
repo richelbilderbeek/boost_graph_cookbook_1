@@ -1,16 +1,14 @@
 #ifndef GET_SORTED_VERTEX_SELECTEDNESSES_H
 #define GET_SORTED_VERTEX_SELECTEDNESSES_H
 
-#include <algorithm>
 #include "get_vertex_selectednesses.h"
+#include <algorithm>
 
 template <typename graph>
-std::vector<bool> get_sorted_vertex_selectednesses(
-  const graph& g
-) noexcept
+std::vector<bool> get_sorted_vertex_selectednesses(const graph& g) noexcept
 {
   auto v = get_vertex_selectednesses(g);
-  std::sort(std::begin(v),std::end(v));
+  std::sort(std::begin(v), std::end(v));
   return v;
 }
 

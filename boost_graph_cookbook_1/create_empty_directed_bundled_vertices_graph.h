@@ -4,12 +4,8 @@
 #include "my_bundled_vertex.h"
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  my_bundled_vertex
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  my_bundled_vertex>
 create_empty_directed_bundled_vertices_graph() noexcept;
 
 #endif // CREATE_EMPTY_DIRECTED_BUNDLED_VERTICES_GRAPH_H

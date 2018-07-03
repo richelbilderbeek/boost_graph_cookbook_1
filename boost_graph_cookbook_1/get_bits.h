@@ -3,7 +3,7 @@
 
 #include <vector>
 
-///Get the indices of the value that have a 1 bit
+/// Get the indices of the value that have a 1 bit
 /// get_bits(0) == { }
 /// get_bits(1) == { 0 }
 /// get_bits(2) == { 1 }

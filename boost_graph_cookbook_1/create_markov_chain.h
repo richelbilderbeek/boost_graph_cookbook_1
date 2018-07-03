@@ -3,7 +3,6 @@
 
 #include "create_empty_directed_graph.h"
 
-boost::adjacency_list<>
-create_markov_chain() noexcept;
+boost::adjacency_list<> create_markov_chain() noexcept;
 
 #endif // CREATE_MARKOV_CHAIN_H

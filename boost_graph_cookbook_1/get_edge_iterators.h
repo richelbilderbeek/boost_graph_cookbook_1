@@ -4,4 +4,3 @@
 #include "get_edge_iterators.impl"
 
 #endif // GET_EDGE_ITERATORS_H
-

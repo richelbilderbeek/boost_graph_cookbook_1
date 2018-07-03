@@ -5,20 +5,11 @@
 
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_name_t,std::string
-  >,
-  boost::property<
-    boost::edge_name_t,std::string
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_name_t, std::string>,
+  boost::property<boost::edge_name_t, std::string>>
 load_undirected_named_edges_and_vertices_graph_from_dot(
-  const std::string& dot_filename
-);
+  const std::string& dot_filename);
 
 #else
 #error(Do not include this file when BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ is defined)

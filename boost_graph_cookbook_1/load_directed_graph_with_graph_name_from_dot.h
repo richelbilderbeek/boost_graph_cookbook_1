@@ -5,19 +5,10 @@
 
 #include "create_empty_directed_graph_with_graph_name.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::no_property,
-  boost::no_property,
-  boost::property<
-    boost::graph_name_t, std::string
-  >
->
-load_directed_graph_with_graph_name_from_dot(
-  const std::string& dot_filename
-);
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::no_property, boost::no_property,
+  boost::property<boost::graph_name_t, std::string>>
+load_directed_graph_with_graph_name_from_dot(const std::string& dot_filename);
 
 #else
 #error(Do not include this file when BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ is defined)

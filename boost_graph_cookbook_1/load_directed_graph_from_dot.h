@@ -5,10 +5,8 @@
 
 #include "create_empty_directed_graph.h"
 
-boost::adjacency_list<>
-load_directed_graph_from_dot(
-  const std::string& dot_filename
-);
+boost::adjacency_list<> load_directed_graph_from_dot(
+  const std::string& dot_filename);
 
 #else
 #error(Do not include this file when BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ is defined)

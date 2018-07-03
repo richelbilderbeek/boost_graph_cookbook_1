@@ -4,10 +4,8 @@
 #include <string>
 #include <vector>
 
-///Convert a file to a std::vector<std::string>
-///of its content
-std::vector<std::string> file_to_vector(
-  const std::string& filename
-);
+/// Convert a file to a std::vector<std::string>
+/// of its content
+std::vector<std::string> file_to_vector(const std::string& filename);
 
 #endif // FILE_TO_VECTOR_H

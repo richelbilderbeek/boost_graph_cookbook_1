@@ -3,12 +3,8 @@
 
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<boost::vertex_name_t,std::string>
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_name_t, std::string>>
 create_tutorial_subchapters_graph();
 
 #endif // CREATE_TUTORIAL_SUBCHAPTERS_GRAPH_H

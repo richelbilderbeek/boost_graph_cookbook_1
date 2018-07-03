@@ -3,11 +3,7 @@
 
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS>
 create_k3_graph() noexcept;
 
 #endif // CREATE_K3_GRAPH_H

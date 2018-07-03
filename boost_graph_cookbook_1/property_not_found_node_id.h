@@ -3,6 +3,6 @@
 
 #ifndef BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 void property_not_found_node_id() noexcept;
-#endif //BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
+#endif // BOOST_GRAPH_COOKBOOK_1_NO_GRAPHVIZ
 
 #endif // PROPERTY_NOT_FOUND_NODE_ID_H

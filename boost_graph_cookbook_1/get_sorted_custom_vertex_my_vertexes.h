@@ -6,10 +6,11 @@
 #include <vector>
 
 template <typename graph>
-std::vector<my_custom_vertex> get_sorted_custom_vertex_my_vertexes(const graph& g) noexcept
+std::vector<my_custom_vertex> get_sorted_custom_vertex_my_vertexes(
+  const graph& g) noexcept
 {
   auto v = get_my_custom_vertexes(g);
-  std::sort(std::begin(v),std::end(v));
+  std::sort(std::begin(v), std::end(v));
   /*
   const auto mcvc //my_custom_vertex_comparer
     = [](const my_custom_vertex& lhs,const my_custom_vertex& rhs)

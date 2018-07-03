@@ -4,11 +4,10 @@
 #include "get_vertex_names.h"
 
 template <typename graph>
-std::vector<std::string>
-get_sorted_vertex_names(const graph& g) noexcept
+std::vector<std::string> get_sorted_vertex_names(const graph& g) noexcept
 {
   auto v = get_vertex_names(g);
-  std::sort(std::begin(v),std::end(v));
+  std::sort(std::begin(v), std::end(v));
   return v;
 }
 

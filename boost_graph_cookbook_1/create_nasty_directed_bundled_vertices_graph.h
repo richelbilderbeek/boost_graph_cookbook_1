@@ -3,12 +3,8 @@
 
 #include "create_empty_directed_bundled_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  my_bundled_vertex
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  my_bundled_vertex>
 create_nasty_directed_bundled_vertices_graph() noexcept;
 
 #endif // CREATE_NASTY_DIRECTED_BUNDLED_VERTICES_GRAPH_H

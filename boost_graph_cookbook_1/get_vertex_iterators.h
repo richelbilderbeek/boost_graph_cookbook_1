@@ -4,4 +4,3 @@
 #include "get_vertex_iterators.impl"
 
 #endif // GET_VERTEX_ITERATORS_H
-
