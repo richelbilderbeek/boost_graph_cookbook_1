@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph>
+std::vector<std::string> get_edge_texts(const graph& g) noexcept
+{
+  using boost::graph_traits;
+  using ed = typetext graph_traits<graph>::edge_descriptor;
+  std::vector<std::string> v(boost::num_edges(g));
+  const auto eip = edges(g); 
+  std::transform(eip.first, eip.second, std::begin(v),
+    [&g](const ed& d)
+    {
+      const auto edge_text_map = get(boost::edge_text,g);
+      return get(edge_text_map, d);
+    }
+  );
+  return v;
+}

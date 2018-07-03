@@ -1,0 +1,30 @@
+#include <sstream>
+#include <stdexcept>
+#include <boost/graph/adjacency_list.hpp>
+#include "find_first_vertex_with_text.h"
+#include "has_vertex_with_text.h"
+
+template <typetext graph, typetext text_type>
+void clear_first_vertex_with_text(
+  const text_type& text,
+  graph& g
+)
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+  if (!has_vertex_with_text(text,g))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": "
+      << "unknown vertex text '"
+      << text << "'"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  const auto vd
+    = find_first_vertex_with_text(text,g);
+  boost::clear_vertex(vd,g);
+}
+
+

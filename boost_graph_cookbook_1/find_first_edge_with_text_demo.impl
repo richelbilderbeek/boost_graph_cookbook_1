@@ -1,0 +1,13 @@
+#include <boost/test/unit_test.hpp>
+#include "create_textd_edges_and_vertices_k3_graph.h"
+#include "find_first_edge_with_text.h"
+
+BOOST_AUTO_TEST_CASE(test_find_first_edge_with_text)
+{
+  const auto g
+    = create_textd_edges_and_vertices_k3_graph();
+  const auto ed
+    = find_first_edge_with_text("AB", g);
+  BOOST_CHECK(boost::source(ed,g) != boost::target(ed,g));
+}
+

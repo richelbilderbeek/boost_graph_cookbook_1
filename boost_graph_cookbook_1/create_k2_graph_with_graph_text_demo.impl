@@ -1,0 +1,11 @@
+#include <boost/test/unit_test.hpp>
+#include "create_k2_graph_with_graph_text.h"
+#include "get_graph_text.h"
+
+BOOST_AUTO_TEST_CASE(test_create_k2_graph_with_graph_text)
+{
+  const auto g = create_k2_graph_with_graph_text();
+  BOOST_CHECK(boost::num_vertices(g) == 2);
+  BOOST_CHECK(boost::num_edges(g) == 1);
+  BOOST_CHECK(get_graph_text(g) == "K2");
+}

@@ -1,0 +1,18 @@
+#include <boost/test/unit_test.hpp>
+#include "create_k2_graph_with_graph_text.h"
+#include "load_undirected_graph_with_graph_text_from_dot.h"
+#include "save_graph_with_graph_text_to_dot.h"
+#include "get_graph_text.h"
+
+BOOST_AUTO_TEST_CASE(test_load_undirected_graph_with_graph_text_from_dot)
+{
+  const auto g
+    = create_k2_graph_with_graph_text();
+  const std::string filetext{
+    "create_k2_graph_with_graph_text.dot"
+  };
+  save_graph_with_graph_text_to_dot(g, filetext);
+  const auto h
+    = load_undirected_graph_with_graph_text_from_dot(filetext);
+  BOOST_CHECK(get_graph_text(g) == get_graph_text(h));
+}

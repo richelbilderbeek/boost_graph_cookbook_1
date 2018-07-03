@@ -1,9 +1,9 @@
 HEADERS += \
-    $$PWD/get_sorted_vertex_names.h \
+    $$PWD/get_sorted_vertex_text.h \
     $$PWD/get_vertex_name.h \
-    $$PWD/get_vertex_names.h \
+    $$PWD/get_vertex_text.h \
     $$PWD/set_vertex_name.h \
-    $$PWD/set_vertex_names.h \
+    $$PWD/set_vertex_text.h \
     $$PWD/clear_first_vertex_with_name.h \
     $$PWD/count_vertices_with_name.h \
     $$PWD/find_first_vertex_with_name.h \
@@ -27,11 +27,11 @@ HEADERS += \
     $$PWD/text_vertex_invariant.h
 
 SOURCES += \
-    $$PWD/get_sorted_vertex_names.cpp \
+    $$PWD/get_sorted_vertex_text.cpp \
     $$PWD/get_vertex_name.cpp \
-    $$PWD/get_vertex_names.cpp \
+    $$PWD/get_vertex_text.cpp \
     $$PWD/set_vertex_name.cpp \
-    $$PWD/set_vertex_names.cpp \
+    $$PWD/set_vertex_text.cpp \
     $$PWD/clear_first_vertex_with_name.cpp \
     $$PWD/count_vertices_with_name.cpp \
     $$PWD/find_first_vertex_with_name.cpp \
@@ -55,9 +55,9 @@ SOURCES += \
 
 OTHER_FILES += \
     $$PWD/get_vertex_name.impl \
-    $$PWD/get_vertex_names.impl \
+    $$PWD/get_vertex_text.impl \
     $$PWD/set_vertex_name.impl \
-    $$PWD/set_vertex_names.impl \
+    $$PWD/set_vertex_text.impl \
     $$PWD/clear_first_vertex_with_name.impl \
     $$PWD/count_vertices_with_name.impl \
     $$PWD/find_first_vertex_with_name.impl \

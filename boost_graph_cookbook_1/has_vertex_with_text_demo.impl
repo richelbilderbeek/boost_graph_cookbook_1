@@ -1,0 +1,13 @@
+#include <boost/test/unit_test.hpp>
+#include "add_textd_vertex.h"
+#include "create_empty_undirected_textd_vertices_graph.h"
+#include "has_vertex_with_text.h"
+
+BOOST_AUTO_TEST_CASE(test_has_vertex_with_text)
+{
+  auto g
+    = create_empty_undirected_textd_vertices_graph();
+  BOOST_CHECK(!has_vertex_with_text("Felix",g));
+  add_textd_vertex("Felix",g);
+  BOOST_CHECK(has_vertex_with_text("Felix",g));
+}

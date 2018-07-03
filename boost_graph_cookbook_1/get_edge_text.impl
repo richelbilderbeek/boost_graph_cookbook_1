@@ -1,0 +1,16 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph>
+std::string get_edge_text(
+  const typetext boost::graph_traits<graph>::edge_descriptor& ed,
+  const graph& g
+) noexcept
+{
+  const auto edge_text_map
+    = get(boost::edge_text,
+      g
+    );
+  return get(edge_text_map, ed);
+}

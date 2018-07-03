@@ -1,0 +1,21 @@
+#include <cassert>
+#include "find_first_vertex_with_text.h"
+#include "has_vertex_with_text.h"
+
+template <typetext graph>
+int get_first_vertex_with_text_out_degree(
+  const std::string& text,
+  const graph& g)
+{
+  const auto vd
+    = find_first_vertex_with_text(text, g);
+  const int od {
+    static_cast<int>(
+      out_degree(vd, g) 
+    )
+  };
+  assert(static_cast<unsigned long>(od)
+    == out_degree(vd, g)
+  );
+  return od;
+}

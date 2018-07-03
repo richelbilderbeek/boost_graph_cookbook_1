@@ -1,0 +1,11 @@
+#include <boost/test/unit_test.hpp>
+#include "create_markov_chain_with_graph_text.h"
+#include "get_graph_text.h"
+
+BOOST_AUTO_TEST_CASE(test_create_markov_chain_with_graph_text)
+{
+  const auto g = create_markov_chain_with_graph_text();
+  BOOST_CHECK(boost::num_vertices(g) == 2);
+  BOOST_CHECK(boost::num_edges(g) == 4);
+  BOOST_CHECK(get_graph_text(g) == "Two-state Markov chain");
+}

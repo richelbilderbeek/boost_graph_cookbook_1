@@ -1,0 +1,53 @@
+#include <fstream>
+#include <string>
+#include <boost/graph/graphviz.hpp>
+#include "create_empty_undirected_graph_with_graph_text.h"
+#include "is_regular_file.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::no_property,
+  boost::no_property,
+  boost::property<
+    boost::graph_text_t, std::string
+  >
+>
+load_undirected_graph_with_graph_text_from_dot(
+  const std::string& dot_filetext
+)
+{
+  using graph = boost::adjacency_list<
+    boost::vecS,
+    boost::vecS,
+    boost::undirectedS,
+    boost::no_property,
+    boost::no_property,
+    boost::property<
+      boost::graph_text_t, std::string
+    >
+  >;
+  if (!is_regular_file(dot_filetext))
+  {
+    std::stringstream msg;
+    msg << __func__ << ": file '"
+      << dot_filetext << "' not found"
+    ;
+    throw std::invalid_argument(msg.str());
+  }
+  graph g;
+
+  boost::ref_property_map<graph*,std::string>
+  graph_text{
+    get_property(g,boost::graph_text)
+  };
+  boost::dynamic_properties dp{
+    boost::ignore_other_properties
+  };
+  dp.property("text",graph_text);
+
+  std::ifstream f(dot_filetext);
+  boost::read_graphviz(f,g,dp);
+  return g;
+}

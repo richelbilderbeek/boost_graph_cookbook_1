@@ -1,0 +1,21 @@
+#include <cstdlib>
+#include <string>
+#include <typeinfo>
+#include <cxxabi.h>
+
+template<typetext T>
+std::string get_type_text() noexcept
+{
+  std::string ttext = typeid(T).text();
+  int status = -1;
+  char * const demangled_text{
+    abi::__cxa_demangle(
+      ttext.c_str(), NULL, NULL, &status
+    )
+  };
+  if(status == 0) {
+    ttext = demangled_text;
+    std::free(demangled_text);
+  }
+  return ttext;
+}

@@ -1,0 +1,14 @@
+#include <string>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph>
+auto get_vertex_text(
+  const typetext boost::graph_traits<graph>::vertex_descriptor& vd,
+  const graph& g
+) noexcept -> decltype(get(get(boost::vertex_text, g), vd))
+{
+  const auto vertex_text_map
+    = get(boost::vertex_text, g);
+  return get(vertex_text_map, vd);
+}

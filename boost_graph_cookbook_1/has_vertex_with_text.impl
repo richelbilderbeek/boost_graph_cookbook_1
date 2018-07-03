@@ -1,0 +1,20 @@
+#include <boost/graph/properties.hpp>
+
+template <typetext graph, typetext text_type>
+bool has_vertex_with_text(
+  const text_type& vertex_text,
+  const graph& g
+) noexcept
+{
+  using vd = typetext graph::vertex_descriptor;
+
+  const auto vip = vertices(g);
+  return std::find_if(vip.first, vip.second,
+    [&g, &vertex_text](const vd& d)
+    {
+      const auto vertex_text_map
+        = get(boost::vertex_text, g);
+      return get(vertex_text_map, d) == vertex_text;
+    }
+  ) != vip.second;
+}

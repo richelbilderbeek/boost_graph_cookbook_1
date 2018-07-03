@@ -1,0 +1,18 @@
+#include <boost/test/unit_test.hpp>
+#include "create_textd_vertices_k2_graph.h"
+#include "find_first_vertex_with_text.h"
+
+BOOST_AUTO_TEST_CASE(test_find_first_vertex_with_text)
+{
+  const auto g
+    = create_textd_vertices_k2_graph();
+  const auto vd
+    = find_first_vertex_with_text(
+      "My computer", g
+    );
+  BOOST_CHECK(
+    out_degree(vd,g) == 1 
+  );
+  BOOST_CHECK(in_degree(vd,g) == 1);
+}
+

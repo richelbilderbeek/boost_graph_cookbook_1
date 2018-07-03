@@ -1,0 +1,15 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph>
+void set_graph_text(
+  const std::string& text,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+  get_property(g, boost::graph_text) = text;
+}

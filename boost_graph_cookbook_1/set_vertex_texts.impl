@@ -1,0 +1,25 @@
+#include <string>
+#include <vector>
+
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph>
+void set_vertex_texts(
+  graph& g,
+  const std::vector<std::string>& texts
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+
+  const auto vertex_text_map
+    = get(boost::vertex_text,g);
+  auto ni = std::begin(texts);
+  //const auto texts_end = std::end(texts);
+  const auto vip = vertices(g);
+  const auto j = vip.second;
+  for (auto i = vip.first; i!=j; ++i, ++ni)
+  {
+    put(vertex_text_map, *i, *ni);
+  }
+}

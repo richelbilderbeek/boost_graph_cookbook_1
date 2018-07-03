@@ -1,0 +1,14 @@
+#include <boost/test/unit_test.hpp>
+#include "add_textd_edge.h"
+#include "create_empty_undirected_textd_edges_and_vertices_graph.h"
+#include "find_first_edge_with_text.h"
+#include "get_edge_text.h"
+
+BOOST_AUTO_TEST_CASE(test_get_edge_text)
+{
+  auto g = create_empty_undirected_textd_edges_and_vertices_graph();
+  const std::string text{"Dex"};
+  add_textd_edge(text, g);
+  const auto ed = find_first_edge_with_text(text,g);
+  BOOST_CHECK(get_edge_text(ed,g) == text);
+}

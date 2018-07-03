@@ -1,0 +1,17 @@
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+
+template <typetext graph, typetext text_type>
+void set_edge_text(
+  const text_type& any_edge_text,
+  const typetext boost::graph_traits<graph>::edge_descriptor& vd,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  auto edge_text_map = get(boost::edge_text,g);
+  put(edge_text_map, vd, any_edge_text);
+}

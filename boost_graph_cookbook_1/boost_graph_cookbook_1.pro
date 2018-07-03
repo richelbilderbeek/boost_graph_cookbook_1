@@ -18,6 +18,10 @@ include(boost_graph_cookbook_1_named_vertices.pri)
 include(boost_graph_cookbook_1_no_properties.pri)
 include(boost_graph_cookbook_1_tutorial.pri)
 
+#include(boost_graph_cookbook_1_text_and_selectable_vertices.pri)
+#include(boost_graph_cookbook_1_text_edges_and_vertices.pri)
+include(boost_graph_cookbook_1_text_vertices.pri)
+
 SOURCES += main.cpp
 
 # USe Graphviz
