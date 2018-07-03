@@ -1,0 +1,30 @@
+#include <vector>
+#include "add_text_vertex.h"
+#include "create_empty_undirected_text_vertices_graph.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<
+    boost::vertex_name_t, std::string
+  >
+>
+create_text_vertices_path_graph(
+  const std::vector<std::string>& names
+) noexcept
+{
+  auto g = create_empty_undirected_text_vertices_graph();
+  if (names.size() == 0) { return g; }
+  auto vd_1 = add_text_vertex(*names.begin(), g);
+  if (names.size() == 1) return g;
+  const auto j = std::end(names);
+  auto i = std::begin(names);
+  for (++i; i!=j; ++i) //Skip first
+  {
+    auto vd_2 = add_text_vertex(*i, g);
+    boost::add_edge(vd_1, vd_2, g);
+    vd_1 = vd_2;
+  }
+  return g;
+}

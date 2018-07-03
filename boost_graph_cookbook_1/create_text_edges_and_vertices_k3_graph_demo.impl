@@ -1,0 +1,26 @@
+#include <boost/test/unit_test.hpp>
+#include "create_text_edges_and_vertices_k3_graph.h"
+#include "get_edge_names.h"
+#include "get_vertex_names.h"
+
+BOOST_AUTO_TEST_CASE(test_create_text_edges_and_vertices_k3_graph)
+{
+  using strings = std::vector<std::string>;
+
+  const auto g
+    = create_text_edges_and_vertices_k3_graph();
+
+  const strings expected_vertex_names{
+    "top", "right", "left"
+  };
+  const strings vertex_names{
+    get_vertex_names(g)
+  };
+  BOOST_CHECK(expected_vertex_names == vertex_names);
+
+  const strings expected_edge_names{
+    "AB", "BC", "CA"
+  };
+  const strings edge_names{get_edge_names(g)};
+  BOOST_CHECK(expected_edge_names == edge_names);
+}

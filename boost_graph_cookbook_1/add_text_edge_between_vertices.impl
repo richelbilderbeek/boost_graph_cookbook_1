@@ -1,0 +1,27 @@
+#include <cassert>
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "set_edge_name.h"
+
+template <
+  typename graph,
+  typename vertex_descriptor,
+  typename name_type
+>
+typename boost::graph_traits<graph>::edge_descriptor
+add_text_edge_between_vertices(
+  const name_type& edge_name,
+  const vertex_descriptor from,
+  const vertex_descriptor to,
+  graph& g
+)
+{
+  const auto aer = boost::add_edge(from, to, g);
+  if (!aer.second) {
+    std::stringstream msg;
+    msg << __func__ << ": edge insertion failed";
+    throw std::invalid_argument(msg.str());
+  }
+  set_edge_name(edge_name, aer.first, g);
+  return aer.first;
+}

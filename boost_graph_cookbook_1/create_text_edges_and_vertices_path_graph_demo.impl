@@ -1,0 +1,19 @@
+#include <boost/test/unit_test.hpp>
+#include "create_text_edges_and_vertices_path_graph.h"
+#include "get_edge_names.h"
+#include "get_vertex_names.h"
+
+BOOST_AUTO_TEST_CASE(test_create_text_edges_and_vertices_path_graph)
+{
+  const std::vector<std::string> vertex_names
+    = {"A", "B", "C", "D"};
+  const std::vector<std::string> edge_names
+    = { "1", "2", "3" };
+  const auto g = create_text_edges_and_vertices_path_graph(
+    edge_names, vertex_names
+  );
+  BOOST_CHECK(boost::num_edges(g) == 3);
+  BOOST_CHECK(boost::num_vertices(g) == 4);
+  BOOST_CHECK(get_edge_names(g) == edge_names);
+  BOOST_CHECK(get_vertex_names(g) == vertex_names);
+}

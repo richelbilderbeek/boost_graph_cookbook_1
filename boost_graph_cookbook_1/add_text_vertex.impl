@@ -1,0 +1,23 @@
+#include <string>
+#include <type_traits>
+#include <boost/graph/adjacency_list.hpp>
+
+template <typename graph, typename name_type>
+typename boost::graph_traits<graph>::vertex_descriptor
+add_text_vertex(
+  const name_type& vertex_name,
+  graph& g
+) noexcept
+{
+  static_assert(!std::is_const<graph>::value,
+    "graph cannot be const"
+  );
+
+  const auto vd = boost::add_vertex(g);
+  auto vertex_name_map = get(
+      boost::vertex_name, g
+    );
+  put(vertex_name_map, vd, vertex_name);
+  return vd;
+}
+

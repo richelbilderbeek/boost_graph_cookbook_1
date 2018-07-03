@@ -1,0 +1,11 @@
+#include <boost/test/unit_test.hpp>
+#include "add_text_edge.h"
+#include "create_empty_undirected_text_edges_and_vertices_graph.h"
+
+BOOST_AUTO_TEST_CASE(test_add_text_edge)
+{
+  auto g
+    = create_empty_undirected_text_edges_and_vertices_graph();
+  add_text_edge("Richards", g);
+  BOOST_CHECK(boost::num_edges(g) == 1);
+}

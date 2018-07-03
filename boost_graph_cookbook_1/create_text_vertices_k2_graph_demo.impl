@@ -1,0 +1,12 @@
+#include <boost/test/unit_test.hpp>
+#include "create_text_vertices_k2_graph.h"
+#include "get_vertex_names.h"
+
+BOOST_AUTO_TEST_CASE(test_create_text_vertices_k2_graph)
+{
+  const auto g = create_text_vertices_k2_graph();
+  const std::vector<std::string> expected_names{"Me", "My computer"};
+  const std::vector<std::string> vertex_names = get_vertex_names(g);
+  BOOST_CHECK(expected_names == vertex_names);
+}
+

@@ -1,0 +1,25 @@
+#include <cassert>
+#include "create_empty_undirected_text_vertices_graph.h"
+#include "add_text_vertex.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<boost::vertex_name_t,std::string>
+>
+create_text_vertices_k3_graph() noexcept
+{
+  auto g
+    = create_empty_undirected_text_vertices_graph();
+  const std::string a("Karen");
+  const std::string b("Kristel");
+  const std::string c("Kathleen");
+  const auto vd_a = add_text_vertex(a, g);
+  const auto vd_b = add_text_vertex(b, g);
+  const auto vd_c = add_text_vertex(c, g);
+  boost::add_edge(vd_a, vd_b, g);
+  boost::add_edge(vd_b, vd_c, g);
+  boost::add_edge(vd_c, vd_a, g);
+  return g;
+}

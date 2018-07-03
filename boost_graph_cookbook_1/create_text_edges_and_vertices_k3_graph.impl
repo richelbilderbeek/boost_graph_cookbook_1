@@ -1,0 +1,32 @@
+#include <string>
+#include <boost/graph/adjacency_list.hpp>
+#include "create_empty_undirected_text_edges_and_vertices_graph.h"
+#include "add_text_vertex.h"
+#include "add_text_edge_between_vertices.h"
+
+boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<boost::vertex_name_t,std::string>,
+  boost::property<boost::edge_name_t,std::string>
+>
+create_text_edges_and_vertices_k3_graph()
+{
+  auto g
+    = create_empty_undirected_text_edges_and_vertices_graph();
+  const std::string va("top");
+  const std::string vb("right");
+  const std::string vc("left");
+  const std::string ea("AB");
+  const std::string eb("BC");
+  const std::string ec("CA");
+  const auto vd_a = add_text_vertex(va, g);
+  const auto vd_b = add_text_vertex(vb, g);
+  const auto vd_c = add_text_vertex(vc, g);
+  add_text_edge_between_vertices(ea, vd_a, vd_b, g);
+  add_text_edge_between_vertices(eb, vd_b, vd_c, g);
+  add_text_edge_between_vertices(ec, vd_c, vd_a, g);
+  return g;
+}
+

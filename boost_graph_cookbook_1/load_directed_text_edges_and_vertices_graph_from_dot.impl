@@ -1,6 +1,6 @@
 #include <fstream>
 #include <boost/graph/graphviz.hpp>
-#include "create_empty_directed_named_edges_and_vertices_graph.h"
+#include "create_empty_directed_text_edges_and_vertices_graph.h"
 #include "is_regular_file.h"
 
 boost::adjacency_list<
@@ -14,7 +14,7 @@ boost::adjacency_list<
     boost::edge_name_t,std::string
   >
 >
-load_directed_named_edges_and_vertices_graph_from_dot(
+load_directed_text_edges_and_vertices_graph_from_dot(
   const std::string& dot_filename
 )
 {
@@ -27,7 +27,7 @@ load_directed_named_edges_and_vertices_graph_from_dot(
     throw std::invalid_argument(msg.str());
   }
   std::ifstream f(dot_filename);
-  auto g = create_empty_directed_named_edges_and_vertices_graph();
+  auto g = create_empty_directed_text_edges_and_vertices_graph();
   boost::dynamic_properties dp(boost::ignore_other_properties); 
   dp.property("label", get(boost::vertex_name, g));
   dp.property("label", get(boost::edge_name, g));
