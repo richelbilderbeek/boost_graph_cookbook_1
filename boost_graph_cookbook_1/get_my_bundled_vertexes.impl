@@ -1,20 +1,17 @@
-#include <vector>
+#include "my_bundled_vertex.h"
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "my_bundled_vertex.h"
+#include <vector>
 
 template <typename graph>
-std::vector<my_bundled_vertex> get_my_bundled_vertexes(
-  const graph& g
-) noexcept
+std::vector<my_bundled_vertex> get_my_bundled_vertexes(const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   std::vector<my_bundled_vertex> v(boost::num_vertices(g));
   const auto vip = vertices(g);
-  std::transform(vip.first, vip.second, std::begin(v),
-    [&g](const vd& d) { return g[d]; }
-  );
+  std::transform(
+    vip.first, vip.second, std::begin(v), [&g](const vd& d) { return g[d]; });
   return v;
 }

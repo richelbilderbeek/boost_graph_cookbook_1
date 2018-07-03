@@ -1,14 +1,10 @@
-#include <cassert>
 #include <boost/graph/adjacency_list.hpp>
+#include <cassert>
 
 template <typename graph>
 int get_n_vertices(const graph& g) noexcept
 {
-  const int n{
-    static_cast<int>(boost::num_vertices(g))
-  };
-  assert(static_cast<unsigned long>(n)
-    == boost::num_vertices(g)
-  );
+  const int n{ static_cast<int>(boost::num_vertices(g)) };
+  assert(static_cast<unsigned long>(n) == boost::num_vertices(g));
   return n;
 }

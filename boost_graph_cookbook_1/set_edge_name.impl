@@ -2,16 +2,12 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph, typename name_type>
-void set_edge_name(
-  const name_type& any_edge_name,
+void set_edge_name(const name_type& any_edge_name,
   const typename boost::graph_traits<graph>::edge_descriptor& vd,
-  graph& g
-) noexcept
+  graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
 
-  auto edge_name_map = get(boost::edge_name,g);
+  auto edge_name_map = get(boost::edge_name, g);
   put(edge_name_map, vd, any_edge_name);
 }

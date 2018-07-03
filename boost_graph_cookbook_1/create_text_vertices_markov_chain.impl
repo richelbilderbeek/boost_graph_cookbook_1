@@ -1,17 +1,11 @@
-#include <cassert>
 #include "add_text_vertex.h"
 #include "create_empty_directed_text_vertices_graph.h"
+#include <cassert>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  std::string
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, std::string>
 create_text_vertices_markov_chain() noexcept
 {
-  auto g
-    = create_empty_directed_text_vertices_graph();
+  auto g = create_empty_directed_text_vertices_graph();
   const auto vd_a = add_text_vertex("Good", g);
   const auto vd_b = add_text_vertex("Not bad", g);
   boost::add_edge(vd_a, vd_a, g);

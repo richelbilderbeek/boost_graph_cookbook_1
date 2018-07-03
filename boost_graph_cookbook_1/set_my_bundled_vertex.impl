@@ -1,14 +1,12 @@
+#include "my_bundled_vertex.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "my_bundled_vertex.h"
 
 template <typename graph, typename my_bundled_vertex>
-void set_my_bundled_vertex(
-  const my_bundled_vertex& v,
+void set_my_bundled_vertex(const my_bundled_vertex& v,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
-  graph& g
-) noexcept
+  graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   g[vd] = v;
 }

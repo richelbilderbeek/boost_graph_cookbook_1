@@ -1,14 +1,12 @@
-#include <boost/graph/graph_traits.hpp>
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
+#include <boost/graph/graph_traits.hpp>
 
 template <typename graph>
 auto get_my_custom_edge(
   const typename boost::graph_traits<graph>::edge_descriptor& ed,
-  const graph& g
-) noexcept -> decltype(get(get(boost::edge_custom_type,g), ed))
+  const graph& g) noexcept -> decltype(get(get(boost::edge_custom_type, g), ed))
 {
-  const auto my_edge_map
-    = get(boost::edge_custom_type, g);
+  const auto my_edge_map = get(boost::edge_custom_type, g);
   return get(my_edge_map, ed);
 }

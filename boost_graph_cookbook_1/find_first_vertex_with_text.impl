@@ -1,30 +1,20 @@
-#include <cassert>
+#include "get_vertex_text.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "get_vertex_text.h"
+#include <cassert>
 
 template <typename graph, typename text_type>
 typename boost::graph_traits<graph>::vertex_descriptor
-find_first_vertex_with_text(
-  const text_type& text,
-  const graph& g
-)
+find_first_vertex_with_text(const text_type& text, const graph& g)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
-  const auto i = std::find_if(
-    vip.first, vip.second,
-    [&g, &text](const vd d) {
-      return get_vertex_text(d, g) == text;
-    }
-  );
-  if (i == vip.second)
-  {
+  const auto i = std::find_if(vip.first, vip.second,
+    [&g, &text](const vd d) { return get_vertex_text(d, g) == text; });
+  if (i == vip.second) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find vertex with text '"
-      << text << "'"
-    ;
+        << "could not find vertex with text '" << text << "'";
     throw std::invalid_argument(msg.str());
   }
   return *i;

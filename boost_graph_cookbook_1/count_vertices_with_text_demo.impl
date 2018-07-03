@@ -1,14 +1,12 @@
-#include <boost/test/unit_test.hpp>
 #include "add_text_vertex.h"
 #include "count_vertices_with_text.h"
 #include "create_empty_undirected_text_vertices_graph.h"
 #include "create_text_vertices_path_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_count_vertices_with_text)
 {
-  auto g = create_text_vertices_path_graph(
-    {"Apple", "Pear", "Apple"}
-  );
+  auto g = create_text_vertices_path_graph({ "Apple", "Pear", "Apple" });
   BOOST_CHECK(count_vertices_with_text("Apple", g) == 2);
   BOOST_CHECK(count_vertices_with_text("Pear", g) == 1);
   BOOST_CHECK(count_vertices_with_text("Banana", g) == 0);

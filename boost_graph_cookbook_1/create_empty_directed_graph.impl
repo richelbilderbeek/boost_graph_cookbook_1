@@ -1,7 +1,3 @@
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<>
-create_empty_directed_graph() noexcept
-{
-  return {};
-}
+boost::adjacency_list<> create_empty_directed_graph() noexcept { return {}; }

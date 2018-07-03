@@ -1,14 +1,13 @@
-#include <boost/test/unit_test.hpp>
 #include "create_all_direct_neighbour_custom_vertices_subgraphs.h"
 #include "create_custom_vertices_k2_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_all_direct_neighbour_custom_vertices_subgraphs)
 {
-  const auto v
-    = create_all_direct_neighbour_custom_vertices_subgraphs(create_custom_vertices_k2_graph());
+  const auto v = create_all_direct_neighbour_custom_vertices_subgraphs(
+    create_custom_vertices_k2_graph());
   BOOST_CHECK(v.size() == 2);
-  for (const auto g: v)
-  {
+  for (const auto g : v) {
     BOOST_CHECK(boost::num_vertices(g) == 2);
     BOOST_CHECK(boost::num_edges(g) == 1);
   }

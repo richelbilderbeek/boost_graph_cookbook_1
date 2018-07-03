@@ -1,22 +1,17 @@
-#include <type_traits>
-#include <boost/graph/adjacency_list.hpp>
+#include "add_custom_and_selectable_edge_between_vertices.h"
 #include "install_edge_custom_type.h"
 #include "install_edge_is_selected.h"
-#include "install_edge_custom_type.h"
-#include "add_custom_and_selectable_edge_between_vertices.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <type_traits>
 
 template <typename graph, typename custom_edge>
 typename boost::graph_traits<graph>::edge_descriptor
 add_custom_and_selectable_edge(
-  const custom_edge& edge,
-  const bool is_selected,
-  graph& g
-)
+  const custom_edge& edge, const bool is_selected, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   return add_custom_and_selectable_edge_between_vertices(
-    edge, is_selected, vd_a, vd_b, g
-  );
+    edge, is_selected, vd_a, vd_b, g);
 }

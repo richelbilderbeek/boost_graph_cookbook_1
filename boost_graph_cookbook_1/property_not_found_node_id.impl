@@ -1,34 +1,33 @@
-#include <cassert>
-#include <fstream>
-#include <boost/graph/graphviz.hpp>
-#include "is_regular_file.h"
 #include "create_empty_undirected_graph.h"
 #include "create_k2_graph.h"
+#include "is_regular_file.h"
 #include "save_graph_to_dot.h"
+#include <boost/graph/graphviz.hpp>
+#include <cassert>
+#include <fstream>
 
 void property_not_found_node_id() noexcept
 {
-  const std::string dot_filename{"property_not_found_node_id.dot"};
-  //Create a file
+  const std::string dot_filename{ "property_not_found_node_id.dot" };
+  // Create a file
   {
     const auto g = create_k2_graph();
     save_graph_to_dot(g, dot_filename);
     assert(is_regular_file(dot_filename));
   }
 
-  //Try to read that file
+  // Try to read that file
   std::ifstream f(dot_filename);
   auto g = create_empty_undirected_graph();
 
-  //Line below should have been
+  // Line below should have been
   //  boost::dynamic_properties dp(boost::ignore_other_properties);
-  boost::dynamic_properties dp; //Error
+  boost::dynamic_properties dp; // Error
 
   try {
-    boost::read_graphviz(f,g,dp);
-  }
-  catch (std::exception&) {
-    return; //Should get here
+    boost::read_graphviz(f, g, dp);
+  } catch (std::exception&) {
+    return; // Should get here
   }
   assert(!"Should not get here");
 }

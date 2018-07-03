@@ -1,28 +1,18 @@
-#include <boost/test/unit_test.hpp>
 #include "create_custom_edges_and_vertices_markov_chain.h"
 #include "get_my_custom_vertexes.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_custom_edges_and_vertices_markov_chain)
 {
-  const auto g
-    = create_custom_edges_and_vertices_markov_chain();
-  const std::vector<my_custom_vertex>
-    expected_my_custom_vertexes{
-    my_custom_vertex("Sunny",
-      "Yellow thing",1.0,2.0
-    ),
-    my_custom_vertex("Rainy",
-      "Grey things",3.0,4.0
-    )
+  const auto g = create_custom_edges_and_vertices_markov_chain();
+  const std::vector<my_custom_vertex> expected_my_custom_vertexes{
+    my_custom_vertex("Sunny", "Yellow thing", 1.0, 2.0),
+    my_custom_vertex("Rainy", "Grey things", 3.0, 4.0)
   };
-  const std::vector<my_custom_vertex>
-    vertex_my_custom_vertexes{
+  const std::vector<my_custom_vertex> vertex_my_custom_vertexes{
     get_my_custom_vertexes(g)
   };
-  BOOST_CHECK(expected_my_custom_vertexes
-    == vertex_my_custom_vertexes
-  );
+  BOOST_CHECK(expected_my_custom_vertexes == vertex_my_custom_vertexes);
 }
-

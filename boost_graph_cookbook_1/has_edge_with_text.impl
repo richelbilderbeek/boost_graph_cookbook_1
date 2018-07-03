@@ -1,18 +1,12 @@
-#include <string>
 #include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph>
-bool has_edge_with_text(
-  const std::string& edge_text,
-  const graph& g
-) noexcept
+bool has_edge_with_text(const std::string& edge_text, const graph& g) noexcept
 {
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
   const auto eip = edges(g);
-  return std::find_if(eip.first, eip.second,
-    [&edge_text, &g](const ed& d)
-    {
-      return g[d] == edge_text;
-    }
-  ) != eip.second;
+  return std::find_if(eip.first, eip.second, [&edge_text, &g](const ed& d) {
+    return g[d] == edge_text;
+  }) != eip.second;
 }

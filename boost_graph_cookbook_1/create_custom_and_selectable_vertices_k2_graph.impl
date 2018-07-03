@@ -1,23 +1,14 @@
-#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 #include "add_custom_and_selectable_vertex.h"
+#include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex,
-    boost::property<
-      boost::vertex_is_selected_t, bool
-    >
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<boost::vertex_is_selected_t, bool>>>
 create_custom_and_selectable_vertices_k2_graph() noexcept
 {
-  auto g
-    = create_empty_undirected_custom_and_selectable_vertices_graph();
-  const my_custom_vertex a("A","source",0.0,0.0);
-  const my_custom_vertex b("B","target",3.14,3.14);
+  auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
+  const my_custom_vertex a("A", "source", 0.0, 0.0);
+  const my_custom_vertex b("B", "target", 3.14, 3.14);
   const auto vd_a = add_custom_and_selectable_vertex(a, true, g);
   const auto vd_b = add_custom_and_selectable_vertex(b, false, g);
   boost::add_edge(vd_a, vd_b, g);

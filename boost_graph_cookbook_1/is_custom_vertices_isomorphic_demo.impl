@@ -1,30 +1,15 @@
-#include <boost/test/unit_test.hpp>
 #include "create_custom_vertices_path_graph.h"
 #include "is_custom_vertices_isomorphic.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_is_custom_vertices_isomorphic)
 {
-  const auto g = create_custom_vertices_path_graph(
-    {
-      my_custom_vertex("Alpha"),
-      my_custom_vertex("Beta"),
-      my_custom_vertex("Gamma")
-    }
-  );
-  const auto h = create_custom_vertices_path_graph(
-    {
-      my_custom_vertex("Gamma"),
-      my_custom_vertex("Beta"),
-      my_custom_vertex("Alpha")
-    }
-  );
-  const auto i = create_custom_vertices_path_graph(
-    {
-      my_custom_vertex("Alpha"),
-      my_custom_vertex("Gamma"),
-      my_custom_vertex("Beta")
-    }
-  );
-  BOOST_CHECK( is_custom_vertices_isomorphic(g,h));
-  BOOST_CHECK(!is_custom_vertices_isomorphic(g,i));
+  const auto g = create_custom_vertices_path_graph({ my_custom_vertex("Alpha"),
+    my_custom_vertex("Beta"), my_custom_vertex("Gamma") });
+  const auto h = create_custom_vertices_path_graph({ my_custom_vertex("Gamma"),
+    my_custom_vertex("Beta"), my_custom_vertex("Alpha") });
+  const auto i = create_custom_vertices_path_graph({ my_custom_vertex("Alpha"),
+    my_custom_vertex("Gamma"), my_custom_vertex("Beta") });
+  BOOST_CHECK(is_custom_vertices_isomorphic(g, h));
+  BOOST_CHECK(!is_custom_vertices_isomorphic(g, i));
 }

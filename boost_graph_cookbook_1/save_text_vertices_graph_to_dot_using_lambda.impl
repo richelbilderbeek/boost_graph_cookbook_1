@@ -1,32 +1,25 @@
-#include <string>
-#include <ostream>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
+#include <ostream>
+#include <string>
 
 #include "get_vertex_names.h"
 
 template <typename graph>
 void save_text_vertices_graph_to_dot_using_lambda(
-  const graph& g,
-  const std::string& filename
-) noexcept
+  const graph& g, const std::string& filename) noexcept
 {
   using vd_t = typename graph::vertex_descriptor;
   std::ofstream f(filename);
-  const auto name_map = get(boost::vertex_name,g);
-  boost::write_graphviz(
-    f,
-    g,
-    [&name_map](std::ostream& os, const vd_t& vd) {
-      const std::string s{name_map[vd]};
-      if (s.find(' ') == std::string::npos) {
-        //No space, no quotes around string
-        os << "[label=" << s << "]";
-      }
-      else {
-        //Has space, put quotes around string
-        os << "[label=\"" << s << "\"]";
-      }
+  const auto name_map = get(boost::vertex_name, g);
+  boost::write_graphviz(f, g, [&name_map](std::ostream& os, const vd_t& vd) {
+    const std::string s{ name_map[vd] };
+    if (s.find(' ') == std::string::npos) {
+      // No space, no quotes around string
+      os << "[label=" << s << "]";
+    } else {
+      // Has space, put quotes around string
+      os << "[label=\"" << s << "\"]";
     }
-  );
+  });
 }

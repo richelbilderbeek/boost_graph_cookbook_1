@@ -1,7 +1,7 @@
-#include <boost/test/unit_test.hpp>
 #include "add_named_edge_between_vertices.h"
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_add_named_edge_between_vertices)
 {

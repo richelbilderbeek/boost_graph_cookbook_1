@@ -1,27 +1,21 @@
-#include <boost/test/unit_test.hpp>
 #include "create_text_edges_and_vertices_markov_chain.h"
 #include "get_edge_texts.h"
 #include "get_vertex_texts.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_text_edges_and_vertices_markov_chain)
 {
   using strings = std::vector<std::string>;
 
-  const auto g
-    = create_text_edges_and_vertices_markov_chain();
+  const auto g = create_text_edges_and_vertices_markov_chain();
 
-  const strings expected_vertex_texts{
-    "Happy","Not unhappy"
-  };
-  const strings vertex_texts{
-    get_vertex_texts(g)
-  };
+  const strings expected_vertex_texts{ "Happy", "Not unhappy" };
+  const strings vertex_texts{ get_vertex_texts(g) };
   BOOST_CHECK(expected_vertex_texts == vertex_texts);
 
-  const strings expected_edge_texts{
-    "Fruit","No chocolate","Chocolate","Other candy"
-  };
+  const strings expected_edge_texts{ "Fruit", "No chocolate", "Chocolate",
+    "Other candy" };
 
-  const strings edge_texts{get_edge_texts(g)};
+  const strings edge_texts{ get_edge_texts(g) };
   BOOST_CHECK(expected_edge_texts == edge_texts);
 }

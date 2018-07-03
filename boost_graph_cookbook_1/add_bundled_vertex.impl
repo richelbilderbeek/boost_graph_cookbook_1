@@ -1,12 +1,10 @@
-#include <boost/graph/adjacency_list.hpp>
 #include "my_bundled_vertex.h"
+#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph, typename bundled_vertex>
-typename boost::graph_traits<graph>::vertex_descriptor
-add_bundled_vertex(const bundled_vertex& v, graph& g) noexcept
+typename boost::graph_traits<graph>::vertex_descriptor add_bundled_vertex(
+  const bundled_vertex& v, graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   return boost::add_vertex(v, g);
 }

@@ -1,26 +1,19 @@
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
 #include <string>
 #include <vector>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/properties.hpp>
-#include <boost/graph/graph_traits.hpp>
 
 template <typename graph>
-std::vector<std::string> get_vertex_names(
-  const graph& g
-) noexcept
+std::vector<std::string> get_vertex_names(const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   std::vector<std::string> v(boost::num_vertices(g));
-  const auto vip = vertices(g); 
-  std::transform(vip.first, vip.second, std::begin(v),
-    [&g](const vd& d)
-    {
-      const auto vertex_name_map = get(
-        boost::vertex_name, g
-      );
-      return get(vertex_name_map, d);
-    }
-  );
+  const auto vip = vertices(g);
+  std::transform(vip.first, vip.second, std::begin(v), [&g](const vd& d) {
+    const auto vertex_name_map = get(boost::vertex_name, g);
+    return get(vertex_name_map, d);
+  });
   return v;
 }

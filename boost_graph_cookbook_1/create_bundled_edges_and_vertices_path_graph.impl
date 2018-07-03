@@ -1,38 +1,33 @@
-#include <vector>
-#include "add_bundled_vertex.h"
 #include "add_bundled_edge_between_vertices.h"
+#include "add_bundled_vertex.h"
 #include "create_empty_undirected_bundled_edges_and_vertices_graph.h"
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  my_bundled_vertex,
-  my_bundled_edge
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  my_bundled_vertex, my_bundled_edge>
 create_bundled_edges_and_vertices_path_graph(
   const std::vector<my_bundled_edge>& my_bundled_edges,
-  const std::vector<my_bundled_vertex>& my_bundled_vertexes
-)
+  const std::vector<my_bundled_vertex>& my_bundled_vertexes)
 {
   if (!my_bundled_vertexes.empty()
-    && my_bundled_vertexes.size() - 1 != my_bundled_edges.size())
-  {
+    && my_bundled_vertexes.size() - 1 != my_bundled_edges.size()) {
     std::stringstream msg;
     msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
-      << "n_vertices: " << my_bundled_vertexes.size() << ", "
-      << "n_edges: " << my_bundled_edges.size()
-    ;
+        << "n_vertices: " << my_bundled_vertexes.size() << ", "
+        << "n_edges: " << my_bundled_edges.size();
     throw std::invalid_argument(msg.str());
   }
   auto g = create_empty_undirected_bundled_edges_and_vertices_graph();
-  if (my_bundled_vertexes.size() == 0) { return g; }
+  if (my_bundled_vertexes.size() == 0) {
+    return g;
+  }
   auto vd_1 = add_bundled_vertex(*my_bundled_vertexes.begin(), g);
-  if (my_bundled_vertexes.size() == 1) return g;
+  if (my_bundled_vertexes.size() == 1)
+    return g;
   const auto j = std::end(my_bundled_vertexes);
   auto vi = std::begin(my_bundled_vertexes);
   auto ei = std::begin(my_bundled_edges);
-  for (++vi; vi!=j; ++vi, ++ei) //Skip first
+  for (++vi; vi != j; ++vi, ++ei) // Skip first
   {
     auto vd_2 = add_bundled_vertex(*vi, g);
     add_bundled_edge_between_vertices(*ei, vd_1, vd_2, g);

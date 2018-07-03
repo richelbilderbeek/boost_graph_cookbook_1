@@ -1,29 +1,21 @@
-#include <string>
-#include <vector>
+#include "my_bundled_vertex.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "my_bundled_vertex.h"
+#include <string>
+#include <vector>
 
 template <typename graph, typename my_bundled_vertex>
 void set_my_bundled_vertexes(
-  graph& g,
-  const std::vector<my_bundled_vertex>& my_vertexes
-) noexcept
+  graph& g, const std::vector<my_bundled_vertex>& my_vertexes) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
 
   auto my_vertexes_begin = std::begin(my_vertexes);
-  //const auto my_vertexes_end = std::end(my_vertexes);
-  const auto vip = vertices(g); 
+  // const auto my_vertexes_end = std::end(my_vertexes);
+  const auto vip = vertices(g);
   const auto j = vip.second;
-  for (
-    auto i = vip.first;
-    i!=j; ++i,
-    ++my_vertexes_begin
-  ) {
-    //assert(my_vertexes_begin != my_vertexes_end);
+  for (auto i = vip.first; i != j; ++i, ++my_vertexes_begin) {
+    // assert(my_vertexes_begin != my_vertexes_end);
     g[*i] = *my_vertexes_begin;
   }
 }

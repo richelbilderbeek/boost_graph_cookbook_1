@@ -1,42 +1,34 @@
-#include <vector>
-#include "add_custom_vertex.h"
 #include "add_custom_edge_between_vertices.h"
+#include "add_custom_vertex.h"
 #include "create_empty_undirected_custom_edges_and_vertices_graph.h"
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>,
+  boost::property<boost::edge_custom_type_t, my_custom_edge>>
 create_custom_edges_and_vertices_path_graph(
   const std::vector<my_custom_edge>& my_custom_edges,
-  const std::vector<my_custom_vertex>& my_custom_vertexes
-)
+  const std::vector<my_custom_vertex>& my_custom_vertexes)
 {
   if (!my_custom_vertexes.empty()
-    && my_custom_vertexes.size() - 1 != my_custom_edges.size())
-  {
+    && my_custom_vertexes.size() - 1 != my_custom_edges.size()) {
     std::stringstream msg;
     msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
-      << "n_vertices: " << my_custom_vertexes.size() << ", "
-      << "n_edges: " << my_custom_edges.size()
-    ;
+        << "n_vertices: " << my_custom_vertexes.size() << ", "
+        << "n_edges: " << my_custom_edges.size();
     throw std::invalid_argument(msg.str());
   }
   auto g = create_empty_undirected_custom_edges_and_vertices_graph();
-  if (my_custom_vertexes.size() == 0) { return g; }
+  if (my_custom_vertexes.size() == 0) {
+    return g;
+  }
   auto vd_1 = add_custom_vertex(*my_custom_vertexes.begin(), g);
-  if (my_custom_vertexes.size() == 1) return g;
+  if (my_custom_vertexes.size() == 1)
+    return g;
   const auto j = std::end(my_custom_vertexes);
   auto vi = std::begin(my_custom_vertexes);
   auto ei = std::begin(my_custom_edges);
-  for (++vi; vi!=j; ++vi, ++ei) //Skip first
+  for (++vi; vi != j; ++vi, ++ei) // Skip first
   {
     auto vd_2 = add_custom_vertex(*vi, g);
     add_custom_edge_between_vertices(*ei, vd_1, vd_2, g);

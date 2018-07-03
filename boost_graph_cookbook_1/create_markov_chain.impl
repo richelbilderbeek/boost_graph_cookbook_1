@@ -1,8 +1,7 @@
-#include <cassert>
 #include "create_empty_directed_graph.h"
+#include <cassert>
 
-boost::adjacency_list<>
-create_markov_chain() noexcept
+boost::adjacency_list<> create_markov_chain() noexcept
 {
   auto g = create_empty_directed_graph();
   const auto vd_a = boost::add_vertex(g);

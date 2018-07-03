@@ -1,39 +1,23 @@
-#include <ostream>
 #include "graphviz_encode.h"
 #include "is_graphviz_friendly.h"
+#include <ostream>
 
-template <
-  typename graph
->
-class bundled_vertices_writer {
+template <typename graph>
+class bundled_vertices_writer
+{
 public:
-  bundled_vertices_writer(
-    graph g
-  ) : m_g{g}
+  bundled_vertices_writer(graph g)
+    : m_g{ g }
   {
-
   }
   template <class vertex_descriptor>
-  void operator()(
-    std::ostream& out,
-    const vertex_descriptor& vd
-  ) const noexcept {
-    out
-      << "[label=\""
-        << graphviz_encode(
-          m_g[vd].m_name
-        )
-      << "\",comment=\""
-        << graphviz_encode(
-          m_g[vd].m_description
-        )
-      << "\",width="
-        << m_g[vd].m_x
-      << ",height="
-        << m_g[vd].m_y
-      << "]"
-    ;
+  void operator()(std::ostream& out, const vertex_descriptor& vd) const noexcept
+  {
+    out << "[label=\"" << graphviz_encode(m_g[vd].m_name) << "\",comment=\""
+        << graphviz_encode(m_g[vd].m_description) << "\",width=" << m_g[vd].m_x
+        << ",height=" << m_g[vd].m_y << "]";
   }
+
 private:
   graph m_g;
 };

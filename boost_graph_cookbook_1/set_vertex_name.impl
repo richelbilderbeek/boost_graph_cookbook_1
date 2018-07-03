@@ -2,17 +2,12 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
-void set_vertex_name(
-  const std::string& any_vertex_name,
+void set_vertex_name(const std::string& any_vertex_name,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
-  graph& g
-) noexcept
+  graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
 
-  auto vertex_name_map
-    = get(boost::vertex_name, g);
+  auto vertex_name_map = get(boost::vertex_name, g);
   put(vertex_name_map, vd, any_vertex_name);
 }

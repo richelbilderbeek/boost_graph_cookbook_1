@@ -1,25 +1,17 @@
-#include <boost/test/unit_test.hpp>
 #include "create_k2_graph.h"
 #include "create_markov_chain.h"
 #include "get_vertex_out_degrees.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_get_vertex_out_degrees)
 {
   const auto g = create_k2_graph();
-  const std::vector<int> expected_out_degrees_g{1,1};
-  const std::vector<int> vertex_out_degrees_g{
-    get_vertex_out_degrees(g)
-  };
-  BOOST_CHECK(expected_out_degrees_g
-    == vertex_out_degrees_g
-  );
+  const std::vector<int> expected_out_degrees_g{ 1, 1 };
+  const std::vector<int> vertex_out_degrees_g{ get_vertex_out_degrees(g) };
+  BOOST_CHECK(expected_out_degrees_g == vertex_out_degrees_g);
 
   const auto h = create_markov_chain();
-  const std::vector<int> expected_out_degrees_h{2,2};
-  const std::vector<int> vertex_out_degrees_h{
-    get_vertex_out_degrees(h)
-  };
-  BOOST_CHECK(expected_out_degrees_h
-    == vertex_out_degrees_h
-  );
+  const std::vector<int> expected_out_degrees_h{ 2, 2 };
+  const std::vector<int> vertex_out_degrees_h{ get_vertex_out_degrees(h) };
+  BOOST_CHECK(expected_out_degrees_h == vertex_out_degrees_h);
 }

@@ -1,26 +1,19 @@
-#include <boost/test/unit_test.hpp>
 #include "create_text_edges_and_vertices_k2_graph.h"
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_text_edges_and_vertices_k2_graph)
 {
   using strings = std::vector<std::string>;
 
-  const auto g
-    = create_text_edges_and_vertices_k2_graph();
+  const auto g = create_text_edges_and_vertices_k2_graph();
 
-  const strings expected_vertex_names{
-    "x", "y"
-  };
-  const strings vertex_names{
-    get_vertex_names(g)
-  };
+  const strings expected_vertex_names{ "x", "y" };
+  const strings vertex_names{ get_vertex_names(g) };
   BOOST_CHECK(expected_vertex_names == vertex_names);
 
-  const strings expected_edge_names{
-    "between"
-  };
-  const strings edge_names{get_edge_names(g)};
+  const strings expected_edge_names{ "between" };
+  const strings edge_names{ get_edge_names(g) };
   BOOST_CHECK(expected_edge_names == edge_names);
 }

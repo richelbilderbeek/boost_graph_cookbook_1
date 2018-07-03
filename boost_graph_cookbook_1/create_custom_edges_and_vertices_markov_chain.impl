@@ -1,21 +1,12 @@
-#include <cassert>
 #include "create_empty_directed_custom_edges_and_vertices_graph.h"
+#include <cassert>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>,
+  boost::property<boost::edge_custom_type_t, my_custom_edge>>
 create_custom_edges_and_vertices_markov_chain() noexcept
 {
-  auto g
-    = create_empty_directed_custom_edges_and_vertices_graph();
+  auto g = create_empty_directed_custom_edges_and_vertices_graph();
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
@@ -27,31 +18,17 @@ create_custom_edges_and_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto my_custom_vertexes_map = get(
-    boost::vertex_custom_type,g
-  );
+  auto my_custom_vertexes_map = get(boost::vertex_custom_type, g);
   put(my_custom_vertexes_map, vd_a,
-    my_custom_vertex("Sunny","Yellow thing",1.0,2.0)
-  );
+    my_custom_vertex("Sunny", "Yellow thing", 1.0, 2.0));
   put(my_custom_vertexes_map, vd_b,
-    my_custom_vertex("Rainy","Grey things",3.0,4.0)
-  );
+    my_custom_vertex("Rainy", "Grey things", 3.0, 4.0));
 
-  auto my_edges_map = get(
-    boost::edge_custom_type,g
-  );
-  put(my_edges_map, aer_aa.first,
-    my_custom_edge("Sometimes","20%",1.0,2.0)
-  );
-  put(my_edges_map, aer_ab.first,
-    my_custom_edge("Often","80%",3.0,4.0)
-  );
-  put(my_edges_map, aer_ba.first,
-    my_custom_edge("Rarely","10%",5.0,6.0)
-  );
-  put(my_edges_map, aer_bb.first,
-    my_custom_edge("Mostly","90%",7.0,8.0)
-  );
+  auto my_edges_map = get(boost::edge_custom_type, g);
+  put(my_edges_map, aer_aa.first, my_custom_edge("Sometimes", "20%", 1.0, 2.0));
+  put(my_edges_map, aer_ab.first, my_custom_edge("Often", "80%", 3.0, 4.0));
+  put(my_edges_map, aer_ba.first, my_custom_edge("Rarely", "10%", 5.0, 6.0));
+  put(my_edges_map, aer_bb.first, my_custom_edge("Mostly", "90%", 7.0, 8.0));
 
   return g;
 }

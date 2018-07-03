@@ -1,20 +1,13 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph, typename name_type>
-bool has_vertex_with_name(
-  const name_type& vertex_name,
-  const graph& g
-) noexcept
+bool has_vertex_with_name(const name_type& vertex_name, const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   const auto vip = vertices(g);
-  return std::find_if(vip.first, vip.second,
-    [&g, &vertex_name](const vd& d)
-    {
-      const auto vertex_name_map
-        = get(boost::vertex_name, g);
-      return get(vertex_name_map, d) == vertex_name;
-    }
-  ) != vip.second;
+  return std::find_if(vip.first, vip.second, [&g, &vertex_name](const vd& d) {
+    const auto vertex_name_map = get(boost::vertex_name, g);
+    return get(vertex_name_map, d) == vertex_name;
+  }) != vip.second;
 }

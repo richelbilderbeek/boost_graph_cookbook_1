@@ -1,10 +1,5 @@
 template <typename graph>
-inline bundled_edges_writer<graph>
-make_bundled_edges_writer(
-  const graph& g
-)
+inline bundled_edges_writer<graph> make_bundled_edges_writer(const graph& g)
 {
-  return bundled_edges_writer<
-    graph
-  >(g);
+  return bundled_edges_writer<graph>(g);
 }

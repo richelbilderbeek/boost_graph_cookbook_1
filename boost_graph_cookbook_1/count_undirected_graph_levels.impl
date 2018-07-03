@@ -1,6 +1,6 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <set>
 #include <vector>
-#include <boost/graph/adjacency_list.hpp>
 
 // Collect all neighbours
 // If there are no new neighbours, the level is found
@@ -8,8 +8,7 @@
 template <typename graph>
 int count_undirected_graph_levels(
   typename boost::graph_traits<graph>::vertex_descriptor vd,
-  const graph& g
-) noexcept
+  const graph& g) noexcept
 {
   int level = 0;
   // This does not work:
@@ -17,26 +16,24 @@ int count_undirected_graph_levels(
   std::set<int> s;
   s.insert(vd);
 
-  while (1)
-  {
-    //How many nodes are known now
+  while (1) {
+    // How many nodes are known now
     const auto sz_before = s.size();
 
     const auto t = s;
 
-    for (const auto v: t)
-    {
+    for (const auto v : t) {
       const auto neighbours = boost::adjacent_vertices(v, g);
-      for (auto n = neighbours.first; n != neighbours.second; ++n)
-      {
+      for (auto n = neighbours.first; n != neighbours.second; ++n) {
         s.insert(*n);
       }
     }
 
-    //Have new nodes been discovered?
-    if (s.size() == sz_before) break;
+    // Have new nodes been discovered?
+    if (s.size() == sz_before)
+      break;
 
-    //Found new nodes, thus an extra level
+    // Found new nodes, thus an extra level
     ++level;
   }
   return level;

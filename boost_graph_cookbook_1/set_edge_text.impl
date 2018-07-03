@@ -2,14 +2,10 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph, typename text_type>
-void set_edge_text(
-  const text_type& any_edge_text,
+void set_edge_text(const text_type& any_edge_text,
   const typename boost::graph_traits<graph>::edge_descriptor& ed,
-  graph& g
-) noexcept
+  graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   g[ed] = any_edge_text;
 }

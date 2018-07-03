@@ -1,18 +1,13 @@
-#include <string>
-#include "create_empty_directed_named_edges_and_vertices_graph.h"
 #include "add_named_vertex.h"
+#include "create_empty_directed_named_edges_and_vertices_graph.h"
+#include <string>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<boost::vertex_name_t,std::string>,
-  boost::property<boost::edge_name_t,std::string>
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_name_t, std::string>,
+  boost::property<boost::edge_name_t, std::string>>
 create_named_edges_and_vertices_markov_chain() noexcept
 {
-  auto g
-    = create_empty_directed_named_edges_and_vertices_graph();
+  auto g = create_empty_directed_named_edges_and_vertices_graph();
   const auto vd_a = add_named_vertex("Happy", g);
   const auto vd_b = add_named_vertex("Not unhappy", g);
   const auto aer_aa = boost::add_edge(vd_a, vd_a, g);
@@ -24,9 +19,7 @@ create_named_edges_and_vertices_markov_chain() noexcept
   const auto aer_bb = boost::add_edge(vd_b, vd_b, g);
   assert(aer_bb.second);
 
-  auto edge_name_map = get(
-    boost::edge_name,g
-  );
+  auto edge_name_map = get(boost::edge_name, g);
   put(edge_name_map, aer_aa.first, "Fruit");
   put(edge_name_map, aer_ab.first, "No chocolate");
   put(edge_name_map, aer_ba.first, "Chocolate");

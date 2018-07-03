@@ -1,11 +1,10 @@
-#include <boost/test/unit_test.hpp>
-#include <boost/graph/adjacency_list.hpp>
 #include "create_empty_directed_text_vertices_graph.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_empty_text_directed_vertices_graph)
 {
-  const auto g
-    = create_empty_directed_text_vertices_graph();
+  const auto g = create_empty_directed_text_vertices_graph();
   BOOST_CHECK(boost::num_vertices(g) == 0);
   BOOST_CHECK(boost::num_edges(g) == 0);
 }

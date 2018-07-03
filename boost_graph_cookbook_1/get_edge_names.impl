@@ -1,20 +1,16 @@
-#include <string>
-#include <vector>
+#include "get_edge_name.h"
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/properties.hpp>
-#include "get_edge_name.h"
+#include <string>
+#include <vector>
 template <typename graph>
 std::vector<std::string> get_edge_names(const graph& g) noexcept
 {
   using boost::graph_traits;
   using ed = typename graph_traits<graph>::edge_descriptor;
   std::vector<std::string> v(boost::num_edges(g));
-  const auto eip = edges(g); 
+  const auto eip = edges(g);
   std::transform(eip.first, eip.second, std::begin(v),
-    [&g](const ed& d)
-    {
-      return get_edge_name(d, g);
-    }
-  );
+    [&g](const ed& d) { return get_edge_name(d, g); });
   return v;
 }

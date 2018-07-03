@@ -1,22 +1,17 @@
-#include <vector>
-#include <boost/graph/adjacency_list.hpp>
+#include "get_my_custom_vertex.h"
 #include "install_vertex_custom_type.h"
 #include "my_custom_vertex.h"
-#include "get_my_custom_vertex.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <vector>
 
 template <typename graph>
-std::vector<my_custom_vertex> get_my_custom_vertexes(
-  const graph& g
-) noexcept
+std::vector<my_custom_vertex> get_my_custom_vertexes(const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   std::vector<my_custom_vertex> v(boost::num_vertices(g));
-  const auto vip = vertices(g); 
+  const auto vip = vertices(g);
   std::transform(vip.first, vip.second, std::begin(v),
-    [&g](const vd& d) {
-      return get_my_custom_vertex(d, g);
-    }
-  );
+    [&g](const vd& d) { return get_my_custom_vertex(d, g); });
   return v;
 }

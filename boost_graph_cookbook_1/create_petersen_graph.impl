@@ -1,36 +1,32 @@
+#include "create_empty_undirected_graph.h"
 #include <cassert>
 #include <vector>
-#include "create_empty_undirected_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS>
 create_petersen_graph() noexcept
 {
   using vd = decltype(create_empty_undirected_graph())::vertex_descriptor;
 
   auto g = create_empty_undirected_graph();
 
-  std::vector<vd> v; //Outer
-  for (int i=0; i!=5; ++i) {
+  std::vector<vd> v; // Outer
+  for (int i = 0; i != 5; ++i) {
     v.push_back(boost::add_vertex(g));
   }
-  std::vector<vd> w; //Inner
-  for (int i=0; i!=5; ++i) {
+  std::vector<vd> w; // Inner
+  for (int i = 0; i != 5; ++i) {
     w.push_back(boost::add_vertex(g));
   }
-  //Outer ring
-  for (int i=0; i!=5; ++i) {
+  // Outer ring
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(v[i], v[(i + 1) % 5], g);
   }
-  //Spoke
-  for (int i=0; i!=5; ++i) {
+  // Spoke
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(v[i], w[i], g);
   }
-  //Inner pentagram
-  for (int i=0; i!=5; ++i) {
+  // Inner pentagram
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(w[i], w[(i + 2) % 5], g);
   }
   return g;

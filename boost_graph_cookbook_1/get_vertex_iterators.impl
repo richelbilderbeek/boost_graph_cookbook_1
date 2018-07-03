@@ -1,11 +1,8 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-std::pair<
-  typename graph::vertex_iterator,
-  typename graph::vertex_iterator
->
+std::pair<typename graph::vertex_iterator, typename graph::vertex_iterator>
 get_vertex_iterators(const graph& g) noexcept
 {
-  return vertices(g); 
+  return vertices(g);
 }

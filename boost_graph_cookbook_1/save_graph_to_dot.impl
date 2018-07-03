@@ -1,12 +1,9 @@
-#include <fstream>
 #include <boost/graph/graphviz.hpp>
+#include <fstream>
 
 template <typename graph>
-void save_graph_to_dot(
-  const graph& g,
-  const std::string& filename
-) noexcept
+void save_graph_to_dot(const graph& g, const std::string& filename) noexcept
 {
   std::ofstream f(filename);
-  boost::write_graphviz(f,g);
+  boost::write_graphviz(f, g);
 }

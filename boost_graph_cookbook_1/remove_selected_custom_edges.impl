@@ -1,31 +1,21 @@
-#include <boost/graph/adjacency_list.hpp>
 #include "install_edge_is_selected.h"
+#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-graph remove_selected_custom_edges(
-  graph g
-)
+graph remove_selected_custom_edges(graph g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
-  while (1)
-  {
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
+  while (1) {
     const auto eip = edges(g);
     const auto i = std::find_if(eip.first, eip.second,
-      [&g](const typename boost::graph_traits<graph>::edge_descriptor ed)
-      {
+      [&g](const typename boost::graph_traits<graph>::edge_descriptor ed) {
         const auto is_selected_map = get(boost::edge_is_selected, g);
         return get(is_selected_map, ed);
-      }
-    );
-    if (i == eip.second)
-    {
+      });
+    if (i == eip.second) {
       break;
-    }
-    else
-    {
-      boost::remove_edge(*i,g);
+    } else {
+      boost::remove_edge(*i, g);
     }
   }
   return g;

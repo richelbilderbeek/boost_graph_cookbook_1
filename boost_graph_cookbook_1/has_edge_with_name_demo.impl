@@ -1,12 +1,12 @@
-#include <boost/test/unit_test.hpp>
 #include "add_named_edge.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "has_edge_with_name.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_has_edge_with_name)
 {
   auto g = create_empty_undirected_named_edges_and_vertices_graph();
-  BOOST_CHECK(!has_edge_with_name("Edward",g));
-  add_named_edge("Edward",g);
-  BOOST_CHECK(has_edge_with_name("Edward",g));
+  BOOST_CHECK(!has_edge_with_name("Edward", g));
+  add_named_edge("Edward", g);
+  BOOST_CHECK(has_edge_with_name("Edward", g));
 }

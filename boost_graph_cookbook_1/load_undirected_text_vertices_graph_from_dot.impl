@@ -1,24 +1,14 @@
-#include <fstream>
-#include <boost/graph/graphviz.hpp>
 #include "create_empty_undirected_text_vertices_graph.h"
 #include "is_regular_file.h"
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  std::string
->
-load_undirected_text_vertices_graph_from_dot(
-  const std::string& dot_filename
-)
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, std::string>
+load_undirected_text_vertices_graph_from_dot(const std::string& dot_filename)
 {
-  if (!is_regular_file(dot_filename))
-  {
+  if (!is_regular_file(dot_filename)) {
     std::stringstream msg;
-    msg << __func__ << ": file '"
-      << dot_filename << "' not found"
-    ;
+    msg << __func__ << ": file '" << dot_filename << "' not found";
     throw std::invalid_argument(msg.str());
   }
   std::ifstream f(dot_filename);

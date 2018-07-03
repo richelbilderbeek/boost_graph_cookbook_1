@@ -1,30 +1,20 @@
-#include <cassert>
+#include "get_vertex_name.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "get_vertex_name.h"
+#include <cassert>
 
 template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::vertex_descriptor
-find_first_vertex_with_name(
-  const name_type& name,
-  const graph& g
-)
+find_first_vertex_with_name(const name_type& name, const graph& g)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
-  const auto i = std::find_if(
-    vip.first, vip.second,
-    [&g, &name](const vd d) {
-      return get_vertex_name(d, g) == name;
-    }
-  );
-  if (i == vip.second)
-  {
+  const auto i = std::find_if(vip.first, vip.second,
+    [&g, &name](const vd d) { return get_vertex_name(d, g) == name; });
+  if (i == vip.second) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find vertex with name '"
-      << name << "'"
-    ;
+        << "could not find vertex with name '" << name << "'";
     throw std::invalid_argument(msg.str());
   }
   return *i;

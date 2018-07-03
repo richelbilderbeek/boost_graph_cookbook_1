@@ -1,27 +1,19 @@
-#include <fstream>
-#include <string>
+#include "get_my_custom_vertexes.h"
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
-#include "get_my_custom_vertexes.h"
+#include <fstream>
+#include <string>
 
 template <typename graph>
 void save_custom_vertices_graph_to_dot(
-  const graph& g,
-  const std::string& filename
-) noexcept
+  const graph& g, const std::string& filename) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   std::ofstream f(filename);
-  boost::write_graphviz(
-    f,
-    g,
-    [&g](std::ostream& out, const vd& v) {
-      const auto my_custom_vertexes_map
-        = get(boost::vertex_custom_type,g)
-      ;
-      const auto m = get(my_custom_vertexes_map,v);
-      out << "[label=\"" << m << "\"]";
-    }
-  );
+  boost::write_graphviz(f, g, [&g](std::ostream& out, const vd& v) {
+    const auto my_custom_vertexes_map = get(boost::vertex_custom_type, g);
+    const auto m = get(my_custom_vertexes_map, v);
+    out << "[label=\"" << m << "\"]";
+  });
 }

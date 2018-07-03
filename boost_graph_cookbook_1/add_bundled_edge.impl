@@ -1,22 +1,18 @@
+#include "has_edge_between_vertices.h"
+#include "my_bundled_edge.h"
+#include <boost/graph/adjacency_list.hpp>
 #include <cassert>
 #include <sstream>
 #include <stdexcept>
-#include <boost/graph/adjacency_list.hpp>
-#include "my_bundled_edge.h"
-#include "has_edge_between_vertices.h"
 
 template <typename graph, typename bundled_edge>
-typename boost::graph_traits<graph>::edge_descriptor
-add_bundled_edge(
+typename boost::graph_traits<graph>::edge_descriptor add_bundled_edge(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd_from,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd_to,
-  const bundled_edge& edge,
-  graph& g
-)
+  const bundled_edge& edge, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
-  if (has_edge_between_vertices(vd_from, vd_to, g))
-  {
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
+  if (has_edge_between_vertices(vd_from, vd_to, g)) {
     std::stringstream msg;
     msg << __func__ << ": already an edge there";
     throw std::invalid_argument(msg.str());

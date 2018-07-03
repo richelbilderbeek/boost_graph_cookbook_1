@@ -1,21 +1,14 @@
-#include <boost/graph/properties.hpp>
 #include "install_edge_custom_type.h"
 #include "my_custom_edge.h"
+#include <boost/graph/properties.hpp>
 
 template <typename graph, typename custom_edge>
-bool has_custom_edge_with_my_edge(
-  const custom_edge& e,
-  const graph& g
-) noexcept
+bool has_custom_edge_with_my_edge(const custom_edge& e, const graph& g) noexcept
 {
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
-  const auto eip = edges(g); 
-  return std::find_if(eip.first, eip.second,
-    [&e, &g](const ed& d)
-    {
-      const auto my_edges_map
-        = get(boost::edge_custom_type,g);
-      return get(my_edges_map, d) == e;
-    }
-  ) != eip.second;
+  const auto eip = edges(g);
+  return std::find_if(eip.first, eip.second, [&e, &g](const ed& d) {
+    const auto my_edges_map = get(boost::edge_custom_type, g);
+    return get(my_edges_map, d) == e;
+  }) != eip.second;
 }

@@ -1,19 +1,11 @@
-#include <boost/graph/adjacency_list.hpp>
 #include "install_vertex_custom_type.h"
 #include "install_vertex_is_selected.h"
 #include "my_custom_vertex.h"
+#include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex,
-    boost::property<
-      boost::vertex_is_selected_t, bool
-    >
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<boost::vertex_is_selected_t, bool>>>
 create_empty_undirected_custom_and_selectable_vertices_graph() noexcept
 {
   return {};

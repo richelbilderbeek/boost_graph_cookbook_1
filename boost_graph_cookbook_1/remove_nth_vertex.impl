@@ -1,36 +1,26 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <sstream>
 #include <stdexcept>
-#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void remove_nth_vertex(
-  const size_t i,
-  graph& g
-)
+void remove_nth_vertex(const size_t i, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
-  if (i >= boost::num_vertices(g))
-  {
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
+  if (i >= boost::num_vertices(g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "cannot delete nth (n == " << i
-      << ") vertex for graph with "
-      << boost::num_vertices(g) << " vertices"
-    ;
+        << "cannot delete nth (n == " << i << ") vertex for graph with "
+        << boost::num_vertices(g) << " vertices";
     throw std::invalid_argument(msg.str());
   }
-  #ifdef USE_IMPLEMENTATION_1_9
+#ifdef USE_IMPLEMENTATION_1_9
   const auto vip = vertices(g);
   const auto vi = vip.first + i;
   boost::clear_vertex(*vi, g);
   boost::remove_vertex(*vi, g);
-  #else
+#else
   const auto vd = boost::vertex(i, g);
   boost::clear_vertex(vd, g);
   boost::remove_vertex(vd, g);
-  #endif
+#endif
 }
-
-

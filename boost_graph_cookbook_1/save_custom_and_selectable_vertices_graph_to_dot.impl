@@ -1,22 +1,17 @@
-#include <fstream>
-#include <string>
-#include <boost/graph/graphviz.hpp>
 #include "install_vertex_custom_type.h"
 #include "install_vertex_is_selected.h"
 #include "make_custom_and_selectable_vertices_writer.h"
 #include "my_custom_vertex.h"
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
+#include <string>
 
 template <typename graph>
 void save_custom_and_selectable_vertices_graph_to_dot(
-  const graph& g,
-  const std::string& filename
-)
+  const graph& g, const std::string& filename)
 {
   std::ofstream f(filename);
   boost::write_graphviz(f, g,
     make_custom_and_selectable_vertices_writer(
-      get(boost::vertex_custom_type,g),
-      get(boost::vertex_is_selected,g)
-    )
-  );
+      get(boost::vertex_custom_type, g), get(boost::vertex_is_selected, g)));
 }

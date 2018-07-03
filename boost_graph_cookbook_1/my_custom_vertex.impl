@@ -1,19 +1,17 @@
-#include <string>
 #include <iosfwd>
+#include <string>
 
 class my_custom_vertex
 {
 public:
-  explicit my_custom_vertex(
-    const std::string& name = "",
-    const std::string& description = "",
-    const double x = 0.0,
-    const double y = 0.0
-  );
+  explicit my_custom_vertex(const std::string& name = "",
+    const std::string& description = "", const double x = 0.0,
+    const double y = 0.0);
   const std::string& get_description() const noexcept;
   const std::string& get_name() const noexcept;
   double get_x() const noexcept;
   double get_y() const noexcept;
+
 private:
   std::string m_name;
   std::string m_description;
@@ -21,9 +19,12 @@ private:
   double m_y;
 };
 
-bool operator==(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
-bool operator!=(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
-bool operator<(const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+bool operator==(
+  const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+bool operator!=(
+  const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
+bool operator<(
+  const my_custom_vertex& lhs, const my_custom_vertex& rhs) noexcept;
 
 std::ostream& operator<<(std::ostream& os, const my_custom_vertex& v) noexcept;
 std::istream& operator>>(std::istream& os, my_custom_vertex& v);

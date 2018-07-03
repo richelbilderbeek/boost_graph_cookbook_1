@@ -1,6 +1,6 @@
-#include <boost/test/unit_test.hpp>
 #include "create_bundled_edges_and_vertices_k2_graph.h"
 #include "has_bundled_vertex_with_my_vertex.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_bundled_edges_and_vertices_k2_graph)
 {
@@ -8,9 +8,7 @@ BOOST_AUTO_TEST_CASE(test_create_bundled_edges_and_vertices_k2_graph)
   BOOST_CHECK(boost::num_edges(g) == 1);
   BOOST_CHECK(boost::num_vertices(g) == 2);
   BOOST_CHECK(has_bundled_vertex_with_my_vertex(
-    my_bundled_vertex("A", "source" ,0.0, 0.0), g)
-  );
+    my_bundled_vertex("A", "source", 0.0, 0.0), g));
   BOOST_CHECK(has_bundled_vertex_with_my_vertex(
-    my_bundled_vertex("B", "target" ,3.14, 3.14), g)
-  );
+    my_bundled_vertex("B", "target", 3.14, 3.14), g));
 }

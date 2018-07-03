@@ -1,42 +1,32 @@
-#include <fstream>
-#include <boost/graph/graphviz.hpp>
 #include "create_empty_directed_bundled_vertices_graph.h"
 #include "graphviz_decode.h"
 #include "is_regular_file.h"
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  my_bundled_vertex
->
-load_directed_bundled_vertices_graph_from_dot(
-  const std::string& dot_filename
-)
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  my_bundled_vertex>
+load_directed_bundled_vertices_graph_from_dot(const std::string& dot_filename)
 {
-  if (!is_regular_file(dot_filename))
-  {
+  if (!is_regular_file(dot_filename)) {
     std::stringstream msg;
-    msg << __func__ << ": file '"
-      << dot_filename << "' not found"
-    ;
+    msg << __func__ << ": file '" << dot_filename << "' not found";
     throw std::invalid_argument(msg.str());
   }
   std::ifstream f(dot_filename);
   auto g = create_empty_directed_bundled_vertices_graph();
 
   boost::dynamic_properties dp(boost::ignore_other_properties);
-  dp.property("label",get(&my_bundled_vertex::m_name, g));
+  dp.property("label", get(&my_bundled_vertex::m_name, g));
   dp.property("comment", get(&my_bundled_vertex::m_description, g));
   dp.property("width", get(&my_bundled_vertex::m_x, g));
   dp.property("height", get(&my_bundled_vertex::m_y, g));
-  boost::read_graphviz(f,g,dp);
+  boost::read_graphviz(f, g, dp);
 
-  //Decode vertices
+  // Decode vertices
   const auto vip = vertices(g);
   const auto j = vip.second;
-  for (auto i = vip.first; i!=j; ++i)
-  {
+  for (auto i = vip.first; i != j; ++i) {
     g[*i].m_name = graphviz_decode(g[*i].m_name);
     g[*i].m_description = graphviz_decode(g[*i].m_description);
   }

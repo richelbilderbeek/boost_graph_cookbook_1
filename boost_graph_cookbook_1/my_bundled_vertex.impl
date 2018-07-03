@@ -1,15 +1,11 @@
-#include <string>
-#include <iosfwd>
 #include <boost/property_map/dynamic_property_map.hpp>
+#include <iosfwd>
+#include <string>
 
-struct my_bundled_vertex
-{
-  explicit my_bundled_vertex(
-    const std::string& name = "",
-    const std::string& description = "",
-    const double x = 0.0,
-    const double y = 0.0
-  ) noexcept;
+struct my_bundled_vertex {
+  explicit my_bundled_vertex(const std::string& name = "",
+    const std::string& description = "", const double x = 0.0,
+    const double y = 0.0) noexcept;
   const std::string& get_description() const noexcept;
   const std::string& get_name() const noexcept;
   double get_x() const noexcept;
@@ -21,6 +17,9 @@ struct my_bundled_vertex
 };
 
 std::ostream& operator<<(std::ostream& os, const my_bundled_vertex& e) noexcept;
-bool operator==(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
-bool operator!=(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
-bool operator<(const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+bool operator==(
+  const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+bool operator!=(
+  const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;
+bool operator<(
+  const my_bundled_vertex& lhs, const my_bundled_vertex& rhs) noexcept;

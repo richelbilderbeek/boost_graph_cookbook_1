@@ -1,53 +1,30 @@
-#include <fstream>
-#include <string>
-#include <boost/graph/graphviz.hpp>
 #include "create_empty_undirected_graph_with_graph_name.h"
 #include "is_regular_file.h"
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
+#include <string>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::no_property,
-  boost::no_property,
-  boost::property<
-    boost::graph_name_t, std::string
-  >
->
-load_undirected_graph_with_graph_name_from_dot(
-  const std::string& dot_filename
-)
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::no_property, boost::no_property,
+  boost::property<boost::graph_name_t, std::string>>
+load_undirected_graph_with_graph_name_from_dot(const std::string& dot_filename)
 {
-  using graph = boost::adjacency_list<
-    boost::vecS,
-    boost::vecS,
-    boost::undirectedS,
-    boost::no_property,
-    boost::no_property,
-    boost::property<
-      boost::graph_name_t, std::string
-    >
-  >;
-  if (!is_regular_file(dot_filename))
-  {
+  using graph = boost::adjacency_list<boost::vecS, boost::vecS,
+    boost::undirectedS, boost::no_property, boost::no_property,
+    boost::property<boost::graph_name_t, std::string>>;
+  if (!is_regular_file(dot_filename)) {
     std::stringstream msg;
-    msg << __func__ << ": file '"
-      << dot_filename << "' not found"
-    ;
+    msg << __func__ << ": file '" << dot_filename << "' not found";
     throw std::invalid_argument(msg.str());
   }
   graph g;
 
-  boost::ref_property_map<graph*,std::string>
-  graph_name{
-    get_property(g,boost::graph_name)
-  };
-  boost::dynamic_properties dp{
-    boost::ignore_other_properties
-  };
-  dp.property("name",graph_name);
+  boost::ref_property_map<graph*, std::string> graph_name{ get_property(
+    g, boost::graph_name) };
+  boost::dynamic_properties dp{ boost::ignore_other_properties };
+  dp.property("name", graph_name);
 
   std::ifstream f(dot_filename);
-  boost::read_graphviz(f,g,dp);
+  boost::read_graphviz(f, g, dp);
   return g;
 }

@@ -4,35 +4,35 @@
 
 template <typename graph>
 graph create_direct_neighbour_subgraph_including_in_edges(
-    const typename graph::vertex_descriptor& vd, const graph& g)
+  const typename graph::vertex_descriptor& vd, const graph& g)
 {
-    using vertex_descriptor = typename graph::vertex_descriptor;
-    using edge_descriptor = typename graph::edge_descriptor;
-    using vpair = std::pair<vertex_descriptor, vertex_descriptor>;
+  using vertex_descriptor = typename graph::vertex_descriptor;
+  using edge_descriptor = typename graph::edge_descriptor;
+  using vpair = std::pair<vertex_descriptor, vertex_descriptor>;
 
-    std::vector<vpair> conn_edges;
-    std::unordered_map<vertex_descriptor, vertex_descriptor> m;
+  std::vector<vpair> conn_edges;
+  std::unordered_map<vertex_descriptor, vertex_descriptor> m;
 
-    vertex_descriptor vd_h = 0;
-    m.insert(std::make_pair(vd, vd_h++));
+  vertex_descriptor vd_h = 0;
+  m.insert(std::make_pair(vd, vd_h++));
 
-    for (const edge_descriptor ed : boost::make_iterator_range(edges(g))) {
-      const auto vd_from = source(ed, g);
-      const auto vd_to = target(ed, g);
-      if (vd == vd_from) {
-        conn_edges.emplace_back(vd_from, vd_to);
-        m.insert(std::make_pair(vd_to, vd_h++));
-      }
-      if (vd == vd_to) {
-        conn_edges.emplace_back(vd_from, vd_to);
-        m.insert(std::make_pair(vd_from, vd_h++));
-      }
+  for (const edge_descriptor ed : boost::make_iterator_range(edges(g))) {
+    const auto vd_from = source(ed, g);
+    const auto vd_to = target(ed, g);
+    if (vd == vd_from) {
+      conn_edges.emplace_back(vd_from, vd_to);
+      m.insert(std::make_pair(vd_to, vd_h++));
     }
-
-    for (vpair& vp : conn_edges) {
-      vp.first = m[vp.first];
-      vp.second = m[vp.second];
+    if (vd == vd_to) {
+      conn_edges.emplace_back(vd_from, vd_to);
+      m.insert(std::make_pair(vd_from, vd_h++));
     }
+  }
 
-    return graph(conn_edges.begin(), conn_edges.end(), m.size());
+  for (vpair& vp : conn_edges) {
+    vp.first = m[vp.first];
+    vp.second = m[vp.second];
+  }
+
+  return graph(conn_edges.begin(), conn_edges.end(), m.size());
 }

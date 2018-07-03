@@ -1,20 +1,14 @@
-#include <boost/graph/properties.hpp>
-#include "install_edge_custom_type.h"
 #include "find_first_custom_edge.h"
+#include "install_edge_custom_type.h"
+#include <boost/graph/properties.hpp>
 
 template <typename graph, typename predicate>
-bool has_custom_edge(
-  const predicate& p,
-  const graph& g
-) noexcept
+bool has_custom_edge(const predicate& p, const graph& g) noexcept
 {
-  try
-  {
+  try {
     find_first_custom_edge(p, g);
     return true;
-  }
-  catch (std::invalid_argument&)
-  {
+  } catch (std::invalid_argument&) {
     return false;
   }
 }

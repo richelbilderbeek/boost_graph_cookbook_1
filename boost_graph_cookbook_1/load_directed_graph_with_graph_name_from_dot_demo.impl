@@ -1,18 +1,14 @@
-#include <boost/test/unit_test.hpp>
 #include "create_markov_chain_with_graph_name.h"
+#include "get_graph_name.h"
 #include "load_directed_graph_with_graph_name_from_dot.h"
 #include "save_graph_with_graph_name_to_dot.h"
-#include "get_graph_name.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_load_directed_graph_with_graph_name_from_dot)
 {
-  const auto g
-    = create_markov_chain_with_graph_name();
-  const std::string filename{
-    "create_markov_chain_with_graph_name.dot"
-  };
+  const auto g = create_markov_chain_with_graph_name();
+  const std::string filename{ "create_markov_chain_with_graph_name.dot" };
   save_graph_with_graph_name_to_dot(g, filename);
-  const auto h
-    = load_directed_graph_with_graph_name_from_dot(filename);
+  const auto h = load_directed_graph_with_graph_name_from_dot(filename);
   BOOST_CHECK(get_graph_name(g) == get_graph_name(h));
 }

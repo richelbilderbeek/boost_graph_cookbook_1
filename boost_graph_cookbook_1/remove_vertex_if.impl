@@ -1,27 +1,18 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <sstream>
 #include <stdexcept>
-#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph, typename predicate>
-void remove_vertex_if(
-  const predicate p,
-  graph& g
-)
+void remove_vertex_if(const predicate p, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   const auto vip = boost::vertices(g);
 
-  //Dangerous algorithm
-  for (auto vi = vip.first; vi != vip.second; ++vi)
-  {
-    if (p(*vi, g))
-    {
+  // Dangerous algorithm
+  for (auto vi = vip.first; vi != vip.second; ++vi) {
+    if (p(*vi, g)) {
       boost::clear_vertex(*vi, g);
       boost::remove_vertex(*vi, g);
     }
   }
 }
-
-

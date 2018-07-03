@@ -1,48 +1,42 @@
-#include <map>
-#include <boost/graph/adjacency_list.hpp>
 #include "add_named_edge_between_vertices.h"
 #include "add_named_vertex.h"
 #include "get_edge_name.h"
 #include "get_vertex_name.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <map>
 template <typename graph, typename vertex_descriptor>
 graph create_direct_neighbour_named_edges_and_vertices_subgraph(
-  const vertex_descriptor& vd,
-  const graph& g
-)
+  const vertex_descriptor& vd, const graph& g)
 {
   graph h;
 
-  std::map<vertex_descriptor,vertex_descriptor> vds;
+  std::map<vertex_descriptor, vertex_descriptor> vds;
   {
-    const auto vd_h = add_named_vertex(get_vertex_name(vd,g),h);
-    vds.insert(std::make_pair(vd,vd_h));
+    const auto vd_h = add_named_vertex(get_vertex_name(vd, g), h);
+    vds.insert(std::make_pair(vd, vd_h));
   }
-  //Copy vertices
+  // Copy vertices
   {
     const auto vdsi = boost::adjacent_vertices(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(vds,std::begin(vds)),
-      [&g, &h](const vertex_descriptor& d)
-      {
-        const auto vd_h = add_named_vertex(get_vertex_name(d,g), h);
-        return std::make_pair(d,vd_h);
-      }
-    );
+    std::transform(vdsi.first, vdsi.second, std::inserter(vds, std::begin(vds)),
+      [&g, &h](const vertex_descriptor& d) {
+        const auto vd_h = add_named_vertex(get_vertex_name(d, g), h);
+        return std::make_pair(d, vd_h);
+      });
   }
-  //Copy edges
+  // Copy edges
   {
     const auto eip = edges(g);
     const auto j = eip.second;
-    for (auto i = eip.first; i!=j; ++i)
-    {
+    for (auto i = eip.first; i != j; ++i) {
       const auto vd_from = source(*i, g);
       const auto vd_to = target(*i, g);
-      if (vds.find(vd_from) == std::end(vds)) continue;
-      if (vds.find(vd_to) == std::end(vds)) continue;
+      if (vds.find(vd_from) == std::end(vds))
+        continue;
+      if (vds.find(vd_to) == std::end(vds))
+        continue;
       add_named_edge_between_vertices(
-        get_edge_name(*i, g),
-        vds[vd_from],vds[vd_to], h
-      );
+        get_edge_name(*i, g), vds[vd_from], vds[vd_to], h);
     }
   }
   return h;

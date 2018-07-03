@@ -1,47 +1,34 @@
-#include <cassert>
-#include <vector>
 #include "add_custom_and_selectable_vertex.h"
 #include "create_empty_undirected_custom_and_selectable_vertices_graph.h"
+#include <cassert>
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex,
-    boost::property<
-      boost::vertex_is_selected_t, bool
-    >
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<boost::vertex_is_selected_t, bool>>>
 create_custom_and_selectable_vertices_path_graph(
   const std::vector<my_custom_vertex>& custom_vertices,
-  const std::vector<bool>& selectednesses
-)
+  const std::vector<bool>& selectednesses)
 {
-  if (custom_vertices.size() != selectednesses.size())
-  {
+  if (custom_vertices.size() != selectednesses.size()) {
     std::stringstream msg;
     msg << __func__ << ": need as much custom_vertices (supplied: "
-      << custom_vertices.size()
-      << ") as selectednesses (supplied: "
-      << selectednesses.size()
-      << ")"
-    ;
+        << custom_vertices.size()
+        << ") as selectednesses (supplied: " << selectednesses.size() << ")";
     throw std::invalid_argument(msg.str());
   }
   auto g = create_empty_undirected_custom_and_selectable_vertices_graph();
-  if (custom_vertices.size() == 0) { return g; }
+  if (custom_vertices.size() == 0) {
+    return g;
+  }
   auto vd_1 = add_custom_and_selectable_vertex(
-    *std::begin(custom_vertices),
-    *std::begin(selectednesses),
-    g
-  );
-  if (custom_vertices.size() == 1) return g;
+    *std::begin(custom_vertices), *std::begin(selectednesses), g);
+  if (custom_vertices.size() == 1)
+    return g;
   const auto j = std::end(custom_vertices);
   auto vi = std::begin(custom_vertices);
   auto si = std::begin(selectednesses);
-  for (++vi, ++si; vi!=j; ++vi, ++si) //Skip first
+  for (++vi, ++si; vi != j; ++vi, ++si) // Skip first
   {
     auto vd_2 = add_custom_and_selectable_vertex(*vi, *si, g);
     boost::add_edge(vd_1, vd_2, g);

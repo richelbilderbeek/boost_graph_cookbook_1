@@ -2,8 +2,8 @@
 
 std::string graphviz_encode(std::string s) noexcept
 {
-  boost::algorithm::replace_all(s,",","$$$COMMA$$$");
-  boost::algorithm::replace_all(s," ","$$$SPACE$$$");
-  boost::algorithm::replace_all(s,"\"","$$$QUOTE$$$");
+  boost::algorithm::replace_all(s, ",", "$$$COMMA$$$");
+  boost::algorithm::replace_all(s, " ", "$$$SPACE$$$");
+  boost::algorithm::replace_all(s, "\"", "$$$QUOTE$$$");
   return s;
 }

@@ -1,58 +1,40 @@
-#include <cassert>
-#include <vector>
 #include "add_custom_vertex.h"
 #include "create_empty_undirected_custom_vertices_graph.h"
+#include <cassert>
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>>
 create_custom_vertices_petersen_graph() noexcept
 {
   auto g = create_empty_undirected_custom_vertices_graph();
-  using vd = decltype(create_empty_undirected_custom_vertices_graph())::vertex_descriptor;
+  using vd = decltype(
+    create_empty_undirected_custom_vertices_graph())::vertex_descriptor;
 
-
-  std::vector<vd> v; //Outer
-  for (int i=0; i!=5; ++i) {
-    v.push_back(
-      add_custom_vertex(
-        my_custom_vertex(
-          std::string(1,'A' + i),
-          std::string(1,'E' - i),
-          static_cast<double>(i) * 1.1,
-          static_cast<double>(i) * 2.2
-        ), g
-      )
-    );
+  std::vector<vd> v; // Outer
+  for (int i = 0; i != 5; ++i) {
+    v.push_back(add_custom_vertex(
+      my_custom_vertex(std::string(1, 'A' + i), std::string(1, 'E' - i),
+        static_cast<double>(i) * 1.1, static_cast<double>(i) * 2.2),
+      g));
   }
-  std::vector<vd> w; //Inner
-  for (int i=0; i!=5; ++i) {
-    w.push_back(
-      add_custom_vertex(
-        my_custom_vertex(
-          std::string(1,'a' + i),
-          std::string(1,'e' - i),
-          static_cast<double>(i) * 3.3,
-          static_cast<double>(i) * 4.4
-        ), g
-      )
-    );
+  std::vector<vd> w; // Inner
+  for (int i = 0; i != 5; ++i) {
+    w.push_back(add_custom_vertex(
+      my_custom_vertex(std::string(1, 'a' + i), std::string(1, 'e' - i),
+        static_cast<double>(i) * 3.3, static_cast<double>(i) * 4.4),
+      g));
   }
-  //Outer ring
-  for (int i=0; i!=5; ++i) {
+  // Outer ring
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(v[i], v[(i + 1) % 5], g);
   }
-  //Spoke
-  for (int i=0; i!=5; ++i) {
+  // Spoke
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(v[i], w[i], g);
   }
-  //Inner pentagram
-  for (int i=0; i!=5; ++i) {
+  // Inner pentagram
+  for (int i = 0; i != 5; ++i) {
     boost::add_edge(w[i], w[(i + 2) % 5], g);
   }
   return g;

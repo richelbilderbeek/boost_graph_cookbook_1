@@ -1,30 +1,18 @@
-#include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
-#include "add_custom_and_selectable_vertex.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
+#include "add_custom_and_selectable_vertex.h"
+#include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex,
-    boost::property<
-      boost::vertex_is_selected_t, bool
-    >
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge,
-    boost::property<
-      boost::edge_is_selected_t, bool
-    >
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<boost::vertex_is_selected_t, bool>>,
+  boost::property<boost::edge_custom_type_t, my_custom_edge,
+    boost::property<boost::edge_is_selected_t, bool>>>
 create_custom_and_selectable_edges_and_vertices_k2_graph()
 {
   auto g
     = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
-  const my_custom_vertex va("A","source",0.0,0.0);
-  const my_custom_vertex vb("B","target",3.14,3.14);
+  const my_custom_vertex va("A", "source", 0.0, 0.0);
+  const my_custom_vertex vb("B", "target", 3.14, 3.14);
   const my_custom_edge ea("between");
   const auto vd_a = add_custom_and_selectable_vertex(va, true, g);
   const auto vd_b = add_custom_and_selectable_vertex(vb, false, g);

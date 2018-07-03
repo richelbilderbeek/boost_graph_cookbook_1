@@ -1,47 +1,32 @@
 #include "find_first_vertex_with_text.h"
-#include "has_vertex_with_text.h"
 #include "has_edge_between_vertices.h"
+#include "has_vertex_with_text.h"
 
 template <typename graph>
 void remove_edge_between_vertices_with_texts(
-  const std::string& text_1,
-  const std::string& text_2,
-  graph& g
-)
+  const std::string& text_1, const std::string& text_2, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
-  if (!has_vertex_with_text(text_1,g))
-  {
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
+  if (!has_vertex_with_text(text_1, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "cannot find vertex #1 with text '"
-      << text_1 << "'"
-    ;
+        << "cannot find vertex #1 with text '" << text_1 << "'";
     throw std::invalid_argument(msg.str());
   }
-  if (!has_vertex_with_text(text_2,g))
-  {
+  if (!has_vertex_with_text(text_2, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "cannot find vertex #2 with text '"
-      << text_1 << "'"
-    ;
+        << "cannot find vertex #2 with text '" << text_1 << "'";
     throw std::invalid_argument(msg.str());
   }
 
-  const auto vd_1
-    = find_first_vertex_with_text(text_1, g);
-  const auto vd_2
-    = find_first_vertex_with_text(text_2, g);
+  const auto vd_1 = find_first_vertex_with_text(text_1, g);
+  const auto vd_2 = find_first_vertex_with_text(text_2, g);
 
-  if (!has_edge_between_vertices(vd_1, vd_2, g))
-  {
+  if (!has_edge_between_vertices(vd_1, vd_2, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "no edge between vertices"
-    ;
+        << "no edge between vertices";
     throw std::invalid_argument(msg.str());
   }
 

@@ -1,26 +1,22 @@
-#include <vector>
 #include "add_custom_vertex.h"
 #include "create_empty_undirected_custom_vertices_graph.h"
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>>
 create_custom_vertices_path_graph(
-  const std::vector<my_custom_vertex>& names
-) noexcept
+  const std::vector<my_custom_vertex>& names) noexcept
 {
   auto g = create_empty_undirected_custom_vertices_graph();
-  if (names.size() == 0) { return g; }
+  if (names.size() == 0) {
+    return g;
+  }
   auto vd_1 = add_custom_vertex(*names.begin(), g);
-  if (names.size() == 1) return g;
+  if (names.size() == 1)
+    return g;
   const auto j = std::end(names);
   auto i = std::begin(names);
-  for (++i; i!=j; ++i) //Skip first
+  for (++i; i != j; ++i) // Skip first
   {
     auto vd_2 = add_custom_vertex(*i, g);
     boost::add_edge(vd_1, vd_2, g);

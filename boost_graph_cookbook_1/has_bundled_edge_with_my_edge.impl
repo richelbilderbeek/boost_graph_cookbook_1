@@ -1,18 +1,13 @@
-#include <boost/graph/properties.hpp>
 #include "my_bundled_edge.h"
+#include <boost/graph/properties.hpp>
 
 template <typename graph>
 bool has_bundled_edge_with_my_edge(
-  const my_bundled_edge& e,
-  const graph& g
-) noexcept
+  const my_bundled_edge& e, const graph& g) noexcept
 {
   using ed = typename boost::graph_traits<graph>::edge_descriptor;
-  const auto eip = edges(g); 
-  return std::find_if(eip.first, eip.second,
-    [&e, &g](const ed& d)
-    {
-      return g[d] == e;
-    }
-  ) != eip.second;
+  const auto eip = edges(g);
+  return std::find_if(eip.first, eip.second, [&e, &g](const ed& d) {
+    return g[d] == e;
+  }) != eip.second;
 }

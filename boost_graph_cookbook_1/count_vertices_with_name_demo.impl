@@ -1,14 +1,12 @@
-#include <boost/test/unit_test.hpp>
 #include "add_named_vertex.h"
 #include "count_vertices_with_name.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 #include "create_named_vertices_path_graph.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_count_vertices_with_name)
 {
-  auto g = create_named_vertices_path_graph(
-    {"Apple", "Pear", "Apple"}
-  );
+  auto g = create_named_vertices_path_graph({ "Apple", "Pear", "Apple" });
   BOOST_CHECK(count_vertices_with_name("Apple", g) == 2);
   BOOST_CHECK(count_vertices_with_name("Pear", g) == 1);
   BOOST_CHECK(count_vertices_with_name("Banana", g) == 0);

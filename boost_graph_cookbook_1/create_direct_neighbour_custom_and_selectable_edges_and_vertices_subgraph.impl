@@ -1,61 +1,50 @@
-#include <map>
-#include <boost/graph/adjacency_list.hpp>
 #include "add_custom_and_selectable_edge_between_vertices.h"
 #include "add_custom_and_selectable_vertex.h"
 #include "get_edge_selectedness.h"
 #include "get_my_custom_edge.h"
 #include "get_my_custom_vertex.h"
 #include "get_vertex_selectedness.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <map>
 template <typename graph>
 graph create_direct_neighbour_custom_and_selectable_edges_and_vertices_subgraph(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
-  const graph& g
-)
+  const graph& g)
 {
-  using vertex_descriptor = typename boost::graph_traits<graph>::vertex_descriptor;
+  using vertex_descriptor =
+    typename boost::graph_traits<graph>::vertex_descriptor;
 
   graph h;
 
-  std::map<vertex_descriptor,vertex_descriptor> m;
+  std::map<vertex_descriptor, vertex_descriptor> m;
   {
     const auto vd_h = add_custom_and_selectable_vertex(
-      get_my_custom_vertex(vd, g),
-      get_vertex_selectedness(vd, g),
-      h
-    );
-    m.insert(std::make_pair(vd,vd_h));
+      get_my_custom_vertex(vd, g), get_vertex_selectedness(vd, g), h);
+    m.insert(std::make_pair(vd, vd_h));
   }
-  //Copy vertices
+  // Copy vertices
   {
     const auto vdsi = boost::adjacent_vertices(vd, g);
-    std::transform(vdsi.first, vdsi.second,
-      std::inserter(m,std::begin(m)),
-      [&g, &h](const vertex_descriptor& d)
-      {
+    std::transform(vdsi.first, vdsi.second, std::inserter(m, std::begin(m)),
+      [&g, &h](const vertex_descriptor& d) {
         const auto vd_h = add_custom_and_selectable_vertex(
-          get_my_custom_vertex(d,g),
-          get_vertex_selectedness(d, g),
-          h
-        );
-        return std::make_pair(d,vd_h);
-      }
-    );
+          get_my_custom_vertex(d, g), get_vertex_selectedness(d, g), h);
+        return std::make_pair(d, vd_h);
+      });
   }
-  //Copy edges
+  // Copy edges
   {
     const auto eip = edges(g);
     const auto j = eip.second;
-    for (auto i = eip.first; i!=j; ++i)
-    {
+    for (auto i = eip.first; i != j; ++i) {
       const auto vd_from = source(*i, g);
       const auto vd_to = target(*i, g);
-      if (m.find(vd_from) == std::end(m)) continue;
-      if (m.find(vd_to) == std::end(m)) continue;
-      add_custom_and_selectable_edge_between_vertices(
-        get_my_custom_edge(*i, g),
-        get_edge_selectedness(*i, g),
-        m[vd_from],m[vd_to], h
-      );
+      if (m.find(vd_from) == std::end(m))
+        continue;
+      if (m.find(vd_to) == std::end(m))
+        continue;
+      add_custom_and_selectable_edge_between_vertices(get_my_custom_edge(*i, g),
+        get_edge_selectedness(*i, g), m[vd_from], m[vd_to], h);
     }
   }
   return h;

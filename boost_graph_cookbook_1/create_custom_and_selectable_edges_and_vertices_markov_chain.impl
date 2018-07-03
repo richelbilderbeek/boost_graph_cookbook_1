@@ -1,62 +1,28 @@
-#include <cassert>
-#include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
 #include "add_custom_and_selectable_edge_between_vertices.h"
 #include "add_custom_and_selectable_vertex.h"
+#include "create_empty_directed_custom_and_selectable_edges_and_vertices_graph.h"
+#include <cassert>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex,
-    boost::property<
-      boost::vertex_is_selected_t, bool
-    >
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge,
-    boost::property<
-      boost::edge_is_selected_t, bool
-    >
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex,
+    boost::property<boost::vertex_is_selected_t, bool>>,
+  boost::property<boost::edge_custom_type_t, my_custom_edge,
+    boost::property<boost::edge_is_selected_t, bool>>>
 create_custom_and_selectable_edges_and_vertices_markov_chain()
 {
   auto g
     = create_empty_directed_custom_and_selectable_edges_and_vertices_graph();
   const auto vd_a = add_custom_and_selectable_vertex(
-    my_custom_vertex("Sunny","Yellow thing",1.0,2.0),
-    true,
-    g
-  );
+    my_custom_vertex("Sunny", "Yellow thing", 1.0, 2.0), true, g);
   const auto vd_b = add_custom_and_selectable_vertex(
-    my_custom_vertex("Rainy", "Grey things",3.0,4.0),
-    false,
-    g
-  );
+    my_custom_vertex("Rainy", "Grey things", 3.0, 4.0), false, g);
   add_custom_and_selectable_edge_between_vertices(
-    my_custom_edge("A to A"),
-    true,
-    vd_a, vd_a,
-    g
-  );
+    my_custom_edge("A to A"), true, vd_a, vd_a, g);
   add_custom_and_selectable_edge_between_vertices(
-    my_custom_edge("A to B"),
-    false,
-    vd_a, vd_b,
-    g
-  );
+    my_custom_edge("A to B"), false, vd_a, vd_b, g);
   add_custom_and_selectable_edge_between_vertices(
-    my_custom_edge("B to A"),
-    false,
-    vd_b, vd_a,
-    g
-  );
+    my_custom_edge("B to A"), false, vd_b, vd_a, g);
   add_custom_and_selectable_edge_between_vertices(
-    my_custom_edge("B to B"),
-    true,
-    vd_b, vd_b,
-    g
-  );
+    my_custom_edge("B to B"), true, vd_b, vd_b, g);
   return g;
 }

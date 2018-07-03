@@ -1,12 +1,7 @@
-#include <string>
 #include <boost/graph/adjacency_list.hpp>
+#include <string>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  std::string
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, std::string>
 create_empty_undirected_text_vertices_graph() noexcept
 {
   return {};

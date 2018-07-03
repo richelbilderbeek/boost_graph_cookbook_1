@@ -1,15 +1,10 @@
+#include <boost/graph/properties.hpp>
 #include <cassert>
 #include <string>
-#include <boost/graph/properties.hpp>
 
 template <typename graph>
-void set_graph_name(
-  const std::string& name,
-  graph& g
-) noexcept
+void set_graph_name(const std::string& name, graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   get_property(g, boost::graph_name) = name;
 }

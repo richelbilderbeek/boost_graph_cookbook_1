@@ -1,21 +1,14 @@
 #include "add_custom_vertex.h"
 #include "create_empty_directed_custom_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>>
 create_custom_vertices_markov_chain() noexcept
 {
-  auto g
-    = create_empty_directed_custom_vertices_graph();
+  auto g = create_empty_directed_custom_vertices_graph();
 
-  const my_custom_vertex a("Sunny","Yellow thing",1.0,2.0);
-  const my_custom_vertex b("Rainy", "Grey things",3.0,4.0);
+  const my_custom_vertex a("Sunny", "Yellow thing", 1.0, 2.0);
+  const my_custom_vertex b("Rainy", "Grey things", 3.0, 4.0);
 
   const auto vd_a = add_custom_vertex(a, g);
   const auto vd_b = add_custom_vertex(b, g);

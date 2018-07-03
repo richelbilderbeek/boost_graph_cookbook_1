@@ -1,14 +1,14 @@
-#include <boost/test/unit_test.hpp>
 #include "add_named_edge.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
 #include "find_first_edge_with_name.h"
 #include "get_edge_name.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_get_edge_name)
 {
   auto g = create_empty_undirected_named_edges_and_vertices_graph();
-  const std::string name{"Dex"};
+  const std::string name{ "Dex" };
   add_named_edge(name, g);
-  const auto ed = find_first_edge_with_name(name,g);
-  BOOST_CHECK(get_edge_name(ed,g) == name);
+  const auto ed = find_first_edge_with_name(name, g);
+  BOOST_CHECK(get_edge_name(ed, g) == name);
 }

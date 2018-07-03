@@ -1,34 +1,25 @@
-#include <cassert>
-#include <string>
-#include <stdexcept>
-#include <boost/graph/adjacency_list.hpp>
-#include "has_vertex_with_name.h"
 #include "find_first_vertex_with_name.h"
+#include "has_vertex_with_name.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <cassert>
+#include <stdexcept>
+#include <string>
 
 template <typename graph, typename name_type>
 typename boost::graph_traits<graph>::edge_descriptor
 add_edge_between_named_vertices(
-  const name_type& vertex_name_1,
-  const name_type& vertex_name_2,
-  graph& g
-)
+  const name_type& vertex_name_1, const name_type& vertex_name_2, graph& g)
 {
-  if (!has_vertex_with_name(vertex_name_1, g))
-  {
+  if (!has_vertex_with_name(vertex_name_1, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find vertex #1 with name '"
-      << vertex_name_1 << "'"
-    ;
+        << "could not find vertex #1 with name '" << vertex_name_1 << "'";
     throw std::invalid_argument(msg.str());
   }
-  if (!has_vertex_with_name(vertex_name_2, g))
-  {
+  if (!has_vertex_with_name(vertex_name_2, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find vertex #2 with name '"
-      << vertex_name_2 << "'"
-    ;
+        << "could not find vertex #2 with name '" << vertex_name_2 << "'";
     throw std::invalid_argument(msg.str());
   }
   const auto vd_1 = find_first_vertex_with_name(vertex_name_1, g);

@@ -1,29 +1,19 @@
-#include <string>
-#include <fstream>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/properties.hpp>
+#include <fstream>
+#include <string>
 
 #include "get_graph_text.h"
 
 template <typename graph>
 void save_graph_with_graph_text_to_dot(
-  const graph& g,
-  const std::string& filetext
-)
+  const graph& g, const std::string& filetext)
 {
   std::ofstream f(filetext);
-  boost::write_graphviz(
-    f,
-    g,
-    boost::default_writer(),
-    boost::default_writer(),
-    //Unsure if this results in a graph
-    //that can be loaded correctly
-    //from a .dot file
-    [&g](std::ostream& os) {
-      os << "text=\""
-        << get_graph_text(g)
-        << "\";\n";
-    }
-  );
+  boost::write_graphviz(f, g, boost::default_writer(), boost::default_writer(),
+    // Unsure if this results in a graph
+    // that can be loaded correctly
+    // from a .dot file
+    [&g](
+      std::ostream& os) { os << "text=\"" << get_graph_text(g) << "\";\n"; });
 }

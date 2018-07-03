@@ -1,13 +1,16 @@
-#include <cassert>
 #include "file_to_vector.h"
 #include "is_regular_file.h"
+#include <cassert>
 
 bool is_valid_dot_file(const std::string& dot_filename)
 {
-  if (!is_regular_file(dot_filename)) { return false; }
+  if (!is_regular_file(dot_filename)) {
+    return false;
+  }
   const auto v = file_to_vector(dot_filename);
-  if (v.size() <= 1) return false;
-  //Remove trailing newlines
+  if (v.size() <= 1)
+    return false;
+  // Remove trailing newlines
   assert(!v.back().empty());
   return v.back()[0] == '}';
 }

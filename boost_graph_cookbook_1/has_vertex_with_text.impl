@@ -2,17 +2,12 @@
 
 template <typename graph>
 bool has_vertex_with_text(
-  const std::string& vertex_text,
-  const graph& g
-) noexcept
+  const std::string& vertex_text, const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   const auto vip = vertices(g);
-  return std::find_if(vip.first, vip.second,
-    [&g, &vertex_text](const vd& d)
-    {
-      return g[d] == vertex_text;
-    }
-  ) != vip.second;
+  return std::find_if(vip.first, vip.second, [&g, &vertex_text](const vd& d) {
+    return g[d] == vertex_text;
+  }) != vip.second;
 }

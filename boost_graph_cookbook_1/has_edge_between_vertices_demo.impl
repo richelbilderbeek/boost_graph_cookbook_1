@@ -1,12 +1,12 @@
-#include <boost/test/unit_test.hpp>
 #include "create_k2_graph.h"
 #include "has_edge_between_vertices.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_has_edge_between_vertices)
 {
   const auto g = create_k2_graph();
   const auto vd_1 = *vertices(g).first;
   const auto vd_2 = *(++vertices(g).first);
-  BOOST_CHECK( has_edge_between_vertices(vd_1, vd_2, g));
+  BOOST_CHECK(has_edge_between_vertices(vd_1, vd_2, g));
   BOOST_CHECK(!has_edge_between_vertices(vd_1, vd_1, g));
 }

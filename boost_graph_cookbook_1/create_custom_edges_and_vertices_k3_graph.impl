@@ -1,29 +1,20 @@
-#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
-#include "add_custom_vertex.h"
 #include "add_custom_edge_between_vertices.h"
+#include "add_custom_vertex.h"
+#include "create_empty_undirected_custom_edges_and_vertices_graph.h"
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<
-    boost::vertex_custom_type_t, my_custom_vertex
-  >,
-  boost::property<
-    boost::edge_custom_type_t, my_custom_edge
-  >
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_custom_type_t, my_custom_vertex>,
+  boost::property<boost::edge_custom_type_t, my_custom_edge>>
 create_custom_edges_and_vertices_k3_graph()
 {
-  auto g
-    = create_empty_undirected_custom_edges_and_vertices_graph();
+  auto g = create_empty_undirected_custom_edges_and_vertices_graph();
 
-  const my_custom_vertex va("top","source",0.0,0.0);
-  const my_custom_vertex vb("right","target",3.14,0);
-  const my_custom_vertex vc("left","target",0,3.14);
-  const my_custom_edge ea("AB","first",0.0,0.0);
-  const my_custom_edge eb("BC","second",3.14,3.14);
-  const my_custom_edge ec("CA","third",3.14,3.14);
+  const my_custom_vertex va("top", "source", 0.0, 0.0);
+  const my_custom_vertex vb("right", "target", 3.14, 0);
+  const my_custom_vertex vc("left", "target", 0, 3.14);
+  const my_custom_edge ea("AB", "first", 0.0, 0.0);
+  const my_custom_edge eb("BC", "second", 3.14, 3.14);
+  const my_custom_edge ec("CA", "third", 3.14, 3.14);
   const auto vd_a = add_custom_vertex(va, g);
   const auto vd_b = add_custom_vertex(vb, g);
   const auto vd_c = add_custom_vertex(vc, g);

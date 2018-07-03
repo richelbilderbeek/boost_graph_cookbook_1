@@ -1,17 +1,13 @@
-#include <cassert>
-#include <string>
-#include <boost/graph/adjacency_list.hpp>
 #include "my_bundled_edge.h"
 #include "set_my_bundled_edge.h"
+#include <boost/graph/adjacency_list.hpp>
+#include <cassert>
+#include <string>
 
 template <typename graph, typename vertex_descriptor, typename bundled_edge>
 typename boost::graph_traits<graph>::edge_descriptor
-add_bundled_edge_between_vertices(
-  const bundled_edge& edge,
-  const vertex_descriptor from,
-  const vertex_descriptor to,
-  graph& g
-)
+add_bundled_edge_between_vertices(const bundled_edge& edge,
+  const vertex_descriptor from, const vertex_descriptor to, graph& g)
 {
   const auto aer = boost::add_edge(from, to, g);
   if (!aer.second) {

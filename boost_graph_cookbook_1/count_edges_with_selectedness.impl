@@ -1,25 +1,18 @@
-#include <string>
-#include <boost/graph/properties.hpp>
 #include "install_edge_is_selected.h"
+#include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph>
 int count_edges_with_selectedness(
-  const bool selectedness,
-  const graph& g
-) noexcept
+  const bool selectedness, const graph& g) noexcept
 {
   using ed = typename graph::edge_descriptor;
 
   const auto eip = edges(g);
-  const auto cnt = std::count_if(
-    eip.first, eip.second,
-    [&g, selectedness](const ed& d)
-    {
-      const auto is_selected_map
-        = get(boost::edge_is_selected, g);
-      return selectedness
-        == get(is_selected_map, d);
-    }
-  );
+  const auto cnt
+    = std::count_if(eip.first, eip.second, [&g, selectedness](const ed& d) {
+        const auto is_selected_map = get(boost::edge_is_selected, g);
+        return selectedness == get(is_selected_map, d);
+      });
   return static_cast<int>(cnt);
 }

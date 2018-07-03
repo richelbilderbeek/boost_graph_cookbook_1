@@ -2,14 +2,10 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
-void set_vertex_text(
-  const std::string& any_vertex_text,
+void set_vertex_text(const std::string& any_vertex_text,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
-  graph& g
-) noexcept
+  graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   g[vd] = any_vertex_text;
 }

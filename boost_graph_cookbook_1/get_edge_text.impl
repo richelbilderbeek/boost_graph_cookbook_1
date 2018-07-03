@@ -1,12 +1,11 @@
-#include <string>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph>
 std::string get_edge_text(
   const typename boost::graph_traits<graph>::edge_descriptor& ed,
-  const graph& g
-) noexcept
+  const graph& g) noexcept
 {
   return g[ed];
 }

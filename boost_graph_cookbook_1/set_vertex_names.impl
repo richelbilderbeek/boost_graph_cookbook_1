@@ -5,21 +5,16 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
-void set_vertex_names(
-  graph& g,
-  const std::vector<std::string>& names
-) noexcept
+void set_vertex_names(graph& g, const std::vector<std::string>& names) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
 
-  const auto vertex_name_map
-    = get(boost::vertex_name,g);
+  const auto vertex_name_map = get(boost::vertex_name, g);
   auto ni = std::begin(names);
-  //const auto names_end = std::end(names);
+  // const auto names_end = std::end(names);
   const auto vip = vertices(g);
   const auto j = vip.second;
-  for (auto i = vip.first; i!=j; ++i, ++ni)
-  {
+  for (auto i = vip.first; i != j; ++i, ++ni) {
     put(vertex_name_map, *i, *ni);
   }
 }

@@ -1,17 +1,11 @@
-#include <cassert>
-#include "create_empty_undirected_text_vertices_graph.h"
 #include "add_text_vertex.h"
+#include "create_empty_undirected_text_vertices_graph.h"
+#include <cassert>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  std::string
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, std::string>
 create_text_vertices_k2_graph() noexcept
 {
-  auto g
-    = create_empty_undirected_text_vertices_graph();
+  auto g = create_empty_undirected_text_vertices_graph();
   const std::string va("Me");
   const std::string vb("My computer");
   const auto vd_a = add_text_vertex(va, g);

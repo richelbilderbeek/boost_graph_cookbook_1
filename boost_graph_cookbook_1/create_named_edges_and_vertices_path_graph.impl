@@ -1,43 +1,37 @@
-#include <vector>
 #include "add_named_edge_between_vertices.h"
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_edges_and_vertices_graph.h"
+#include <vector>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS,
-  boost::property<boost::vertex_name_t,std::string>,
-  boost::property<boost::edge_name_t,std::string>
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
+  boost::property<boost::vertex_name_t, std::string>,
+  boost::property<boost::edge_name_t, std::string>>
 create_named_edges_and_vertices_path_graph(
   const std::vector<std::string>& edge_names,
-  const std::vector<std::string>& vertex_names
-)
+  const std::vector<std::string>& vertex_names)
 {
-  if (!vertex_names.empty()
-    && vertex_names.size() - 1 != edge_names.size())
-  {
+  if (!vertex_names.empty() && vertex_names.size() - 1 != edge_names.size()) {
     std::stringstream msg;
     msg << __func__ << ": need n_vertices == n_edges + 1, supplied "
-      << "n_vertices: " << vertex_names.size() << ", "
-      << "n_edges: " << edge_names.size()
-    ;
+        << "n_vertices: " << vertex_names.size() << ", "
+        << "n_edges: " << edge_names.size();
     throw std::invalid_argument(msg.str());
   }
   auto g = create_empty_undirected_named_edges_and_vertices_graph();
-  if (vertex_names.size() == 0) { return g; }
+  if (vertex_names.size() == 0) {
+    return g;
+  }
   auto vd_1 = add_named_vertex(*vertex_names.begin(), g);
-  if (vertex_names.size() == 1) return g;
+  if (vertex_names.size() == 1)
+    return g;
   const auto j = std::end(vertex_names);
   auto vertex_name = std::begin(vertex_names);
   auto edge_name = std::begin(edge_names);
-  for (++vertex_name; vertex_name!=j; ++vertex_name, ++edge_name) //Skip first vertex name
+  for (++vertex_name; vertex_name != j;
+       ++vertex_name, ++edge_name) // Skip first vertex name
   {
     auto vd_2 = add_named_vertex(*vertex_name, g);
-    add_named_edge_between_vertices(
-      *edge_name,vd_1, vd_2, g
-    );
+    add_named_edge_between_vertices(*edge_name, vd_1, vd_2, g);
     vd_1 = vd_2;
   }
   return g;

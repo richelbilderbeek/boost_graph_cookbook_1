@@ -1,36 +1,24 @@
-#include <sstream>
-#include <ostream>
 #include "graphviz_encode.h"
 #include "is_graphviz_friendly.h"
+#include <ostream>
+#include <sstream>
 template <typename graph>
-class bundled_edges_writer {
+class bundled_edges_writer
+{
 public:
-  bundled_edges_writer(
-    graph g
-  ) : m_g{g}
+  bundled_edges_writer(graph g)
+    : m_g{ g }
   {
-
   }
   template <class edge_descriptor>
-  void operator()(
-    std::ostream& out,
-    const edge_descriptor& ed
-  ) const noexcept {
-    out << "[label=\""
-        << graphviz_encode(
-          m_g[ed].m_name
-        )
-      << "\",comment=\""
-        << graphviz_encode(
-          m_g[ed].m_description
-        )
-      << "\",width="
-        << m_g[ed].m_width
-      << ",height="
-        << m_g[ed].m_height
-      << "]"
-    ;
+  void operator()(std::ostream& out, const edge_descriptor& ed) const noexcept
+  {
+    out << "[label=\"" << graphviz_encode(m_g[ed].m_name) << "\",comment=\""
+        << graphviz_encode(m_g[ed].m_description)
+        << "\",width=" << m_g[ed].m_width << ",height=" << m_g[ed].m_height
+        << "]";
   }
+
 private:
   graph m_g;
 };

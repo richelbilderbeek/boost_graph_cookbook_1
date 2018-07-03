@@ -1,30 +1,23 @@
+#include "install_vertex_custom_type.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "install_vertex_custom_type.h"
 
 template <typename graph, typename function>
-typename boost::graph_traits<graph>::vertex_descriptor
-find_first_custom_vertex(
-  const function& predicate,
-  const graph& g
-)
+typename boost::graph_traits<graph>::vertex_descriptor find_first_custom_vertex(
+  const function& predicate, const graph& g)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
-  const auto vi = std::find_if(
-    vip.first, vip.second,
-    [&predicate, &g](const vd d) {
-      const auto my_vertex_map = get(boost::vertex_custom_type, g);
-      const auto& this_vertex = get(my_vertex_map, d);
-      return predicate(this_vertex);
-    }
-  );
-  if (vi == vip.second)
-  {
+  const auto vi
+    = std::find_if(vip.first, vip.second, [&predicate, &g](const vd d) {
+        const auto my_vertex_map = get(boost::vertex_custom_type, g);
+        const auto& this_vertex = get(my_vertex_map, d);
+        return predicate(this_vertex);
+      });
+  if (vi == vip.second) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find a custom vertex satisfying the predicate"
-    ;
+        << "could not find a custom vertex satisfying the predicate";
     throw std::invalid_argument(msg.str());
   }
   return *vi;

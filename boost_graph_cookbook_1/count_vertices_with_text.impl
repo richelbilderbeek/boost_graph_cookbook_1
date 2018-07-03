@@ -1,21 +1,13 @@
-#include <string>
 #include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph, typename text_type>
-int count_vertices_with_text(
-  const text_type& text,
-  const graph& g
-) noexcept
+int count_vertices_with_text(const text_type& text, const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   const auto vip = vertices(g);
   const auto cnt = std::count_if(
-    vip.first, vip.second,
-    [&g, &text](const vd& d)
-    {
-      return text == g[d];
-    }
-  );
+    vip.first, vip.second, [&g, &text](const vd& d) { return text == g[d]; });
   return static_cast<int>(cnt);
 }

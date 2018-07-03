@@ -1,10 +1,7 @@
 #include <boost/graph/isomorphism.hpp>
 
 template <typename graph1, typename graph2>
-bool is_isomorphic(
-  const graph1 g,
-  const graph2 h
-) noexcept
+bool is_isomorphic(const graph1 g, const graph2 h) noexcept
 {
-  return boost::isomorphism(g,h);
+  return boost::isomorphism(g, h);
 }

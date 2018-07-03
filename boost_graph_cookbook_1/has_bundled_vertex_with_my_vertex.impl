@@ -1,20 +1,15 @@
-#include <string>
-#include <boost/graph/properties.hpp>
 #include "my_bundled_vertex.h"
+#include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph>
 bool has_bundled_vertex_with_my_vertex(
-  const my_bundled_vertex& v,
-  const graph& g
-) noexcept
+  const my_bundled_vertex& v, const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
-  const auto vip = vertices(g); 
-  return std::find_if(vip.first, vip.second,
-    [&v, &g](const vd& d)
-    {
-      return g[d] == v;
-    }
-  ) != vip.second;
+  const auto vip = vertices(g);
+  return std::find_if(vip.first, vip.second, [&v, &g](const vd& d) {
+    return g[d] == v;
+  }) != vip.second;
 }

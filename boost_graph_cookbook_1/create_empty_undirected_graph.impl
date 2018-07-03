@@ -1,10 +1,6 @@
 #include <boost/graph/adjacency_list.hpp>
 
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::undirectedS
->
+boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS>
 create_empty_undirected_graph() noexcept
 {
   return {};

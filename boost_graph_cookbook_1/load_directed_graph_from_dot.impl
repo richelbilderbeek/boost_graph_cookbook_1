@@ -1,26 +1,19 @@
-#include <fstream>
-#include <boost/graph/graphviz.hpp>
 #include "create_empty_directed_graph.h"
 #include "is_regular_file.h"
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
 
-boost::adjacency_list<>
-load_directed_graph_from_dot(
-  const std::string& dot_filename
-)
+boost::adjacency_list<> load_directed_graph_from_dot(
+  const std::string& dot_filename)
 {
-  if (!is_regular_file(dot_filename))
-  {
+  if (!is_regular_file(dot_filename)) {
     std::stringstream msg;
-    msg << __func__ << ": file '"
-      << dot_filename << "' not found"
-    ;
+    msg << __func__ << ": file '" << dot_filename << "' not found";
     throw std::invalid_argument(msg.str());
   }
   std::ifstream f(dot_filename);
   auto g = create_empty_directed_graph();
-  boost::dynamic_properties dp(
-    boost::ignore_other_properties
-  );
-  boost::read_graphviz(f,g,dp);
+  boost::dynamic_properties dp(boost::ignore_other_properties);
+  boost::read_graphviz(f, g, dp);
   return g;
 }

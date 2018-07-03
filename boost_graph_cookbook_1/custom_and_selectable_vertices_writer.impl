@@ -1,32 +1,25 @@
-#include <ostream>
-#include <boost/lexical_cast.hpp>
 #include "is_graphviz_friendly.h"
-template <
-  typename my_custom_vertex_map,
-  typename is_selected_map
->
-class custom_and_selectable_vertices_writer {
+#include <boost/lexical_cast.hpp>
+#include <ostream>
+template <typename my_custom_vertex_map, typename is_selected_map>
+class custom_and_selectable_vertices_writer
+{
 public:
   custom_and_selectable_vertices_writer(
     my_custom_vertex_map any_my_custom_vertex_map,
-    is_selected_map any_is_selected_map
-  ) : m_my_custom_vertex_map{any_my_custom_vertex_map},
-      m_is_selected_map{any_is_selected_map}
+    is_selected_map any_is_selected_map)
+    : m_my_custom_vertex_map{ any_my_custom_vertex_map }
+    , m_is_selected_map{ any_is_selected_map }
   {
-
   }
   template <class vertex_descriptor>
-  void operator()(
-    std::ostream& out,
-    const vertex_descriptor& vd
-  ) const noexcept {
+  void operator()(std::ostream& out, const vertex_descriptor& vd) const noexcept
+  {
     out << "[label=\""
-      << get(m_my_custom_vertex_map, vd) //Can be Graphviz unfriendly
-      << "\", regular=\""
-      << get(m_is_selected_map,vd)
-      << "\"]"
-    ;
+        << get(m_my_custom_vertex_map, vd) // Can be Graphviz unfriendly
+        << "\", regular=\"" << get(m_is_selected_map, vd) << "\"]";
   }
+
 private:
   my_custom_vertex_map m_my_custom_vertex_map;
   is_selected_map m_is_selected_map;

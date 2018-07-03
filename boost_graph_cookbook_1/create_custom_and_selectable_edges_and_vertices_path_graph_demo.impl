@@ -1,21 +1,13 @@
-#include <boost/test/unit_test.hpp>
 #include "create_custom_and_selectable_edges_and_vertices_path_graph.h"
+#include <boost/test/unit_test.hpp>
 
-BOOST_AUTO_TEST_CASE(test_create_custom_and_selectable_edges_and_vertices_path_graph)
+BOOST_AUTO_TEST_CASE(
+  test_create_custom_and_selectable_edges_and_vertices_path_graph)
 {
   const auto g = create_custom_and_selectable_edges_and_vertices_path_graph(
-    {
-      my_custom_edge("1"),
-      my_custom_edge("2")
-    },
-    { false, false },
-    {
-      my_custom_vertex("A"),
-      my_custom_vertex("B"),
-      my_custom_vertex("C")
-    },
-    { false, true, false }
-  );
+    { my_custom_edge("1"), my_custom_edge("2") }, { false, false },
+    { my_custom_vertex("A"), my_custom_vertex("B"), my_custom_vertex("C") },
+    { false, true, false });
   BOOST_CHECK(boost::num_edges(g) == 2);
   BOOST_CHECK(boost::num_vertices(g) == 3);
 }

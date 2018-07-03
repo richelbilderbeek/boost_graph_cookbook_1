@@ -1,23 +1,21 @@
-#include <boost/test/unit_test.hpp>
-#include "create_direct_neighbour_custom_vertices_subgraph.h"
 #include "create_custom_vertices_k2_graph.h"
+#include "create_direct_neighbour_custom_vertices_subgraph.h"
 #include "get_my_custom_vertexes.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_direct_neighbour_custom_vertices_subgraph)
 {
   const auto g = create_custom_vertices_k2_graph();
   const auto vip = vertices(g);
   const auto j = vip.second;
-  for (auto i=vip.first; i!=j; ++i) {
-    const auto h = create_direct_neighbour_custom_vertices_subgraph(
-      *i,g
-    );
+  for (auto i = vip.first; i != j; ++i) {
+    const auto h = create_direct_neighbour_custom_vertices_subgraph(*i, g);
     BOOST_CHECK(boost::num_vertices(h) == 2);
     BOOST_CHECK(boost::num_edges(h) == 1);
     const auto v = get_my_custom_vertexes(h);
-    std::set<my_custom_vertex> vertexes(std::begin(v),std::end(v));
-    const my_custom_vertex a("A","source",0.0,0.0);
-    const my_custom_vertex b("B","target",3.14,3.14);
+    std::set<my_custom_vertex> vertexes(std::begin(v), std::end(v));
+    const my_custom_vertex a("A", "source", 0.0, 0.0);
+    const my_custom_vertex b("B", "target", 3.14, 3.14);
     BOOST_CHECK(vertexes.count(a) == 1);
     BOOST_CHECK(vertexes.count(b) == 1);
   }

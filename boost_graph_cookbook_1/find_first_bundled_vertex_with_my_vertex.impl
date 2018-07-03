@@ -1,29 +1,22 @@
-#include <cassert>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/graph/properties.hpp>
 #include "has_bundled_vertex_with_my_vertex.h"
 #include "my_bundled_vertex.h"
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include <cassert>
 
 template <typename graph, typename bundled_vertex_t>
 typename boost::graph_traits<graph>::vertex_descriptor
 find_first_bundled_vertex_with_my_vertex(
-  const bundled_vertex_t& v,
-  const graph& g
-)
+  const bundled_vertex_t& v, const graph& g)
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
   const auto i = std::find_if(
-    vip.first, vip.second,
-    [&v, &g](const vd d) { return g[d] == v; }
-  );
-  if (i == vip.second)
-  {
+    vip.first, vip.second, [&v, &g](const vd d) { return g[d] == v; });
+  if (i == vip.second) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "could not find my_bundled_vertex '"
-      << v << "'"
-    ;
+        << "could not find my_bundled_vertex '" << v << "'";
     throw std::invalid_argument(msg.str());
   }
   return *i;

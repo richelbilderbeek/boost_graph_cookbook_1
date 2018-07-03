@@ -1,19 +1,14 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <sstream>
 #include <stdexcept>
-#include <boost/graph/adjacency_list.hpp>
 
 template <class graph>
 void remove_self_loops(graph& g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
 
   boost::remove_edge_if(
-    [&g](const auto ed)
-    {
-      return boost::source(ed, g) == boost::target(ed, g);
-    },
-    g
-  );
+    [&g](
+      const auto ed) { return boost::source(ed, g) == boost::target(ed, g); },
+    g);
 }

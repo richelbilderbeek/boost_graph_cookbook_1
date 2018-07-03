@@ -1,11 +1,11 @@
-#include <boost/test/unit_test.hpp>
 #include "create_named_edges_and_vertices_k3_graph.h"
 #include "remove_edge_between_vertices_with_names.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_remove_edge_between_vertices_with_names)
 {
   auto g = create_named_edges_and_vertices_k3_graph();
   BOOST_CHECK(boost::num_edges(g) == 3);
-  remove_edge_between_vertices_with_names("top","right",g);
+  remove_edge_between_vertices_with_names("top", "right", g);
   BOOST_CHECK(boost::num_edges(g) == 2);
 }

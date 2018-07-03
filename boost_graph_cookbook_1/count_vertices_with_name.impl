@@ -1,24 +1,16 @@
-#include <string>
 #include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph, typename name_type>
-int count_vertices_with_name(
-  const name_type& name,
-  const graph& g
-) noexcept
+int count_vertices_with_name(const name_type& name, const graph& g) noexcept
 {
   using vd = typename graph::vertex_descriptor;
 
   const auto vip = vertices(g);
-  const auto cnt = std::count_if(
-    vip.first, vip.second,
-    [&g, &name](const vd& d)
-    {
-      const auto vertex_name_map
-        = get(boost::vertex_name,g);
-      return name
-        == get(vertex_name_map, d);
-    }
-  );
+  const auto cnt
+    = std::count_if(vip.first, vip.second, [&g, &name](const vd& d) {
+        const auto vertex_name_map = get(boost::vertex_name, g);
+        return name == get(vertex_name_map, d);
+      });
   return static_cast<int>(cnt);
 }

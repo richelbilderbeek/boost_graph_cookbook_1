@@ -1,40 +1,27 @@
-#include <boost/graph/adjacency_list.hpp>
 #include "find_first_vertex_with_name.h"
 #include "has_vertex_with_name.h"
+#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-void remove_first_vertex_with_name(
-  const std::string& name,
-  graph& g
-)
+void remove_first_vertex_with_name(const std::string& name, graph& g)
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
-  if (!has_vertex_with_name(name,g))
-  {
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
+  if (!has_vertex_with_name(name, g)) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "cannot find vertex with name '"
-      << name << "'"
-    ;
+        << "cannot find vertex with name '" << name << "'";
     throw std::invalid_argument(msg.str());
   }
 
-  const auto vd
-    = find_first_vertex_with_name(name,g);
+  const auto vd = find_first_vertex_with_name(name, g);
 
-  if (degree(vd,g) != 0)
-  {
+  if (degree(vd, g) != 0) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "cannot remove connected vertex with name '"
-      << name << "' and degree " << degree(vd,g)
-    ;
+        << "cannot remove connected vertex with name '" << name
+        << "' and degree " << degree(vd, g);
     throw std::invalid_argument(msg.str());
   }
 
-  boost::remove_vertex(vd,g);
+  boost::remove_vertex(vd, g);
 }
-
-

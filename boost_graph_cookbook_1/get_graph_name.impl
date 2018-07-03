@@ -1,12 +1,8 @@
-#include <string>
 #include <boost/graph/properties.hpp>
+#include <string>
 
 template <typename graph>
-std::string get_graph_name(
-  const graph& g
-) noexcept
+std::string get_graph_name(const graph& g) noexcept
 {
-  return get_property(
-    g, boost::graph_name
-  );
+  return get_property(g, boost::graph_name);
 }

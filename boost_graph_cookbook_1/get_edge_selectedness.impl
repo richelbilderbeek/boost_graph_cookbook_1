@@ -1,17 +1,13 @@
-#include <string>
+#include "install_edge_is_selected.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/properties.hpp>
-#include "install_edge_is_selected.h"
+#include <string>
 
 template <typename graph>
 bool get_edge_selectedness(
   const typename boost::graph_traits<graph>::edge_descriptor& ed,
-  const graph& g
-) noexcept
+  const graph& g) noexcept
 {
-  const auto edge_selectedness_map
-    = get(boost::edge_is_selected,
-      g
-    );
+  const auto edge_selectedness_map = get(boost::edge_is_selected, g);
   return get(edge_selectedness_map, ed);
 }

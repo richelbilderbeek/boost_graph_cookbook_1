@@ -1,18 +1,12 @@
-#include <string>
-#include "create_empty_directed_text_edges_and_vertices_graph.h"
 #include "add_text_vertex.h"
+#include "create_empty_directed_text_edges_and_vertices_graph.h"
 #include "set_edge_text.h"
-boost::adjacency_list<
-  boost::vecS,
-  boost::vecS,
-  boost::directedS,
-  std::string,
-  std::string
->
+#include <string>
+boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, std::string,
+  std::string>
 create_text_edges_and_vertices_markov_chain() noexcept
 {
-  auto g
-    = create_empty_directed_text_edges_and_vertices_graph();
+  auto g = create_empty_directed_text_edges_and_vertices_graph();
   const auto vd_a = add_text_vertex("Happy", g);
   const auto vd_b = add_text_vertex("Not unhappy", g);
   const auto aer_aa = boost::add_edge(vd_a, vd_a, g);

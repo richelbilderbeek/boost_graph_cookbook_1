@@ -1,18 +1,13 @@
-#include <vector>
 #include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/isomorphism.hpp>
 #include <boost/graph/connected_components.hpp>
+#include <boost/graph/isomorphism.hpp>
+#include <vector>
 
 template <typename graph>
-int count_undirected_graph_connected_components(
-  const graph& g
-) noexcept
+int count_undirected_graph_connected_components(const graph& g) noexcept
 {
   std::vector<int> c(boost::num_vertices(g));
   return boost::connected_components(g,
     boost::make_iterator_property_map(
-      std::begin(c),
-      get(boost::vertex_index, g)
-    )
-  );
+      std::begin(c), get(boost::vertex_index, g)));
 }

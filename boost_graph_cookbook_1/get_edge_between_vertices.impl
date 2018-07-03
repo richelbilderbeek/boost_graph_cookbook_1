@@ -1,20 +1,16 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-typename boost::graph_traits<graph>::edge_descriptor
-get_edge_between_vertices(
+typename boost::graph_traits<graph>::edge_descriptor get_edge_between_vertices(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd_from,
   const typename boost::graph_traits<graph>::vertex_descriptor& vd_to,
-  const graph& g
-)
+  const graph& g)
 {
   const auto er = edge(vd_from, vd_to, g);
-  if (!er.second)
-  {
+  if (!er.second) {
     std::stringstream msg;
     msg << __func__ << ": "
-      << "no edge between these vertices"
-    ;
+        << "no edge between these vertices";
     throw std::invalid_argument(msg.str());
   }
   return er.first;

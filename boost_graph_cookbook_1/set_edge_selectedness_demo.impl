@@ -1,18 +1,18 @@
-#include <boost/test/unit_test.hpp>
 #include "add_custom_and_selectable_edge.h"
 #include "create_empty_undirected_custom_and_selectable_edges_and_vertices_graph.h"
 #include "find_first_custom_edge_with_my_edge.h"
-#include "install_edge_is_selected.h"
 #include "get_edge_selectedness.h"
+#include "install_edge_is_selected.h"
 #include "set_edge_selectedness.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_set_edge_selectedness)
 {
   auto g
     = create_empty_undirected_custom_and_selectable_edges_and_vertices_graph();
-  const my_custom_edge edge{"Dex"};
+  const my_custom_edge edge{ "Dex" };
   const auto ed = add_custom_and_selectable_edge(edge, true, g);
-  BOOST_CHECK(get_edge_selectedness(ed,g) == true);
+  BOOST_CHECK(get_edge_selectedness(ed, g) == true);
   set_edge_selectedness(false, ed, g);
-  BOOST_CHECK(get_edge_selectedness(ed,g) == false);
+  BOOST_CHECK(get_edge_selectedness(ed, g) == false);
 }

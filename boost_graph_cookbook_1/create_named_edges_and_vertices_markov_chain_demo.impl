@@ -1,27 +1,21 @@
-#include <boost/test/unit_test.hpp>
 #include "create_named_edges_and_vertices_markov_chain.h"
 #include "get_edge_names.h"
 #include "get_vertex_names.h"
+#include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(test_create_named_edges_and_vertices_markov_chain)
 {
   using strings = std::vector<std::string>;
 
-  const auto g
-    = create_named_edges_and_vertices_markov_chain();
+  const auto g = create_named_edges_and_vertices_markov_chain();
 
-  const strings expected_vertex_names{
-    "Happy","Not unhappy"
-  };
-  const strings vertex_names{
-    get_vertex_names(g)
-  };
+  const strings expected_vertex_names{ "Happy", "Not unhappy" };
+  const strings vertex_names{ get_vertex_names(g) };
   BOOST_CHECK(expected_vertex_names == vertex_names);
 
-  const strings expected_edge_names{
-    "Fruit","No chocolate","Chocolate","Other candy"
-  };
+  const strings expected_edge_names{ "Fruit", "No chocolate", "Chocolate",
+    "Other candy" };
 
-  const strings edge_names{get_edge_names(g)};
+  const strings edge_names{ get_edge_names(g) };
   BOOST_CHECK(expected_edge_names == edge_names);
 }

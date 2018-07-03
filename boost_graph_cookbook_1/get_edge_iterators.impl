@@ -1,11 +1,8 @@
 #include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-std::pair<
-  typename graph::edge_iterator,
-  typename graph::edge_iterator
->
+std::pair<typename graph::edge_iterator, typename graph::edge_iterator>
 get_edge_iterators(const graph& g) noexcept
 {
-  return edges(g); 
+  return edges(g);
 }

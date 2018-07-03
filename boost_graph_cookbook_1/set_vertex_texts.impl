@@ -5,17 +5,13 @@
 #include <boost/graph/properties.hpp>
 
 template <typename graph>
-void set_vertex_texts(
-  graph& g,
-  const std::vector<std::string>& texts
-) noexcept
+void set_vertex_texts(graph& g, const std::vector<std::string>& texts) noexcept
 {
-  static_assert(!std::is_const<graph>::value,"graph cannot be const");
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   auto ti = std::begin(texts);
   const auto vip = vertices(g);
   const auto j = vip.second;
-  for (auto vi = vip.first; vi != j; ++vi, ++ti)
-  {
+  for (auto vi = vip.first; vi != j; ++vi, ++ti) {
     g[*vi] = *ti;
   }
 }

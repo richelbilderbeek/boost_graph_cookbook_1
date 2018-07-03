@@ -1,16 +1,15 @@
-#include <vector>
-#include <boost/graph/adjacency_list.hpp>
 #include "boost/graph/graph_traits.hpp"
+#include <boost/graph/adjacency_list.hpp>
+#include <vector>
 
 template <typename graph>
-std::vector<
-  typename boost::graph_traits<graph>::edge_descriptor
-> get_edge_descriptors(const graph& g) noexcept
+std::vector<typename boost::graph_traits<graph>::edge_descriptor>
+get_edge_descriptors(const graph& g) noexcept
 {
   using boost::graph_traits;
   using ed = typename graph_traits<graph>::edge_descriptor;
   std::vector<ed> v(boost::num_edges(g));
-  const auto eip = edges(g); 
+  const auto eip = edges(g);
   std::copy(eip.first, eip.second, std::begin(v));
   return v;
 }

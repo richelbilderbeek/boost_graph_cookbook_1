@@ -1,17 +1,12 @@
+#include <boost/graph/adjacency_list.hpp>
 #include <cassert>
 #include <string>
-#include <boost/graph/adjacency_list.hpp>
 
 template <typename graph>
-typename boost::graph_traits<graph>::edge_descriptor
-add_text_edge(
-  const std::string& edge_name,
-  graph& g
-) noexcept
+typename boost::graph_traits<graph>::edge_descriptor add_text_edge(
+  const std::string& edge_name, graph& g) noexcept
 {
-  static_assert(!std::is_const<graph>::value,
-    "graph cannot be const"
-  );
+  static_assert(!std::is_const<graph>::value, "graph cannot be const");
   const auto vd_a = boost::add_vertex(g);
   const auto vd_b = boost::add_vertex(g);
   const auto aer = boost::add_edge(vd_a, vd_b, g);
