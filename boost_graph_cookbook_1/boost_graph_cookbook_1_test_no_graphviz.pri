@@ -118,6 +118,7 @@ SOURCES += \
     $$PWD/find_first_edge_with_text_test.cpp \
     $$PWD/find_first_vertex_with_name_test.cpp \
     $$PWD/find_first_vertex_with_text_test.cpp \
+    $$PWD/find_if_first_bundled_vertex_test.cpp \
     $$PWD/formed_reference_to_void_test.cpp \
     $$PWD/get_bits_test.cpp \
     $$PWD/get_edge_between_vertices_test.cpp \
@@ -365,6 +366,7 @@ OTHER_FILES += \
     $$PWD/find_first_edge_with_text_demo.impl \
     $$PWD/find_first_vertex_with_name_demo.impl \
     $$PWD/find_first_vertex_with_text_demo.impl \
+    $$PWD/find_id_first_bundled_vertex_demo.impl \
     $$PWD/get_edge_between_vertices_demo.impl \
     $$PWD/get_edge_descriptors_demo.impl \
     $$PWD/get_edge_iterators_demo.impl \

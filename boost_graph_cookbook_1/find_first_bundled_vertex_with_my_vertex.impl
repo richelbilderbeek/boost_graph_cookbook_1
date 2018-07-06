@@ -11,7 +11,8 @@ find_first_bundled_vertex_with_my_vertex(
 {
   using vd = typename graph::vertex_descriptor;
   const auto vip = vertices(g);
-  const auto i = std::find_if(
+
+  const auto i = std::find_if( //Cannot use std::find
     vip.first, vip.second, [&v, &g](const vd d) { return g[d] == v; });
   if (i == vip.second) {
     std::stringstream msg;

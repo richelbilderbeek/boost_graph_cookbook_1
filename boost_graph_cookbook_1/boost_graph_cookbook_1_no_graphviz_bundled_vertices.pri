@@ -7,6 +7,7 @@ HEADERS += \
     $$PWD/create_empty_undirected_bundled_vertices_graph.h \
     $$PWD/create_nasty_directed_bundled_vertices_graph.h \
     $$PWD/find_first_bundled_vertex_with_my_vertex.h \
+    $$PWD/find_if_first_bundled_vertex.h \
     $$PWD/get_my_bundled_vertexes.h \
     $$PWD/get_my_bundled_vertex.h \
     $$PWD/get_sorted_bundled_vertex_my_vertexes.h \
@@ -25,6 +26,7 @@ SOURCES += \
     $$PWD/create_empty_undirected_bundled_vertices_graph.cpp \
     $$PWD/create_nasty_directed_bundled_vertices_graph.cpp \
     $$PWD/find_first_bundled_vertex_with_my_vertex.cpp \
+    $$PWD/find_if_first_bundled_vertex.cpp \
     $$PWD/get_my_bundled_vertex.cpp \
     $$PWD/get_my_bundled_vertexes.cpp \
     $$PWD/get_sorted_bundled_vertex_my_vertexes.cpp \
@@ -42,6 +44,7 @@ OTHER_FILES += \
     $$PWD/create_empty_directed_bundled_vertices_graph.impl \
     $$PWD/create_empty_undirected_bundled_vertices_graph.impl \
     $$PWD/find_first_bundled_vertex_with_my_vertex.impl \
+    $$PWD/find_if_first_bundled_vertex.impl \
     $$PWD/get_my_bundled_vertexes.impl \
     $$PWD/get_my_bundled_vertex.impl \
     $$PWD/get_my_bundled_vertexmpl \

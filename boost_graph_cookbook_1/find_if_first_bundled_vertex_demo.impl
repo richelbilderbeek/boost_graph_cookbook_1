@@ -1,0 +1,14 @@
+#include "create_bundled_vertices_k2_graph.h"
+#include "find_if_first_bundled_vertex.h"
+#include <boost/test/unit_test.hpp>
+
+BOOST_AUTO_TEST_CASE(test_find_if_first_bundled_vertex)
+{
+  const auto g = create_bundled_vertices_k2_graph();
+  const auto pred = [](const my_bundled_vertex& v){ return v.get_x() < 1.5; };
+  const auto vd = find_if_first_bundled_vertex(
+    g, pred
+  );
+  BOOST_CHECK(out_degree(vd, g) == 1);
+  BOOST_CHECK(in_degree(vd, g) == 1);
+}

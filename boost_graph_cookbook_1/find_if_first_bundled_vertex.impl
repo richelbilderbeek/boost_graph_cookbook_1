@@ -1,0 +1,46 @@
+#include "has_bundled_vertex_with_my_vertex.h"
+#include "my_bundled_vertex.h"
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include <cassert>
+#include <functional>
+
+template <typename graph, typename Pred>
+typename boost::graph_traits<graph>::vertex_descriptor
+find_if_first_bundled_vertex(
+  const graph& g, Pred pred)
+{
+  using vd = typename graph::vertex_descriptor;
+  const auto vip = vertices(g);
+
+  const auto i = std::find_if(
+    vip.first, vip.second, [&g, &pred](const vd d) { return pred(g[d]); });
+  if (i == vip.second) {
+    std::stringstream msg;
+    msg << __func__ << ": "
+        << "could not find vertex that satisfies the predicate";
+    throw std::invalid_argument(msg.str());
+  }
+  return *i;
+}
+
+/*
+template <typename graph, typename bundled_vertex_t>
+typename boost::graph_traits<graph>::vertex_descriptor
+find_if_first_bundled_vertex(
+  const graph& g, const std::function<bool(const bundled_vertex_t&)>& pred)
+{
+  using vd = typename graph::vertex_descriptor;
+  const auto vip = vertices(g);
+
+  const auto i = std::find_if(
+    vip.first, vip.second, [&g, &pred](const vd d) { return pred(g[d]); });
+  if (i == vip.second) {
+    std::stringstream msg;
+    msg << __func__ << ": "
+        << "could not find vertex that satisfies the predicate";
+    throw std::invalid_argument(msg.str());
+  }
+  return *i;
+}
+*/
