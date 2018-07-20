@@ -27,6 +27,7 @@ SOURCES += \
     $$PWD/copy_file_test.cpp \
     $$PWD/count_directed_graph_connected_components_test.cpp \
     $$PWD/count_edges_with_selectedness_test.cpp \
+    $$PWD/count_if_bundled_vertex_test.cpp \
     $$PWD/count_max_number_of_pieces_test.cpp \
     $$PWD/count_undirected_graph_connected_components_test.cpp \
     $$PWD/count_undirected_graph_levels_test.cpp \
@@ -252,6 +253,7 @@ OTHER_FILES += \
     $$PWD/clear_first_vertex_with_text_demo.impl \
     $$PWD/count_directed_graph_connected_components_demo.impl \
     $$PWD/count_edges_with_selectedness_demo.impl \
+    $$PWD/count_if_bundled_vertex_demo.impl \
     $$PWD/count_undirected_graph_connected_components_demo.impl \
     $$PWD/count_undirected_graph_levels_demo.impl \
     $$PWD/count_vertices_with_name_demo.impl \
@@ -366,7 +368,7 @@ OTHER_FILES += \
     $$PWD/find_first_edge_with_text_demo.impl \
     $$PWD/find_first_vertex_with_name_demo.impl \
     $$PWD/find_first_vertex_with_text_demo.impl \
-    $$PWD/find_id_first_bundled_vertex_demo.impl \
+    $$PWD/find_if_first_bundled_vertex_demo.impl \
     $$PWD/get_edge_between_vertices_demo.impl \
     $$PWD/get_edge_descriptors_demo.impl \
     $$PWD/get_edge_iterators_demo.impl \

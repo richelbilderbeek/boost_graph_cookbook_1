@@ -1,0 +1,18 @@
+//#include "my_bundled_vertex.h"
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/properties.hpp>
+#include <cassert>
+#include <functional>
+
+template <typename graph, typename Pred>
+typename boost::graph_traits<graph>::vertex_descriptor
+count_if_bundled_vertex(
+  const graph& g, Pred pred)
+{
+  using vd = typename graph::vertex_descriptor;
+  const auto vip = vertices(g);
+  return std::count_if(
+    vip.first, vip.second,
+    [&g, &pred](const vd d) { return pred(g[d]); }
+  );
+}
