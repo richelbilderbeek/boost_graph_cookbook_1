@@ -13,7 +13,7 @@ void convert_dot_to_svg(
   if (!has_dot()) {
     std::stringstream msg;
     msg << __func__ << ": 'dot' cannot be found. "
-        << "type 'sudo apt-get install graphviz' in the command line";
+        << "type 'sudo apt install graphviz' in the command line";
     throw std::runtime_error(msg.str());
   }
   if (!is_valid_dot_file(dot_filename)) {
