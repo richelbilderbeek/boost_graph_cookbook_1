@@ -37,7 +37,7 @@ script:
   - type dot
   # No GraphViz, test
   - qmake boost_graph_cookbook_1/boost_graph_cookbook_1_test_no_graphviz.pro
-  - make --silent debug
+  - travis_wait 30 make --silent debug
   - ./boost_graph_cookbook_1_test_no_graphviz
   # No Graphviz, normal
   #- qmake boost_graph_cookbook_1/boost_graph_cookbook_1_no_graphviz.pro
@@ -45,7 +45,7 @@ script:
   #- ./boost_graph_cookbook_1_no_graphviz
   # Graphviz, test
   - qmake boost_graph_cookbook_1/boost_graph_cookbook_1_test.pro
-  - make --silent debug
+  - travis_wait 30 make --silent debug
   - ./boost_graph_cookbook_1_test
   # Graphviz, normal
   #- qmake boost_graph_cookbook_1/boost_graph_cookbook_1.pro
