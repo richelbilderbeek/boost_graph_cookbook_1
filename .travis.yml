@@ -60,7 +60,7 @@ script:
   - cp debug/*.o . # Will this work?
   # Get code coverage
   - ./get_code_cov
-  - codecov
+  - travis_wait 20 codecov
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
   # Call OCLint, takes to long...
