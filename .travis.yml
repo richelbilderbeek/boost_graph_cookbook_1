@@ -27,11 +27,6 @@ install:
   - ./install_oclint.sh
   # GraphViz
   - sudo apt install -qq graphviz
-  - # PDF
-  - sudo apt install -qq babel
-  - sudo apt install -qq lyx
-  - sudo apt install -qq texlive # For pdflatex
-  - sudo apt install -qq texlive-* # For pdflatex
 
 script: 
   - type dot
