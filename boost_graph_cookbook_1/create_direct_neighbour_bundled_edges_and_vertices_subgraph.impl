@@ -7,7 +7,8 @@
 template <typename graph>
 graph create_direct_neighbour_bundled_edges_and_vertices_subgraph(
   const typename boost::graph_traits<graph>::vertex_descriptor& vd,
-  const graph& g)
+  const graph& g,
+  const bool connect_neighours = false)
 {
   using vertex_descriptor =
     typename boost::graph_traits<graph>::vertex_descriptor;
@@ -38,6 +39,8 @@ graph create_direct_neighbour_bundled_edges_and_vertices_subgraph(
       if (m.find(vd_from) == std::end(m))
         continue;
       if (m.find(vd_to) == std::end(m))
+        continue;
+      if (!connect_neighours && vd != vd_from && vd != vd_to)
         continue;
       add_bundled_edge_between_vertices(
         get_my_bundled_edge(*i, g), m[vd_from], m[vd_to], h);
