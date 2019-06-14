@@ -3,31 +3,20 @@ dist: xenial
 compiler: gcc
 
 addons: 
-  # Boost
   apt: 
-    packages: libboost-all-dev
-
-before_install:
-  # C++14
-  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-  - sudo apt update -qq
+    packages: 
+      - cppcheck
+      - gdb
+      - graphviz
+      - libboost-all-dev
 
 install: 
-  # C++14
-  - sudo apt install -qq g++-6
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  # gcov
-  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 90
+  # Codecov
   - sudo pip install codecov
   # gdb
-  - sudo apt install -qq gdb
   - gdb -v
-  # cppcheck
-  - sudo apt install -qq cppcheck
   # OCLint
   - ./install_oclint.sh
-  # GraphViz
-  - sudo apt install -qq graphviz
 
 script: 
   - type dot
