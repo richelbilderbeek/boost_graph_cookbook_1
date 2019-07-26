@@ -30,11 +30,13 @@ BOOST_AUTO_TEST_CASE(
   {
     const auto v
       = create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs(
-        create_bundled_edges_and_vertices_k3_graph());
+        create_bundled_edges_and_vertices_k3_graph(),
+        true // connect the neighbours
+      );
     BOOST_CHECK(v.size() == 3);
-    for (const auto g : v) {
-      BOOST_CHECK(boost::num_vertices(g) == 3);
-      BOOST_CHECK(boost::num_edges(g) == 3);
+    for (const auto& g : v) {
+      BOOST_CHECK_EQUAL(3, boost::num_vertices(g));
+      BOOST_CHECK_EQUAL(3, boost::num_edges(g));
       const my_bundled_vertex va("Red", "Not green", 1.0, 2.0);
       const my_bundled_vertex vb("Light red", "Not dark", 3.0, 4.0);
       const my_bundled_vertex vc("Orange", "Orangy", 5.0, 6.0);

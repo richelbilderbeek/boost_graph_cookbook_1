@@ -41,9 +41,12 @@ BOOST_AUTO_TEST_CASE(
     const auto j = vip.second;
     for (auto i = vip.first; i != j; ++i) {
       const auto h
-        = create_direct_neighbour_bundled_edges_and_vertices_subgraph(*i, g);
-      BOOST_CHECK(boost::num_vertices(h) == 3);
-      BOOST_CHECK(boost::num_edges(h) == 3);
+        = create_direct_neighbour_bundled_edges_and_vertices_subgraph(
+          *i, g,
+          true // connect the neighbours
+        );
+      BOOST_CHECK_EQUAL(3, boost::num_vertices(h));
+      BOOST_CHECK_EQUAL(3, boost::num_edges(h));
       const auto v = get_my_bundled_vertexes(h);
       std::set<my_bundled_vertex> vertexes(std::begin(v), std::end(v));
       const auto e = get_my_bundled_edges(h);
@@ -54,12 +57,12 @@ BOOST_AUTO_TEST_CASE(
       const my_bundled_edge ea("Oxygen", "Air", 1.0, 2.0);
       const my_bundled_edge eb("Helium", "From tube", 3.0, 4.0);
       const my_bundled_edge ec("Stable temperature", "Here", 5.0, 6.0);
-      BOOST_CHECK(vertexes.count(va) == 1);
-      BOOST_CHECK(vertexes.count(vb) == 1);
-      BOOST_CHECK(vertexes.count(vc) == 1);
-      BOOST_CHECK(edges.count(ea) == 1);
-      BOOST_CHECK(edges.count(eb) == 1);
-      BOOST_CHECK(edges.count(ec) == 1);
+      BOOST_CHECK_EQUAL(1, vertexes.count(va));
+      BOOST_CHECK_EQUAL(1, vertexes.count(vb));
+      BOOST_CHECK_EQUAL(1, vertexes.count(vc));
+      BOOST_CHECK_EQUAL(1, edges.count(ea));
+      BOOST_CHECK_EQUAL(1, edges.count(eb));
+      BOOST_CHECK_EQUAL(1, edges.count(ec));
     }
   }
   // Path graph

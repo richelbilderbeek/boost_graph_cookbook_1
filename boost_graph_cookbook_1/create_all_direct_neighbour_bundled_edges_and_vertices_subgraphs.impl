@@ -2,15 +2,24 @@
 #include <vector>
 template <typename graph>
 std::vector<graph>
-create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs(const graph g)
+create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs(
+  const graph g,
+  const bool connect_neighours = false
+)
 {
   using vd = typename graph::vertex_descriptor;
 
   std::vector<graph> v;
   v.resize(boost::num_vertices(g));
   const auto vip = vertices(g);
-  std::transform(vip.first, vip.second, std::begin(v), [&g](const vd& d) {
-    return create_direct_neighbour_bundled_edges_and_vertices_subgraph(d, g);
+  std::transform(
+    vip.first,
+    vip.second,
+    std::begin(v),
+    [&g, connect_neighours](const vd& d) {
+    return create_direct_neighbour_bundled_edges_and_vertices_subgraph(
+      d, g, connect_neighours
+    );
   });
   return v;
 }
