@@ -8,9 +8,11 @@ addons:
       - cppcheck
       - gdb
       - graphviz
-      - libboost-all-dev
 
 install: 
+  - sudo apt update -qq
+  # Boost
+  - sudo apt install -qq libboost-all-dev
   # Codecov
   - sudo pip install codecov
   # gdb
