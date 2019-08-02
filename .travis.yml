@@ -2,17 +2,16 @@ language: cpp
 dist: bionic
 compiler: gcc
 
-addons: 
-  apt: 
-    packages: 
-      - cppcheck
-      - gdb
-      - graphviz
-
 install: 
   - sudo apt update -qq
   # Boost
   - sudo apt install -qq libboost-all-dev
+  # gdb
+  - sudo apt install -qq gdb
+  # GraphViz
+  - sudo apt install -qq graphviz
+  # cppcheck
+  - sudo pip install cppcheck
   # Codecov
   - sudo pip install codecov
   # gdb
