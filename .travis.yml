@@ -8,6 +8,8 @@ install:
   - sudo apt install -qq libboost-all-dev
   # gdb
   - sudo apt install -qq gdb
+  # ImageMagick
+  - sudo apt install -qq imagemagick
   # GraphViz
   - sudo apt install -qq graphviz
   # cppcheck
