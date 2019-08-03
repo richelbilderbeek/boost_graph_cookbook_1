@@ -11,7 +11,7 @@ install:
   # GraphViz
   - sudo apt install -qq graphviz
   # cppcheck
-  - sudo pip install cppcheck
+  - sudo apt install cppcheck
   # Codecov
   - sudo pip install codecov
   # gdb
