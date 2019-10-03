@@ -9,9 +9,9 @@ install:
   # gdb
   - sudo apt install -qq gdb
   # ImageMagick
-  - sudo apt install -qq imagemagick
-  # GraphViz
-  - sudo apt install -qq graphviz
+  - sudo apt-get install -qq imagemagick graphviz gsfonts
+  - sudo apt-get install -qq gcc perl libltdl-dev libpng-dev libtiff-dev liblcms2-dev
+  - sudo apt-get install -qq libperl-dev libjpeg62-dev libbz2-dev libwmf-dev libx11-dev libxt-dev libxext-dev libxml2-dev libfreetype6-dev libexif-dev pkg-config
   # cppcheck
   - sudo apt install cppcheck
   # Codecov
