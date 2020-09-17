@@ -57,7 +57,7 @@ script:
 after_success:
   - travis_wait 20 bash <(curl -s https://codecov.io/bash) > /dev/null
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
 after_failure:
   - pdflatex -v
@@ -70,5 +70,5 @@ after_failure:
   - echo $PATH
   - cat /home/travis/build/richelbilderbeek/boost_graph_cookbook_1/boost_graph_cookbook_1/boost_graph_cookbook_1.tex
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
