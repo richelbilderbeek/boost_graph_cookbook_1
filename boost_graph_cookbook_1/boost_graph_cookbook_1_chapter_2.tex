@@ -48,3 +48,48 @@ A directed graph is shown in figure \ref{fig:directed_graph_example}.
   \label{fig:directed_graph_example}
 \end{figure}
 
+In this chapter, we will build two directed and two undirected graphs:
+
+\begin{itemize}
+  \item An empty (directed) graph, which is the default type: 
+    see chapter \ref{subsec:create_empty_directed_graph}
+  \item An empty (undirected) graph: 
+    see chapter \ref{subsec:create_empty_undirected_graph}
+  \item A two-state Markov chain, a directed graph with two vertices 
+    and four edges:
+    see chapter \ref{subsec:create_markov_chain_graph}
+  \item $K_{2}$, an undirected graph with two vertices and one edge, 
+    see chapter \ref{subsec:create_k2_graph}
+\end{itemize}
+
+
+Creating an empty graph may sound trivial, it is not, thanks to the versatility
+of the Boost.Graph library.
+
+In the process of creating graphs, some basic (sometimes bordering trivial)
+functions are encountered:
+
+\begin{itemize}
+  \item Counting the number of vertices, 
+    see chapter \ref{subsec:get_n_vertices}
+  \item Counting the number of edges,
+     see chapter \ref{subsec:get_n_edges}
+  \item Adding a vertex,
+     see chapter \ref{subsec:add_vertex}
+  \item Getting all vertices,
+     see chapter \ref{subsec:get_vertices}
+  \item Getting all vertex descriptors,
+     see chapter \ref{subsec:get_vertex_descriptors}
+  \item Adding an edge,
+     see chapter \ref{subsec:add_edge}
+  \item Getting all edges,
+    see chapter \ref{subsec:get_edge_iterators}
+  \item Getting all edge descriptors,
+    see chapter \ref{subsec:get_edge_descriptors}
+\end{itemize}
+
+These functions are mostly there for completion and showing which data types
+are used.
+
+The chapter also introduces some important concepts:
+

@@ -1,140 +1,8 @@
 Moved stuff to chapters already until here.
 
 
-In this chapter, we will build two directed and two undirected graphs:
 
-\begin_layout Itemize
-An empty (directed) graph, which is the default type: see chapter 
-\ref{subsec:create_empty_directed_graph"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-An empty (undirected) graph: see chapter 
-\ref{subsec:create_empty_undirected_graph"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-A two-state Markov chain, a directed graph with two vertices and four edges,
- chapter 
-\ref{subsec:create_markov_chain_graph"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, an undirected graph with two vertices and one edge, chapter 
-\ref{subsec:create_k2_graph"
-
-\end_inset
-
-
-
-
-
-Creating an empty graph may sound trivial, it is not, thanks to the versatility
- of the Boost.Graph library.
-
-
-
-In the process of creating graphs, some basic (sometimes bordering trivial)
- functions are encountered:
-
-
-\begin_layout Itemize
-Counting the number of vertices: see chapter 
-\ref{subsec:get_n_vertices"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Counting the number of edges: see chapter 
-\ref{subsec:get_n_edges"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Adding a vertex: see chapter 
-\ref{subsec:add_vertex"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Getting all vertices: see chapter 
-\ref{subsec:get_vertices"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Getting all vertex descriptors: see chapter 
-\ref{subsec:get_vertex_descriptors"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Adding an edge: see chapter 
-\ref{subsec:add_edge"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Getting all edges: see chapter 
-\ref{subsec:get_edge_iterators"
-
-\end_inset
-
-
-
-
-\begin_layout Itemize
-Getting all edge descriptors: see chapter 
-\ref{subsec:get_edge_descriptors"
-
-\end_inset
-
-
-
-
-
-These functions are mostly there for completion and showing which data types
- are used.
-
-
-
-The chapter also introduces some important concepts:
-
-
-\begin_layout Itemize
+\begin{itemize}
 Vertex descriptors: see chapter 
 \ref{subsec:Vertex-descriptors"
 
@@ -143,7 +11,7 @@ Vertex descriptors: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Edge insertion result: see chapter 
 \ref{subsec:boost::add_edge result"
 
@@ -152,7 +20,7 @@ Edge insertion result: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Edge descriptors: see chapter 
 \ref{subsec:Edge-descriptors"
 
@@ -165,7 +33,7 @@ Edge descriptors: see chapter
 After this chapter you may want to:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Building graphs with named vertices: see chapter 
 \ref{sec:Building-graphs-with-named-vertices"
 
@@ -174,7 +42,7 @@ Building graphs with named vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Building graphs with bundled vertices: see chapter 
 \ref{sec:Building-graphs-with-bundled-vertices"
 
@@ -183,7 +51,7 @@ Building graphs with bundled vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Building graphs with custom vertices: see chapter 
 \ref{sec:Building-graphs-with-custom-properties"
 
@@ -192,7 +60,7 @@ Building graphs with custom vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Building graphs with a graph name: see chapter 
 \ref{sec:Building-graphs-with-a-graph-name"
 
@@ -337,12 +205,12 @@ In practice, these compiler error messages will be longer, bordering the
  The function `create_empty_directed_graph' has:
 
 
-\begin_layout Itemize
+\begin{itemize}
 a return type: The return type is `boost::adjacency_list<>', that is a `boost::a
 djacency_list' with all template arguments set at their defaults
 
 
-\begin_layout Itemize
+\begin{itemize}
 a noexcept specification
 \begin_inset Index idx
 status open
@@ -384,7 +252,7 @@ key "stroustrup2013"
  chapter 13.7).
 
 
-\begin_layout Itemize
+\begin{itemize}
 a function body: all the function body does is implicitly create its return
  type by using the `{}'.
  An alternative syntax would be `return boost::adjacency_list<>()', which
@@ -501,7 +369,7 @@ boost::adjacency_matrix
  in which:
 
 
-\begin_layout Itemize
+\begin{itemize}
 The out edges and vertices are stored in a std::vector
 \begin_inset Index idx
 status open
@@ -515,15 +383,15 @@ std::vector
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 The edges have a direction
 
 
-\begin_layout Itemize
+\begin{itemize}
 The vertices, edges and graph have no properties
 
 
-\begin_layout Itemize
+\begin{itemize}
 The edges are stored in a std::list
 \begin_inset Index idx
 status open
@@ -784,7 +652,7 @@ m
  the creation of the boost::adjacency_list:
 
 
-\begin_layout Itemize
+\begin{itemize}
 the first `boost::vecS'
 \begin_inset Index idx
 status open
@@ -809,7 +677,7 @@ S
  This is the default way.
 
 
-\begin_layout Itemize
+\begin{itemize}
 the second `boost::vecS'
 \begin_inset Index idx
 status open
@@ -824,7 +692,7 @@ boost::vecS
  This is the default way.
 
 
-\begin_layout Itemize
+\begin{itemize}
 `boost::undirectedS'
 \begin_inset Index idx
 status open
@@ -908,19 +776,19 @@ Congratulations, with algorithm
 , you've just created an undirected graph in which:
 
 
-\begin_layout Itemize
+\begin{itemize}
 The out edges and vertices are stored in a std::vector
 
 
-\begin_layout Itemize
+\begin{itemize}
 The graph is undirected
 
 
-\begin_layout Itemize
+\begin{itemize}
 Vertices, edges and graph have no properties
 
 
-\begin_layout Itemize
+\begin{itemize}
 Edges are stored in a std::list 
 
 
@@ -1615,7 +1483,7 @@ Vertex descriptors can be obtained by dereferencing a vertex iterator (see
 Vertex descriptors are used to:
 
 
-\begin_layout Itemize
+\begin{itemize}
 add an edge between two vertices, see chapter 
 \ref{subsec:add_edge"
 
@@ -1624,7 +1492,7 @@ add an edge between two vertices, see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 obtain properties of vertex a vertex, for example the vertex its out degrees
  (chapter 
 \ref{subsec:get_vertex_out_degrees"
@@ -1704,11 +1572,11 @@ You cannot get the vertices.
  Working on the vertices of a graph is done through these steps:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Obtain a vertex iterator pair from the graph
 
 
-\begin_layout Itemize
+\begin{itemize}
 Dereferencing a vertex iterator to obtain a vertex descriptor
 
 
@@ -2433,11 +2301,11 @@ You cannot get the edges directly.
  Instead, working on the edges of a graph is done through these steps:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Obtain an edge iterator pair from the graph
 
 
-\begin_layout Itemize
+\begin{itemize}
 Dereference an edge iterator to obtain an edge descriptor
 
 
@@ -3261,12 +3129,12 @@ lstparams "breaklines=true,language={C++}"
 From the .dot file one can already see that the graph is directed, because:
 
 
-\begin_layout Itemize
+\begin{itemize}
 The first word, `digraph', denotes a directed graph (where `graph' would
  have indicated an undirected graph)
 
 
-\begin_layout Itemize
+\begin{itemize}
 The edges are written as `->' (where undirected connections would be written
  as `–')
 
@@ -3725,12 +3593,12 @@ lstparams "breaklines=true,language={C++}"
 From the .dot file one can already see that the graph is undirected, because:
 
 
-\begin_layout Itemize
+\begin{itemize}
 The first word, `graph', denotes an undirected graph (where `digraph' would
  have indicated a directional graph)
 
 
-\begin_layout Itemize
+\begin{itemize}
 The edge between 0 and 1 is written as `–' (where directed connections would
  be written as `->', `<-' or `<>')
 
@@ -5015,7 +4883,7 @@ Now that we can build a graph, there are some things we can do.
  
 
 
-\begin_layout Itemize
+\begin{itemize}
 Getting the vertices' out degrees: see chapter 
 \ref{subsec:get_vertex_out_degrees"
 
@@ -5024,15 +4892,15 @@ Getting the vertices' out degrees: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Create a direct-neighbour subgraph from a vertex descriptor
 
 
-\begin_layout Itemize
+\begin{itemize}
 Create all direct-neighbour subgraphs from a graphs
 
 
-\begin_layout Itemize
+\begin{itemize}
 Saving a graph without properties to .dot file: see chapter 
 \ref{subsec:save_graph_to_dot"
 
@@ -5041,7 +4909,7 @@ Saving a graph without properties to .dot file: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Loading an undirected graph without properties from .dot file: see chapter
  
 \ref{subsec:load_undirected_graph_from_dot"
@@ -5051,7 +4919,7 @@ Loading an undirected graph without properties from .dot file: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Loading a directed graph without properties from .dot file: see chapter 
 \ref{subsec:load_directed_graph_from_dot"
 
@@ -5083,7 +4951,7 @@ The number of connections is called the `degree' of the vertex.
  There are three types of degrees:
 
 
-\begin_layout Itemize
+\begin{itemize}
 in degree: the number of incoming connections, using `in_degree'
 \begin_inset Index idx
 status open
@@ -5107,7 +4975,7 @@ boost::in_degree does not exist
 )
 
 
-\begin_layout Itemize
+\begin{itemize}
 out degree: the number of outgoing connections, using `out_degree'
 \begin_inset Index idx
 status open
@@ -5131,7 +4999,7 @@ boost::out_degree does not exist
 )
 
 
-\begin_layout Itemize
+\begin{itemize}
 degree: sum of the in degree and out degree, using `degree'
 \begin_inset Index idx
 status open
@@ -7238,7 +7106,7 @@ I do not intend to be original in naming my data types
  The following graphs will be created:
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty directed graph that allows for bundled vertices: see chapter 
 \ref{alg:create_empty_directed_bundled_vertices_graph"
 
@@ -7247,7 +7115,7 @@ An empty directed graph that allows for bundled vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty undirected graph that allows for bundled vertices: see chapter
  
 \ref{subsec:create_empty_directed_bundled_vertices_graph"
@@ -7257,7 +7125,7 @@ An empty undirected graph that allows for bundled vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 A two-state Markov chain with bundled vertices: see chapter 
 \ref{subsec:create_bundled_vertices_markov_chain"
 
@@ -7266,7 +7134,7 @@ A two-state Markov chain with bundled vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 \begin_inset Formula $K_{2}$
 \end_inset
 
@@ -7282,7 +7150,7 @@ with bundled vertices: see chapter
 In the process, some basic (sometimes bordering trivial) functions are shown:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Create the vertex class, called `my_bundled_vertex': see chapter 
 \ref{subsec:my_bundled_vertex"
 
@@ -7291,7 +7159,7 @@ Create the vertex class, called `my_bundled_vertex': see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Adding a `my_bundled_vertex': see chapter 
 \ref{subsec:add_bundled_vertex"
 
@@ -7300,7 +7168,7 @@ Adding a `my_bundled_vertex': see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Getting the vertices `my_bundled_vertex'-es: see chapter 
 \ref{subsec:get_bundled_vertex_my_vertexes"
 
@@ -7420,7 +7288,7 @@ Declaration, my_bundled_vertex
 `my_bundled_vertex' is a class that has multiple properties: 
 
 
-\begin_layout Itemize
+\begin{itemize}
 It has four public member variables: the double `m_x' (`m_
 \begin_inset Index idx
 status open
@@ -7445,15 +7313,15 @@ member
  These variables must be public
 
 
-\begin_layout Itemize
+\begin{itemize}
 It has a default constructor
 
 
-\begin_layout Itemize
+\begin{itemize}
 It is copyable
 
 
-\begin_layout Itemize
+\begin{itemize}
 It is comparable for equality (it has operator==), which is needed for searching
 
 
@@ -7525,7 +7393,7 @@ Create empty directed bundled vertices graph
 This graph:
 
 
-\begin_layout Itemize
+\begin{itemize}
 has its out edges stored in a std::vector (due to the first boost::vecS
 \begin_inset Index idx
 status open
@@ -7539,7 +7407,7 @@ boost::vecS
 )
 
 
-\begin_layout Itemize
+\begin{itemize}
 has its vertices stored in a std::vector (due to the second boost::vecS
 \begin_inset Index idx
 status open
@@ -7553,7 +7421,7 @@ boost::vecS
 )
 
 
-\begin_layout Itemize
+\begin{itemize}
 is directed (due to the boost::directedS
 \begin_inset Index idx
 status open
@@ -7567,16 +7435,16 @@ boost::directedS
 )
 
 
-\begin_layout Itemize
+\begin{itemize}
 The vertices have one property: they have a bundled type, that is of data
  type `my_bundled_vertex'
 
 
-\begin_layout Itemize
+\begin{itemize}
 The edges and graph have no properties
 
 
-\begin_layout Itemize
+\begin{itemize}
 Edges are stored in a std::list
 
 
@@ -8589,7 +8457,7 @@ When using graphs with bundled vertices, their state gives a way to find
  This chapter shows some basic operations on graphs with bundled vertices.
 
 
-\begin_layout Itemize
+\begin{itemize}
 Check if there exists a vertex with a certain `my_bundled_vertex': chapter
  
 \ref{subsec:has_bundled_vertex_with_my_vertex"
@@ -8599,7 +8467,7 @@ Check if there exists a vertex with a certain `my_bundled_vertex': chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Find a vertex with a certain `my_bundled_vertex': chapter 
 \ref{subsec:find_bundled_vertex_with_my_vertex"
 
@@ -8608,7 +8476,7 @@ Find a vertex with a certain `my_bundled_vertex': chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Get a vertex its `my_bundled_vertex' from its vertex descriptor: chapter
  
 \ref{subsec:get_bundled_vertex_my_vertex"
@@ -8618,7 +8486,7 @@ Get a vertex its `my_bundled_vertex' from its vertex descriptor: chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Set a vertex its `my_bundled_vertex' using its vertex descriptor: chapter
  
 \ref{subsec:set_bundled_vertex_my_vertex"
@@ -8628,7 +8496,7 @@ Set a vertex its `my_bundled_vertex' using its vertex descriptor: chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Setting all vertices their `my_bundled_vertex'-es: chapter 
 \ref{subsec:set_bundled_vertex_my_vertexes"
 
@@ -8637,7 +8505,7 @@ Setting all vertices their `my_bundled_vertex'-es: chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Storing an directed/undirected graph with bundled vertices as a .dot file:
  chapter 
 \ref{subsec:save_bundled_vertices_graph_to_dot"
@@ -8647,7 +8515,7 @@ Storing an directed/undirected graph with bundled vertices as a .dot file:
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Loading a directed graph with bundled vertices from a .dot file: chapter
  
 \ref{subsec:load_directed_bundled_vertices_graph_from_dot"
@@ -8657,7 +8525,7 @@ Loading a directed graph with bundled vertices from a .dot file: chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Loading an undirected directed graph with bundled vertices from a .dot file:
  chapter 
 \ref{subsec:load_undirected_bundled_vertices_graph_from_dot"
@@ -10014,7 +9882,7 @@ I do not intend to be original in naming my data types
 .
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty directed graph that allows for bundled edges and vertices: see
  chapter 
 \ref{subsec:create_empty_directed_bundled_edges_and_vertices_graph"
@@ -10024,7 +9892,7 @@ An empty directed graph that allows for bundled edges and vertices: see
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty undirected graph that allows for bundled edges and vertices: see
  chapter 
 \ref{subsec:create_empty_undirected_bundled_edges_and_vertices_graph"
@@ -10034,7 +9902,7 @@ An empty undirected graph that allows for bundled edges and vertices: see
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 A two-state Markov chain with bundled edges and vertices: see chapter 
 \ref{subsec:create_bundled_edges_and_vertices_markov_chain"
 
@@ -10043,7 +9911,7 @@ A two-state Markov chain with bundled edges and vertices: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 \begin_inset Formula $K_{3}$
 \end_inset
 
@@ -10059,7 +9927,7 @@ with bundled edges and vertices: see chapter
 In the process, some basic (sometimes bordering trivial) functions are shown:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Creating the `my_bundled_edge' class: see chapter 
 \ref{subsec:my_bundled_edge"
 
@@ -10068,7 +9936,7 @@ Creating the `my_bundled_edge' class: see chapter
 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Adding a bundled `my_bundled_edge': see chapter 
 \ref{subsec:add_bundled_edge"
 
@@ -12387,19 +12255,19 @@ Up until now, the graphs created have had no properties themselves.
 In this chapter, graphs will be created with a graph name of type std::string
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty directed graph with a graph name: see chapter 
 
 
-\begin_layout Itemize
+\begin{itemize}
 An empty undirected graph with a graph name: see chapter 
 
 
-\begin_layout Itemize
+\begin{itemize}
 A two-state Markov chain with a graph name: see chapter
 
 
-\begin_layout Itemize
+\begin{itemize}
 \begin_inset Formula $K_{3}$
 \end_inset
 
@@ -12410,11 +12278,11 @@ with a graph name: see chapter
 In the process, some basic (sometimes bordering trivial) functions are shown:
 
 
-\begin_layout Itemize
+\begin{itemize}
 Getting a graph its name: see chapter 
 
 
-\begin_layout Itemize
+\begin{itemize}
 Setting a graph its name: see chapter
 
 
@@ -12490,7 +12358,7 @@ Create empty directed graph with graph name
 This boost::adjacency_list is of the following type:
 
 
-\begin_layout Itemize
+\begin{itemize}
 the first `boost::vecS'
 \begin_inset Index idx
 status open
@@ -12515,7 +12383,7 @@ S
  This is the default way.
 
 
-\begin_layout Itemize
+\begin{itemize}
 the second `boost::vecS'
 \begin_inset Index idx
 status open
@@ -12530,7 +12398,7 @@ boost::vecS
  This is the default way.
 
 
-\begin_layout Itemize
+\begin{itemize}
 `boost::directedS'
 \begin_inset Index idx
 status open
@@ -12545,7 +12413,7 @@ boost::directedS
  This is the default selectedness
 
 
-\begin_layout Itemize
+\begin{itemize}
 the first `boost::no_property'
 \begin_inset Index idx
 status open
@@ -12560,7 +12428,7 @@ boost::no_property
  This is the default (non-)property
 
 
-\begin_layout Itemize
+\begin{itemize}
 the second `boost::no_property'
 \begin_inset Index idx
 status open
@@ -12575,7 +12443,7 @@ boost::no_property
  This is the default (non-)property
 
 
-\begin_layout Itemize
+\begin{itemize}
 `boost::property<boost::graph_name_t, std::string>'
 \begin_inset Index idx
 status open
