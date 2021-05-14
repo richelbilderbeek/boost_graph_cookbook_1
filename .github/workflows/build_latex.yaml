@@ -16,32 +16,11 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      #- name: latex2pdf
-      #  uses: thomas-chauvet/latex2pdf-action@1.0.1
-      #  with:
-      #    main_latex_file: bbbq_header.tex
-      #    ctan_packages: amssymb latexsym amsmath
-
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@latest
         with:
           root_file: boost_graph_cookbook_1.tex
           working_directory: boost_graph_cookbook_1
-
-      #- name: Compile LaTeX document
-      #  uses: xu-cheng/latex-action@v2
-      #  with:
-      #    root_file: bbbq_header.tex
-
-      #- name: Find PDF and fail if absent
-      #  uses: DovnarAlexander/github-action-file-detection@master
-      #  with:
-      #    wildcard: bbbq_article.pdf
-      #    exit_code_found: 0
-      #    exit_code_not_found: 1
-
-      #- name: Rename PDF
-      #  run: mv bbbq_header.pdf bbbq_article.pdf
 
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
