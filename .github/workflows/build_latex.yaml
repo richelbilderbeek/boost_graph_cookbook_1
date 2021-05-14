@@ -25,7 +25,8 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@latest
         with:
-          root_file: boost_graph_cookbook_1/boost_graph_cookbook_1.tex
+          root_file: boost_graph_cookbook_1.tex
+          working_directory: boost_graph_cookbook_1
 
       #- name: Compile LaTeX document
       #  uses: xu-cheng/latex-action@v2
