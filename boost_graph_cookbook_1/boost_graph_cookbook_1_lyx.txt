@@ -1,17 +1,6 @@
 Moved stuff to chapters already until here.
 
 \begin{tikzpicture}
-  draw[thick] 
-    (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-    -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
-    -- (10,1) node[draw=black,fill=white,shape=circle,text=white] {} 
-  ;
-  \caption{Example of an undirected graph}
-  \label{fig:undirected_graph_example}
-\end{tikzpicture}
-
-
-\begin{tikzpicture}
   VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
   EdgeStyle/.append style = {->, bend left} }
   SetGraphUnit{5}
