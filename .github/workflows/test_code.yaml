@@ -25,9 +25,6 @@ jobs:
       - name: Setup ImageMagick
         uses: mfinelli/setup-imagemagick@v1
 
-      - name: Setup Graphviz
-        uses: ts-graphviz/setup-graphviz@v1
-
       - name: qmake tests without graphviz
         run: qmake boost_graph_cookbook_1/boost_graph_cookbook_1_test_no_graphviz.pro
 
@@ -36,6 +33,10 @@ jobs:
 
       - name: run tests without graphviz
         run: ./boost_graph_cookbook_1_test_no_graphviz
+
+# Not yet
+#      - name: Setup Graphviz
+#        uses: ts-graphviz/setup-graphviz@v1
 
 #  # gdb
 #  - sudo apt install -qq gdb
