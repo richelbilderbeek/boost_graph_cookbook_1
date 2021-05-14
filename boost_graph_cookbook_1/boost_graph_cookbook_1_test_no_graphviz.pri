@@ -91,7 +91,6 @@ SOURCES += \
     $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph_test.cpp \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph_test.cpp \
     $$PWD/create_text_vertices_markov_chain_test.cpp \
-    $$PWD/create_text_vertices_petersen_graph_test.cpp \
     $$PWD/custom_and_selectable_vertices_writer_test.cpp \
     $$PWD/file_to_vector_test.cpp \
     $$PWD/find_first_bundled_edge_with_my_edge_test.cpp \
