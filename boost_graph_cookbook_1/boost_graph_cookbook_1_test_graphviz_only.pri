@@ -24,6 +24,8 @@ SOURCES += \
     $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph_test_graphviz.cpp \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph_test_graphviz.cpp \
     $$PWD/create_text_vertices_markov_chain_test_graphviz.cpp \
+    $$PWD/create_tutorial_chapters_graph_test.cpp \
+    $$PWD/create_tutorial_subchapters_graph_test.cpp \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot_test.cpp \
     $$PWD/load_directed_bundled_vertices_graph_from_dot_test.cpp \
     $$PWD/load_directed_custom_and_selectable_vertices_graph_from_dot_test.cpp \
