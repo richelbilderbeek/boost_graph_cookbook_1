@@ -15,6 +15,7 @@ SOURCES += \
     $$PWD/create_custom_and_selectable_vertices_markov_chain_test_graphviz.cpp \
     $$PWD/create_custom_edges_and_vertices_markov_chain_test_graphviz.cpp \
     $$PWD/create_markov_chain_with_graph_name_test_graphviz.cpp \
+    $$PWD/create_named_edges_and_vertices_markov_chain_test.cpp \
     $$PWD/create_named_vertices_markov_chain_test_graphviz.cpp \
     $$PWD/create_nasty_directed_bundled_vertices_graph_test_graphviz.cpp \
     $$PWD/create_nasty_directed_custom_and_selectable_edges_and_vertices_graph_test_graphviz.cpp \
