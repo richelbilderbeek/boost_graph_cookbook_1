@@ -19,6 +19,9 @@ jobs:
       - name: Install Boost
         run: sudo apt install -qq libboost-all-dev
 
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
       - name: qmake tests without graphviz
         run: qmake boost_graph_cookbook_1/boost_graph_cookbook_1_test_no_graphviz.pro
 
