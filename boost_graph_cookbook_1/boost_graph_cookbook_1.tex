@@ -26,6 +26,7 @@
 }
 \author{Richèl J.C. Bilderbeek}
 
+
 % Use double spacing
 %\usepackage{setspace}
 %\doublespacing
@@ -60,8 +61,9 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolor}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{mystyle}{
-  language=R,% set programming language
+  language={C++},% set programming language
   basicstyle=\ttfamily\small,% basic font style
+  frame=single,
   commentstyle=\color{gray},% comment style
   numberstyle=\scriptsize,% use small line numbers
   numbersep=10pt,% space between line numbers and code
@@ -72,23 +74,12 @@
   escapeinside={(*}{*)},% escaping to LaTeX
   fancyvrb=true,% verbatim code is typset by listings
   extendedchars=false,% prohibit extended chars (chars of codes 128--255)
-  alsoletter={.<-},% becomes a letter
-  alsoother={$},% becomes other
-  otherkeywords={!=, ~, $, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},
   deletekeywords={c}% remove keywords 
 }
 \lstset{style=mystyle}
 
-% Adds numbered lines
-% \usepackage{lineno}
-% \linenumbers
-
 % Subfigures
 \usepackage{subcaption}
-
-% Subfigure numbers use uppercase, 
-% from https://tex.stackexchange.com/a/278140
-\renewcommand{\thesubfigure}{\Alph{subfigure}}
 
 \begin{document}
 

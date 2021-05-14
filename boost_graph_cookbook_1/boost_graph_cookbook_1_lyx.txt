@@ -1,117 +1,3 @@
-Moved stuff to chapters already until here.
-
-
-
-\begin{itemize}
-Vertex descriptors: see chapter 
-\ref{subsec:Vertex-descriptors"
-
-\end_inset
-
-
-
-
-\begin{itemize}
-Edge insertion result: see chapter 
-\ref{subsec:boost::add_edge result"
-
-\end_inset
-
-
-
-
-\begin{itemize}
-Edge descriptors: see chapter 
-\ref{subsec:Edge-descriptors"
-
-\end_inset
-
-
-
-
-
-After this chapter you may want to:
-
-
-\begin{itemize}
-Building graphs with named vertices: see chapter 
-\ref{sec:Building-graphs-with-named-vertices"
-
-\end_inset
-
-
-
-
-\begin{itemize}
-Building graphs with bundled vertices: see chapter 
-\ref{sec:Building-graphs-with-bundled-vertices"
-
-\end_inset
-
-
-
-
-\begin{itemize}
-Building graphs with custom vertices: see chapter 
-\ref{sec:Building-graphs-with-custom-properties"
-
-\end_inset
-
-
-
-
-\begin{itemize}
-Building graphs with a graph name: see chapter 
-\ref{sec:Building-graphs-with-a-graph-name"
-
-\end_inset
-
-
-
-
-\begin_layout Subsection
-Creating an empty (directed) graph
-\label{subsec:create_empty_directed_graph"
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Create an empty directed graph
-
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Empty directed graph, create
-
-
-\end_inset
-
-
-
-
-
-Let's create an empty graph!
-
-
-
-Algorithm 
-\ref{alg:create_empty_directed_graph"
-
-\end_inset
-
- shows the function to create an empty graph.
- 
-
-
 
 \begin_inset Float algorithm
 placement H
@@ -548,10 +434,8 @@ key "lakos1996large"
  9.1.6).
  
 
-
-\begin_layout Subsection
-Creating an empty undirected graph
-\label{subsec:create_empty_undirected_graph"
+\subsection{Creating an empty undirected graph}
+\label{subsec:create_empty_undirected_graph}
 
 \end_inset
 
@@ -791,10 +675,8 @@ Vertices, edges and graph have no properties
 \begin{itemize}
 Edges are stored in a std::list 
 
-
-\begin_layout Subsection
-Counting the number of vertices
-\label{subsec:get_n_vertices"
+\subsection{Counting the number of vertices}
+\label{subsec:get_n_vertices}
 
 \end_inset
 
@@ -1075,9 +957,8 @@ Note that the type of graph does not matter here.
  compile time.
 
 
-\begin_layout Subsection
-Counting the number of edges
-\label{subsec:get_n_edges"
+\subsection{Counting the number of edges}
+\label{subsec:get_n_edges}
 
 \end_inset
 
@@ -1250,10 +1131,8 @@ Demonstration of the `get_n_edges' function
 
 
 
-
-\begin_layout Subsection
-Adding a vertex
-\label{subsec:add_vertex"
+\subsection{Adding a vertex}
+\label{subsec:add_vertex}
 
 \end_inset
 
@@ -1438,9 +1317,8 @@ This demonstration code creates two empty graphs, adds one vertex to each
  This works for both types of graphs, as all graphs have vertices.
 
 
-\begin_layout Subsection
-Vertex descriptors
-\label{subsec:Vertex-descriptors"
+\subsection{Vertex descriptors}
+\label{subsec:Vertex-descriptors}
 
 \end_inset
 
@@ -1526,7 +1404,7 @@ vd_
 , for example `vd_1'.
 
 
-\begin_layout Subsection
+\subsection{}
 Get the vertex iterators
 \label{subsec:get_vertices"
 
@@ -1770,9 +1648,8 @@ Demonstration of `get_vertex_iterators'
 
 
 
-\begin_layout Subsection
-Get all vertex descriptors
-\label{subsec:get_vertex_descriptors"
+\subsection{Get all vertex descriptors}
+\label{subsec:get_vertex_descriptors}
 
 \end_inset
 
@@ -2003,9 +1880,8 @@ Because all graphs have vertices and thus vertex descriptors, the type of
  graph is unimportant for this code to compile.
 
 
-\begin_layout Subsection
-Add an edge
-\label{subsec:add_edge"
+\subsection{Add an edge}
+\label{subsec:add_edge}
 
 \end_inset
 
@@ -2243,9 +2119,8 @@ The graph type is unimportant: as all graph types have vertices and edges,
  edges can be added without possible compile problems.
 
 
-\begin_layout Subsection
-boost::add_edge result
-\label{subsec:boost::add_edge result"
+\subsection{boost::add_edge result}
+\label{subsec:boost::add_edge result}
 
 \end_inset
 
@@ -2287,9 +2162,8 @@ aer_
 , for example `aer_1'.
 
 
-\begin_layout Subsection
-Getting the edge iterators
-\label{subsec:get_edge_iterators"
+\subsection{Getting the edge iterators}
+\label{subsec:get_edge_iterators}
 
 \end_inset
 
@@ -2489,9 +2363,8 @@ Demonstration of `get_edge_iterators'
 
 
 
-\begin_layout Subsection
-Edge descriptors
-\label{subsec:Edge-descriptors"
+\subsection{Edge descriptors}
+\label{subsec:Edge-descriptors}
 
 \end_inset
 
@@ -2538,9 +2411,8 @@ ed_
 , for example `ed_1'.
 
 
-\begin_layout Subsection
-Get all edge descriptors
-\label{subsec:get_edge_descriptors"
+\subsection{Get all edge descriptors}
+\label{subsec:get_edge_descriptors}
 
 \end_inset
 
@@ -2718,9 +2590,8 @@ Demonstration of get_edge_descriptors
 
 
 
-\begin_layout Subsection
-Creating a directed graph
-\label{subsec:create_markov_chain_graph"
+\subsection{Creating a directed graph}
+\label{subsec:create_markov_chain_graph}
 
 \end_inset
 
@@ -3210,13 +3081,8 @@ This figure shows that the graph in directed, as the edges have arrow heads.
  The vertices display the node index, which is the default behavior.
 
 
-\begin_layout Subsection
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
-, a fully connected undirected graph with two vertices
-\label{subsec:create_k2_graph"
+\subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
+\label{subsec:create_k2_graph}
 
 \end_inset
 
@@ -3676,15 +3542,8 @@ Also this figure shows that the graph in undirected, otherwise the edge
  The vertices display the node index, which is the default behavior.
 
 
-\begin_layout Subsection
-$\triangle$ Creating 
-\begin_inset Formula $K_{3}$
-\end_inset
-
-, a fully connected undirected graph with three vertices
-\label{subsec:create_k3_graph"
-
-\end_inset
+\subsection{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
+\label{subsec:create_k3_graph}
 
 
 \begin_inset Index idx
@@ -4098,9 +3957,8 @@ status open
 
 
 
-\begin_layout Subsection
-$\triangle$ Creating a path graph
-\label{subsec:create_path_graph"
+\subsection{$\triangle$ Creating a path graph}
+\label{subsec:create_path_graph}
 
 \end_inset
 
@@ -4520,9 +4378,8 @@ status open
 
 
 
-\begin_layout Subsection
-$\triangle$ Creating a Peterson graph
-\label{subsec:create_petersen_graph"
+\subsection{$\triangle$ Creating a Peterson graph}
+\label{subsec:create_petersen_graph}
 
 \end_inset
 
@@ -4928,9 +4785,8 @@ Loading a directed graph without properties from .dot file: see chapter
 
 
 
-\begin_layout Subsection
-Getting the vertices' out degree
-\label{subsec:get_vertex_out_degrees"
+\subsection{Getting the vertices' out degree}
+\label{subsec:get_vertex_out_degrees}
 
 \end_inset
 
@@ -5177,9 +5033,8 @@ It is expected that
  expected to have two out-degrees per vertex.
 
 
-\begin_layout Subsection
-$\triangle$ Is there an edge between two vertices?
-\label{subsec:has_edge_between_vertices"
+\subsection{$\triangle$ Is there an edge between two vertices?}
+\label{subsec:has_edge_between_vertices}
 
 \end_inset
 
@@ -5317,9 +5172,8 @@ Demonstration of the `has_edge_between_vertices' function
 
 
 
-\begin_layout Subsection
-$\triangle$ Get the edge between two vertices
-\label{subsec:get_edge_between_vertices"
+\subsection{$\triangle$ Get the edge between two vertices}
+\label{subsec:get_edge_between_vertices}
 
 \end_inset
 
@@ -5430,9 +5284,8 @@ Demonstration of the `get_edge_between_vertices' function
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor
-\label{subsec:create_direct_neighbour_subgraph"
+\subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor}
+\label{subsec:create_direct_neighbour_subgraph}
 
 \end_inset
 
@@ -5567,10 +5420,8 @@ Note that this algorithm works on both undirected and directional graphs.
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor including
- inward edges
-\label{subsec:create_direct_neighbour_subgraph_including_in_edges"
+\subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor including inward edges}
+\label{subsec:create_direct_neighbour_subgraph_including_in_edges}
 
 \end_inset
 
@@ -5631,8 +5482,7 @@ Create direct-neighbour subgraph_including_in_edges
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties
+\subsection{$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties}
 \label{subsec:create_all_direct_neighbour_subgraphs"
 
 \end_inset
@@ -5749,9 +5599,8 @@ Demo of the `create_all_direct_neighbour_subgraphs' function
 
 
 
-\begin_layout Subsection
-$\triangle$ Are two graphs isomorphic?
-\label{subsec:is_isomorphic"
+\subsection{$\triangle$ Are two graphs isomorphic?}
+\label{subsec:is_isomorphic}
 
 \end_inset
 
@@ -5861,9 +5710,8 @@ Demo of the `is_isomorphic' function
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Count the number of connected components in an directed graph
-\label{subsec:count_directed_graph_connected_components"
+\subsection{$\triangle$$\triangle$ Count the number of connected components in an directed graph}
+\label{subsec:count_directed_graph_connected_components}
 
 \end_inset
 
@@ -6081,9 +5929,8 @@ Demo of the `count_directed_graph_connected_components' function
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Count the number of connected components in an undirected graph
-\label{subsec:count_undirected_graph_connected_components"
+\subsection{$\triangle$$\triangle$ Count the number of connected components in an undirected graph}
+\label{subsec:count_undirected_graph_connected_components}
 
 \end_inset
 
@@ -6281,9 +6128,8 @@ Demo of the `count_undirected_graph_connected_components' function
 
 
 
-\begin_layout Subsection
-$\triangle$$\triangle$ Count the number of levels in an undirected graph
-\label{subsec:count_undirected_graph_levels"
+\subsection{$\triangle$$\triangle$ Count the number of levels in an undirected graph}
+\label{subsec:count_undirected_graph_levels}
 
 \end_inset
 
@@ -6487,9 +6333,8 @@ Demo of the `count_undirected_graph_levels' function
 
 
 
-\begin_layout Subsection
-Saving a graph to a .dot file
-\label{subsec:save_graph_to_dot"
+\subsection{Saving a graph to a .dot file}
+\label{subsec:save_graph_to_dot}
 
 \end_inset
 
@@ -6696,9 +6541,8 @@ When using the `save_graph_to_dot' function (algorithm
  shows how to do so.
 
 
-\begin_layout Subsection
-Loading a directed graph from a .dot
-\label{subsec:load_directed_graph_from_dot"
+\subsection{Loading a directed graph from a .dot}
+\label{subsec:load_directed_graph_from_dot}
 
 \end_inset
 
@@ -6905,9 +6749,8 @@ v_chain_graph' function (algorithm
  The loaded graph is then checked to be a two-state Markov chain.
 
 
-\begin_layout Subsection
-Loading an undirected graph from a .dot file
-\label{subsec:load_undirected_graph_from_dot"
+\subsection{Loading an undirected graph from a .dot file}
+\label{subsec:load_undirected_graph_from_dot}
 
 \end_inset
 
@@ -7182,9 +7025,8 @@ These functions are mostly there for completion and showing which data types
  are used.
 
 
-\begin_layout Subsection
-Creating the bundled vertex class
-\label{subsec:my_bundled_vertex"
+\subsection{Creating the bundled vertex class}
+\label{subsec:my_bundled_vertex}
 
 \end_inset
 
@@ -7330,9 +7172,8 @@ It is comparable for equality (it has operator==), which is needed for searching
  file I/O, as this goes via the public member variables.
 
 
-\begin_layout Subsection
-Create the empty directed graph with bundled vertices
-\label{subsec:create_empty_directed_bundled_vertices_graph"
+\subsection{Create the empty directed graph with bundled vertices}
+\label{subsec:create_empty_directed_bundled_vertices_graph}
 
 \end_inset
 
@@ -7480,9 +7321,8 @@ vertices have a bundled type called my_bundled_vertex
 .
 
 
-\begin_layout Subsection
-Create the empty undirected graph with bundled vertices
-\label{subsec:create_empty_undirected_bundled_vertices_graph"
+\subsection{Create the empty undirected graph with bundled vertices}
+\label{subsec:create_empty_undirected_bundled_vertices_graph}
 
 \end_inset
 
@@ -7559,9 +7399,8 @@ boost::undirectedS
 ).
 
 
-\begin_layout Subsection
-Add a bundled vertex
-\label{subsec:add_bundled_vertex"
+\subsection{Add a bundled vertex}
+\label{subsec:add_bundled_vertex}
 
 \end_inset
 
@@ -7633,8 +7472,8 @@ When having added a new (abstract) vertex to the graph, the vertex descriptor
  is used to set the `my_bundled_vertex' in the graph.
 
 
-\begin_layout Subsection
-Getting the bundled vertices' my_vertexes
+\subsection{Getting the bundled vertices' my_vertexes}
+
 \begin_inset Foot
 status open
 
@@ -7728,9 +7567,8 @@ When trying to get the vertices' my_bundled_vertex from a graph without
 ).
 
 
-\begin_layout Subsection
-Creating a two-state Markov chain with bundled vertices
-\label{subsec:create_bundled_vertices_markov_chain"
+\subsection{Creating a two-state Markov chain with bundled vertices}
+\label{subsec:create_bundled_vertices_markov_chain}
 
 \end_inset
 
@@ -8087,13 +7925,8 @@ status open
 
 
 
-\begin_layout Subsection
-Creating 
-\begin_inset Formula $K_{2}$
-\end_inset
-
- with bundled vertices
-\label{subsec:create_bundled_vertices_k2_graph"
+\subsection{Creating $K_{2}$ with bundled vertices}
+\label{subsec:create_bundled_vertices_k2_graph}
 
 \end_inset
 
@@ -8535,9 +8368,8 @@ Loading an undirected directed graph with bundled vertices from a .dot file:
 
 
 
-\begin_layout Subsection
-Has a bundled vertex with a my_bundled_vertex
-\label{subsec:has_bundled_vertex_with_my_vertex"
+\subsection{Has a bundled vertex with a my_bundled_vertex}
+\label{subsec:has_bundled_vertex_with_my_vertex}
 
 \end_inset
 
@@ -8658,9 +8490,8 @@ Note that this function only finds if there is at least one bundled vertex
  with that my_bundled_vertex exist in the graph.
 
 
-\begin_layout Subsection
-Find a bundled vertex with a certain my_bundled_vertex
-\label{subsec:find_bundled_vertex_with_my_vertex"
+\subsection{Find a bundled vertex with a certain my_bundled_vertex}
+\label{subsec:find_bundled_vertex_with_my_vertex}
 
 \end_inset
 
@@ -8785,9 +8616,8 @@ Demonstration of the `find_first_bundled_vertex_with_my_vertex' function
 
 
 
-\begin_layout Subsection
-Get a bundled vertex its `my_bundled_vertex'
-\label{subsec:get_bundled_vertex_my_vertex"
+\subsection{Get a bundled vertex its \verb;my_bundled_vertex;}
+\label{subsec:get_bundled_vertex_my_vertex}
 
 \end_inset
 
@@ -8903,9 +8733,8 @@ Demonstration if the `get_bundled_vertex_my_vertex' function
 
 
 
-\begin_layout Subsection
-Set a bundled vertex its my_vertex
-\label{subsec:set_bundled_vertex_my_vertex"
+\subsection{Set a bundled vertex its my_vertex}
+\label{subsec:set_bundled_vertex_my_vertex}
 
 \end_inset
 
@@ -9023,9 +8852,8 @@ Demonstration if the `set_bundled_vertex_my_vertex' function
 
 
 
-\begin_layout Subsection
-Setting all bundled vertices' my_vertex objects
-\label{subsec:set_bundled_vertex_my_vertexes"
+\subsection{Setting all bundled vertices' my_vertex objects}
+\label{subsec:set_bundled_vertex_my_vertexes}
 
 \end_inset
 
@@ -9087,9 +8915,8 @@ Set bundled vertex my_bundled_vertexes
 
 
 
-\begin_layout Subsection
-Storing a graph with bundled vertices as a .dot
-\label{subsec:save_bundled_vertices_graph_to_dot"
+\subsection{Storing a graph with bundled vertices as a .dot}
+\label{subsec:save_bundled_vertices_graph_to_dot}
 
 \end_inset
 
@@ -9547,9 +9374,8 @@ The writer also encodes the std::string of the name and description to a
  When loading the .dot file again, this will have to be undone again.
 
 
-\begin_layout Subsection
-Loading a directed graph with bundled vertices from a .dot
-\label{subsec:load_directed_bundled_vertices_graph_from_dot"
+\subsection{Loading a directed graph with bundled vertices from a .dot}
+\label{subsec:load_directed_bundled_vertices_graph_from_dot}
 
 \end_inset
 
@@ -9715,9 +9541,8 @@ ed_vertices_markov_chain' function (algorithm
  The loaded graph is checked to be the same as the original.
 
 
-\begin_layout Subsection
-Loading an undirected graph with bundled vertices from a .dot
-\label{subsec:load_undirected_bundled_vertices_graph_from_dot"
+\subsection{Loading an undirected graph with bundled vertices from a .dot}
+\label{subsec:load_undirected_bundled_vertices_graph_from_dot}
 
 \end_inset
 
@@ -9950,8 +9775,7 @@ These functions are mostly there for completion and showing which data types
  are used.
 
 
-\begin_layout Subsection
-Creating the bundled edge class
+\subsection{Creating the bundled edge class}
 \label{subsec:my_bundled_edge"
 
 \end_inset
@@ -10077,9 +9901,8 @@ dge' is comparable for equality (that is, operator== is defined).
  file I/O, as this goes via the public member variables.
 
 
-\begin_layout Subsection
-Create an empty directed graph with bundled edges and vertices
-\label{subsec:create_empty_directed_bundled_edges_and_vertices_graph"
+\subsection{Create an empty directed graph with bundled edges and vertices}
+\label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
 
 \end_inset
 
@@ -10253,8 +10076,7 @@ Demonstration of the `create_empty_directed_bundled_edges_and_vertices_graph'
 
 
 
-\begin_layout Subsection
-Create an empty undirected graph with bundled edges and vertices
+\subsection{Create an empty undirected graph with bundled edges and vertices}
 \label{subsec:create_empty_undirected_bundled_edges_and_vertices_graph"
 
 \end_inset
@@ -10377,8 +10199,7 @@ Demonstration of the `create_empty_undirected_bundled_edges_and_vertices_graph'
 
 
 
-\begin_layout Subsection
-Add a bundled edge
+\subsection{Add a bundled edge}
 \label{subsec:add_bundled_edge"
 
 \end_inset
@@ -10494,8 +10315,7 @@ Demo of `add_bundled_edge'
 
 
 
-\begin_layout Subsection
-Getting the bundled edges my_edges
+\subsection{Getting the bundled edges my_edges}
 \label{subsec:get_bundled_edge_my_edges"
 
 \end_inset
@@ -10579,8 +10399,7 @@ When trying to get the edges' my_bundled_edge objects from a graph without
 ).
 
 
-\begin_layout Subsection
-Creating a Markov-chain with bundled edges and vertices
+\subsection{Creating a Markov-chain with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_markov_chain"
 
 \end_inset
@@ -10939,12 +10758,7 @@ status open
 
 
 
-\begin_layout Subsection
-Creating 
-\begin_inset Formula $K_{3}$
-\end_inset
-
- with bundled edges and vertices
+\subsection{Creating $K_{3}$  with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_k3"
 
 \end_inset
@@ -11314,8 +11128,7 @@ status open
 Working on graphs with bundled edges and vertices
 
 
-\begin_layout Subsection
-Has a my_bundled_edge
+\subsection{Has a my_bundled_edge}
 \label{subsec:has_bundled_edge_with_my_edge"
 
 \end_inset
@@ -11437,8 +11250,7 @@ Note that this function only finds if there is at least one edge with that
  exist in the graph.
 
 
-\begin_layout Subsection
-Find a my_bundled_edge
+\subsection{Find a my_bundled_edge}
 \label{subsec:find_first_bundled_edge_with_my_edge"
 
 \end_inset
@@ -11564,8 +11376,7 @@ Demonstration of the `find_first_bundled_edge_with_my_edge' function
 
 
 
-\begin_layout Subsection
-Get an edge its my_bundled_edge
+\subsection{Get an edge its my_bundled_edge}
 \label{subsec:get_bundled_edge_my_edge"
 
 \end_inset
@@ -11678,8 +11489,7 @@ Demonstration if the `get_my_bundled_edge' function
 
 
 
-\begin_layout Subsection
-Set an edge its my_bundled_edge
+\subsection{Set an edge its my_bundled_edge}
 \label{subsec:set_bundled_edge_my_edge"
 
 \end_inset
@@ -11797,8 +11607,7 @@ Demonstration if the `set_bundled_edge_my_edge' function
 
 
 
-\begin_layout Subsection
-Storing a graph with bundled edges and vertices as a .dot
+\subsection{Storing a graph with bundled edges and vertices as a .dot}
 \label{subsec:save_bundled_edges_and_vertices_graph_to_dot"
 
 \end_inset
@@ -11897,8 +11706,7 @@ Save bundled edges and vertices graph to dot
 
 
 
-\begin_layout Subsection
-Load a directed graph with bundled edges and vertices from a .dot file
+\subsection{Load a directed graph with bundled edges and vertices from a .dot file}
 \label{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot"
 
 \end_inset
@@ -12067,8 +11875,7 @@ ed_edges_and_vertices_markov_chain' function (algorithm
 ), saved and then loaded.
 
 
-\begin_layout Subsection
-Load an undirected graph with bundled edges and vertices from a .dot file
+\subsection{Load an undirected graph with bundled edges and vertices from a .dot file}
 \label{subsec:load_undirected_bundled_edges_and_vertices_graph_from_dot"
 
 \end_inset
@@ -12286,8 +12093,7 @@ Getting a graph its name: see chapter
 Setting a graph its name: see chapter
 
 
-\begin_layout Subsection
-Create an empty directed graph with a graph name property
+\subsection{Create an empty directed graph with a graph name property}
 \label{subsec:create_empty_directed_graph_with_graph_name"
 
 \end_inset
@@ -12526,8 +12332,7 @@ Demonstration of `create_empty_directed_graph_with_graph_name'
 
 
 
-\begin_layout Subsection
-Create an empty undirected graph with a graph name property
+\subsection{Create an empty undirected graph with a graph name property}
 \label{subsec:create_empty_undirected_graph_with_graph_name"
 
 \end_inset
@@ -12663,8 +12468,7 @@ Demonstration of `create_empty_undirected_graph_with_graph_name'
 
 
 
-\begin_layout Subsection
-Get a graph its name property
+\subsection{Get a graph its name property}
 \label{subsec:get_graph_name"
 
 \end_inset
@@ -12771,8 +12575,7 @@ Demonstration of `get_graph_name'
 
 
 
-\begin_layout Subsection
-Set a graph its name property
+\subsection{Set a graph its name property}
 \label{subsec:set_graph_name"
 
 \end_inset
@@ -12879,8 +12682,7 @@ Demonstration of `set_graph_name'
 
 
 
-\begin_layout Subsection
-Create a directed graph with a graph name property
+\subsection{Create a directed graph with a graph name property}
 \label{subsec:create_markov_chain_with_graph_name"
 
 \end_inset
@@ -13125,8 +12927,7 @@ status open
 
 
 
-\begin_layout Subsection
-Create an undirected graph with a graph name property
+\subsection{Create an undirected graph with a graph name property}
 \label{subsec:create_k2_graph_with_graph_name"
 
 \end_inset
@@ -13375,8 +13176,7 @@ status open
 Working on graphs with a graph name
 
 
-\begin_layout Subsection
-Storing a graph with a graph name property as a .dot file
+\subsection{Storing a graph with a graph name property as a .dot file}
 \label{subsec:save_graph_with_graph_name_to_dot"
 
 \end_inset
@@ -13438,8 +13238,7 @@ Save graph with graph name to dot
 
 
 
-\begin_layout Subsection
-Loading a directed graph with a graph name property from a .dot file
+\subsection{Loading a directed graph with a graph name property from a .dot file}
 \label{subsec:load_directed_graph_with_graph_name_from_dot"
 
 \end_inset
@@ -13501,8 +13300,7 @@ Load directed custom edges and vertices graph from dot
 
 
 
-\begin_layout Subsection
-Loading an undirected graph with a graph name property from a .dot file
+\subsection{Loading an undirected graph with a graph name property from a .dot file}
 \label{subsec:load_undirected_graph_with_graph_name_from_dot"
 
 \end_inset
@@ -13577,8 +13375,7 @@ Other graph functions
 Some functions that did not fit in.
 
 
-\begin_layout Subsection
-Encode a std::string to a Graphviz-friendly format
+\subsection{Encode a std::string to a Graphviz-friendly format}
 \label{subsec:graphviz_encode"
 
 \end_inset
@@ -13643,8 +13440,7 @@ graphviz encode
 
 
 
-\begin_layout Subsection
-Decode a std::string from a Graphviz-friendly format
+\subsection{Decode a std::string from a Graphviz-friendly format}
 \label{subsec:graphviz_decode"
 
 \end_inset
@@ -13713,8 +13509,7 @@ graphviz decode
 
 
 
-\begin_layout Subsection
-Check if a std::string is Graphviz-friendly
+\subsection{Check if a std::string is Graphviz-friendly}
 \label{subsec:is_graphviz_friendly"
 
 \end_inset
@@ -13790,8 +13585,7 @@ These are some function I needed for creating this tutorial.
  I just add them for completeness.
 
 
-\begin_layout Subsection
-Getting a data type as a std::string
+\subsection{Getting a data type as a std::string}
 \label{subsec:get_type_name"
 
 \end_inset
@@ -13877,8 +13671,7 @@ Get type name
 
 
 
-\begin_layout Subsection
-Convert a .dot to .svg
+\subsection{Convert a .dot to .svg}
 \label{subsec:convert_dot_to_svg"
 
 \end_inset
@@ -13948,8 +13741,7 @@ Convert dot to svg
  the .dot file to an .svg file.
 
 
-\begin_layout Subsection
-Check if a file exists
+\subsection{Check if a file exists}
 \label{subsec:is_regular_file"
 
 \end_inset
@@ -14019,8 +13811,7 @@ Errors
 Some common errors.
 
 
-\begin_layout Subsection
-Formed reference to void
+\subsection{Formed reference to void}
 \label{subsec:formed_reference_to_void"
 
 \end_inset
@@ -14101,9 +13892,8 @@ In algorithm
  this property.
 
 
-\begin_layout Subsection
-No matching function for call to `clear_out_edges'
-\label{subsec:no_matching_function_for_call_to_clear_out_edges"
+\subsection{No matching function for call to \verb;;clear_out_edges;}
+\label{subsec:no_matching_function_for_call_to_clear_out_edges}
 
 \end_inset
 
@@ -14177,9 +13967,8 @@ an undirected graph is created, a vertex descriptor is obtained, then itsout
  edges), or use the `boost::clear_vertex' function instead.
 
 
-\begin_layout Subsection
-No matching function for call to `clear_in_edges'
-\label{subsec:no_matching_function_for_call_to_clear_in_edges"
+\subsection{No matching function for call to \verb;clear_in_edges;}
+\label{subsec:no_matching_function_for_call_to_clear_in_edges}
 
 \end_inset
 
@@ -14195,8 +13984,7 @@ See chapter
 .
 
 
-\begin_layout Subsection
-Undefined reference to boost::detail::graph::read_graphviz_new
+\subsection{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new"
 
 \end_inset
@@ -14265,8 +14053,7 @@ LIBS += -lboost_graph -lboost_regex
 
 
 
-\begin_layout Subsection
-Property not found: node_id
+\subsection{Property not found: node_id}
 \label{subsec:property_not_found_node_id"
 
 \end_inset
@@ -14412,10 +14199,7 @@ Property not found: node_id
 
 
 
-\begin_layout Subsection
-Stream zeroes
-
-
+\subsection{Stream zeroes}
 
 When loading a graph from a .dot file, in operator>>, I encountered reading
  zeroes, where I expected an XML formatted string:
@@ -14682,8 +14466,7 @@ std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
 Appendix
 
 
-\begin_layout Subsection
-List of all edge, graph and vertex properties
+\subsection{List of all edge, graph and vertex properties}
 \label{subsec:all_properties"
 
 \end_inset
@@ -15610,8 +15393,7 @@ vertex_update
 
 
 
-\begin_layout Subsection
-Graphviz attributes
+\subsection{Graphviz attributes}
 \label{subsec:Graphviz-attributes"
 
 \end_inset
