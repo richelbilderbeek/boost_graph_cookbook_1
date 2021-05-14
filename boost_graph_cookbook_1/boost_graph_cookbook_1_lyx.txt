@@ -1,20 +1,5 @@
 Moved stuff to chapters already until here.
 
-\begin{tikzpicture}
-  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
-  EdgeStyle/.append style = {->, bend left} }
-  SetGraphUnit{5}
-  Vertex{A}   
-  EA(A){B}   
-  EA(B){C}   
-  Edge[](A)(B)   
-  Edge[](B)(A)   
-  Loop[dist = 4cm, dir = NO](A.west)
-  tikzset{EdgeStyle/.append style = {bend left = 0}}
-  Edge[](C)(B)   
-  \caption{Example of a directed graph}
-  \label{fig:directed_graph_example}
-end{tikzpicture}
 
 In this chapter, we will build two directed and two undirected graphs:
 

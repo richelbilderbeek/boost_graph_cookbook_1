@@ -14,18 +14,37 @@ in an undirected graph,
 an edge connects two vertices without any directionality, as displayed
 in figure \ref{fig:undirected_graph_example}.
 
-In a directed graph, an edge goes from a certain vertex, its source, to another (which may
- actually be the same), its target.
- A directed graph is shown in figure 
-\ref{fig:directed_graph_example}.
+In a directed graph, an edge goes from a certain vertex, 
+its source, to another (which may actually be the same), its target.
+A directed graph is shown in figure \ref{fig:directed_graph_example}.
 
-\begin{tikzpicture}
-  \draw[thick] 
-    (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-    -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
-    -- (10,1) node[draw=black,fill=white,shape=circle,text=white] {} 
-  ;
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[thick] 
+      (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -- (10,1) node[draw=black,fill=white,shape=circle,text=white] {} 
+    ;
+  \end{tikzpicture}
   \caption{Example of an undirected graph}
   \label{fig:undirected_graph_example}
-\end{tikzpicture}
+\end{figure}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \SetGraphUnit{5}
+    \tikzset{VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white} }
+    \Vertex{A}
+    \EA(A){B}
+    \EA(B){C}
+    \tikzset{EdgeStyle/.append style = {->, bend left} }
+    \Edge[](A)(B)
+    \Edge[](B)(A)
+    \Loop[dist = 4cm, dir = NO](A.west)
+    \tikzset{EdgeStyle/.append style = {bend left = 0} }
+    \Edge[](C)(B)   
+  \end{tikzpicture}
+  \caption{Example of a directed graph}
+  \label{fig:directed_graph_example}
+\end{figure}
 
