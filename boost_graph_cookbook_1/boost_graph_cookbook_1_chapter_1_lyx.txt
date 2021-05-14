@@ -1,0 +1,610 @@
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+This is 'Boost.Graph Cookbook 1: Basics' (formerly: 'A well-connected C++14
+ Boost.Graph tutorial'), version 3.0.
+\end_layout
+
+\begin_layout Subsection
+Why this tutorial
+\end_layout
+
+\begin_layout Standard
+I needed this tutorial already in 2006, when I started experimenting with
+ Boost.Graph.
+ More specifically, I needed a tutorial that:
+\end_layout
+
+\begin_layout Itemize
+Orders concepts chronologically
+\end_layout
+
+\begin_layout Itemize
+Increases complexity gradually
+\end_layout
+
+\begin_layout Itemize
+Shows complete pieces of code
+\end_layout
+
+\begin_layout Standard
+What I had were the book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+ and the Boost.Graph website, both did not satisfy these requirements.
+ 
+\end_layout
+
+\begin_layout Subsection
+Tutorial style
+\end_layout
+
+\begin_layout Paragraph
+Readable for beginners
+\end_layout
+
+\begin_layout Standard
+This tutorial is aimed at the beginner programmer.
+ This tutorial is intended to take the reader to the level of understanding
+ the book 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siek2001boost"
+
+\end_inset
+
+ and the Boost.Graph website require.
+ It is about basic graph manipulation, not the more advanced graph algorithms.
+ 
+\end_layout
+
+\begin_layout Paragraph
+High verbosity
+\end_layout
+
+\begin_layout Standard
+This tutorial is intended to be as verbose, such that a beginner should
+ be able to follow every step, from reading the tutorial from beginning
+ to end chronologically.
+ Especially in the earlier chapters, the rationale behind the code presented
+ is given, including references to the literature.
+ Chapters marked with '▶' are optional, less verbose and bring no new informatio
+n to the storyline.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Repetitiveness
+\end_layout
+
+\begin_layout Standard
+This tutorial is intended to be as repetitive, such that a beginner can
+ spot the patterns in the code snippets their increasing complexity.
+ Extending code from this tutorial should be as easy as extending the patterns.
+\end_layout
+
+\begin_layout Paragraph
+Index
+\end_layout
+
+\begin_layout Standard
+In the index, I did first put all my long-named functions there literally,
+ but this resulted in a very sloppy layout.
+ Instead, the function 'do_something' can be found as 'Do something' in
+ the index.
+ On the other hand, STL and Boost functions like 'std::do_something' and
+ 'boost::do_something' can be found as such in the index.
+\end_layout
+
+\begin_layout Subsection
+Coding style
+\end_layout
+
+\begin_layout Paragraph
+Concept
+\end_layout
+
+\begin_layout Standard
+For every concept, I will show
+\end_layout
+
+\begin_layout Itemize
+a function that achieves a goal, for example `create_empty_undirected_graph'
+\end_layout
+
+\begin_layout Itemize
+a test case
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+test case
+\end_layout
+
+\end_inset
+
+ of that function, that demonstrates how to use the function, for example
+ `create_empty_undirected_graph_test'
+\end_layout
+
+\begin_layout Paragraph*
+C++14 
+\end_layout
+
+\begin_layout Standard
+All coding snippets are taken from compiled and tested C++14 code.
+ I chose to use C++14 because it was available to me on all local and remote
+ computers.
+ Next to this, it makes code even shorter then just C++11.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Coding standard
+\end_layout
+
+\begin_layout Standard
+I use the coding style from the Core C++ Guidelines.
+ At the time of this writing, the Core C++ Guidelines were still in early
+ development, so I can only hope the conventions I then chose to follow
+ are still Good Ideas.
+\end_layout
+
+\begin_layout Paragraph
+No comments in code
+\end_layout
+
+\begin_layout Standard
+It is important to add comments to code.
+ In this tutorial, however, I have chosen not to put comments in code, as
+ I already describe the function in the tutorial its text.
+ This way, it prevents me from saying the same things twice.
+\end_layout
+
+\begin_layout Paragraph
+Trade-off between generic code and readability
+\end_layout
+
+\begin_layout Standard
+It is good to write generic code.
+ In this tutorial, however, I have chosen my functions to have no templated
+ arguments for conciseness and readability.
+ For example, a vertex name is std::string, the type for if a vertex is
+ selected is a boolean, and the custom vertex type is of type `my_custom_vertex'.
+ I think these choices are reasonable and that the resulting increase in
+ readability is worth it.
+\end_layout
+
+\begin_layout Paragraph
+Long function names
+\end_layout
+
+\begin_layout Standard
+I enjoy to show concepts by putting those in (long-named) functions.
+ These functions sometimes border the trivial, by, for example, only calling
+ a single Boost.Graph function.
+ On the other hand, these functions have more English-sounding names, resulting
+ in demonstration code that is readable.
+ Additionally, they explicitly mention their return type (in a simpler way),
+ which may be considered informative.
+\end_layout
+
+\begin_layout Paragraph
+Long function names and readability
+\end_layout
+
+\begin_layout Standard
+Due to my long function names and the limitation of ≈50 characters per line,
+ sometimes the code does get to look a bit awkward.
+ I am sorry for this.
+\end_layout
+
+\begin_layout Paragraph
+Use of auto
+\end_layout
+
+\begin_layout Standard
+I prefer to use the keyword auto over doubling the lines of code for using
+ statements.
+ Often the `do' functions return an explicit data type, these can be used
+ for reference.
+ Sometime I deduce the return type using decltype and a function with the
+ same return type.
+ When C++17 gets accessible, I will use `decltype(auto)'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+decltype(auto)
+\end_layout
+
+\end_inset
+
+.
+ If you really want to know a type, you can use the `get_type_name' function
+ (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:get_type_name"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Subparagraph
+Explicit use of namespaces
+\end_layout
+
+\begin_layout Standard
+On the other hand, I am explicit in the namespaces of functions and classes
+ I use, so to distinguish between types like `std::array' and `boost::array'.
+ Some functions (for example, `get'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+get
+\end_layout
+
+\end_inset
+
+) reside in the namespace of the graph to work on.
+ In this tutorial, this is in the global namespace.
+ Thus, I will write `get', instead of `boost::get'
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+boost::get does not exist
+\end_layout
+
+\end_inset
+
+, as the latter does not compile.
+\end_layout
+
+\begin_layout Paragraph
+Use of STL algorithms
+\end_layout
+
+\begin_layout Standard
+I try to use STL algorithms wherever I can.
+ Also you should prefer algorithm calls over hand-written for-loops (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroustrup1997"
+
+\end_inset
+
+ chapter 18.12.1, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "meyers2005effective"
+
+\end_inset
+
+ item 43).
+ Sometimes using these algorithms becomes a burden on the lines of code.
+ This is because in C++11, a lambda function argument (use by the algorithm)
+ must have its data type specified.
+ It may take multiple lines of `using' statements being able to do so.
+ In C++14 one can use `auto' there as well.
+ So, only if it shortens the number of lines significantly, I use raw for-loops,
+ even though you shouldn't.
+\end_layout
+
+\begin_layout Paragraph
+Re-use of functions
+\end_layout
+
+\begin_layout Standard
+The functions I develop in this tutorial are re-used from that moment on.
+ This improves to readability of the code and decreases the number of lines.
+\end_layout
+
+\begin_layout Paragraph
+Tested to compile
+\end_layout
+
+\begin_layout Standard
+All functions in this tutorial are tested to compile using Travis CI in
+ both debug and release mode.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Tested to work
+\end_layout
+
+\begin_layout Standard
+All functions in this tutorial are tested, using the Boost.Test library.
+ Travis CI calls these tests after each push to the repository.
+\end_layout
+
+\begin_layout Paragraph
+Availability
+\end_layout
+
+\begin_layout Standard
+The code, as well as this tutorial, can be downloaded from the GitHub at
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.github.com/richelbilderbeek/boost_graph_cookbook_1
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+License
+\end_layout
+
+\begin_layout Standard
+This tutorial is licensed under Creative Commons license 4.0.
+ All C++ code is licensed under GPL 3.0.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename CC-BY-SA_icon.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Creative Commons license 4.0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Feedback
+\end_layout
+
+\begin_layout Standard
+This tutorial is not intended to be perfect yet.
+ For that, I need help and feedback from the community.
+ All referenced feedback is welcome, as well as any constructive feedback.
+ 
+\end_layout
+
+\begin_layout Standard
+I have tried hard to strictly follow the style as described above.
+ If you find I deviated from these decisions somewhere, I would be grateful
+ if you'd let know.
+ Next to this, there are some sections that need to be coded or have its
+ code improved.
+ 
+\end_layout
+
+\begin_layout Subsection
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+These are users that improved this tutorial and/or the code behind this
+ tu�orial, in chronological order:
+\end_layout
+
+\begin_layout Itemize
+m-dudley, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/111327/m-dudley
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+E.
+ Kawashima
+\end_layout
+
+\begin_layout Itemize
+mat69, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.reddit.com/user/mat69
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+danielhj, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.reddit.com/user/danieljh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+sehe, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/85371/sehe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+cv_and_me, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stackoverflow.com/users/2417774/cv-and-he
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+mywtfmp3
+\end_layout
+
+\begin_layout Subsection
+Outline
+\end_layout
+
+\begin_layout Standard
+The chapters of this tutorial are also like a well-connected graph.
+ To allow for quicker learners to skim chapters, or for beginners looking
+ to find the patterns.
+\end_layout
+
+\begin_layout Standard
+The distinction between the chapter is in the type of edges and vertices.
+ They can have:
+\end_layout
+
+\begin_layout Itemize
+no properties: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-without-properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+have a bundled property: see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Building-graphs-with-bundled-vertices"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pivotal chapters are chapters like `Finding the first vertex with ...', as
+ this opens up the door to finding a vertex and manipulating it.
+\end_layout
+
+\begin_layout Standard
+All chapters have a rather similar structure in themselves, as depicted
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-relations-between-subchapters"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename create_tutorial_subchapters_graph.svg
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The relations between sub-chapters
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-relations-between-subchapters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are also some bonus chapters, that I have labeled with a '▶'.
+ These chapters are added I needed these functions myself and adding them
+ would not hurt.
+ Just feel free to skip them, as there will be less theory explained.
+\end_layout
+
