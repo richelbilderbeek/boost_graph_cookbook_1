@@ -16,6 +16,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
+      - name: Delete old PDF
+        run: rm boost_graph_cookbook_1/boost_graph_cookbook_1.pdf
+
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@latest
         with:
