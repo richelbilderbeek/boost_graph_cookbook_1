@@ -1,0 +1,40 @@
+on:
+  push:
+  pull_request:
+
+name: build_pdf
+
+jobs:
+  build_pdf:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Install boost
+        run: sudo apt install -qq libboost-all-dev
+
+      - name: Install ImageMagick
+        run: sudo apt-get install -qq imagemagick
+
+      - name: Install GraphViz
+        run: sudo apt-get install -qq graphviz 
+
+      - name: Install Lyx
+        run: sudo apt-get install -qq lyx
+
+      - name: Install more stuff
+        run: sudo apt-get install -qq gcc perl libltdl-dev libpng-dev libtiff-dev liblcms2-dev gsfonts libperl-dev libjpeg62-dev libbz2-dev libwmf-dev libx11-dev libxt-dev libxext-dev libxml2-dev libfreetype6-dev libexif-dev pkg-config
+
+      - name: Build PDF
+        run: ./build_pdf.sh
+
+      - name: Upload PDF to the workflow tab
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-pdf
+          path: bbbq_article.pdf
+
