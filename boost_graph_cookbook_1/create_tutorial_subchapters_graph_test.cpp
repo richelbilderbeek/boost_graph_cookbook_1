@@ -10,6 +10,8 @@
 #include "add_edge_between_named_vertices.h"
 #include "add_named_vertex.h"
 #include "convert_dot_to_svg.h"
+#include "convert_svg_to_png.h"
+
 #include "copy_file.h"
 #include "create_empty_directed_named_vertices_graph.h"
 #include "create_named_edges_and_vertices_k3_graph.h"

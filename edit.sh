@@ -1,5 +1,14 @@
 #/bin/bash
-mousepad boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_1.tex
+mousepad \
+  boost_graph_cookbook_1/boost_graph_cookbook_1.tex \
+  boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_1.tex \
+  boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_2.tex
 ./create_pdf.sh
-evince boost_graph_cookbook_1_v3_3.pdf
+
+FILE=boost_graph_cookbook_1/boost_graph_cookbook_1.pdf
+if test -f "$FILE"; then
+  evince "$FILE"
+fi
+
+
 

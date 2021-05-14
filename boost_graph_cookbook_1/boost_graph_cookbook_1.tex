@@ -20,9 +20,9 @@
 %\setcitestyle{authoryear,open={},close={}}
 
 % Affiliations
-\usepackage{authblk}
 \title{
-  Boost.Graph Cookbook 1: Basics
+  Boost.Graph Cookbook 1: Basics \\
+  \includegraphics[width=0.8\textwidth]{title_graph.png}
 }
 \author{Richèl J.C. Bilderbeek}
 
@@ -76,8 +76,8 @@
 \lstset{style=mystyle}
 
 % Adds numbered lines
-\usepackage{lineno}
-\linenumbers
+% \usepackage{lineno}
+% \linenumbers
 
 % Subfigures
 \usepackage{subcaption}
@@ -89,6 +89,11 @@
 \begin{document}
 
 \maketitle
+
+%\begin{figure}[!h]
+%  \includegraphics[width=0.4\textwidth]{title_graph.png}
+%  \label{fig:title}
+%\end{figure}
 
 \include{boost_graph_cookbook_1_chapter_1}
 \include{boost_graph_cookbook_1_chapter_2}
