@@ -4,10 +4,10 @@ on:
   push:
   pull_request:
 
-name: Build LaTeX document
+name: Build PDF document
 
 jobs:
-  build_latex:
+  build_pdf:
 
     runs-on: ubuntu-latest
     env:
