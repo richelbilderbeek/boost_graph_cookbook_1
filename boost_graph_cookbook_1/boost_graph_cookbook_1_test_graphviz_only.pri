@@ -8,6 +8,8 @@ SOURCES += \
     $$PWD/create_all_direct_neighbour_custom_and_selectable_vertices_subgraphs_test_graphviz.cpp \
     $$PWD/create_all_direct_neighbour_named_edges_and_vertices_subgraphs_test_graphviz.cpp \
     $$PWD/create_all_direct_neighbour_text_edges_and_vertices_subgraphs_test_graphviz.cpp \
+    $$PWD/create_bundled_edges_and_vertices_markov_chain_test.cpp \
+    $$PWD/create_bundled_edges_and_vertices_path_graph_test.cpp \
     $$PWD/create_bundled_vertices_markov_chain_test_graphviz.cpp \
     $$PWD/create_custom_and_selectable_edges_and_vertices_markov_chain_test_graphviz.cpp \
     $$PWD/create_custom_and_selectable_vertices_markov_chain_test_graphviz.cpp \
