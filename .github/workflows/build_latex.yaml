@@ -28,6 +28,6 @@ jobs:
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
         with:
-          name: boost_graph_cookbook_1
-          path: boost_graph_cookbook_1.pdf
+          name: boost_graph_cookbook_1.pdf
+          path: boost_graph_cookbook_1/boost_graph_cookbook_1.pdf
 
