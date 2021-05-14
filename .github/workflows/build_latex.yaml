@@ -1,11 +1,13 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
 on:
   push:
   pull_request:
 
-name: build_pdf
+name: Build LaTeX document
 
 jobs:
-  build_pdf:
+  build_latex:
 
     runs-on: ubuntu-latest
     env:
@@ -14,27 +16,35 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: Install boost
-        run: sudo apt install -qq libboost-all-dev
+      #- name: latex2pdf
+      #  uses: thomas-chauvet/latex2pdf-action@1.0.1
+      #  with:
+      #    main_latex_file: bbbq_header.tex
+      #    ctan_packages: amssymb latexsym amsmath
 
-      - name: Install ImageMagick
-        run: sudo apt-get install -qq imagemagick
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: boost_graph_cookbook_1/boost_graph_cookbook_1.tex
 
-      - name: Install GraphViz
-        run: sudo apt-get install -qq graphviz 
+      #- name: Compile LaTeX document
+      #  uses: xu-cheng/latex-action@v2
+      #  with:
+      #    root_file: bbbq_header.tex
 
-      - name: Install Lyx
-        run: sudo apt-get install -qq lyx
+      #- name: Find PDF and fail if absent
+      #  uses: DovnarAlexander/github-action-file-detection@master
+      #  with:
+      #    wildcard: bbbq_article.pdf
+      #    exit_code_found: 0
+      #    exit_code_not_found: 1
 
-      - name: Install more stuff
-        run: sudo apt-get install -qq gcc perl libltdl-dev libpng-dev libtiff-dev liblcms2-dev gsfonts libperl-dev libjpeg62-dev libbz2-dev libwmf-dev libx11-dev libxt-dev libxext-dev libxml2-dev libfreetype6-dev libexif-dev pkg-config
-
-      - name: Build PDF
-        run: ./build_pdf.sh
+      #- name: Rename PDF
+      #  run: mv bbbq_header.pdf bbbq_article.pdf
 
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
         with:
-          name: my-pdf
-          path: bbbq_article.pdf
+          name: boost_graph_cookbook_1
+          path: boost_graph_cookbook_1.pdf
 

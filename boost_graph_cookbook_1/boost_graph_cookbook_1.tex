@@ -1,0 +1,96 @@
+\documentclass{article}
+
+% Just to have them already
+% \begin{sloppypar}
+% \end{sloppypar}
+
+% Just try to parse, do not ask for input
+\nonstopmode
+
+% Bibliography
+% For Vancounter style:
+\usepackage[numbers]{natbib}
+% For regular style:
+% \usepackage{natbib}
+
+
+%\bibpunct{(}{)}{;}{a}{}{;}
+
+% Use 'It was found that A is B (Name 1234)' style
+%\setcitestyle{authoryear,open={},close={}}
+
+% Affiliations
+\usepackage{authblk}
+\title{
+  Boost.Graph Cookbook 1
+}
+\author[1]{Richèl J.C. Bilderbeek}
+\affil[1]{GBB, University of Groningen, Groningen, The Netherlands}
+
+% Use double spacing
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{todonotes}
+\usepackage{verbatim}
+\usepackage{pgf}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{longtable}
+
+% sidewaysfigure
+\usepackage{rotating}
+
+% Style of listings
+% From http://r.789695.n4.nabble.com/
+%   How-to-nicely-display-R-code-with-the-LaTeX-package-listings-tp4648110.html
+\usepackage{fancyvrb} 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  language=R,% set programming language
+  basicstyle=\ttfamily\small,% basic font style
+  commentstyle=\color{gray},% comment style
+  numberstyle=\scriptsize,% use small line numbers
+  numbersep=10pt,% space between line numbers and code
+  tabsize=2,% sizes of tabs
+  showstringspaces=false,
+  captionpos=b,% positioning of the caption below
+  breaklines=true,% automatic line breaking
+  escapeinside={(*}{*)},% escaping to LaTeX
+  fancyvrb=true,% verbatim code is typset by listings
+  extendedchars=false,% prohibit extended chars (chars of codes 128--255)
+  alsoletter={.<-},% becomes a letter
+  alsoother={$},% becomes other
+  otherkeywords={!=, ~, $, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},
+  deletekeywords={c}% remove keywords 
+}
+\lstset{style=mystyle}
+
+% Adds numbered lines
+\usepackage{lineno}
+\linenumbers
+
+% Subfigures
+\usepackage{subcaption}
+
+% Subfigure numbers use uppercase, 
+% from https://tex.stackexchange.com/a/278140
+\renewcommand{\thesubfigure}{\Alph{subfigure}}
+
+\begin{document}
+
+\maketitle
+
+\include{boost_graph_cookbook_1_chapter_1}
+
+\end{document}

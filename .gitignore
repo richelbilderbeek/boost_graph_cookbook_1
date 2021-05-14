@@ -58,7 +58,6 @@ Makefile
 boost_graph_cookbook_1/Makefile
 boost_graph_cookbook_1/CC-BY-SA_icon.pdf
 boost_graph_cookbook_1/Petersen_graph.pdf
-boost_graph_cookbook_1/boost_graph_cookbook_1.tex
 boost_graph_cookbook_1/create_bundled_edges_and_vertices_k3_graph.pdf
 boost_graph_cookbook_1/create_bundled_edges_and_vertices_markov_chain.pdf
 boost_graph_cookbook_1/create_bundled_vertices_k2_graph.pdf
