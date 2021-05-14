@@ -1,4 +1,0 @@
-#!/bin/bash
-
-git checkout -t origin/coverity_scan
-git checkout -t origin/develop

@@ -47,7 +47,7 @@ script:
   - cp debug/*.gcno . # Will this work?
   - cp debug/*.o . # Will this work?
   # Get code coverage
-  - ./get_code_cov >/dev/null
+  - ./get_code_cov.sh >/dev/null
   - travis_wait 20 codecov >/dev/null
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
