@@ -4,10 +4,10 @@ on:
   push:
   pull_request:
 
-name: Build PDF document
+name: test_code
 
 jobs:
-  build_pdf:
+  test_code:
 
     runs-on: ubuntu-latest
     env:
