@@ -15,3 +15,4 @@ bibtex boost_graph_cookbook_1 >/dev/null
 pdflatex boost_graph_cookbook_1.tex >/dev/null
 pdflatex boost_graph_cookbook_1.tex
 mv boost_graph_cookbook_1.pdf ../boost_graph_cookbook_1_v3_3.pdf
+

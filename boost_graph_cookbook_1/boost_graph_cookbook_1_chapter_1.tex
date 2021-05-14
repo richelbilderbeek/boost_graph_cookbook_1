@@ -2,8 +2,7 @@
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This is 'Boost.Graph Cookbook 1: Basics' (formerly: 'A well-connected C++14
- Boost.Graph tutorial'), version 3.3.
+This is 'Boost.Graph Cookbook 1: Basics', version 3.3.
 
 \subsection{Why this tutorial}
 
@@ -37,7 +36,8 @@ be able to follow every step, from reading the tutorial from beginning
 to end chronologically.
 Especially in the earlier chapters, the rationale behind the code presented
 is given, including references to the literature.
-Chapters marked with '\triangle' are optional, less verbose and bring no new information to the storyline.
+Chapters marked with $\triangle$ are optional, 
+less verbose and bring no new information to the storyline.
 
 \paragraph{Repetitiveness}
 
@@ -49,10 +49,10 @@ This tutorial is intended to be as repetitive, such that a beginner can
 
 In the index, I did first put all my long-named functions there literally,
 but this resulted in a very sloppy layout.
-Instead, the function 'do_something' can be found as 'Do something' in
+Instead, the function 'do\_something' can be found as 'Do something' in
 the index.
-On the other hand, STL and Boost functions like 'std::do_something' and
-'boost::do_something' can be found as such in the index.
+On the other hand, STL and Boost functions like 'std::do\_something' and
+'boost::do\_something' can be found as such in the index.
 
 \subsection{Coding style}
 
@@ -61,11 +61,12 @@ On the other hand, STL and Boost functions like 'std::do_something' and
 For every concept, I will show
 
 \begin{itemize}
-    \item a function that achieves a goal, for example `create_empty_undirected_graph'
+    \item a function that achieves a goal, 
+      for example \verb;create_empty_undirected_graph;
     \item{
       a test case of that function, 
       that demonstrates how to use the function, for example
-      `create_empty_undirected_graph_test'
+      \verb;create_empty_undirected_graph_test;
     }
     \item Three
 \end{itemize}
@@ -97,7 +98,7 @@ It is good to write generic code.
 In this tutorial, however, I have chosen my functions to have no templated
 arguments for conciseness and readability.
 For example, a vertex name is std::string, the type for if a vertex is
-selected is a boolean, and the custom vertex type is of type `my_custom_vertex'.
+selected is a boolean, and the custom vertex type is of type \verb;my_custom_vertex;.
 I think these choices are reasonable and that the resulting increase in
 readability is worth it.
 
@@ -121,22 +122,22 @@ I am sorry for this.
 
 I prefer to use the keyword auto over doubling the lines of code for using
 statements.
-Often the `do' functions return an explicit data type, these can be used
+Often the \verb;do; functions return an explicit data type, these can be used
 for reference.
 Sometime I deduce the return type using decltype and a function with the
 same return type.
-When C++17 gets accessible, I will use `decltype(auto)'
-If you really want to know a type, you can use the `get_type_name' function
+When C++17 gets accessible, I will use \verb;decltype(auto);
+If you really want to know a type, you can use the \verb;get_type_name; function
 (chapter \ref{subsec:get_type_name})
 
 \subparagraph{Explicit use of namespaces}
 
 On the other hand, I am explicit in the namespaces of functions and classes
-I use, so to distinguish between types like `std::array' and `boost::array'.
-Some functions (for example, `get') r
-eside in the namespace of the graph to work on.
+I use, so to distinguish between types like \verb;std::array; and \verb;boost::array;.
+Some functions (for example, \verb;get;) reside 
+in the namespace of the graph to work on.
 In this tutorial, this is in the global namespace.
-Thus, I will write `get', instead of `boost::get', 
+Thus, I will write \verb;get;, instead of \verb;boost::get;, 
 as the latter does not compile.
 
 \paragraph{Use of STL algorithms}
@@ -147,8 +148,8 @@ for-loops (\cite{stroustrup1997}, chapter 18.12.1 and \cite{meyers2005effective}
 Sometimes using these algorithms becomes a burden on the lines of code.
 This is because in C++11, a lambda function argument (use by the algorithm)
 must have its data type specified.
-It may take multiple lines of `using' statements being able to do so.
-In C++14 one can use `auto' there as well.
+It may take multiple lines of \verb;using; statements being able to do so.
+In C++14 one can use \verb;auto; there as well.
 So, only if it shortens the number of lines significantly, I use raw for-loops,
 even though you shouldn't.
 
@@ -209,7 +210,7 @@ tutorial, in chronological order:
   \item mat69, \url{https://www.reddit.com/user/mat69}
   \item danielhj, \url{https://www.reddit.com/user/danieljh}
   \item sehe, \url{http://stackoverflow.com/users/85371/sehe}
-  \item cv_and_me, \url{http://stackoverflow.com/users/2417774/cv-and-he}
+  \item cv\_and\_me, \url{http://stackoverflow.com/users/2417774/cv-and-he}
   \item mywtfmp3
 \end{itemize}
 
@@ -229,7 +230,7 @@ They can have:
     see chapter \ref{sec:Building-graphs-with-bundled-vertices}
 \end{itemize}
 
-Pivotal chapters are chapters like `Finding the first vertex with ...', as
+Pivotal chapters are chapters like 'Finding the first vertex with ...', as
 this opens up the door to finding a vertex and manipulating it.
 
 All chapters have a rather similar structure in themselves, as depicted
@@ -243,7 +244,7 @@ in figure \ref{fig:The-relations-between-subchapters}.
   \label{fig:The-relations-between-subchapters}
 \end{figure}
 
-There are also some bonus chapters, that I have labeled with a '\triangle'.
+There are also some bonus chapters, that I have labeled with a $\triangle$.
 These chapters are added I needed these functions myself and adding them
 would not hurt.
 Just feel free to skip them, as there will be less theory explained.
