@@ -284,3 +284,60 @@ you have just created an undirected graph in which:
   \item Edges are stored in a std::list
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Counting the number of vertices}
+\label{subsec:get_n_vertices}
+\index{Vertices, counting}
+\index{Counting the number of vertices}
+\index{Number of vertices, get}
+\index{Get n vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let's count all zero vertices of an empty graph!
+
+\lstinputlisting[
+  caption = Count the number of vertices,
+  label = lst:get_n_vertices
+]{get_n_vertices.impl}
+
+The function \verb;get_n_vertices; takes the result of \verb;boost::num_vertices;
+\index{boost::num_vertices}, converts it to int and checks if there was conversion error.
+We do so, as one should prefer using signed data types over unsigned ones
+in an interface (\cite{lakos1996large}, chapter 9.2.2).
+To do so, in the function body its first statement, 
+the unsigned long \index{unsigned long}
+produced by \verb;boost::num_vertices; \index{boost::num\_vertices}
+get converted to an int using a \verb;static_cast; \index{static\_cast}.
+
+Using an unsigned integer over a (signed) integer for the sake of gaining
+that one more bit (\cite{stroustrup1997}, chapter 4.4) should be avoided.
+The integer \verb;n; is initialized using list-initialization, which is preferred
+over the other initialization syntaxes (\cite{stroustrup2013}, chapter 17.7.6).
+
+The \verb;assert; checks if the conversion back to unsigned long re-creates the
+original value, to check if no information has been lost.
+If information is lost, the program crashes.
+Use \verb;assert; \index{assert} extensively 
+(\cite{stroustrup1997}, chapter 24.5.18, 
+\cite{stroustrup2013}, chapter 30.5, 
+\cite{sutter_and_alexandrescu2004}. chapter 68, 
+\cite{mcconnell2004code}, chapter 8.2, 
+\cite{liberty2001sams}, hour 24, 
+\cite{lakos1996large}, chapter 2.6).
+
+The function \verb;get_n_vertices; is demonstrated in algorithm 
+\ref{lst:get_n_vertices_demo}, 
+to measure the number of vertices of both the directed and undirected
+graph we are already able to create.
+
+\lstinputlisting[
+  caption = Demonstration of the get\_n\_vertices function,
+  label = lst:get_n_vertices_demo
+]{get_n_vertices_demo.impl}
+
+Note that the type of graph does not matter here.
+One can count the number of vertices of every graph, as all graphs have
+vertices.
+Boost.Graph is very good at detecting operations that are not allowed, during
+compile time.
+
