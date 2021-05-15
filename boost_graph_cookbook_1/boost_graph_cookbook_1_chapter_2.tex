@@ -121,12 +121,8 @@ After this chapter you may want to:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Let's create an empty graph! 
-Listing \ref{lst:create_empty_directed_graph} shows the function to create an empty graph.
-
-\lstinputlisting[
-  caption = Creating an empty (directed) graph,
-  label = lst:create_empty_directed_graph
-]{create_empty_directed_graph.impl}
+Listing \ref{lst:create_empty_directed_graph} 
+shows the function to create an empty graph.
 
 \lstinputlisting[
   caption = Creating an empty (directed) graph,
@@ -158,15 +154,14 @@ The function \verb;create_empty_directed_graph; has:
     \footnote{
       if the function would throw because it cannot allocate this little piece
       of memory, you are already in big trouble
-    }, so it is preferred to mark it noexcept 
+    }, so it is preferred to mark it \verb;noexcept; 
     (\cite{stroustrup2013}, chapter 13.7)
   \item a function body: 
     all the function body does is implicitly create its return
     type by using the \verb;{};.
-    An alternative syntax would be \verb;return boost::adjacency_list<>();, which
-    is needlessly longer
+    An alternative syntax would be \verb;return boost::adjacency_list<>();, 
+    which is needlessly longer
 \end{itemize}
-
 
 Listing \ref{lst:create_empty_directed_graph_demo}
 demonstrates the \verb;create_empty_directed_graph; function.
@@ -183,25 +178,25 @@ Instead of specifying the data type explicitly,
 chapter 31.6), which lets the compiler figure out the type itself.
 
 \lstinputlisting[
-  caption = Demonstration of \verb;create_empty_directed_graph;,
+  caption = Demonstration of create\_empty\_directed\_graph,
   label = lst:create_empty_directed_graph_demo
 ]{create_empty_directed_graph_demo.impl}
 
 Congratulations, you've just created a 
-boost::adjacency_list \index{boost::adjacency\_list}
+\verb;boost::adjacency_list; \index{boost::adjacency\_list}
 with its default template arguments.
-The boost::adjacency_list is the most commonly used graph type, the other
+The \verb;boost::adjacency_list; is the most commonly used graph type, the other
 is the 
-boost::adjacency_matrix \index{boost::adjacency\_matrix}.
+\verb;boost::adjacency_matrix; \index{boost::adjacency\_matrix}.
 
 We do not do anything with it yet, but still, you've just created a graph,
 in which:
 
 \begin{itemize}
-  \item The out edges and vertices are stored in a std::vector \index{std::vector}
+  \item The out edges and vertices are stored in a \verb;std::vector; \index{std::vector}
   \item The edges have a direction
   \item The vertices, edges and graph have no properties
-  \item The edges are stored in a std::list \index{std::list}
+  \item The edges are stored in a \verb;std::list; \index{std::list}
 \end{itemize}
 
 It stores its edges, out edges and vertices in two different STL \index{STL}
@@ -213,13 +208,12 @@ std::vector \index{std::vector} is the container you should use by default (
   \cite{stroustrup2013}, chapter 31.6, 
   \cite{sutter_and_alexandrescu2004}, chapter 76
 ), as it has constant time look-up and back insertion.
-The std::list \index{std::list}
+The \verb;std::list; \index{std::list}
 is used for storing the edges, as it is better suited at inserting elements
 at any position.
 
-I use const \index{const}
-to store the empty graph as we do not modify it.
-Correct use of const is called const-correct.
+I use \verb;const; \index{const} to store the empty graph as we do not modify it.
+Correct use of \verb;const; is called const-correct.
 Prefer to be const-correct \index{const-correctness}
 (
   \cite{stroustrup1997}, chapter 7.9.3, 
