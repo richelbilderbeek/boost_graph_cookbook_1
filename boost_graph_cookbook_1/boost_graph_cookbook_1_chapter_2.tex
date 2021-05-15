@@ -614,3 +614,19 @@ after which the number of edges and vertices is checked.
 The graph type is unimportant: as all graph types have vertices and edges,
  edges can be added without possible compile problems.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{boost::add_edge result}
+\label{subsec:boost::add_edge result}
+\index{boost::add\_edge result}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When using the function \verb;boost::add_edge;, 
+a \verb;std::pair<edge_descriptor,bool>; is returned.
+It contains both the edge descriptor 
+(see chapter \ref{subsec:Edge-descriptors}) 
+and a boolean, which indicates insertion success.
+
+In this tutorial, \verb;boost::add_edge; results 
+have named prefixed with \verb;aer_; \index{aer_}, 
+for example \verb;aer_1;.
+
