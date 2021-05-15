@@ -1,161 +1,31 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating a directed graph}
 \label{subsec:create_markov_chain_graph}
-
-
-
-
-\index{Create directed graph
-
-
-
-
-
-\index{Directed graph, create
-
-
-
-
-
-
-
+\index{Create directed graph}
+\index{Directed graph, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Finally, we are going to create a directed non-empty graph! 
 
-
-\begin_layout Subsubsection
-Graph
-
-
-
 This directed graph is a two-state Markov chain, with two vertices and four
- edges, as depicted in figure 
-\ref{fig:markov_chain}
-
-
-
-:
-
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset ERT
-status open
-
-
-
-
-\backslash
-begin{tikzpicture}   
-
-
-
-
-
-\backslash
-tikzset{ 
-
-
-
-
-  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
-
-
-
-
-  EdgeStyle/.append style = {->, bend left} }
-
-
-
-
-
-\backslash
-SetGraphUnit{5}
-
-
-
-
-
-\backslash
-Vertex{A}   
-
-
-
-
-
-\backslash
-EA(A){B}   
-
-
-
-
-
-\backslash
-Edge[](A)(B)   
-
-
-
-
-
-\backslash
-Edge[](B)(A)   
-
-
-
-
-
-\backslash
-Loop[dist = 4cm, dir = NO](A.west)
-
-
-
-
-
-\backslash
-Loop[dist = 4cm, dir = SO](B.east)
-
-
-
-
-
-\backslash
-end{tikzpicture}
-
-
-
-
-
-
-
-
-
-
-
-The two-state Markov chain
-\label{fig:markov_chain}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+edges, as depicted in figure \ref{fig:markov_chain}:
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzset{ 
+      VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
+      EdgeStyle/.append style = {->, bend left} }
+    \SetGraphUnit{5}
+    \Vertex{A}   
+    \EA(A){B}   
+    \Edge[](A)(B)   
+    \Edge[](B)(A)   
+    \Loop[dist = 4cm, dir = NO](A.west)
+    \Loop[dist = 4cm, dir = SO](B.east)
+  \end{tikzpicture}
+  \caption{The two-state Markov chain}
+  \label{fig:markov_chain}
+\end{figure}
 
 Note that directed graphs can have edges that start and end in the same
  vertex.
@@ -1326,21 +1196,14 @@ Here I show a path graph with four vertices (see figure
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+\begin{figure}
+  \begin{tikzpicture}
+  .
+  \end{tikzpicture}
+  \caption{.}
+  \label{fig:.}
+\end{figure}
 
-
-\begin_inset ERT
-status open
-
-
-
-
-\backslash
-begin{tikzpicture}   
 
 
 
