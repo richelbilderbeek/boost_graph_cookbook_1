@@ -341,3 +341,38 @@ vertices.
 Boost.Graph is very good at detecting operations that are not allowed, during
 compile time.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Counting the number of edges}
+\label{subsec:get_n_edges}
+\index{Edges, counting}
+\index{Counting the number of edges}
+\index{Number of edges, get}
+\index{Get n edges}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let's count all zero edges of an empty graph!
+
+This is very similar to the previous chapter, 
+only it uses \verb;boost::num_edges; \index{boost::num_edges}
+instead:
+
+\lstinputlisting[
+  caption = Count the number of edges,
+  label = lst:get_n_edges
+]{get_n_edges.impl}
+
+This code is similar to the \verb;get_n_vertices; 
+function (algorithm \ref{lst:get_n_vertices}, see rationale there) 
+except \verb;boost::num_edges; \index{boost::num_edges}
+is used, instead of \verb;boost::num_vertices;, 
+which also returns an unsigned long.
+
+The function \verb;get_n_edges; is demonstrated in algorithm 
+\ref{lst:get_n_edges_demo}, 
+to measure the number of edges of an empty directed and undirected graph.
+
+\lstinputlisting[
+  caption = Demonstration of the get\_n\_edges function,
+  label = lst:get_n_edges_demo
+]{get_n_edges_demo.impl}
+

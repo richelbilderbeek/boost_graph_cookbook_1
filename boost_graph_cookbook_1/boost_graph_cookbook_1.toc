@@ -28,3 +28,4 @@
 \contentsline {subsection}{\numberline {2.0.1}Creating an empty (directed) graph}{13}{subsection.2.0.1}%
 \contentsline {subsection}{\numberline {2.0.2}Creating an empty undirected graph}{14}{subsection.2.0.2}%
 \contentsline {subsection}{\numberline {2.0.3}Counting the number of vertices}{15}{subsection.2.0.3}%
+\contentsline {subsection}{\numberline {2.0.4}Counting the number of edges}{16}{subsection.2.0.4}%

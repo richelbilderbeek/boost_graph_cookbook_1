@@ -1,168 +1,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Counting the number of edges}
-\label{subsec:get_n_edges}
-
-
-
-
-\index{Edges, counting}
-
-
-
-
-
-\index{Counting the number of edges}
-
-
-
-
-
-\index{Number of edges, get
-
-
-
-
-
-
-
-
-Let's count all zero edges of an empty graph!
-
-
-
-This is very similar to the previous chapter, only it uses boost::num_edges
-\index{boost::num_edges}
-
-
-
-
- instead:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_n_edges.impl}
-
-
-
-
-
-
-
-
-\begin_inset Caption Standard
-
-
-Count the number of edges
-\index{Get n edges}
-
-
-
-
-
-\label{lst:get_n_edges}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This code is similar to the \verb;get_n_vertices; function (algorithm 
-\ref{lst:get_n_vertices}
-
-
-
-, see rationale there) except \verb;boost::num_edges'
-\index{boost::num_edges}
-
-
-
-
- is used, instead of \verb;boost::num_vertices', which also returns an unsigned
- long.
-
-
-
-The function \verb;get_n_edges' is demonstrated in algorithm 
-\ref{lst:get_n_edges_demo}
-
-
-
-, to measure the number of edges of an empty directed and undirected graph.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_n_edges_demo.impl}
-
-
-
-
-
-
-
-
-\begin_inset Caption Standard
-
-
-Demonstration of the \verb;get_n_edges' function
-\label{lst:get_n_edges_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Adding a vertex}
 \label{subsec:add_vertex}
-
-
-
-
 \index{Add a vertex}
-
-
-
-
-
 \index{Vertex, add}
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 Empty graphs are nice, now its time to add a vertex!
@@ -199,7 +41,7 @@ To add a vertex to a graph, the boost::add_vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Adding a vertex to a graph
@@ -277,7 +119,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;add_vertex' function
@@ -483,7 +325,7 @@ Dereferencing a vertex iterator to obtain a vertex descriptor
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the vertex iterators of a graph
@@ -556,7 +398,7 @@ These vertex iterators can be dereferenced to obtain the vertex descriptors.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;get_vertex_iterators'
@@ -628,7 +470,7 @@ Vertex descriptors are obtained from dereferencing vertex iterators.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get all vertex descriptors of a graph
@@ -747,7 +589,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;get_vertex_descriptors'
@@ -838,7 +680,7 @@ To add an edge to a graph, two vertex descriptors are needed.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Adding (two vertices and) an edge to a graph
@@ -940,7 +782,7 @@ A demonstration of add_edge is shown in algorithm
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;add_edge'
@@ -1081,7 +923,7 @@ Dereference an edge iterator to obtain an edge descriptor
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the edge iterators of a graph
@@ -1147,7 +989,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;get_edge_iterators'
@@ -1259,7 +1101,7 @@ Obtaining all edge descriptors is similar to obtaining all vertex descriptors
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get all edge descriptors of a graph
@@ -1336,7 +1178,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of get_edge_descriptors
@@ -1492,7 +1334,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Caption Standard
+
 
 
 The two-state Markov chain
@@ -1543,7 +1385,7 @@ To create this two-state Markov chain, the following code can be used:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the two-state Markov chain as depicted in figure 
@@ -1640,7 +1482,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;create_markov_chain' 
@@ -1702,7 +1544,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_markov_chain_graph' function (algorithm
@@ -1783,7 +1625,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_markov_chain' function (algorithm 
@@ -1915,7 +1757,7 @@ draw[thick]
 
 
 
-\begin_inset Caption Standard
+
 
 
 \begin_inset Formula $K_{2}$
@@ -1967,7 +1809,7 @@ To create
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating 
@@ -2077,7 +1919,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_k2_graph' 
@@ -2133,7 +1975,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_k2_graph' function (algorithm 
@@ -2214,7 +2056,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_k2_graph' function (algorithm 
@@ -2370,7 +2212,7 @@ draw[thick]
 
 
 
-\begin_inset Caption Standard
+
 
 
 \begin_inset Formula $K_{3}$
@@ -2422,7 +2264,7 @@ To create
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating 
@@ -2492,7 +2334,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_k3_graph' 
@@ -2547,7 +2389,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_k3_graph' function (algorithm 
@@ -2614,7 +2456,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_k3_graph' function (algorithm 
@@ -2786,7 +2628,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Caption Standard
+
 
 
 A path graph with four vertices 
@@ -2831,7 +2673,7 @@ To create a path graph, the following code can be used:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating a path graph as depicted in figure 
@@ -2893,7 +2735,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_path_graph' 
@@ -2948,7 +2790,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_path_graph' function (algorithm 
@@ -3014,7 +2856,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_path_graph' function (algorithm 
@@ -3100,7 +2942,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 A Petersen graph (from 
@@ -3156,7 +2998,7 @@ To create a Petersen graph, the following code can be used:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating Petersen graph as depicted in figure 
@@ -3218,7 +3060,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_k3_graph' 
@@ -3273,7 +3115,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_petersen_graph' function (algorithm 
@@ -3341,7 +3183,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_petersen_graph' function (algorithm 
@@ -3526,7 +3368,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the vertices' out degrees
@@ -3607,7 +3449,7 @@ Albeit that the
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;get_vertex_out_degrees' function
@@ -3666,7 +3508,7 @@ If you have two vertex descriptors, you can check if these are connected
 
 
 
-\begin_inset Caption Standard
+
 
 
 Check if there exists an edge between two vertices
@@ -3737,7 +3579,7 @@ The demo shows that there is an edge between the two vertices of a
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;has_edge_between_vertices' function
@@ -3787,7 +3629,7 @@ If you have two vertex descriptors, you can use these to find the edge between
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the edge between two vertices
@@ -3839,7 +3681,7 @@ The demo shows how to get the edge between two vertices, deleting it, and
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;get_edge_between_vertices' function
@@ -3897,7 +3739,7 @@ Here is the \verb;create_direct_neighbour_subgraph' code:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the direct-neighbour subgraph from a vertex descriptor
@@ -3954,7 +3796,7 @@ This demonstration code shows that the direct-neighbour graph of each vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_direct_neighbour_subgraph' function
@@ -4014,7 +3856,7 @@ Too bad, this algorithm does not work yet.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the direct-neighbour subgraph from a vertex descriptor
@@ -4070,7 +3912,7 @@ Using the previous function, it is easy to create all direct-neighbour subgraphs
 
 
 
-\begin_inset Caption Standard
+
 
 
 Create all direct-neighbour subgraphs from a graph without properties
@@ -4127,7 +3969,7 @@ This demonstration code shows that all two direct-neighbour graphs of a
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_all_direct_neighbour_subgraphs' function
@@ -4177,7 +4019,7 @@ You may want to check if two graphs are isomorphic.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Check if two graphs are isomorphic
@@ -4228,7 +4070,7 @@ This demonstration code shows that a
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;is_isomorphic' function
@@ -4340,7 +4182,7 @@ draw[thick]
 
 
 
-\begin_inset Caption Standard
+
 
 
 Example of a directed graph with two components
@@ -4381,7 +4223,7 @@ This algorithm counts the number of connected components:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Count the number of connected components
@@ -4437,7 +4279,7 @@ This demonstration code shows that two solitary edges are correctly counted
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;count_directed_graph_connected_components' function
@@ -4529,7 +4371,7 @@ draw[thick]
 
 
 
-\begin_inset Caption Standard
+
 
 
 Example of an undirected graph with two components
@@ -4570,7 +4412,7 @@ This algorithm counts the number of connected components:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Count the number of connected components
@@ -4626,7 +4468,7 @@ This demonstration code shows that two solitary edges are correctly counted
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;count_undirected_graph_connected_components' function
@@ -4720,7 +4562,7 @@ draw[thick]
 
 
 
-\begin_inset Caption Standard
+
 
 
 Example of an undirected graph with two components
@@ -4771,7 +4613,7 @@ It does so, by collecting the neighbours of the traversed vertices.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Count the number of levels in an undirected graph 
@@ -4821,7 +4663,7 @@ This demonstration code shows the number of levels from a certain vertex,
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;count_undirected_graph_levels' function
@@ -4904,7 +4746,7 @@ Graph are easily saved to a file, thanks to Graphviz.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Saving a graph to a .dot file
@@ -4979,7 +4821,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;save_graph_to_dot' function
@@ -5062,7 +4904,7 @@ When loading a graph from file, one needs to specify a type of graph.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading a directed graph from a .dot file
@@ -5158,7 +5000,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_directed_graph_from_dot' function
@@ -5242,7 +5084,7 @@ Loading an undirected graph from a .dot file is very similar to loading a
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading an undirected graph from a .dot file
@@ -5306,7 +5148,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_undirected_graph_from_dot' function
@@ -5481,7 +5323,7 @@ Here I will show the header file of \verb;my_bundled_vertex', as the implementat
 
 
 
-\begin_inset Caption Standard
+
 
 
 Declaration of my_bundled_vertex
@@ -5588,7 +5430,7 @@ It is comparable for equality (it has operator==), which is needed for searching
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty directed graph with bundled vertices
@@ -5714,7 +5556,7 @@ vertices have a bundled type called my_bundled_vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty undirected graph with bundled vertices
@@ -5791,7 +5633,7 @@ Adding a bundled vertex is very similar to adding a named vertex (chapter
 
 
 
-\begin_inset Caption Standard
+
 
 
 Add a bundled vertex
@@ -5860,7 +5702,7 @@ When the vertices of a graph have any bundled \verb;my_bundled_vertex', one can
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the bundled vertices' my_vertexes
@@ -6018,7 +5860,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Caption Standard
+
 
 
 A two-state Markov chain where the vertices have bundled properties and
@@ -6065,7 +5907,7 @@ Here is the code creating a two-state Markov chain with bundled vertices:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the two-state Markov chain as depicted in figure 
@@ -6121,7 +5963,7 @@ Here is the demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_bundled_vertices_markov_chain' function (algorithm 
@@ -6167,7 +6009,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_bundled_vertices_markov_chain' function
@@ -6220,7 +6062,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_bundled_vertices_markov_chain' function
@@ -6342,7 +6184,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Caption Standard
+
 
 
 \begin_inset Formula $K_{2}$
@@ -6386,7 +6228,7 @@ Function to create such a graph
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating 
@@ -6458,7 +6300,7 @@ Demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_bundled_vertices_k2_graph' function (algorithm 
@@ -6504,7 +6346,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
@@ -6557,7 +6399,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
@@ -6714,7 +6556,7 @@ Before modifying our vertices, let's first determine if we can find a vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Find if there is vertex with a certain my_bundled_vertex
@@ -6767,7 +6609,7 @@ This function can be demonstrated as in algorithm
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;has_bundled_vertex_with_my_vertex' function
@@ -6835,7 +6677,7 @@ Where STL functions work with iterators, here we obtain a vertex descriptor
 
 
 
-\begin_inset Caption Standard
+
 
 
 Find the first vertex with a certain my_bundled_vertex
@@ -6889,7 +6731,7 @@ With the vertex descriptor obtained, one can read and modify the vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;find_first_bundled_vertex_with_my_vertex' function
@@ -6938,7 +6780,7 @@ To obtain the \verb;my_bundled_vertex' from a vertex descriptor is simple:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get a bundled vertex its my_vertex from its vertex descriptor
@@ -6996,7 +6838,7 @@ To use \verb;get_bundled_vertex_my_vertex', one first needs to obtain a vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration if the \verb;get_bundled_vertex_my_vertex' function
@@ -7051,7 +6893,7 @@ If you know how to get the \verb;my_bundled_vertex' from a vertex descriptor,
 
 
 
-\begin_inset Caption Standard
+
 
 
 Set a bundled vertex its my_vertex from its vertex descriptor
@@ -7105,7 +6947,7 @@ To use \verb;set_bundled_vertex_my_vertex', one first needs to obtain a vertex
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration if the \verb;set_bundled_vertex_my_vertex' function
@@ -7155,7 +6997,7 @@ When the vertices of a graph are \verb;my_bundled_vertex' objects, one can set
 
 
 
-\begin_inset Caption Standard
+
 
 
 Setting the bundled vertices' \verb;my_bundled_vertex'-es
@@ -7225,7 +7067,7 @@ If you used the \verb;create_bundled_vertices_k2_graph' function (algorithm
 
 
 
-\begin_inset Caption Standard
+
 
 
 Storing a graph with bundled vertices as a .dot file
@@ -7278,7 +7120,7 @@ This code looks small, because we call the \verb;make_bundled_vertices_writer'
 
 
 
-\begin_inset Caption Standard
+
 
 
 The \verb;make_bundled_vertices_writer' function
@@ -7331,7 +7173,7 @@ Also this function is forwarding the real work to the \verb;bundled_vertices_wri
 
 
 
-\begin_inset Caption Standard
+
 
 
 The \verb;bundled_vertices_writer' function
@@ -7588,7 +7430,7 @@ height
 
 
 
-\begin_inset Caption Standard
+
 
 
 Mapping of my_bundled_vertex member variable and Graphviz attributes
@@ -7655,7 +7497,7 @@ When loading a graph from file, one needs to specify a type of graph.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading a directed graph with bundled vertices from a .dot file
@@ -7737,7 +7579,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_directed_bundled_vertices_graph_from_dot' function
@@ -7804,7 +7646,7 @@ When loading a graph from file, one needs to specify a type of graph.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading an undirected graph with bundled vertices from a .dot file
@@ -7869,7 +7711,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_undirected_bundled_vertices_graph_from_dot' function
@@ -8019,7 +7861,7 @@ In this example, I create a \verb;my_bundled_edge' class.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Declaration of my_bundled_edge
@@ -8112,7 +7954,7 @@ dge' is comparable for equality (that is, operator== is defined).
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty directed graph with bundled edges and vertices
@@ -8219,7 +8061,7 @@ Demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_graph'
@@ -8265,7 +8107,7 @@ Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_grap
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty undirected graph with bundled edges and vertices
@@ -8328,7 +8170,7 @@ Demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;create_empty_undirected_bundled_edges_and_vertices_graph'
@@ -8383,7 +8225,7 @@ Adding a bundled edge is very similar to adding a named edge (chapter
 
 
 
-\begin_inset Caption Standard
+
 
 
 Add a bundled edge
@@ -8435,7 +8277,7 @@ Here is the demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of \verb;add_bundled_edge'
@@ -8485,7 +8327,7 @@ When the edges of a graph are \verb;my_bundled_edge' objects, one can extract
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get the edges' my_bundled_edges
@@ -8644,7 +8486,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Caption Standard
+
 
 
 A two-state Markov chain where the edges and vertices have bundled properties.
@@ -8691,7 +8533,7 @@ Here is the code creating a two-state Markov chain with bundled edges and
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the two-state Markov chain as depicted in figure 
@@ -8747,7 +8589,7 @@ Here is the demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_bundled_edges_and_vertices_markov_chain' function (algorithm
@@ -8794,7 +8636,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
@@ -8847,7 +8689,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
@@ -8983,7 +8825,7 @@ draw[]
 
 
 
-\begin_inset Caption Standard
+
 
 
 \begin_inset Formula $K_{3}$
@@ -9027,7 +8869,7 @@ Function to create such a graph
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating 
@@ -9099,7 +8941,7 @@ Here is the demo:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demo of the \verb;create_bundled_edges_and_vertices_k3_graph' function (algorithm
@@ -9146,7 +8988,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
@@ -9200,7 +9042,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_bundled_edges_and_vertices_k3_graph' function
@@ -9268,7 +9110,7 @@ _edge with the one desired.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Find if there is a bundled edge with a certain my_bundled_edge
@@ -9321,7 +9163,7 @@ This function can be demonstrated as in algorithm
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;has_bundled_edge_with_my_edge' function
@@ -9389,7 +9231,7 @@ Where STL functions work with iterators, here we obtain an edge descriptor
 
 
 
-\begin_inset Caption Standard
+
 
 
 Find the first bundled edge with a certain my_bundled_edge
@@ -9443,7 +9285,7 @@ With the edge descriptor obtained, one can read and modify the edge and
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;find_first_bundled_edge_with_my_edge' function
@@ -9493,7 +9335,7 @@ To obtain the my_bundled_edge from an edge descriptor, one needs to pull
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get a vertex its my_bundled_vertex from its vertex descriptor
@@ -9546,7 +9388,7 @@ To use \verb;get_my_bundled_edge', one first needs to obtain an edge descriptor.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration if the \verb;get_my_bundled_edge' function
@@ -9601,7 +9443,7 @@ If you know how to get the my_bundled_edge from an edge descriptor, setting
 
 
 
-\begin_inset Caption Standard
+
 
 
 Set a bundled edge its my_bundled_edge from its edge descriptor
@@ -9654,7 +9496,7 @@ To use \verb;set_bundled_edge_my_edge', one first needs to obtain an edge descri
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration if the \verb;set_bundled_edge_my_edge' function
@@ -9732,7 +9574,7 @@ tex objects, you can store these my_bundled_edges and my_bundled_vertex-es
 
 
 
-\begin_inset Caption Standard
+
 
 
 Storing a graph with bundled edges and vertices as a .dot file
@@ -9794,7 +9636,7 @@ When loading a graph from file, one needs to specify a type of graph.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading a directed graph with bundled edges and vertices from a .dot file
@@ -9874,7 +9716,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_directed_bundled_edges_and_vertices_graph_from_dot'fu
@@ -9953,7 +9795,7 @@ When loading a graph from file, one needs to specify a type of graph.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading an undirected graph with bundled edges and vertices from a .dot file
@@ -10018,7 +9860,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of the \verb;load_undirected_bundled_edges_and_vertices_graph_from_dot'
@@ -10139,7 +9981,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty directed graph with a graph name
@@ -10278,7 +10120,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_empty_directed_graph_with_graph_name'
@@ -10332,7 +10174,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating an empty undirected graph with a graph name
@@ -10400,7 +10242,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
@@ -10445,7 +10287,7 @@ Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
 
 
 
-\begin_inset Caption Standard
+
 
 
 Get a graph its name
@@ -10497,7 +10339,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;get_graph_name'
@@ -10542,7 +10384,7 @@ Demonstration of \verb;get_graph_name'
 
 
 
-\begin_inset Caption Standard
+
 
 
 Set a graph its name
@@ -10594,7 +10436,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;set_graph_name'
@@ -10665,7 +10507,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating a two-state Markov chain with a graph name
@@ -10721,7 +10563,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_markov_chain_with_graph_name'
@@ -10762,7 +10604,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_markov_chain_with_graph_name' function
@@ -10815,7 +10657,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_markov_chain_with_graph_name' function
@@ -10897,7 +10739,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating a K2 graph with a graph name
@@ -10953,7 +10795,7 @@ Listing
 
 
 
-\begin_inset Caption Standard
+
 
 
 Demonstration of \verb;create_k2_graph_with_graph_name'
@@ -10994,7 +10836,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_inset Caption Standard
+
 
 
 .dot file created from the \verb;create_k2_graph_with_graph_name' function (algorithm
@@ -11047,7 +10889,7 @@ status open
 
 
 
-\begin_inset Caption Standard
+
 
 
 .svg file created from the \verb;create_k2_graph_with_graph_name' function (algorithm
@@ -11111,7 +10953,7 @@ This works:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Storing a graph with a graph name as a .dot file
@@ -11166,7 +11008,7 @@ This will result in a directed graph with a name:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading a directed graph with a graph name from a .dot file
@@ -11221,7 +11063,7 @@ This will result in an undirected graph with a name:
 
 
 
-\begin_inset Caption Standard
+
 
 
 Loading an undirected graph with a graph name from a .dot file
@@ -11292,7 +11134,7 @@ You may want to use a label with spaces, comma's and/or quotes.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Encode a std::string to a Graphviz-friendly format
@@ -11353,7 +11195,7 @@ ly std::string.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Decode a std::string from a Graphviz-friendly format to a human-friendly
@@ -11411,7 +11253,7 @@ There are pieces where I check if a std::string is Graphviz-friendly.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Check if a std::string is Graphviz-friendly
@@ -11502,7 +11344,7 @@ http://stackoverflow.com/users/111327/m-dudley
 
 
 
-\begin_inset Caption Standard
+
 
 
 Getting a data type its name as a std::string
@@ -11560,7 +11402,7 @@ All illustrations in this tutorial are created by converting .dot to a .svg
 
 
 
-\begin_inset Caption Standard
+
 
 
 Convert a .dot file to a .svg
@@ -11620,7 +11462,7 @@ Not the most smart way perhaps, but it does only use the STL.
 
 
 
-\begin_inset Caption Standard
+
 
 
 Check if a file exists
@@ -11689,7 +11531,7 @@ This compile-time error occurs when you create a graph without a certain
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the error \verb;formed reference to void'
@@ -11759,7 +11601,7 @@ This compile-time error occurs when you want to clear the outward edges
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the error \verb;no matching function for call to clear_out_edges'
@@ -11951,7 +11793,7 @@ When loading a graph from file (as in chapter
 
 
 
-\begin_inset Caption Standard
+
 
 
 Creating the error \verb;Property not found: node_id'
