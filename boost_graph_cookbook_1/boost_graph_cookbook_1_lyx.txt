@@ -1,64 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Edge descriptors}
-\label{subsec:Edge-descriptors}
-
-
-
-
-\index{Edge descriptor
-
-
-
-
-
-
-
-
-An edge descriptor is a handle to an edge within a graph.
- They are similar to vertex descriptors (chapter 
-\ref{subsec:Vertex-descriptors}
-
-
-
-).
- 
-
-
-
-Edge descriptors are used to obtain the name, or other properties, of an
- edge
-
-
-
-In this tutorial, edge descriptors have named prefixed with \verb;ed_'
-\index{ed_
-
-
-
-
-, for example \verb;ed_1'.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get all edge descriptors}
 \label{subsec:get_edge_descriptors}
-
-
-
-
-\index{Edge descriptors, get
-
-
-
-
-
-\index{Get edge descriptors
-
-
-
-
-
-
-
+\index{Edge descriptors, get}
+\index{Get edge descriptors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Obtaining all edge descriptors is similar to obtaining all vertex descriptors
  (algorithm 
