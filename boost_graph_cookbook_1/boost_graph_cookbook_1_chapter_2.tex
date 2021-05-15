@@ -137,7 +137,7 @@ contains class and functions declarations and/or definitions.
 The header file \verb;adjacency_list.hpp; contains the 
 \verb;boost::adjacency_list; class definition.
 Without including this file, you will get compile errors like 
-\verb;definition of boost::adjacency_list unknown;
+\verb;definition of \verb;boost::adjacency_list; unknown;
 \footnote{
   In practice, these compiler error messages will be longer, bordering the unreadable
 }. 
@@ -159,7 +159,7 @@ The function \verb;create_empty_directed_graph; has:
   \item a function body: 
     all the function body does is implicitly create its return
     type by using the \verb;{};.
-    An alternative syntax would be \verb;return boost::adjacency_list<>();, 
+    An alternative syntax would be \verb;return \verb;boost::adjacency_list;<>();, 
     which is needlessly longer
 \end{itemize}
 
@@ -248,7 +248,7 @@ function (algorithm
 \ref{lst:create_empty_directed_graph}
 ) 
 in that there are three template arguments that need to be specified in
-the creation of the boost::adjacency_list:
+the creation of the \verb;boost::adjacency_list;:
 
 \begin{itemize}
   \item the first \verb;boost::vecS; \index{boost::vecS}: 

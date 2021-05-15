@@ -5504,7 +5504,7 @@ Edges are stored in a std::list
 
 
 
-The boost::adjacency_list has a new, fourth template argument \verb;my_bundled_vertex
+The \verb;boost::adjacency_list; has a new, fourth template argument \verb;my_bundled_vertex
 \index{my_bundled_vertex
 
 
@@ -10008,7 +10008,7 @@ Creating an empty directed graph with a graph name
 
 
 
-This boost::adjacency_list is of the following type:
+This \verb;boost::adjacency_list; is of the following type:
 
 
 \begin{itemize}
