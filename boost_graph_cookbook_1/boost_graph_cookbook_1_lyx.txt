@@ -1,199 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{}
-Get the vertex iterators
-\label{subsec:get_vertices}
-
-
-
-
-\index{Vertex iterator}
-
-
-
-
-
-\index{Vertex iterators, get}
-
-
-
-
-
-\index{Get vertex iterators}
-
-
-
-
-
-
-
-
-You cannot get the vertices.
- This may sound unexpected, as it must be possible to work on the vertices
- of a graph.
- Working on the vertices of a graph is done through these steps:
-
-
-\begin{itemize}
-Obtain a vertex iterator pair from the graph
-
-
-\begin{itemize}
-Dereferencing a vertex iterator to obtain a vertex descriptor
-
-
-
-\verb;vertices'
-\index{vertices}
-
-
-
-
- (not \verb;boost::vertices' 
-\index{boost::vertices does not exist}
-
-
-
-
-) is used to obtain a vertex iterator pair
-\index{Vertex iterator pair}
-
-
-
-
-, as shown in algorithm 
-\ref{lst:get_vertex_iterators}
-
-
-
-.
- The first vertex iterator
-\index{Vertex iterator
-
-
-
-
- points to the first vertex (its descriptor, to be precise), the second
- points to beyond the last vertex (its descriptor, to be precise).
- In this tutorial, vertex iterator pairs have named prefixed with \verb;vip_'
-\index{vip_
-
-
-
-
-, for example \verb;vip_1'.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_vertex_iterators.impl}
-
-
-
-
-
-
-
-
-
-
-
-Get the vertex iterators of a graph
-\index{Get vertices
-
-
-
-
-
-\label{lst:get_vertex_iterators}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This is a somewhat trivial function, as it forwards the function call to
- \verb;vertices'
-\index{vertices
-
-
-
-
- (not \verb;boost::vertices' 
-\index{boost::vertices does not exist
-
-
-
-
-).
-
-
-
-These vertex iterators can be dereferenced to obtain the vertex descriptors.
- Note that \verb;get_vertex_iterators' will not be used often in isolation: usually
- one obtains the vertex descriptors immediately.
- Just for your reference, algorithm 
-\ref{lst:get_vertex_iterators_demo}
-
-
-
- demonstrates of the \verb;get_vertices' function, by showing that the vertex
- iterators of an empty graph point to the same location.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_vertex_iterators_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;get_vertex_iterators'
-\label{lst:get_vertex_iterators_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get all vertex descriptors}
 \label{subsec:get_vertex_descriptors}
 
@@ -292,9 +98,8 @@ The std::vector to serve as a return value is created at the needed size,
 
 
 
-The function \verb;vertices'
-\index{vertices
-
+The function \verb;vertices;
+\index{vertices}
 
 
 
@@ -329,7 +134,7 @@ The function \verb;vertices'
 
 
 
-In this case, we copy all vertex descriptors in the range produced by \verb;vertices'
+In this case, we copy all vertex descriptors in the range produced by \verb;vertices;
  to the std::vector.
 
 
@@ -904,7 +709,7 @@ Get all edge descriptors of a graph
 
 
 
-The only difference is that instead of the function \verb;vertices' (not boost::verti
+The only difference is that instead of the function \verb;vertices; (not boost::verti
 ces
 \index{boost::vertices does not exist
 

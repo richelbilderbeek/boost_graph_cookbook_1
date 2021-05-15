@@ -386,7 +386,7 @@ to measure the number of edges of an empty directed and undirected graph.
 Empty graphs are nice, now its time to add a vertex!
 
 To add a vertex to a graph, 
-the \verb;boost::add_vertex; \index{boost::add_vertex}
+the \verb;boost::add_vertex; \index{boost::add\_vertex}
 function is used as shows in algorithm \ref{lst:add_vertex}:
 
 \lstinputlisting[
@@ -446,4 +446,59 @@ Vertex descriptors are used to:
 In this tutorial, 
 vertex descriptors have named prefixed with \verb;vd_; \index{vd\_}, 
 for example \verb;vd_1;.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{}
+Get the vertex iterators
+\label{subsec:get_vertices}
+\index{Vertex iterator}
+\index{Vertex iterators, get}
+\index{Get vertex iterators}
+\index{Get vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You cannot get the vertices.
+This may sound unexpected, as it must be possible to work on the vertices
+of a graph.
+Working on the vertices of a graph is done through these steps:
+
+\begin{itemize}
+  \item Obtain a vertex iterator pair from the graph
+  \item Dereferencing a vertex iterator to obtain a vertex descriptor 
+\end{itemize}
+
+\verb;vertices; \index{vertices} 
+(not \verb;boost::vertices; \index{boost::vertices does not exist}) 
+is used to obtain 
+a vertex iterator pair \index{Vertex iterator pair}, 
+as shown in algorithm \ref{lst:get_vertex_iterators}.
+
+The first vertex iterator \index{Vertex iterator}
+points to the first vertex (its descriptor, to be precise), the second
+points to beyond the last vertex (its descriptor, to be precise).
+In this tutorial, vertex iterator pairs have named prefixed with 
+\verb;vip_; \index{vip_}, for example \verb;vip_1;.
+
+\lstinputlisting[
+  caption = Get the vertex iterators of a graph,
+  label = lst:get_vertex_iterators
+]{get_vertex_iterators.impl}
+
+This is a somewhat trivial function, 
+as it forwards the function call to
+\verb;vertices; \index{vertices}
+(not \verb;boost::vertices; \index{boost::vertices does not exist}).
+
+These vertex iterators can be dereferenced to obtain the vertex descriptors.
+Note that \verb;get_vertex_iterators; will not be used often in isolation: usually
+one obtains the vertex descriptors immediately.
+Just for your reference, algorithm 
+\ref{lst:get_vertex_iterators_demo}
+demonstrates of the \verb;get_vertices; function, by showing that the vertex
+iterators of an empty graph point to the same location.
+
+\lstinputlisting[
+  caption = Demonstration of get\_vertex\_iterators,
+  label = lst:get_vertex_iterators_demo
+]{get_vertex_iterators_demo.impl}
 
