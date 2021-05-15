@@ -1,1223 +1,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
-\label{subsec:create_k2_graph}
-
-
-
-
-\index{Create 
-\begin_inset Formula $K_{2}$
-
-
-
-
-
-
-
-
-\index{\begin_inset Formula $K_{2}$
-
-
-, create
-
-
-
-
-
-
-
-
-Finally, we are going to create an undirected non-empty graph!
-
-
-\subsection{
-Graph
-
-
-
-To create a fully connected undirected graph with two vertices (also called
- 
-\begin_inset Formula $K_{2}$
-
-
-), one needs two vertices and one (undirected) edge, as depicted in figure
- 
-\ref{fig:k2_graph}
-
-
-
-.
-
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset ERT
-status open
-
-
-
-
-\backslash
-tikz 
-
-
-
-
-
-\backslash
-draw[thick] 
-
-
-
-
-  (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
-
-    -- (5,1) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
-
-;
-
-
-
-
-
-
-
-
-
-
-
-\begin_inset Formula $K_{2}$
-
-
-: a fully connected undirected graph with two vertices
-\label{fig:k2_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-To create 
-\begin_inset Formula $K_{2}$
-
-
-, the following code can be used:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k2_graph.impl}
-
-
-
-
-
-
-
-
-
-
-
-Creating 
-\begin_inset Formula $K_{2}$
-
-
- as depicted in figure 
-\ref{fig:k2_graph}
-
-
-
-
-\index{Create 
-\begin_inset Formula $K_{2}$
-
-
- graph
-
-
-
-
-
-\label{lst:create_k2_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This code is very similar to the \verb;add_edge' function (algorithm 
-\ref{lst:add_edge}
-
-
-
-).
- Instead of typing the graph its type, we call the \verb;create_empty_undirected_grap
-h' function and let auto figure it out.
- The vertex descriptors (see chapter 
-\ref{subsec:Vertex-descriptors}
-
-
-
-) created by two \verb;boost::add_vertex;
-\index{boost::add_vertex
-
-
-
-
- calls are stored to add an edge to the graph.
- From \verb;boost::add_edge;
-\index{boost::add_edge
-
-
-
-
- its return type (see chapter 
-\ref{subsec:boost::add_edge result}
-
-
-
-), it is only checked that insertion has been successful.
-
-
-
-Note that the graph lacks all properties: nodes do not have names, nor do
- edges.
-
-
-\subsection{
-Creating such a graph
-
-
-
-Listing 
-\ref{lst:create_k2_graph_demo}
-
-
-
- demonstrates how to \verb;create_k2_graph' and checks if it has the correct
- amount of edges and vertices:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k2_graph_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;create_k2_graph' 
-\label{lst:create_k2_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-\label{subsec:create_k2.dot}
-
-
-
-
-
-
-
-Running a bit ahead, this graph can be converted to the .dot file as shown
- in algorithm 
-\ref{lst:create_k2_graph.dot}
-
-
-
-:
-
-
-
-
-
-LatexCommand verbatiminput
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k2_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-.dot file created from the \verb;create_k2_graph' function (algorithm 
-\ref{lst:create_k2_graph}
-
-
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-
-\label{lst:create_k2_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-From the .dot file one can already see that the graph is undirected, because:
-
-
-\begin{itemize}
-The first word, \verb;graph', denotes an undirected graph (where \verb;digraph' would
- have indicated a directional graph)
-
-
-\begin{itemize}
-The edge between 0 and 1 is written as \verb;–' (where directed connections would
- be written as \verb;->', \verb;<-' or \verb;<>')
-
-
-\subsection{
-The .svg file produced
-\label{subsec:create_k2.svg}
-
-
-
-
-
-
-
-Continuing to running a bit ahead, this .dot file can be converted to the
- .svg as shown in figure 
-\ref{fig:create_k2_graph.svg}
-
-
-
-:
-
-
-
-\begin{figure}[!htbp]
-  \includegraphics[]{create_k2_graph.svg
-
-
-
-
-
-
-
-
-
-
-.svg file created from the \verb;create_k2_graph' function (algorithm 
-\ref{lst:create_k2_graph}
-
-
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-
-
-
-\label{fig:create_k2_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Also this figure shows that the graph in undirected, otherwise the edge
- would have one or two arrow heads.
- The vertices display the node index, which is the default behavior.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
-\label{subsec:create_k3_graph}
-
-
-\index{Create 
-\begin_inset Formula $K_{3}$
-
-
-
-
-
-
-
-
-\index{\begin_inset Formula $K_{3}$
-
-
-, create
-
-
-
-
-
-
-
-
-This is an extension of the previous chapter
-
-
-\subsection{
-Graph
-
-
-
-To create a fully connected undirected graph with two vertices (also called
- 
-\begin_inset Formula $K_{2}$
-
-
-), one needs two vertices and one (undirected) edge, as depicted in figure
- 
-\ref{fig:create_k3_graph}
-
-
-
-.
-
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset ERT
-status open
-
-
-
-
-\backslash
-tikz 
-
-
-
-
-
-\backslash
-draw[thick] 
-
-
-
-
-  (2,4) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
-
-   -- (3,2) node[anchor=west] {} 
-
-
-
-
-   -- (4,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
-
-   -- (2,0) node[anchor=north] {} 
-
-
-
-
-   -- (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
-
-   -- (1,2) node[anchor=east] {} 
-
-
-
-
-   -- (2,4)
-
-
-
-
-;
-
-
-
-
-
-
-
-
-
-
-
-\begin_inset Formula $K_{3}$
-
-
-: a fully connected graph with three edges and vertices 
-\label{fig:create_k3_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-To create 
-\begin_inset Formula $K_{3}$
-
-
-, the following code can be used:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k3_graph.impl}
-
-
-
-
-
-
-
-
-
-
-
-Creating 
-\begin_inset Formula $K_{3}$
-
-
- as depicted in figure 
-\ref{fig:create_k3_graph}
-
-
-
-
-\index{Create 
-\begin_inset Formula $K_{3}$
-
-
- graph
-
-
-
-
-
-\label{lst:create_k3_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
-
-Listing 
-\ref{lst:create_k3_graph_demo}
-
-
-
- demonstrates how to \verb;create_k2_graph' and checks if it has the correct
- amount of edges and vertices:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k3_graph_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;create_k3_graph' 
-\label{lst:create_k3_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-\label{subsec:create_k3_graph.dot}
-
-
-
-
-
-
-
-This graph can be converted to the .dot file as shown in algorithm 
-\ref{lst:create_k3_graph.dot}
-
-
-
-:
-
-
-
-
-
-LatexCommand verbatiminput
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_k3_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-.dot file created from the \verb;create_k3_graph' function (algorithm 
-\ref{lst:create_k3_graph}
-
-
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-
-\label{lst:create_k3_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-\label{subsec:create_k3.svg}
-
-
-
-
-
-
-
-Continuing to running a bit ahead, this .dot file can be converted to the
- .svg as shown in figure 
-\ref{fig:create_k3_graph.svg}
-
-
-
-:
-
-
-
-\begin{figure}[!htbp]
-  \includegraphics[]{create_k3_graph.svg
-
-
-
-
-
-
-
-
-
-
-.svg file created from the \verb;create_k3_graph' function (algorithm 
-\ref{lst:create_k3_graph}
-
-
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-
-
-
-\label{fig:create_k3_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating a path graph}
-\label{subsec:create_path_graph}
-
-
-
-
-\index{Create path graph
-
-
-
-
-
-\index{Path graph, create
-
-
-
-
-
-
-
-
-A path graph is a linear graph without any branches
-
-
-\subsection{
-Graph
-
-
-
-Here I show a path graph with four vertices (see figure 
-\ref{fig:create_path_graph}
-
-
-
-):
-
-
-
-\begin{figure}
-  \begin{tikzpicture}
-  .
-  \end{tikzpicture}
-  \caption{.}
-  \label{fig:.}
-\end{figure}
-
-
-
-
-
-
-\backslash
-tikzset{ 
-
-
-
-
-  VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white}
-
-
-
-
-}
-
-
-
-
-
-\backslash
-SetGraphUnit{4}
-
-
-
-
-
-\backslash
-Vertex{A}   
-
-
-
-
-
-\backslash
-EA(A){B}   
-
-
-
-
-
-\backslash
-EA(B){C}   
-
-
-
-
-
-\backslash
-EA(C){D}   
-
-
-
-
-
-\backslash
-Edge[](A)(B)   
-
-
-
-
-
-\backslash
-Edge[](B)(C)   
-
-
-
-
-
-\backslash
-Edge[](C)(D)   
-
-
-
-
-
-\backslash
-end{tikzpicture}
-
-
-
-
-
-
-
-
-
-
-
-A path graph with four vertices 
-\label{fig:create_path_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-To create a path graph, the following code can be used:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_path_graph.impl}
-
-
-
-
-
-
-
-
-
-
-
-Creating a path graph as depicted in figure 
-\ref{fig:create_path_graph}
-
-
-
-
-\index{Create path graph
-
-
-
-
-
-\label{lst:create_path_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
-
-Listing 
-\ref{lst:create_path_graph_demo}
-
-
-
- demonstrates how to \verb;create_k2_graph' and checks if it has the correct
- amount of edges and vertices:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_path_graph_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;create_path_graph' 
-\label{lst:create_path_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-\label{subsec:create_path_graph.dot}
-
-
-
-
-
-
-
-This graph can be converted to the .dot file as shown in algorithm 
-\ref{lst:create_path_graph.dot}
-
-
-
-:
-
-
-
-
-
-LatexCommand verbatiminput
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_path_graph_4.dot}
-
-
-
-
-
-
-
-
-
-
-
-.dot file created from the \verb;create_path_graph' function (algorithm 
-\ref{lst:create_path_graph}
-
-
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-
-\label{lst:create_path_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-\label{subsec:create_path_graph.svg}
-
-
-
-
-
-
-
-The .dot file can be converted to the .svg as shown in figure 
-\ref{fig:create_path_graph.svg}
-
-
-
-:
-
-
-
-\begin{figure}[!htbp]
-  \includegraphics[]{create_path_graph_4.svg
-
-
-
-
-
-
-
-
-
-
-.svg file created from the \verb;create_path_graph' function (algorithm 
-\ref{lst:create_path_graph}
-
-
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-
-
-
-\label{fig:create_path_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Creating a Peterson graph}
 \label{subsec:create_petersen_graph}
-
-
-
-
-\index{Create Petersen graph
-
-
-
-
-
-\index{Petersen graph, create
-
-
-
-
-
-
-
+\index{Create Petersen graph}
+\index{Petersen graph, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A Petersen graph is the first graph with interesting properties.
 
@@ -1718,7 +505,7 @@ m
 
 
 Albeit that the 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph and the two-state Markov chain are rather simple, we can use it to
@@ -1769,7 +556,7 @@ Demonstration of the \verb;get_vertex_out_degrees' function
 
 
 It is expected that 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  has one out-degree for every vertex, where the two-state Markov chain is
@@ -1853,7 +640,7 @@ This code uses the function \verb;edge'
 
 
 The demo shows that there is an edge between the two vertices of a 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph, but there are no self-loops (edges that original and end at the
@@ -2066,12 +853,12 @@ Get the direct-neighbour subgraph from a vertex descriptor
 
 This demonstration code shows that the direct-neighbour graph of each vertex
  of a 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graphs is ...
  a 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph!
@@ -2239,12 +1026,12 @@ Create all direct-neighbour subgraphs from a graph without properties
 
 This demonstration code shows that all two direct-neighbour graphs of a
  
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graphs are ...
  
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graphs!
@@ -2345,7 +1132,7 @@ Check if two graphs are isomorphic
 
 
 This demonstration code shows that a 
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
  graph is not equivalent to a 3-vertices path graph:
@@ -2549,7 +1336,7 @@ Count the number of connected components
 
 
 The complexity of this algorithm is 
-\begin_inset Formula $O(\left|V\right|+\left|E\right|)$
+$O(\left|V\right|+\left|E\right|)$
 
 
 .
@@ -2738,7 +1525,7 @@ Count the number of connected components
 
 
 The complexity of this algorithm is 
-\begin_inset Formula $O(\left|V\right|+\left|E\right|)$
+$O(\left|V\right|+\left|E\right|)$
 
 
 .
@@ -3468,7 +2255,7 @@ Demonstration of the \verb;load_undirected_graph_from_dot' function
 
 
 This demonstration shows how the 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph is created using the \verb;create_k2_graph' function (algorithm 
@@ -3478,7 +2265,7 @@ This demonstration shows how the
 
 ), saved and then loaded.
  The loaded graph is checked to be a 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph.
@@ -3536,7 +2323,7 @@ A two-state Markov chain with bundled vertices: see chapter
 
 
 \begin{itemize}
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
 with bundled vertices: see chapter 
@@ -4398,7 +3185,7 @@ Graph
 
 
 We reproduce the 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  with named vertices of chapter 
@@ -4477,7 +3264,7 @@ end{tikzpicture}
 
 
 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
 : a fully connected graph with two bundled vertices
@@ -4522,7 +3309,7 @@ Function to create such a graph
 
 
 Creating 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  as depicted in figure 
@@ -5322,7 +4109,7 @@ If you used the \verb;create_bundled_vertices_k2_graph' function (algorithm
 
 
 ) to produce a 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  graph with vertices associated with \verb;my_bundled_vertex' objects, you can
@@ -6017,7 +4804,7 @@ Demonstration of the \verb;load_undirected_bundled_vertices_graph_from_dot' func
 
 
 This demonstration shows how 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  with bundled vertices is created using the \verb;create_bundled_vertices_k2_graph'
@@ -6076,7 +4863,7 @@ A two-state Markov chain with bundled edges and vertices: see chapter
 
 
 \begin{itemize}
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
 with bundled edges and vertices: see chapter 
@@ -7016,7 +5803,7 @@ Graph
 
 
 We reproduce the 
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
  with named edges and vertices of chapter 
@@ -7104,7 +5891,7 @@ draw[]
 
 
 
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
 : a fully connected graph with three named edges and vertices 
@@ -7149,7 +5936,7 @@ Function to create such a graph
 
 
 Creating 
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
  as depicted in figure 
@@ -7814,7 +6601,7 @@ If you used the \verb;create_bundled_edges_and_vertices_k3_graph' function (algo
 
 
 ) to produce a 
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
 graph with edges and vertices associated with my_bundled_edge and my_bundled_ver
@@ -8153,7 +6940,7 @@ function
 
 
 This demonstration shows how 
-\begin_inset Formula $K_{2}$
+$K_{2}$
 
 
  with bundled vertices is created using the \verb;create_bundled_vertices_k2_graph'
@@ -8199,7 +6986,7 @@ A two-state Markov chain with a graph name: see chapter
 
 
 \begin{itemize}
-\begin_inset Formula $K_{3}$
+$K_{3}$
 
 
 with a graph name: see chapter 

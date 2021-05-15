@@ -615,7 +615,7 @@ The graph type is unimportant: as all graph types have vertices and edges,
  edges can be added without possible compile problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{boost::add_edge result}
+\subsection{boost::add\_edge result}
 \label{subsec:boost_add_edge_result}
 \index{boost::add\_edge result}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -627,7 +627,7 @@ It contains both the edge descriptor
 and a boolean, which indicates insertion success.
 
 In this tutorial, \verb;boost::add_edge; results 
-have named prefixed with \verb;aer_; \index{aer_}, 
+have named prefixed with \verb;aer_; \index{aer\_},
 for example \verb;aer_1;.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -690,7 +690,7 @@ They are similar to vertex descriptors (chapter \ref{subsec:Vertex-descriptors})
 Edge descriptors are used to obtain the name, or other properties, of an edge.
 
 In this tutorial, edge descriptors have named prefixed with \verb;ed_;
-\index{ed_}, for example \verb;ed_1;.
+\index{ed\_}, for example \verb;ed_1;.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get all edge descriptors}
@@ -770,9 +770,9 @@ Instead of typing the complete type,
 we call the \verb;create_empty_directed_graph;
 function, and let auto figure out the type.
 The vertex descriptors (see chapter \ref{subsec:Vertex-descriptors}) 
-created by two \verb;boost::add_vertex; \index{boost::add_vertex}
+created by two \verb;boost::add_vertex; \index{boost::add\_vertex}
 calls are stored to add an edge to the graph.
-Then \verb;boost::add_edge; \index{boost::add_edge}
+Then \verb;boost::add_edge; \index{boost::add\_edge}
 is called four times.
 Every time, its return type 
 (see chapter \ref{subsec:boost::add_edge result}) 
@@ -799,19 +799,22 @@ Running a bit ahead, this graph can be converted to a .dot file using the
 \verb;save_graph_to_dot; function (algorithm \ref{lst:save_graph_to_dot}).
 The .dot file created is displayed in algorithm \ref{lst:create_markov_chain.dot}:
 
-\lstinputlisting[
-  caption = {
-    .dot file created from the create\_markov\_chain\_graph function 
-    (algorithm \ref{lst:create_markov_chain_graph}), 
-    converted from graph to .dot file using algorithm
-  },
-  label = lst:create_markov_chain_dot
-]{create_markov_chain.dot}
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = {
+%    .dot file created from the create\_markov\_chain\_graph function 
+%    (algorithm \ref{lst:create_markov_chain_graph}), 
+%    converted from graph to .dot file using algorithm
+%  },
+%  label = lst:create_markov_chain_dot
+%]{create_markov_chain.dot}
 
 From the .dot file one can already see that the graph is directed, because:
 
 \begin{itemize}
-  \item The first word, \verb;digraph:, denotes a directed graph 
+  \item The first word, \verb;digraph;, denotes a directed graph 
     (where \verb;graph; would have indicated an undirected graph)
   \item The edges are written as \verb;->; 
    (where undirected connections would be written as \verb;–;)
@@ -823,13 +826,9 @@ From the .dot file one can already see that the graph is directed, because:
 The .svg file of this graph is shown in figure \ref{fig:create_markov_chain.svg}:
 
 \begin{figure}[!htbp]
-  \includegraphics[]{CC-BY-SA_icon.png
-
-
-\begin{figure}[!htbp]
   \includegraphics[]{create_markov_chain.png}
   \caption{
-    .svg file created from the \verb;create_markov_chain; function 
+    .svg file created from the create\_markov\_chain function 
     (algorithm \ref{lst:create_markov_chain_graph}) 
     its .dot file and converted from .dot file to .svg using algorithm 
     \ref{lst:convert_dot_to_svg};
@@ -839,4 +838,280 @@ The .svg file of this graph is shown in figure \ref{fig:create_markov_chain.svg}
 
 This figure shows that the graph in directed, as the edges have arrow heads.
 The vertices display the node index, which is the default behavior.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
+\label{subsec:create_k2_graph}
+\index{Create $K_{2}$}
+\index{$K_{2}$, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Finally, we are going to create an undirected non-empty graph!
+
+To create a fully connected undirected graph with two vertices (also called
+$K_{2}$), 
+one needs two vertices and one (undirected) edge, 
+as depicted in figure \ref{fig:k2_graph}.
+
+
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[thick] 
+      (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+        -- (5,1) node[draw=black,fill=white,shape=circle,text=white] {} 
+    ;
+  \end{tikzpicture}
+  \caption{$K_{2}$ : a fully connected undirected graph with two vertices}
+  \label{fig:k2_graph}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+To create $K_{2}$, the following code can be used:
+
+\lstinputlisting[
+  caption = Creating $K_{2}$ as depicted in figure \ref{fig:k2_graph},
+  label = lst:create_k2_graph
+]{create_k2_graph.impl}
+
+This code is very similar to 
+the \verb;add_edge; function (algorithm \ref{lst:add_edge}).
+Instead of typing the graph its type, 
+we call the \verb;create_empty_undirected_graph; 
+function and let auto figure it out.
+The vertex descriptors 
+(see chapter \ref{subsec:Vertex-descriptors}) 
+created by two \verb;boost::add_vertex; \index{boost::add\_vertex}
+calls are stored to add an edge to the graph.
+
+From \verb;boost::add_edge; \index{boost::add\_edge}
+its return type 
+(see chapter \ref{subsec:boost_add_edge_result}), 
+it is only checked that insertion has been successful.
+
+Note that the graph lacks all properties: nodes do not have names, nor do
+edges.
+
+\subsection{Creating such a graph}
+
+Listing \ref{lst:create_k2_graph_demo}
+demonstrates how to \verb;create_k2_graph; and checks if it has the correct
+amount of edges and vertices:
+
+\lstinputlisting[
+  caption = Demonstration of create\_k2\_graph
+  label = lst:create_k2_graph_demo
+]{create_k2_graph_demo.impl}
+
+\subsection{The .dot file produced}
+\label{subsec:create_k2_dot}
+
+Running a bit ahead, this graph can be converted to the .dot file as shown
+in algorithm \ref{lst:create_k2_graph.dot}:
+
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = .dot file created from the create\_k2\_graph function (algorithm \ref{lst:create_k2_graph}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+%  label = lst:create_k2_graph.dot
+%]{create_k2_graph.dot}
+
+From the .dot file one can already see that the graph is undirected, because:
+
+\begin{itemize}
+  \item The first word, \verb;graph;, denotes an undirected graph 
+    (where \verb;digraph; would have indicated a directional graph)
+  \item The edge between 0 and 1 is written as \verb;–; 
+    (where directed connections would be written as \verb;->;, 
+    \verb;<-; or \verb;<>;)
+\end{itemize}
+
+\subsection{The .svg file produced}
+\label{subsec:create_k2.svg}
+
+Continuing to running a bit ahead, 
+this .dot file can be converted to the .svg 
+as shown in figure \ref{fig:create_k2_graph.svg}:
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_k2_graph.svg}
+  \caption{.svg file created from the create\_k2\_graph' function (algorithm \ref{lst:create_k2_graph}) its .dot file, converted from .dot file to .svg using algorithm \ref{lst:convert_dot_to_svg}}
+  \label{fig:create_k2_graph.svg}
+\end{figure}
+
+Also this figure shows that the graph in undirected, otherwise the edge
+ would have one or two arrow heads.
+ The vertices display the node index, which is the default behavior.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
+\label{subsec:create_k3_graph}
+\index{Create $K_{3}$}
+\index{$K_{3}$, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This is an extension of the previous chapter
+
+\subsection{Graph}
+
+To create a fully connected undirected graph with three vertices 
+(also called $K_{4}$), 
+one needs three vertices and three (undirected) edge, 
+as depicted in figure \ref{fig:create_k3_graph}.
+
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[thick] 
+      (2,4) node[draw=black,fill=white,shape=circle,text=white] {} 
+       -- (3,2) node[anchor=west] {} 
+       -- (4,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+       -- (2,0) node[anchor=north] {} 
+       -- (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+       -- (1,2) node[anchor=east] {} 
+       -- (2,4)
+    ;
+  \end{tikzpicture}
+  \caption{$K_{3}$: a fully connected graph with three edges and vertices }
+  \label{fig:create_k3_graph}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+To create $K_{3}$, the following code can be used:
+
+\lstinputlisting[
+  caption = Creating $K_{3}$ as depicted in figure \ref{fig:create_k3_graph},
+  label = lst:create_k3_graph
+]{create_k3_graph.impl}
+\index{Create $K_{3}$ graph}
+
+\subsection{Creating such a graph}
+
+Listing \ref{lst:create_k3_graph_demo} demonstrates 
+\verb;create_k3_graph; and checks if it has the correct
+amount of edges and vertices:
+
+\lstinputlisting[
+  caption = Demonstration of create\_k3\_graph,
+  label = lst:create_k3_graph_demo
+]{create_k3_graph_demo.impl}
+
+\subsection{The .dot file produced}
+\label{subsec:create_k3_graph.dot}
+
+This graph can be converted to the .dot file as shown in algorithm 
+\ref{lst:create_k3_graph.dot}:
+
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = .dot file created from the create\_k3\_graph function (algorithm \ref{lst:create_k3_graph}), converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+%  label = lst:create_k3_graph.dot
+%]{create_k3_graph.dot}
+
+\subsection{The .svg file produced}
+\label{subsec:create_k3.svg}
+
+Continuing to running a bit ahead, this .dot file can be converted to the
+.svg as shown in figure \ref{fig:create_k3_graph.svg}:
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_k3_graph.svg}
+  \caption{
+    .svg file created from the create\_k3\_graph function 
+    (algorithm \ref{lst:create_k3_graph}) its .dot file, 
+    converted from .dot file to .svg 
+    using algorithm \ref{lst:convert_dot_to_svg}
+  }
+  \label{fig:create_k3_graph.svg}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\triangle$ Creating a path graph}
+\label{subsec:create_path_graph}
+\index{Create path graph}
+\index{Path graph, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A path graph is a linear graph without any branches
+
+\subsection{Graph}
+
+Here I show a path graph with four vertices 
+(see figure \ref{fig:create_path_graph}):
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzset{ 
+      VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white}
+    }
+    \SetGraphUnit{4}
+    \Vertex{A}   
+    \EA(A){B}   
+    \EA(B){C}   
+    \EA(C){D}   
+    \Edge[](A)(B)   
+    \Edge[](B)(C)   
+    \Edge[](C)(D)   
+  \end{tikzpicture}
+  \caption{A path graph with four vertices}
+  \label{fig:create_path_graph}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+To create a path graph, the following code can be used:
+
+\lstinputlisting[
+  caption = Creating a path graph as depicted in figure \ref{fig:create_path_graph},
+  label = lst:create_path_graph
+]{create_path_graph.impl}
+\index{Create path graph}
+
+\subsection{Creating such a graph}
+
+Listing \ref{lst:create_path_graph_demo}
+demonstrates \verb;create_path_graph; 
+and checks if it has the correct amount of edges and vertices:
+
+\lstinputlisting[
+  caption = Demonstration of create\_path\_graph,
+  label = lst:create_path_graph_demo
+]{create_path_graph_demo.impl}
+
+\subsection{The .dot file produced}
+\label{subsec:create_path_graph.dot}
+
+This graph can be converted to the .dot file 
+as shown in algorithm \ref{lst:create_path_graph.dot}:
+
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = .dot file created from the create\_path\_graph' function (algorithm \ref{lst:create_path_graph}), converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+%  label = lst:create_path_graph.dot
+%]{create_path_graph_4.dot}
+
+\subsection{The .svg file produced}
+\label{subsec:create_path_graph.svg}
+
+The .dot file can be converted to the .svg 
+as shown in figure \ref{fig:create_path_graph.svg}:
+
+%
+% TODO
+%
+%\begin{figure}[!htbp]
+%  \includegraphics[]{create_path_graph_4.png}
+%  \caption{
+%    .svg file created from the create\_path\_graph function 
+%    (algorithm \ref{lst:create_path_graph}) 
+%    its .dot file, converted from .dot file to .svg 
+%    using algorithm \ref{lst:convert_dot_to_svg}
+%  }
+%  \label{fig:create_path_graph.svg}
+%\end{figure}
 
