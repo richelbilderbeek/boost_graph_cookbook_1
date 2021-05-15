@@ -1,0 +1,7 @@
+graph G {
+0[label="Marthe,black,3.3,4.4", regular="0"];
+1[label="Hanne,red,1.1,2.2", regular="1"];
+2[label="Klaasje,blond,5.5,6.6", regular="0"];
+1--0 [label="Belgium,Country$$$SPACE$$$of$$$SPACE$$$birth,1.1,2.2", regular="0"];
+0--2 [label="France,Favorite$$$SPACE$$$country$$$SPACE$$$for$$$SPACE$$$holidays,3.3,4.4", regular="0"];
+}

@@ -1,335 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating a directed graph}
-\label{subsec:create_markov_chain_graph}
-\index{Create directed graph}
-\index{Directed graph, create}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Finally, we are going to create a directed non-empty graph! 
-
-This directed graph is a two-state Markov chain, with two vertices and four
-edges, as depicted in figure \ref{fig:markov_chain}:
-
-\begin{figure}
-  \begin{tikzpicture}
-    \tikzset{ 
-      VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
-      EdgeStyle/.append style = {->, bend left} }
-    \SetGraphUnit{5}
-    \Vertex{A}   
-    \EA(A){B}   
-    \Edge[](A)(B)   
-    \Edge[](B)(A)   
-    \Loop[dist = 4cm, dir = NO](A.west)
-    \Loop[dist = 4cm, dir = SO](B.east)
-  \end{tikzpicture}
-  \caption{The two-state Markov chain}
-  \label{fig:markov_chain}
-\end{figure}
-
-Note that directed graphs can have edges that start and end in the same
- vertex.
- These are called self-loops.
-
-
-\begin_layout Subsubsection
-Function to create such a graph
-
-
-
-To create this two-state Markov chain, the following code can be used:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_markov_chain.impl}
-
-
-
-
-
-
-
-
-
-
-
-Creating the two-state Markov chain as depicted in figure 
-\ref{fig:markov_chain}
-
-
-
-
-\index{Create Markov chain
-
-
-
-
-
-\label{lst:create_markov_chain_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Instead of typing the complete type, we call the \verb;create_empty_directed_graph;
- function, and let auto figure out the type.
- The vertex descriptors (see chapter 
-\ref{subsec:Vertex-descriptors}
-
-
-
-) created by two \verb;boost::add_vertex;
-\index{boost::add_vertex
-
-
-
-
- calls are stored to add an edge to the graph.
- Then \verb;boost::add_edge;
-\index{boost::add_edge
-
-
-
-
- is called four times.
- Every time, its return type (see chapter 
-\ref{subsec:boost::add_edge result}
-
-
-
-) is checked for a successful insertion.
-
-
-
-Note that the graph lacks all properties: nodes do not have names, nor do
- edges.
-
-
-\begin_layout Subsubsection
-Creating such a graph
-
-
-
-Listing 
-\ref{create_markov_chain_demo}
-
-
-
- demonstrates the \verb;create_markov_chain_graph' function and checks if it
- has the correct amount of edges and vertices:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_markov_chain_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of the \verb;create_markov_chain' 
-\label{create_markov_chain_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin_layout Subsubsection
-The .dot file produced
-\label{subsec:create_markov_chain.dot}
-
-
-
-
-
-
-
-Running a bit ahead, this graph can be converted to a .dot file using the
- \verb;save_graph_to_dot' function (algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-).
- The .dot file created is displayed in algorithm 
-\ref{lst:create_markov_chain.dot}
-
-
-
-:
-
-
-
-
-
-LatexCommand verbatiminput
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_markov_chain.dot}
-
-
-
-
-
-
-
-
-
-
-
-.dot file created from the \verb;create_markov_chain_graph' function (algorithm
- 
-\ref{lst:create_markov_chain_graph}
-
-
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-
-\label{lst:create_markov_chain.dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-From the .dot file one can already see that the graph is directed, because:
-
-
-\begin{itemize}
-The first word, \verb;digraph', denotes a directed graph (where \verb;graph' would
- have indicated an undirected graph)
-
-
-\begin{itemize}
-The edges are written as \verb;->' (where undirected connections would be written
- as \verb;–')
-
-
-\begin_layout Subsubsection
-The .svg file produced
-\label{subsec:create_markov_chain.svg}
-
-
-
-
-
-
-
-The .svg file of this graph is shown in figure 
-\ref{fig:create_markov_chain.svg}
-
-
-
-:
-
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_markov_chain.svg
-
-
-
-
-
-
-
-
-
-
-.svg file created from the \verb;create_markov_chain' function (algorithm 
-\ref{lst:create_markov_chain_graph}
-
-
-
-) its .dot file and converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-
-
-
-\label{fig:create_markov_chain.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This figure shows that the graph in directed, as the edges have arrow heads.
- The vertices display the node index, which is the default behavior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
@@ -363,7 +31,7 @@ This figure shows that the graph in directed, as the edges have arrow heads.
 Finally, we are going to create an undirected non-empty graph!
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -452,7 +120,7 @@ draw[thick]
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -560,7 +228,7 @@ Note that the graph lacks all properties: nodes do not have names, nor do
  edges.
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -611,7 +279,7 @@ Demonstration of \verb;create_k2_graph'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 \label{subsec:create_k2.dot}
 
@@ -691,7 +359,7 @@ The edge between 0 and 1 is written as \verb;–' (where directed connections wo
  be written as \verb;->', \verb;<-' or \verb;<>')
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 \label{subsec:create_k2.svg}
 
@@ -711,15 +379,8 @@ Continuing to running a bit ahead, this .dot file can be converted to the
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_k2_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_k2_graph.svg
 
 
 
@@ -793,7 +454,7 @@ Also this figure shows that the graph in undirected, otherwise the edge
 This is an extension of the previous chapter
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -907,7 +568,7 @@ draw[thick]
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -975,7 +636,7 @@ Creating
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -1026,7 +687,7 @@ Demonstration of \verb;create_k3_graph'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 \label{subsec:create_k3_graph.dot}
 
@@ -1091,7 +752,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 \label{subsec:create_k3.svg}
 
@@ -1111,15 +772,8 @@ Continuing to running a bit ahead, this .dot file can be converted to the
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_k3_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_k3_graph.svg
 
 
 
@@ -1182,7 +836,7 @@ status open
 A path graph is a linear graph without any branches
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -1313,7 +967,7 @@ A path graph with four vertices
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -1369,7 +1023,7 @@ Creating a path graph as depicted in figure
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -1420,7 +1074,7 @@ Demonstration of \verb;create_path_graph'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 \label{subsec:create_path_graph.dot}
 
@@ -1485,7 +1139,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 \label{subsec:create_path_graph.svg}
 
@@ -1504,15 +1158,8 @@ The .dot file can be converted to the .svg as shown in figure
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_path_graph_4.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_path_graph_4.svg
 
 
 
@@ -1575,7 +1222,7 @@ status open
 A Petersen graph is the first graph with interesting properties.
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -1590,15 +1237,8 @@ To create a Petersen graph, one needs five vertices and five undirected
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename Petersen_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{Petersen_graph.svg
 
 
 
@@ -1638,7 +1278,7 @@ https://en.wikipedia.org/wiki/Petersen_graph
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -1694,7 +1334,7 @@ Creating Petersen graph as depicted in figure
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -1745,7 +1385,7 @@ Demonstration of \verb;create_k3_graph'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 \label{subsec:create_petersen_graph.dot}
 
@@ -1810,7 +1450,7 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 \label{subsec:create_petersen.svg}
 
@@ -1829,15 +1469,8 @@ This .dot file can be converted to the .svg as shown in figure
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_petersen_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_petersen_graph.svg
 	lyxscale 50
 	scale 50
 
@@ -3466,7 +3099,7 @@ Listing
 
 
 
- shows how to use the \verb;save_graph_to_dot' function:
+ shows how to use the \verb;save_graph_to_dot; function:
 
 
 
@@ -3488,7 +3121,7 @@ Listing
 
 
 
-Demonstration of the \verb;save_graph_to_dot' function
+Demonstration of the \verb;save_graph_to_dot; function
 \label{lst:save_graph_to_dot_demo}
 
 
@@ -3507,7 +3140,7 @@ Demonstration of the \verb;save_graph_to_dot' function
 
 
 
-When using the \verb;save_graph_to_dot' function (algorithm 
+When using the \verb;save_graph_to_dot; function (algorithm 
 \ref{lst:save_graph_to_dot}
 
 
@@ -4421,7 +4054,7 @@ When trying to get the vertices' my_bundled_vertex from a graph without
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -4547,7 +4180,7 @@ A two-state Markov chain where the vertices have bundled properties and
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -4603,7 +4236,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -4653,7 +4286,7 @@ Demo of the \verb;create_bundled_vertices_markov_chain' function (algorithm
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -4705,20 +4338,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_bundled_vertices_markov_chain.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_vertices_markov_chain.svg
 
 
 
@@ -4766,7 +4392,7 @@ status open
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -4872,7 +4498,7 @@ end{tikzpicture}
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -4940,7 +4566,7 @@ Most of the code is a slight modification of the \verb;create_named_vertices_k2_
  with two bundled my_bundled_vertex objects.
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -4990,7 +4616,7 @@ Demo of the \verb;create_bundled_vertices_k2_graph' function (algorithm
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -5042,20 +4668,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_bundled_vertices_k2_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_vertices_k2_graph.svg
 
 
 
@@ -7047,7 +6666,7 @@ When trying to get the edges' my_bundled_edge objects from a graph without
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -7172,7 +6791,7 @@ A two-state Markov chain where the edges and vertices have bundled properties.
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -7229,7 +6848,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -7280,7 +6899,7 @@ Demo of the \verb;create_bundled_edges_and_vertices_markov_chain' function (algo
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -7332,20 +6951,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_bundled_edges_and_vertices_markov_chain.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_edges_and_vertices_markov_chain.svg
 
 
 
@@ -7398,7 +7010,7 @@ Instead of using edges with a name, or other properties, here we use a bundled
  edge class called \verb;my_bundled_edge'.
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -7513,7 +7125,7 @@ draw[]
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -7581,7 +7193,7 @@ Most of the code is a slight modification of algorithm
  objects.
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -7632,7 +7244,7 @@ Demo of the \verb;create_bundled_edges_and_vertices_k3_graph' function (algorith
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -7684,20 +7296,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_bundled_edges_and_vertices_k3_graph.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_edges_and_vertices_k3_graph.svg
 	scale 50
 
 
@@ -9129,7 +8734,7 @@ Demonstration of \verb;set_graph_name'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -9142,7 +8747,7 @@ See figure
 .
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -9198,7 +8803,7 @@ Creating a two-state Markov chain with a graph name
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -9248,7 +8853,7 @@ Demonstration of \verb;create_markov_chain_with_graph_name'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -9300,20 +8905,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_markov_chain_with_graph_name.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_markov_chain_with_graph_name.svg
 
 
 
@@ -9361,7 +8959,7 @@ status open
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Graph
 
 
@@ -9374,7 +8972,7 @@ See figure
 .
 
 
-\begin_layout Subsubsection
+\subsection{
 Function to create such a graph
 
 
@@ -9430,7 +9028,7 @@ Creating a K2 graph with a graph name
 
 
 
-\begin_layout Subsubsection
+\subsection{
 Creating such a graph
 
 
@@ -9480,7 +9078,7 @@ Demonstration of \verb;create_k2_graph_with_graph_name'
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .dot file produced
 
 
@@ -9532,20 +9130,13 @@ LatexCommand verbatiminput
 
 
 
-\begin_layout Subsubsection
+\subsection{
 The .svg file produced
 
 
 
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-
-\begin_inset Graphics
-	filename create_k2_graph_with_graph_name.svg
+\begin{figure}[!htbp]
+  \includegraphics[]{create_k2_graph_with_graph_name.svg
 
 
 

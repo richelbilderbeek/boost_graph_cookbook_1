@@ -1,0 +1,8 @@
+digraph G {
+0[label=Happy];
+1[label="Not unhappy"];
+0->0 [label="Fruit"];
+0->1 [label="No chocolate"];
+1->0 [label="Chocolate"];
+1->1 [label="Other candy"];
+}

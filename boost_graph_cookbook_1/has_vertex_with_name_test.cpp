@@ -3,8 +3,6 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <boost/test/unit_test.hpp>
-
 #include "add_named_vertex.h"
 #include "create_empty_undirected_named_vertices_graph.h"
 

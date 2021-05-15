@@ -723,3 +723,120 @@ not have any edge descriptors.
   label = lst:get_edge_descriptors_demo
 ]{get_edge_descriptors_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Creating a directed graph}
+\label{subsec:create_markov_chain_graph}
+\index{Create directed graph}
+\index{Directed graph, create}
+\index{Create Markov chain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Finally, we are going to create a directed non-empty graph! 
+
+This directed graph is a two-state Markov chain, with two vertices and four
+edges, as depicted in figure \ref{fig:markov_chain}:
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzset{ 
+      VertexStyle/.append style = {draw=black,fill=white,shape=circle,text=white},
+      EdgeStyle/.append style = {->, bend left} }
+    \SetGraphUnit{5}
+    \Vertex{A}   
+    \EA(A){B}   
+    \Edge[](A)(B)   
+    \Edge[](B)(A)   
+    \Loop[dist = 4cm, dir = NO](A.west)
+    \Loop[dist = 4cm, dir = SO](B.east)
+  \end{tikzpicture}
+  \caption{The two-state Markov chain}
+  \label{fig:markov_chain}
+\end{figure}
+
+Note that directed graphs can have edges that start and end in the same
+vertex.
+These are called self-loops.
+
+\subsection{Function to create such a graph}
+
+To create this two-state Markov chain, the following code can be used:
+
+\lstinputlisting[
+  caption = Creating the two-state Markov chain as depicted in figure \ref{fig:markov_chain},
+  label = lst:create_markov_chain_graph
+]{create_markov_chain.impl}
+
+Instead of typing the complete type, 
+we call the \verb;create_empty_directed_graph;
+function, and let auto figure out the type.
+The vertex descriptors (see chapter \ref{subsec:Vertex-descriptors}) 
+created by two \verb;boost::add_vertex; \index{boost::add_vertex}
+calls are stored to add an edge to the graph.
+Then \verb;boost::add_edge; \index{boost::add_edge}
+is called four times.
+Every time, its return type 
+(see chapter \ref{subsec:boost::add_edge result}) 
+is checked for a successful insertion.
+
+Note that the graph lacks all properties: nodes do not have names, nor do
+edges.
+
+\subsection{Creating such a graph}
+
+Listing \ref{create_markov_chain_demo} demonstrates 
+the \verb;create_markov_chain_graph; function and checks if it
+has the correct amount of edges and vertices:
+
+\lstinputlisting[
+  caption = Demonstration of the create\_markov\_chain,
+  label = lst:create_markov_chain_demo
+]{create_markov_chain_demo.impl}
+
+\subsection{The .dot file produced}
+\label{subsec:create_markov_chain_dot}
+
+Running a bit ahead, this graph can be converted to a .dot file using the
+\verb;save_graph_to_dot; function (algorithm \ref{lst:save_graph_to_dot}).
+The .dot file created is displayed in algorithm \ref{lst:create_markov_chain.dot}:
+
+\lstinputlisting[
+  caption = {
+    .dot file created from the create\_markov\_chain\_graph function 
+    (algorithm \ref{lst:create_markov_chain_graph}), 
+    converted from graph to .dot file using algorithm
+  },
+  label = lst:create_markov_chain_dot
+]{create_markov_chain.dot}
+
+From the .dot file one can already see that the graph is directed, because:
+
+\begin{itemize}
+  \item The first word, \verb;digraph:, denotes a directed graph 
+    (where \verb;graph; would have indicated an undirected graph)
+  \item The edges are written as \verb;->; 
+   (where undirected connections would be written as \verb;–;)
+\end{itemize}
+
+\subsection{The .svg file produced}
+\label{subsec:create_markov_chain.svg}
+
+The .svg file of this graph is shown in figure \ref{fig:create_markov_chain.svg}:
+
+\begin{figure}[!htbp]
+  \includegraphics[]{CC-BY-SA_icon.png
+
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_markov_chain.png}
+  \caption{
+    .svg file created from the \verb;create_markov_chain; function 
+    (algorithm \ref{lst:create_markov_chain_graph}) 
+    its .dot file and converted from .dot file to .svg using algorithm 
+    \ref{lst:convert_dot_to_svg};
+  }
+  \label{fig:create_markov_chain.svg}
+\end{figure}
+
+This figure shows that the graph in directed, as the edges have arrow heads.
+The vertices display the node index, which is the default behavior.
+

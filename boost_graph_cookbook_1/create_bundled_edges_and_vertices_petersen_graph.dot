@@ -1,0 +1,27 @@
+graph G {
+0[label="A",comment="E",width=0,height=0];
+1[label="B",comment="D",width=1.1,height=2.2];
+2[label="C",comment="C",width=2.2,height=4.4];
+3[label="D",comment="B",width=3.3,height=6.6];
+4[label="E",comment="A",width=4.4,height=8.8];
+5[label="a",comment="e",width=0,height=0];
+6[label="b",comment="d",width=3.3,height=4.4];
+7[label="c",comment="c",width=6.6,height=8.8];
+8[label="d",comment="b",width=9.9,height=13.2];
+9[label="e",comment="a",width=13.2,height=17.6];
+0--1 [label="a",comment="A",width=0,height=0];
+1--2 [label="b",comment="B",width=5.5,height=6.6];
+2--3 [label="c",comment="C",width=11,height=13.2];
+3--4 [label="d",comment="D",width=16.5,height=19.8];
+4--0 [label="e",comment="E",width=22,height=26.4];
+0--5 [label="f",comment="F",width=27.5,height=33];
+1--6 [label="g",comment="G",width=33,height=39.6];
+2--7 [label="h",comment="H",width=38.5,height=46.2];
+3--8 [label="i",comment="I",width=44,height=52.8];
+4--9 [label="j",comment="J",width=49.5,height=59.4];
+5--7 [label="k",comment="K",width=55,height=66];
+6--8 [label="l",comment="L",width=60.5,height=72.6];
+7--9 [label="m",comment="M",width=66,height=79.2];
+8--5 [label="n",comment="N",width=71.5,height=85.8];
+9--6 [label="o",comment="O",width=77,height=92.4];
+}

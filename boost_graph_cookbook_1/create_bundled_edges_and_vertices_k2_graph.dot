@@ -1,0 +1,5 @@
+graph G {
+0[label="A",comment="source",width=0,height=0];
+1[label="B",comment="target",width=3.14,height=3.14];
+0--1 [label="",comment="",width=1,height=1];
+}

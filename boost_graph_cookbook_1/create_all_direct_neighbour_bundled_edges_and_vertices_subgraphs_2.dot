@@ -1,0 +1,5 @@
+graph G {
+0[label="Klaasje",comment="blond",width=5.5,height=6.6];
+1[label="Marthe",comment="black",width=3.3,height=4.4];
+1--0 [label="Even$$$SPACE$$$favorite$$$SPACE$$$number",comment="4$$$SPACE$$$and$$$SPACE$$$8",width=3.3,height=4.4];
+}

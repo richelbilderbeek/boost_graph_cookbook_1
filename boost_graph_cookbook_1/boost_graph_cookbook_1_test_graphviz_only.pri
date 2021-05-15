@@ -62,7 +62,8 @@ SOURCES += \
     $$PWD/load_undirected_named_vertices_graph_from_dot_test.cpp \
     $$PWD/load_undirected_text_edges_and_vertices_graph_from_dot_test.cpp \
     $$PWD/load_undirected_text_vertices_graph_from_dot_test.cpp \
-    $$PWD/save_bundled_edges_and_vertices_graph_to_dot_test.cpp
+    $$PWD/save_bundled_edges_and_vertices_graph_to_dot_test.cpp \
+    $$PWD/save_graph_to_dot_test.cpp
 
 OTHER_FILES += \
     $$PWD/load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl \
@@ -90,6 +91,7 @@ OTHER_FILES += \
     $$PWD/load_undirected_text_edges_and_vertices_graph_from_dot_demo.impl \
     $$PWD/load_undirected_text_vertices_graph_from_dot_demo.impl \
     $$PWD/save_bundled_edges_and_vertices_graph_to_dot_demo.impl \
+    $$PWD/save_graph_to_dot_demo.impl \
     $$PWD/save_text_vertices_graph_to_dot_demo.impl
 
 

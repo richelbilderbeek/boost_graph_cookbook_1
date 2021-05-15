@@ -415,7 +415,6 @@ OTHER_FILES += \
     $$PWD/save_custom_and_selectable_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_edges_and_vertices_graph_to_dot_demo.impl \
     $$PWD/save_custom_vertices_graph_to_dot_demo.impl \
-    $$PWD/save_graph_to_dot_demo.impl \
     $$PWD/save_named_vertices_graph_to_dot_demo.impl \
     $$PWD/select_random_vertex_demo.impl \
     $$PWD/set_edge_name_demo.impl \
