@@ -1,563 +1,122 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating a Peterson graph}
-\label{subsec:create_petersen_graph}
-\index{Create Petersen graph}
-\index{Petersen graph, create}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A Petersen graph is the first graph with interesting properties.
-
-
-\subsection{
-Graph
-
-
-
-To create a Petersen graph, one needs five vertices and five undirected
- edges, as depicted in figure 
-\ref{fig:create_petersen_graph}
-
-
-
-.
-
-
-
-\begin{figure}[!htbp]
-  \includegraphics[]{Petersen_graph.svg
-
-
-
-
-
-
-
-
-
-
-A Petersen graph (from 
-\begin_inset Flex URL
-status open
-
-
-
-https://en.wikipedia.org/wiki/Petersen_graph
-
-
-
-
-) 
-\label{fig:create_petersen_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-To create a Petersen graph, the following code can be used:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_petersen_graph.impl}
-
-
-
-
-
-
-
-
-
-
-
-Creating Petersen graph as depicted in figure 
-\ref{fig:create_petersen_graph}
-
-
-
-
-\index{Create Petersen graph
-
-
-
-
-
-\label{lst:create_petersen_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
-
-Listing 
-\ref{lst:create_petersen_graph_demo}
-
-
-
- demonstrates how to use \verb;create_petersen_graph' and checks if it has the
- correct amount of edges and vertices:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_petersen_graph_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;create_k3_graph' 
-\label{lst:create_petersen_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-\label{subsec:create_petersen_graph.dot}
-
-
-
-
-
-
-
-This graph can be converted to the .dot file as shown in algorithm 
-\ref{lst:create_petersen_graph.dot}
-
-
-
-:
-
-
-
-
-
-LatexCommand verbatiminput
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_petersen_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-.dot file created from the \verb;create_petersen_graph' function (algorithm 
-\ref{lst:create_petersen_graph}
-
-
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-
-
-
-\label{lst:create_petersen_graph.dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-\label{subsec:create_petersen.svg}
-
-
-
-
-
-
-
-This .dot file can be converted to the .svg as shown in figure 
-\ref{fig:create_petersen_graph.svg}
-
-
-
-:
-
-
-
-\begin{figure}[!htbp]
-  \includegraphics[]{create_petersen_graph.svg
-	lyxscale 50
-	scale 50
-
-
-
-
-
-
-
-
-
-
-.svg file created from the \verb;create_petersen_graph' function (algorithm 
-\ref{lst:create_petersen_graph}
-
-
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-
-
-
-\label{fig:create_petersen_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{...}
-Working on graphs without properties
+\chapter{Working on graphs without properties}
 \label{sec:Working-on-graphs-without-properties}
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Now that we can build a graph, there are some things we can do.
  
-
 
 \begin{itemize}
 Getting the vertices' out degrees: see chapter 
 \ref{subsec:get_vertex_out_degrees}
 
-
-
-
-
-
 \begin{itemize}
 Create a direct-neighbour subgraph from a vertex descriptor
-
 
 \begin{itemize}
 Create all direct-neighbour subgraphs from a graphs
 
-
 \begin{itemize}
 Saving a graph without properties to .dot file: see chapter 
 \ref{subsec:save_graph_to_dot}
-
-
-
-
-
 
 \begin{itemize}
 Loading an undirected graph without properties from .dot file: see chapter
  
 \ref{subsec:load_undirected_graph_from_dot}
 
-
-
-
-
-
 \begin{itemize}
 Loading a directed graph without properties from .dot file: see chapter 
 \ref{subsec:load_directed_graph_from_dot}
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the vertices' out degree}
 \label{subsec:get_vertex_out_degrees}
 
-
-
-
-
-
-
 Let's measure the out degree of all vertices in a graph! 
-
-
 
 The out degree of a vertex is the number of edges that originate at it.
  
 
-
-
 The number of connections is called the \verb;degree' of the vertex.
  There are three types of degrees:
 
-
 \begin{itemize}
 in degree: the number of incoming connections, using \verb;in_degree'
-\index{in_degree
-
-
-
+\index{in_degree}
 
  (not \verb;boost::in_degree'
-\index{boost::in_degree does not exist
-
-
-
+\index{boost::in_degree does not exist}
 
 )
-
 
 \begin{itemize}
 out degree: the number of outgoing connections, using \verb;out_degree'
-\index{out_degree
-
-
-
+\index{out_degree}
 
  (not \verb;boost::out_degree'
-\index{boost::out_degree does not exist
-
-
-
+\index{boost::out_degree does not exist}
 
 )
-
 
 \begin{itemize}
 degree: sum of the in degree and out degree, using \verb;degree'
-\index{idegree
-
-
-
+\index{idegree}
 
  (not \verb;boost::degree'
-\index{boost::degree does not exist
-
-
-
+\index{boost::degree does not exist}
 
 )
-
-
 
 Listing 
 \ref{lst:get_vertex_out_degrees}
 
-
-
  shows how to obtain these:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_vertex_out_degrees.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the vertices' out degrees
-\index{Get vertex out degrees
-
-
-
-
+\index{Get vertex out degrees}
 
 \label{lst:get_vertex_out_degrees}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The structure of this algorithm is similar to \verb;get_vertex_descriptors' (algorith
 m 
 \ref{lst:get_vertex_descriptors}
 
-
-
 ), except that the out degrees from the vertex descriptors are stored.
  The out degree of a vertex iterator is obtained from the function \verb;out_degree'
-\index{out_degree
-
-
-
+\index{out_degree}
 
  (not boost::out_degree
-\index{boost::out_degree does not exist
-
-
-
+\index{boost::out_degree does not exist}
 
 !).
  
 
-
-
 Albeit that the 
 $K_{2}$
-
 
  graph and the two-state Markov chain are rather simple, we can use it to
  demonstrate \verb;get_vertex_out_degrees' on, as shown in algorithm 
 \ref{lst:get_vertex_out_degrees_demo}
 
-
-
 .
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_vertex_out_degrees_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;get_vertex_out_degrees' function
 \label{lst:get_vertex_out_degrees_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 It is expected that 
 $K_{2}$
-
 
  has one out-degree for every vertex, where the two-state Markov chain is
  expected to have two out-degrees per vertex.
@@ -566,234 +125,77 @@ $K_{2}$
 \subsection{$\triangle$ Is there an edge between two vertices?}
 \label{subsec:has_edge_between_vertices}
 
-
-
-
-
-
-
 If you have two vertex descriptors, you can check if these are connected
  by an edge:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_edge_between_vertices.impl}
 
-
-
-
-
-
-
-
-
-
-
 Check if there exists an edge between two vertices
-\index{Has edge between vertices
-
-
-
-
+\index{Has edge between vertices}
 
 \label{lst:has_edge_between_vertices}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This code uses the function \verb;edge'
-\index{edge
-
-
-
+\index{edge}
 
  (not boost::edge
-\index{boost::edge does not exist
-
-
-
+\index{boost::edge does not exist}
 
 : it returns a pair consisting of an edge descriptor and a boolean indicating
  if it is a valid edge descriptor.
  The boolean will be true if there exists an edge between the two vertices
  and false if not.
 
-
-
 The demo shows that there is an edge between the two vertices of a 
 $K_{2}$
 
-
  graph, but there are no self-loops (edges that original and end at the
  same vertex).
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_edge_between_vertices_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;has_edge_between_vertices' function
 \label{lst:has_edge_between_vertices_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Get the edge between two vertices}
 \label{subsec:get_edge_between_vertices}
 
-
-
-
-
-
-
 If you have two vertex descriptors, you can use these to find the edge between
  them.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_edge_between_vertices.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the edge between two vertices
-\index{Get edge between vertices
-
-
-
-
+\index{Get edge between vertices}
 
 \label{lst:get_edge_between_vertices}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This code does assume that there is an edge between the two vertices.
-
-
 
 The demo shows how to get the edge between two vertices, deleting it, and
  checking for success.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_edge_between_vertices_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;get_edge_between_vertices' function
 \label{lst:get_edge_between_vertices_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor}
 \label{subsec:create_direct_neighbour_subgraph}
-
-
-
-
-
-
 
 Suppose you have a vertex of interest its vertex descriptor.
  Let's say you want to get a subgraph of that vertex and its direct neighbours
@@ -802,603 +204,203 @@ Suppose you have a vertex of interest its vertex descriptor.
  that the edges go either from focal vertex to its neighbours, or from adjacent
  vertex to adjacent neighbour.
 
-
-
 Here is the \verb;create_direct_neighbour_subgraph' code:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_direct_neighbour_subgraph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the direct-neighbour subgraph from a vertex descriptor
-\index{Create direct-neighbour subgraph
-
-
-
-
+\index{Create direct-neighbour subgraph}
 
 \label{lst:create_direct_neighbour_subgraph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration code shows that the direct-neighbour graph of each vertex
  of a 
 $K_{2}$
 
-
  graphs is ...
  a 
 $K_{2}$
 
-
  graph!
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_direct_neighbour_subgraph_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_direct_neighbour_subgraph' function
 \label{lst:create_direct_neighbour_subgraph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Note that this algorithm works on both undirected and directional graphs.
  If the graph is directional, only the out edges will be copied.
  To also copy the vertices connected with inward edges, use 
 \ref{subsec:create_direct_neighbour_subgraph_including_in_edges}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor including inward edges}
 \label{subsec:create_direct_neighbour_subgraph_including_in_edges}
 
-
-
-
-
-
-
 Too bad, this algorithm does not work yet.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_direct_neighbour_subgraph_including_in_edges.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the direct-neighbour subgraph from a vertex descriptor
-\index{Create direct-neighbour subgraph_including_in_edges
-
-
-
-
+\index{Create direct-neighbour subgraph_including_in_edges}
 
 \label{lst:create_direct_neighbour_subgraph_including_in_edges}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties}
 \label{subsec:create_all_direct_neighbour_subgraphs}
 
-
-
-
-
-
-
 Using the previous function, it is easy to create all direct-neighbour subgraphs
  from a graph without properties:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_all_direct_neighbour_subgraphs.impl}
 
-
-
-
-
-
-
-
-
-
-
 Create all direct-neighbour subgraphs from a graph without properties
-\index{Create all direct-neighbour subgraphs
-
-
-
-
+\index{Create all direct-neighbour subgraphs}
 
 \label{lst:create_all_direct_neighbour_subgraphs}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration code shows that all two direct-neighbour graphs of a
  
 $K_{2}$
 
-
  graphs are ...
  
 $K_{2}$
 
-
  graphs!
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_all_direct_neighbour_subgraphs_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_all_direct_neighbour_subgraphs' function
 \label{lst:create_all_direct_neighbour_subgraphs_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Are two graphs isomorphic?}
 \label{subsec:is_isomorphic}
 
-
-
-
-
-
-
 You may want to check if two graphs are isomorphic.
  That is: if they have the same shape.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{is_isomorphic.impl}
 
-
-
-
-
-
-
-
-
-
-
 Check if two graphs are isomorphic
-\index{Is isomorphic
-
-
-
-
+\index{Is isomorphic}
 
 \label{lst:is_isomorphic}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration code shows that a 
 $K_{3}$
 
-
  graph is not equivalent to a 3-vertices path graph:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{is_isomorphic_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;is_isomorphic' function
 \label{lst:is_isomorphic_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of connected components in an directed graph}
 \label{subsec:count_directed_graph_connected_components}
-
-
-
-
-
-
 
 A directed graph may consist out of two components, that are connected within
  each, but unconnected between them.
  Take for example, a graph of two isolated edges, with four vertices.
  
 
-
-
 \begin_inset Float figure
 placement H
 wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 tikz 
 
-
-
-
-
 \backslash
 draw[thick] 
 
-
-
-
   (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -> (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
     -> (3,4) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -> (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -> (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
     -> (8,4) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -> (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 ;
-
-
-
-
-
-
-
-
-
-
 
 Example of a directed graph with two components
 \label{fig:count_directed_graph_connected_components}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This algorithm counts the number of connected components:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_directed_graph_connected_components.impl}
 
-
-
-
-
-
-
-
-
-
-
 Count the number of connected components
-\index{Count connected components
-
-
-
-
+\index{Count connected components}
 
 \label{lst:count_directed_graph_connected_components}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The complexity of this algorithm is 
 $O(\left|V\right|+\left|E\right|)$
 
-
 .
-
-
 
 This demonstration code shows that two solitary edges are correctly counted
  as being two components:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_directed_graph_connected_components_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;count_directed_graph_connected_components' function
 \label{lst:count_directed_graph_connected_components_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of connected components in an undirected graph}
 \label{subsec:count_undirected_graph_connected_components}
 
-
-
-
-
-
-
 An undirected graph may consist out of two components, that are connect
  within each, but unconnected between them.
  Take for example, a graph of two isolated edges, with four vertices.
  
-
-
 
 \begin_inset Float figure
 placement H
@@ -1406,181 +408,59 @@ wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 tikz 
 
-
-
-
-
 \backslash
 draw[thick] 
 
-
-
-
   (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 ;
-
-
-
-
-
-
-
-
-
-
 
 Example of an undirected graph with two components
 \label{fig:count_undirected_graph_connected_components}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This algorithm counts the number of connected components:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_undirected_graph_connected_components.impl}
 
-
-
-
-
-
-
-
-
-
-
 Count the number of connected components
-\index{Count connected components
-
-
-
-
+\index{Count connected components}
 
 \label{lst:count_undirected_graph_connected_components}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The complexity of this algorithm is 
 $O(\left|V\right|+\left|E\right|)$
 
-
 .
-
-
 
 This demonstration code shows that two solitary edges are correctly counted
  as being two components:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_undirected_graph_connected_components_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;count_undirected_graph_connected_components' function
 \label{lst:count_undirected_graph_connected_components_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of levels in an undirected graph}
 \label{subsec:count_undirected_graph_levels}
-
-
-
-
-
-
 
 Graphs can have a hierarchical structure.
  From a starting vertex, the number of levels can be counted.
@@ -1589,90 +469,37 @@ Graphs can have a hierarchical structure.
  A linear graph of three vertices and two edges has one or two levels, depending
  on the starting vertex.
 
-
-
 \begin_inset Float figure
 placement H
 wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 tikz 
 
-
-
-
-
 \backslash
 draw[thick] 
 
-
-
-
   (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
-
-
-
 
     -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
 
-
-
-
 ;
-
-
-
-
-
-
-
-
-
-
 
 Example of an undirected graph with two components
 \label{fig:count_undirected_graph_levels}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This algorithm counts the number of levels in an undirected graph, starting
  at a certain vertex.
  
-
-
 
 It does so, by collecting the neighbours of the traversed vertices.
  Each sweep, all neighbours of traversed neighbours are added to a set of
@@ -1680,121 +507,42 @@ It does so, by collecting the neighbours of the traversed vertices.
  As long as vertices can be added, the algorithm continues.
  If no vertices can be added, the number of level equals the number of sweeps.
 
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_undirected_graph_levels.impl}
 
-
-
-
-
-
-
-
-
-
-
 Count the number of levels in an undirected graph 
-\index{Count undirected graph levels
-
-
-
-
+\index{Count undirected graph levels}
 
 \label{lst:count_undirected_graph_levels}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration code shows the number of levels from a certain vertex,
  while adding edges to form a linear graph.
  The vertex, when still without edges, has zero levels.
  After adding one edge, the graph has one level, etc.
 
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{count_undirected_graph_levels_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;count_undirected_graph_levels' function
 \label{lst:count_undirected_graph_levels_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Saving a graph to a .dot file}
 \label{subsec:save_graph_to_dot}
 
+\index{Save graph as .dot}
 
-
-
-\index{Save graph as .dot
-
-
-
-
-
-\index{Create .dot from graph
-
-
-
+\index{Create .dot from graph}
 
  
 
-
-
 Graph are easily saved to a file, thanks to Graphviz.
  Graphviz
-\index{Graphviz
-
-
-
+\index{Graphviz}
 
  (short for Graph Visualization Software) is a package of open-source tools
  for drawing graphs.
@@ -1804,140 +552,53 @@ Graph are easily saved to a file, thanks to Graphviz.
  chapters 
 \ref{subsec:create_markov_chain.dot}
 
-
-
  and 
 \ref{subsec:create_k2.dot}
 
-
-
 )
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{save_graph_to_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Saving a graph to a .dot file
-\index{Save graph to dot
-
-
-
-
+\index{Save graph to dot}
 
 \label{lst:save_graph_to_dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 All the code does is create an std::ofstream
-\index{std::ofstream
-
-
-
+\index{std::ofstream}
 
  (an output-to-file stream) and use boost::write_graphviz
-\index{boost::write_graphviz
-
-
-
+\index{boost::write_graphviz}
 
  to write the DOT description of our graph to that stream.
  Instead of \verb;std::ofstream', one could use std::cout
-\index{std::cout
-
-
-
+\index{std::cout}
 
  (a related output stream) to display the DOT language on screen directly.
-
-
 
 Listing 
 \ref{lst:save_graph_to_dot_demo}
 
-
-
  shows how to use the \verb;save_graph_to_dot; function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{save_graph_to_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;save_graph_to_dot; function
 \label{lst:save_graph_to_dot_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 When using the \verb;save_graph_to_dot; function (algorithm 
 \ref{lst:save_graph_to_dot}
-
-
 
 ), only the structure of the graph is saved: all other properties like names
  are not stored.
  Listing 
 \ref{lst:save_named_vertices_graph_to_dot}
-
-
 
  shows how to do so.
 
@@ -1945,172 +606,70 @@ When using the \verb;save_graph_to_dot; function (algorithm
 \subsection{Loading a directed graph from a .dot}
 \label{subsec:load_directed_graph_from_dot}
 
+\index{Load directed graph from .dot}
 
-
-
-\index{Load directed graph from .dot
-
-
-
-
-
-\index{Create directed graph from .dot
-
-
-
+\index{Create directed graph from .dot}
 
  
-
-
 
 When loading a graph from file, one needs to specify a type of graph.
  In this example, an directed graph is loaded, as shown in algorithm 
 \ref{lst:load_directed_graph_from_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading a directed graph from a .dot file
-\index{Load directed graph from dot
-
-
-
-
+\index{Load directed graph from dot}
 
 \label{lst:load_directed_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 In this algorithm, first it is checked if the file to load exists, using
  the \verb;is_regular_file' function (algorithm 
 \ref{lst:is_regular_file}
 
-
-
 ), after which an std::ifstream
-\index{std::ifstream
-
-
-
+\index{std::ifstream}
 
  is opened.
  Then an empty directed graph is created, which saves us writing down the
  template arguments explicitly.
  Then, a boost::dynamic_properties
-\index{boost::dynamic_properties
-
-
-
+\index{boost::dynamic_properties}
 
  is created with the \verb;boost::ignore_other_properties'
-\index{boost::ignore_other_properties
-
-
-
+\index{boost::ignore_other_properties}
 
  in its constructor (using a default constructor here results in the run-time
  error \verb;property not found: node_id', see chapter 
 \ref{subsec:property_not_found_node_id}
 
-
-
 ).
  From this and the empty graph, \verb;boost::read_graphviz'
-\index{boost::read_graphviz
-
-
-
+\index{boost::read_graphviz}
 
  is called to build up the graph.
-
-
 
 Listing 
 \ref{lst:load_directed_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_directed_graph_from_dot' function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_directed_graph_from_dot' function
 \label{lst:load_directed_graph_from_dot_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration shows how the Markov chain is created using the \verb;create_marko
 v_chain_graph' function (algorithm 
 \ref{lst:create_markov_chain_graph}
-
-
 
 ), saved and then loaded.
  The loaded graph is then checked to be a two-state Markov chain.
@@ -2119,167 +678,68 @@ v_chain_graph' function (algorithm
 \subsection{Loading an undirected graph from a .dot file}
 \label{subsec:load_undirected_graph_from_dot}
 
+\index{Load undirected graph from .dot}
 
-
-
-\index{Load undirected graph from .dot
-
-
-
-
-
-\index{Create undirected graph from .dot
-
-
-
+\index{Create undirected graph from .dot}
 
  
-
-
 
 Loading an undirected graph from a .dot file is very similar to loading a
  directed graph from a .dot file, as shown in chapter 
 \ref{subsec:load_directed_graph_from_dot}
 
-
-
 .
  Listing 
 \ref{lst:load_undirected_graph_from_dot}
 
-
-
  show how to do so:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading an undirected graph from a .dot file
-\index{Load undirected graph from_dot
-
-
-
-
+\index{Load undirected graph from_dot}
 
 \label{lst:load_undirected_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The only difference with loading a directed graph, is that the initial empty
  graph is undirected instead.
  Chapter 
 \ref{subsec:load_directed_graph_from_dot}
 
-
-
  describes the rationale of this function.
  
-
-
 
 Listing 
 \ref{lst:load_undirected_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_undirected_graph_from_dot' function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_undirected_graph_from_dot' function
 \label{lst:load_undirected_graph_from_dot_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration shows how the 
 $K_{2}$
 
-
  graph is created using the \verb;create_k2_graph' function (algorithm 
 \ref{lst:create_k2_graph}
-
-
 
 ), saved and then loaded.
  The loaded graph is checked to be a 
 $K_{2}$
 
-
  graph.
-
 
 \section{...}
 Building graphs with bundled vertices
 \label{sec:Building-graphs-with-bundled-vertices}
-
-
-
-
-
-
 
 Up until now, the graphs created have had edges and vertices without any
  properties.
@@ -2287,84 +747,41 @@ Up until now, the graphs created have had edges and vertices without any
  a bundled \verb;my_bundled_vertex' type
 \footnote{I do not intend to be original in naming my data types
 
-
-
-
 .
  The following graphs will be created:
-
 
 \begin{itemize}
 An empty directed graph that allows for bundled vertices: see chapter 
 \ref{lst:create_empty_directed_bundled_vertices_graph}
-
-
-
-
-
 
 \begin{itemize}
 An empty undirected graph that allows for bundled vertices: see chapter
  
 \ref{subsec:create_empty_directed_bundled_vertices_graph}
 
-
-
-
-
-
 \begin{itemize}
 A two-state Markov chain with bundled vertices: see chapter 
 \ref{subsec:create_bundled_vertices_markov_chain}
 
-
-
-
-
-
 \begin{itemize}
 $K_{2}$
-
 
 with bundled vertices: see chapter 
 \ref{subsec:create_bundled_vertices_k2_graph}
 
-
-
-
-
-
-
 In the process, some basic (sometimes bordering trivial) functions are shown:
-
 
 \begin{itemize}
 Create the vertex class, called \verb;my_bundled_vertex': see chapter 
 \ref{subsec:my_bundled_vertex}
 
-
-
-
-
-
 \begin{itemize}
 Adding a \verb;my_bundled_vertex': see chapter 
 \ref{subsec:add_bundled_vertex}
 
-
-
-
-
-
 \begin{itemize}
 Getting the vertices \verb;my_bundled_vertex'-es: see chapter 
 \ref{subsec:get_bundled_vertex_my_vertexes}
-
-
-
-
-
-
 
 These functions are mostly there for completion and showing which data types
  are used.
@@ -2373,118 +790,51 @@ These functions are mostly there for completion and showing which data types
 \subsection{Creating the bundled vertex class}
 \label{subsec:my_bundled_vertex}
 
-
-
-
-
-
-
 Before creating an empty graph with bundled vertices, that bundled vertex
  class must be created.
  In this tutorial, it is called \verb;my_bundled_vertex'.
  \verb;my_bundled_vertex' is a class that is nonsensical, but it can be replaced
  by any other class type.
 
-
-
 Here I will show the header file of \verb;my_bundled_vertex', as the implementation
  of it is not important:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{my_bundled_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Declaration of my_bundled_vertex
-\index{my_bundled_vertex
+\index{my_bundled_vertex}
 
+\index{my_bundled_vertex.h}
 
+\index{my_vertex declaration}
 
-
-
-\index{my_bundled_vertex.h
-
-
-
-
-
-\index{my_vertex declaration
-
-
-
-
-
-\index{Declaration, my_bundled_vertex 
-
-
-
-
+\index{Declaration, my_bundled_vertex}
 
 \label{lst:my_bundled_vertex_h}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \verb;my_bundled_vertex' is a class that has multiple properties: 
-
 
 \begin{itemize}
 It has four public member variables: the double \verb;m_x' (\verb;m_
-\index{m_
-
-
-
+\index{m_}
 
 ' stands for member
-\index{member
-
-
-
+\index{member}
 
 ), the double \verb;m_y', the std::string m_name and the std::string m_description.
  These variables must be public
 
-
 \begin{itemize}
 It has a default constructor
-
 
 \begin{itemize}
 It is copyable
 
-
 \begin{itemize}
 It is comparable for equality (it has operator==), which is needed for searching
-
-
 
 \verb;my_bundled_vertex' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
@@ -2493,125 +843,62 @@ It is comparable for equality (it has operator==), which is needed for searching
 \subsection{Create the empty directed graph with bundled vertices}
 \label{subsec:create_empty_directed_bundled_vertices_graph}
 
-
-
-
-
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_directed_bundled_vertices_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty directed graph with bundled vertices
-\index{Create empty directed bundled vertices graph
-
-
-
-
+\index{Create empty directed bundled vertices graph}
 
 \label{lst:create_empty_directed_bundled_vertices_graph}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This graph:
-
 
 \begin{itemize}
 has its out edges stored in a std::vector (due to the first boost::vecS
-\index{boost::vecS
-
-
-
+\index{boost::vecS}
 
 )
-
 
 \begin{itemize}
 has its vertices stored in a std::vector (due to the second boost::vecS
-\index{boost::vecS
-
-
-
+\index{boost::vecS}
 
 )
-
 
 \begin{itemize}
 is directed (due to the boost::directedS
-\index{boost::directedS
-
-
-
+\index{boost::directedS}
 
 )
-
 
 \begin{itemize}
 The vertices have one property: they have a bundled type, that is of data
  type \verb;my_bundled_vertex'
 
-
 \begin{itemize}
 The edges and graph have no properties
-
 
 \begin{itemize}
 Edges are stored in a std::list
 
-
-
 The \verb;boost::adjacency_list; has a new, fourth template argument \verb;my_bundled_vertex
-\index{my_bundled_vertex
-
-
-
+\index{my_bundled_vertex}
 
 '.
  This can be read as: 
 \begin_inset Quotes eld
 
-
 vertices have the bundled property \verb;my_bundled_vertex'
 \begin_inset Quotes erd
-
 
 .
  Or simply: 
 \begin_inset Quotes eld
 
-
 vertices have a bundled type called my_bundled_vertex
 \begin_inset Quotes erd
-
 
 .
 
@@ -2619,66 +906,22 @@ vertices have a bundled type called my_bundled_vertex
 \subsection{Create the empty undirected graph with bundled vertices}
 \label{subsec:create_empty_undirected_bundled_vertices_graph}
 
-
-
-
-
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_undirected_bundled_vertices_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty undirected graph with bundled vertices
-\index{Create empty undirected bundled vertices graph
-
-
-
-
+\index{Create empty undirected bundled vertices graph}
 
 \label{lst:create_empty_undirected_bundled_vertices_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This code is very similar to the code described in chapter 
 \ref{subsec:create_empty_directed_bundled_vertices_graph}
 
-
-
 , except that the directness (the third template argument) is undirected
  (due to the boost::undirectedS
-\index{boost::undirectedS
-
-
-
+\index{boost::undirectedS}
 
 ).
 
@@ -2686,64 +929,21 @@ This code is very similar to the code described in chapter
 \subsection{Add a bundled vertex}
 \label{subsec:add_bundled_vertex}
 
-
-
-
-
-
-
 Adding a bundled vertex is very similar to adding a named vertex (chapter
  
 \ref{subsec:add_named_vertex}
 
-
-
 ).
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{add_bundled_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Add a bundled vertex
-\index{Add bundled vertex
-
-
-
-
+\index{Add bundled vertex}
 
 \label{lst:add_bundled_vertex}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 When having added a new (abstract) vertex to the graph, the vertex descriptor
  is used to set the \verb;my_bundled_vertex' in the graph.
@@ -2754,81 +954,30 @@ When having added a new (abstract) vertex to the graph, the vertex descriptor
 \footnote{the name \verb;my_vertexes' is chosen to indicate this function returns a container
  of my_vertex
 
-
-
-
-
 \label{subsec:get_bundled_vertex_my_vertexes}
-
-
-
-
-
-
 
 When the vertices of a graph have any bundled \verb;my_bundled_vertex', one can
  extract these as such:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_vertexes.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the bundled vertices' my_vertexes
-\index{Get bundled vertex my_vertexes
-
-
-
-
+\index{Get bundled vertex my_vertexes}
 
 \label{lst:get_my_bundled_vertexes}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The \verb;my_bundled_vertex' bundled in each vertex is obtained from a vertex
  descriptor and then put into a std::vector.
 
-
-
 The order of the \verb;my_bundled_vertex' objects may be different after saving
  and loading.
-
-
 
 When trying to get the vertices' my_bundled_vertex from a graph without
  these, you will get the error \verb;formed reference to void' (see chapter 
 \ref{subsec:formed_reference_to_void}
-
-
 
 ).
 
@@ -2836,24 +985,12 @@ When trying to get the vertices' my_bundled_vertex from a graph without
 \subsection{Creating a two-state Markov chain with bundled vertices}
 \label{subsec:create_bundled_vertices_markov_chain}
 
-
-
-
-
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 Figure 
 \ref{fig:bundled_vertices_markov_chain}
 
-
-
  shows the graph that will be reproduced:
-
-
 
 \begin_inset Float figure
 placement H
@@ -2861,346 +998,132 @@ wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick
 ]   
 
-
-
-
   
 \backslash
 tikzstyle{every state}=[]
-
-
-
 
   
 \backslash
 node[state] (A) 
 
-
-
-
     {Sunny, Yellow, 1.0, 2.0};   
-
-
-
 
   
 \backslash
 node[state] (B) [right of=A] 
 
-
-
-
     {Not rainy, Not grey, 3.0, 4.0}
 
-
-
-
   ;   
-
-
-
 
   
 \backslash
 path (A) edge [loop  left] node {} (A)
 
-
-
-
         (A) edge [bend  left] node {} (B)
-
-
-
 
         (B) edge [bend  left] node {} (A)
 
-
-
-
         (B) edge [loop right] node {} (B); 
-
-
-
-
 
 \backslash
 end{tikzpicture}
-
-
-
-
-
-
-
-
-
-
 
 A two-state Markov chain where the vertices have bundled properties and
  the edges have no properties.
  The vertices' properties are nonsensical
 \label{fig:bundled_vertices_markov_chain}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
+\subsection{Function to create such a graph}
 
 Here is the code creating a two-state Markov chain with bundled vertices:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_markov_chain.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating the two-state Markov chain as depicted in figure 
 \ref{fig:bundled_vertices_markov_chain}
 
-
-
-
-\index{Create bundled vertices Markov chain
-
-
-
-
+\index{Create bundled vertices Markov chain}
 
 \label{lst:create_bundled_vertices_markov_chain}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Here is the demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_markov_chain_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_bundled_vertices_markov_chain' function (algorithm 
 \ref{lst:create_bundled_vertices_markov_chain}
-
-
 
 )
 \label{lst:create_bundled_and_vertices_markov_chain_demo}
 
+\subsection{The .dot file produced}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_markov_chain.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_bundled_vertices_markov_chain' function
  (algorithm 
 \ref{lst:create_bundled_vertices_markov_chain}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_bundled_vertices_graph_to_dot}
 
-
-
-
 \label{lst:create_bundled_vertices_markov_chain.dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_vertices_markov_chain.svg
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_bundled_vertices_markov_chain.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_bundled_vertices_markov_chain' function
  (algorithm 
 \ref{lst:create_bundled_vertices_markov_chain}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_bundled_vertices_markov_chain.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{2}$ with bundled vertices}
 \label{subsec:create_bundled_vertices_k2_graph}
 
-
-
-
-
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 We reproduce the 
 $K_{2}$
 
-
  with named vertices of chapter 
 \ref{subsec:create_named_vertices_k2_graph}
-
-
 
  , but with our bundled vertices instead, as show in figure 
 \ref{fig:bundled_vertices_k2_graph}
 
-
-
 :
-
-
 
 \begin_inset Float figure
 placement H
@@ -3208,400 +1131,157 @@ wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
    
 
-
-
-
-
 \backslash
 tikzstyle{every state}=[]
-
-
-
-
 
 \backslash
 node[state] (A)              {Me,Myself,1.0,2.0};   
 
-
-
-
-
 \backslash
 node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
-
-
-
-
 
 \backslash
 path (A) edge [] node {} (B); 
 
-
-
-
-
 \backslash
 end{tikzpicture}
 
-
-
-
-
-
-
-
-
-
-
 $K_{2}$
-
 
 : a fully connected graph with two bundled vertices
 \label{fig:bundled_vertices_k2_graph}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-
-
+\subsection{Function to create such a graph}
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_k2_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating 
 $K_{2}$
-
 
  as depicted in figure 
 \ref{fig:named_vertices_k2_graph}
 
-
-
-
-\index{Create bundled vertices K2 graph
-
-
-
-
-
+\index{Create bundled vertices K2 graph}
 \label{lst:create_bundled_vertices_k2_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Most of the code is a slight modification of the \verb;create_named_vertices_k2_graph
 ' function (algorithm 
 \ref{lst:create_named_vertices_k2_graph}
 
-
-
 ).
  In the end, (references to) the my_bundled_vertices are obtained and set
  with two bundled my_bundled_vertex objects.
 
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_k2_graph_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_bundled_vertices_k2_graph' function (algorithm 
 \ref{lst:create_bundled_vertices_k2_graph}
-
-
 
 )
 \label{lst:create_bundled_vertices_k2_graph_demo}
 
+\subsection{The .dot file produced
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_vertices_k2_graph.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
  
 \ref{lst:create_bundled_vertices_k2_graph}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_graph_to_dot}
 
-
-
-
 \label{lst:create_bundled_vertices_k2_graph.dot-1}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_vertices_k2_graph.svg
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_bundled_vertices_k2_graph.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
  
 \ref{lst:create_bundled_vertices_k2_graph}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_bundled_vertices_k2_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Working on graphs with bundled vertices
 \label{sec:Working-on-graphs-with-bundled-vertices}
 
-
-
-
-
-
-
 When using graphs with bundled vertices, their state gives a way to find
  a vertex and working with it.
  This chapter shows some basic operations on graphs with bundled vertices.
-
 
 \begin{itemize}
 Check if there exists a vertex with a certain \verb;my_bundled_vertex': chapter
  
 \ref{subsec:has_bundled_vertex_with_my_vertex}
 
-
-
-
-
-
 \begin{itemize}
 Find a vertex with a certain \verb;my_bundled_vertex': chapter 
 \ref{subsec:find_bundled_vertex_with_my_vertex}
-
-
-
-
-
 
 \begin{itemize}
 Get a vertex its \verb;my_bundled_vertex' from its vertex descriptor: chapter
  
 \ref{subsec:get_bundled_vertex_my_vertex}
 
-
-
-
-
-
 \begin{itemize}
 Set a vertex its \verb;my_bundled_vertex' using its vertex descriptor: chapter
  
 \ref{subsec:set_bundled_vertex_my_vertex}
 
-
-
-
-
-
 \begin{itemize}
 Setting all vertices their \verb;my_bundled_vertex'-es: chapter 
 \ref{subsec:set_bundled_vertex_my_vertexes}
-
-
-
-
-
 
 \begin{itemize}
 Storing an directed/undirected graph with bundled vertices as a .dot file:
  chapter 
 \ref{subsec:save_bundled_vertices_graph_to_dot}
 
-
-
-
-
-
 \begin{itemize}
 Loading a directed graph with bundled vertices from a .dot file: chapter
  
 \ref{subsec:load_directed_bundled_vertices_graph_from_dot}
-
-
-
-
-
 
 \begin{itemize}
 Loading an undirected directed graph with bundled vertices from a .dot file:
  chapter 
 \ref{subsec:load_undirected_bundled_vertices_graph_from_dot}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Has a bundled vertex with a my_bundled_vertex}
 \label{subsec:has_bundled_vertex_with_my_vertex}
-
-
-
-
-
-
 
 Before modifying our vertices, let's first determine if we can find a vertex
  by its bundled type (\verb;my_bundled_vertex') in a graph.
@@ -3609,97 +1289,29 @@ Before modifying our vertices, let's first determine if we can find a vertex
  the vertex descriptors and then compare each vertex its \verb;my_bundled_vertex'
  with the one desired.
 
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_bundled_vertex_with_my_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Find if there is vertex with a certain my_bundled_vertex
-\index{Has bundled vertex with my_vertex
-
-
-
-
+\index{Has bundled vertex with my_vertex}
 
 \label{lst:has_bundled_vertex_with_my_vertex}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This function can be demonstrated as in algorithm 
 \ref{lst:has_bundled_vertex_with_my_vertex_demo}
 
-
-
 , where a certain my_bundled_vertex cannot be found in an empty graph.
  After adding the desired my_bundled_vertex, it is found.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_bundled_vertex_with_my_vertex_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;has_bundled_vertex_with_my_vertex' function
 \label{lst:has_bundled_vertex_with_my_vertex_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Note that this function only finds if there is at least one bundled vertex
  with that my_bundled_vertex: it does not tell how many bundled vertices
@@ -3709,567 +1321,184 @@ Note that this function only finds if there is at least one bundled vertex
 \subsection{Find a bundled vertex with a certain my_bundled_vertex}
 \label{subsec:find_bundled_vertex_with_my_vertex}
 
-
-
-
-
-
-
 Where STL functions work with iterators, here we obtain a vertex descriptor
  (see chapter 
 \ref{subsec:Vertex-descriptors}
-
-
 
 ) to obtain a handle to the desired vertex.
  Listing 
 \ref{lst:find_first_bundled_vertex_with_my_vertex}
 
-
-
  shows how to obtain a vertex descriptor to the first vertex found with
  a specific \verb;my_bundled_vertex' value.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{find_first_bundled_vertex_with_my_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Find the first vertex with a certain my_bundled_vertex
-\index{Find first bundled vertex with my_vertex
-
-
-
-
+\index{Find first bundled vertex with my_vertex}
 
 \label{lst:find_first_bundled_vertex_with_my_vertex}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 With the vertex descriptor obtained, one can read and modify the vertex
  and the edges surrounding it.
  Listing 
 \ref{lst:find_first_bundled_vertex_with_my_vertex_demo}
 
-
-
  shows some examples of how to do so.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{find_first_bundled_vertex_with_my_vertex_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;find_first_bundled_vertex_with_my_vertex' function
 \label{lst:find_first_bundled_vertex_with_my_vertex_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get a bundled vertex its \verb;my_bundled_vertex;}
 \label{subsec:get_bundled_vertex_my_vertex}
 
-
-
-
-
-
-
 To obtain the \verb;my_bundled_vertex' from a vertex descriptor is simple:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get a bundled vertex its my_vertex from its vertex descriptor
 \index{Get bundled vertex my_bundled_vertex
 
-
-
-
-
 \label{lst:get_bundled_vertex_my_vertex}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 One can just use the graph as a property map and let it be looked-up.
-
-
 
 To use \verb;get_bundled_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Listing 
 \ref{lst:get_bundled_vertex_my_vertex_demo}
 
-
-
  shows a simple example.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_vertex_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration if the \verb;get_bundled_vertex_my_vertex' function
 \label{lst:get_bundled_vertex_my_vertex_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set a bundled vertex its my_vertex}
 \label{subsec:set_bundled_vertex_my_vertex}
 
-
-
-
-
-
-
 If you know how to get the \verb;my_bundled_vertex' from a vertex descriptor,
  setting it is just as easy, as shown in algorithm 
 \ref{lst:set_bundled_vertex_my_vertex}
 
-
-
 .
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_my_bundled_vertex.impl}
 
-
-
-
-
-
-
-
-
-
-
 Set a bundled vertex its my_vertex from its vertex descriptor
 \index{Set vertex my_vertex
 
-
-
-
-
 \label{lst:set_bundled_vertex_my_vertex}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 To use \verb;set_bundled_vertex_my_vertex', one first needs to obtain a vertex
  descriptor.
  Listing 
 \ref{lst:set_bundled_vertex_my_vertex_demo}
 
-
-
  shows a simple example.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_my_bundled_vertex_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration if the \verb;set_bundled_vertex_my_vertex' function
 \label{lst:set_bundled_vertex_my_vertex_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Setting all bundled vertices' my_vertex objects}
 \label{subsec:set_bundled_vertex_my_vertexes}
 
-
-
-
-
-
-
 When the vertices of a graph are \verb;my_bundled_vertex' objects, one can set
  these as such:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_my_bundled_vertexes.impl}
 
-
-
-
-
-
-
-
-
-
-
 Setting the bundled vertices' \verb;my_bundled_vertex'-es
 \index{Set bundled vertex my_bundled_vertexes
 
-
-
-
-
 \label{lst:set_bundled_vertex_my_vertexes}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with bundled vertices as a .dot}
 \label{subsec:save_bundled_vertices_graph_to_dot}
 
-
-
-
-
-
-
 If you used the \verb;create_bundled_vertices_k2_graph' function (algorithm 
 \ref{lst:create_bundled_vertices_k2_graph}
 
-
-
 ) to produce a 
 $K_{2}$
-
 
  graph with vertices associated with \verb;my_bundled_vertex' objects, you can
  store these with algorithm 
 \ref{lst:save_bundled_vertices_graph_to_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{save_bundled_vertices_graph_to_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Storing a graph with bundled vertices as a .dot file
 \index{Save bundled vertices graph to dot
 
-
-
-
-
 \label{lst:save_bundled_vertices_graph_to_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This code looks small, because we call the \verb;make_bundled_vertices_writer'
  function, which is shown in algorithm 
 \ref{lst:make_bundled_vertices_writer}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{make_bundled_vertices_writer.impl}
 
-
-
-
-
-
-
-
-
-
-
 The \verb;make_bundled_vertices_writer' function
 \index{make_bundled_vertices_writer
 
-
-
-
-
 \label{lst:make_bundled_vertices_writer}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Also this function is forwarding the real work to the \verb;bundled_vertices_writer',
  shown in algorithm 
 \ref{lst:bundled_vertices_writer}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{bundled_vertices_writer.impl}
 
-
-
-
-
-
-
-
-
-
-
 The \verb;bundled_vertices_writer' function
 \index{bundled_vertices_writer
 
-
-
-
-
 \label{lst:bundled_vertices_writer}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Here, some interesting things are happening: the writer needs the bundled
  property maps to work with and thus copies the whole graph to its internals.
@@ -4277,23 +1506,16 @@ Here, some interesting things are happening: the writer needs the bundled
  attributes (see chapter 
 \ref{subsec:Graphviz-attributes}
 
-
-
  for most Graphviz attributes) as shown in table 
 \ref{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}
 
-
-
 :
-
-
 
 \begin_inset Float table
 placement H
 wide false
 sideways false
 status open
-
 
 \begin_inset Tabular
 <lyxtabular version=}3} rows=}5} columns=}4}>
@@ -4306,151 +1528,103 @@ status open
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 my_bundled_vertex variable
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 C++ data type
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 Graphviz data type
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 Graphviz attribute
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 m_name
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 std::string
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 string
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 label
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 m_description
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 std::string
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 string
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 comment
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 m_x
 
+</cell>
+<cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
+\begin_inset Text
 
+double
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 double
-
-
-
-</cell>
-<cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
-\begin_inset Text
-
-
-double
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
 
-
 width
-
-
 
 </cell>
 </row>
@@ -4458,74 +1632,35 @@ width
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 m_y
 
+</cell>
+<cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
+\begin_inset Text
 
+double
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 double
-
-
-
-</cell>
-<cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
-\begin_inset Text
-
-
-double
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
 
-
 height
-
-
 
 </cell>
 </row>
 </lyxtabular>
 
-
-
-
-
-
-
-
-
-
 Mapping of my_bundled_vertex member variable and Graphviz attributes
 \label{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Important in this mapping is that the C++ and the Graphviz data types match.
  I also chose attributes that matched as closely as possible.
-
-
 
 The writer also encodes the std::string of the name and description to a
  Graphviz-friendly format.
@@ -4535,147 +1670,57 @@ The writer also encodes the std::string of the name and description to a
 \subsection{Loading a directed graph with bundled vertices from a .dot}
 \label{subsec:load_directed_bundled_vertices_graph_from_dot}
 
-
-
-
-
-
-
 When loading a graph from file, one needs to specify a type of graph.
  In this example, an directed graph with bundled vertices is loaded, as
  shown in algorithm 
 \ref{lst:load_directed_bundled_vertices_graph_from_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_bundled_vertices_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading a directed graph with bundled vertices from a .dot file
 \index{Load directed bundled vertices graph from dot
 
-
-
-
-
 \label{lst:load_directed_bundled_vertices_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 In this algorithm, first it is checked if the file to load exists.
  Then an empty directed graph is created, to save typing the typename explicitly.
 
-
-
 Then a boost::dynamic_properties
 \index{boost::dynamic_properties
-
-
-
 
  is created with its default constructor, after which we set it to follow
  the same mapping as in the previous chapter.
  From this and the empty graph, \verb;boost::read_graphviz'
 \index{boost::read_graphviz
 
-
-
-
  is called to build up the graph.
-
-
 
 At the moment the graph is created, all \verb;my_bundled_vertex' their names
  and description are in a Graphviz-friendly format.
  By obtaining all vertex iterators and vertex descriptors, the encoding
  is made undone.
 
-
-
 Listing 
 \ref{lst:load_directed_bundled_vertices_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_directed_bundled_vertices_graph_from_dot' function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_bundled_vertices_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_directed_bundled_vertices_graph_from_dot' function
 \label{lst:load_directed_bundled_vertices_graph_from_dot_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This demonstration shows how the Markov chain is created using the \verb;create_bundl
 ed_vertices_markov_chain' function (algorithm 
 \ref{lst:create_bundled_vertices_markov_chain}
-
-
 
 ), saved and then loaded.
  The loaded graph is checked to be the same as the original.
@@ -4684,218 +1729,94 @@ ed_vertices_markov_chain' function (algorithm
 \subsection{Loading an undirected graph with bundled vertices from a .dot}
 \label{subsec:load_undirected_bundled_vertices_graph_from_dot}
 
-
-
-
-
-
-
 When loading a graph from file, one needs to specify a type of graph.
  In this example, an undirected graph with bundled vertices is loaded, as
  shown in algorithm 
 \ref{lst:load_undirected_bundled_vertices_graph_from_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_bundled_vertices_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading an undirected graph with bundled vertices from a .dot file
 \index{Load undirected bundled vertices graph from dot
 
-
-
-
-
 \label{lst:load_undirected_bundled_vertices_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The only difference with loading a directed graph, is that the initial empty
  graph is undirected instead.
  Chapter 
 \ref{subsec:load_directed_bundled_vertices_graph_from_dot}
 
-
-
  describes the rationale of this function.
  
-
-
 
 Listing 
 \ref{lst:load_undirected_bundled_vertices_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_undirected_bundled_vertices_graph_from_dot'
  function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_bundled_vertices_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_undirected_bundled_vertices_graph_from_dot' function
 \label{lst:load_undirected_bundled_vertices_graph_from_dot_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This demonstration shows how 
 $K_{2}$
-
 
  with bundled vertices is created using the \verb;create_bundled_vertices_k2_graph'
  function (algorithm 
 \ref{lst:create_bundled_vertices_k2_graph}
 
-
-
 ), saved and then loaded.
  The loaded graph is checked to be the same as the original.
 
-
 \section{...}
 Building graphs with bundled edges and vertices
-
-
 
 Up until now, the graphs created have had only bundled vertices.
  In this chapter, graphs will be created, in which both the edges and vertices
  have a bundled \verb;my_bundled_edge' and \verb;my_bundled_edge' type
 \footnote{I do not intend to be original in naming my data types
 
-
-
-
 .
-
 
 \begin{itemize}
 An empty directed graph that allows for bundled edges and vertices: see
  chapter 
 \ref{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
 
-
-
-
-
-
 \begin{itemize}
 An empty undirected graph that allows for bundled edges and vertices: see
  chapter 
 \ref{subsec:create_empty_undirected_bundled_edges_and_vertices_graph}
 
-
-
-
-
-
 \begin{itemize}
 A two-state Markov chain with bundled edges and vertices: see chapter 
 \ref{subsec:create_bundled_edges_and_vertices_markov_chain}
 
-
-
-
-
-
 \begin{itemize}
 $K_{3}$
-
 
 with bundled edges and vertices: see chapter 
 \ref{subsec:create_bundled_edges_and_vertices_k3}
 
-
-
-
-
-
-
 In the process, some basic (sometimes bordering trivial) functions are shown:
-
 
 \begin{itemize}
 Creating the \verb;my_bundled_edge' class: see chapter 
 \ref{subsec:my_bundled_edge}
 
-
-
-
-
-
 \begin{itemize}
 Adding a bundled \verb;my_bundled_edge': see chapter 
 \ref{subsec:add_bundled_edge}
-
-
-
-
-
-
 
 These functions are mostly there for completion and showing which data types
  are used.
@@ -4904,97 +1825,36 @@ These functions are mostly there for completion and showing which data types
 \subsection{Creating the bundled edge class}
 \label{subsec:my_bundled_edge}
 
-
-
-
-
-
-
 In this example, I create a \verb;my_bundled_edge' class.
  Here I will show the header file of it, as the implementation of it is
  not important yet.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{my_bundled_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Declaration of my_bundled_edge
 \index{my_bundled_edge
 
-
-
-
-
 \index{my_bundled_edge.h
-
-
-
-
 
 \index{my_bundled_edge declaration
 
-
-
-
-
 \index{Declaration, my_bundled_edge
 
-
-
-
-
 \label{lst:my_bundled_edge_h}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 my_bundled_edge is a class that has multiple properties: two doubles \verb;m_width'
  (\verb;m_
 \index{m_
 
-
-
-
 ' stands for member
 \index{member
-
-
-
 
 ) and \verb;m_height', and two std::strings m_name and m_description.\verb;my_bundled_edge'
  is copyable, but cannot trivially be converted to a \verb;std::string.' \verb;my_bundled_e
 dge' is comparable for equality (that is, operator== is defined).
-
-
 
 \verb;my_bundled_edge' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
@@ -5003,444 +1863,153 @@ dge' is comparable for equality (that is, operator== is defined).
 \subsection{Create an empty directed graph with bundled edges and vertices}
 \label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
 
-
-
-
-
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_directed_bundled_edges_and_vertices_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty directed graph with bundled edges and vertices
 \index{Create empty directed bundled edges and vertices graph
 
-
-
-
-
 \label{lst:create_empty_directed_bundled_edges_and_vertices_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This code is very similar to the code described in chapter 
 \ref{subsec:create_empty_directed_custom_vertices_graph}
 
-
-
 , except that there is a new, fifth template argument:
-
-
 
 \begin_inset listings
 inline false
 status open
 
-
-
 boost::property<boost::edge_bundled_type_t, my_edge>
-
-
-
-
 
 \index{boost::property
 
-
-
-
-
 \index{boost::edge_bundled_type_t
-
-
-
-
 
 \index{my_edge
 
-
-
-
 This can be read as: 
 \begin_inset Quotes eld
-
 
 edges have the property \verb;boost::edge_bundled_type_t', which is of data type
  \verb;my_bundled_edge'
 \begin_inset Quotes erd
 
-
 .
  Or simply: 
 \begin_inset Quotes eld
 
-
 edges have a bundled type called my_bundled_edge
 \begin_inset Quotes erd
 
-
 .
 
-
-
 Demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_directed_bundled_edges_and_vertices_graph_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_graph'
  function
 \label{lst:create_empty_directed_bundled_edges_and_vertices_graph_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty undirected graph with bundled edges and vertices}
 \label{subsec:create_empty_undirected_bundled_edges_and_vertices_graph}
-
-
-
-
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_undirected_bundled_edges_and_vertices_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty undirected graph with bundled edges and vertices
 \index{Create empty undirected bundled edges and vertices graph
 
-
-
-
-
 \label{lst:create_empty_undirected_bundled_edges_and_vertices_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This code is very similar to the code described in chapter 
 \ref{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
-
-
 
 , except that the directness (the third template argument) is undirected
  (due to the boost::undirectedS
 \index{boost::undirectedS
 
-
-
-
 ).
 
-
-
 Demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_undirected_bundled_edges_and_vertices_graph_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;create_empty_undirected_bundled_edges_and_vertices_graph'
  function
 \label{lst:create_empty_undirected_bundled_edges_and_vertices_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Add a bundled edge}
 \label{subsec:add_bundled_edge}
 
-
-
-
-
-
-
 Adding a bundled edge is very similar to adding a named edge (chapter 
 \ref{subsec:add_named_edge}
 
-
-
 ).
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{add_bundled_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Add a bundled edge
 \index{Add bundled edge
 
-
-
-
-
 \label{lst:add_bundled_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 When having added a new (abstract) edge to the graph, the edge descriptor
  is used to set the my_edge in the graph.
 
-
-
 Here is the demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{add_bundled_edge_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of \verb;add_bundled_edge'
 \label{lst:add_bundled_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the bundled edges my_edges}
 \label{subsec:get_bundled_edge_my_edges}
 
-
-
-
-
-
-
 When the edges of a graph are \verb;my_bundled_edge' objects, one can extract
  these all as such:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_edges.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get the edges' my_bundled_edges
 \index{Get edge my_bundled_edges
 
-
-
-
-
 \label{lst:get_bundled_edge_my_edges}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The \verb;my_bundled_edge' object associated with the edges are obtained from
  the graph its property_map and then put into a std::vector.
 
-
-
 Note: the order of the my_bundled_edge objects may be different after saving
  and loading.
-
-
 
 When trying to get the edges' my_bundled_edge objects from a graph without
  bundled edges objects associated, you will get the error \verb;formed reference
  to void' (see chapter 
 \ref{subsec:formed_reference_to_void}
-
-
 
 ).
 
@@ -5448,24 +2017,12 @@ When trying to get the edges' my_bundled_edge objects from a graph without
 \subsection{Creating a Markov-chain with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_markov_chain}
 
-
-
-
-
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 Figure 
 \ref{fig:bundled_edges_and_vertices_markov_chain}
 
-
-
  shows the graph that will be reproduced:
-
-
 
 \begin_inset Float figure
 placement H
@@ -5473,347 +2030,133 @@ wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick
 ]   
 
-
-
-
   
 \backslash
 tikzstyle{every state}=[]
-
-
-
 
   
 \backslash
 node[state] (A) 
 
-
-
-
     {Stable,Right, 1.0, 2.0};   
-
-
-
 
   
 \backslash
 node[state] (B) [right of=A] 
 
-
-
-
     {Not unstable,Not left, 3.0, 4.0}
 
-
-
-
   ;   
-
-
-
 
   
 \backslash
 path (A) edge [loop above] node {Red,Heat,1,2} (A)
 
-
-
-
         (A) edge [bend  left] node {Orange,Lose heat,3,4} (B)
-
-
-
 
         (B) edge [bend  left] node {Yellow cold,Heat,4,5} (A)
 
-
-
-
         (B) edge [loop above] node {Green cols,Stay cool,6,7} (B); 
-
-
-
-
 
 \backslash
 end{tikzpicture}
-
-
-
-
-
-
-
-
-
-
 
 A two-state Markov chain where the edges and vertices have bundled properties.
  The edges' and vertices' properties are nonsensical
 \label{fig:bundled_edges_and_vertices_markov_chain}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
+\subsection{Function to create such a graph}
 
 Here is the code creating a two-state Markov chain with bundled edges and
  vertices:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_markov_chain.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating the two-state Markov chain as depicted in figure 
 \ref{fig:bundled_edges_and_vertices_markov_chain}
 
-
-
-
 \index{Create bundled edges and vertices Markov chain
-
-
-
-
 
 \label{lst:create_bundled_edges_and_vertices_markov_chain}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Here is the demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_markov_chain_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_bundled_edges_and_vertices_markov_chain' function (algorithm
  
 \ref{lst:create_bundled_edges_and_vertices_markov_chain}
 
-
-
 )
 \label{lst:create_bundled_edges_and_vertices_markov_chain_demo}
 
+\subsection{The .dot file produced
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_markov_chain.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \ref{lst:create_bundled_edges_and_vertices_markov_chain}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_graph_to_dot}
 
-
-
-
 \label{lst:create_bundled_edges_and_vertices_markov_chain.dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_edges_and_vertices_markov_chain.svg
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_bundled_edges_and_vertices_markov_chain.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \ref{lst:create_custom_vertices_markov_chain}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_bundled_edges_and_vertices_markov_chain.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{3}$  with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_k3}
 
-
-
-
-
-
-
 Instead of using edges with a name, or other properties, here we use a bundled
  edge class called \verb;my_bundled_edge'.
 
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 We reproduce the 
 $K_{3}$
 
-
  with named edges and vertices of chapter 
 \ref{subsec:create_named_edges_and_vertices_k3}
 
-
-
  , but with our bundled edges and vertices instead:
-
-
 
 \begin_inset Float figure
 placement H
@@ -5821,314 +2164,115 @@ wide false
 sideways false
 status open
 
-
 \begin_inset ERT
 status open
-
-
-
 
 \backslash
 tikz 
 
-
-
-
-
 \backslash
 draw[] 
-
-
-
 
   (2,4) node[draw=black,fill=white,shape=circle,text=black] {Red,Not green,1,2}
  
 
-
-
-
    -- (5,2) node[anchor=west] {Oxygen,Air,1,2} 
-
-
-
 
    -- (8,0) node[draw=black,fill=white,shape=circle,text=black] {Light red,Not
  dark,3,4} 
 
-
-
-
    -- (4,0) node[anchor=north] {Helium,From tube,3,4} 
-
-
-
 
    -- (0,0) node[draw=black,fill=white,shape=circle,text=black] {Orange,Orange,5
 ,6} 
 
-
-
-
    -- (1,2) node[anchor=east] {Stable temperature,Here,5,6} 
-
-
-
 
    -- (2,4)
 
-
-
-
 ;
 
-
-
-
-
-
-
-
-
-
-
 $K_{3}$
-
 
 : a fully connected graph with three named edges and vertices 
 \label{fig:create_bundled_edges_and_vertices_k3}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Function to create such a graph
-
-
-
-
-
+\subsection{Function to create such a graph}
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_k3_graph.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating 
 $K_{3}$
-
 
  as depicted in figure 
 \ref{fig:named_edges_and_vertices_k3}
 
-
-
-
 \index{Create bundled edges and vertices K3 graph
-
-
-
-
 
 \label{lst:create_bundled_edges_and_vertices_k3_graph}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Most of the code is a slight modification of algorithm 
 \ref{lst:create_named_edges_and_vertices_k3_graph}
-
-
 
 .
  In the end, the my_edges and my_vertices are obtained as the graph its
  property_map and set with the \verb;my_bundled_edge' and \verb;my_bundled_vertex'
  objects.
 
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Here is the demo:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_k3_graph_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demo of the \verb;create_bundled_edges_and_vertices_k3_graph' function (algorithm
  
 \ref{lst:create_bundled_edges_and_vertices_k3_graph}
 
-
-
 )
 \label{lst:create_bundled_edges_and_vertices_k3_graph_demo}
 
+\subsection{The .dot file produced
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_bundled_edges_and_vertices_k3_graph.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_bundled_edges_and_vertices_markov_chain'
  function (algorithm 
 \ref{lst:create_bundled_edges_and_vertices_k3_graph}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_graph_to_dot}
 
-
-
-
 \label{lst:create_bundled_edges_and_vertices_k3_graph.dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_edges_and_vertices_k3_graph.svg
-	scale 50
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_bundled_edges_and_vertices_k3_graph.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_bundled_edges_and_vertices_k3_graph' function
  (algorithm 
 \ref{lst:create_custom_vertices_markov_chain}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_bundled_edges_and_vertices_k3_graph.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Working on graphs with bundled edges and vertices
@@ -6137,109 +2281,35 @@ Working on graphs with bundled edges and vertices
 \subsection{Has a my_bundled_edge}
 \label{subsec:has_bundled_edge_with_my_edge}
 
-
-
-
-
-
-
 Before modifying our edges, let's first determine if we can find an edge
  by its bundled type (\verb;my_bundled_edge') in a graph.
  After obtaining a my_bundled_edge map, we obtain the edge iterators, dereferenc
 e these to obtain the edge descriptors and then compare each edge its my_bundled
 _edge with the one desired.
 
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_bundled_edge_with_my_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Find if there is a bundled edge with a certain my_bundled_edge
 \index{Has bundled edge with my_bundled_edge
 
-
-
-
-
 \label{lst:has_bundled_edge_with_my_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This function can be demonstrated as in algorithm 
 \ref{lst:has_bundled_edge_with_my_edge_demo}
 
-
-
 , where a certain \verb;my_bundled_edge' cannot be found in an empty graph.
  After adding the desired my_bundled_edge, it is found.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{has_bundled_edge_with_my_edge_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;has_bundled_edge_with_my_edge' function
 \label{lst:has_bundled_edge_with_my_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Note that this function only finds if there is at least one edge with that
  my_bundled_edge: it does not tell how many edges with that my_bundled_edge
@@ -6249,557 +2319,196 @@ Note that this function only finds if there is at least one edge with that
 \subsection{Find a my_bundled_edge}
 \label{subsec:find_first_bundled_edge_with_my_edge}
 
-
-
-
-
-
-
 Where STL functions work with iterators, here we obtain an edge descriptor
  (see chapter 
 \ref{subsec:Edge-descriptors}
-
-
 
 ) to obtain a handle to the desired edge.
  Listing 
 \ref{lst:find_first_bundled_edge_with_my_edge}
 
-
-
  shows how to obtain an edge descriptor to the first edge found with a specific
  my_bundled_edge value.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{find_first_bundled_edge_with_my_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Find the first bundled edge with a certain my_bundled_edge
 \index{Find first bundled edge with my_bundled_edge
 
-
-
-
-
 \label{lst:find_first_bundled_edge_with_my_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 With the edge descriptor obtained, one can read and modify the edge and
  the vertices surrounding it.
  Listing 
 \ref{lst:find_first_bundled_edge_with_my_edge_demo}
 
-
-
  shows some examples of how to do so.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{find_first_bundled_edge_with_my_edge_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;find_first_bundled_edge_with_my_edge' function
 \label{lst:find_first_bundled_edge_with_my_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get an edge its my_bundled_edge}
 \label{subsec:get_bundled_edge_my_edge}
 
-
-
-
-
-
-
 To obtain the my_bundled_edge from an edge descriptor, one needs to pull
  out the my_bundled_edges map and then look up the my_edge of interest.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get a vertex its my_bundled_vertex from its vertex descriptor
 \index{Get my_bundled_edge
 
-
-
-
-
 \label{lst:get_bundled_edge_my_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 To use \verb;get_my_bundled_edge', one first needs to obtain an edge descriptor.
  Listing 
 \ref{lst:get_bundled_edge_my_edge_demo}
 
-
-
  shows a simple example.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_my_bundled_edge_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration if the \verb;get_my_bundled_edge' function
 \label{lst:get_bundled_edge_my_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set an edge its my_bundled_edge}
 \label{subsec:set_bundled_edge_my_edge}
 
-
-
-
-
-
-
 If you know how to get the my_bundled_edge from an edge descriptor, setting
  it is just as easy, as shown in algorithm 
 \ref{lst:set_bundled_edge_my_edge}
 
-
-
 .
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_my_bundled_edge.impl}
 
-
-
-
-
-
-
-
-
-
-
 Set a bundled edge its my_bundled_edge from its edge descriptor
 \index{Set bundled edge my_bundled_edge
 
-
-
-
-
 \label{lst:set_bundled_edge_my_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 To use \verb;set_bundled_edge_my_edge', one first needs to obtain an edge descriptor.
  Listing 
 \ref{lst:set_bundled_edge_my_edge_demo}
 
-
-
  shows a simple example.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_my_bundled_edge_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration if the \verb;set_bundled_edge_my_edge' function
 \label{lst:set_bundled_edge_my_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with bundled edges and vertices as a .dot}
 \label{subsec:save_bundled_edges_and_vertices_graph_to_dot}
 
-
-
-
 \index{Save graph with bundled edges and vertices as .dot
-
-
-
-
 
 \index{Create .dot from graph with bundled edges and vertices
 
-
-
-
  
-
-
 
 If you used the \verb;create_bundled_edges_and_vertices_k3_graph' function (algorithm
  
 \ref{lst:create_bundled_edges_and_vertices_k3_graph}
 
-
-
 ) to produce a 
 $K_{3}$
-
 
 graph with edges and vertices associated with my_bundled_edge and my_bundled_ver
 tex objects, you can store these my_bundled_edges and my_bundled_vertex-es
  additionally with algorithm 
 \ref{lst:save_bundled_edges_and_vertices_graph_to_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{save_bundled_edges_and_vertices_graph_to_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Storing a graph with bundled edges and vertices as a .dot file
 \index{Save bundled edges and vertices graph to dot
 
-
-
-
-
 \label{lst:save_bundled_edges_and_vertices_graph_to_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Load a directed graph with bundled edges and vertices from a .dot file}
 \label{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
-
-
-
-
-
-
 
 When loading a graph from file, one needs to specify a type of graph.
  In this example, an directed graph with bundled edges and vertices is loaded,
  as shown in algorithm 
 \ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_bundled_edges_and_vertices_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading a directed graph with bundled edges and vertices from a .dot file
 \index{Load directed bundled edges and vertices graph from dot
 
-
-
-
-
 \label{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 In this algorithm, first it is checked if the file to load exists.
  Then an empty directed graph is created.
  Next to this, a boost::dynamic_properties
 \index{boost::dynamic_properties
 
-
-
-
  is created with its default constructor, after which we direct the boost::dynam
 ic_properties
 \index{boost::dynamic_properties
-
-
-
 
  to find a \verb;node_id' and \verb;label' in the vertex name map, \verb;edge_id' and \verb;label'
  to the edge name map.
  From this and the empty graph, \verb;boost::read_graphviz'
 \index{boost::read_graphviz
 
-
-
-
  is called to build up the graph.
-
-
 
 Listing 
 \ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_directed_bundled_edges_and_vertices_graph_from_dot'
  function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_directed_bundled_edges_and_vertices_graph_from_dot'fu
 nction
 \label{lst:load_directed_bundled_edges_and_vertices_graph_from_dot_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This demonstration shows how the Markov chain is created using the \verb;create_bundl
 ed_edges_and_vertices_markov_chain' function (algorithm 
 \ref{lst:create_bundled_edges_and_vertices_markov_chain}
-
-
 
 ), saved and then loaded.
 
@@ -6807,198 +2516,89 @@ ed_edges_and_vertices_markov_chain' function (algorithm
 \subsection{Load an undirected graph with bundled edges and vertices from a .dot file}
 \label{subsec:load_undirected_bundled_edges_and_vertices_graph_from_dot}
 
-
-
-
 \index{Load undirected graph with bundled edges and vertices from .dot
 
-
-
-
-
 \index{Create undirected graph with bundled edges and vertices from .dot
-
-
-
-
-
-
-
 
 When loading a graph from file, one needs to specify a type of graph.
  In this example, an undirected graph with bundled edges and vertices is
  loaded, as shown in algorithm 
 \ref{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot}
 
-
-
 :
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_bundled_edges_and_vertices_graph_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading an undirected graph with bundled edges and vertices from a .dot file
 \index{Load undirected bundled edges and vertices graph from dot
 
-
-
-
-
 \label{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The only difference with loading a directed graph, is that the initial empty
  graph is undirected instead.
  Chapter 
 \ref{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
 
-
-
  describes the rationale of this function.
  
-
-
 
 Listing 
 \ref{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo}
 
-
-
  shows how to use the \verb;load_undirected_bundled_vertices_graph_from_dot'
  function:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of the \verb;load_undirected_bundled_edges_and_vertices_graph_from_dot'
 function
 \label{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This demonstration shows how 
 $K_{2}$
-
 
  with bundled vertices is created using the \verb;create_bundled_vertices_k2_graph'
  function (algorithm 
 \ref{lst:create_custom_vertices_k2_graph}
 
-
-
 ), saved and then loaded.
  The loaded graph is checked to be a graph similar to the original.
-
 
 \section{...}
 Building graphs with a graph name
 \label{sec:Building-graphs-with-a-graph-name}
-
-
-
-
-
-
 
 Up until now, the graphs created have had no properties themselves.
  Sure, the edges and vertices have had properties, but the graph itself
  has had none.
  Until now.
 
-
-
 In this chapter, graphs will be created with a graph name of type std::string
-
 
 \begin{itemize}
 An empty directed graph with a graph name: see chapter 
 
-
 \begin{itemize}
 An empty undirected graph with a graph name: see chapter 
-
 
 \begin{itemize}
 A two-state Markov chain with a graph name: see chapter
 
-
 \begin{itemize}
 $K_{3}$
 
-
 with a graph name: see chapter 
-
-
 
 In the process, some basic (sometimes bordering trivial) functions are shown:
 
-
 \begin{itemize}
 Getting a graph its name: see chapter 
-
 
 \begin{itemize}
 Setting a graph its name: see chapter
@@ -7007,961 +2607,337 @@ Setting a graph its name: see chapter
 \subsection{Create an empty directed graph with a graph name property}
 \label{subsec:create_empty_directed_graph_with_graph_name}
 
-
-
-
-
-
-
 Listing 
 \ref{lst:create_empty_directed_graph_with_graph_name}
 
-
-
  shows the function to create an empty directed graph with a graph name.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_directed_graph_with_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty directed graph with a graph name
 \index{Create empty directed graph with graph name
 
-
-
-
-
 \label{lst:create_empty_directed_graph_with_graph_name}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This \verb;boost::adjacency_list; is of the following type:
-
 
 \begin{itemize}
 the first \verb;boost::vecS'
 \index{boost::vecS
 
-
-
-
 : select (that is what the \verb;S
 \index{S
 
-
-
-
 ' means) that out edges are stored in a std::vector.
  This is the default way.
-
 
 \begin{itemize}
 the second \verb;boost::vecS'
 \index{boost::vecS
 
-
-
-
 : select that the graph vertices are stored in a std::vector.
  This is the default way.
-
 
 \begin{itemize}
 \verb;boost::directedS'
 \index{boost::directedS
 
-
-
-
 : select that the graph is directed.
  This is the default selectedness
-
 
 \begin{itemize}
 the first \verb;boost::no_property'
 \index{boost::no_property
 
-
-
-
 : the vertices have no properties.
  This is the default (non-)property
-
 
 \begin{itemize}
 the second \verb;boost::no_property'
 \index{boost::no_property
 
-
-
-
 : the vertices have no properties.
  This is the default (non-)property
-
 
 \begin{itemize}
 \verb;boost::property<boost::graph_name_t, std::string>'
 \index{boost::property
 
-
-
-
-
 \index{boost::graph_name_t
-
-
-
 
 : the graph itself has a single property: its boost::graph_name
 \index{boost::graph_name
 
-
-
-
  has type std::string
-
-
 
 Listing 
 \ref{lst:create_empty_directed_graph_with_graph_name_demo}
 
-
-
  demonstrates the \verb;create_empty_directed_graph_with_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_directed_graph_with_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;create_empty_directed_graph_with_graph_name'
 \label{lst:create_empty_directed_graph_with_graph_name_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty undirected graph with a graph name property}
 \label{subsec:create_empty_undirected_graph_with_graph_name}
 
-
-
-
-
-
-
 Listing 
 \ref{lst:create_empty_undirected_graph_with_graph_name}
 
-
-
  shows the function to create an empty undirected graph with a graph name.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_undirected_graph_with_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating an empty undirected graph with a graph name
 \index{Create empty undirected graph with graph name
 
-
-
-
-
 \label{lst:create_empty_undirected_graph_with_graph_name}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This code is very similar to the code described in chapter 
 \ref{lst:create_empty_directed_graph_with_graph_name}
-
-
 
 , except that the directness (the third template argument) is undirected
  (due to the boost::undirectedS
 \index{boost::undirectedS
 
-
-
-
 ).
-
-
 
 Listing 
 \ref{lst:create_empty_undirected_graph_with_graph_name_demo}
 
-
-
  demonstrates the \verb;create_empty_undirected_graph_with_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_empty_undirected_graph_with_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
 \label{lst:create_empty_undirected_graph_with_graph_name_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get a graph its name property}
 \label{subsec:get_graph_name}
-
-
-
-
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Get a graph its name
 \index{Get graph name
 
-
-
-
-
 \label{lst:get_graph_name}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Listing 
 \ref{lst:get_graph_name_demo}
 
-
-
  demonstrates the \verb;get_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;get_graph_name'
 \label{lst:get_graph_name_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set a graph its name property}
 \label{subsec:set_graph_name}
-
-
-
-
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Set a graph its name
 \index{Set graph name
 
-
-
-
-
 \label{lst:set_graph_name}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Listing 
 \ref{lst:set_graph_name_demo}
 
-
-
  demonstrates the \verb;set_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{set_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;set_graph_name'
 \label{lst:set_graph_name_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create a directed graph with a graph name property}
 \label{subsec:create_markov_chain_with_graph_name}
 
-
-
-
-
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 See figure 
 \ref{fig:markov_chain}
 
-
-
 .
 
-
-\subsection{
-Function to create such a graph
-
-
+\subsection{Function to create such a graph}
 
 Listing 
 \ref{lst:create_markov_chain_with_graph_name}
 
-
-
  shows the function to create an empty directed graph with a graph name.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_markov_chain_with_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating a two-state Markov chain with a graph name
 \index{Create Markov chain with graph name
 
-
-
-
-
 \label{lst:create_markov_chain_with_graph_name}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Listing 
 \ref{lst:create_markov_chain_with_graph_name_demo}
 
-
-
  demonstrates the \verb;create_markov_chain_with_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_markov_chain_with_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;create_markov_chain_with_graph_name'
 \label{lst:create_markov_chain_with_graph_name_demo}
 
+\subsection{The .dot file produced
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_markov_chain_with_graph_name.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_markov_chain_with_graph_name' function
  (algorithm 
 \ref{lst:create_markov_chain_with_graph_name}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_graph_to_dot}
 
-
-
-
 \label{lst:create_markov_chain_with_graph_name.dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_markov_chain_with_graph_name.svg
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_markov_chain_with_graph_name.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_markov_chain_with_graph_name' function
  (algorithm 
 \ref{lst:create_markov_chain_with_graph_name}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_markov_chain_with_graph_name.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an undirected graph with a graph name property}
 \label{subsec:create_k2_graph_with_graph_name}
 
-
-
-
-
-
-\subsection{
-Graph
-
-
+\subsection{Graph}
 
 See figure 
 \ref{fig:k2_graph}
 
-
-
 .
 
-
-\subsection{
-Function to create such a graph
-
-
+\subsection{Function to create such a graph}
 
 Listing 
 \ref{lst:create_k2_graph_with_graph_name}
 
-
-
  shows the function to create K2 graph with a graph name.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_k2_graph_with_graph_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating a K2 graph with a graph name
 \index{Create K2 graph with graph name
 
-
-
-
-
 \label{lst:create_k2_graph_with_graph_name}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-Creating such a graph
-
-
+\subsection{Creating such a graph
 
 Listing 
 \ref{lst:create_k2_graph_with_graph_name_demo}
 
-
-
  demonstrates the \verb;create_k2_graph_with_graph_name' function.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_k2_graph_with_graph_name_demo.impl}
 
-
-
-
-
-
-
-
-
-
-
 Demonstration of \verb;create_k2_graph_with_graph_name'
 \label{lst:create_k2_graph_with_graph_name_demo}
 
+\subsection{The .dot file produced
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .dot file produced
-
-
-
-
-
-LatexCommand verbatiminput
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{create_k2_graph_with_graph_name.dot}
 
-
-
-
-
-
-
-
-
-
-
 .dot file created from the \verb;create_k2_graph_with_graph_name' function (algorithm
  
 \ref{lst:create_k2_graph_with_graph_name}
 
-
-
 ), converted from graph to .dot file using algorithm 
 \ref{lst:save_graph_to_dot}
 
-
-
-
 \label{lst:create_k2_graph_with_graph_name.dot}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{
-The .svg file produced
-
-
+\subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_k2_graph_with_graph_name.svg
-
-
-
-
-
-
-
-
-
+  \includegraphics[]{create_k2_graph_with_graph_name.svg}
+  \caption{
+    .
+  }
+  \label{fig:.}
+\end{figure}
 
 .svg file created from the \verb;create_k2_graph_with_graph_name' function (algorithm
  
 \ref{lst:create_k2_graph_with_graph_name}
 
-
-
 ) its .dot file, converted from .dot file to .svg using algorithm 
 \ref{lst:convert_dot_to_svg}
 
-
-
-
 \label{fig:create_k2_graph_with_graph_name.svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Working on graphs with a graph name
@@ -7970,177 +2946,53 @@ Working on graphs with a graph name
 \subsection{Storing a graph with a graph name property as a .dot file}
 \label{subsec:save_graph_with_graph_name_to_dot}
 
-
-
-
-
-
-
 This works:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{save_graph_with_graph_name_to_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Storing a graph with a graph name as a .dot file
 \index{Save graph with graph name to dot
 
-
-
-
-
 \label{lst:save_graph_with_graph_name_to_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading a directed graph with a graph name property from a .dot file}
 \label{subsec:load_directed_graph_with_graph_name_from_dot}
 
-
-
-
-
-
-
 This will result in a directed graph with a name:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_directed_graph_with_graph_name_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading a directed graph with a graph name from a .dot file
 \index{Load directed custom edges and vertices graph from dot
 
-
-
-
-
 \label{lst:load_directed_graph_with_graph_name_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading an undirected graph with a graph name property from a .dot file}
 \label{subsec:load_undirected_graph_with_graph_name_from_dot}
 
-
-
-
-
-
-
 This will result in an undirected graph with a name:
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{load_undirected_graph_with_graph_name_from_dot.impl}
 
-
-
-
-
-
-
-
-
-
-
 Loading an undirected graph with a graph name from a .dot file
 \index{Load undirected custom edges and vertices graph from dot
 
-
-
-
-
 \label{lst:load_undirected_graph_with_graph_name_from_dot}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Other graph functions
 \label{sec:Other-graph-functions}
-
-
-
-
-
-
 
 Some functions that did not fit in.
 
@@ -8148,184 +3000,62 @@ Some functions that did not fit in.
 \subsection{Encode a std::string to a Graphviz-friendly format}
 \label{subsec:graphviz_encode}
 
-
-
-
-
-
-
 You may want to use a label with spaces, comma's and/or quotes.
  Saving and loading these, will result in problem.
  This function replaces these special characters by a rare combination of
  ordinary characters.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{graphviz_encode.impl}
 
-
-
-
-
-
-
-
-
-
-
 Encode a std::string to a Graphviz-friendly format
 \index{graphviz encode
 
-
-
-
-
 \label{lst:graphviz_encode}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Decode a std::string from a Graphviz-friendly format}
 \label{subsec:graphviz_decode}
 
-
-
-
-
-
-
 This function undoes the \verb;graphviz_encode' function (algorithm 
 \ref{lst:graphviz_encode}
 
-
-
 ) and thus converts a Graphviz-friendly std::string to the original human-friend
 ly std::string.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{graphviz_decode.impl}
 
-
-
-
-
-
-
-
-
-
-
 Decode a std::string from a Graphviz-friendly format to a human-friendly
  format
 \index{graphviz decode
 
-
-
-
-
 \label{lst:graphviz_decode}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Check if a std::string is Graphviz-friendly}
 \label{subsec:is_graphviz_friendly}
 
-
-
-
-
-
-
 There are pieces where I check if a std::string is Graphviz-friendly.
  This is done only where it matters.
  If it is tested not to matter, \verb;is_graphviz_friendly' is absent.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{is_graphviz_friendly.impl}
 
-
-
-
-
-
-
-
-
-
-
 Check if a std::string is Graphviz-friendly
 \index{is_graphviz_friendly
 
-
-
-
-
 \label{lst:is_graphviz_friendly}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Misc functions
-
-
 
 These are some function I needed for creating this tutorial.
  Although they are not important for working with graphs, I used these heavily.
@@ -8337,140 +3067,50 @@ These are some function I needed for creating this tutorial.
 \subsection{Getting a data type as a std::string}
 \label{subsec:get_type_name}
 
-
-
-
-
-
-
 This function will only work under GCC.
  I found this code at: 
 \begin_inset Flex URL
 status collapsed
 
-
-
 http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
-
-
-
 
  .
  Thanks to \verb;m-dudley' (Stack Overflow user page at 
 \begin_inset Flex URL
 status open
 
-
-
 http://stackoverflow.com/users/111327/m-dudley
 
-
-
-
  ).
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{get_type_name.impl}
 
-
-
-
-
-
-
-
-
-
-
 Getting a data type its name as a std::string
 \index{Get type name
 
-
-
-
-
 \label{lst:get_type_name}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Convert a .dot to .svg}
 \label{subsec:convert_dot_to_svg}
-
-
-
-
-
-
 
 All illustrations in this tutorial are created by converting .dot to a .svg
  (\verb;Scalable Vector Graphic') file.
  This function assumes the program \verb;dot' is installed, which is part of
  Graphviz.
 
-
-
-
-
-
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{convert_dot_to_svg.impl}
 
-
-
-
-
-
-
-
-
-
-
 Convert a .dot file to a .svg
 \index{Convert dot to svg
 
-
-
-
-
 \label{lst:convert_dot_to_svg}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \verb;convert_dot_to_svg' makes a system call to the program \verb;dot' to convert
  the .dot file to an .svg file.
@@ -8479,62 +3119,20 @@ Convert a .dot file to a .svg
 \subsection{Check if a file exists}
 \label{subsec:is_regular_file}
 
-
-
-
-
-
-
 Not the most smart way perhaps, but it does only use the STL.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{is_regular_file.impl}
 
-
-
-
-
-
-
-
-
-
-
 Check if a file exists
 \index{Is regular file
 
-
-
-
-
 \label{lst:is_regular_file}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{...}
 Errors
-
-
 
 Some common errors.
 
@@ -8542,69 +3140,24 @@ Some common errors.
 \subsection{Formed reference to void}
 \label{subsec:formed_reference_to_void}
 
-
-
-
-
-
-
 This compile-time error occurs when you create a graph without a certain
  property, then subsequently reading that property, as in algorithm 
 \ref{lst:formed_reference_to_void}
 
-
-
 : 
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{formed_reference_to_void.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating the error \verb;formed reference to void'
 \index{Formed reference to void
 
-
-
-
-
 \label{lst:formed_reference_to_void}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 In algorithm 
 \ref{lst:formed_reference_to_void}
-
-
 
  a graph is created with vertices of no properties.
  Then the names of these vertices, which do not exists, are tried to be
@@ -8616,65 +3169,22 @@ In algorithm
 \subsection{No matching function for call to \verb;;clear_out_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_out_edges}
 
-
-
-
-
-
-
 This compile-time error occurs when you want to clear the outward edges
  from a vertex in an undirected graph.
  
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{no_matching_function_for_call_to_clear_out_edges.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating the error \verb;no matching function for call to clear_out_edges'
 \index{No matching function for call to clear_out_edges
 
-
-
-
-
 \label{lst:no_matching_function_for_call_to_clear_out_edges}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 In algorithm 
 \ref{lst:no_matching_function_for_call_to_clear_out_edges}
-
-
 
 an undirected graph is created, a vertex descriptor is obtained, then itsout
  edges are tried to be cleared.Either use a directed graph (which has out
@@ -8684,16 +3194,8 @@ an undirected graph is created, a vertex descriptor is obtained, then itsout
 \subsection{No matching function for call to \verb;clear_in_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_in_edges}
 
-
-
-
-
-
-
 See chapter 
 \ref{subsec:no_matching_function_for_call_to_clear_out_edges}
-
-
 
 .
 
@@ -8701,165 +3203,68 @@ See chapter
 \subsection{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
 
-
-
-
 \index{read_graphviz_new
-
-
-
-
 
 \index{Undefined reference to read_graphviz_new
 
-
-
-
-
 \index{read_graphviz_new, undefined reference
-
-
-
-
-
-
-
 
 You will have to link
 \index{link
-
-
-
 
  against the Boost.Graph and Boost.Regex libraries.
  In Qt Creator, this is achieved by adding these lines to your Qt Creator
  project file:
 
-
-
 \begin_inset listings
 inline false
 status open
 
-
-
 LIBS += -lboost_graph -lboost_regex 
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Property not found: node_id}
 \label{subsec:property_not_found_node_id}
 
-
-
-
 \index{node_id
-
-
-
-
 
 \index{Property not found
 
-
-
-
-
 \index{Property not found: node_id
-
-
-
-
-
-
-
 
 When loading a graph from file (as in chapter 
 \ref{subsec:load_undirected_graph_from_dot}
 
-
-
 ) you will be using boost::read_graphviz
 \index{boost::read_graphviz
-
-
-
 
 .
  boost::read_graphviz
 \index{boost::read_graphviz
 
-
-
-
  needs a third argument, of type boost::dynamic_properties
 \index{boost::dynamic_properties
-
-
-
 
 .
  When a graph does not have properties, do not use a default constructed
  version, but initialize with \verb;boost::ignore_other_properties'
 \index{boost::ignore_other_properties
 
-
-
-
  as a constructor argument instead.
  Listing 
 \ref{lst:property_not_found_node_id}
 
-
-
  shows how to trigger this run-time error.
-
-
-
-
-
 
 \lstinputlisting[
   caption = ,
   label = lst:
 ]{property_not_found_node_id.impl}
 
-
-
-
-
-
-
-
-
-
-
 Creating the error \verb;Property not found: node_id'
 \index{Property not found: node_id
 
-
-
-
-
 \label{lst:property_not_found_node_id}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stream zeroes}
@@ -8867,263 +3272,113 @@ Creating the error \verb;Property not found: node_id'
 When loading a graph from a .dot file, in operator>>, I encountered reading
  zeroes, where I expected an XML formatted string:
 
-
-
 \begin_inset listings
 inline false
 status open
-
-
 
 std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
  noexcept
 
-
-
-
 {
-
-
-
 
   std::string s;
 
-
-
-
   is >> s; //s has an XML format
-
-
-
 
   \verb;assert;(s != }0});
 
-
-
-
   any_class = my_class(s);
-
-
-
 
   return is;
 
-
-
-
 }
-
-
-
-
-
-
-
 
 This was because I misconfigured the reader.
  I did (heavily simplified code):
 
-
-
 \begin_inset listings
 inline false
 status open
 
-
-
 graph load_from_dot(const std::string& dot_filename)
-
-
-
 
 {
 
-
-
-
   std::ifstream f(dot_filename);
 
-
-
-
   graph g;
-
-
-
 
   boost::dynamic_properties dp;
 
-
-
-
   dp.property(}node_id}, get(boost::vertex_custom_type, g));
-
-
-
 
   dp.property(}label}, get(boost::vertex_custom_type, g));
 
-
-
-
   boost::read_graphviz(f,g,dp);
-
-
-
 
   return g;
 
-
-
-
 }
 
-
-
-
-
-
-
-
 Where it should have been:
-
-
 
 \begin_inset listings
 inline false
 status open
 
-
-
 graph load_from_dot(const std::string& dot_filename)
-
-
-
 
 {
 
-
-
-
   std::ifstream f(dot_filename);
-
-
-
 
   graph g;
 
-
-
-
   boost::dynamic_properties dp(boost::ignore_other_properties);
-
-
-
 
   dp.property(}label}, get(boost::vertex_custom_type, g));
 
-
-
-
   boost::read_graphviz(f,g,dp);
-
-
-
 
   return g;
 
-
-
-
 }
-
-
-
-
-
-
-
 
 The explanation is that by setting the boost::dynamic_property \verb;node_id'
  to \verb;boost::vertex_custom_type', operator>> will receive the node indices.
  
 
-
-
 An alternative, but less clean solution, is to let operator>> ignore the
  node indices:
-
-
 
 \begin_inset listings
 inline false
 status open
 
-
-
 std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
  noexcept
 
-
-
-
 {
-
-
-
 
   std::string s;
 
-
-
-
   is >> s; //s has an XML format
-
-
-
 
   if (!is_xml(s)) { //Ignore node index
 
-
-
-
     any_class_class = my_class(); 
 
-
-
-
   }
-
-
-
 
   else {
 
-
-
-
     any_class_class = my_class(s);
-
-
-
 
   }
 
-
-
-
   return is;
 
-
-
-
 }
-
-
-
-
-
-
 
 \section{...}
 Appendix
@@ -9132,51 +3387,19 @@ Appendix
 \subsection{List of all edge, graph and vertex properties}
 \label{subsec:all_properties}
 
-
-
-
 \index{All edge properties
-
-
-
-
 
 \index{All graph properties
 
-
-
-
-
 \index{All vertex properties
-
-
-
-
 
 \index{Edge properties
 
-
-
-
-
 \index{Graph properties
-
-
-
-
 
 \index{Vertex properties
 
-
-
-
-
-
-
-
 The following list is obtained from the file \verb;boost/graph/properties.hpp'.
-
-
 
 \begin_inset Tabular
 <lyxtabular version=}3} rows=}29} columns=}3}>
@@ -9188,811 +3411,499 @@ The following list is obtained from the file \verb;boost/graph/properties.hpp'.
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
 Edge
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 Graph
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 Vertex
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_all
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 graph_all
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_all
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_bundle
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 graph_bundle
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_bundle
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_capacity
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 graph_name
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_centrality
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_centrality
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 graph_visitor
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_color
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_color
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_current_degree
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_discover_time
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_degree
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_finished
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_discover_time
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_flow
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_distance
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_global
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_distance2
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_index
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_finish_time
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_local
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_global
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_local_index
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_in_degree
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_name
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_index
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_owner
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_index1
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_residual_capacity
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_index2
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_reverse
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_local
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_underlying
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_local_index
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_update
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_lowpoint
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_weight
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_name
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
 
 edge_weight2
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_out_degree
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_owner
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_potential
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_predecessor
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_priority
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_rank
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
 
 vertex_root
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
 
-
 vertex_underlying
-
-
 
 </cell>
 </row>
@@ -10000,61 +3911,31 @@ vertex_underlying
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
 
-
 vertex_update
-
-
 
 </cell>
 </row>
 </lyxtabular>
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Graphviz attributes}
 \label{subsec:Graphviz-attributes}
-
-
-
-
-
-
 
 List created from 
 \begin_inset Flex URL
 status collapsed
 
-
-
 www.graphviz.org/content/attrs
 
-
-
-
 , where only the attributes that are supported by all formats are listed:
-
-
 
 \begin_inset Tabular
 <lyxtabular version=}3} rows=}45} columns=}3}>
@@ -10066,8 +3947,6 @@ www.graphviz.org/content/attrs
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10081,13 +3960,9 @@ www.graphviz.org/content/attrs
 \color none
 Edge
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10102,13 +3977,9 @@ Edge
 \color none
 Graph
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10123,15 +3994,11 @@ Graph
 \color none
 Vertex
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10146,13 +4013,9 @@ Vertex
 \color none
 arrowhead
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10167,13 +4030,9 @@ arrowhead
 \color none
 _background
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10188,15 +4047,11 @@ _background
 \color none
 color
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10211,13 +4066,9 @@ color
 \color none
 arrowsize
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10232,13 +4083,9 @@ arrowsize
 \color none
 bgcolor
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10253,15 +4100,11 @@ bgcolor
 \color none
 colorscheme
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10276,13 +4119,9 @@ colorscheme
 \color none
 arrowtail
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10297,13 +4136,9 @@ arrowtail
 \color none
 center
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10318,15 +4153,11 @@ center
 \color none
 comment
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10341,13 +4172,9 @@ comment
 \color none
 color
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10362,13 +4189,9 @@ color
 \color none
 charset
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10383,15 +4206,11 @@ charset
 \color none
 distortion
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10406,13 +4225,9 @@ distortion
 \color none
 colorscheme
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10427,13 +4242,9 @@ colorscheme
 \color none
 color
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10448,15 +4259,11 @@ color
 \color none
 fillcolor
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10471,13 +4278,9 @@ fillcolor
 \color none
 comment
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10492,13 +4295,9 @@ comment
 \color none
 colorscheme
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10513,15 +4312,11 @@ colorscheme
 \color none
 fixedsize
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10536,13 +4331,9 @@ fixedsize
 \color none
 decorate
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10557,13 +4348,9 @@ decorate
 \color none
 comment
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10578,15 +4365,11 @@ comment
 \color none
 fontcolor
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10601,13 +4384,9 @@ fontcolor
 \color none
 dir
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10622,13 +4401,9 @@ dir
 \color none
 concentrate
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10643,16 +4418,12 @@ concentrate
 \color none
 fontname
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10665,15 +4436,11 @@ fontname
 \noun off
 \color none
 fillcolor
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10687,13 +4454,9 @@ fillcolor
 \color none
 fillcolor
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10708,16 +4471,12 @@ fillcolor
 \color none
 fontsize
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10730,15 +4489,11 @@ fontsize
 \noun off
 \color none
 fontcolor
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10752,13 +4507,9 @@ fontcolor
 \color none
 fontcolor
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10773,16 +4524,12 @@ fontcolor
 \color none
 gradientangle
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10795,15 +4542,11 @@ gradientangle
 \noun off
 \color none
 fontname
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -10817,13 +4560,9 @@ fontname
 \color none
 fontname
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10838,15 +4577,11 @@ fontname
 \color none
 height
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10861,13 +4596,9 @@ height
 \color none
 fontsize
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10882,13 +4613,9 @@ fontsize
 \color none
 fontpath
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10903,15 +4630,11 @@ fontpath
 \color none
 image
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10926,13 +4649,9 @@ image
 \color none
 gradientangle
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10947,13 +4666,9 @@ gradientangle
 \color none
 fontsize
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10968,15 +4683,11 @@ fontsize
 \color none
 imagescale
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -10991,13 +4702,9 @@ imagescale
 \color none
 headclip
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11012,13 +4719,9 @@ headclip
 \color none
 forcelabels
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11033,15 +4736,11 @@ forcelabels
 \color none
 label
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11056,13 +4755,9 @@ label
 \color none
 headlabel
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11077,13 +4772,9 @@ headlabel
 \color none
 gradientangle
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11098,15 +4789,11 @@ gradientangle
 \color none
 labelloc
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11121,13 +4808,9 @@ labelloc
 \color none
 headport
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11142,13 +4825,9 @@ headport
 \color none
 imagepath
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11163,16 +4842,12 @@ imagepath
 \color none
 layer
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -11185,15 +4860,11 @@ layer
 \noun off
 \color none
 label
-
-
 
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -11207,13 +4878,9 @@ label
 \color none
 label
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11228,15 +4895,11 @@ label
 \color none
 margin
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11251,13 +4914,9 @@ margin
 \color none
 labelangle
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11272,13 +4931,9 @@ labelangle
 \color none
 labeljust
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11293,15 +4948,11 @@ labeljust
 \color none
 nojustify
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11316,13 +4967,9 @@ nojustify
 \color none
 labeldistance
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11337,13 +4984,9 @@ labeldistance
 \color none
 labelloc
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11358,15 +5001,11 @@ labelloc
 \color none
 orientation
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11381,13 +5020,9 @@ orientation
 \color none
 labelfloat
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11402,13 +5037,9 @@ labelfloat
 \color none
 landscape
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11423,15 +5054,11 @@ landscape
 \color none
 penwidth
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11446,13 +5073,9 @@ penwidth
 \color none
 labelfontcolor
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11467,13 +5090,9 @@ labelfontcolor
 \color none
 layerlistsep
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11488,15 +5107,11 @@ layerlistsep
 \color none
 peripheries
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11511,13 +5126,9 @@ peripheries
 \color none
 labelfontname
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11532,13 +5143,9 @@ labelfontname
 \color none
 layers
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11553,15 +5160,11 @@ layers
 \color none
 pos
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11576,13 +5179,9 @@ pos
 \color none
 labelfontsize
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11597,13 +5196,9 @@ labelfontsize
 \color none
 layerselect
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11618,15 +5213,11 @@ layerselect
 \color none
 regular
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11641,13 +5232,9 @@ regular
 \color none
 layer
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11662,13 +5249,9 @@ layer
 \color none
 layersep
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11683,15 +5266,11 @@ layersep
 \color none
 samplepoints
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11706,13 +5285,9 @@ samplepoints
 \color none
 nojustify
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11727,13 +5302,9 @@ nojustify
 \color none
 layout
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11748,15 +5319,11 @@ layout
 \color none
 shape
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11771,13 +5338,9 @@ shape
 \color none
 penwidth
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11792,13 +5355,9 @@ penwidth
 \color none
 margin
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11813,15 +5372,11 @@ margin
 \color none
 shapefile
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11836,13 +5391,9 @@ shapefile
 \color none
 pos
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11857,13 +5408,9 @@ pos
 \color none
 nodesep
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11878,15 +5425,11 @@ nodesep
 \color none
 sides
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11901,13 +5444,9 @@ sides
 \color none
 style
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11922,13 +5461,9 @@ style
 \color none
 nojustify
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11943,15 +5478,11 @@ nojustify
 \color none
 skew
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11966,13 +5497,9 @@ skew
 \color none
 tailclip
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -11987,13 +5514,9 @@ tailclip
 \color none
 orientation
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12008,15 +5531,11 @@ orientation
 \color none
 sortv
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12031,13 +5550,9 @@ sortv
 \color none
 taillabel
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12052,13 +5567,9 @@ taillabel
 \color none
 outputorder
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12073,15 +5584,11 @@ outputorder
 \color none
 style
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12096,13 +5603,9 @@ style
 \color none
 tailport
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12117,13 +5620,9 @@ tailport
 \color none
 pack
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12138,15 +5637,11 @@ pack
 \color none
 width
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12161,13 +5656,9 @@ width
 \color none
 weight
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12182,13 +5673,9 @@ weight
 \color none
 packmode
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12202,8 +5689,6 @@ packmode
 \noun off
 \color none
 xlabel
-
-
 
 </cell>
 </row>
@@ -12211,8 +5696,6 @@ xlabel
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
 \family roman
 \series medium
 \shape up
@@ -12226,13 +5709,9 @@ xlabel
 \color none
 xlabel
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12247,13 +5726,9 @@ xlabel
 \color none
 pad
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12268,24 +5743,15 @@ pad
 \color none
 z
 
-
-
 </cell>
 </row>
 <row>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12300,16 +5766,9 @@ z
 \color none
 page
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12317,16 +5776,9 @@ page
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12341,16 +5793,9 @@ page
 \color none
 pagedir
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12358,16 +5803,9 @@ pagedir
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12382,16 +5820,9 @@ pagedir
 \color none
 penwidth
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12399,16 +5830,9 @@ penwidth
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12423,16 +5847,9 @@ penwidth
 \color none
 quantum
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12440,16 +5857,9 @@ quantum
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12464,16 +5874,9 @@ quantum
 \color none
 ratio
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12481,16 +5884,9 @@ ratio
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12505,16 +5901,9 @@ ratio
 \color none
 rotate
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12522,16 +5911,9 @@ rotate
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12546,16 +5928,9 @@ rotate
 \color none
 size
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12563,16 +5938,9 @@ size
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12587,16 +5955,9 @@ size
 \color none
 sortv
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12604,16 +5965,9 @@ sortv
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12628,16 +5982,9 @@ sortv
 \color none
 splines
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12645,16 +5992,9 @@ splines
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12669,16 +6009,9 @@ splines
 \color none
 style
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
-
-
-
-
-
 
 </cell>
 </row>
@@ -12686,16 +6019,9 @@ style
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} usebox=}none}>
 \begin_inset Text
-
-
 
 \family roman
 \series medium
@@ -12710,46 +6036,22 @@ style
 \color none
 viewport
 
-
-
 </cell>
 <cell alignment=}center} valignment=}top} topline=}true} bottomline=}true} leftline=}true} rightline=}true} usebox=}none}>
 \begin_inset Text
 
-
-
-
-
-
 </cell>
 </row>
 </lyxtabular>
-
-
-
-
-
-
 
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles }boost_graph_cookbook_1}
 options }plain}
 
-
-
-
-
-
-
 \begin_inset CommandInset index_print
 LatexCommand printindex
 type }idx}
-
-
-
-
-
 
 \end_body
 \end_document

@@ -1115,3 +1115,79 @@ as shown in figure \ref{fig:create_path_graph.svg}:
 %  \label{fig:create_path_graph.svg}
 %\end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\triangle$ Creating a Peterson graph}
+\label{subsec:create_petersen_graph}
+\index{Create Petersen graph}
+\index{Petersen graph, create}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A Petersen graph is the first graph with interesting properties.
+
+\subsection{Graph}
+
+To create a Petersen graph, one needs five vertices and five undirected
+ edges, as depicted in figure 
+\ref{fig:create_petersen_graph}.
+
+\begin{figure}[!htbp]
+  \includegraphics[]{Petersen_graph.svg}
+  \caption{
+    A Petersen graph 
+    (from \url{https://en.wikipedia.org/wiki/Petersen_graph}) 
+  }
+  \label{fig:create_petersen_graph}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+To create a Petersen graph, the following code can be used:
+
+\lstinputlisting[
+  caption = Creating Petersen graph as depicted in figure \ref{fig:create_petersen_graph},
+  label = lst:create_petersen_graph
+]{create_petersen_graph.impl}
+\index{Create Petersen graph}
+
+\subsection{Creating such a graph}
+
+Listing \ref{lst:create_petersen_graph_demo}
+demonstrates how to use \verb;create_petersen_graph' and checks if it has the
+correct amount of edges and vertices:
+
+\lstinputlisting[
+  caption = Demonstration of create\_k3\_graph,
+  label = lst:create_petersen_graph_demo
+]{create_petersen_graph_demo.impl}
+
+\subsection{The .dot file produced}
+\label{subsec:create_petersen_graph.dot}
+
+This graph can be converted to the .dot file as shown in algorithm 
+\ref{lst:create_petersen_graph.dot}:
+
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = .dot file created from the create\_petersen\_graph function (algorithm \ref{lst:create_petersen_graph}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+%  label = lst:create_petersen_graph.dot
+%]{create_petersen_graph.dot}
+
+\subsection{The .svg file produced}
+\label{subsec:create_petersen.svg}
+
+This .dot file can be converted to the .svg as shown in figure 
+\ref{fig:create_petersen_graph.svg}:
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_petersen_graph.svg}
+  \caption{
+    .svg file created from the create\_petersen\_graph function 
+    (algorithm \ref{lst:create_petersen_graph}) its .dot file, 
+    converted from .dot file to .svg using algorithm 
+    \ref{lst:convert_dot_to_svg}
+  }
+  \label{fig:create_petersen_graph.svg}
+\end{figure}
+
