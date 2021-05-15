@@ -34,6 +34,27 @@ jobs:
       - name: run tests without graphviz
         run: ./boost_graph_cookbook_1_test_no_graphviz
 
+      - name: What do we have here?
+        run: ls
+
+      - name: Install codecov
+        run: sudo pip install codecov
+
+      - name: Move function notes
+        run: |
+          cp debug/*.gcda .
+          cp debug/*.gcno .
+          cp debug/*.o .
+
+      - name: Get code coverage notes
+        run : ./get_code_cov.sh >/dev/null
+
+      - name: Get code coverage
+        run : codecov >/dev/null
+
+      - name: Submit code coverage to codecov
+        run : bash <(curl -s https://codecov.io/bash) > /dev/null
+
 # Not yet
 #      - name: Setup Graphviz
 #        uses: ts-graphviz/setup-graphviz@v1
@@ -46,8 +67,6 @@ jobs:
 #  - sudo apt-get install -qq libperl-dev libjpeg62-dev libbz2-dev libwmf-dev libx11-dev libxt-dev libxext-dev libxml2-dev libfreetype6-dev libexif-dev pkg-config
 #  # cppcheck
 #  - sudo apt install cppcheck
-#  # Codecov
-#  - sudo pip install codecov
 #  # gdb
 #  - gdb -v
 #  # OCLint
@@ -71,23 +90,11 @@ jobs:
 #  #- qmake boost_graph_cookbook_1/boost_graph_cookbook_1.pro
 #  #- make --silent debug
 #  #- ./boost_graph_cookbook_1
-#  # Prepare to get code coverag
-#  - cp debug/*.gcda boost_graph_cookbook_1 # Will this work?
-#  - cp debug/*.gcno boost_graph_cookbook_1 # Will this work?
-#  - cp debug/*.o boost_graph_cookbook_1 # Will this work?
-#  - cp debug/*.gcda . # Will this work?
-#  - cp debug/*.gcno . # Will this work?
-#  - cp debug/*.o . # Will this work?
-#  # Get code coverage
-#  - ./get_code_cov.sh >/dev/null
-#  - travis_wait 20 codecov >/dev/null
 #  # cppcheck
 #  - cppcheck --quiet --error-exitcode=1 . 
 #  # Call OCLint, takes to long...
 #  # - travis_wait 60 ./do_oclint.sh
 #
-#after_success:
-#  - travis_wait 20 bash <(curl -s https://codecov.io/bash) > /dev/null
 #
 #after_failure:
 #  - pdflatex -v
