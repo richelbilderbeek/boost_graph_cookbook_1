@@ -1,156 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Adding a vertex}
-\label{subsec:add_vertex}
-\index{Add a vertex}
-\index{Vertex, add}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Empty graphs are nice, now its time to add a vertex!
-
-
-
-To add a vertex to a graph, the boost::add_vertex
-\index{boost::add_vertex
-
-
-
-
- function is used as shows in algorithm 
-\ref{lst:add_vertex}
-
-
-
-:
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{add_vertex.impl}
-
-
-
-
-
-
-
-
-
-
-
-Adding a vertex to a graph
-\index{Add vertex}
-
-
-
-
-
-\label{lst:add_vertex}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The static_assert
-\index{static_assert}
-
-
-
-
- at the top of the function checks during compiling if the function is called
- with a non-const graph.
- One can freely omit this static_assert: you will get a compiler error anyways,
- be it a less helpful one.
-
-
-
-Note that boost::add_vertex (in the \verb;add_vertex' function) returns a vertex
- descriptor, which is ignored for now.
- Vertex descriptors are looked at in more details at the chapter 
-\ref{subsec:Vertex-descriptors}
-
-
-
-, as we need these to add an edge.
- To allow for this already, \verb;add_vertex' also returns a vertex descriptor.
- 
-
-
-
-Listing 
-\ref{lst:add_vertex_demo}
-
-
-
- shows how to add a vertex to a directed and undirected graph.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{add_vertex_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of the \verb;add_vertex' function
-\label{lst:add_vertex_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This demonstration code creates two empty graphs, adds one vertex to each
- and then \verb;assert;s that the number of vertices in each graph is one.
- This works for both types of graphs, as all graphs have vertices.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Vertex descriptors}
 \label{subsec:Vertex-descriptors}
-
-
-
-
 \index{Vertex descriptor}
 
 
@@ -1424,7 +1274,7 @@ Instead of typing the complete type, we call the \verb;create_empty_directed_gra
 
 
 
-) created by two boost::add_vertex
+) created by two \verb;boost::add_vertex;
 \index{boost::add_vertex
 
 
@@ -1862,7 +1712,7 @@ h' function and let auto figure it out.
 
 
 
-) created by two boost::add_vertex
+) created by two \verb;boost::add_vertex;
 \index{boost::add_vertex
 
 

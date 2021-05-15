@@ -186,8 +186,7 @@ Congratulations, you've just created a
 \verb;boost::adjacency_list; \index{boost::adjacency\_list}
 with its default template arguments.
 The \verb;boost::adjacency_list; is the most commonly used graph type, the other
-is the 
-\verb;boost::adjacency_matrix; \index{boost::adjacency\_matrix}.
+is the \verb;boost::adjacency_matrix; \index{boost::adjacency\_matrix}.
 
 We do not do anything with it yet, but still, you've just created a graph,
 in which:
@@ -375,4 +374,49 @@ to measure the number of edges of an empty directed and undirected graph.
   caption = Demonstration of the get\_n\_edges function,
   label = lst:get_n_edges_demo
 ]{get_n_edges_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Adding a vertex}
+\label{subsec:add_vertex}
+\index{Add a vertex}
+\index{Vertex, add}
+\index{Add vertex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Empty graphs are nice, now its time to add a vertex!
+
+To add a vertex to a graph, 
+the \verb;boost::add_vertex; \index{boost::add_vertex}
+function is used as shows in algorithm \ref{lst:add_vertex}:
+
+\lstinputlisting[
+  caption = Adding a vertex to a graph,
+  label = lst:add_vertex
+]{add_vertex.impl}
+
+The \verb;static_assert; \index{static\_assert}
+at the top of the function checks during compiling if the function is called
+with a non-const graph.
+One can freely omit this \verb;static_assert;: you will get a compiler error anyways,
+be it a less helpful one.
+
+Note that \verb;boost::add_vertex; (in the \verb;add_vertex; function) 
+returns a vertex
+descriptor, which is ignored for now.
+Vertex descriptors are looked at in more details 
+at the chapter \ref{subsec:Vertex-descriptors}, 
+as we need these to add an edge.
+To allow for this already, \verb;add_vertex; also returns a vertex descriptor.
+
+Listing \ref{lst:add_vertex_demo}
+shows how to add a vertex to a directed and undirected graph.
+
+\lstinputlisting[
+  caption = Demonstration of the add\_vertex function,
+  label = lst:add_vertex_demo
+]{add_vertex_demo.impl}
+
+This demonstration code creates two empty graphs, adds one vertex to each
+and then \verb;assert;s that the number of vertices in each graph is one.
+This works for both types of graphs, as all graphs have vertices.
 
