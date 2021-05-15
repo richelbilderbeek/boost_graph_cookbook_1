@@ -1,210 +1,5 @@
 
-
-
-
-\subsection{Creating an empty undirected graph}
-\label{subsec:create_empty_undirected_graph}
-
-
-
-
-\index{Create an empty graph}
-
-
-
-
-
-\index{Empty graph, create}
-
-
-
-
-
-
-
-
-Let's create another empty graph! This time, we even make it undirected!
-
-
-
-Listing 
-\ref{lst:create_empty_undirected_graph}
-
-
-
- shows how to create an undirected graph.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_undirected_graph.impl}
-
-
-
-
-
-
-
-
-\begin_inset Caption Standard
-
-
-Creating an empty undirected graph
-\index{Create empty undirected graph}
-
-
-
-
-
-\label{alg:create_empty_undirected_graph}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This algorithm differs from the \verb;create_empty_directed_graph' function (algorith
-m 
-\ref{lst:create_empty_directed_graph}
-
-
-
-) in that there are three template arguments that need to be specified in
- the creation of the boost::adjacency_list:
-
-
-\begin{itemize}
-the first \verb;boost::vecS'
-\index{boost::vecS}
-
-
-
-
-: select (that is what the \verb;S
-\index{S}
-
-
-
-
-' means) that out edges are stored in a std::vector.
- This is the default way.
-
-
-\begin{itemize}
-the second \verb;boost::vecS'
-\index{boost::vecS}
-
-
-
-
-: select that the graph vertices are stored in a std::vector.
- This is the default way.
-
-
-\begin{itemize}
-\verb;boost::undirectedS'
-\index{boost::undirectedS}
-
-
-
-
-: select that the graph is undirected.
- This is all we needed to change.
- By default, this argument is boost::directed 
-\index{boost::directedS}
-
-
-
-
-
-
-
-
-Listing 
-\ref{lst:create_empty_undirected_graph_demo}
-
-
-
- demonstrates the \verb;create_empty_undirected_graph' function.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_undirected_graph_demo.impl}
-
-
-
-
-
-
-
-
-\begin_inset Caption Standard
-
-
-Demonstration of \verb;create_empty_undirected_graph'
-\label{alg:create_empty_undirected_graph_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Congratulations, with algorithm 
-\ref{lst:create_empty_undirected_graph_demo}
-
-
-
-, you've just created an undirected graph in which:
-
-
-\begin{itemize}
-The out edges and vertices are stored in a std::vector
-
-
-\begin{itemize}
-The graph is undirected
-
-
-\begin{itemize}
-Vertices, edges and graph have no properties
-
-
-\begin{itemize}
-Edges are stored in a std::list 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Counting the number of vertices}
 \label{subsec:get_n_vertices}
 
@@ -261,7 +56,7 @@ Count the number of vertices
 
 
 
-\label{alg:get_n_vertices}
+\label{lst:get_n_vertices}
 
 
 
@@ -411,7 +206,7 @@ The function \verb;get_n_vertices' is demonstrated in algorithm
 
 
 Demonstration of the \verb;get_n_vertices' function
-\label{alg:get_n_vertices_demo}
+\label{lst:get_n_vertices_demo}
 
 
 
@@ -435,7 +230,7 @@ Note that the type of graph does not matter here.
  Boost.Graph is very good at detecting operations that are not allowed, during
  compile time.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Counting the number of edges}
 \label{subsec:get_n_edges}
 
@@ -502,7 +297,7 @@ Count the number of edges
 
 
 
-\label{alg:get_n_edges}
+\label{lst:get_n_edges}
 
 
 
@@ -564,7 +359,7 @@ The function \verb;get_n_edges' is demonstrated in algorithm
 
 
 Demonstration of the \verb;get_n_edges' function
-\label{alg:get_n_edges_demo}
+\label{lst:get_n_edges_demo}
 
 
 
@@ -579,7 +374,7 @@ Demonstration of the \verb;get_n_edges' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Adding a vertex}
 \label{subsec:add_vertex}
 
@@ -645,7 +440,7 @@ Adding a vertex to a graph
 
 
 
-\label{alg:add_vertex}
+\label{lst:add_vertex}
 
 
 
@@ -717,7 +512,7 @@ Listing
 
 
 Demonstration of the \verb;add_vertex' function
-\label{alg:add_vertex_demo}
+\label{lst:add_vertex_demo}
 
 
 
@@ -739,7 +534,7 @@ This demonstration code creates two empty graphs, adds one vertex to each
  and then asserts that the number of vertices in each graph is one.
  This works for both types of graphs, as all graphs have vertices.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Vertex descriptors}
 \label{subsec:Vertex-descriptors}
 
@@ -818,7 +613,7 @@ In this tutorial, vertex descriptors have named prefixed with \verb;vd_'
 
 , for example \verb;vd_1'.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{}
 Get the vertex iterators
 \label{subsec:get_vertices}
@@ -929,7 +724,7 @@ Get the vertex iterators of a graph
 
 
 
-\label{alg:get_vertex_iterators}
+\label{lst:get_vertex_iterators}
 
 
 
@@ -996,7 +791,7 @@ These vertex iterators can be dereferenced to obtain the vertex descriptors.
 
 
 Demonstration of \verb;get_vertex_iterators'
-\label{alg:get_vertex_iterators_demo}
+\label{lst:get_vertex_iterators_demo}
 
 
 
@@ -1012,7 +807,7 @@ Demonstration of \verb;get_vertex_iterators'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get all vertex descriptors}
 \label{subsec:get_vertex_descriptors}
 
@@ -1074,7 +869,7 @@ Get all vertex descriptors of a graph
 
 
 
-\label{alg:get_vertex_descriptors}
+\label{lst:get_vertex_descriptors}
 
 
 
@@ -1187,7 +982,7 @@ Listing
 
 
 Demonstration of \verb;get_vertex_descriptors'
-\label{alg:get_vertex_descriptors_demo}
+\label{lst:get_vertex_descriptors_demo}
 
 
 
@@ -1208,7 +1003,7 @@ Demonstration of \verb;get_vertex_descriptors'
 Because all graphs have vertices and thus vertex descriptors, the type of
  graph is unimportant for this code to compile.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Add an edge}
 \label{subsec:add_edge}
 
@@ -1284,7 +1079,7 @@ Adding (two vertices and) an edge to a graph
 
 
 
-\label{alg:add_edge}
+\label{lst:add_edge}
 
 
 
@@ -1380,7 +1175,7 @@ A demonstration of add_edge is shown in algorithm
 
 
 Demonstration of \verb;add_edge'
-\label{alg:add_edge_demo}
+\label{lst:add_edge_demo}
 
 
 
@@ -1401,7 +1196,7 @@ Demonstration of \verb;add_edge'
 The graph type is unimportant: as all graph types have vertices and edges,
  edges can be added without possible compile problems.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{boost::add_edge result}
 \label{subsec:boost::add_edge result}
 
@@ -1436,7 +1231,7 @@ In this tutorial, boost::add_edge results have named prefixed with \verb;aer_'
 
 , for example \verb;aer_1'.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the edge iterators}
 \label{subsec:get_edge_iterators}
 
@@ -1527,7 +1322,7 @@ Get the edge iterators of a graph
 
 
 
-\label{alg:get_edge_iterators}
+\label{lst:get_edge_iterators}
 
 
 
@@ -1587,7 +1382,7 @@ Listing
 
 
 Demonstration of \verb;get_edge_iterators'
-\label{alg:get_edge_iterators_demo}
+\label{lst:get_edge_iterators_demo}
 
 
 
@@ -1603,7 +1398,7 @@ Demonstration of \verb;get_edge_iterators'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Edge descriptors}
 \label{subsec:Edge-descriptors}
 
@@ -1643,7 +1438,7 @@ In this tutorial, edge descriptors have named prefixed with \verb;ed_'
 
 , for example \verb;ed_1'.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get all edge descriptors}
 \label{subsec:get_edge_descriptors}
 
@@ -1705,7 +1500,7 @@ Get all edge descriptors of a graph
 
 
 
-\label{alg:get_edge_descriptors}
+\label{lst:get_edge_descriptors}
 
 
 
@@ -1776,7 +1571,7 @@ Listing
 
 
 Demonstration of get_edge_descriptors
-\label{alg:get_edge_descriptors_demo}
+\label{lst:get_edge_descriptors_demo}
 
 
 
@@ -1792,7 +1587,7 @@ Demonstration of get_edge_descriptors
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating a directed graph}
 \label{subsec:create_markov_chain_graph}
 
@@ -1994,7 +1789,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-\label{alg:create_markov_chain_graph}
+\label{lst:create_markov_chain_graph}
 
 
 
@@ -2012,7 +1807,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-Instead of typing the complete type, we call the \verb;create_empty_directed_graph'
+Instead of typing the complete type, we call the \verb;create_empty_directed_graph;
  function, and let auto figure out the type.
  The vertex descriptors (see chapter 
 \ref{subsec:Vertex-descriptors}
@@ -2153,7 +1948,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_markov_chain.dot}
+\label{lst:create_markov_chain.dot}
 
 
 
@@ -2254,7 +2049,7 @@ status open
 This figure shows that the graph in directed, as the edges have arrow heads.
  The vertices display the node index, which is the default behavior.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
 \label{subsec:create_k2_graph}
 
@@ -2426,7 +2221,7 @@ Creating
 
 
 
-\label{alg:create_k2_graph}
+\label{lst:create_k2_graph}
 
 
 
@@ -2517,7 +2312,7 @@ Listing
 
 
 Demonstration of \verb;create_k2_graph' 
-\label{alg:create_k2_graph_demo}
+\label{lst:create_k2_graph_demo}
 
 
 
@@ -2583,7 +2378,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_k2_graph.dot}
+\label{lst:create_k2_graph.dot}
 
 
 
@@ -2686,7 +2481,7 @@ Also this figure shows that the graph in undirected, otherwise the edge
  would have one or two arrow heads.
  The vertices display the node index, which is the default behavior.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
 \label{subsec:create_k3_graph}
 
@@ -2881,7 +2676,7 @@ Creating
 
 
 
-\label{alg:create_k3_graph}
+\label{lst:create_k3_graph}
 
 
 
@@ -2932,7 +2727,7 @@ Listing
 
 
 Demonstration of \verb;create_k3_graph' 
-\label{alg:create_k3_graph_demo}
+\label{lst:create_k3_graph_demo}
 
 
 
@@ -2997,7 +2792,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_k3_graph.dot}
+\label{lst:create_k3_graph.dot}
 
 
 
@@ -3080,7 +2875,7 @@ status open
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Creating a path graph}
 \label{subsec:create_path_graph}
 
@@ -3282,7 +3077,7 @@ Creating a path graph as depicted in figure
 
 
 
-\label{alg:create_path_graph}
+\label{lst:create_path_graph}
 
 
 
@@ -3333,7 +3128,7 @@ Listing
 
 
 Demonstration of \verb;create_path_graph' 
-\label{alg:create_path_graph_demo}
+\label{lst:create_path_graph_demo}
 
 
 
@@ -3398,7 +3193,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_path_graph.dot}
+\label{lst:create_path_graph.dot}
 
 
 
@@ -3480,7 +3275,7 @@ status open
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Creating a Peterson graph}
 \label{subsec:create_petersen_graph}
 
@@ -3607,7 +3402,7 @@ Creating Petersen graph as depicted in figure
 
 
 
-\label{alg:create_petersen_graph}
+\label{lst:create_petersen_graph}
 
 
 
@@ -3658,7 +3453,7 @@ Listing
 
 
 Demonstration of \verb;create_k3_graph' 
-\label{alg:create_petersen_graph_demo}
+\label{lst:create_petersen_graph_demo}
 
 
 
@@ -3723,7 +3518,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_petersen_graph.dot}
+\label{lst:create_petersen_graph.dot}
 
 
 
@@ -3866,7 +3661,7 @@ Loading a directed graph without properties from .dot file: see chapter
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the vertices' out degree}
 \label{subsec:get_vertex_out_degrees}
 
@@ -3972,7 +3767,7 @@ Get the vertices' out degrees
 
 
 
-\label{alg:get_vertex_out_degrees}
+\label{lst:get_vertex_out_degrees}
 
 
 
@@ -4047,7 +3842,7 @@ Albeit that the
 
 
 Demonstration of the \verb;get_vertex_out_degrees' function
-\label{alg:get_vertex_out_degrees_demo}
+\label{lst:get_vertex_out_degrees_demo}
 
 
 
@@ -4072,7 +3867,7 @@ It is expected that
  has one out-degree for every vertex, where the two-state Markov chain is
  expected to have two out-degrees per vertex.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Is there an edge between two vertices?}
 \label{subsec:has_edge_between_vertices}
 
@@ -4112,7 +3907,7 @@ Check if there exists an edge between two vertices
 
 
 
-\label{alg:has_edge_between_vertices}
+\label{lst:has_edge_between_vertices}
 
 
 
@@ -4177,7 +3972,7 @@ The demo shows that there is an edge between the two vertices of a
 
 
 Demonstration of the \verb;has_edge_between_vertices' function
-\label{alg:has_edge_between_vertices_demo}
+\label{lst:has_edge_between_vertices_demo}
 
 
 
@@ -4193,7 +3988,7 @@ Demonstration of the \verb;has_edge_between_vertices' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Get the edge between two vertices}
 \label{subsec:get_edge_between_vertices}
 
@@ -4233,7 +4028,7 @@ Get the edge between two vertices
 
 
 
-\label{alg:get_edge_between_vertices}
+\label{lst:get_edge_between_vertices}
 
 
 
@@ -4279,7 +4074,7 @@ The demo shows how to get the edge between two vertices, deleting it, and
 
 
 Demonstration of the \verb;get_edge_between_vertices' function
-\label{alg:get_edge_between_vertices_demo}
+\label{lst:get_edge_between_vertices_demo}
 
 
 
@@ -4295,7 +4090,7 @@ Demonstration of the \verb;get_edge_between_vertices' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor}
 \label{subsec:create_direct_neighbour_subgraph}
 
@@ -4343,7 +4138,7 @@ Get the direct-neighbour subgraph from a vertex descriptor
 
 
 
-\label{alg:create_direct_neighbour_subgraph}
+\label{lst:create_direct_neighbour_subgraph}
 
 
 
@@ -4394,7 +4189,7 @@ This demonstration code shows that the direct-neighbour graph of each vertex
 
 
 Demo of the \verb;create_direct_neighbour_subgraph' function
-\label{alg:create_direct_neighbour_subgraph_demo}
+\label{lst:create_direct_neighbour_subgraph_demo}
 
 
 
@@ -4421,7 +4216,7 @@ Note that this algorithm works on both undirected and directional graphs.
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor including inward edges}
 \label{subsec:create_direct_neighbour_subgraph_including_in_edges}
 
@@ -4460,7 +4255,7 @@ Get the direct-neighbour subgraph from a vertex descriptor
 
 
 
-\label{alg:create_direct_neighbour_subgraph_including_in_edges}
+\label{lst:create_direct_neighbour_subgraph_including_in_edges}
 
 
 
@@ -4476,7 +4271,7 @@ Get the direct-neighbour subgraph from a vertex descriptor
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties}
 \label{subsec:create_all_direct_neighbour_subgraphs}
 
@@ -4516,7 +4311,7 @@ Create all direct-neighbour subgraphs from a graph without properties
 
 
 
-\label{alg:create_all_direct_neighbour_subgraphs}
+\label{lst:create_all_direct_neighbour_subgraphs}
 
 
 
@@ -4567,7 +4362,7 @@ This demonstration code shows that all two direct-neighbour graphs of a
 
 
 Demo of the \verb;create_all_direct_neighbour_subgraphs' function
-\label{alg:create_all_direct_neighbour_subgraphs_demo}
+\label{lst:create_all_direct_neighbour_subgraphs_demo}
 
 
 
@@ -4583,7 +4378,7 @@ Demo of the \verb;create_all_direct_neighbour_subgraphs' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Are two graphs isomorphic?}
 \label{subsec:is_isomorphic}
 
@@ -4623,7 +4418,7 @@ Check if two graphs are isomorphic
 
 
 
-\label{alg:is_isomorphic}
+\label{lst:is_isomorphic}
 
 
 
@@ -4668,7 +4463,7 @@ This demonstration code shows that a
 
 
 Demo of the \verb;is_isomorphic' function
-\label{alg:is_isomorphic_demo}
+\label{lst:is_isomorphic_demo}
 
 
 
@@ -4684,7 +4479,7 @@ Demo of the \verb;is_isomorphic' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of connected components in an directed graph}
 \label{subsec:count_directed_graph_connected_components}
 
@@ -4827,7 +4622,7 @@ Count the number of connected components
 
 
 
-\label{alg:count_directed_graph_connected_components}
+\label{lst:count_directed_graph_connected_components}
 
 
 
@@ -4877,7 +4672,7 @@ This demonstration code shows that two solitary edges are correctly counted
 
 
 Demo of the \verb;count_directed_graph_connected_components' function
-\label{alg:count_directed_graph_connected_components_demo}
+\label{lst:count_directed_graph_connected_components_demo}
 
 
 
@@ -4893,7 +4688,7 @@ Demo of the \verb;count_directed_graph_connected_components' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of connected components in an undirected graph}
 \label{subsec:count_undirected_graph_connected_components}
 
@@ -5016,7 +4811,7 @@ Count the number of connected components
 
 
 
-\label{alg:count_undirected_graph_connected_components}
+\label{lst:count_undirected_graph_connected_components}
 
 
 
@@ -5066,7 +4861,7 @@ This demonstration code shows that two solitary edges are correctly counted
 
 
 Demo of the \verb;count_undirected_graph_connected_components' function
-\label{alg:count_undirected_graph_connected_components_demo}
+\label{lst:count_undirected_graph_connected_components_demo}
 
 
 
@@ -5082,7 +4877,7 @@ Demo of the \verb;count_undirected_graph_connected_components' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$$\triangle$ Count the number of levels in an undirected graph}
 \label{subsec:count_undirected_graph_levels}
 
@@ -5217,7 +5012,7 @@ Count the number of levels in an undirected graph
 
 
 
-\label{alg:count_undirected_graph_levels}
+\label{lst:count_undirected_graph_levels}
 
 
 
@@ -5261,7 +5056,7 @@ This demonstration code shows the number of levels from a certain vertex,
 
 
 Demo of the \verb;count_undirected_graph_levels' function
-\label{alg:count_undirected_graph_levels_demo}
+\label{lst:count_undirected_graph_levels_demo}
 
 
 
@@ -5277,7 +5072,7 @@ Demo of the \verb;count_undirected_graph_levels' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Saving a graph to a .dot file}
 \label{subsec:save_graph_to_dot}
 
@@ -5350,7 +5145,7 @@ Saving a graph to a .dot file
 
 
 
-\label{alg:save_graph_to_dot}
+\label{lst:save_graph_to_dot}
 
 
 
@@ -5419,7 +5214,7 @@ Listing
 
 
 Demonstration of the \verb;save_graph_to_dot' function
-\label{alg:save_graph_to_dot_demo}
+\label{lst:save_graph_to_dot_demo}
 
 
 
@@ -5451,7 +5246,7 @@ When using the \verb;save_graph_to_dot' function (algorithm
 
  shows how to do so.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading a directed graph from a .dot}
 \label{subsec:load_directed_graph_from_dot}
 
@@ -5508,7 +5303,7 @@ Loading a directed graph from a .dot file
 
 
 
-\label{alg:load_directed_graph_from_dot}
+\label{lst:load_directed_graph_from_dot}
 
 
 
@@ -5598,7 +5393,7 @@ Listing
 
 
 Demonstration of the \verb;load_directed_graph_from_dot' function
-\label{alg:load_directed_graph_from_dot_demo}
+\label{lst:load_directed_graph_from_dot_demo}
 
 
 
@@ -5625,7 +5420,7 @@ v_chain_graph' function (algorithm
 ), saved and then loaded.
  The loaded graph is then checked to be a two-state Markov chain.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading an undirected graph from a .dot file}
 \label{subsec:load_undirected_graph_from_dot}
 
@@ -5688,7 +5483,7 @@ Loading an undirected graph from a .dot file
 
 
 
-\label{alg:load_undirected_graph_from_dot}
+\label{lst:load_undirected_graph_from_dot}
 
 
 
@@ -5746,7 +5541,7 @@ Listing
 
 
 Demonstration of the \verb;load_undirected_graph_from_dot' function
-\label{alg:load_undirected_graph_from_dot_demo}
+\label{lst:load_undirected_graph_from_dot_demo}
 
 
 
@@ -5879,7 +5674,7 @@ Getting the vertices \verb;my_bundled_vertex'-es: see chapter
 These functions are mostly there for completion and showing which data types
  are used.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating the bundled vertex class}
 \label{subsec:my_bundled_vertex}
 
@@ -5945,7 +5740,7 @@ Declaration of my_bundled_vertex
 
 
 
-\label{alg:my_bundled_vertex_h}
+\label{lst:my_bundled_vertex_h}
 
 
 
@@ -5999,7 +5794,7 @@ It is comparable for equality (it has operator==), which is needed for searching
 \verb;my_bundled_vertex' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create the empty directed graph with bundled vertices}
 \label{subsec:create_empty_directed_bundled_vertices_graph}
 
@@ -6034,7 +5829,7 @@ Creating an empty directed graph with bundled vertices
 
 
 
-\label{alg:create_empty_directed_bundled_vertices_graph}
+\label{lst:create_empty_directed_bundled_vertices_graph}
 
 
 
@@ -6125,7 +5920,7 @@ vertices have a bundled type called my_bundled_vertex
 
 .
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create the empty undirected graph with bundled vertices}
 \label{subsec:create_empty_undirected_bundled_vertices_graph}
 
@@ -6160,7 +5955,7 @@ Creating an empty undirected graph with bundled vertices
 
 
 
-\label{alg:create_empty_undirected_bundled_vertices_graph}
+\label{lst:create_empty_undirected_bundled_vertices_graph}
 
 
 
@@ -6192,7 +5987,7 @@ This code is very similar to the code described in chapter
 
 ).
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Add a bundled vertex}
 \label{subsec:add_bundled_vertex}
 
@@ -6237,7 +6032,7 @@ Add a bundled vertex
 
 
 
-\label{alg:add_bundled_vertex}
+\label{lst:add_bundled_vertex}
 
 
 
@@ -6258,7 +6053,7 @@ Add a bundled vertex
 When having added a new (abstract) vertex to the graph, the vertex descriptor
  is used to set the \verb;my_bundled_vertex' in the graph.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the bundled vertices' my_vertexes}
 
 \footnote{the name \verb;my_vertexes' is chosen to indicate this function returns a container
@@ -6306,7 +6101,7 @@ Get the bundled vertices' my_vertexes
 
 
 
-\label{alg:get_my_bundled_vertexes}
+\label{lst:get_my_bundled_vertexes}
 
 
 
@@ -6342,7 +6137,7 @@ When trying to get the vertices' my_bundled_vertex from a graph without
 
 ).
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating a two-state Markov chain with bundled vertices}
 \label{subsec:create_bundled_vertices_markov_chain}
 
@@ -6516,7 +6311,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-\label{alg:create_bundled_vertices_markov_chain}
+\label{lst:create_bundled_vertices_markov_chain}
 
 
 
@@ -6566,7 +6361,7 @@ Demo of the \verb;create_bundled_vertices_markov_chain' function (algorithm
 
 
 )
-\label{alg:create_bundled_and_vertices_markov_chain_demo}
+\label{lst:create_bundled_and_vertices_markov_chain_demo}
 
 
 
@@ -6618,7 +6413,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_bundled_vertices_markov_chain.dot}
+\label{lst:create_bundled_vertices_markov_chain.dot}
 
 
 
@@ -6687,7 +6482,7 @@ status open
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{2}$ with bundled vertices}
 \label{subsec:create_bundled_vertices_k2_graph}
 
@@ -6841,7 +6636,7 @@ Creating
 
 
 
-\label{alg:create_bundled_vertices_k2_graph}
+\label{lst:create_bundled_vertices_k2_graph}
 
 
 
@@ -6903,7 +6698,7 @@ Demo of the \verb;create_bundled_vertices_k2_graph' function (algorithm
 
 
 )
-\label{alg:create_bundled_vertices_k2_graph_demo}
+\label{lst:create_bundled_vertices_k2_graph_demo}
 
 
 
@@ -6955,7 +6750,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_bundled_vertices_k2_graph.dot-1}
+\label{lst:create_bundled_vertices_k2_graph.dot-1}
 
 
 
@@ -7117,7 +6912,7 @@ Loading an undirected directed graph with bundled vertices from a .dot file:
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Has a bundled vertex with a my_bundled_vertex}
 \label{subsec:has_bundled_vertex_with_my_vertex}
 
@@ -7160,7 +6955,7 @@ Find if there is vertex with a certain my_bundled_vertex
 
 
 
-\label{alg:has_bundled_vertex_with_my_vertex}
+\label{lst:has_bundled_vertex_with_my_vertex}
 
 
 
@@ -7207,7 +7002,7 @@ This function can be demonstrated as in algorithm
 
 
 Demonstration of the \verb;has_bundled_vertex_with_my_vertex' function
-\label{alg:has_bundled_vertex_with_my_vertex_demo}
+\label{lst:has_bundled_vertex_with_my_vertex_demo}
 
 
 
@@ -7229,7 +7024,7 @@ Note that this function only finds if there is at least one bundled vertex
  with that my_bundled_vertex: it does not tell how many bundled vertices
  with that my_bundled_vertex exist in the graph.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Find a bundled vertex with a certain my_bundled_vertex}
 \label{subsec:find_bundled_vertex_with_my_vertex}
 
@@ -7281,7 +7076,7 @@ Find the first vertex with a certain my_bundled_vertex
 
 
 
-\label{alg:find_first_bundled_vertex_with_my_vertex}
+\label{lst:find_first_bundled_vertex_with_my_vertex}
 
 
 
@@ -7329,7 +7124,7 @@ With the vertex descriptor obtained, one can read and modify the vertex
 
 
 Demonstration of the \verb;find_first_bundled_vertex_with_my_vertex' function
-\label{alg:find_first_bundled_vertex_with_my_vertex_demo}
+\label{lst:find_first_bundled_vertex_with_my_vertex_demo}
 
 
 
@@ -7345,7 +7140,7 @@ Demonstration of the \verb;find_first_bundled_vertex_with_my_vertex' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get a bundled vertex its \verb;my_bundled_vertex;}
 \label{subsec:get_bundled_vertex_my_vertex}
 
@@ -7384,7 +7179,7 @@ Get a bundled vertex its my_vertex from its vertex descriptor
 
 
 
-\label{alg:get_bundled_vertex_my_vertex}
+\label{lst:get_bundled_vertex_my_vertex}
 
 
 
@@ -7436,7 +7231,7 @@ To use \verb;get_bundled_vertex_my_vertex', one first needs to obtain a vertex
 
 
 Demonstration if the \verb;get_bundled_vertex_my_vertex' function
-\label{alg:get_bundled_vertex_my_vertex_demo}
+\label{lst:get_bundled_vertex_my_vertex_demo}
 
 
 
@@ -7452,7 +7247,7 @@ Demonstration if the \verb;get_bundled_vertex_my_vertex' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set a bundled vertex its my_vertex}
 \label{subsec:set_bundled_vertex_my_vertex}
 
@@ -7497,7 +7292,7 @@ Set a bundled vertex its my_vertex from its vertex descriptor
 
 
 
-\label{alg:set_bundled_vertex_my_vertex}
+\label{lst:set_bundled_vertex_my_vertex}
 
 
 
@@ -7545,7 +7340,7 @@ To use \verb;set_bundled_vertex_my_vertex', one first needs to obtain a vertex
 
 
 Demonstration if the \verb;set_bundled_vertex_my_vertex' function
-\label{alg:set_bundled_vertex_my_vertex_demo}
+\label{lst:set_bundled_vertex_my_vertex_demo}
 
 
 
@@ -7561,7 +7356,7 @@ Demonstration if the \verb;set_bundled_vertex_my_vertex' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Setting all bundled vertices' my_vertex objects}
 \label{subsec:set_bundled_vertex_my_vertexes}
 
@@ -7601,7 +7396,7 @@ Setting the bundled vertices' \verb;my_bundled_vertex'-es
 
 
 
-\label{alg:set_bundled_vertex_my_vertexes}
+\label{lst:set_bundled_vertex_my_vertexes}
 
 
 
@@ -7617,7 +7412,7 @@ Setting the bundled vertices' \verb;my_bundled_vertex'-es
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with bundled vertices as a .dot}
 \label{subsec:save_bundled_vertices_graph_to_dot}
 
@@ -7671,7 +7466,7 @@ Storing a graph with bundled vertices as a .dot file
 
 
 
-\label{alg:save_bundled_vertices_graph_to_dot}
+\label{lst:save_bundled_vertices_graph_to_dot}
 
 
 
@@ -7724,7 +7519,7 @@ The \verb;make_bundled_vertices_writer' function
 
 
 
-\label{alg:make_bundled_vertices_writer}
+\label{lst:make_bundled_vertices_writer}
 
 
 
@@ -7777,7 +7572,7 @@ The \verb;bundled_vertices_writer' function
 
 
 
-\label{alg:bundled_vertices_writer}
+\label{lst:bundled_vertices_writer}
 
 
 
@@ -8055,7 +7850,7 @@ The writer also encodes the std::string of the name and description to a
  Graphviz-friendly format.
  When loading the .dot file again, this will have to be undone again.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading a directed graph with bundled vertices from a .dot}
 \label{subsec:load_directed_bundled_vertices_graph_from_dot}
 
@@ -8101,7 +7896,7 @@ Loading a directed graph with bundled vertices from a .dot file
 
 
 
-\label{alg:load_directed_bundled_vertices_graph_from_dot}
+\label{lst:load_directed_bundled_vertices_graph_from_dot}
 
 
 
@@ -8177,7 +7972,7 @@ Listing
 
 
 Demonstration of the \verb;load_directed_bundled_vertices_graph_from_dot' function
-\label{alg:load_directed_bundled_vertices_graph_from_dot_demo}
+\label{lst:load_directed_bundled_vertices_graph_from_dot_demo}
 
 
 
@@ -8204,7 +7999,7 @@ ed_vertices_markov_chain' function (algorithm
 ), saved and then loaded.
  The loaded graph is checked to be the same as the original.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading an undirected graph with bundled vertices from a .dot}
 \label{subsec:load_undirected_bundled_vertices_graph_from_dot}
 
@@ -8250,7 +8045,7 @@ Loading an undirected graph with bundled vertices from a .dot file
 
 
 
-\label{alg:load_undirected_bundled_vertices_graph_from_dot}
+\label{lst:load_undirected_bundled_vertices_graph_from_dot}
 
 
 
@@ -8309,7 +8104,7 @@ Listing
 
 
 Demonstration of the \verb;load_undirected_bundled_vertices_graph_from_dot' function
-\label{alg:load_undirected_bundled_vertices_graph_from_dot_demo}
+\label{lst:load_undirected_bundled_vertices_graph_from_dot_demo}
 
 
 
@@ -8424,7 +8219,7 @@ Adding a bundled \verb;my_bundled_edge': see chapter
 These functions are mostly there for completion and showing which data types
  are used.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating the bundled edge class}
 \label{subsec:my_bundled_edge}
 
@@ -8483,7 +8278,7 @@ Declaration of my_bundled_edge
 
 
 
-\label{alg:my_bundled_edge_h}
+\label{lst:my_bundled_edge_h}
 
 
 
@@ -8523,7 +8318,7 @@ dge' is comparable for equality (that is, operator== is defined).
 \verb;my_bundled_edge' does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty directed graph with bundled edges and vertices}
 \label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
 
@@ -8558,7 +8353,7 @@ Creating an empty directed graph with bundled edges and vertices
 
 
 
-\label{alg:create_empty_directed_bundled_edges_and_vertices_graph}
+\label{lst:create_empty_directed_bundled_edges_and_vertices_graph}
 
 
 
@@ -8660,7 +8455,7 @@ Demo:
 
 Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_graph'
  function
-\label{alg:create_empty_directed_bundled_edges_and_vertices_graph_demo}
+\label{lst:create_empty_directed_bundled_edges_and_vertices_graph_demo}
 
 
 
@@ -8676,7 +8471,7 @@ Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_grap
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty undirected graph with bundled edges and vertices}
 \label{subsec:create_empty_undirected_bundled_edges_and_vertices_graph}
 
@@ -8711,7 +8506,7 @@ Creating an empty undirected graph with bundled edges and vertices
 
 
 
-\label{alg:create_empty_undirected_bundled_edges_and_vertices_graph}
+\label{lst:create_empty_undirected_bundled_edges_and_vertices_graph}
 
 
 
@@ -8769,7 +8564,7 @@ Demo:
 
 Demonstration of the \verb;create_empty_undirected_bundled_edges_and_vertices_graph'
  function
-\label{alg:create_empty_undirected_bundled_edges_and_vertices_graph_demo}
+\label{lst:create_empty_undirected_bundled_edges_and_vertices_graph_demo}
 
 
 
@@ -8785,7 +8580,7 @@ Demonstration of the \verb;create_empty_undirected_bundled_edges_and_vertices_gr
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Add a bundled edge}
 \label{subsec:add_bundled_edge}
 
@@ -8829,7 +8624,7 @@ Add a bundled edge
 
 
 
-\label{alg:add_bundled_edge}
+\label{lst:add_bundled_edge}
 
 
 
@@ -8875,7 +8670,7 @@ Here is the demo:
 
 
 Demo of \verb;add_bundled_edge'
-\label{alg:add_bundled_edge_demo}
+\label{lst:add_bundled_edge_demo}
 
 
 
@@ -8891,7 +8686,7 @@ Demo of \verb;add_bundled_edge'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the bundled edges my_edges}
 \label{subsec:get_bundled_edge_my_edges}
 
@@ -8931,7 +8726,7 @@ Get the edges' my_bundled_edges
 
 
 
-\label{alg:get_bundled_edge_my_edges}
+\label{lst:get_bundled_edge_my_edges}
 
 
 
@@ -8968,7 +8763,7 @@ When trying to get the edges' my_bundled_edge objects from a graph without
 
 ).
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating a Markov-chain with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_markov_chain}
 
@@ -9142,7 +8937,7 @@ Creating the two-state Markov chain as depicted in figure
 
 
 
-\label{alg:create_bundled_edges_and_vertices_markov_chain}
+\label{lst:create_bundled_edges_and_vertices_markov_chain}
 
 
 
@@ -9193,7 +8988,7 @@ Demo of the \verb;create_bundled_edges_and_vertices_markov_chain' function (algo
 
 
 )
-\label{alg:create_bundled_edges_and_vertices_markov_chain_demo}
+\label{lst:create_bundled_edges_and_vertices_markov_chain_demo}
 
 
 
@@ -9245,7 +9040,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_bundled_edges_and_vertices_markov_chain.dot}
+\label{lst:create_bundled_edges_and_vertices_markov_chain.dot}
 
 
 
@@ -9314,7 +9109,7 @@ status open
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating $K_{3}$  with bundled edges and vertices}
 \label{subsec:create_bundled_edges_and_vertices_k3}
 
@@ -9482,7 +9277,7 @@ Creating
 
 
 
-\label{alg:create_bundled_edges_and_vertices_k3_graph}
+\label{lst:create_bundled_edges_and_vertices_k3_graph}
 
 
 
@@ -9545,7 +9340,7 @@ Demo of the \verb;create_bundled_edges_and_vertices_k3_graph' function (algorith
 
 
 )
-\label{alg:create_bundled_edges_and_vertices_k3_graph_demo}
+\label{lst:create_bundled_edges_and_vertices_k3_graph_demo}
 
 
 
@@ -9597,7 +9392,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_bundled_edges_and_vertices_k3_graph.dot}
+\label{lst:create_bundled_edges_and_vertices_k3_graph.dot}
 
 
 
@@ -9671,7 +9466,7 @@ status open
 \section{...}
 Working on graphs with bundled edges and vertices
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Has a my_bundled_edge}
 \label{subsec:has_bundled_edge_with_my_edge}
 
@@ -9714,7 +9509,7 @@ Find if there is a bundled edge with a certain my_bundled_edge
 
 
 
-\label{alg:has_bundled_edge_with_my_edge}
+\label{lst:has_bundled_edge_with_my_edge}
 
 
 
@@ -9761,7 +9556,7 @@ This function can be demonstrated as in algorithm
 
 
 Demonstration of the \verb;has_bundled_edge_with_my_edge' function
-\label{alg:has_bundled_edge_with_my_edge_demo}
+\label{lst:has_bundled_edge_with_my_edge_demo}
 
 
 
@@ -9783,7 +9578,7 @@ Note that this function only finds if there is at least one edge with that
  my_bundled_edge: it does not tell how many edges with that my_bundled_edge
  exist in the graph.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Find a my_bundled_edge}
 \label{subsec:find_first_bundled_edge_with_my_edge}
 
@@ -9835,7 +9630,7 @@ Find the first bundled edge with a certain my_bundled_edge
 
 
 
-\label{alg:find_first_bundled_edge_with_my_edge}
+\label{lst:find_first_bundled_edge_with_my_edge}
 
 
 
@@ -9883,7 +9678,7 @@ With the edge descriptor obtained, one can read and modify the edge and
 
 
 Demonstration of the \verb;find_first_bundled_edge_with_my_edge' function
-\label{alg:find_first_bundled_edge_with_my_edge_demo}
+\label{lst:find_first_bundled_edge_with_my_edge_demo}
 
 
 
@@ -9899,7 +9694,7 @@ Demonstration of the \verb;find_first_bundled_edge_with_my_edge' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get an edge its my_bundled_edge}
 \label{subsec:get_bundled_edge_my_edge}
 
@@ -9939,7 +9734,7 @@ Get a vertex its my_bundled_vertex from its vertex descriptor
 
 
 
-\label{alg:get_bundled_edge_my_edge}
+\label{lst:get_bundled_edge_my_edge}
 
 
 
@@ -9986,7 +9781,7 @@ To use \verb;get_my_bundled_edge', one first needs to obtain an edge descriptor.
 
 
 Demonstration if the \verb;get_my_bundled_edge' function
-\label{alg:get_bundled_edge_my_edge_demo}
+\label{lst:get_bundled_edge_my_edge_demo}
 
 
 
@@ -10002,7 +9797,7 @@ Demonstration if the \verb;get_my_bundled_edge' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set an edge its my_bundled_edge}
 \label{subsec:set_bundled_edge_my_edge}
 
@@ -10047,7 +9842,7 @@ Set a bundled edge its my_bundled_edge from its edge descriptor
 
 
 
-\label{alg:set_bundled_edge_my_edge}
+\label{lst:set_bundled_edge_my_edge}
 
 
 
@@ -10094,7 +9889,7 @@ To use \verb;set_bundled_edge_my_edge', one first needs to obtain an edge descri
 
 
 Demonstration if the \verb;set_bundled_edge_my_edge' function
-\label{alg:set_bundled_edge_my_edge_demo}
+\label{lst:set_bundled_edge_my_edge_demo}
 
 
 
@@ -10110,7 +9905,7 @@ Demonstration if the \verb;set_bundled_edge_my_edge' function
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with bundled edges and vertices as a .dot}
 \label{subsec:save_bundled_edges_and_vertices_graph_to_dot}
 
@@ -10178,7 +9973,7 @@ Storing a graph with bundled edges and vertices as a .dot file
 
 
 
-\label{alg:save_bundled_edges_and_vertices_graph_to_dot}
+\label{lst:save_bundled_edges_and_vertices_graph_to_dot}
 
 
 
@@ -10194,7 +9989,7 @@ Storing a graph with bundled edges and vertices as a .dot file
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Load a directed graph with bundled edges and vertices from a .dot file}
 \label{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
 
@@ -10240,7 +10035,7 @@ Loading a directed graph with bundled edges and vertices from a .dot file
 
 
 
-\label{alg:load_directed_bundled_edges_and_vertices_graph_from_dot}
+\label{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}
 
 
 
@@ -10315,7 +10110,7 @@ Listing
 
 Demonstration of the \verb;load_directed_bundled_edges_and_vertices_graph_from_dot'fu
 nction
-\label{alg:load_directed_bundled_edges_and_vertices_graph_from_dot_demo}
+\label{lst:load_directed_bundled_edges_and_vertices_graph_from_dot_demo}
 
 
 
@@ -10341,7 +10136,7 @@ ed_edges_and_vertices_markov_chain' function (algorithm
 
 ), saved and then loaded.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Load an undirected graph with bundled edges and vertices from a .dot file}
 \label{subsec:load_undirected_bundled_edges_and_vertices_graph_from_dot}
 
@@ -10399,7 +10194,7 @@ Loading an undirected graph with bundled edges and vertices from a .dot file
 
 
 
-\label{alg:load_undirected_bundled_edges_and_vertices_graph_from_dot}
+\label{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot}
 
 
 
@@ -10459,7 +10254,7 @@ Listing
 
 Demonstration of the \verb;load_undirected_bundled_edges_and_vertices_graph_from_dot'
 function
-\label{alg:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo}
+\label{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo}
 
 
 
@@ -10541,7 +10336,7 @@ Getting a graph its name: see chapter
 \begin{itemize}
 Setting a graph its name: see chapter
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty directed graph with a graph name property}
 \label{subsec:create_empty_directed_graph_with_graph_name}
 
@@ -10585,7 +10380,7 @@ Creating an empty directed graph with a graph name
 
 
 
-\label{alg:create_empty_directed_graph_with_graph_name}
+\label{lst:create_empty_directed_graph_with_graph_name}
 
 
 
@@ -10718,7 +10513,7 @@ Listing
 
 
 Demonstration of \verb;create_empty_directed_graph_with_graph_name'
-\label{alg:create_empty_directed_graph_with_graph_name_demo}
+\label{lst:create_empty_directed_graph_with_graph_name_demo}
 
 
 
@@ -10734,7 +10529,7 @@ Demonstration of \verb;create_empty_directed_graph_with_graph_name'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty undirected graph with a graph name property}
 \label{subsec:create_empty_undirected_graph_with_graph_name}
 
@@ -10778,7 +10573,7 @@ Creating an empty undirected graph with a graph name
 
 
 
-\label{alg:create_empty_undirected_graph_with_graph_name}
+\label{lst:create_empty_undirected_graph_with_graph_name}
 
 
 
@@ -10840,7 +10635,7 @@ Listing
 
 
 Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
-\label{alg:create_empty_undirected_graph_with_graph_name_demo}
+\label{lst:create_empty_undirected_graph_with_graph_name_demo}
 
 
 
@@ -10856,7 +10651,7 @@ Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get a graph its name property}
 \label{subsec:get_graph_name}
 
@@ -10891,7 +10686,7 @@ Get a graph its name
 
 
 
-\label{alg:get_graph_name}
+\label{lst:get_graph_name}
 
 
 
@@ -10937,7 +10732,7 @@ Listing
 
 
 Demonstration of \verb;get_graph_name'
-\label{alg:get_graph_name_demo}
+\label{lst:get_graph_name_demo}
 
 
 
@@ -10953,7 +10748,7 @@ Demonstration of \verb;get_graph_name'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set a graph its name property}
 \label{subsec:set_graph_name}
 
@@ -10988,7 +10783,7 @@ Set a graph its name
 
 
 
-\label{alg:set_graph_name}
+\label{lst:set_graph_name}
 
 
 
@@ -11034,7 +10829,7 @@ Listing
 
 
 Demonstration of \verb;set_graph_name'
-\label{alg:set_graph_name_demo}
+\label{lst:set_graph_name_demo}
 
 
 
@@ -11050,7 +10845,7 @@ Demonstration of \verb;set_graph_name'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create a directed graph with a graph name property}
 \label{subsec:create_markov_chain_with_graph_name}
 
@@ -11111,7 +10906,7 @@ Creating a two-state Markov chain with a graph name
 
 
 
-\label{alg:create_markov_chain_with_graph_name}
+\label{lst:create_markov_chain_with_graph_name}
 
 
 
@@ -11161,7 +10956,7 @@ Listing
 
 
 Demonstration of \verb;create_markov_chain_with_graph_name'
-\label{alg:create_markov_chain_with_graph_name_demo}
+\label{lst:create_markov_chain_with_graph_name_demo}
 
 
 
@@ -11213,7 +11008,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_markov_chain_with_graph_name.dot}
+\label{lst:create_markov_chain_with_graph_name.dot}
 
 
 
@@ -11282,7 +11077,7 @@ status open
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an undirected graph with a graph name property}
 \label{subsec:create_k2_graph_with_graph_name}
 
@@ -11343,7 +11138,7 @@ Creating a K2 graph with a graph name
 
 
 
-\label{alg:create_k2_graph_with_graph_name}
+\label{lst:create_k2_graph_with_graph_name}
 
 
 
@@ -11393,7 +11188,7 @@ Listing
 
 
 Demonstration of \verb;create_k2_graph_with_graph_name'
-\label{alg:create_k2_graph_with_graph_name_demo}
+\label{lst:create_k2_graph_with_graph_name_demo}
 
 
 
@@ -11445,7 +11240,7 @@ LatexCommand verbatiminput
 
 
 
-\label{alg:create_k2_graph_with_graph_name.dot}
+\label{lst:create_k2_graph_with_graph_name.dot}
 
 
 
@@ -11518,7 +11313,7 @@ status open
 \section{...}
 Working on graphs with a graph name
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with a graph name property as a .dot file}
 \label{subsec:save_graph_with_graph_name_to_dot}
 
@@ -11557,7 +11352,7 @@ Storing a graph with a graph name as a .dot file
 
 
 
-\label{alg:save_graph_with_graph_name_to_dot}
+\label{lst:save_graph_with_graph_name_to_dot}
 
 
 
@@ -11573,7 +11368,7 @@ Storing a graph with a graph name as a .dot file
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading a directed graph with a graph name property from a .dot file}
 \label{subsec:load_directed_graph_with_graph_name_from_dot}
 
@@ -11612,7 +11407,7 @@ Loading a directed graph with a graph name from a .dot file
 
 
 
-\label{alg:load_directed_graph_with_graph_name_from_dot}
+\label{lst:load_directed_graph_with_graph_name_from_dot}
 
 
 
@@ -11628,7 +11423,7 @@ Loading a directed graph with a graph name from a .dot file
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Loading an undirected graph with a graph name property from a .dot file}
 \label{subsec:load_undirected_graph_with_graph_name_from_dot}
 
@@ -11667,7 +11462,7 @@ Loading an undirected graph with a graph name from a .dot file
 
 
 
-\label{alg:load_undirected_graph_with_graph_name_from_dot}
+\label{lst:load_undirected_graph_with_graph_name_from_dot}
 
 
 
@@ -11696,7 +11491,7 @@ Other graph functions
 
 Some functions that did not fit in.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Encode a std::string to a Graphviz-friendly format}
 \label{subsec:graphviz_encode}
 
@@ -11738,7 +11533,7 @@ Encode a std::string to a Graphviz-friendly format
 
 
 
-\label{alg:graphviz_encode}
+\label{lst:graphviz_encode}
 
 
 
@@ -11754,7 +11549,7 @@ Encode a std::string to a Graphviz-friendly format
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Decode a std::string from a Graphviz-friendly format}
 \label{subsec:graphviz_decode}
 
@@ -11800,7 +11595,7 @@ Decode a std::string from a Graphviz-friendly format to a human-friendly
 
 
 
-\label{alg:graphviz_decode}
+\label{lst:graphviz_decode}
 
 
 
@@ -11816,7 +11611,7 @@ Decode a std::string from a Graphviz-friendly format to a human-friendly
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Check if a std::string is Graphviz-friendly}
 \label{subsec:is_graphviz_friendly}
 
@@ -11857,7 +11652,7 @@ Check if a std::string is Graphviz-friendly
 
 
 
-\label{alg:is_graphviz_friendly}
+\label{lst:is_graphviz_friendly}
 
 
 
@@ -11885,7 +11680,7 @@ These are some function I needed for creating this tutorial.
  may be superior alternatives.
  I just add them for completeness.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting a data type as a std::string}
 \label{subsec:get_type_name}
 
@@ -11948,7 +11743,7 @@ Getting a data type its name as a std::string
 
 
 
-\label{alg:get_type_name}
+\label{lst:get_type_name}
 
 
 
@@ -11964,7 +11759,7 @@ Getting a data type its name as a std::string
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Convert a .dot to .svg}
 \label{subsec:convert_dot_to_svg}
 
@@ -12006,7 +11801,7 @@ Convert a .dot file to a .svg
 
 
 
-\label{alg:convert_dot_to_svg}
+\label{lst:convert_dot_to_svg}
 
 
 
@@ -12027,7 +11822,7 @@ Convert a .dot file to a .svg
 \verb;convert_dot_to_svg' makes a system call to the program \verb;dot' to convert
  the .dot file to an .svg file.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Check if a file exists}
 \label{subsec:is_regular_file}
 
@@ -12066,7 +11861,7 @@ Check if a file exists
 
 
 
-\label{alg:is_regular_file}
+\label{lst:is_regular_file}
 
 
 
@@ -12090,7 +11885,7 @@ Errors
 
 Some common errors.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formed reference to void}
 \label{subsec:formed_reference_to_void}
 
@@ -12135,7 +11930,7 @@ Creating the error \verb;formed reference to void'
 
 
 
-\label{alg:formed_reference_to_void}
+\label{lst:formed_reference_to_void}
 
 
 
@@ -12164,7 +11959,7 @@ In algorithm
  If you want to read the names of the vertices, supply a graph that has
  this property.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{No matching function for call to \verb;;clear_out_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_out_edges}
 
@@ -12205,7 +12000,7 @@ Creating the error \verb;no matching function for call to clear_out_edges'
 
 
 
-\label{alg:no_matching_function_for_call_to_clear_out_edges}
+\label{lst:no_matching_function_for_call_to_clear_out_edges}
 
 
 
@@ -12232,7 +12027,7 @@ an undirected graph is created, a vertex descriptor is obtained, then itsout
  edges are tried to be cleared.Either use a directed graph (which has out
  edges), or use the \verb;boost::clear_vertex' function instead.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{No matching function for call to \verb;clear_in_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_in_edges}
 
@@ -12249,7 +12044,7 @@ See chapter
 
 .
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
 
@@ -12302,7 +12097,7 @@ LIBS += -lboost_graph -lboost_regex
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Property not found: node_id}
 \label{subsec:property_not_found_node_id}
 
@@ -12397,7 +12192,7 @@ Creating the error \verb;Property not found: node_id'
 
 
 
-\label{alg:property_not_found_node_id}
+\label{lst:property_not_found_node_id}
 
 
 
@@ -12413,7 +12208,7 @@ Creating the error \verb;Property not found: node_id'
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stream zeroes}
 
 When loading a graph from a .dot file, in operator>>, I encountered reading
@@ -12680,7 +12475,7 @@ std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
 \section{...}
 Appendix
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{List of all edge, graph and vertex properties}
 \label{subsec:all_properties}
 
@@ -13583,7 +13378,7 @@ vertex_update
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Graphviz attributes}
 \label{subsec:Graphviz-attributes}
 

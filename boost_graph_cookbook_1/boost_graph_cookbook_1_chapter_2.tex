@@ -226,3 +226,61 @@ Prefer to be const-correct \index{const-correctness}
   \cite{lakos1996large}, 9.1.6
 ).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Creating an empty undirected graph}
+\label{subsec:create_empty_undirected_graph}
+\index{Create an empty graph}
+\index{Empty graph, create}
+\index{Create empty undirected graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let's create another empty graph! This time, we even make it undirected!
+Listing \ref{lst:create_empty_undirected_graph}
+shows how to create an undirected graph.
+
+\lstinputlisting[
+  caption = Creating an empty undirected graph,
+  label = lst:create_empty_undirected_graph
+]{create_empty_undirected_graph.impl}
+
+This algorithm differs from the \verb;create_empty_directed_graph;
+function (algorithm 
+\ref{lst:create_empty_directed_graph}
+) 
+in that there are three template arguments that need to be specified in
+the creation of the boost::adjacency_list:
+
+\begin{itemize}
+  \item the first \verb;boost::vecS; \index{boost::vecS}: 
+    select (that is what the \verb;S; \index{S}
+    means) that out edges are stored in a std::vector.
+    This is the default way.
+  \item
+    the second \verb;boost::vecS; \index{boost::vecS}: 
+    select that the graph vertices are stored in a std::vector.
+    This is the default way.
+  \item
+    \verb;boost::undirectedS; \index{boost::undirectedS}: 
+    select that the graph is undirected.
+    This is all we needed to change.
+    By default, this argument is boost::directed \index{boost::directedS}
+\end{itemize}
+
+Listing \ref{lst:create_empty_undirected_graph_demo}
+demonstrates the \verb;create_empty_undirected_graph; function.
+
+\lstinputlisting[
+  caption = Demonstration of create\_empty\_undirected\_graph,
+  label = lst:create_empty_undirected_graph_demo
+]{create_empty_undirected_graph_demo.impl}
+
+Congratulations, with algorithm \ref{lst:create_empty_undirected_graph_demo}, 
+you have just created an undirected graph in which:
+
+\begin{itemize}
+  \item The out edges and vertices are stored in a std::vector
+  \item The graph is undirected
+  \item Vertices, edges and graph have no properties
+  \item Edges are stored in a std::list
+\end{itemize}
+
