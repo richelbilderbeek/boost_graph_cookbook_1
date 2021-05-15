@@ -1,108 +1,46 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Working on graphs without properties}
-\label{sec:Working-on-graphs-without-properties}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Now that we can build a graph, there are some things we can do.
- 
-
-\begin{itemize}
-Getting the vertices' out degrees: see chapter 
-\ref{subsec:get_vertex_out_degrees}
-
-\begin{itemize}
-Create a direct-neighbour subgraph from a vertex descriptor
-
-\begin{itemize}
-Create all direct-neighbour subgraphs from a graphs
-
-\begin{itemize}
-Saving a graph without properties to .dot file: see chapter 
-\ref{subsec:save_graph_to_dot}
-
-\begin{itemize}
-Loading an undirected graph without properties from .dot file: see chapter
- 
-\ref{subsec:load_undirected_graph_from_dot}
-
-\begin{itemize}
-Loading a directed graph without properties from .dot file: see chapter 
-\ref{subsec:load_directed_graph_from_dot}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the vertices' out degree}
 \label{subsec:get_vertex_out_degrees}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Let's measure the out degree of all vertices in a graph! 
 
 The out degree of a vertex is the number of edges that originate at it.
- 
 
-The number of connections is called the \verb;degree' of the vertex.
- There are three types of degrees:
-
-\begin{itemize}
-in degree: the number of incoming connections, using \verb;in_degree'
-\index{in_degree}
-
- (not \verb;boost::in_degree'
-\index{boost::in_degree does not exist}
-
-)
+The number of connections is called the \verb;degree; of the vertex.
+There are three types of degrees:
 
 \begin{itemize}
-out degree: the number of outgoing connections, using \verb;out_degree'
-\index{out_degree}
+  \item in degree: the number of incoming connections, 
+    using \verb;in_degree; \index{in_degree}
+    (not \verb;boost::in_degree; \index{boost::in_degree does not exist} )
+  \item out degree: the number of outgoing connections, 
+    using \verb;out_degree; \index{out_degree}
+    (not \verb;boost::out_degree; \index{boost::out_degree does not exist})
+  \item degree: sum of the in degree and out degree, 
+    using \verb;degree; \index{idegree}
+    (not \verb;boost::degree; \index{boost::degree does not exist})
+\end{itemize}
 
- (not \verb;boost::out_degree'
-\index{boost::out_degree does not exist}
-
-)
-
-\begin{itemize}
-degree: sum of the in degree and out degree, using \verb;degree'
-\index{idegree}
-
- (not \verb;boost::degree'
-\index{boost::degree does not exist}
-
-)
-
-Listing 
-\ref{lst:get_vertex_out_degrees}
-
- shows how to obtain these:
+Listing \ref{lst:get_vertex_out_degrees}
+shows how to obtain these:
 
 \lstinputlisting[
-  caption = ,
-  label = lst:
+  caption = Get the vertices' out degrees,
+  label = lst:get_vertex_out_degrees
 ]{get_vertex_out_degrees.impl}
-
-Get the vertices' out degrees
 \index{Get vertex out degrees}
 
-\label{lst:get_vertex_out_degrees}
-
-The structure of this algorithm is similar to \verb;get_vertex_descriptors' (algorith
-m 
-\ref{lst:get_vertex_descriptors}
-
-), except that the out degrees from the vertex descriptors are stored.
- The out degree of a vertex iterator is obtained from the function \verb;out_degree'
-\index{out_degree}
-
- (not boost::out_degree
-\index{boost::out_degree does not exist}
-
-!).
+The structure of this algorithm is similar to 
+\verb;get_vertex_descriptors; (algorithm \ref{lst:get_vertex_descriptors}), 
+except that the out degrees from the vertex descriptors are stored.
+The out degree of a vertex iterator is obtained from 
+the function \verb;out_degree; \index{out_degree}
+(not boost::out_degree \index{boost::out_degree does not exist}!).
  
-
-Albeit that the 
-$K_{2}$
-
- graph and the two-state Markov chain are rather simple, we can use it to
- demonstrate \verb;get_vertex_out_degrees' on, as shown in algorithm 
+Albeit that the $K_{2}$
+graph and the two-state Markov chain are rather simple, we can use it to
+demonstrate \verb;get_vertex_out_degrees; on, as shown in algorithm 
 \ref{lst:get_vertex_out_degrees_demo}
 
 .
@@ -112,7 +50,7 @@ $K_{2}$
   label = lst:
 ]{get_vertex_out_degrees_demo.impl}
 
-Demonstration of the \verb;get_vertex_out_degrees' function
+Demonstration of the \verb;get_vertex_out_degrees; function
 \label{lst:get_vertex_out_degrees_demo}
 
 It is expected that 
@@ -138,7 +76,7 @@ Check if there exists an edge between two vertices
 
 \label{lst:has_edge_between_vertices}
 
-This code uses the function \verb;edge'
+This code uses the function \verb;edge;
 \index{edge}
 
  (not boost::edge
@@ -160,7 +98,7 @@ $K_{2}$
   label = lst:
 ]{has_edge_between_vertices_demo.impl}
 
-Demonstration of the \verb;has_edge_between_vertices' function
+Demonstration of the \verb;has_edge_between_vertices; function
 \label{lst:has_edge_between_vertices_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,7 +128,7 @@ The demo shows how to get the edge between two vertices, deleting it, and
   label = lst:
 ]{get_edge_between_vertices_demo.impl}
 
-Demonstration of the \verb;get_edge_between_vertices' function
+Demonstration of the \verb;get_edge_between_vertices; function
 \label{lst:get_edge_between_vertices_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,7 +142,7 @@ Suppose you have a vertex of interest its vertex descriptor.
  that the edges go either from focal vertex to its neighbours, or from adjacent
  vertex to adjacent neighbour.
 
-Here is the \verb;create_direct_neighbour_subgraph' code:
+Here is the \verb;create_direct_neighbour_subgraph; code:
 
 \lstinputlisting[
   caption = ,
@@ -231,7 +169,7 @@ $K_{2}$
   label = lst:
 ]{create_direct_neighbour_subgraph_demo.impl}
 
-Demo of the \verb;create_direct_neighbour_subgraph' function
+Demo of the \verb;create_direct_neighbour_subgraph; function
 \label{lst:create_direct_neighbour_subgraph_demo}
 
 Note that this algorithm works on both undirected and directional graphs.
@@ -287,7 +225,7 @@ $K_{2}$
   label = lst:
 ]{create_all_direct_neighbour_subgraphs_demo.impl}
 
-Demo of the \verb;create_all_direct_neighbour_subgraphs' function
+Demo of the \verb;create_all_direct_neighbour_subgraphs; function
 \label{lst:create_all_direct_neighbour_subgraphs_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -317,7 +255,7 @@ $K_{3}$
   label = lst:
 ]{is_isomorphic_demo.impl}
 
-Demo of the \verb;is_isomorphic' function
+Demo of the \verb;is_isomorphic; function
 \label{lst:is_isomorphic_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -390,7 +328,7 @@ This demonstration code shows that two solitary edges are correctly counted
   label = lst:
 ]{count_directed_graph_connected_components_demo.impl}
 
-Demo of the \verb;count_directed_graph_connected_components' function
+Demo of the \verb;count_directed_graph_connected_components; function
 \label{lst:count_directed_graph_connected_components_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -455,7 +393,7 @@ This demonstration code shows that two solitary edges are correctly counted
   label = lst:
 ]{count_undirected_graph_connected_components_demo.impl}
 
-Demo of the \verb;count_undirected_graph_connected_components' function
+Demo of the \verb;count_undirected_graph_connected_components; function
 \label{lst:count_undirected_graph_connected_components_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -527,7 +465,7 @@ This demonstration code shows the number of levels from a certain vertex,
   label = lst:
 ]{count_undirected_graph_levels_demo.impl}
 
-Demo of the \verb;count_undirected_graph_levels' function
+Demo of the \verb;count_undirected_graph_levels; function
 \label{lst:count_undirected_graph_levels_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -574,7 +512,7 @@ All the code does is create an std::ofstream
 \index{boost::write_graphviz}
 
  to write the DOT description of our graph to that stream.
- Instead of \verb;std::ofstream', one could use std::cout
+ Instead of \verb;std::ofstream;, one could use std::cout
 \index{std::cout}
 
  (a related output stream) to display the DOT language on screen directly.
@@ -629,7 +567,7 @@ Loading a directed graph from a .dot file
 \label{lst:load_directed_graph_from_dot}
 
 In this algorithm, first it is checked if the file to load exists, using
- the \verb;is_regular_file' function (algorithm 
+ the \verb;is_regular_file; function (algorithm 
 \ref{lst:is_regular_file}
 
 ), after which an std::ifstream
