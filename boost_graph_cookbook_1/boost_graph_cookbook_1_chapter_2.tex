@@ -477,7 +477,7 @@ The first vertex iterator \index{Vertex iterator}
 points to the first vertex (its descriptor, to be precise), the second
 points to beyond the last vertex (its descriptor, to be precise).
 In this tutorial, vertex iterator pairs have named prefixed with 
-\verb;vip_; \index{vip_}, for example \verb;vip_1;.
+\verb;vip_; \index{vip\_}, for example \verb;vip_1;.
 
 \lstinputlisting[
   caption = Get the vertex iterators of a graph,
@@ -558,4 +558,59 @@ demonstrates that an empty graph has no vertex descriptors:
 
 Because all graphs have vertices and thus vertex descriptors, the type of
 graph is unimportant for this code to compile.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Add an edge}
+\label{subsec:add_edge}
+\index{Add an edge}
+\index{Edge, add}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To add an edge to a graph, two vertex descriptors are needed.
+A vertex descriptor \index{Vertex descriptor}
+is a handle to the vertex within a graph (vertex descriptors are looked
+ at in more details in chapter 
+\ref{subsec:Vertex-descriptors}).
+Listing \ref{lst:add_edge}
+adds two vertices to a graph, and connects these two using 
+\verb;boost::add_edge; \index{boost::add\_edge}: 
+
+\lstinputlisting[
+  caption = Adding (two vertices and) an edge to a graph,
+  label = lst:add_edge
+]{add_edge.impl}
+
+Listing \ref{lst:add_edge}
+
+shows how to add an isolated edge to a graph (instead of allowing for graphs
+with higher connectivities).
+First, two vertices are created, using the function \verb;boost::add_vertex;.
+\verb;boost::add_vertex; returns a vertex descriptor 
+(which I prefix with \verb;vd; \index{vd}), 
+both of which are stored.
+The vertex descriptors are used to add an edge to the graph, 
+using 
+\verb;boost::add_edge; \index{boost::add_edge}.
+
+\verb;boost::add_edge; \index{boost::add_edge}
+returns a std::pair \index{std::pair}, 
+consisting of an edge descriptor and a boolean success indicator.
+The success of adding the edge is checked by an \verb;assert; statement.
+Here we \verb;assert; \index{assert}
+that this insertion was successful.
+Insertion can fail if an edge is already present and duplicates are not
+allowed.
+
+A demonstration of add_edge is shown in algorithm 
+\ref{lst:add_edge_demo}, 
+in which an edge is added to both a directed and undirected graph, 
+after which the number of edges and vertices is checked.
+
+\lstinputlisting[
+  caption = Demonstration of add\_edge,
+  label = lst:add_edge_demo
+]{add_edge_demo.impl}
+
+The graph type is unimportant: as all graph types have vertices and edges,
+ edges can be added without possible compile problems.
 

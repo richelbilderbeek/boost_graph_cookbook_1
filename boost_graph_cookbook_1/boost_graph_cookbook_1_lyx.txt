@@ -1,179 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Add an edge}
-\label{subsec:add_edge}
-\index{Add an edge}
-\index{Edge, add}
-
-To add an edge to a graph, two vertex descriptors are needed.
- A vertex descriptor
-\index{Vertex descriptor
-
-
-
-
- is a handle to the vertex within a graph (vertex descriptors are looked
- at in more details in chapter 
-\ref{subsec:Vertex-descriptors}
-
-
-
-).
- Listing 
-\ref{lst:add_edge}
-
-
-
- adds two vertices to a graph, and connects these two using boost::add_edge
-\index{boost::add_edge
-
-
-
-
-: 
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{add_edge.impl}
-
-
-
-
-
-
-
-
-
-
-
-Adding (two vertices and) an edge to a graph
-\index{add_edge
-
-
-
-
-
-\label{lst:add_edge}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Listing 
-\ref{lst:add_edge}
-
-
-
- shows how to add an isolated edge to a graph (instead of allowing for graphs
- with higher connectivities).
- First, two vertices are created, using the function \verb;boost::add_vertex'.
- \verb;boost::add_vertex' returns a vertex descriptor (which I prefix with \verb;vd'
-\index{vd
-
-
-
-
-), both of which are stored.
- The vertex descriptors are used to add an edge to the graph, using \verb;boost::add_
-edge'
-\index{boost::add_edge
-
-
-
-
-.
- \verb;boost::add_edge'
-\index{boost::add_edge
-
-
-
-
- returns a std::pair
-\index{std::pair
-
-
-
-
-, consisting of an edge descriptor and a boolean success indicator.
- The success of adding the edge is checked by an \verb;assert; statement.
- Here we \verb;assert;
-\index{assert
-
-
-
-
- that this insertion was successful.
- Insertion can fail if an edge is already present and duplicates are not
- allowed.
-
-
-
-A demonstration of add_edge is shown in algorithm 
-\ref{lst:add_edge_demo}
-
-
-
-, in which an edge is added to both a directed and undirected graph, after
- which the number of edges and vertices is checked.
-
-
-
-
-
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{add_edge_demo.impl}
-
-
-
-
-
-
-
-
-
-
-
-Demonstration of \verb;add_edge'
-\label{lst:add_edge_demo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The graph type is unimportant: as all graph types have vertices and edges,
- edges can be added without possible compile problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{boost::add_edge result}
@@ -191,7 +15,7 @@ The graph type is unimportant: as all graph types have vertices and edges,
 
 
 
-When using the function \verb;boost::add_edge', a \verb;std::pair<edge_descriptor,bool>'
+When using the function \verb;boost::add_edge;, a \verb;std::pair<edge_descriptor,bool>'
  is returned.
  It contains both the edge descriptor (see chapter 
 \ref{subsec:Edge-descriptors}
@@ -202,7 +26,7 @@ When using the function \verb;boost::add_edge', a \verb;std::pair<edge_descripto
 
 
 
-In this tutorial, boost::add_edge results have named prefixed with \verb;aer_'
+In this tutorial, \verb;boost::add_edge; results have named prefixed with \verb;aer_'
 \index{aer_
 
 
@@ -800,7 +624,7 @@ Instead of typing the complete type, we call the \verb;create_empty_directed_gra
 
 
  calls are stored to add an edge to the graph.
- Then boost::add_edge
+ Then \verb;boost::add_edge;
 \index{boost::add_edge
 
 
@@ -1238,7 +1062,7 @@ h' function and let auto figure it out.
 
 
  calls are stored to add an edge to the graph.
- From boost::add_edge
+ From \verb;boost::add_edge;
 \index{boost::add_edge
 
 
