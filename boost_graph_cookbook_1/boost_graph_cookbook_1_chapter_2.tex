@@ -420,3 +420,30 @@ This demonstration code creates two empty graphs, adds one vertex to each
 and then \verb;assert;s that the number of vertices in each graph is one.
 This works for both types of graphs, as all graphs have vertices.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vertex descriptors}
+\label{subsec:Vertex-descriptors}
+\index{Vertex descriptor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A vertex descriptor is a handle to a vertex within a graph.
+
+Vertex descriptors can be obtained by dereferencing a vertex iterator (see
+chapter \ref{subsec:get_vertex_descriptors}).
+To do so, we first obtain some vertex iterators in chapter 
+\ref{subsec:get_vertices}).
+ 
+Vertex descriptors are used to:
+
+\begin{itemize}
+  \item add an edge between two vertices, see chapter \ref{subsec:add_edge}
+  \item obtain properties of vertex a vertex, 
+    for example the vertex its out degrees (chapter \ref{subsec:get_vertex_out_degrees}), 
+    the vertex its name (chapter \ref{subsec:get_vertex_names}), 
+    or a custom vertex property (chapter \ref{subsec:get_vertex_my_vertexes})
+\end{itemize}
+
+In this tutorial, 
+vertex descriptors have named prefixed with \verb;vd_; \index{vd\_}, 
+for example \verb;vd_1;.
+
