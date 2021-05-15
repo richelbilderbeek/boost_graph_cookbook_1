@@ -1,22 +1,13 @@
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the edge iterators}
 \label{subsec:get_edge_iterators}
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 You cannot get the edges directly.
- Instead, working on the edges of a graph is done through these steps:
-
+Instead, working on the edges of a graph is done through these steps:
 
 \begin{itemize}
 Obtain an edge iterator pair from the graph
-
 
 \begin{itemize}
 Dereference an edge iterator to obtain an edge descriptor
