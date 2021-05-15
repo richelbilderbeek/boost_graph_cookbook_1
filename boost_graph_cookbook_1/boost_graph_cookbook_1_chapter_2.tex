@@ -630,3 +630,52 @@ In this tutorial, \verb;boost::add_edge; results
 have named prefixed with \verb;aer_; \index{aer_}, 
 for example \verb;aer_1;.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Getting the edge iterators}
+\label{subsec:get_edge_iterators}
+\index{Get edge iterators}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You cannot get the edges directly.
+Instead, working on the edges of a graph is done through these steps:
+
+\begin{itemize}
+  \item Obtain an edge iterator pair from the graph
+  \item Dereference an edge iterator to obtain an edge descriptor
+\end{itemize}
+
+\verb;edges; \index{edges} 
+(not boost::edges \index{boost::edges does not exist})
+is used to obtain an edge iterator pair
+\index{Edge iterator pair}.
+
+The first edge iterator \index{Edge iterator}
+points to the first edge (its descriptor, to be precise), the second points
+to beyond the last edge (its descriptor, to be precise).
+In this tutorial, 
+edge iterator pairs have named prefixed with \verb;eip_; \index{eip\_}, 
+for example \verb;eip_1;.
+Listing \ref{lst:get_edge_iterators}
+shows how to obtain these:
+
+\lstinputlisting[
+  caption = Get the edge iterators of a graph,
+  label = lst:get_edge_iterators
+]{get_edge_iterators.impl}
+
+This is a somewhat trivial function, as all it does is forward to function
+call to \verb;edges; 
+(not boost::edges \index{boost::edges does not exist}!). 
+These edge iterators can be dereferenced to obtain the edge descriptors.
+Note that this function will not be used often in isolation: usually one
+obtains the edge descriptors immediately.
+
+Listing \ref{lst:get_edge_iterators_demo}
+demonstrates \verb;get_edge_iterators; by showing that both iterators of the
+edge iterator pair point to the same location, when the graph is empty.
+
+\lstinputlisting[
+  caption = Demonstration of get\_edge\_iterators,
+  label = lst:get_edge_iterators_demo
+]{get_edge_iterators_demo.impl}
+
