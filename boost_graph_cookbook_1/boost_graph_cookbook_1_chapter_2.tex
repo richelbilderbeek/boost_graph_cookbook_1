@@ -128,3 +128,107 @@ Listing \ref{lst:create_empty_directed_graph} shows the function to create an em
   label = lst:create_empty_directed_graph
 ]{create_empty_directed_graph.impl}
 
+\lstinputlisting[
+  caption = Creating an empty (directed) graph,
+  label = lst:create_empty_directed_graph
+]{create_empty_directed_graph.impl}
+
+The code consists out of an #include and a function definition.
+The \verb;#include; tells the compiler 
+to read the header file \verb;adjacency_list.hpp;.
+A header file (often with a \verb;.h; or \verb;.hpp; extension) 
+contains class and functions declarations and/or definitions.
+The header file \verb;adjacency_list.hpp; contains the 
+\verb;boost::adjacency_list; class definition.
+Without including this file, you will get compile errors like 
+\verb;definition of boost::adjacency_list unknown;
+\footnote{
+  In practice, these compiler error messages will be longer, bordering the unreadable
+}. 
+
+The function \verb;create_empty_directed_graph; has:
+
+\begin{itemize}
+  \item a return type: 
+    The return type is \verb;boost::adjacency_list<>;, 
+    that is a \verb;boost::adjacency_list; 
+    with all template arguments set at their defaults
+  \item a \verb;noexcept; specification: 
+    the function should not throw
+    \footnote{
+      if the function would throw because it cannot allocate this little piece
+      of memory, you are already in big trouble
+    }, so it is preferred to mark it noexcept 
+    (\cite{stroustrup2013}, chapter 13.7)
+  \item a function body: 
+    all the function body does is implicitly create its return
+    type by using the \verb;{};.
+    An alternative syntax would be \verb;return boost::adjacency_list<>();, which
+    is needlessly longer
+\end{itemize}
+
+
+Listing \ref{lst:create_empty_directed_graph_demo}
+demonstrates the \verb;create_empty_directed_graph; function.
+This demonstration is embedded within a Boost.Test unit test case.
+It includes a Boost.Test header to allow to use the Boost.Test framework.
+Additionally, a header file is included with the same name as the function
+\footnote{
+  I do not think it is important to have creative names
+}.
+This allows use to be able to use the function.
+The test case creates an empty graph and stores it.
+Instead of specifying the data type explicitly, 
+\verb;auto; \index{auto} is used (this is preferred, \cite{stroustrup2013}
+chapter 31.6), which lets the compiler figure out the type itself.
+
+\lstinputlisting[
+  caption = Demonstration of \verb;create_empty_directed_graph;,
+  label = lst:create_empty_directed_graph_demo
+]{create_empty_directed_graph_demo.impl}
+
+Congratulations, you've just created a 
+boost::adjacency_list \index{boost::adjacency\_list}
+with its default template arguments.
+The boost::adjacency_list is the most commonly used graph type, the other
+is the 
+boost::adjacency_matrix \index{boost::adjacency\_matrix}.
+
+We do not do anything with it yet, but still, you've just created a graph,
+in which:
+
+\begin{itemize}
+  \item The out edges and vertices are stored in a std::vector \index{std::vector}
+  \item The edges have a direction
+  \item The vertices, edges and graph have no properties
+  \item The edges are stored in a std::list \index{std::list}
+\end{itemize}
+
+It stores its edges, out edges and vertices in two different STL \index{STL}
+\footnote{
+  Standard Template Library, the standard library
+}
+containers.
+std::vector \index{std::vector} is the container you should use by default (
+  \cite{stroustrup2013}, chapter 31.6, 
+  \cite{sutter_and_alexandrescu2004}, chapter 76
+), as it has constant time look-up and back insertion.
+The std::list \index{std::list}
+is used for storing the edges, as it is better suited at inserting elements
+at any position.
+
+I use const \index{const}
+to store the empty graph as we do not modify it.
+Correct use of const is called const-correct.
+Prefer to be const-correct \index{const-correctness}
+(
+  \cite{stroustrup1997}, chapter 7.9.3, 
+  \cite{stroustrup2013}, chapter 12.7, 
+  \cite{meyers2005effective}, item 3, 
+  \cite{hollingworth2000cpp_builder_dev_guide}, chapter 3, 
+  \cite{sutter_and_alexandrescu2004}, item 15, 
+  \cite{cline1998cpp_faqs}, FAQ 14.05, 
+  \cite{eckel2002thinking_cpp}, item 8, 
+  \cite{lakos1996large}, 9.1.6
+).
+

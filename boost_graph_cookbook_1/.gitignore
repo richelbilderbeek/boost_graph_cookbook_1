@@ -2,3 +2,7 @@
 *.bbl
 *.blg
 boost_graph_cookbook_1.pdf
+*.idx
+*.ilg
+*.ind
+*.toc
