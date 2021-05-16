@@ -86,3 +86,28 @@ shows some examples of how to do so.
   label = lst:find_first_bundled_vertex_with_my_vertex_demo
 ]{find_first_bundled_vertex_with_my_vertex_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Get a bundled vertex its my\_bundled\_vertex}
+\label{subsec:get_bundled_vertex_my_vertex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To obtain the \verb;my_bundled_vertex; from a vertex descriptor is simple:
+
+\lstinputlisting[
+  caption = Get a bundled vertex its my\_vertex from its vertex descriptor,
+  label = lst:get_bundled_vertex_my_vertex
+]{get_my_bundled_vertex.impl}
+\index{Get bundled vertex my_bundled_vertex}
+
+One can just use the graph as a property map and let it be looked-up.
+
+To use \verb;get_bundled_vertex_my_vertex;, 
+one first needs to obtain a vertex descriptor.
+Listing \ref{lst:get_bundled_vertex_my_vertex_demo}
+shows a simple example.
+
+\lstinputlisting[
+  caption = Demonstration if the get\_bundled\_vertex\_my\_vertex function,
+  label = lst:get_bundled_vertex_my_vertex_demo
+]{get_my_bundled_vertex_demo.impl}
+

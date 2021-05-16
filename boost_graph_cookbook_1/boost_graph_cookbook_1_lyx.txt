@@ -1,36 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Get a bundled vertex its my\_bundled\_vertex}
-\label{subsec:get_bundled_vertex_my_vertex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To obtain the \verb;my_bundled_vertex; from a vertex descriptor is simple:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_my_bundled_vertex.impl}
-
-Get a bundled vertex its my_vertex from its vertex descriptor
-\index{Get bundled vertex my_bundled_vertex
-
-\label{lst:get_bundled_vertex_my_vertex}
-
-One can just use the graph as a property map and let it be looked-up.
-
-To use \verb;get_bundled_vertex_my_vertex', one first needs to obtain a vertex
- descriptor.
- Listing 
-\ref{lst:get_bundled_vertex_my_vertex_demo}
-
- shows a simple example.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_my_bundled_vertex_demo.impl}
-
-Demonstration if the \verb;get_bundled_vertex_my_vertex' function
-\label{lst:get_bundled_vertex_my_vertex_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set a bundled vertex its my_vertex}
