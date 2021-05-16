@@ -62,3 +62,26 @@ shows some examples of how to do so.
   label = lst:find_first_bundled_edge_with_my_edge_demo
 ]{find_first_bundled_edge_with_my_edge_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Get an edge its my\_bundled\_edge}
+\label{subsec:get_bundled_edge_my_edge}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To obtain the my\_bundled\_edge from an edge descriptor, one needs to pull
+out the my\_bundled_edges map and then look up the my\_edge of interest.
+
+\lstinputlisting[
+  caption = Get a vertex its my\_bundled\_vertex from its vertex descriptor,
+  label = lst:get_bundled_edge_my_edge
+]{get_my_bundled_edge.impl}
+\index{Get my_bundled_edge}
+
+To use \verb;get_my_bundled_edge;, 
+one first needs to obtain an edge descriptor.
+Listing \ref{lst:get_bundled_edge_my_edge_demo} shows a simple example.
+
+\lstinputlisting[
+  caption = Demonstration if the get\_my\_bundled\_edge function,
+  label = lst:get_bundled_edge_my_edge_demo
+]{get_my_bundled_edge_demo.impl}
+

@@ -1,37 +1,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Get an edge its my_bundled_edge}
-\label{subsec:get_bundled_edge_my_edge}
-
-To obtain the my_bundled_edge from an edge descriptor, one needs to pull
- out the my_bundled_edges map and then look up the my_edge of interest.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_my_bundled_edge.impl}
-
-Get a vertex its my_bundled_vertex from its vertex descriptor
-\index{Get my_bundled_edge
-
-\label{lst:get_bundled_edge_my_edge}
-
-To use \verb;get_my_bundled_edge', one first needs to obtain an edge descriptor.
- Listing 
-\ref{lst:get_bundled_edge_my_edge_demo}
-
- shows a simple example.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_my_bundled_edge_demo.impl}
-
-Demonstration if the \verb;get_my_bundled_edge' function
-\label{lst:get_bundled_edge_my_edge_demo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Set an edge its my_bundled_edge}
 \label{subsec:set_bundled_edge_my_edge}
 
