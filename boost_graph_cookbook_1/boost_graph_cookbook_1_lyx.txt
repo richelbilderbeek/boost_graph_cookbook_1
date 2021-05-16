@@ -1,43 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating the bundled edge class}
-\label{subsec:my_bundled_edge}
-
-In this example, I create a \verb;my_bundled_edge' class.
- Here I will show the header file of it, as the implementation of it is
- not important yet.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{my_bundled_edge.impl}
-
-Declaration of my_bundled_edge
-\index{my_bundled_edge
-
-\index{my_bundled_edge.h
-
-\index{my_bundled_edge declaration
-
-\index{Declaration, my_bundled_edge
-
-\label{lst:my_bundled_edge_h}
-
-my_bundled_edge is a class that has multiple properties: two doubles \verb;m_width'
- (\verb;m_
-\index{m_
-
-' stands for member
-\index{member
-
-) and \verb;m_height', and two std::strings m_name and m_description.\verb;my_bundled_edge'
- is copyable, but cannot trivially be converted to a \verb;std::string.' \verb;my_bundled_e
-dge' is comparable for equality (that is, operator== is defined).
-
-\verb;my_bundled_edge' does not have to have the stream operators defined for
- file I/O, as this goes via the public member variables.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty directed graph with bundled edges and vertices}
 \label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
 

@@ -30,3 +30,33 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 These functions are mostly there for completion and showing which data types
 are used.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creating the bundled edge class}
+\label{subsec:my_bundled_edge}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this example, I create a \verb;my_bundled_edge; class.
+Here I will show the header file of it, as the implementation of it is
+not important yet.
+
+\lstinputlisting[
+  caption = Declaration of my\_bundled\_edge,
+  label = lst:my_bundled_edge_h
+]{my_bundled_edge.impl}
+\index{my\_bundled\_edge}
+\index{my\_bundled\_edge.h}
+\index{my\_bundled\_edge declaration}
+\index{Declaration, my\_bundled\_edge}
+
+my\_bundled\_edge is a class that has multiple properties: 
+two doubles \verb;m_width; 
+(\verb;m_; \index{m\_} stands for member \index{member}) 
+and \verb;m_height;, 
+and two std::strings \verb;m_name; and \verb;m_description;.
+\verb;my_bundled_edge; is copyable, 
+but cannot trivially be converted to a \verb;std::string;. 
+\verb;my_bundled_edge; is comparable for equality 
+(that is, operator== is defined).
+\verb;my_bundled_edge; does not have to have the stream operators defined for
+file I/O, as this goes via the public member variables.
+
