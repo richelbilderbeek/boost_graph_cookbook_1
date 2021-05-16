@@ -511,9 +511,9 @@ See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
-\index{read_graphviz_new}
-\index{Undefined reference to read_graphviz_new}
-\index{read_graphviz_new, undefined reference}
+\index{read\_graphviz\_new}
+\index{Undefined reference to read_graphviz\_new}
+\index{read\_graphviz\_new, undefined reference}
 
 You will have to link
 \index{link
@@ -535,20 +535,15 @@ LIBS += -lboost_graph -lboost_regex
 When loading a graph from file (as in chapter 
 \ref{subsec:load_undirected_graph_from_dot}
 
-) you will be using boost::read_graphviz
-\index{boost::read_graphviz
+) you will be using boost::read\_graphviz
+\index{boost::read\_graphviz}.
 
-.
- boost::read_graphviz
-\index{boost::read_graphviz
-
- needs a third argument, of type boost::dynamic_properties
-\index{boost::dynamic_properties
-
-.
- When a graph does not have properties, do not use a default constructed
+boost::read\_graphviz \index{boost::read\_graphviz}
+needs a third argument, of type boost::dynamic_properties
+\index{boost::dynamic\_properties}. 
+When a graph does not have properties, do not use a default constructed
  version, but initialize with \verb;boost::ignore_other_properties;
-\index{boost::ignore_other_properties}
+\index{boost::ignore\_other\_properties}
 as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} shows how to trigger this run-time error.
 
 \lstinputlisting[

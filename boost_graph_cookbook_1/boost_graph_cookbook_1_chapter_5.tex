@@ -41,7 +41,7 @@ with the one desired.
   caption = Find if there is vertex with a certain my\_bundled\_vertex,
   label = lst:has_bundled_vertex_with_my_vertex
 ]{has_bundled_vertex_with_my_vertex.impl}
-\index{Has bundled vertex with my_vertex}
+\index{Has bundled vertex with my\_vertex}
 
 This function can be demonstrated as in algorithm 
 \ref{lst:has_bundled_vertex_with_my_vertex_demo}, 
@@ -59,7 +59,7 @@ with that my\_bundled\_vertex exist in the graph.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Find a bundled vertex with a certain my\_bundled\_vertex}
-\label{subsec:find_bundled_vertex_with_my_vertex}
+\label{subsec:find_bundled_vertex\_with\_my\_vertex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Where STL functions work with iterators, here we obtain a vertex descriptor
@@ -73,7 +73,7 @@ a specific \verb;my_bundled_vertex; value.
   caption = Find the first vertex with a certain my\_bundled\_vertex,
   label = lst:find_first_bundled_vertex_with_my_vertex
 ]{find_first_bundled_vertex_with_my_vertex.impl}
-\index{Find first bundled vertex with my_vertex}
+\index{Find first bundled vertex with my\_vertex}
 
 With the vertex descriptor obtained, one can read and modify the vertex
 and the edges surrounding it.
@@ -97,7 +97,7 @@ To obtain the \verb;my_bundled_vertex; from a vertex descriptor is simple:
   caption = Get a bundled vertex its my\_vertex from its vertex descriptor,
   label = lst:get_bundled_vertex_my_vertex
 ]{get_my_bundled_vertex.impl}
-\index{Get bundled vertex my_bundled_vertex}
+\index{Get bundled vertex my\_bundled\_vertex}
 
 One can just use the graph as a property map and let it be looked-up.
 
@@ -238,11 +238,11 @@ shown in algorithm \ref{lst:load_directed_bundled_vertices_graph_from_dot}:
 In this algorithm, first it is checked if the file to load exists.
 Then an empty directed graph is created, to save typing the typename explicitly.
 
-Then a boost::dynamic_properties \index{boost::dynamic_properties}
+Then a \verb;boost::dynamic_properties; \index{boost::dynamic\_properties}
 is created with its default constructor, after which we set it to follow
 the same mapping as in the previous chapter.
 From this and the empty graph, \verb;boost::read_graphviz;
-\index{boost::read_graphviz}
+\index{boost::read\_graphviz}
 is called to build up the graph.
 
 At the moment the graph is created, all \verb;my_bundled_vertex; their names

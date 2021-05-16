@@ -18,7 +18,7 @@ with the one desired.
   caption = Find if there is a bundled edge with a certain my\_bundled\_edge,
   label = lst:has_bundled_edge_with_my_edge
 ]{has_bundled_edge_with_my_edge.impl}
-\index{Has bundled edge with my_bundled_edge}
+\index{Has bundled edge with my\_bundled\_edge}
 
 This function can be demonstrated as in algorithm 
 \ref{lst:has_bundled_edge_with_my_edge_demo}, 
@@ -31,7 +31,7 @@ After adding the desired my\_bundled\_edge, it is found.
 ]{has_bundled_edge_with_my_edge_demo.impl}
 
 Note that this function only finds if there is at least one edge with that
-my\_bundled\_edge: it does not tell how many edges with that my_bundled_edge
+my\_bundled\_edge: it does not tell how many edges with that my\_bundled\_edge
 exist in the graph.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,13 +44,13 @@ Where STL functions work with iterators, here we obtain an edge descriptor
 to obtain a handle to the desired edge.
 Listing \ref{lst:find_first_bundled_edge_with_my_edge}
 shows how to obtain an edge descriptor to the first edge found with a specific
-my_bundled_edge value.
+my\_bundled\_edge value.
 
 \lstinputlisting[
   caption = Find the first bundled edge with a certain my\_bundled\_edge,
   label = lst:find_first_bundled_edge_with_my_edge
 ]{find_first_bundled_edge_with_my_edge.impl}
-\index{Find first bundled edge with my_bundled_edge}
+\index{Find first bundled edge with my\_bundled\_edge}
 
 With the edge descriptor obtained, one can read and modify the edge and
 the vertices surrounding it.
@@ -74,7 +74,7 @@ out the my\_bundled_edges map and then look up the my\_edge of interest.
   caption = Get a vertex its my\_bundled\_vertex from its vertex descriptor,
   label = lst:get_bundled_edge_my_edge
 ]{get_my_bundled_edge.impl}
-\index{Get my_bundled_edge}
+\index{Get my\_bundled\_edge}
 
 To use \verb;get_my_bundled_edge;, 
 one first needs to obtain an edge descriptor.
@@ -90,14 +90,14 @@ Listing \ref{lst:get_bundled_edge_my_edge_demo} shows a simple example.
 \label{subsec:set_bundled_edge_my_edge}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-If you know how to get the my_bundled_edge from an edge descriptor, 
+If you know how to get the my\_bundled\_edge from an edge descriptor, 
 setting it is just as easy, as shown in algorithm \ref{lst:set_bundled_edge_my_edge}.
 
 \lstinputlisting[
   caption = Set a bundled edge its my\_bundled\_edge from its edge descriptor,
   label = lst:set_bundled_edge_my_edge
 ]{set_my_bundled_edge.impl}
-\index{Set bundled edge my_bundled_edge}
+\index{Set bundled edge my\_bundled\_edge}
 
 To use \verb;set_bundled_edge_my_edge;, 
 one first needs to obtain an edge descriptor.
@@ -146,13 +146,13 @@ as shown in algorithm \ref{lst:load_directed_bundled_edges_and_vertices_graph_fr
 
 In this algorithm, first it is checked if the file to load exists.
 Then an empty directed graph is created.
-Next to this, a boost::dynamic\_properties \index{boost::dynamic_properties}
+Next to this, a boost::dynamic\_properties \index{boost::dynamic\_properties}
 is created with its default constructor, after which we direct the 
-boost::dynamic_properties \index{boost::dynamic_properties}
+boost::dynamic\_properties \index{boost::dynamic\_properties}
 to find a \verb;node_id; and \verb;label; in the vertex name map, 
 \verb;edge_id; and \verb;label; to the edge name map.
  From this and the empty graph, \verb;boost::read_graphviz;
-\index{boost::read_graphviz}
+\index{boost::read\_graphviz}
 is called to build up the graph.
 
 Listing 
