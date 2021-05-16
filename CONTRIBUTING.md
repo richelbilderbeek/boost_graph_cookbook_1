@@ -70,26 +70,32 @@ in this project.
 For example, take the function `f`:
 
  * `f` will be defined in `f.impl`. This file will be shown in the LyX document
- * If `f` is a template function, `f` its definition will be reachable from `f.h`, by `#include "f.impl"`
- * If `f` is a non-template function, `f` its definition will be reachable from `f.cpp`, by `#include "f.impl"`
+ * If `f` is a template function, 
+   `f` its definition will be reachable from `f.h`, by `#include "f.impl"`
+ * If `f` is a non-template function, 
+   `f` its definition will be reachable from `f.cpp`, by `#include "f.impl"`
  * The function `f` will be tested in `f_test.cpp` using Boost.Test
+ * The function `f` in combination with GraphViz functionality,
+   will be tested in `f_graphviz_test.cpp` using Boost.Test
 
 ### The many `.pri` files
 
 Source files are split up in multiple dimensions.
 
-Selection|Filename
----|---
-All|`boost_graph_cookbook_1.pri`
-No GraphViz|`boost_graph_cookbook_1_no_graphviz.pri`
-Bundled edges and vertices|`boost_graph_cookbook_1_bundled_edges_and_vertices.pri`
-Bundled vertices|`boost_graph_cookbook_1_bundled_vertices.pri`
+Selection                               |Filename
+----------------------------------------|---------------------------------------------------------------------------
+All                                     |`boost_graph_cookbook_1.pri`
+No GraphViz                             |`boost_graph_cookbook_1_no_graphviz.pri`
+Bundled edges and vertices              |`boost_graph_cookbook_1_bundled_edges_and_vertices.pri`
+Bundled vertices                        |`boost_graph_cookbook_1_bundled_vertices.pri`
 Custom and selectable edges and vertices|`boost_graph_cookbook_1_custom_and_selectable_edges_and_vertices.pri`
-Custom and selectable vertices|`boost_graph_cookbook_1_custom_and_selectable_vertices.pri`
-Custom edges and vertices|`boost_graph_cookbook_1_custom_edges_and_vertices.pri`
-Custom vertices|`boost_graph_cookbook_1_custom_vertices.pri`
-Helper functions|`boost_graph_cookbook_1_helper.pri`
-Named and selectable vertices|`boost_graph_cookbook_1_named_and_selectable_vertices.pri`
-Named edges and vertices|`boost_graph_cookbook_1_named_edges_and_vertices.pri`
-Named graph|`boost_graph_cookbook_1_named_graph.pri`
-Named vertices|`boost_graph_cookbook_1_named_vertices.pri`
+Custom and selectable vertices          |`boost_graph_cookbook_1_custom_and_selectable_vertices.pri`
+Custom edges and vertices               |`boost_graph_cookbook_1_custom_edges_and_vertices.pri`
+Custom vertices                         |`boost_graph_cookbook_1_custom_vertices.pri`
+Helper functions                        |`boost_graph_cookbook_1_helper.pri`
+Named and selectable vertices           |`boost_graph_cookbook_1_named_and_selectable_vertices.pri`
+Named edges and vertices                |`boost_graph_cookbook_1_named_edges_and_vertices.pri`
+Named graph                             |`boost_graph_cookbook_1_named_graph.pri`
+Named vertices                          |`boost_graph_cookbook_1_named_vertices.pri`
+
+
