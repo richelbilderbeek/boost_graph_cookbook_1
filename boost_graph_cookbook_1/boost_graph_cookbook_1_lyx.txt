@@ -1,68 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create the empty directed graph with bundled vertices}
-\label{subsec:create_empty_directed_bundled_vertices_graph}
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_directed_bundled_vertices_graph.impl}
-
-Creating an empty directed graph with bundled vertices
-\index{Create empty directed bundled vertices graph}
-
-\label{lst:create_empty_directed_bundled_vertices_graph}
-
-This graph:
-
-\begin{itemize}
-has its out edges stored in a std::vector (due to the first boost::vecS
-\index{boost::vecS}
-
-)
-
-\begin{itemize}
-has its vertices stored in a std::vector (due to the second boost::vecS
-\index{boost::vecS}
-
-)
-
-\begin{itemize}
-is directed (due to the boost::directedS
-\index{boost::directedS}
-
-)
-
-\begin{itemize}
-The vertices have one property: they have a bundled type, that is of data
- type \verb;my_bundled_vertex;
-
-\begin{itemize}
-The edges and graph have no properties
-
-\begin{itemize}
-Edges are stored in a std::list
-
-The \verb;boost::adjacency_list; has a new, fourth template argument \verb;my_bundled_vertex
-\index{my_bundled_vertex}
-
-'.
- This can be read as: 
-\begin_inset Quotes eld
-
-vertices have the bundled property \verb;my_bundled_vertex;
-\begin_inset Quotes erd
-
-.
- Or simply: 
-\begin_inset Quotes eld
-
-vertices have a bundled type called my_bundled_vertex
-\begin_inset Quotes erd
-
-.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create the empty undirected graph with bundled vertices}
 \label{subsec:create_empty_undirected_bundled_vertices_graph}
 
@@ -1048,19 +985,15 @@ boost::property<boost::edge_bundled_type_t, my_edge>
 \index{my_edge
 
 This can be read as: 
-\begin_inset Quotes eld
-
+\begin{quote}
 edges have the property \verb;boost::edge_bundled_type_t', which is of data type
  \verb;my_bundled_edge'
-\begin_inset Quotes erd
-
+\end{quote}
 .
  Or simply: 
-\begin_inset Quotes eld
-
+\begin{quote}
 edges have a bundled type called my_bundled_edge
-\begin_inset Quotes erd
-
+\end{quote}
 .
 
 Demo:

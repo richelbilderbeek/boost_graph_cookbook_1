@@ -80,3 +80,46 @@ of it is not important:
 \verb;my_bundled_vertex; does not have to have the stream operators defined for
 file I/O, as this goes via the public member variables.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create the empty directed graph with bundled vertices}
+\label{subsec:create_empty_directed_bundled_vertices_graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstinputlisting[
+  caption = Creating an empty directed graph with bundled vertices,
+  label = lst:create_empty_directed_bundled_vertices_graph
+]{create_empty_directed_bundled_vertices_graph.impl}
+\index{Create empty directed bundled vertices graph}
+
+This graph:
+
+\begin{itemize}
+  \item has its out edges stored in a std::vector 
+    (due to the first boost::vecS \index{boost::vecS})
+  \item has its vertices stored in a std::vector 
+    (due to the second boost::vecS \index{boost::vecS})
+  \item is directed 
+    (due to the boost::directedS \index{boost::directedS})
+  \item The vertices have one property: 
+    they have a bundled type, 
+    that is of data type \verb;my_bundled_vertex;
+  \item The edges and graph have no properties
+  \item Edges are stored in a std::list
+\end{itemize}
+
+The \verb;boost::adjacency_list; has a new, fourth template argument 
+\verb;my_bundled_vertex; \index{my_bundled_vertex}.
+
+This can be read as: 
+
+\begin{quote}
+vertices have the bundled property \verb;my_bundled_vertex;
+\end{quote}
+
+Or simply: 
+
+\begin{quote}
+vertices have a bundled type called \verb;my_bundled_vertex;
+\end{quote}
+
+
