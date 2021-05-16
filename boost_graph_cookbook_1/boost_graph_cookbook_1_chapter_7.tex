@@ -109,3 +109,23 @@ shows a simple example.
   label = lst:set_bundled_edge_my_edge_demo
 ]{set_my_bundled_edge_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Storing a graph with bundled edges and vertices as a .dot}
+\label{subsec:save_bundled_edges_and_vertices_graph_to_dot}
+\index{Save graph with bundled edges and vertices as .dot}
+\index{Create .dot from graph with bundled edges and vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If you used the \verb;create_bundled_edges_and_vertices_k3_graph; 
+function (algorithm \ref{lst:create_bundled_edges_and_vertices_k3_graph}) 
+to produce a $K_{3}$ graph with edges and vertices 
+associated with my\_bundled\_edge and my\_bundled\_vertex objects, 
+you can store these my\_bundled\_edges and my\_bundled\_vertex-es
+additionally with algorithm \ref{lst:save_bundled_edges_and_vertices_graph_to_dot}:
+
+\lstinputlisting[
+  caption = Storing a graph with bundled edges and vertices as a .dot file,
+  label = lst:save_bundled_edges_and_vertices_graph_to_dot
+]{save_bundled_edges_and_vertices_graph_to_dot.impl}
+\index{Save bundled edges and vertices graph to dot}
+
