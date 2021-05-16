@@ -172,3 +172,133 @@ When trying to get the edges' my\_bundled\_edge objects from a graph without
 bundled edges objects associated, you will get the error 
 \verb;formed reference to void; (see chapter \ref{subsec:formed_reference_to_void}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creating a Markov-chain with bundled edges and vertices}
+\label{subsec:create_bundled_edges_and_vertices_markov_chain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Graph}
+
+Figure \ref{fig:bundled_edges_and_vertices_markov_chain}
+shows the graph that will be reproduced:
+
+\begin{figure}
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick]
+    \tikzstyle{every state}=[]
+    \node[state] (A) 
+      {Stable,Right, 1.0, 2.0};   
+    \node[state] (B) [right of=A] 
+      {Not unstable,Not left, 3.0, 4.0}
+    ;   
+    \path (A) edge [loop above] node {Red,Heat,1,2} (A)
+          (A) edge [bend  left] node {Orange,Lose heat,3,4} (B)
+          (B) edge [bend  left] node {Yellow cold,Heat,4,5} (A)
+          (B) edge [loop above] node {Green cols,Stay cool,6,7} (B); 
+  \end{tikzpicture}
+  \caption{
+    A two-state Markov chain where the edges and vertices have bundled properties.
+    The edges' and vertices' properties are nonsensical
+  }
+  \label{fig:bundled_edges_and_vertices_markov_chain}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+Here is the code creating a two-state Markov chain with bundled edges and
+vertices:
+
+\lstinputlisting[
+  caption = Creating the two-state Markov chain as depicted in figure \ref{fig:bundled_edges_and_vertices_markov_chain},
+  label = lst:create_bundled_edges_and_vertices_markov_chain
+]{create_bundled_edges_and_vertices_markov_chain.impl}
+\index{Create bundled edges and vertices Markov chain}
+
+\subsection{Creating such a graph}
+
+Here is the demo:
+
+\lstinputlisting[
+  caption = Demo of the create\_bundled\_edges\_and\_vertices\_markov\_chain function (algorithm \ref{lst:create_bundled_edges_and_vertices_markov_chain}),
+  label = lst:create_bundled_edges_and_vertices_markov_chain_demo
+]{create_bundled_edges_and_vertices_markov_chain_demo.impl}
+
+\subsection{The .dot file produced}
+
+\lstinputlisting[
+  caption = .dot file created from the create\_bundled\_edges\_and\_vertices\_markov\_chain function (algorithm \ref{lst:create_bundled_edges_and_vertices_markov_chain}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+  label = lst:create_bundled_edges_and_vertices_markov_chain.dot
+]{create_bundled_edges_and_vertices_markov_chain.dot}
+
+\subsection{The .svg file produced}
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_edges_and_vertices_markov_chain.svg}
+  \caption{
+    .svg file created from the create\_bundled\_edges\_and\_vertices\_markov\_chain function 
+    (algorithm  \ref{lst:create_custom_vertices_markov_chain}) 
+    its .dot file converted from .dot file to .svg using algorithm 
+    \ref{lst:convert_dot_to_svg}
+  }
+  \label{fig:create_bundled_edges_and_vertices_markov_chain.svg}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creating $K_{3}$  with bundled edges and vertices}
+\label{subsec:create_bundled_edges_and_vertices_k3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Instead of using edges with a name, or other properties, here we use a bundled
+edge class called \verb;my_bundled_edge;.
+
+\subsection{Graph}
+
+We reproduce the $K_{3}$ with named edges and vertices of chapter 
+\ref{subsec:create_named_edges_and_vertices_k3}, 
+but with our bundled edges and vertices instead:
+
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[] 
+      (2,4) node[draw=black,fill=white,shape=circle,text=black] {Red,Not green,1,2}
+       -- (5,2) node[anchor=west] {Oxygen,Air,1,2} 
+       -- (8,0) node[draw=black,fill=white,shape=circle,text=black] {Light red,Not dark,3,4} 
+       -- (4,0) node[anchor=north] {Helium,From tube,3,4} 
+       -- (0,0) node[draw=black,fill=white,shape=circle,text=black] {Orange,Orange,5,6} 
+       -- (1,2) node[anchor=east] {Stable temperature,Here,5,6} 
+       -- (2,4)
+    ;
+  \end{tikzpicture}
+  \caption{$K_{3}$: a fully connected graph with three named edges and vertices }
+  \label{fig:create_bundled_edges_and_vertices_k3}
+\end{figure}
+
+\subsection{Function to create such a graph}
+
+\lstinputlisting[
+  caption = Creating $K_{3}$ as depicted in figure \ref{fig:named_edges_and_vertices_k3},
+  label = lst:create_bundled_edges_and_vertices_k3_graph
+]{create_bundled_edges_and_vertices_k3_graph.impl}
+\index{Create bundled edges and vertices K3 graph}
+
+Most of the code is a slight modification of algorithm 
+\ref{lst:create_named_edges_and_vertices_k3_graph}.
+In the end, the my\_edges and my\_vertices are obtained as the graph its
+property\_map and set with the \verb;my_bundled_edge; 
+and \verb;my_bundled_vertex; objects.
+
+\subsection{Creating such a graph
+
+Here is the demo:
+
+\lstinputlisting[
+  caption = Demo of the create\_bundled\_edges\_and\_vertices\_k3\_graph function (algorithm \ref{lst:create_bundled_edges_and_vertices_k3_graph}),
+  label = lst:create_bundled_edges_and_vertices_k3_graph_demo
+]{create_bundled_edges_and_vertices_k3_graph_demo.impl}
+
+\subsection{The .dot file produced}
+
+\lstinputlisting[
+  caption = .dot file created from the create\_bundled\_edges\_and\_vertices\_markov\_chain function (algorithm \ref{lst:create_bundled_edges_and_vertices_k3_graph}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+  label = lst:create_bundled_edges_and_vertices_k3_graph.dot
+]{create_bundled_edges_and_vertices_k3_graph.dot}
+
