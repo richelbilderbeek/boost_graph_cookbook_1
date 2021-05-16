@@ -1,35 +1,3 @@
-\section{...}
-Building graphs with a graph name
-\label{sec:Building-graphs-with-a-graph-name}
-
-Up until now, the graphs created have had no properties themselves.
- Sure, the edges and vertices have had properties, but the graph itself
- has had none.
- Until now.
-
-In this chapter, graphs will be created with a graph name of type std::string
-
-\begin{itemize}
-An empty directed graph with a graph name: see chapter 
-
-\begin{itemize}
-An empty undirected graph with a graph name: see chapter 
-
-\begin{itemize}
-A two-state Markov chain with a graph name: see chapter
-
-\begin{itemize}
-$K_{3}$
-
-with a graph name: see chapter 
-
-In the process, some basic (sometimes bordering trivial) functions are shown:
-
-\begin{itemize}
-Getting a graph its name: see chapter 
-
-\begin{itemize}
-Setting a graph its name: see chapter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Create an empty directed graph with a graph name property}
