@@ -177,7 +177,7 @@ Too bad, this algorithm does not work yet.
   caption = Get the direct-neighbour subgraph from a vertex descriptor,
   label = lst:create_direct_neighbour_subgraph_including_in_edges
 ]{create_direct_neighbour_subgraph_including_in_edges.impl}
-\index{Create direct-neighbour subgraph_including_in_edges}
+\index{Create direct-neighbour subgraph\_including\_in\_edges}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties}
@@ -385,7 +385,7 @@ and \ref{subsec:create_k2.dot})
 All the code does is create an \verb;std::ofstream; \index{std::ofstream}
 (an output-to-file stream) 
 and use 
-\verb;boost::write_graphviz; \index{boost::write_graphviz}
+\verb;boost::write_graphviz; \index{boost::write\_graphviz}
 to write the DOT description of our graph to that stream.
 Instead of \verb;std::ofstream;, 
 one could use \verb;std::cout; \index{std::cout}
@@ -429,14 +429,14 @@ after which an \verb;std::ifstream; \index{std::ifstream}
 is opened.
 Then an empty directed graph is created, which saves us writing down the
 template arguments explicitly.
-Then, a \verb;boost::dynamic_properties; \index{boost::dynamic_properties}
+Then, a \verb;boost::dynamic_properties; \index{boost::dynamic\_properties}
 is created with the 
-\verb;boost::ignore_other_properties; \index{boost::ignore_other_properties}
+\verb;boost::ignore_other_properties; \index{boost::ignore\_other\_properties}
 in its constructor (using a default constructor here results in the run-time
 error 
 \verb;property not found: node_id;, see chapter \ref{subsec:property_not_found_node_id}).
 From this and the empty graph, 
-\verb;boost::read_graphviz; \index{boost::read_graphviz}
+\verb;boost::read_graphviz; \index{boost::read\_graphviz}
 is called to build up the graph.
 
 Listing \ref{lst:load_directed_graph_from_dot_demo}
@@ -469,7 +469,7 @@ show how to do so:
   caption = Loading an undirected graph from a .dot file,
   label = lst:load_undirected_graph_from_dot
 ]{load_undirected_graph_from_dot.impl}
-\index{Load undirected graph from_dot}
+\index{Load undirected graph from dot}
 
 The only difference with loading a directed graph, is that the initial empty
 graph is undirected instead.

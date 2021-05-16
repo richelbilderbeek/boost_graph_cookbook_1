@@ -54,10 +54,10 @@ of it is not important:
   caption = Declaration of my\_bundled\_vertex,
   label = lst:my_bundled_vertex_h
 ]{my_bundled_vertex.impl}
-\index{my_bundled_vertex}
-\index{my_bundled_vertex.h}
-\index{my_vertex declaration}
-\index{Declaration, my_bundled_vertex}
+\index{my\_bundled\_vertex}
+\index{my\_bundled\_vertex.h}
+\index{my\_vertex declaration}
+\index{Declaration, my\_bundled\_vertex}
 
 \verb;my_bundled_vertex; is a class that has multiple properties: 
 
@@ -108,7 +108,7 @@ This graph:
 \end{itemize}
 
 The \verb;boost::adjacency_list; has a new, fourth template argument 
-\verb;my_bundled_vertex; \index{my_bundled_vertex}.
+\verb;my_bundled_vertex; \index{my\_bundled\_vertex}.
 
 This can be read as: 
 
@@ -172,15 +172,15 @@ extract these as such:
   caption = Get the bundled vertices' my\_vertexes,
   label = lst:get_my_bundled_vertexes
 ]{get_my_bundled_vertexes.impl}
-\index{Get bundled vertex my_vertexes}
+\index{Get bundled vertex my\_vertexes}
 
 The \verb;my_bundled_vertex; bundled in each vertex is obtained from a vertex
 descriptor and then put into a std::vector.
 
 The order of the \verb;my_bundled_vertex; objects may be different after saving
 and loading.
-When trying to get the vertices' my_bundled_vertex from a graph without
- these, you will get the error 
+When trying to get the vertices' \verb{my_bundled_vertex} from a graph without these, 
+you will get the error 
 \verb;formed reference to void; (see chapter \ref{subsec:formed_reference_to_void}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,27 +193,29 @@ When trying to get the vertices' my_bundled_vertex from a graph without
 Figure \ref{fig:bundled_vertices_markov_chain} 
 shows the graph that will be reproduced:
 
-\begin{figure}
-  \begin{tikzpicture}
-    \draw[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
-    \tikzstyle{every state}=[]
-    \node[state] (A) 
-        {Sunny, Yellow, 1.0, 2.0};   
-    \node[state] (B) [right of=A] 
-        {Not rainy, Not grey, 3.0, 4.0}
-      ;   
-    \path (A) edge [loop  left] node {} (A)
-          (A) edge [bend  left] node {} (B)
-          (B) edge [bend  left] node {} (A)
-          (B) edge [loop right] node {} (B); 
-  \end{tikzpicture}
-  \caption{
-    A two-state Markov chain where the vertices have bundled properties and
-    the edges have no properties.
-    The vertices' properties are nonsensical
-  }
-  \label{fig:bundled_vertices_markov_chain}
-\end{figure}
+%
+% TODO
+%
+%\begin{figure}
+%  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
+%    \tikzstyle{every state}=[]
+%    \node[state] (A) 
+%        {Sunny, Yellow, 1.0, 2.0};
+%    \node[state] (B) [right of=A] 
+%        {Not rainy, Not grey, 3.0, 4.0}
+%      ;   
+%    \path (A) edge [loop  left] node {} (A)
+%          (A) edge [bend  left] node {} (B)
+%          (B) edge [bend  left] node {} (A)
+%          (B) edge [loop right] node {} (B); 
+%  \end{tikzpicture}
+%  \caption{
+%    A two-state Markov chain where the vertices have bundled properties and
+%    the edges have no properties.
+%    The vertices' properties are nonsensical
+%  }
+%  \label{fig:bundled_vertices_markov_chain}
+%\end{figure}
 
 \subsection{Function to create such a graph}
 
@@ -244,7 +246,7 @@ Here is the demo:
 \subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_vertices_markov_chain.svg}
+  \includegraphics[]{create_bundled_vertices_markov_chain.png}
   \caption{
     .svg file created from the create\_bundled\_vertices\_markov\_chain function
     (algorithm \ref{lst:create_bundled_vertices_markov_chain}) 
@@ -253,4 +255,5 @@ Here is the demo:
   }
   \label{fig:create_bundled_vertices_markov_chain.svg}
 \end{figure}
+
 

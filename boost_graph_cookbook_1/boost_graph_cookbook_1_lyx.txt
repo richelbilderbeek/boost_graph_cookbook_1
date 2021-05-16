@@ -1,128 +1,74 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating $K_{2}$ with bundled vertices}
+\section{Creating $K_{2}$ with bundled vertices}
 \label{subsec:create_bundled_vertices_k2_graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Graph}
 
-We reproduce the 
-$K_{2}$
+We reproduce the $K_{2}$ with named vertices of 
+chapter \ref{subsec:create_named_vertices_k2_graph}, 
+but with our bundled vertices instead, 
+as show in figure \ref{fig:bundled_vertices_k2_graph}:
 
- with named vertices of chapter 
-\ref{subsec:create_named_vertices_k2_graph}
-
- , but with our bundled vertices instead, as show in figure 
-\ref{fig:bundled_vertices_k2_graph}
-
-:
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_inset ERT
-status open
-
-\backslash
-begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
-   
-
-\backslash
-tikzstyle{every state}=[]
-
-\backslash
-node[state] (A)              {Me,Myself,1.0,2.0};   
-
-\backslash
-node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
-
-\backslash
-path (A) edge [] node {} (B); 
-
-\backslash
-end{tikzpicture}
-
-$K_{2}$
-
-: a fully connected graph with two bundled vertices
-\label{fig:bundled_vertices_k2_graph}
+%
+% TODO
+%
+%\begin{figure}
+%  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
+%    \tikzstyle{every state}=[]
+%    \node[state] (A)              {Me,Myself,1.0,2.0};   
+%    \node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
+%    \path (A) edge [] node {} (B); 
+%  \end{tikzpicture}
+%  \caption{
+%    $K_{2}$: a fully connected graph with two bundled vertices
+%  }
+%  \label{fig:bundled_vertices_k2_graph}
+%\end{figure}
 
 \subsection{Function to create such a graph}
 
 \lstinputlisting[
-  caption = ,
-  label = lst:
+  caption = Creating $K_{2}$ as depicted in figure \ref{fig:named_vertices_k2_graph},
+  label = lst:create_bundled_vertices_k2_graph
 ]{create_bundled_vertices_k2_graph.impl}
-
-Creating 
-$K_{2}$
-
- as depicted in figure 
-\ref{fig:named_vertices_k2_graph}
-
 \index{Create bundled vertices K2 graph}
-\label{lst:create_bundled_vertices_k2_graph}
 
-Most of the code is a slight modification of the \verb;create_named_vertices_k2_graph
-' function (algorithm 
-\ref{lst:create_named_vertices_k2_graph}
+Most of the code is a slight modification of the 
+\verb;create_named_vertices_k2_graph; function 
+(algorithm \ref{lst:create_named_vertices_k2_graph}).
+In the end, (references to) the \verb;my_bundled_vertices; 
+are obtained and set with two bundled \verb;my_bundled_vertex; objects.
 
-).
- In the end, (references to) the my_bundled_vertices are obtained and set
- with two bundled my_bundled_vertex objects.
-
-\subsection{Creating such a graph
+\subsection{Creating such a graph}
 
 Demo:
 
 \lstinputlisting[
-  caption = ,
-  label = lst:
+  caption = Demo of the create\_bundled\_vertices\_k2\_graph function (algorithm \ref{lst:create_bundled_vertices_k2_graph}),
+  label = lst:create_bundled_vertices_k2_graph_demo
 ]{create_bundled_vertices_k2_graph_demo.impl}
 
-Demo of the \verb;create_bundled_vertices_k2_graph' function (algorithm 
-\ref{lst:create_bundled_vertices_k2_graph}
-
-)
-\label{lst:create_bundled_vertices_k2_graph_demo}
-
-\subsection{The .dot file produced
-
+\subsection{The .dot file produced}
 
 \lstinputlisting[
-  caption = ,
-  label = lst:
+  caption = .dot file created from the create\_bundled\_vertices\_k2\_graph function (algorithm \ref{lst:create_bundled_vertices_k2_graph}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+  label = lst:create_bundled_vertices_k2_graph.dot-1
 ]{create_bundled_vertices_k2_graph.dot}
-
-.dot file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
- 
-\ref{lst:create_bundled_vertices_k2_graph}
-
-), converted from graph to .dot file using algorithm 
-\ref{lst:save_graph_to_dot}
-
-\label{lst:create_bundled_vertices_k2_graph.dot-1}
 
 \subsection{The .svg file produced}
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_bundled_vertices_k2_graph.svg}
+  \includegraphics[]{create_bundled_vertices_k2_graph.png}
   \caption{
-    .
+    .svg file created from the \verb;create_bundled_vertices_k2_graph; function 
+    (algorithm \ref{lst:create_bundled_vertices_k2_graph}) its .dot file, 
+    converted from .dot file to .svg 
+    using algorithm \ref{lst:convert_dot_to_svg}
   }
-  \label{fig:.}
+  \label{fig:create_bundled_vertices_k2_graph.svg}
 \end{figure}
 
-.svg file created from the \verb;create_bundled_vertices_k2_graph' function (algorithm
- 
-\ref{lst:create_bundled_vertices_k2_graph}
-
-) its .dot file, converted from .dot file to .svg using algorithm 
-\ref{lst:convert_dot_to_svg}
-
-\label{fig:create_bundled_vertices_k2_graph.svg}
 
 \section{...}
 Working on graphs with bundled vertices
@@ -917,31 +863,26 @@ status open
 \begin_inset ERT
 status open
 
-\backslash
-begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick
 ]   
 
   
-\backslash
-tikzstyle{every state}=[]
+\tikzstyle{every state}=[]
 
   
-\backslash
-node[state] (A) 
+\node[state] (A) 
 
     {Stable,Right, 1.0, 2.0};   
 
   
-\backslash
-node[state] (B) [right of=A] 
+\node[state] (B) [right of=A] 
 
     {Not unstable,Not left, 3.0, 4.0}
 
   ;   
 
   
-\backslash
-path (A) edge [loop above] node {Red,Heat,1,2} (A)
+\path (A) edge [loop above] node {Red,Heat,1,2} (A)
 
         (A) edge [bend  left] node {Orange,Lose heat,3,4} (B)
 
@@ -949,8 +890,7 @@ path (A) edge [loop above] node {Red,Heat,1,2} (A)
 
         (B) edge [loop above] node {Green cols,Stay cool,6,7} (B); 
 
-\backslash
-end{tikzpicture}
+\end{tikzpicture}
 
 A two-state Markov chain where the edges and vertices have bundled properties.
  The edges' and vertices' properties are nonsensical
