@@ -36,3 +36,47 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
 These functions are mostly there for completion and showing which data types
 are used.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creating the bundled vertex class}
+\label{subsec:my_bundled_vertex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Before creating an empty graph with bundled vertices, that bundled vertex
+class must be created.
+In this tutorial, it is called \verb;my_bundled_vertex;.
+\verb;my_bundled_vertex; is a class that is nonsensical, but it can be replaced
+by any other class type.
+
+Here I will show the header file of \verb;my_bundled_vertex;, as the implementation
+of it is not important:
+
+\lstinputlisting[
+  caption = Declaration of my\_bundled\_vertex,
+  label = lst:my_bundled_vertex_h
+]{my_bundled_vertex.impl}
+\index{my_bundled_vertex}
+\index{my_bundled_vertex.h}
+\index{my_vertex declaration}
+\index{Declaration, my_bundled_vertex}
+
+\verb;my_bundled_vertex; is a class that has multiple properties: 
+
+\begin{itemize}
+  \item
+    It has four public member variables: 
+    the double \verb;m_x; 
+    (\verb;m_; \index{m\_} stands for 'member' \index{member}), 
+    the double \verb;m_y;, 
+    the \verb;std::string; \verb;m_name; and the 
+    \verb;std::string; \verb;m_description;.
+    These variables must be public
+  \item It has a default constructor
+  \item It is copyable
+  \item It is comparable for equality 
+    (it has \verb;operator==;), 
+    which is needed for searching
+\end{itemize}
+
+\verb;my_bundled_vertex; does not have to have the stream operators defined for
+file I/O, as this goes via the public member variables.
+

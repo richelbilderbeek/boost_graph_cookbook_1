@@ -1,58 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating the bundled vertex class}
-\label{subsec:my_bundled_vertex}
-
-Before creating an empty graph with bundled vertices, that bundled vertex
- class must be created.
- In this tutorial, it is called \verb;my_bundled_vertex;.
- \verb;my_bundled_vertex; is a class that is nonsensical, but it can be replaced
- by any other class type.
-
-Here I will show the header file of \verb;my_bundled_vertex;, as the implementation
- of it is not important:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{my_bundled_vertex.impl}
-
-Declaration of my_bundled_vertex
-\index{my_bundled_vertex}
-
-\index{my_bundled_vertex.h}
-
-\index{my_vertex declaration}
-
-\index{Declaration, my_bundled_vertex}
-
-\label{lst:my_bundled_vertex_h}
-
-\verb;my_bundled_vertex; is a class that has multiple properties: 
-
-\begin{itemize}
-It has four public member variables: the double \verb;m_x' (\verb;m_
-\index{m_}
-
-' stands for member
-\index{member}
-
-), the double \verb;m_y', the std::string m_name and the std::string m_description.
- These variables must be public
-
-\begin{itemize}
-It has a default constructor
-
-\begin{itemize}
-It is copyable
-
-\begin{itemize}
-It is comparable for equality (it has operator==), which is needed for searching
-
-\verb;my_bundled_vertex; does not have to have the stream operators defined for
- file I/O, as this goes via the public member variables.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create the empty directed graph with bundled vertices}
 \label{subsec:create_empty_directed_bundled_vertices_graph}
 
