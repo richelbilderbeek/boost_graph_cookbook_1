@@ -129,3 +129,44 @@ additionally with algorithm \ref{lst:save_bundled_edges_and_vertices_graph_to_do
 ]{save_bundled_edges_and_vertices_graph_to_dot.impl}
 \index{Save bundled edges and vertices graph to dot}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Load a directed graph with bundled edges and vertices from a .dot file}
+\label{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an directed graph with bundled edges and vertices is loaded,
+as shown in algorithm \ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}:
+
+\lstinputlisting[
+  caption = Loading a directed graph with bundled edges and vertices from a .dot file,
+  label = lst:load_directed_bundled_edges_and_vertices_graph_from_dot
+]{load_directed_bundled_edges_and_vertices_graph_from_dot.impl}
+\index{Load directed bundled edges and vertices graph from dot}
+
+In this algorithm, first it is checked if the file to load exists.
+Then an empty directed graph is created.
+Next to this, a boost::dynamic\_properties \index{boost::dynamic_properties}
+is created with its default constructor, after which we direct the 
+boost::dynamic_properties \index{boost::dynamic_properties}
+to find a \verb;node_id; and \verb;label; in the vertex name map, 
+\verb;edge_id; and \verb;label; to the edge name map.
+ From this and the empty graph, \verb;boost::read_graphviz;
+\index{boost::read_graphviz}
+is called to build up the graph.
+
+Listing 
+\ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot_demo}
+shows how to use the \verb;load_directed_bundled_edges_and_vertices_graph_from_dot;
+function:
+
+\lstinputlisting[
+  caption = Demonstration of the load\_directed\_bundled\_edges\_and\_vertices\_graph\_from\_dot function,
+  label = lst:load_directed_bundled_edges_and_vertices_graph_from_dot_demo
+]{load_directed_bundled_edges_and_vertices_graph_from_dot_demo.impl}
+
+This demonstration shows how the Markov chain is created using 
+the \verb;create_bundled_edges_and_vertices_markov_chain; function 
+(algorithm \ref{lst:create_bundled_edges_and_vertices_markov_chain}), 
+saved and then loaded.
+
