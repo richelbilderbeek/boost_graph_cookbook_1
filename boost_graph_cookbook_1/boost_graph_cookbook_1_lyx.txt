@@ -1,29 +1,4 @@
 
-\section{...}
-Other graph functions
-\label{sec:Other-graph-functions}
-
-Some functions that did not fit in.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Encode a std::string to a Graphviz-friendly format}
-\label{subsec:graphviz_encode}
-
-You may want to use a label with spaces, comma's and/or quotes.
- Saving and loading these, will result in problem.
- This function replaces these special characters by a rare combination of
- ordinary characters.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{graphviz_encode.impl}
-
-Encode a std::string to a Graphviz-friendly format
-\index{graphviz encode
-
-\label{lst:graphviz_encode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Decode a std::string from a Graphviz-friendly format}
 \label{subsec:graphviz_decode}

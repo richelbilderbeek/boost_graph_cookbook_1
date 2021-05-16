@@ -1,5 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Other graph functions}
+\label{sec:Other-graph-functions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Other graph functions text.
+Some functions that did not fit in.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Encode a std::string to a Graphviz-friendly format}
+\label{subsec:graphviz_encode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You may want to use a label with spaces, comma's and/or quotes.
+Saving and loading these, will result in problem.
+This function replaces these special characters by a rare combination of
+ordinary characters.
+
+\lstinputlisting[
+  caption = Encode a std::string to a Graphviz-friendly format,
+  label = lst:graphviz_encode
+]{graphviz_encode.impl}
+\index{graphviz encode}
+

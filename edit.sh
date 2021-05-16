@@ -10,6 +10,7 @@ mousepad \
   boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_7.tex \
   boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_8.tex \
   boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_9.tex \
+  boost_graph_cookbook_1/boost_graph_cookbook_1_chapter_10.tex \
   boost_graph_cookbook_1/boost_graph_cookbook_1_lyx.txt
 
 ./create_pdf.sh
