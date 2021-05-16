@@ -21,3 +21,18 @@ ordinary characters.
 ]{graphviz_encode.impl}
 \index{graphviz encode}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Decode a std::string from a Graphviz-friendly format}
+\label{subsec:graphviz_decode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This function undoes the \verb;graphviz_encode; function (algorithm 
+\ref{lst:graphviz_encode}) and thus converts a 
+Graphviz-friendly std::string to the original human-friendly std::string.
+
+\lstinputlisting[
+  caption = Decode a std::string from a Graphviz-friendly format to a human-friendly format,
+  label = lst:graphviz_decode
+]{graphviz_decode.impl}
+\index{graphviz decode}
+

@@ -1,25 +1,3 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Decode a std::string from a Graphviz-friendly format}
-\label{subsec:graphviz_decode}
-
-This function undoes the \verb;graphviz_encode' function (algorithm 
-\ref{lst:graphviz_encode}
-
-) and thus converts a Graphviz-friendly std::string to the original human-friend
-ly std::string.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{graphviz_decode.impl}
-
-Decode a std::string from a Graphviz-friendly format to a human-friendly
- format
-\index{graphviz decode
-
-\label{lst:graphviz_decode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Check if a std::string is Graphviz-friendly}
 \label{subsec:is_graphviz_friendly}
