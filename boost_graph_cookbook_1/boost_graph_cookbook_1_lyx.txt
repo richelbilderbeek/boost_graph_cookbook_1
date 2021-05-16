@@ -1,45 +1,4 @@
 
-\section{...}
-Working on graphs with bundled edges and vertices
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Has a my_bundled_edge}
-\label{subsec:has_bundled_edge_with_my_edge}
-
-Before modifying our edges, let's first determine if we can find an edge
- by its bundled type (\verb;my_bundled_edge') in a graph.
- After obtaining a my_bundled_edge map, we obtain the edge iterators, dereferenc
-e these to obtain the edge descriptors and then compare each edge its my_bundled
-_edge with the one desired.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{has_bundled_edge_with_my_edge.impl}
-
-Find if there is a bundled edge with a certain my_bundled_edge
-\index{Has bundled edge with my_bundled_edge
-
-\label{lst:has_bundled_edge_with_my_edge}
-
-This function can be demonstrated as in algorithm 
-\ref{lst:has_bundled_edge_with_my_edge_demo}
-
-, where a certain \verb;my_bundled_edge' cannot be found in an empty graph.
- After adding the desired my_bundled_edge, it is found.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{has_bundled_edge_with_my_edge_demo.impl}
-
-Demonstration of the \verb;has_bundled_edge_with_my_edge' function
-\label{lst:has_bundled_edge_with_my_edge_demo}
-
-Note that this function only finds if there is at least one edge with that
- my_bundled_edge: it does not tell how many edges with that my_bundled_edge
- exist in the graph.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Find a my_bundled_edge}
 \label{subsec:find_first_bundled_edge_with_my_edge}
