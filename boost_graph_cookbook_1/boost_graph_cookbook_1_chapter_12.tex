@@ -2,4 +2,72 @@
 \chapter{Errors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Errors text.
+Some common errors.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formed reference to void}
+\label{subsec:formed_reference_to_void}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This compile-time error occurs when you create a graph without a certain
+ property, then subsequently reading that property, as in algorithm 
+\ref{lst:formed_reference_to_void}: 
+
+\lstinputlisting[
+  caption = Creating the error 'formed reference to void',
+  label = lst:formed_reference_to_void
+]{formed_reference_to_void.impl}
+\index{Formed reference to void}
+
+In algorithm \ref{lst:formed_reference_to_void}
+a graph is created with vertices of no properties.
+Then the names of these vertices, which do not exists, are tried to be
+read.
+If you want to read the names of the vertices, supply a graph that has
+this property.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{No matching function for call to clear\_out\_edges}
+\label{subsec:no_matching_function_for_call_to_clear_out_edges}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This compile-time error occurs when you want to clear the outward edges
+from a vertex in an undirected graph.
+
+\lstinputlisting[
+  caption = Creating the error 'no matching function for call to clear\_out\_edges',
+  label = lst:no_matching_function_for_call_to_clear_out_edges
+]{no_matching_function_for_call_to_clear_out_edges.impl}
+\index{No matching function for call to clear\_out\_edges}
+
+In algorithm 
+\ref{lst:no_matching_function_for_call_to_clear_out_edges}
+an undirected graph is created, a vertex descriptor is obtained, then its
+out
+edges are tried to be cleared. Either use a directed graph (which has out
+edges), or use the \verb;boost::clear_vertex; function instead.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{No matching function for call to \verb;clear_in_edges;}
+\label{subsec:no_matching_function_for_call_to_clear_in_edges}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Undefined reference to boost::detail::graph::read_graphviz_new}
+\label{subsec:undefined_reference_to_read_graphviz_new}
+\index{read\_graphviz\_new}
+\index{Undefined reference to read_graphviz\_new}
+\index{read\_graphviz\_new, undefined reference}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You will have to link \index{link}
+against the Boost.Graph and Boost.Regex libraries.
+In Qt Creator, this is achieved by adding these lines to your Qt Creator
+project file:
+
+\begin{verbatim}
+LIBS += -lboost_graph -lboost_regex 
+\end{verbatim}
+

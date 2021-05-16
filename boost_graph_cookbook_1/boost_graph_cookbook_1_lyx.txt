@@ -1,103 +1,21 @@
-\section{...}
-Errors
-
-Some common errors.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Formed reference to void}
-\label{subsec:formed_reference_to_void}
-
-This compile-time error occurs when you create a graph without a certain
- property, then subsequently reading that property, as in algorithm 
-\ref{lst:formed_reference_to_void}
-
-: 
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{formed_reference_to_void.impl}
-
-Creating the error \verb;formed reference to void;
-\index{Formed reference to void
-
-\label{lst:formed_reference_to_void}
-
-In algorithm 
-\ref{lst:formed_reference_to_void}
-
- a graph is created with vertices of no properties.
- Then the names of these vertices, which do not exists, are tried to be
- read.
- If you want to read the names of the vertices, supply a graph that has
- this property.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{No matching function for call to \verb;;clear_out_edges;}
-\label{subsec:no_matching_function_for_call_to_clear_out_edges}
-
-This compile-time error occurs when you want to clear the outward edges
- from a vertex in an undirected graph.
- 
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{no_matching_function_for_call_to_clear_out_edges.impl}
-
-Creating the error \verb;no matching function for call to clear_out_edges'
-\index{No matching function for call to clear_out_edges
-
-\label{lst:no_matching_function_for_call_to_clear_out_edges}
-
-In algorithm 
-\ref{lst:no_matching_function_for_call_to_clear_out_edges}
-
-an undirected graph is created, a vertex descriptor is obtained, then itsout
- edges are tried to be cleared.Either use a directed graph (which has out
- edges), or use the \verb;boost::clear_vertex' function instead.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{No matching function for call to \verb;clear_in_edges;}
-\label{subsec:no_matching_function_for_call_to_clear_in_edges}
-
-See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Undefined reference to boost::detail::graph::read_graphviz_new}
-\label{subsec:undefined_reference_to_read_graphviz_new}
-\index{read\_graphviz\_new}
-\index{Undefined reference to read_graphviz\_new}
-\index{read\_graphviz\_new, undefined reference}
-
-You will have to link
-\index{link
-
- against the Boost.Graph and Boost.Regex libraries.
- In Qt Creator, this is achieved by adding these lines to your Qt Creator
- project file:
-
-\begin{verbatim}\end{verbatim}
-LIBS += -lboost_graph -lboost_regex 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Property not found: node_id}
 \label{subsec:property_not_found_node_id}
-\index{node_id}
+\index{node\_id}
 \index{Property not found}
-\index{Property not found: node_id}
+\index{Property not found: node\_id}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-When loading a graph from file (as in chapter 
-\ref{subsec:load_undirected_graph_from_dot}
-
-) you will be using boost::read\_graphviz
-\index{boost::read\_graphviz}.
+When loading a graph from file 
+(as in chapter \ref{subsec:load_undirected_graph_from_dot})
+you will be using 
+boost::read\_graphviz \index{boost::read\_graphviz}.
 
 boost::read\_graphviz \index{boost::read\_graphviz}
-needs a third argument, of type boost::dynamic_properties
+needs a third argument, of type boost::dynamic\_properties
 \index{boost::dynamic\_properties}. 
 When a graph does not have properties, do not use a default constructed
- version, but initialize with \verb;boost::ignore_other_properties;
+version, but initialize with \verb;boost::ignore_other_properties;
 \index{boost::ignore\_other\_properties}
 as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} shows how to trigger this run-time error.
 
