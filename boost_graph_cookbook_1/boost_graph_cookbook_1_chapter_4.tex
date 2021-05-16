@@ -122,4 +122,19 @@ Or simply:
 vertices have a bundled type called \verb;my_bundled_vertex;
 \end{quote}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create the empty undirected graph with bundled vertices}
+\label{subsec:create_empty_undirected_bundled_vertices_graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstinputlisting[
+  caption = Creating an empty undirected graph with bundled vertices,
+  label = lst:create_empty_undirected_bundled_vertices_graph
+]{create_empty_undirected_bundled_vertices_graph.impl}
+\index{Create empty undirected bundled vertices graph}
+
+This code is very similar to the code described 
+in chapter \ref{subsec:create_empty_directed_bundled_vertices_graph}, 
+except that the directness (the third template argument) is undirected 
+(due to the boost::undirectedS \index{boost::undirectedS}).
 

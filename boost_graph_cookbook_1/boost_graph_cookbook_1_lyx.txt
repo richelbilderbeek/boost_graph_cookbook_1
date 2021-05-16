@@ -1,30 +1,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create the empty undirected graph with bundled vertices}
-\label{subsec:create_empty_undirected_bundled_vertices_graph}
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_undirected_bundled_vertices_graph.impl}
-
-Creating an empty undirected graph with bundled vertices
-\index{Create empty undirected bundled vertices graph}
-
-\label{lst:create_empty_undirected_bundled_vertices_graph}
-
-This code is very similar to the code described in chapter 
-\ref{subsec:create_empty_directed_bundled_vertices_graph}
-
-, except that the directness (the third template argument) is undirected
- (due to the boost::undirectedS
-\index{boost::undirectedS}
-
-).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Add a bundled vertex}
+\section{Add a bundled vertex}
 \label{subsec:add_bundled_vertex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Adding a bundled vertex is very similar to adding a named vertex (chapter
  
