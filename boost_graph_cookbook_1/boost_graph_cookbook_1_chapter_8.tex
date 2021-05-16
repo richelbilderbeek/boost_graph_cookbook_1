@@ -30,3 +30,54 @@ In the process, some basic (sometimes bordering trivial) functions are shown:
     see chapter
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create an empty directed graph with a graph name property}
+\label{subsec:create_empty_directed_graph_with_graph_name}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Listing 
+\ref{lst:create_empty_directed_graph_with_graph_name}
+shows the function to create an empty directed graph with a graph name.
+
+\lstinputlisting[
+  caption = Creating an empty directed graph with a graph name,
+  label = lst:create_empty_directed_graph_with_graph_name
+]{create_empty_directed_graph_with_graph_name.impl}
+\index{Create empty directed graph with graph name}
+
+This \verb;boost::adjacency_list; is of the following type:
+
+\begin{itemize}
+  \item the first \verb;boost::vecS; \index{boost::vecS}: 
+    select (that is what the \verb;S; \index{S} means) 
+    that out edges are stored in a std::vector.
+    This is the default way.
+  \item the second \verb;boost::vecS; \index{boost::vecS}: 
+    select that the graph vertices are stored in a std::vector.
+    This is the default way.
+  \item \verb;boost::directedS; \index{boost::directedS}: 
+    select that the graph is directed.
+    This is the default selectedness
+  \item the first \verb;boost::no_property; \index{boost::no_property}: 
+    the vertices have no properties.
+    This is the default (non-)property
+  \item the second \verb;boost::no_property; \index{boost::no_property}: 
+    the vertices have no properties.
+    This is the default (non-)property
+  \item
+    \verb;boost::property<boost::graph_name_t, std::string>; 
+    \index{boost::property}
+    \index{boost::graph_name_t}: 
+    the graph itself has a single property: 
+    its \verb;boost::graph_name; \index{boost::graph_name} has type std::string
+\end{itemize}
+
+Listing 
+\ref{lst:create_empty_directed_graph_with_graph_name_demo}
+demonstrates the \verb;create_empty_directed_graph_with_graph_name; function.
+
+\lstinputlisting[
+  caption = Demonstration of create\_empty\_directed\_graph\_with\_graph\_name,
+  label = lst:create_empty_directed_graph_with_graph_name_demo
+]{create_empty_directed_graph_with_graph_name_demo.impl}
+
