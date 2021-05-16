@@ -147,3 +147,57 @@ Listing \ref{lst:set_graph_name_demo}
   label = lst:set_graph_name_demo
 ]{set_graph_name_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create a directed graph with a graph name property}
+\label{subsec:create_markov_chain_with_graph_name}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Graph}
+
+See figure \ref{fig:markov_chain}.
+
+\subsection{Function to create such a graph}
+
+Listing \ref{lst:create_markov_chain_with_graph_name}
+shows the function to create an empty directed graph with a graph name.
+
+\lstinputlisting[
+  caption = Creating a two-state Markov chain with a graph name,
+  label = lst:create_markov_chain_with_graph_name
+]{create_markov_chain_with_graph_name.impl}
+\index{Create Markov chain with graph name}
+
+\subsection{Creating such a graph}
+
+Listing 
+\ref{lst:create_markov_chain_with_graph_name_demo}
+demonstrates the \verb;create_markov_chain_with_graph_name; function.
+
+\lstinputlisting[
+  caption = Demonstration of create\_markov\_chain\_with\_graph\_name,
+  label = lst:create_markov_chain_with_graph_name_demo
+]{create_markov_chain_with_graph_name_demo.impl}
+
+\subsection{The .dot file produced}
+
+%
+% TODO
+%
+%\lstinputlisting[
+%  caption = .dot file created from the create\_markov\_chain\_with\_graph\_name function (algorithm \ref{lst:create_markov_chain_with_graph_name}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+%  label = lst:create_markov_chain_with_graph_name.dot
+%]{create_markov_chain_with_graph_name.dot}
+
+\subsection{The .svg file produced}
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_markov_chain_with_graph_name.png}
+  \caption{
+    .svg file created from the create\_markov\_chain\_with\_graph\_name function 
+    (algorithm \ref{lst:create_markov_chain_with_graph_name}) 
+    its .dot file converted from .dot file to .svg 
+    using algorithm \ref{lst:convert_dot_to_svg}
+  }
+  \label{fig:create_markov_chain_with_graph_name.svg}
+\end{figure}
+
