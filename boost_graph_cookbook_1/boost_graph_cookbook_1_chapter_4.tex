@@ -256,4 +256,74 @@ Here is the demo:
   \label{fig:create_bundled_vertices_markov_chain.svg}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creating $K_{2}$ with bundled vertices}
+\label{subsec:create_bundled_vertices_k2_graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Graph}
+
+We reproduce the $K_{2}$ with named vertices of 
+chapter \ref{subsec:create_named_vertices_k2_graph}, 
+but with our bundled vertices instead, 
+as show in figure \ref{fig:bundled_vertices_k2_graph}:
+
+%
+% TODO
+%
+%\begin{figure}
+%  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
+%    \tikzstyle{every state}=[]
+%    \node[state] (A)              {Me,Myself,1.0,2.0};   
+%    \node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
+%    \path (A) edge [] node {} (B); 
+%  \end{tikzpicture}
+%  \caption{
+%    $K_{2}$: a fully connected graph with two bundled vertices
+%  }
+%  \label{fig:bundled_vertices_k2_graph}
+%\end{figure}
+
+\subsection{Function to create such a graph}
+
+\lstinputlisting[
+  caption = Creating $K_{2}$ as depicted in figure \ref{fig:named_vertices_k2_graph},
+  label = lst:create_bundled_vertices_k2_graph
+]{create_bundled_vertices_k2_graph.impl}
+\index{Create bundled vertices K2 graph}
+
+Most of the code is a slight modification of the 
+\verb;create_named_vertices_k2_graph; function 
+(algorithm \ref{lst:create_named_vertices_k2_graph}).
+In the end, (references to) the \verb;my_bundled_vertices; 
+are obtained and set with two bundled \verb;my_bundled_vertex; objects.
+
+\subsection{Creating such a graph}
+
+Demo:
+
+\lstinputlisting[
+  caption = Demo of the create\_bundled\_vertices\_k2\_graph function (algorithm \ref{lst:create_bundled_vertices_k2_graph}),
+  label = lst:create_bundled_vertices_k2_graph_demo
+]{create_bundled_vertices_k2_graph_demo.impl}
+
+\subsection{The .dot file produced}
+
+\lstinputlisting[
+  caption = .dot file created from the create\_bundled\_vertices\_k2\_graph function (algorithm \ref{lst:create_bundled_vertices_k2_graph}) converted from graph to .dot file using algorithm \ref{lst:save_graph_to_dot},
+  label = lst:create_bundled_vertices_k2_graph.dot-1
+]{create_bundled_vertices_k2_graph.dot}
+
+\subsection{The .svg file produced}
+
+\begin{figure}[!htbp]
+  \includegraphics[]{create_bundled_vertices_k2_graph.png}
+  \caption{
+    .svg file created from the create\_bundled\_vertices\_k2\_graph function 
+    (algorithm \ref{lst:create_bundled_vertices_k2_graph}) its .dot file, 
+    converted from .dot file to .svg 
+    using algorithm \ref{lst:convert_dot_to_svg}
+  }
+  \label{fig:create_bundled_vertices_k2_graph.svg}
+\end{figure}
 
