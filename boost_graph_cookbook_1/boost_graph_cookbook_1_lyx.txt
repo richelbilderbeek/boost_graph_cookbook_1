@@ -1,20 +1,3 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Check if a file exists}
-\label{subsec:is_regular_file}
-
-Not the most smart way perhaps, but it does only use the STL.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{is_regular_file.impl}
-
-Check if a file exists
-\index{Is regular file
-
-\label{lst:is_regular_file}
-
 \section{...}
 Errors
 
