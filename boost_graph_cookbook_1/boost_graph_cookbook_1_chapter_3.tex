@@ -359,3 +359,96 @@ This demonstration code shows the number of levels from a certain vertex,
   label = lst:count_undirected_graph_levels_demo
 ]{count_undirected_graph_levels_demo.impl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Saving a graph to a .dot file}
+\label{subsec:save_graph_to_dot}
+\index{Save graph as .dot}
+\index{Create .dot from graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Graph are easily saved to a file, thanks to Graphviz.
+Graphviz \index{Graphviz}
+(short for Graph Visualization Software) is a package of open-source tools
+for drawing graphs.
+It uses the DOT language for describing graphs, and these are commonly
+stored in (plain-text) .dot files (I show .dot file of every non-empty graph
+created, e.g.
+chapters \ref{subsec:create_markov_chain.dot}
+and \ref{subsec:create_k2.dot})
+
+\lstinputlisting[
+  caption = Saving a graph to a .dot file,
+  label = lst:save_graph_to_dot
+]{save_graph_to_dot.impl}
+\index{Save graph to dot}
+
+All the code does is create an \verb;std::ofstream; \index{std::ofstream}
+(an output-to-file stream) 
+and use 
+\verb;boost::write_graphviz; \index{boost::write_graphviz}
+to write the DOT description of our graph to that stream.
+Instead of \verb;std::ofstream;, 
+one could use \verb;std::cout; \index{std::cout}
+(a related output stream) to display the DOT language on screen directly.
+
+Listing \ref{lst:save_graph_to_dot_demo}
+shows how to use the \verb;save_graph_to_dot; function:
+
+\lstinputlisting[
+  caption = Demonstration of the save\_graph\_to\_dot function,
+  label = lst:save_graph_to_dot_demo
+]{save_graph_to_dot_demo.impl}
+
+When using the \verb;save_graph_to_dot; function 
+(algorithm \ref{lst:save_graph_to_dot}), 
+only the structure of the graph is saved: all other properties like names
+are not stored.
+Listing \ref{lst:save_named_vertices_graph_to_dot}
+shows how to do so.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loading a directed graph from a .dot}
+\label{subsec:load_directed_graph_from_dot}
+\index{Load directed graph from .dot}
+\index{Create directed graph from .dot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an directed graph is loaded, as shown in algorithm 
+\ref{lst:load_directed_graph_from_dot}:
+
+\lstinputlisting[
+  caption = Loading a directed graph from a .dot file,
+  label = lst:load_directed_graph_from_dot
+]{load_directed_graph_from_dot.impl}
+\index{Load directed graph from dot}
+
+In this algorithm, first it is checked if the file to load exists, 
+using the \verb;is_regular_file; function (algorithm \ref{lst:is_regular_file}), 
+after which an \verb;std::ifstream; \index{std::ifstream}
+is opened.
+Then an empty directed graph is created, which saves us writing down the
+template arguments explicitly.
+Then, a \verb;boost::dynamic_properties; \index{boost::dynamic_properties}
+is created with the 
+\verb;boost::ignore_other_properties; \index{boost::ignore_other_properties}
+in its constructor (using a default constructor here results in the run-time
+error 
+\verb;property not found: node_id;, see chapter \ref{subsec:property_not_found_node_id}).
+From this and the empty graph, 
+\verb;boost::read_graphviz; \index{boost::read_graphviz}
+is called to build up the graph.
+
+Listing \ref{lst:load_directed_graph_from_dot_demo}
+shows how to use the \verb;load_directed_graph_from_dot; function:
+
+\lstinputlisting[
+  caption = Demonstration of the load\_directed\_graph\_from\_dot function,
+  label = lst:load_directed_graph_from_dot_demo
+]{load_directed_graph_from_dot_demo.impl}
+
+This demonstration shows how the Markov chain is created using the 
+\verb;create_markov_chain_graph; function (algorithm \ref{lst:create_markov_chain_graph}), 
+saved and then loaded.
+The loaded graph is then checked to be a two-state Markov chain.
+
