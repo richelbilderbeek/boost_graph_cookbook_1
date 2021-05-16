@@ -1,22 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Setting all bundled vertices' my_vertex objects}
-\label{subsec:set_bundled_vertex_my_vertexes}
-
-When the vertices of a graph are \verb;my_bundled_vertex; objects, one can set
- these as such:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{set_my_bundled_vertexes.impl}
-
-Setting the bundled vertices' \verb;my_bundled_vertex;-es
-\index{Set bundled vertex my_bundled_vertexes
-
-\label{lst:set_bundled_vertex_my_vertexes}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storing a graph with bundled vertices as a .dot}
 \label{subsec:save_bundled_vertices_graph_to_dot}
 
