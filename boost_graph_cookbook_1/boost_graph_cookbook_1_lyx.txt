@@ -1,47 +1,4 @@
 
-\section{...}
-Building graphs with bundled edges and vertices
-
-Up until now, the graphs created have had only bundled vertices.
- In this chapter, graphs will be created, in which both the edges and vertices
- have a bundled \verb;my_bundled_edge' and \verb;my_bundled_edge' type
-\footnote{I do not intend to be original in naming my data types
-
-.
-
-\begin{itemize}
-An empty directed graph that allows for bundled edges and vertices: see
- chapter 
-\ref{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
-
-\begin{itemize}
-An empty undirected graph that allows for bundled edges and vertices: see
- chapter 
-\ref{subsec:create_empty_undirected_bundled_edges_and_vertices_graph}
-
-\begin{itemize}
-A two-state Markov chain with bundled edges and vertices: see chapter 
-\ref{subsec:create_bundled_edges_and_vertices_markov_chain}
-
-\begin{itemize}
-$K_{3}$
-
-with bundled edges and vertices: see chapter 
-\ref{subsec:create_bundled_edges_and_vertices_k3}
-
-In the process, some basic (sometimes bordering trivial) functions are shown:
-
-\begin{itemize}
-Creating the \verb;my_bundled_edge' class: see chapter 
-\ref{subsec:my_bundled_edge}
-
-\begin{itemize}
-Adding a bundled \verb;my_bundled_edge': see chapter 
-\ref{subsec:add_bundled_edge}
-
-These functions are mostly there for completion and showing which data types
- are used.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating the bundled edge class}
 \label{subsec:my_bundled_edge}
