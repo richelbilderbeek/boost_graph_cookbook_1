@@ -1,56 +1,5 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create an empty directed graph with bundled edges and vertices}
-\label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_directed_bundled_edges_and_vertices_graph.impl}
-
-Creating an empty directed graph with bundled edges and vertices
-\index{Create empty directed bundled edges and vertices graph
-
-\label{lst:create_empty_directed_bundled_edges_and_vertices_graph}
-
-This code is very similar to the code described in chapter 
-\ref{subsec:create_empty_directed_custom_vertices_graph}
-
-, except that there is a new, fifth template argument:
-
-\begin{verbatim}\end{verbatim}
-boost::property<boost::edge_bundled_type_t, my_edge>
-
-\index{boost::property
-
-\index{boost::edge_bundled_type_t
-
-\index{my_edge
-
-This can be read as: 
-\begin{quote}
-edges have the property \verb;boost::edge_bundled_type_t', which is of data type
- \verb;my_bundled_edge'
-\end{quote}
-.
- Or simply: 
-\begin{quote}
-edges have a bundled type called my_bundled_edge
-\end{quote}
-.
-
-Demo:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{create_empty_directed_bundled_edges_and_vertices_graph_demo.impl}
-
-Demonstration of the \verb;create_empty_directed_bundled_edges_and_vertices_graph'
- function
-\label{lst:create_empty_directed_bundled_edges_and_vertices_graph_demo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Create an empty undirected graph with bundled edges and vertices}
 \label{subsec:create_empty_undirected_bundled_edges_and_vertices_graph}
 

@@ -60,3 +60,44 @@ but cannot trivially be converted to a \verb;std::string;.
 \verb;my_bundled_edge; does not have to have the stream operators defined for
 file I/O, as this goes via the public member variables.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create an empty directed graph with bundled edges and vertices}
+\label{subsec:create_empty_directed_bundled_edges_and_vertices_graph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstinputlisting[
+  caption = Creating an empty directed graph with bundled edges and vertices,
+  label = lst:create_empty_directed_bundled_edges_and_vertices_graph
+]{create_empty_directed_bundled_edges_and_vertices_graph.impl}
+\index{Create empty directed bundled edges and vertices graph}
+
+This code is very similar to the code described in chapter 
+\ref{subsec:create_empty_directed_custom_vertices_graph}, 
+except that there is a new, fifth template argument:
+
+\begin{verbatim}
+boost::property<boost::edge_bundled_type_t, my_edge>
+\end{verbatim}
+\index{boost::property}
+\index{boost::edge\_bundled\_type\_t}
+\index{my\_edge}
+
+This can be read as: 
+\begin{quote}
+edges have the property \verb;boost::edge_bundled_type_t;, 
+which is of data type \verb;my_bundled_edge;
+\end{quote}
+
+Or simply: 
+
+\begin{quote}
+edges have a bundled type called my\_bundled\_edge
+\end{quote}
+
+Demo:
+
+\lstinputlisting[
+  caption = Demonstration of the create\_empty\_directed\_bundled\_edges\_and\_vertices\_graph function,
+  label = lst:create_empty_directed_bundled_edges_and_vertices_graph_demo
+]{create_empty_directed_bundled_edges_and_vertices_graph_demo.impl}
+
