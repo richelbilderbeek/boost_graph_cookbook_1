@@ -76,7 +76,7 @@ For example, take the function `f`:
    `f` its definition will be reachable from `f.cpp`, by `#include "f.impl"`
  * The function `f` will be tested in `f_test.cpp` using Boost.Test
  * The function `f` in combination with GraphViz functionality,
-   will be tested in `f_graphviz_test.cpp` using Boost.Test
+   will be tested in `f_test_graphviz.cpp` using Boost.Test
 
 ### The many `.pri` files
 

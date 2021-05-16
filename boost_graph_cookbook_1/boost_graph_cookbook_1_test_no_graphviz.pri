@@ -79,6 +79,9 @@ SOURCES += \
     $$PWD/create_empty_undirected_named_vertices_graph_test.cpp \
     $$PWD/create_empty_undirected_text_edges_and_vertices_graph_test.cpp \
     $$PWD/create_empty_undirected_text_vertices_graph_test.cpp \
+#    $$PWD/create_k2_graph_test.cpp \ # Don't, there is an .impl for that
+#    $$PWD/create_k3_graph_test.cpp \ # Don't, there is an .impl for that
+#    $$PWD/create_markov_chain_test.cpp \ # Don't, there is an .impl for that
     $$PWD/create_markov_chain_with_graph_name_test.cpp \
     $$PWD/create_named_vertices_markov_chain_test.cpp \
     $$PWD/create_nasty_directed_bundled_vertices_graph_test.cpp \
@@ -90,6 +93,8 @@ SOURCES += \
     $$PWD/create_nasty_directed_text_vertices_graph_test.cpp \
     $$PWD/create_nasty_undirected_custom_and_selectable_vertices_graph_test.cpp \
     $$PWD/create_nasty_undirected_custom_edges_and_vertices_graph_test.cpp \
+#    $$PWD/create_path_graph_test.cpp \ # Don't, there is an .impl for that
+#    $$PWD/create_petersen_graph_test.cpp \ # Don't, there is an .impl for that
     $$PWD/create_text_vertices_markov_chain_test.cpp \
     $$PWD/custom_and_selectable_vertices_writer_test.cpp \
     $$PWD/file_to_vector_test.cpp \
