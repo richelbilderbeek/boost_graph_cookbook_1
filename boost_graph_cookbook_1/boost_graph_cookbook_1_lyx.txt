@@ -1,41 +1,6 @@
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Set an edge its my_bundled_edge}
-\label{subsec:set_bundled_edge_my_edge}
-
-If you know how to get the my_bundled_edge from an edge descriptor, setting
- it is just as easy, as shown in algorithm 
-\ref{lst:set_bundled_edge_my_edge}
-
-.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{set_my_bundled_edge.impl}
-
-Set a bundled edge its my_bundled_edge from its edge descriptor
-\index{Set bundled edge my_bundled_edge
-
-\label{lst:set_bundled_edge_my_edge}
-
-To use \verb;set_bundled_edge_my_edge', one first needs to obtain an edge descriptor.
- Listing 
-\ref{lst:set_bundled_edge_my_edge_demo}
-
- shows a simple example.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{set_my_bundled_edge_demo.impl}
-
-Demonstration if the \verb;set_bundled_edge_my_edge' function
-\label{lst:set_bundled_edge_my_edge_demo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Storing a graph with bundled edges and vertices as a .dot}
+\section{Storing a graph with bundled edges and vertices as a .dot}
 \label{subsec:save_bundled_edges_and_vertices_graph_to_dot}
 
 \index{Save graph with bundled edges and vertices as .dot
@@ -69,7 +34,7 @@ Storing a graph with bundled edges and vertices as a .dot file
 \label{lst:save_bundled_edges_and_vertices_graph_to_dot}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Load a directed graph with bundled edges and vertices from a .dot file}
+\section{Load a directed graph with bundled edges and vertices from a .dot file}
 \label{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
 
 When loading a graph from file, one needs to specify a type of graph.
@@ -127,7 +92,7 @@ ed_edges_and_vertices_markov_chain' function (algorithm
 ), saved and then loaded.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Load an undirected graph with bundled edges and vertices from a .dot file}
+\section{Load an undirected graph with bundled edges and vertices from a .dot file}
 \label{subsec:load_undirected_bundled_edges_and_vertices_graph_from_dot}
 
 \index{Load undirected graph with bundled edges and vertices from .dot
@@ -218,7 +183,7 @@ Getting a graph its name: see chapter
 Setting a graph its name: see chapter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create an empty directed graph with a graph name property}
+\section{Create an empty directed graph with a graph name property}
 \label{subsec:create_empty_directed_graph_with_graph_name}
 
 Listing 
@@ -301,7 +266,7 @@ Demonstration of \verb;create_empty_directed_graph_with_graph_name'
 \label{lst:create_empty_directed_graph_with_graph_name_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create an empty undirected graph with a graph name property}
+\section{Create an empty undirected graph with a graph name property}
 \label{subsec:create_empty_undirected_graph_with_graph_name}
 
 Listing 
@@ -342,7 +307,7 @@ Demonstration of \verb;create_empty_undirected_graph_with_graph_name'
 \label{lst:create_empty_undirected_graph_with_graph_name_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Get a graph its name property}
+\section{Get a graph its name property}
 \label{subsec:get_graph_name}
 
 \lstinputlisting[
@@ -369,7 +334,7 @@ Demonstration of \verb;get_graph_name'
 \label{lst:get_graph_name_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Set a graph its name property}
+\section{Set a graph its name property}
 \label{subsec:set_graph_name}
 
 \lstinputlisting[
@@ -396,7 +361,7 @@ Demonstration of \verb;set_graph_name'
 \label{lst:set_graph_name_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create a directed graph with a graph name property}
+\section{Create a directed graph with a graph name property}
 \label{subsec:create_markov_chain_with_graph_name}
 
 \subsection{Graph}
@@ -475,7 +440,7 @@ Demonstration of \verb;create_markov_chain_with_graph_name'
 \label{fig:create_markov_chain_with_graph_name.svg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Create an undirected graph with a graph name property}
+\section{Create an undirected graph with a graph name property}
 \label{subsec:create_k2_graph_with_graph_name}
 
 \subsection{Graph}
@@ -557,7 +522,7 @@ Demonstration of \verb;create_k2_graph_with_graph_name'
 Working on graphs with a graph name
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Storing a graph with a graph name property as a .dot file}
+\section{Storing a graph with a graph name property as a .dot file}
 \label{subsec:save_graph_with_graph_name_to_dot}
 
 This works:
@@ -573,7 +538,7 @@ Storing a graph with a graph name as a .dot file
 \label{lst:save_graph_with_graph_name_to_dot}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Loading a directed graph with a graph name property from a .dot file}
+\section{Loading a directed graph with a graph name property from a .dot file}
 \label{subsec:load_directed_graph_with_graph_name_from_dot}
 
 This will result in a directed graph with a name:
@@ -589,7 +554,7 @@ Loading a directed graph with a graph name from a .dot file
 \label{lst:load_directed_graph_with_graph_name_from_dot}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Loading an undirected graph with a graph name property from a .dot file}
+\section{Loading an undirected graph with a graph name property from a .dot file}
 \label{subsec:load_undirected_graph_with_graph_name_from_dot}
 
 This will result in an undirected graph with a name:
@@ -611,7 +576,7 @@ Other graph functions
 Some functions that did not fit in.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Encode a std::string to a Graphviz-friendly format}
+\section{Encode a std::string to a Graphviz-friendly format}
 \label{subsec:graphviz_encode}
 
 You may want to use a label with spaces, comma's and/or quotes.
@@ -630,7 +595,7 @@ Encode a std::string to a Graphviz-friendly format
 \label{lst:graphviz_encode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Decode a std::string from a Graphviz-friendly format}
+\section{Decode a std::string from a Graphviz-friendly format}
 \label{subsec:graphviz_decode}
 
 This function undoes the \verb;graphviz_encode' function (algorithm 
@@ -651,7 +616,7 @@ Decode a std::string from a Graphviz-friendly format to a human-friendly
 \label{lst:graphviz_decode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Check if a std::string is Graphviz-friendly}
+\section{Check if a std::string is Graphviz-friendly}
 \label{subsec:is_graphviz_friendly}
 
 There are pieces where I check if a std::string is Graphviz-friendly.
@@ -678,7 +643,7 @@ These are some function I needed for creating this tutorial.
  I just add them for completeness.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Getting a data type as a std::string}
+\section{Getting a data type as a std::string}
 \label{subsec:get_type_name}
 
 This function will only work under GCC.
@@ -708,7 +673,7 @@ Getting a data type its name as a std::string
 \label{lst:get_type_name}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Convert a .dot to .svg}
+\section{Convert a .dot to .svg}
 \label{subsec:convert_dot_to_svg}
 
 All illustrations in this tutorial are created by converting .dot to a .svg
@@ -730,7 +695,7 @@ Convert a .dot file to a .svg
  the .dot file to an .svg file.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Check if a file exists}
+\section{Check if a file exists}
 \label{subsec:is_regular_file}
 
 Not the most smart way perhaps, but it does only use the STL.
@@ -751,7 +716,7 @@ Errors
 Some common errors.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Formed reference to void}
+\section{Formed reference to void}
 \label{subsec:formed_reference_to_void}
 
 This compile-time error occurs when you create a graph without a certain
@@ -780,7 +745,7 @@ In algorithm
  this property.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{No matching function for call to \verb;;clear_out_edges;}
+\section{No matching function for call to \verb;;clear_out_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_out_edges}
 
 This compile-time error occurs when you want to clear the outward edges
@@ -805,13 +770,13 @@ an undirected graph is created, a vertex descriptor is obtained, then itsout
  edges), or use the \verb;boost::clear_vertex' function instead.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{No matching function for call to \verb;clear_in_edges;}
+\section{No matching function for call to \verb;clear_in_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_in_edges}
 
 See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Undefined reference to boost::detail::graph::read_graphviz_new}
+\section{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
 \index{read_graphviz_new}
 \index{Undefined reference to read_graphviz_new}
@@ -828,7 +793,7 @@ You will have to link
 LIBS += -lboost_graph -lboost_regex 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Property not found: node_id}
+\section{Property not found: node_id}
 \label{subsec:property_not_found_node_id}
 \index{node_id}
 \index{Property not found}
@@ -860,7 +825,7 @@ as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} 
 \index{Property not found: node_id
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Stream zeroes}
+\section{Stream zeroes}
 
 When loading a graph from a .dot file, in operator>>, I encountered reading
  zeroes, where I expected an XML formatted string:
