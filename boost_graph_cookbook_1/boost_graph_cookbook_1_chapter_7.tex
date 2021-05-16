@@ -170,3 +170,43 @@ the \verb;create_bundled_edges_and_vertices_markov_chain; function
 (algorithm \ref{lst:create_bundled_edges_and_vertices_markov_chain}), 
 saved and then loaded.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Load an undirected graph with bundled edges and vertices from a .dot file}
+\label{subsec:load_undirected_bundled_edges_and_vertices_graph_from_dot}
+\index{Load undirected graph with bundled edges and vertices from .dot}
+\index{Create undirected graph with bundled edges and vertices from .dot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an undirected graph with bundled edges and vertices is
+loaded, as shown in algorithm 
+\ref{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot}:
+
+\lstinputlisting[
+  caption = Loading an undirected graph with bundled edges and vertices from a .dot file,
+  label = lst:load_undirected_bundled_edges_and_vertices_graph_from_dot
+]{load_undirected_bundled_edges_and_vertices_graph_from_dot.impl}
+\index{Load undirected bundled edges and vertices graph from dot}
+
+The only difference with loading a directed graph, is that the initial empty
+graph is undirected instead.
+
+Chapter \ref{subsec:sub:load_directed_bundled_edges_and_vertices_graph_from_dot}
+describes the rationale of this function.
+
+Listing \ref{lst:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo}
+shows how to use the \verb;load_undirected_bundled_vertices_graph_from_dot;
+function:
+
+\lstinputlisting[
+  caption = Demonstration of the load\_undirected\_bundled\_edges\_and\_vertices\_graph\_from\_dot function,
+  label = lst:load_undirected_bundled_edges_and_vertices_graph_from_dot_demo
+]{load_undirected_bundled_edges_and_vertices_graph_from_dot_demo.impl}
+
+This demonstration shows how $K_{2}$
+with bundled vertices is created using the 
+\verb;create_bundled_vertices_k2_graph; function 
+(algorithm \ref{lst:create_custom_vertices_k2_graph}), 
+saved and then loaded. 
+The loaded graph is checked to be a graph similar to the original.
+
