@@ -1,36 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Getting the bundled vertices' my_vertexes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\footnote{the name \verb;my_vertexes' is chosen to indicate this function returns a container
- of my_vertex
-
-\label{subsec:get_bundled_vertex_my_vertexes}
-
-When the vertices of a graph have any bundled \verb;my_bundled_vertex;, one can
- extract these as such:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_my_bundled_vertexes.impl}
-
-Get the bundled vertices' my_vertexes
-\index{Get bundled vertex my_vertexes}
-
-\label{lst:get_my_bundled_vertexes}
-
-The \verb;my_bundled_vertex; bundled in each vertex is obtained from a vertex
- descriptor and then put into a std::vector.
-
-The order of the \verb;my_bundled_vertex; objects may be different after saving
- and loading.
-
-When trying to get the vertices' my_bundled_vertex from a graph without
- these, you will get the error \verb;formed reference to void' (see chapter 
-\ref{subsec:formed_reference_to_void}
-
-).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating a two-state Markov chain with bundled vertices}
@@ -2190,7 +2157,7 @@ This compile-time error occurs when you create a graph without a certain
   label = lst:
 ]{formed_reference_to_void.impl}
 
-Creating the error \verb;formed reference to void'
+Creating the error \verb;formed reference to void;
 \index{Formed reference to void
 
 \label{lst:formed_reference_to_void}

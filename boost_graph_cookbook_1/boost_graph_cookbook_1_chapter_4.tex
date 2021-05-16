@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Building graphs with bundled vertices}
 \label{sec:Building-graphs-with-bundled-vertices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,4 +154,32 @@ Adding a bundled vertex is very similar to adding a named vertex
 
 When having added a new (abstract) vertex to the graph, the vertex descriptor
 is used to set the \verb;my_bundled_vertex; in the graph.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Getting the bundled vertices' my\_vertexes}
+\footnote{
+  the name my\_vertexes; is chosen to allows you to
+  replace my\_vertex by your favorite datatype name,
+  although in English the plural of vertex is vertices
+}
+\label{subsec:get_bundled_vertex_my_vertexes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When the vertices of a graph have any bundled \verb;my_bundled_vertex;, one can
+extract these as such:
+
+\lstinputlisting[
+  caption = Get the bundled vertices' my\_vertexes,
+  label = lst:get_my_bundled_vertexes
+]{get_my_bundled_vertexes.impl}
+\index{Get bundled vertex my_vertexes}
+
+The \verb;my_bundled_vertex; bundled in each vertex is obtained from a vertex
+descriptor and then put into a std::vector.
+
+The order of the \verb;my_bundled_vertex; objects may be different after saving
+and loading.
+When trying to get the vertices' my_bundled_vertex from a graph without
+ these, you will get the error 
+\verb;formed reference to void; (see chapter \ref{subsec:formed_reference_to_void}).
 
