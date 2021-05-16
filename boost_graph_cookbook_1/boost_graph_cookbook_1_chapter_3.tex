@@ -25,3 +25,57 @@ Now that we can build a graph, there are some things we can do.
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Getting the vertices' out degree}
+\label{subsec:get_vertex_out_degrees}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let's measure the out degree of all vertices in a graph! 
+
+The out degree of a vertex is the number of edges that originate at it.
+
+The number of connections is called the \verb;degree; of the vertex.
+There are three types of degrees:
+
+\begin{itemize}
+  \item in degree: the number of incoming connections, 
+    using \verb;in_degree; \index{in\_degree}
+    (not \verb;boost::in_degree; \index{boost::in\_degree does not exist} )
+  \item out degree: the number of outgoing connections, 
+    using \verb;out_degree; \index{out\_degree}
+    (not \verb;boost::out_degree; \index{boost::out\_degree does not exist})
+  \item degree: sum of the in degree and out degree, 
+    using \verb;degree; \index{degree}
+    (not \verb;boost::degree; \index{boost::degree does not exist})
+\end{itemize}
+
+Listing \ref{lst:get_vertex_out_degrees}
+shows how to obtain these:
+
+\lstinputlisting[
+  caption = Get the vertices' out degrees,
+  label = lst:get_vertex_out_degrees
+]{get_vertex_out_degrees.impl}
+\index{Get vertex out degrees}
+
+The structure of this algorithm is similar to 
+\verb;get_vertex_descriptors; (algorithm \ref{lst:get_vertex_descriptors}), 
+except that the out degrees from the vertex descriptors are stored.
+The out degree of a vertex iterator is obtained from 
+the function \verb;out_degree; \index{out\_degree}
+(not boost::out_degree \index{boost::out\_degree does not exist}!).
+ 
+Albeit that the $K_{2}$
+graph and the two-state Markov chain are rather simple, we can use it to
+demonstrate \verb;get_vertex_out_degrees; on, as shown in algorithm 
+\ref{lst:get_vertex_out_degrees_demo}.
+
+\lstinputlisting[
+  caption = Demonstration of the get\_vertex\_out\_degrees function,
+  label = lst:get_vertex_out_degrees_demo
+]{get_vertex_out_degrees_demo.impl}
+
+It is expected that $K_{2}$
+has one out-degree for every vertex, where the two-state Markov chain is
+expected to have two out-degrees per vertex.
+

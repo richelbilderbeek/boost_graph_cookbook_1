@@ -1,67 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Getting the vertices' out degree}
-\label{subsec:get_vertex_out_degrees}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Let's measure the out degree of all vertices in a graph! 
-
-The out degree of a vertex is the number of edges that originate at it.
-
-The number of connections is called the \verb;degree; of the vertex.
-There are three types of degrees:
-
-\begin{itemize}
-  \item in degree: the number of incoming connections, 
-    using \verb;in_degree; \index{in_degree}
-    (not \verb;boost::in_degree; \index{boost::in_degree does not exist} )
-  \item out degree: the number of outgoing connections, 
-    using \verb;out_degree; \index{out_degree}
-    (not \verb;boost::out_degree; \index{boost::out_degree does not exist})
-  \item degree: sum of the in degree and out degree, 
-    using \verb;degree; \index{idegree}
-    (not \verb;boost::degree; \index{boost::degree does not exist})
-\end{itemize}
-
-Listing \ref{lst:get_vertex_out_degrees}
-shows how to obtain these:
-
-\lstinputlisting[
-  caption = Get the vertices' out degrees,
-  label = lst:get_vertex_out_degrees
-]{get_vertex_out_degrees.impl}
-\index{Get vertex out degrees}
-
-The structure of this algorithm is similar to 
-\verb;get_vertex_descriptors; (algorithm \ref{lst:get_vertex_descriptors}), 
-except that the out degrees from the vertex descriptors are stored.
-The out degree of a vertex iterator is obtained from 
-the function \verb;out_degree; \index{out_degree}
-(not boost::out_degree \index{boost::out_degree does not exist}!).
- 
-Albeit that the $K_{2}$
-graph and the two-state Markov chain are rather simple, we can use it to
-demonstrate \verb;get_vertex_out_degrees; on, as shown in algorithm 
-\ref{lst:get_vertex_out_degrees_demo}
-
-.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{get_vertex_out_degrees_demo.impl}
-
-Demonstration of the \verb;get_vertex_out_degrees; function
-\label{lst:get_vertex_out_degrees_demo}
-
-It is expected that 
-$K_{2}$
-
- has one out-degree for every vertex, where the two-state Markov chain is
- expected to have two out-degrees per vertex.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\triangle$ Is there an edge between two vertices?}
 \label{subsec:has_edge_between_vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If you have two vertex descriptors, you can check if these are connected
  by an edge:
@@ -1816,10 +1756,7 @@ This code is very similar to the code described in chapter
 
 , except that there is a new, fifth template argument:
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}\end{verbatim}
 boost::property<boost::edge_bundled_type_t, my_edge>
 
 \index{boost::property
@@ -2747,7 +2684,7 @@ Creating a two-state Markov chain with a graph name
 
 \label{lst:create_markov_chain_with_graph_name}
 
-\subsection{Creating such a graph
+\subsection{Creating such a graph}
 
 Listing 
 \ref{lst:create_markov_chain_with_graph_name_demo}
@@ -2762,7 +2699,7 @@ Listing
 Demonstration of \verb;create_markov_chain_with_graph_name'
 \label{lst:create_markov_chain_with_graph_name_demo}
 
-\subsection{The .dot file produced
+\subsection{The .dot file produced}
 
 
 \lstinputlisting[
@@ -3132,20 +3069,14 @@ an undirected graph is created, a vertex descriptor is obtained, then itsout
 \subsection{No matching function for call to \verb;clear_in_edges;}
 \label{subsec:no_matching_function_for_call_to_clear_in_edges}
 
-See chapter 
-\ref{subsec:no_matching_function_for_call_to_clear_out_edges}
-
-.
+See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Undefined reference to boost::detail::graph::read_graphviz_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
-
-\index{read_graphviz_new
-
-\index{Undefined reference to read_graphviz_new
-
-\index{read_graphviz_new, undefined reference
+\index{read_graphviz_new}
+\index{Undefined reference to read_graphviz_new}
+\index{read_graphviz_new, undefined reference}
 
 You will have to link
 \index{link
@@ -3154,21 +3085,15 @@ You will have to link
  In Qt Creator, this is achieved by adding these lines to your Qt Creator
  project file:
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}\end{verbatim}
 LIBS += -lboost_graph -lboost_regex 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Property not found: node_id}
 \label{subsec:property_not_found_node_id}
-
-\index{node_id
-
-\index{Property not found
-
-\index{Property not found: node_id
+\index{node_id}
+\index{Property not found}
+\index{Property not found: node_id}
 
 When loading a graph from file (as in chapter 
 \ref{subsec:load_undirected_graph_from_dot}
@@ -3186,23 +3111,14 @@ When loading a graph from file (as in chapter
 .
  When a graph does not have properties, do not use a default constructed
  version, but initialize with \verb;boost::ignore_other_properties'
-\index{boost::ignore_other_properties
-
- as a constructor argument instead.
- Listing 
-\ref{lst:property_not_found_node_id}
-
- shows how to trigger this run-time error.
+\index{boost::ignore_other_properties}
+as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} shows how to trigger this run-time error.
 
 \lstinputlisting[
-  caption = ,
-  label = lst:
+  caption = Creating the error 'Property not found: node_id',
+  label = lst:property_not_found_node_id
 ]{property_not_found_node_id.impl}
-
-Creating the error \verb;Property not found: node_id'
 \index{Property not found: node_id
-
-\label{lst:property_not_found_node_id}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stream zeroes}
@@ -3210,77 +3126,47 @@ Creating the error \verb;Property not found: node_id'
 When loading a graph from a .dot file, in operator>>, I encountered reading
  zeroes, where I expected an XML formatted string:
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}
 std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
  noexcept
-
 {
-
   std::string s;
-
   is >> s; //s has an XML format
-
-  \verb;assert;(s != }0});
-
+  assert(s != 0);
   any_class = my_class(s);
-
   return is;
-
 }
+\end{verbatim}
 
 This was because I misconfigured the reader.
  I did (heavily simplified code):
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}
 graph load_from_dot(const std::string& dot_filename)
-
 {
-
   std::ifstream f(dot_filename);
-
   graph g;
-
   boost::dynamic_properties dp;
-
-  dp.property(}node_id}, get(boost::vertex_custom_type, g));
-
-  dp.property(}label}, get(boost::vertex_custom_type, g));
-
+  dp.property(TODO}node_id}, get(boost::vertex_custom_type, g));
+  dp.property(TODO}label}, get(boost::vertex_custom_type, g));
   boost::read_graphviz(f,g,dp);
-
   return g;
-
 }
+\end{verbatim}
 
 Where it should have been:
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}
 graph load_from_dot(const std::string& dot_filename)
-
 {
-
   std::ifstream f(dot_filename);
-
   graph g;
-
   boost::dynamic_properties dp(boost::ignore_other_properties);
-
   dp.property(}label}, get(boost::vertex_custom_type, g));
-
   boost::read_graphviz(f,g,dp);
-
   return g;
-
 }
+\end{verbatim}
 
 The explanation is that by setting the boost::dynamic_property \verb;node_id'
  to \verb;boost::vertex_custom_type', operator>> will receive the node indices.
@@ -3289,32 +3175,19 @@ The explanation is that by setting the boost::dynamic_property \verb;node_id'
 An alternative, but less clean solution, is to let operator>> ignore the
  node indices:
 
-\begin_inset listings
-inline false
-status open
-
+\begin{verbatim}
 std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
  noexcept
-
 {
-
   std::string s;
-
   is >> s; //s has an XML format
-
   if (!is_xml(s)) { //Ignore node index
-
     any_class_class = my_class(); 
-
   }
-
   else {
-
     any_class_class = my_class(s);
-
   }
-
   return is;
-
 }
+\end{verbatim}
 
