@@ -4,11 +4,10 @@
 
 This is 'Boost.Graph Cookbook 1: Basics', version 3.3.
 
-\subsection{Why this tutorial}
+\section{Why this tutorial}
 
 I needed this tutorial already in 2006, when I started experimenting with
-Boost.Graph.
-More specifically, I needed a tutorial that:
+Boost.Graph. More specifically, I needed a tutorial that:
 
 \begin{itemize}
   \item Orders concepts chronologically
@@ -19,13 +18,13 @@ More specifically, I needed a tutorial that:
 What I had were the book \cite{siek2001boost}
 and the Boost.Graph website, both did not satisfy these requirements.
 
-\subsection{Tutorial style}
+\section{Tutorial style}
 
 \paragraph{Readable for beginners}
 
 This tutorial is aimed at the beginner programmer.
 This tutorial is intended to take the reader to the level of understanding
-the book \cite{siek2001boost}
+that the book \cite{siek2001boost}
 and the Boost.Graph website require.
 It is about basic graph manipulation, not the more advanced graph algorithms.
  
@@ -44,8 +43,8 @@ less verbose and bring no new information to the storyline.
 \paragraph{Repetitiveness}\index{repetitive}
 
 This tutorial is intended to be as repetitive, such that a beginner can
- spot the patterns in the code snippets their increasing complexity.
- Extending code from this tutorial should be as easy as extending the patterns.
+spot the patterns in the code snippets their increasing complexity.
+Extending code from this tutorial should be as easy as extending the patterns.
 
 \paragraph{Index}
 
@@ -56,11 +55,11 @@ the index.
 On the other hand, STL and Boost functions like 'std::do\_something' and
 'boost::do\_something' can be found as such in the index.
 
-\subsection{Coding style}\index{Coding style}
+\section{Coding style}\index{Coding style}
 
 \paragraph{Concept}
 
-For every concept, I will show
+For every concept, I will show:
 
 \begin{itemize}
     \item a function that achieves a goal, 
@@ -70,7 +69,6 @@ For every concept, I will show
       that demonstrates how to use the function, for example
       \verb;create_empty_undirected_graph_test;
     }
-    \item Three
 \end{itemize}
 
 \paragraph{C++14}\index{C++14}
@@ -99,8 +97,8 @@ This way, it prevents me from saying the same things twice.
 It is good to write generic code \index{Generic code}.
 In this tutorial, however, I have chosen my functions to have 
 no templated arguments \index{No templates} for conciseness and readability.
-For example, a vertex name is std::string, 
-the type for if a vertex is selected is a boolean, 
+For example, a vertex name is \verb;std::string;, 
+the type for if a vertex is selected is a \verb;bool;ean, 
 and the custom vertex type is of type \verb;my_custom_vertex;.
 I think these choices are reasonable and that the resulting increase in
 readability is worth it.
@@ -125,21 +123,23 @@ I am sorry for this.
 
 \paragraph{Use of auto}\index{auto}
 
-I prefer to use the keyword auto over doubling the lines of code for using
+I prefer to use the keyword \verb;auto; 
+over doubling the lines of code for using
 statements.
-Often the \verb;do; functions return an explicit data type, these can be used
-for reference.
-Sometime I deduce the return type using decltype and a function with the
-same return type.
+Often the \verb;do; functions return an explicit data type, 
+these can be used for reference.
+Sometime I deduce the return type using \verb;decltype; 
+and a function with the same return type.
 When C++17 \index{C++17} gets accessible, 
 I will use \verb;decltype(auto); \index{decltype}
-If you really want to know a type, you can use the \verb;get_type_name; function
-(chapter \ref{subsec:get_type_name})
+If you really want to know a type, 
+you can use the \verb;get_type_name; function (chapter \ref{subsec:get_type_name})
 
 \subparagraph{Explicit use of namespaces}\index{Namespaces}
 
 On the other hand, I am explicit in the namespaces of functions and classes
-I use, so to distinguish between types like \verb;std::array; and \verb;boost::array;.
+I use, so to distinguish between types 
+like \verb;std::array; and \verb;boost::array;.
 Some functions (for example, \verb;get;) reside 
 in the namespace of the graph to work on.
 In this tutorial, this is in the global namespace.
@@ -152,10 +152,6 @@ I try to use STL algorithms wherever I can.
 Also you should prefer algorithm calls over hand-written 
 for-loops (\cite{stroustrup1997}, chapter 18.12.1 and \cite{meyers2005effective}, item 43).
 Sometimes using these algorithms becomes a burden on the lines of code.
-This is because in C++11, a lambda function argument (use by the algorithm)
-must have its data type specified.
-It may take multiple lines of \verb;using; statements being able to do so.
-In C++14 one can use \verb;auto; there as well.
 So, only if it shortens the number of lines significantly, I use raw for-loops,
 even though you shouldn't.
 
@@ -179,7 +175,7 @@ GitHub Actions calls these tests after each push to the repository.
 The code, as well as this tutorial, can be downloaded from the GitHub at
 \url{www.github.com/richelbilderbeek/boost_graph_cookbook_1}.
 
-\subsection{License}\index{License}
+\section{License}\index{License}
 
 This tutorial is licensed under Creative Commons license 4.0.
 All C++ code is licensed under GPL 3.0.
@@ -192,7 +188,7 @@ All C++ code is licensed under GPL 3.0.
   \label{fig:license}
 \end{figure}
 
-\subsection{Feedback}
+\section{Feedback}
 
 This tutorial is not intended to be perfect yet.
 For that, I need help and feedback from the community.
@@ -204,7 +200,7 @@ if you'd let know.
 Next to this, there are some sections that need to be coded or have its
 code improved.
 
-\subsection{Acknowledgements}\index{Acknowledgements}
+\section{Acknowledgements}\index{Acknowledgements}
 
 These are users that improved this tutorial and/or the code behind this
 tutorial, in chronological order:
@@ -219,7 +215,7 @@ tutorial, in chronological order:
   \item mywtfmp3
 \end{itemize}
 
-\subsection{Outline}
+\section{Outline}
 
 The chapters of this tutorial are also like a well-connected graph.
 To allow for quicker learners to skim chapters, or for beginners looking

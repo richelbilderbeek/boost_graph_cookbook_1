@@ -1,4 +1,4 @@
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Building graphs without properties}
 \label{sec:Building-graphs-without-properties}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,7 +116,7 @@ After this chapter you may want to:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating an empty (directed) graph}
+\section{Creating an empty (directed) graph}
 \label{subsec:create_empty_directed_graph}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -226,7 +226,7 @@ Prefer to be const-correct \index{const-correctness}
 ).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating an empty undirected graph}
+\section{Creating an empty undirected graph}
 \label{subsec:create_empty_undirected_graph}
 \index{Create an empty graph}
 \index{Empty graph, create}
@@ -284,7 +284,7 @@ you have just created an undirected graph in which:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Counting the number of vertices}
+\section{Counting the number of vertices}
 \label{subsec:get_n_vertices}
 \index{Vertices, counting}
 \index{Counting the number of vertices}
@@ -341,7 +341,7 @@ Boost.Graph is very good at detecting operations that are not allowed, during
 compile time.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Counting the number of edges}
+\section{Counting the number of edges}
 \label{subsec:get_n_edges}
 \index{Edges, counting}
 \index{Counting the number of edges}
@@ -376,7 +376,7 @@ to measure the number of edges of an empty directed and undirected graph.
 ]{get_n_edges_demo.impl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Adding a vertex}
+\section{Adding a vertex}
 \label{subsec:add_vertex}
 \index{Add a vertex}
 \index{Vertex, add}
@@ -421,7 +421,7 @@ and then \verb;assert;s that the number of vertices in each graph is one.
 This works for both types of graphs, as all graphs have vertices.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Vertex descriptors}
+\section{Vertex descriptors}
 \label{subsec:Vertex-descriptors}
 \index{Vertex descriptor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -448,8 +448,7 @@ vertex descriptors have named prefixed with \verb;vd_; \index{vd\_},
 for example \verb;vd_1;.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{}
-Get the vertex iterators
+\section{Get the vertex iterators}
 \label{subsec:get_vertices}
 \index{Vertex iterator}
 \index{Vertex iterators, get}
@@ -503,7 +502,7 @@ iterators of an empty graph point to the same location.
 ]{get_vertex_iterators_demo.impl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Get all vertex descriptors}
+\section{Get all vertex descriptors}
 \label{subsec:get_vertex_descriptors}
 \index{Vertex descriptors, get}
 \index{Get vertex descriptors}
@@ -560,7 +559,7 @@ Because all graphs have vertices and thus vertex descriptors, the type of
 graph is unimportant for this code to compile.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Add an edge}
+\section{Add an edge}
 \label{subsec:add_edge}
 \index{Add an edge}
 \index{Edge, add}
@@ -615,7 +614,7 @@ The graph type is unimportant: as all graph types have vertices and edges,
  edges can be added without possible compile problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{boost::add\_edge result}
+\section{boost::add\_edge result}
 \label{subsec:boost_add_edge_result}
 \index{boost::add\_edge result}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -631,7 +630,7 @@ have named prefixed with \verb;aer_; \index{aer\_},
 for example \verb;aer_1;.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Getting the edge iterators}
+\section{Getting the edge iterators}
 \label{subsec:get_edge_iterators}
 \index{Get edge iterators}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -680,7 +679,7 @@ edge iterator pair point to the same location, when the graph is empty.
 ]{get_edge_iterators_demo.impl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Edge descriptors}
+\section{Edge descriptors}
 \label{subsec:Edge-descriptors}
 \index{Edge descriptor}
 
@@ -693,7 +692,7 @@ In this tutorial, edge descriptors have named prefixed with \verb;ed_;
 \index{ed\_}, for example \verb;ed_1;.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Get all edge descriptors}
+\section{Get all edge descriptors}
 \label{subsec:get_edge_descriptors}
 \index{Edge descriptors, get}
 \index{Get edge descriptors}
@@ -724,7 +723,7 @@ not have any edge descriptors.
 ]{get_edge_descriptors_demo.impl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating a directed graph}
+\section{Creating a directed graph}
 \label{subsec:create_markov_chain_graph}
 \index{Create directed graph}
 \index{Directed graph, create}
@@ -757,7 +756,7 @@ Note that directed graphs can have edges that start and end in the same
 vertex.
 These are called self-loops.
 
-\subsection{Function to create such a graph}
+\section{Function to create such a graph}
 
 To create this two-state Markov chain, the following code can be used:
 
@@ -781,7 +780,7 @@ is checked for a successful insertion.
 Note that the graph lacks all properties: nodes do not have names, nor do
 edges.
 
-\subsection{Creating such a graph}
+\section{Creating such a graph}
 
 Listing \ref{create_markov_chain_demo} demonstrates 
 the \verb;create_markov_chain_graph; function and checks if it
@@ -792,7 +791,7 @@ has the correct amount of edges and vertices:
   label = lst:create_markov_chain_demo
 ]{create_markov_chain_demo.impl}
 
-\subsection{The .dot file produced}
+\section{The .dot file produced}
 \label{subsec:create_markov_chain_dot}
 
 Running a bit ahead, this graph can be converted to a .dot file using the
@@ -817,7 +816,7 @@ From the .dot file one can already see that the graph is directed, because:
    (where undirected connections would be written as \verb;–;)
 \end{itemize}
 
-\subsection{The .svg file produced}
+\section{The .svg file produced}
 \label{subsec:create_markov_chain.svg}
 
 The .svg file of this graph is shown in figure \ref{fig:create_markov_chain.svg}:
@@ -837,7 +836,7 @@ This figure shows that the graph in directed, as the edges have arrow heads.
 The vertices display the node index, which is the default behavior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Creating $K_{2}$, a fully connected undirected graph with two vertices}
+\section{Creating $K_{2}$, a fully connected undirected graph with two vertices}
 \label{subsec:create_k2_graph}
 \index{Create $K_{2}$}
 \index{$K_{2}$, create}
@@ -862,7 +861,7 @@ as depicted in figure \ref{fig:k2_graph}.
   \label{fig:k2_graph}
 \end{figure}
 
-\subsection{Function to create such a graph}
+\section{Function to create such a graph}
 
 To create $K_{2}$, the following code can be used:
 
@@ -889,7 +888,7 @@ it is only checked that insertion has been successful.
 Note that the graph lacks all properties: nodes do not have names, nor do
 edges.
 
-\subsection{Creating such a graph}
+\section{Creating such a graph}
 
 Listing \ref{lst:create_k2_graph_demo}
 demonstrates how to \verb;create_k2_graph; and checks if it has the correct
@@ -900,7 +899,7 @@ amount of edges and vertices:
   label = lst:create_k2_graph_demo
 ]{create_k2_graph_demo.impl}
 
-\subsection{The .dot file produced}
+\section{The .dot file produced}
 \label{subsec:create_k2_dot}
 
 Running a bit ahead, this graph can be converted to the .dot file as shown
@@ -921,7 +920,7 @@ From the .dot file one can already see that the graph is undirected, because:
     \verb;<-; or \verb;<>;)
 \end{itemize}
 
-\subsection{The .svg file produced}
+\section{The .svg file produced}
 \label{subsec:create_k2.svg}
 
 Continuing to running a bit ahead, 
@@ -929,7 +928,7 @@ this .dot file can be converted to the .svg
 as shown in figure \ref{fig:create_k2_graph.svg}:
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_k2_graph.svg}
+  \includegraphics[]{create_k2_graph.png}
   \caption{.svg file created from the create\_k2\_graph' function (algorithm \ref{lst:create_k2_graph}) its .dot file, converted from .dot file to .svg using algorithm \ref{lst:convert_dot_to_svg}}
   \label{fig:create_k2_graph.svg}
 \end{figure}
@@ -939,7 +938,7 @@ Also this figure shows that the graph in undirected, otherwise the edge
  The vertices display the node index, which is the default behavior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
+\section{$\triangle$ Creating $K_{3}$, a fully connected undirected graph with three vertices}
 \label{subsec:create_k3_graph}
 \index{Create $K_{3}$}
 \index{$K_{3}$, create}
@@ -947,7 +946,7 @@ Also this figure shows that the graph in undirected, otherwise the edge
 
 This is an extension of the previous chapter
 
-\subsection{Graph}
+\section{Graph}
 
 To create a fully connected undirected graph with three vertices 
 (also called $K_{4}$), 
@@ -970,7 +969,7 @@ as depicted in figure \ref{fig:create_k3_graph}.
   \label{fig:create_k3_graph}
 \end{figure}
 
-\subsection{Function to create such a graph}
+\section{Function to create such a graph}
 
 To create $K_{3}$, the following code can be used:
 
@@ -980,7 +979,7 @@ To create $K_{3}$, the following code can be used:
 ]{create_k3_graph.impl}
 \index{Create $K_{3}$ graph}
 
-\subsection{Creating such a graph}
+\section{Creating such a graph}
 
 Listing \ref{lst:create_k3_graph_demo} demonstrates 
 \verb;create_k3_graph; and checks if it has the correct
@@ -991,7 +990,7 @@ amount of edges and vertices:
   label = lst:create_k3_graph_demo
 ]{create_k3_graph_demo.impl}
 
-\subsection{The .dot file produced}
+\section{The .dot file produced}
 \label{subsec:create_k3_graph.dot}
 
 This graph can be converted to the .dot file as shown in algorithm 
@@ -1002,14 +1001,14 @@ This graph can be converted to the .dot file as shown in algorithm
   label = lst:create_k3_graph.dot
 ]{create_k3_graph.dot}
 
-\subsection{The .svg file produced}
+\section{The .svg file produced}
 \label{subsec:create_k3.svg}
 
 Continuing to running a bit ahead, this .dot file can be converted to the
 .svg as shown in figure \ref{fig:create_k3_graph.svg}:
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_k3_graph.svg}
+  \includegraphics[]{create_k3_graph.png}
   \caption{
     .svg file created from the create\_k3\_graph function 
     (algorithm \ref{lst:create_k3_graph}) its .dot file, 
@@ -1020,7 +1019,7 @@ Continuing to running a bit ahead, this .dot file can be converted to the
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating a path graph}
+\section{$\triangle$ Creating a path graph}
 \label{subsec:create_path_graph}
 \index{Create path graph}
 \index{Path graph, create}
@@ -1028,7 +1027,7 @@ Continuing to running a bit ahead, this .dot file can be converted to the
 
 A path graph is a linear graph without any branches
 
-\subsection{Graph}
+\section{Graph}
 
 Here I show a path graph with four vertices 
 (see figure \ref{fig:create_path_graph}):
@@ -1051,7 +1050,7 @@ Here I show a path graph with four vertices
   \label{fig:create_path_graph}
 \end{figure}
 
-\subsection{Function to create such a graph}
+\section{Function to create such a graph}
 
 To create a path graph, the following code can be used:
 
@@ -1061,7 +1060,7 @@ To create a path graph, the following code can be used:
 ]{create_path_graph.impl}
 \index{Create path graph}
 
-\subsection{Creating such a graph}
+\section{Creating such a graph}
 
 Listing \ref{lst:create_path_graph_demo}
 demonstrates \verb;create_path_graph; 
@@ -1072,7 +1071,7 @@ and checks if it has the correct amount of edges and vertices:
   label = lst:create_path_graph_demo
 ]{create_path_graph_demo.impl}
 
-\subsection{The .dot file produced}
+\section{The .dot file produced}
 \label{subsec:create_path_graph.dot}
 
 This graph can be converted to the .dot file 
@@ -1083,7 +1082,7 @@ as shown in algorithm \ref{lst:create_path_graph.dot}:
   label = lst:create_path_graph.dot
 ]{create_path_graph_4.dot}
 
-\subsection{The .svg file produced}
+\section{The .svg file produced}
 \label{subsec:create_path_graph.svg}
 
 The .dot file can be converted to the .svg 
@@ -1101,7 +1100,7 @@ as shown in figure \ref{fig:create_path_graph.svg}:
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$\triangle$ Creating a Peterson graph}
+\section{$\triangle$ Creating a Peterson graph}
 \label{subsec:create_petersen_graph}
 \index{Create Petersen graph}
 \index{Petersen graph, create}
@@ -1109,14 +1108,14 @@ as shown in figure \ref{fig:create_path_graph.svg}:
 
 A Petersen graph is the first graph with interesting properties.
 
-\subsection{Graph}
+\section{Graph}
 
 To create a Petersen graph, one needs five vertices and five undirected
  edges, as depicted in figure 
 \ref{fig:create_petersen_graph}.
 
 \begin{figure}[!htbp]
-  \includegraphics[]{Petersen_graph.svg}
+  \includegraphics[]{Petersen_graph.png}
   \caption{
     A Petersen graph 
     (from \url{https://en.wikipedia.org/wiki/Petersen_graph}) 
@@ -1124,7 +1123,7 @@ To create a Petersen graph, one needs five vertices and five undirected
   \label{fig:create_petersen_graph}
 \end{figure}
 
-\subsection{Function to create such a graph}
+\section{Function to create such a graph}
 
 To create a Petersen graph, the following code can be used:
 
@@ -1134,7 +1133,7 @@ To create a Petersen graph, the following code can be used:
 ]{create_petersen_graph.impl}
 \index{Create Petersen graph}
 
-\subsection{Creating such a graph}
+\section{Creating such a graph}
 
 Listing \ref{lst:create_petersen_graph_demo}
 demonstrates how to use \verb;create_petersen_graph' and checks if it has the
@@ -1145,7 +1144,7 @@ correct amount of edges and vertices:
   label = lst:create_petersen_graph_demo
 ]{create_petersen_graph_demo.impl}
 
-\subsection{The .dot file produced}
+\section{The .dot file produced}
 \label{subsec:create_petersen_graph.dot}
 
 This graph can be converted to the .dot file as shown in algorithm 
@@ -1156,14 +1155,14 @@ This graph can be converted to the .dot file as shown in algorithm
   label = lst:create_petersen_graph.dot
 ]{create_petersen_graph.dot}
 
-\subsection{The .svg file produced}
+\section{The .svg file produced}
 \label{subsec:create_petersen.svg}
 
 This .dot file can be converted to the .svg as shown in figure 
 \ref{fig:create_petersen_graph.svg}:
 
 \begin{figure}[!htbp]
-  \includegraphics[]{create_petersen_graph.svg}
+  \includegraphics[]{create_petersen_graph.png}
   \caption{
     .svg file created from the create\_petersen\_graph function 
     (algorithm \ref{lst:create_petersen_graph}) its .dot file, 
