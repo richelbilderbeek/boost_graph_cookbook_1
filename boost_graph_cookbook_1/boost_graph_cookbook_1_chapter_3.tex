@@ -234,6 +234,7 @@ Take for example, a graph of two isolated edges, with four vertices.
 
 \begin{figure}
   \begin{tikzpicture}
+    \draw[thick] 
     (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
       -> (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
       -> (3,4) node[draw=black,fill=white,shape=circle,text=white] {} 
@@ -247,7 +248,6 @@ Take for example, a graph of two isolated edges, with four vertices.
   \caption{Example of a directed graph with two components}
   \label{fig:count_directed_graph_connected_components}
 \end{figure}
-\draw[thick] 
 
 This algorithm counts the number of connected components:
 
