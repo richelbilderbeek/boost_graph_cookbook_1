@@ -79,3 +79,283 @@ It is expected that $K_{2}$
 has one out-degree for every vertex, where the two-state Markov chain is
 expected to have two out-degrees per vertex.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$ Is there an edge between two vertices?}
+\label{subsec:has_edge_between_vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If you have two vertex descriptors, you can check if these are connected
+ by an edge:
+
+\lstinputlisting[
+  caption = Check if there exists an edge between two vertices,
+  label = lst:has_edge_between_vertices
+]{has_edge_between_vertices.impl}
+\index{Has edge between vertices}
+
+This code uses the function \verb;edge; \index{edge}
+(not boost::edge \index{boost::edge does not exist}): 
+it returns a pair consisting of an edge descriptor and a boolean indicating
+if it is a valid edge descriptor.
+The boolean will be true if there exists an edge between the two vertices
+and false if not.
+
+The demo shows that there is an edge between the two vertices of a 
+$K_{2}$ graph, but there are no self-loops (edges that original and end at the
+ same vertex).
+
+\lstinputlisting[
+  caption = Demonstration of the has\_edge\_between\_vertices function,
+  label = lst:has_edge_between_vertices_demo
+]{has_edge_between_vertices_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$ Get the edge between two vertices}
+\label{subsec:get_edge_between_vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If you have two vertex descriptors, you can use these to find the edge between
+them.
+
+\lstinputlisting[
+  caption = Get the edge between two vertices,
+  label = lst:get_edge_between_vertices
+]{get_edge_between_vertices.impl}
+\index{Get edge between vertices}
+
+This code does assume that there is an edge between the two vertices.
+
+The demo shows how to get the edge between two vertices, deleting it, and
+ checking for success.
+
+\lstinputlisting[
+  caption = Demonstration of the get\_edge\_between\_vertices function,
+  label = lst:get_edge_between_vertices_demo
+]{get_edge_between_vertices_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor}
+\label{subsec:create_direct_neighbour_subgraph}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Suppose you have a vertex of interest its vertex descriptor.
+Let's say you want to get a subgraph of that vertex and its direct neighbours
+only.
+This means that all vertices of that subgraph are adjacent vertices and
+that the edges go either from focal vertex to its neighbours, or from adjacent
+vertex to adjacent neighbour.
+
+Here is the \verb;create_direct_neighbour_subgraph; code:
+
+\lstinputlisting[
+  caption = Get the direct-neighbour subgraph from a vertex descriptor,
+  label = lst:create_direct_neighbour_subgraph
+]{create_direct_neighbour_subgraph.impl}
+\index{Create direct-neighbour subgraph}
+
+This demonstration code shows that the direct-neighbour graph of each vertex
+ of a $K_{2}$ graphs is ... a $K_{2}$ graph!
+
+\lstinputlisting[
+  caption = Demo of the create\_direct\_neighbour\_subgraph function,
+  label = lst:create_direct_neighbour_subgraph_demo
+]{create_direct_neighbour_subgraph_demo.impl}
+
+Note that this algorithm works on both undirected and directional graphs.
+If the graph is directional, only the out edges will be copied.
+To also copy the vertices connected with inward edges, use 
+\ref{subsec:create_direct_neighbour_subgraph_including_in_edges}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Create a direct-neighbour subgraph from a vertex descriptor including inward edges}
+\label{subsec:create_direct_neighbour_subgraph_including_in_edges}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Too bad, this algorithm does not work yet.
+
+\lstinputlisting[
+  caption = Get the direct-neighbour subgraph from a vertex descriptor,
+  label = lst:create_direct_neighbour_subgraph_including_in_edges
+]{create_direct_neighbour_subgraph_including_in_edges.impl}
+\index{Create direct-neighbour subgraph_including_in_edges}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Creating all direct-neighbour subgraphs from a graph without properties}
+\label{subsec:create_all_direct_neighbour_subgraphs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Using the previous function, it is easy to create all direct-neighbour subgraphs
+ from a graph without properties:
+
+\lstinputlisting[
+  caption = Create all direct-neighbour subgraphs from a graph without properties,
+  label = lst:create_all_direct_neighbour_subgraphs
+]{create_all_direct_neighbour_subgraphs.impl}
+\index{Create all direct-neighbour subgraphs}
+
+This demonstration code shows that all two direct-neighbour graphs 
+of a $K_{2}$ graphs are ... $K_{2}$ graphs!
+
+\lstinputlisting[
+  caption = Demo of the create\_all\_direct\_neighbour\_subgraphs function,
+  label = lst:create_all_direct_neighbour_subgraphs_demo
+]{create_all_direct_neighbour_subgraphs_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\triangle$ Are two graphs isomorphic?}
+\label{subsec:is_isomorphic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You may want to check if two graphs are isomorphic.
+ That is: if they have the same shape.
+
+\lstinputlisting[
+  caption = Check if two graphs are isomorphic,
+  label = lst:is_isomorphic
+]{is_isomorphic.impl}
+\index{Is isomorphic}
+
+This demonstration code shows that a 
+$K_{3}$ graph is not equivalent to a 3-vertices path graph:
+
+\lstinputlisting[
+  caption = Demo of the is\_isomorphic function,
+  label = lst:is_isomorphic_demo
+]{is_isomorphic_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Count the number of connected components in an directed graph}
+\label{subsec:count_directed_graph_connected_components}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A directed graph may consist out of two components, that are connected within
+each, but unconnected between them.
+Take for example, a graph of two isolated edges, with four vertices.
+
+\begin{figure}
+  \begin{tikzpicture}
+    (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (3,4) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+    (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (8,4) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -> (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+    ;
+  \end{tikzpicture}
+  \caption{Example of a directed graph with two components}
+  \label{fig:count_directed_graph_connected_components}
+\end{figure}
+\draw[thick] 
+
+This algorithm counts the number of connected components:
+
+\lstinputlisting[
+  caption = Count the number of connected components,
+  label = lst:count_directed_graph_connected_components
+]{count_directed_graph_connected_components.impl}
+\index{Count connected components}
+
+The complexity of this algorithm is 
+$O(\left|V\right|+\left|E\right|)$.
+
+This demonstration code shows that two solitary edges are correctly counted
+as being two components:
+
+\lstinputlisting[
+  caption = Demo of the count\_directed\_graph\_connected\_components function,
+  label = lst:count_directed_graph_connected_components_demo
+]{count_directed_graph_connected_components_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Count the number of connected components in an undirected graph}
+\label{subsec:count_undirected_graph_connected_components}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+An undirected graph may consist out of two components, that are connect
+within each, but unconnected between them.
+Take for example, a graph of two isolated edges, with four vertices.
+
+\begin{figure}
+  \begin{tikzpicture}
+    \draw[thick] 
+      (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+        -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+      (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+        -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+      ;
+  \end{tikzpicture}
+  \caption{Example of an undirected graph with two components}
+  \label{fig:count_undirected_graph_connected_components}
+\end{figure}
+
+This algorithm counts the number of connected components:
+
+\lstinputlisting[
+  caption = Count the number of connected components,
+  label = lst:count_undirected_graph_connected_components
+]{count_undirected_graph_connected_components.impl}
+\index{Count connected components}
+
+The complexity of this algorithm is 
+$O(\left|V\right|+\left|E\right|)$.
+
+This demonstration code shows that two solitary edges are correctly counted
+as being two components:
+
+\lstinputlisting[
+  caption = Demo of the count\_undirected\_graph\_connected\_components function,
+  label = lst:count_undirected_graph_connected_components_demo
+]{count_undirected_graph_connected_components_demo.impl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\triangle$$\triangle$ Count the number of levels in an undirected graph}
+\label{subsec:count_undirected_graph_levels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Graphs can have a hierarchical structure.
+From a starting vertex, the number of levels can be counted.
+A graph of one vertex has zero levels.
+A graph with one edge has one level.
+A linear graph of three vertices and two edges has one or two levels, depending
+on the starting vertex.
+
+\begin{figure}
+  \begin{tikzpicture}
+    (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+    (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
+      -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
+    ;
+  \end{tikzpicture}
+  \caption{Example of an undirected graph with two components}
+  \label{fig:count_undirected_graph_levels}
+\end{figure}
+\draw[thick] 
+
+This algorithm counts the number of levels in an undirected graph, starting
+at a certain vertex.
+
+It does so, by collecting the neighbours of the traversed vertices.
+Each sweep, all neighbours of traversed neighbours are added to a set of
+known vertices.
+As long as vertices can be added, the algorithm continues.
+If no vertices can be added, the number of level equals the number of sweeps.
+
+\lstinputlisting[
+  caption = Count the number of levels in an undirected graph,
+  label = lst:count_undirected_graph_levels
+]{count_undirected_graph_levels.impl}
+\index{Count undirected graph levels}
+
+This demonstration code shows the number of levels from a certain vertex,
+ while adding edges to form a linear graph.
+ The vertex, when still without edges, has zero levels.
+ After adding one edge, the graph has one level, etc.
+
+\lstinputlisting[
+  caption = Demo of the count\_undirected\_graph\_levels function,
+  label = lst:count_undirected_graph_levels_demo
+]{count_undirected_graph_levels_demo.impl}
+
