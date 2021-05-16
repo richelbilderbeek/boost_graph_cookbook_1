@@ -121,10 +121,10 @@ setting it is just as easy,
 as shown in algorithm \ref{lst:set_bundled_vertex_my_vertex}
 
 \lstinputlisting[
-  caption = Set a bundled vertex its my_vertex from its vertex descriptor,
+  caption = Set a bundled vertex its my\_vertex from its vertex descriptor,
   label = lst:set_bundled_vertex_my_vertex
 ]{set_my_bundled_vertex.impl}
-\index{Set vertex my_vertex}
+\index{Set vertex my\_vertex}
 
 To use \verb;set_bundled_vertex_my_vertex;, 
 one first needs to obtain a vertex descriptor.
@@ -148,5 +148,75 @@ these as such:
   caption = Setting the bundled vertices' my\_bundled\_vertex-es,
   label = lst:set_bundled_vertex_my_vertexes
 ]{set_my_bundled_vertexes.impl}
-\index{Set bundled vertex my_bundled_vertexes}
+\index{Set bundled vertex my\_bundled\_vertexes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Storing a graph with bundled vertices as a .dot}
+\label{subsec:save_bundled_vertices_graph_to_dot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If you used the \verb;create_bundled_vertices_k2_graph; function (algorithm 
+\ref{lst:create_bundled_vertices_k2_graph}
+) to produce a $K_{2}$ graph with vertices associated with 
+\verb;my_bundled_vertex; objects, you can store these with algorithm 
+\ref{lst:save_bundled_vertices_graph_to_dot}:
+
+\lstinputlisting[
+  caption = Storing a graph with bundled vertices as a .dot file,
+  label = lst:save_bundled_vertices_graph_to_dot
+]{save_bundled_vertices_graph_to_dot.impl}
+\index{Save bundled vertices graph to dot}
+
+This code looks small, because we call the \verb;make_bundled_vertices_writer;
+function, which is shown in algorithm 
+\ref{lst:make_bundled_vertices_writer}:
+
+\lstinputlisting[
+  caption = The make\_bundled\_vertices\_writer function,
+  label = lst:make_bundled_vertices_writer
+]{make_bundled_vertices_writer.impl}
+\index{make\_bundled\_vertices\_writer}
+
+Also this function is forwarding the real work to 
+the \verb;bundled_vertices_writer;, shown in algorithm 
+\ref{lst:bundled_vertices_writer}:
+
+\lstinputlisting[
+  caption = The bundled\_vertices\_writer function,
+  label = lst:bundled_vertices_writer
+]{bundled_vertices_writer.impl}
+\index{bundled\_vertices\_writer}
+
+Here, some interesting things are happening: the writer needs the bundled
+property maps to work with and thus copies the whole graph to its internals.
+I have chosen to map the \verb;my_bundled_vertex; member variables to Graphviz
+attributes (see chapter \ref{subsec:Graphviz-attributes} 
+for most Graphviz attributes) as shown in table 
+\ref{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}:
+
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{l l l l} 
+    \hline
+    my\_bundled\_vertex variable & C++ data type & Graphviz data type & Graphviz attribute \\
+    \hline
+    m\_name                      & std::string   & string             & label              \\
+    m\_description               & std::string   & string             & comment            \\
+    m\_x                         & double        & double             & width              \\
+    m\_y                         & double        & double             & height             \\
+    \hline
+  \end{tabular}
+  \caption{
+    Mapping of my\_bundled\_vertex member variable and Graphviz attributes
+  }
+  \label{tab:Mapping-of-my_bundled_vertex-to-Graphviz-attributes}
+\end{table}
+
+Important in this mapping is that the C++ and the Graphviz data types match.
+I also chose attributes that matched as closely as possible.
+
+The writer also encodes the std::string of the name and description to a
+Graphviz-friendly format.
+When loading the .dot file again, this will have to be undone again.
 
