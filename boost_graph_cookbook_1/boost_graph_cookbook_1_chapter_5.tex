@@ -220,3 +220,47 @@ The writer also encodes the std::string of the name and description to a
 Graphviz-friendly format.
 When loading the .dot file again, this will have to be undone again.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loading a directed graph with bundled vertices from a .dot}
+\label{subsec:load_directed_bundled_vertices_graph_from_dot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from file, one needs to specify a type of graph.
+In this example, an directed graph with bundled vertices is loaded, as
+shown in algorithm \ref{lst:load_directed_bundled_vertices_graph_from_dot}:
+
+\lstinputlisting[
+  caption = Loading a directed graph with bundled vertices from a .dot file,
+  label = lst:load_directed_bundled_vertices_graph_from_dot
+]{load_directed_bundled_vertices_graph_from_dot.impl}
+\index{Load directed bundled vertices graph from dot}
+
+In this algorithm, first it is checked if the file to load exists.
+Then an empty directed graph is created, to save typing the typename explicitly.
+
+Then a boost::dynamic_properties \index{boost::dynamic_properties}
+is created with its default constructor, after which we set it to follow
+the same mapping as in the previous chapter.
+From this and the empty graph, \verb;boost::read_graphviz;
+\index{boost::read_graphviz}
+is called to build up the graph.
+
+At the moment the graph is created, all \verb;my_bundled_vertex; their names
+and description are in a Graphviz-friendly format.
+By obtaining all vertex iterators and vertex descriptors, the encoding
+is made undone.
+
+Listing \ref{lst:load_directed_bundled_vertices_graph_from_dot_demo}
+shows how to use the \verb;load_directed_bundled_vertices_graph_from_dot; function:
+
+\lstinputlisting[
+  caption = Demonstration of the load\_directed\_bundled\_vertices\_graph\_from\_dot function,
+  label = lst:load_directed_bundled_vertices_graph_from_dot_demo
+]{load_directed_bundled_vertices_graph_from_dot_demo.impl}
+
+This demonstration shows how the Markov chain is created using 
+the \verb;create_bundled_vertices_markov_chain; function 
+(algorithm \ref{lst:create_bundled_vertices_markov_chain}), 
+saved and then loaded.
+The loaded graph is checked to be the same as the original.
+
