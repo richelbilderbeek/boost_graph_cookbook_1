@@ -138,3 +138,20 @@ in chapter \ref{subsec:create_empty_directed_bundled_vertices_graph},
 except that the directness (the third template argument) is undirected 
 (due to the boost::undirectedS \index{boost::undirectedS}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Add a bundled vertex}
+\label{subsec:add_bundled_vertex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Adding a bundled vertex is very similar to adding a named vertex 
+(chapter \ref{subsec:add_named_vertex}).
+
+\lstinputlisting[
+  caption = Add a bundled vertex,
+  label = lst:add_bundled_vertex
+]{add_bundled_vertex.impl}
+\index{Add bundled vertex}
+
+When having added a new (abstract) vertex to the graph, the vertex descriptor
+is used to set the \verb;my_bundled_vertex; in the graph.
+
