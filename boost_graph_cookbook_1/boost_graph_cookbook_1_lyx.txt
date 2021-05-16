@@ -1,56 +1,5 @@
 
 \section{...}
-Working on graphs with a graph name
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Storing a graph with a graph name property as a .dot file}
-\label{subsec:save_graph_with_graph_name_to_dot}
-
-This works:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{save_graph_with_graph_name_to_dot.impl}
-
-Storing a graph with a graph name as a .dot file
-\index{Save graph with graph name to dot
-
-\label{lst:save_graph_with_graph_name_to_dot}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Loading a directed graph with a graph name property from a .dot file}
-\label{subsec:load_directed_graph_with_graph_name_from_dot}
-
-This will result in a directed graph with a name:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{load_directed_graph_with_graph_name_from_dot.impl}
-
-Loading a directed graph with a graph name from a .dot file
-\index{Load directed custom edges and vertices graph from dot
-
-\label{lst:load_directed_graph_with_graph_name_from_dot}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Loading an undirected graph with a graph name property from a .dot file}
-\label{subsec:load_undirected_graph_with_graph_name_from_dot}
-
-This will result in an undirected graph with a name:
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{load_undirected_graph_with_graph_name_from_dot.impl}
-
-Loading an undirected graph with a graph name from a .dot file
-\index{Load undirected custom edges and vertices graph from dot
-
-\label{lst:load_undirected_graph_with_graph_name_from_dot}
-
-\section{...}
 Other graph functions
 \label{sec:Other-graph-functions}
 
