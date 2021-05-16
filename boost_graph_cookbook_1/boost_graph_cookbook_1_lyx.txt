@@ -1,21 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Check if a std::string is Graphviz-friendly}
-\label{subsec:is_graphviz_friendly}
-
-There are pieces where I check if a std::string is Graphviz-friendly.
- This is done only where it matters.
- If it is tested not to matter, \verb;is_graphviz_friendly' is absent.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{is_graphviz_friendly.impl}
-
-Check if a std::string is Graphviz-friendly
-\index{is_graphviz_friendly
-
-\label{lst:is_graphviz_friendly}
-
 \section{...}
 Misc functions
 

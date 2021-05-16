@@ -36,3 +36,18 @@ Graphviz-friendly std::string to the original human-friendly std::string.
 ]{graphviz_decode.impl}
 \index{graphviz decode}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Check if a std::string is Graphviz-friendly}
+\label{subsec:is_graphviz_friendly}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+There are pieces where I check if a std::string is Graphviz-friendly.
+This is done only where it matters.
+If it is tested not to matter, \verb;is_graphviz_friendly; is absent.
+
+\lstinputlisting[
+  caption = Check if a std::string is Graphviz-friendly,
+  label = lst:is_graphviz_friendly
+]{is_graphviz_friendly.impl}
+\index{is_graphviz_friendly}
+
