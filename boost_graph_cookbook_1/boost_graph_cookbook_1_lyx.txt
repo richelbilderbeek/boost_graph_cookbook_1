@@ -1,51 +1,3 @@
-\section{...}
-Building graphs with bundled vertices
-\label{sec:Building-graphs-with-bundled-vertices}
-
-Up until now, the graphs created have had edges and vertices without any
- properties.
- In this chapter, graphs will be created, in which the vertices can have
- a bundled \verb;my_bundled_vertex' type
-\footnote{I do not intend to be original in naming my data types
-
-.
- The following graphs will be created:
-
-\begin{itemize}
-An empty directed graph that allows for bundled vertices: see chapter 
-\ref{lst:create_empty_directed_bundled_vertices_graph}
-
-\begin{itemize}
-An empty undirected graph that allows for bundled vertices: see chapter
- 
-\ref{subsec:create_empty_directed_bundled_vertices_graph}
-
-\begin{itemize}
-A two-state Markov chain with bundled vertices: see chapter 
-\ref{subsec:create_bundled_vertices_markov_chain}
-
-\begin{itemize}
-$K_{2}$
-
-with bundled vertices: see chapter 
-\ref{subsec:create_bundled_vertices_k2_graph}
-
-In the process, some basic (sometimes bordering trivial) functions are shown:
-
-\begin{itemize}
-Create the vertex class, called \verb;my_bundled_vertex': see chapter 
-\ref{subsec:my_bundled_vertex}
-
-\begin{itemize}
-Adding a \verb;my_bundled_vertex': see chapter 
-\ref{subsec:add_bundled_vertex}
-
-\begin{itemize}
-Getting the vertices \verb;my_bundled_vertex'-es: see chapter 
-\ref{subsec:get_bundled_vertex_my_vertexes}
-
-These functions are mostly there for completion and showing which data types
- are used.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Creating the bundled vertex class}
@@ -53,11 +5,11 @@ These functions are mostly there for completion and showing which data types
 
 Before creating an empty graph with bundled vertices, that bundled vertex
  class must be created.
- In this tutorial, it is called \verb;my_bundled_vertex'.
- \verb;my_bundled_vertex' is a class that is nonsensical, but it can be replaced
+ In this tutorial, it is called \verb;my_bundled_vertex;.
+ \verb;my_bundled_vertex; is a class that is nonsensical, but it can be replaced
  by any other class type.
 
-Here I will show the header file of \verb;my_bundled_vertex', as the implementation
+Here I will show the header file of \verb;my_bundled_vertex;, as the implementation
  of it is not important:
 
 \lstinputlisting[
@@ -76,7 +28,7 @@ Declaration of my_bundled_vertex
 
 \label{lst:my_bundled_vertex_h}
 
-\verb;my_bundled_vertex' is a class that has multiple properties: 
+\verb;my_bundled_vertex; is a class that has multiple properties: 
 
 \begin{itemize}
 It has four public member variables: the double \verb;m_x' (\verb;m_
@@ -97,7 +49,7 @@ It is copyable
 \begin{itemize}
 It is comparable for equality (it has operator==), which is needed for searching
 
-\verb;my_bundled_vertex' does not have to have the stream operators defined for
+\verb;my_bundled_vertex; does not have to have the stream operators defined for
  file I/O, as this goes via the public member variables.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,7 +88,7 @@ is directed (due to the boost::directedS
 
 \begin{itemize}
 The vertices have one property: they have a bundled type, that is of data
- type \verb;my_bundled_vertex'
+ type \verb;my_bundled_vertex;
 
 \begin{itemize}
 The edges and graph have no properties
@@ -151,7 +103,7 @@ The \verb;boost::adjacency_list; has a new, fourth template argument \verb;my_bu
  This can be read as: 
 \begin_inset Quotes eld
 
-vertices have the bundled property \verb;my_bundled_vertex'
+vertices have the bundled property \verb;my_bundled_vertex;
 \begin_inset Quotes erd
 
 .
@@ -207,7 +159,7 @@ Add a bundled vertex
 \label{lst:add_bundled_vertex}
 
 When having added a new (abstract) vertex to the graph, the vertex descriptor
- is used to set the \verb;my_bundled_vertex' in the graph.
+ is used to set the \verb;my_bundled_vertex; in the graph.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Getting the bundled vertices' my_vertexes}
@@ -217,7 +169,7 @@ When having added a new (abstract) vertex to the graph, the vertex descriptor
 
 \label{subsec:get_bundled_vertex_my_vertexes}
 
-When the vertices of a graph have any bundled \verb;my_bundled_vertex', one can
+When the vertices of a graph have any bundled \verb;my_bundled_vertex;, one can
  extract these as such:
 
 \lstinputlisting[
@@ -230,10 +182,10 @@ Get the bundled vertices' my_vertexes
 
 \label{lst:get_my_bundled_vertexes}
 
-The \verb;my_bundled_vertex' bundled in each vertex is obtained from a vertex
+The \verb;my_bundled_vertex; bundled in each vertex is obtained from a vertex
  descriptor and then put into a std::vector.
 
-The order of the \verb;my_bundled_vertex' objects may be different after saving
+The order of the \verb;my_bundled_vertex; objects may be different after saving
  and loading.
 
 When trying to get the vertices' my_bundled_vertex from a graph without
@@ -503,26 +455,26 @@ When using graphs with bundled vertices, their state gives a way to find
  This chapter shows some basic operations on graphs with bundled vertices.
 
 \begin{itemize}
-Check if there exists a vertex with a certain \verb;my_bundled_vertex': chapter
+Check if there exists a vertex with a certain \verb;my_bundled_vertex;: chapter
  
 \ref{subsec:has_bundled_vertex_with_my_vertex}
 
 \begin{itemize}
-Find a vertex with a certain \verb;my_bundled_vertex': chapter 
+Find a vertex with a certain \verb;my_bundled_vertex;: chapter 
 \ref{subsec:find_bundled_vertex_with_my_vertex}
 
 \begin{itemize}
-Get a vertex its \verb;my_bundled_vertex' from its vertex descriptor: chapter
+Get a vertex its \verb;my_bundled_vertex; from its vertex descriptor: chapter
  
 \ref{subsec:get_bundled_vertex_my_vertex}
 
 \begin{itemize}
-Set a vertex its \verb;my_bundled_vertex' using its vertex descriptor: chapter
+Set a vertex its \verb;my_bundled_vertex; using its vertex descriptor: chapter
  
 \ref{subsec:set_bundled_vertex_my_vertex}
 
 \begin{itemize}
-Setting all vertices their \verb;my_bundled_vertex'-es: chapter 
+Setting all vertices their \verb;my_bundled_vertex;-es: chapter 
 \ref{subsec:set_bundled_vertex_my_vertexes}
 
 \begin{itemize}
@@ -545,9 +497,9 @@ Loading an undirected directed graph with bundled vertices from a .dot file:
 \label{subsec:has_bundled_vertex_with_my_vertex}
 
 Before modifying our vertices, let's first determine if we can find a vertex
- by its bundled type (\verb;my_bundled_vertex') in a graph.
+ by its bundled type (\verb;my_bundled_vertex;) in a graph.
  After obtain the vertex iterators, we can dereference each these to obtain
- the vertex descriptors and then compare each vertex its \verb;my_bundled_vertex'
+ the vertex descriptors and then compare each vertex its \verb;my_bundled_vertex;
  with the one desired.
 
 \lstinputlisting[
@@ -591,7 +543,7 @@ Where STL functions work with iterators, here we obtain a vertex descriptor
 \ref{lst:find_first_bundled_vertex_with_my_vertex}
 
  shows how to obtain a vertex descriptor to the first vertex found with
- a specific \verb;my_bundled_vertex' value.
+ a specific \verb;my_bundled_vertex; value.
 
 \lstinputlisting[
   caption = ,
@@ -622,7 +574,7 @@ Demonstration of the \verb;find_first_bundled_vertex_with_my_vertex' function
 \subsection{Get a bundled vertex its \verb;my_bundled_vertex;}
 \label{subsec:get_bundled_vertex_my_vertex}
 
-To obtain the \verb;my_bundled_vertex' from a vertex descriptor is simple:
+To obtain the \verb;my_bundled_vertex; from a vertex descriptor is simple:
 
 \lstinputlisting[
   caption = ,
@@ -655,7 +607,7 @@ Demonstration if the \verb;get_bundled_vertex_my_vertex' function
 \subsection{Set a bundled vertex its my_vertex}
 \label{subsec:set_bundled_vertex_my_vertex}
 
-If you know how to get the \verb;my_bundled_vertex' from a vertex descriptor,
+If you know how to get the \verb;my_bundled_vertex; from a vertex descriptor,
  setting it is just as easy, as shown in algorithm 
 \ref{lst:set_bundled_vertex_my_vertex}
 
@@ -690,7 +642,7 @@ Demonstration if the \verb;set_bundled_vertex_my_vertex' function
 \subsection{Setting all bundled vertices' my_vertex objects}
 \label{subsec:set_bundled_vertex_my_vertexes}
 
-When the vertices of a graph are \verb;my_bundled_vertex' objects, one can set
+When the vertices of a graph are \verb;my_bundled_vertex; objects, one can set
  these as such:
 
 \lstinputlisting[
@@ -698,7 +650,7 @@ When the vertices of a graph are \verb;my_bundled_vertex' objects, one can set
   label = lst:
 ]{set_my_bundled_vertexes.impl}
 
-Setting the bundled vertices' \verb;my_bundled_vertex'-es
+Setting the bundled vertices' \verb;my_bundled_vertex;-es
 \index{Set bundled vertex my_bundled_vertexes
 
 \label{lst:set_bundled_vertex_my_vertexes}
@@ -713,7 +665,7 @@ If you used the \verb;create_bundled_vertices_k2_graph' function (algorithm
 ) to produce a 
 $K_{2}$
 
- graph with vertices associated with \verb;my_bundled_vertex' objects, you can
+ graph with vertices associated with \verb;my_bundled_vertex; objects, you can
  store these with algorithm 
 \ref{lst:save_bundled_vertices_graph_to_dot}
 
@@ -763,7 +715,7 @@ The \verb;bundled_vertices_writer' function
 
 Here, some interesting things are happening: the writer needs the bundled
  property maps to work with and thus copies the whole graph to its internals.
- I have chosen to map the \verb;my_bundled_vertex' member variables to Graphviz
+ I have chosen to map the \verb;my_bundled_vertex; member variables to Graphviz
  attributes (see chapter 
 \ref{subsec:Graphviz-attributes}
 
@@ -961,7 +913,7 @@ Then a boost::dynamic_properties
 
  is called to build up the graph.
 
-At the moment the graph is created, all \verb;my_bundled_vertex' their names
+At the moment the graph is created, all \verb;my_bundled_vertex; their names
  and description are in a Graphviz-friendly format.
  By obtaining all vertex iterators and vertex descriptors, the encoding
  is made undone.
@@ -1472,7 +1424,7 @@ Most of the code is a slight modification of algorithm
 
 .
  In the end, the my_edges and my_vertices are obtained as the graph its
- property_map and set with the \verb;my_bundled_edge' and \verb;my_bundled_vertex'
+ property_map and set with the \verb;my_bundled_edge' and \verb;my_bundled_vertex;
  objects.
 
 \subsection{Creating such a graph

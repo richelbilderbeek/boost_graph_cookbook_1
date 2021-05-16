@@ -1,5 +1,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Building graphs with bundled vertices}
+\label{sec:Building-graphs-with-bundled-vertices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Building graphs with bundled vertices text.
+Up until now, the graphs created have had edges and vertices without any
+properties.
+In this chapter, graphs will be created, in which the vertices can have
+a bundled \verb;my_bundled_vertex; type
+\footnote{I do not intend to be original in naming my data types}.
+The following graphs will be created:
+
+\begin{itemize}
+  \item An empty directed graph that allows for bundled vertices: 
+    see chapter \ref{lst:create_empty_directed_bundled_vertices_graph}
+  \item An empty undirected graph that allows for bundled vertices: 
+    see chapter \ref{subsec:create_empty_directed_bundled_vertices_graph}
+  \item A two-state Markov chain with bundled vertices: 
+    see chapter \ref{subsec:create_bundled_vertices_markov_chain}
+  \item $K_{2}$ with bundled vertices: 
+    see chapter \ref{subsec:create_bundled_vertices_k2_graph}
+\end{itemize}
+
+In the process, some basic (sometimes bordering trivial) functions are shown:
+
+\begin{itemize}
+  \item 
+    Create the vertex class, called \verb;my_bundled_vertex;: 
+    see chapter \ref{subsec:my_bundled_vertex}
+  \item Adding a \verb;my_bundled_vertex;: 
+    see chapter \ref{subsec:add_bundled_vertex}
+  \item Getting the vertices \verb;my_bundled_vertex;-es: 
+    see chapter \ref{subsec:get_bundled_vertex_my_vertexes}
+\end{itemize}
+
+These functions are mostly there for completion and showing which data types
+are used.
+
