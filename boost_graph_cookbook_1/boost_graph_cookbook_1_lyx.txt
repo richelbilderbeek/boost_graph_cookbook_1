@@ -1,32 +1,3 @@
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Set a graph its name property}
-\label{subsec:set_graph_name}
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{set_graph_name.impl}
-
-Set a graph its name
-\index{Set graph name
-
-\label{lst:set_graph_name}
-
-Listing 
-\ref{lst:set_graph_name_demo}
-
- demonstrates the \verb;set_graph_name' function.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{set_graph_name_demo.impl}
-
-Demonstration of \verb;set_graph_name'
-\label{lst:set_graph_name_demo}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Create a directed graph with a graph name property}
 \label{subsec:create_markov_chain_with_graph_name}
