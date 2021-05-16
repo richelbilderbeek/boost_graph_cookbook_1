@@ -2,4 +2,115 @@
 \chapter{Appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Appendix text.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{List of all edge, graph and vertex properties}
+\label{subsec:all_properties}
+\index{All edge properties}
+\index{All graph properties}
+\index{All vertex properties}
+\index{Edge properties}
+\index{Graph properties}
+\index{Vertex properties}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The following list is obtained from the file \verb;boost/graph/properties.hpp;.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{c c c} 
+    \hline
+    Edge                     & Graph          & Vertex                     \\
+    \hline
+    edge\_all                & graph\_all     & vertex\_all                \\
+    edge\_bundle             & graph\_bundle  & vertex\_bundle             \\
+    edge\_capacity           & graph\_name    & vertex\_centrality         \\
+    edge\_centrality         & graph\_visitor & vertex\_color              \\
+    edge\_color              &                & vertex\_current\_degree    \\
+    edge\_discover\_time     &                & vertex\_degree             \\
+    edge\_finished           &                & vertex\_discover\_time     \\
+    edge\_flow               &                & vertex\_distance           \\
+    edge\_global             &                & vertex\_distance2          \\
+    edge\_index              &                & vertex\_finish\_time       \\
+    edge\_local              &                & vertex\_global             \\
+    edge\_local\_index       &                & vertex\_in\_degree         \\
+    edge\_name               &                & vertex\_index              \\
+    edge\_owner              &                & vertex\_index1             \\
+    edge\_residual\_capacity &                & vertex\_index2             \\
+    edge\_reverse            &                & vertex\_local              \\
+    edge\_underlying         &                & vertex\_local\_index       \\
+    edge\_update             &                & vertex\_lowpoint           \\
+    edge\_weight             &                & vertex\_name               \\
+    edge\_weight2            &                & vertex\_out\_degree        \\
+                             &                & vertex\_owner              \\
+                             &                & vertex\_potential          \\
+                             &                & vertex\_predecessor        \\
+                             &                & vertex\_priority           \\
+                             &                & vertex\_rank               \\
+                             &                & vertex\_root               \\
+                             &                & vertex\_underlying         \\
+                             &                & vertex\_update             \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Graphviz attributes}
+\label{subsec:Graphviz-attributes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+List created from \url{www.graphviz.org/content/attrs}, 
+where only the attributes that are supported by all formats are listed:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{c c c} 
+    \hline
+    Edge           & Graph         & Vertex        \\
+    \hline
+    arrowhead      & \_background  & color         \\
+    arrowsize      & bgcolor       & colorscheme   \\
+    arrowtail      & center        & comment       \\
+    color          & charset       & distortion    \\
+    colorscheme    & color         & fillcolor     \\
+    comment        & colorscheme   & fixedsize     \\
+    decorate       & comment       & fontcolor     \\
+    dir            & concentrate   & fontname      \\
+    fillcolor      & fillcolor     & fontsize      \\
+    fontcolor      & fontcolor     & gradientangle \\
+    fontname       & fontname      & height        \\
+    fontsize       & fontpath      & image         \\
+    gradientangle  & fontsize      & imagescale    \\
+    headclip       & forcelabels   & label         \\
+    headlabel      & gradientangle & labelloc      \\
+    headport       & imagepath     & layer         \\
+    label          & label         & margin        \\
+    labelangle     & labeljust     & nojustify     \\
+    labeldistance  & labelloc      & orientation   \\
+    labelfloat     & landscape     & penwidth      \\
+    labelfontcolor & layerlistsep  & peripheries   \\
+    labelfontname  & layers        & pos           \\
+    labelfontsize  & layerselect   & regular       \\
+    layer          & layersep      & samplepoints  \\
+    nojustify      & layout        & shape         \\
+    penwidth       & margin        & shapefile     \\
+    pos            & nodesep       & sides         \\
+    style          & nojustify     & skew          \\
+    tailclip       & orientation   & sortv         \\
+    taillabel      & outputorder   & style         \\
+    tailport       & pack          & width         \\
+    weight         & packmode      & xlabel        \\
+    xlabel         & pad           & z             \\
+                   & page          &               \\
+                   & pagedir       &               \\
+                   & penwidth      &               \\
+                   & quantum       &               \\
+                   & ratio         &               \\
+                   & rotate        &               \\
+                   & size          &               \\
+                   & sortv         &               \\
+                   & splines       &               \\
+                   & style         &               \\
+    \hline
+  \end{tabular}
+\end{table}
+
