@@ -27,3 +27,23 @@ Thanks to \verb;m-dudley'
 ]{get_type_name.impl}
 \index{Get type name}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Convert a .dot to .svg}
+\label{subsec:convert_dot_to_svg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+All illustrations in this tutorial are created by converting .dot to a .svg
+(\verb;Scalable Vector Graphic;) file.
+This function assumes the program \verb;dot; is installed, which is part of
+Graphviz.
+
+\lstinputlisting[
+  caption = Convert a .dot file to a .svg,
+  label = lst:convert_dot_to_svg
+]{convert_dot_to_svg.impl}
+\index{Convert dot to svg}
+
+\verb;convert_dot_to_svg; makes a system call 
+to the program \verb;dot; to convert
+the .dot file to an .svg file.
+

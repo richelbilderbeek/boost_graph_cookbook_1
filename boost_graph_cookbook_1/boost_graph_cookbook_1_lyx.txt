@@ -1,24 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Convert a .dot to .svg}
-\label{subsec:convert_dot_to_svg}
-
-All illustrations in this tutorial are created by converting .dot to a .svg
- (\verb;Scalable Vector Graphic') file.
- This function assumes the program \verb;dot' is installed, which is part of
- Graphviz.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{convert_dot_to_svg.impl}
-
-Convert a .dot file to a .svg
-\index{Convert dot to svg
-
-\label{lst:convert_dot_to_svg}
-
-\verb;convert_dot_to_svg' makes a system call to the program \verb;dot' to convert
- the .dot file to an .svg file.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Check if a file exists}
