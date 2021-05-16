@@ -1,43 +1,4 @@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Find a my_bundled_edge}
-\label{subsec:find_first_bundled_edge_with_my_edge}
-
-Where STL functions work with iterators, here we obtain an edge descriptor
- (see chapter 
-\ref{subsec:Edge-descriptors}
-
-) to obtain a handle to the desired edge.
- Listing 
-\ref{lst:find_first_bundled_edge_with_my_edge}
-
- shows how to obtain an edge descriptor to the first edge found with a specific
- my_bundled_edge value.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{find_first_bundled_edge_with_my_edge.impl}
-
-Find the first bundled edge with a certain my_bundled_edge
-\index{Find first bundled edge with my_bundled_edge
-
-\label{lst:find_first_bundled_edge_with_my_edge}
-
-With the edge descriptor obtained, one can read and modify the edge and
- the vertices surrounding it.
- Listing 
-\ref{lst:find_first_bundled_edge_with_my_edge_demo}
-
- shows some examples of how to do so.
-
-\lstinputlisting[
-  caption = ,
-  label = lst:
-]{find_first_bundled_edge_with_my_edge_demo.impl}
-
-Demonstration of the \verb;find_first_bundled_edge_with_my_edge' function
-\label{lst:find_first_bundled_edge_with_my_edge_demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Get an edge its my_bundled_edge}

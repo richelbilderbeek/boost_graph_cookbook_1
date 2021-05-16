@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Has a my\_bundled\_edge}
+\section{Has a my\_bundled\_edge}
 \label{subsec:has_bundled_edge_with_my_edge}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -33,4 +33,32 @@ After adding the desired my\_bundled\_edge, it is found.
 Note that this function only finds if there is at least one edge with that
 my\_bundled\_edge: it does not tell how many edges with that my_bundled_edge
 exist in the graph.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Find a my\_bundled\_edge}
+\label{subsec:find_first_bundled_edge_with_my_edge}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Where STL functions work with iterators, here we obtain an edge descriptor
+(see chapter \ref{subsec:Edge-descriptors}) 
+to obtain a handle to the desired edge.
+Listing \ref{lst:find_first_bundled_edge_with_my_edge}
+shows how to obtain an edge descriptor to the first edge found with a specific
+my_bundled_edge value.
+
+\lstinputlisting[
+  caption = Find the first bundled edge with a certain my\_bundled\_edge,
+  label = lst:find_first_bundled_edge_with_my_edge
+]{find_first_bundled_edge_with_my_edge.impl}
+\index{Find first bundled edge with my_bundled_edge}
+
+With the edge descriptor obtained, one can read and modify the edge and
+the vertices surrounding it.
+Listing \ref{lst:find_first_bundled_edge_with_my_edge_demo}
+shows some examples of how to do so.
+
+\lstinputlisting[
+  caption = Demonstration of the find\_first\_bundled\_edge\_with\_my\_edge function,
+  label = lst:find_first_bundled_edge_with_my_edge_demo
+]{find_first_bundled_edge_with_my_edge_demo.impl}
 
