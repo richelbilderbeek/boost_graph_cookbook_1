@@ -2,4 +2,28 @@
 \chapter{Misc functions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Misc functions text.
+These are some function I needed for creating this tutorial.
+Although they are not important for working with graphs, I used these heavily.
+These functions may be compiler-dependent, platform-dependent and/or there
+may be superior alternatives.
+I just add them for completeness.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Getting a data type as a std::string}
+\label{subsec:get_type_name}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This function will only work under GCC.
+I found this code at 
+\url{
+  http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
+}.
+Thanks to \verb;m-dudley' 
+(Stack Overflow user page at \url{http://stackoverflow.com/users/111327/m-dudley}).
+
+\lstinputlisting[
+  caption = Getting a data type its name as a std::string,
+  label = lst:get_type_name
+]{get_type_name.impl}
+\index{Get type name}
+
