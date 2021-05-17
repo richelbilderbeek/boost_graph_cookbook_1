@@ -82,18 +82,20 @@ LIBS += -lboost_graph -lboost_regex
 When loading a graph from file 
 (as in chapter \ref{subsec:load_undirected_graph_from_dot})
 you will be using 
-boost::read\_graphviz \index{boost::read\_graphviz}.
+\verb;boost::read_graphviz; \index{boost::read\_graphviz}.
 
-boost::read\_graphviz \index{boost::read\_graphviz}
-needs a third argument, of type boost::dynamic\_properties
-\index{boost::dynamic\_properties}. 
+\verb;boost::read_graphviz; \index{boost::read\_graphviz}
+needs a third argument, of type 
+\verb;boost::dynamic_properties; \index{boost::dynamic\_properties}.
 When a graph does not have properties, do not use a default constructed
-version, but initialize with \verb;boost::ignore_other_properties;
-\index{boost::ignore\_other\_properties}
-as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} shows how to trigger this run-time error.
+version, but initialize with 
+\verb;boost::ignore_other_properties; \index{boost::ignore\_other\_properties}
+as a constructor argument instead. 
+Listing \ref{lst:property_not_found_node_id} 
+shows how to trigger this run-time error.
 
 \lstinputlisting[
-  caption = Creating the error 'Property not found: node_id',
+  caption = Creating the error 'Property not found: node\_id',
   label = lst:property_not_found_node_id
 ]{property_not_found_node_id.impl}
 \index{Property not found: node\_id}
@@ -147,8 +149,12 @@ graph load_from_dot(const std::string& dot_filename)
 }
 \end{verbatim}
 
-The explanation is that by setting the \verb;boost::dynamic_property; \verb;node_id;
-to \verb;boost::vertex_custom_type;, \verb;operator>>; 
+The explanation is that by setting the 
+\verb;boost::dynamic_property; 
+\verb;node_id;
+to 
+\verb;boost::vertex_custom_type;, 
+\verb;operator>>; 
 will receive the node indices.
  
 An alternative, but less clean solution, is to let \verb;operator>>; ignore the
