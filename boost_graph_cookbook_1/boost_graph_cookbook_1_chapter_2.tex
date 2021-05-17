@@ -4,17 +4,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Boost.Graph is about creating graphs.
-In this chapter we create the simplest of graphs, in which edges and nodes
-have no properties (e.g. having a name).
+In this chapter we create the simplest of graphs, 
+in which edges and nodes
+have no properties (e.g. a property can have than a vertex has
+a color or an edge that has a length).
 
-Still, there are two types of graphs that can be constructed: undirected
-and directed graphs.
+Still, there are two types of graphs that can be constructed: 
+undirected and directed graphs.
 The difference between directed and undirected graphs is in the edges:
-in an undirected graph, 
+in an undirected graph \index{Undirected graph},
 an edge connects two vertices without any directionality, as displayed
 in figure \ref{fig:undirected_graph_example}.
 
-In a directed graph, an edge goes from a certain vertex, 
+In a directed graph \index{Directed graph}, 
+an edge goes from a certain vertex, 
 its source, to another (which may actually be the same), its target.
 A directed graph is shown in figure \ref{fig:directed_graph_example}.
 
@@ -62,7 +65,6 @@ In this chapter, we will build two directed and two undirected graphs:
     see chapter \ref{subsec:create_k2_graph}
 \end{itemize}
 
-
 Creating an empty graph may sound trivial, it is not, thanks to the versatility
 of the Boost.Graph library.
 
@@ -70,21 +72,21 @@ In the process of creating graphs, some basic (sometimes bordering trivial)
 functions are encountered:
 
 \begin{itemize}
-  \item Counting the number of vertices, 
+  \item Counting the number of vertices:
     see chapter \ref{subsec:get_n_vertices}
-  \item Counting the number of edges,
+  \item Counting the number of edges:
      see chapter \ref{subsec:get_n_edges}
-  \item Adding a vertex,
+  \item Adding a vertex:
      see chapter \ref{subsec:add_vertex}
-  \item Getting all vertices,
+  \item Getting all vertices:
      see chapter \ref{subsec:get_vertices}
-  \item Getting all vertex descriptors,
+  \item Getting all vertex descriptors:
      see chapter \ref{subsec:get_vertex_descriptors}
-  \item Adding an edge,
+  \item Adding an edge:
      see chapter \ref{subsec:add_edge}
-  \item Getting all edges,
+  \item Getting all edges:
     see chapter \ref{subsec:get_edge_iterators}
-  \item Getting all edge descriptors,
+  \item Getting all edge descriptors:
     see chapter \ref{subsec:get_edge_descriptors}
 \end{itemize}
 
@@ -94,24 +96,20 @@ are used.
 The chapter also introduces some important concepts:
 
 \begin{itemize}
-  \item Vertex descriptors,
+  \item Vertex descriptors:
     see chapter \ref{subsec:Vertex-descriptors}
-  \item Edge insertion result,
+  \item Edge insertion result:
     see chapter \ref{subsec:add_edge}
-  \item Edge descriptors,
+  \item Edge descriptors:
     see chapter \ref{subsec:Edge-descriptors}
 \end{itemize}
 
 After this chapter you may want to:
 
 \begin{itemize}
-  \item Building graphs with named vertices, 
-    see chapter \ref{sec:Building-graphs-with-named-vertices}
-  \item Building graphs with bundled vertices, 
+  \item Building graphs with bundled vertices: 
     see chapter \ref{sec:Building-graphs-with-bundled-vertices}
-  \item Building graphs with custom vertices,
-    see chapter \ref{sec:Building-graphs-with-custom-properties}
-  \item Building graphs with a graph name,
+  \item Building graphs with a graph name:
     see chapter \ref{sec:Building-graphs-with-a-graph-name}
 \end{itemize}
 
@@ -137,7 +135,7 @@ contains class and functions declarations and/or definitions.
 The header file \verb;adjacency_list.hpp; contains the 
 \verb;boost::adjacency_list; class definition.
 Without including this file, you will get compile errors like 
-\verb;definition of boost::adjacency_list; unknown;
+'definition of boost::adjacency\_list unknown'
 \footnote{
   In practice, these compiler error messages will be longer, bordering the unreadable
 }. 
@@ -192,7 +190,8 @@ We do not do anything with it yet, but still, you've just created a graph,
 in which:
 
 \begin{itemize}
-  \item The out edges and vertices are stored in a \verb;std::vector; \index{std::vector}
+  \item The out edges and vertices are stored in a 
+    \verb;std::vector; \index{std::vector}
   \item The edges have a direction
   \item The vertices, edges and graph have no properties
   \item The edges are stored in a \verb;std::list; \index{std::list}
@@ -203,8 +202,9 @@ It stores its edges, out edges and vertices in two different STL \index{STL}
   Standard Template Library, the standard library
 }
 containers.
-std::vector \index{std::vector} is the container you should use by default (
-  \cite{stroustrup2013}, chapter 31.6, 
+\verb;std::vector; \index{std::vector} 
+is the container you should use by 
+default (\cite{stroustrup2013}, chapter 31.6, 
   \cite{sutter_and_alexandrescu2004}, chapter 76
 ), as it has constant time look-up and back insertion.
 The \verb;std::list; \index{std::list}
@@ -252,11 +252,13 @@ the creation of the \verb;boost::adjacency_list;:
 \begin{itemize}
   \item the first \verb;boost::vecS; \index{boost::vecS}: 
     select (that is what the \verb;S; \index{S}
-    means) that out edges are stored in a std::vector.
+    means) that out edges are stored in a 
+    \verb;std::vector; \index{std::vector}
     This is the default way.
   \item
     the second \verb;boost::vecS; \index{boost::vecS}: 
-    select that the graph vertices are stored in a std::vector.
+    select that the graph vertices are stored in a 
+    \verb;std::vector; \index{std::vector}.
     This is the default way.
   \item
     \verb;boost::undirectedS; \index{boost::undirectedS}: 
@@ -277,7 +279,8 @@ Congratulations, with algorithm \ref{lst:create_empty_undirected_graph_demo},
 you have just created an undirected graph in which:
 
 \begin{itemize}
-  \item The out edges and vertices are stored in a std::vector
+  \item The out edges and vertices are stored in a 
+    \verb;std::vector; \index{std::vector}
   \item The graph is undirected
   \item Vertices, edges and graph have no properties
   \item Edges are stored in a std::list
@@ -436,11 +439,11 @@ To do so, we first obtain some vertex iterators in chapter
 Vertex descriptors are used to:
 
 \begin{itemize}
-  \item add an edge between two vertices, see chapter \ref{subsec:add_edge}
-  \item obtain properties of vertex a vertex, 
-    for example the vertex its out degrees (chapter \ref{subsec:get_vertex_out_degrees}), 
-    the vertex its name (chapter \ref{subsec:get_vertex_names}), 
-    or a custom vertex property (chapter \ref{subsec:get_vertex_my_vertexes})
+  \item add an edge between two vertices: 
+    see chapter \ref{subsec:add_edge}
+  \item obtain properties of a vertex, 
+    for example the vertex its out degrees 
+    (chapter \ref{subsec:get_vertex_out_degrees})
 \end{itemize}
 
 In this tutorial, 
@@ -527,7 +530,9 @@ In the first lines, some \verb;using; statements allow for shorter type names
   with code snippets that are readable
 }.
 
-The std::vector to serve as a return value is created at the needed size,
+The 
+\verb;std::vector; \index{std::vector} 
+to serve as a return value is created at the needed size,
 which is the number of vertices.
 
 The function \verb;vertices; \index{vertices}
@@ -541,10 +546,12 @@ Prefer algorithm calls over hand-written for-loops (
 \cite{stroustrup1997} chapter 18.12.1, 
 \cite{meyers2005effective} item 43).
 In this case, we copy all vertex descriptors in the range produced 
-by \verb;vertices; to the std::vector.
+by \verb;vertices; to the 
+\verb;std::vector; \index{std::vector}.
 
 This function will not be used in practice: one iterates over the vertices
-directly instead, saving the cost of creating a std::vector.
+directly instead, saving the cost of creating a 
+\verb;std::vector; \index{std::vector}.
 This function is only shown as an illustration.
 
 Listing \ref{lst:get_vertex_descriptors_demo}
@@ -775,7 +782,7 @@ calls are stored to add an edge to the graph.
 Then \verb;boost::add_edge; \index{boost::add\_edge}
 is called four times.
 Every time, its return type 
-(see chapter \ref{subsec:boost::add_edge result}) 
+(see chapter \ref{subsec:boost_add_edge_result}) 
 is checked for a successful insertion.
 
 Note that the graph lacks all properties: nodes do not have names, nor do
@@ -783,7 +790,7 @@ edges.
 
 \section{Creating such a graph}
 
-Listing \ref{create_markov_chain_demo} demonstrates 
+Listing \ref{lst:create_markov_chain_demo} demonstrates 
 the \verb;create_markov_chain_graph; function and checks if it
 has the correct amount of edges and vertices:
 
@@ -805,7 +812,7 @@ The .dot file created is displayed in algorithm \ref{lst:create_markov_chain.dot
     (algorithm \ref{lst:create_markov_chain_graph}), 
     converted from graph to .dot file using algorithm
   },
-  label = lst:create_markov_chain_dot
+  label = lst:create_markov_chain.dot
 ]{create_markov_chain.dot}
 
 From the .dot file one can already see that the graph is directed, because:
@@ -896,7 +903,7 @@ demonstrates how to \verb;create_k2_graph; and checks if it has the correct
 amount of edges and vertices:
 
 \lstinputlisting[
-  caption = Demonstration of create\_k2\_graph
+  caption = Demonstration of create\_k2\_graph,
   label = lst:create_k2_graph_demo
 ]{create_k2_graph_demo.impl}
 

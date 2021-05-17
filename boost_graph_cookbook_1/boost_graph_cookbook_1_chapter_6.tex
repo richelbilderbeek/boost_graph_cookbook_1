@@ -48,7 +48,7 @@ not important yet.
 \index{my\_bundled\_edge declaration}
 \index{Declaration, my\_bundled\_edge}
 
-my\_bundled\_edge is a class that has multiple properties: 
+\verb;my_bundled_edge: is a class that has multiple properties: 
 two doubles \verb;m_width; 
 (\verb;m_; \index{m\_} stands for member \index{member}) 
 and \verb;m_height;, 
@@ -72,7 +72,7 @@ file I/O, as this goes via the public member variables.
 \index{Create empty directed bundled edges and vertices graph}
 
 This code is very similar to the code described in chapter 
-\ref{subsec:create_empty_directed_custom_vertices_graph}, 
+\ref{subsec:create_empty_directed_bundled_vertices_graph}, 
 except that there is a new, fifth template argument:
 
 \begin{verbatim}
@@ -129,8 +129,8 @@ Demo:
 \label{subsec:add_bundled_edge}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Adding a bundled edge is very similar to adding a named edge (chapter 
-\ref{subsec:add_named_edge}).
+Adding a bundled edge is very similar to adding an edge 
+without properties (chapter \ref{subsec:add_edge}).
 
 \lstinputlisting[
   caption = Add a bundled edge,
@@ -139,7 +139,7 @@ Adding a bundled edge is very similar to adding a named edge (chapter
 \index{Add bundled edge}
 
 When having added a new (abstract) edge to the graph, the edge descriptor
-is used to set the my_edge in the graph.
+is used to set the \verb;my_edge: in the graph.
 
 Here is the demo:
 
@@ -163,12 +163,13 @@ one can extract these all as such:
 \index{Get edge my\_bundled\_edges}
 
 The \verb;my_bundled_edge; object associated with the edges are obtained from
-the graph its property_map and then put into a std::vector.
+the graph its property_map and then put into a 
+\verb;std::vector; \index{std::vector}.
 
-Note: the order of the my\_bundled\_edge objects may be different after saving
+Note: the order of the \verb;my_bundled_edge; objects may be different after saving
 and loading.
 
-When trying to get the edges' my\_bundled\_edge objects from a graph without
+When trying to get the edges' \verb;my_bundled_edge; objects from a graph without
 bundled edges objects associated, you will get the error 
 \verb;formed reference to void; (see chapter \ref{subsec:formed_reference_to_void}).
 
@@ -235,7 +236,7 @@ Here is the demo:
   \includegraphics[]{create_bundled_edges_and_vertices_markov_chain.png}
   \caption{
     .svg file created from the create\_bundled\_edges\_and\_vertices\_markov\_chain function 
-    (algorithm  \ref{lst:create_custom_vertices_markov_chain}) 
+    (algorithm  \ref{lst:create_bundled_vertices_markov_chain}) 
     its .dot file converted from .dot file to .svg using algorithm 
     \ref{lst:convert_dot_to_svg}
   }
@@ -252,9 +253,8 @@ edge class called \verb;my_bundled_edge;.
 
 \subsection{Graph}
 
-We reproduce the $K_{3}$ with named edges and vertices of chapter 
-\ref{subsec:create_named_edges_and_vertices_k3}, 
-but with our bundled edges and vertices instead:
+We reproduce the $K_{3}$ without properties of chapter 
+\ref{subsec:create_k3_graph}, but with our bundled edges and vertices instead:
 
 \begin{figure}
   \begin{tikzpicture}
@@ -268,22 +268,22 @@ but with our bundled edges and vertices instead:
        -- (2,4)
     ;
   \end{tikzpicture}
-  \caption{$K_{3}$: a fully connected graph with three named edges and vertices }
+  \caption{$K_{3}$: a fully connected graph with three bundled edges and vertices }
   \label{fig:create_bundled_edges_and_vertices_k3}
 \end{figure}
 
 \subsection{Function to create such a graph}
 
 \lstinputlisting[
-  caption = Creating $K_{3}$ as depicted in figure \ref{fig:named_edges_and_vertices_k3},
+  caption = Creating $K_{3}$ as depicted in figure \ref{fig:create_bundled_edges_and_vertices_k3},
   label = lst:create_bundled_edges_and_vertices_k3_graph
 ]{create_bundled_edges_and_vertices_k3_graph.impl}
 \index{Create bundled edges and vertices K3 graph}
 
 Most of the code is a slight modification of algorithm 
-\ref{lst:create_named_edges_and_vertices_k3_graph}.
-In the end, the my\_edges and my\_vertices are obtained as the graph its
-property\_map and set with the \verb;my_bundled_edge; 
+\ref{lst:create_k3_graph}.
+In the end, the \verb;my_edges; and my\_vertices are obtained as the graph its
+\verb;property_map; and set with the \verb;my_bundled_edge; 
 and \verb;my_bundled_vertex; objects.
 
 \subsection{Creating such a graph
@@ -308,7 +308,7 @@ Here is the demo:
   \includegraphics[]{create_bundled_edges_and_vertices_k3_graph.png}
   \caption{
     .svg file created from the create\_bundled\_edges\_and\_vertices\_k3\_graph function
-    (algorithm \ref{lst:create_custom_vertices_markov_chain}) 
+    (algorithm \ref{lst:create_bundled_vertices_markov_chain}) 
     its .dot file, converted from .dot file to .svg using algorithm 
     \ref{lst:convert_dot_to_svg}
   }

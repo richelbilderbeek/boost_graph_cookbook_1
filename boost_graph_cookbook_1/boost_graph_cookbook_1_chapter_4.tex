@@ -94,9 +94,9 @@ file I/O, as this goes via the public member variables.
 This graph:
 
 \begin{itemize}
-  \item has its out edges stored in a std::vector 
+  \item has its out edges stored in a \verb;std::vector; \index{std::vector} 
     (due to the first boost::vecS \index{boost::vecS})
-  \item has its vertices stored in a std::vector 
+  \item has its vertices stored in a \verb;std::vector; \index{std::vector}
     (due to the second boost::vecS \index{boost::vecS})
   \item is directed 
     (due to the boost::directedS \index{boost::directedS})
@@ -143,8 +143,9 @@ except that the directness (the third template argument) is undirected
 \label{subsec:add_bundled_vertex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Adding a bundled vertex is very similar to adding a named vertex 
-(chapter \ref{subsec:add_named_vertex}).
+Adding a vertex without a name was trivially easy (see chapter 2.5). 
+Adding a bundled vertex takes slightly more work, 
+as shown by algorithm \ref{lst:add_bundled_vertex}:
 
 \lstinputlisting[
   caption = Add a bundled vertex,
@@ -175,7 +176,7 @@ extract these as such:
 \index{Get bundled vertex my\_vertexes}
 
 The \verb;my_bundled_vertex; bundled in each vertex is obtained from a vertex
-descriptor and then put into a std::vector.
+descriptor and then put into a \verb;std::vector; \index{std::vector}.
 
 The order of the \verb;my_bundled_vertex; objects may be different after saving
 and loading.
@@ -193,29 +194,26 @@ you will get the error
 Figure \ref{fig:bundled_vertices_markov_chain} 
 shows the graph that will be reproduced:
 
-%
-% TODO
-%
-%\begin{figure}
-%  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
-%    \tikzstyle{every state}=[]
-%    \node[state] (A) 
-%        {Sunny, Yellow, 1.0, 2.0};
-%    \node[state] (B) [right of=A] 
-%        {Not rainy, Not grey, 3.0, 4.0}
-%      ;   
-%    \path (A) edge [loop  left] node {} (A)
-%          (A) edge [bend  left] node {} (B)
-%          (B) edge [bend  left] node {} (A)
-%          (B) edge [loop right] node {} (B); 
-%  \end{tikzpicture}
-%  \caption{
-%    A two-state Markov chain where the vertices have bundled properties and
-%    the edges have no properties.
-%    The vertices' properties are nonsensical
-%  }
-%  \label{fig:bundled_vertices_markov_chain}
-%\end{figure}
+\begin{figure}
+  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
+    \tikzstyle{every state}=[]
+    \node[state] (A) 
+        {Sunny, Yellow, 1.0, 2.0};
+    \node[state] (B) [right of=A] 
+        {Not rainy, Not grey, 3.0, 4.0}
+      ;   
+    \path (A) edge [loop  left] node {} (A)
+          (A) edge [bend  left] node {} (B)
+          (B) edge [bend  left] node {} (A)
+          (B) edge [loop right] node {} (B); 
+  \end{tikzpicture}
+  \caption{
+    A two-state Markov chain where the vertices have bundled properties and
+    the edges have no properties.
+    The vertices' properties are nonsensical
+  }
+  \label{fig:bundled_vertices_markov_chain}
+\end{figure}
 
 \subsection{Function to create such a graph}
 
@@ -263,38 +261,35 @@ Here is the demo:
 
 \subsection{Graph}
 
-We reproduce the $K_{2}$ with named vertices of 
-chapter \ref{subsec:create_named_vertices_k2_graph}, 
+We reproduce the $K_{2}$ without properties of 
+chapter \ref{subsec:create_k2_graph}, 
 but with our bundled vertices instead, 
 as show in figure \ref{fig:bundled_vertices_k2_graph}:
 
-%
-% TODO
-%
-%\begin{figure}
-%  \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=4cm, semithick]
-%    \tikzstyle{every state}=[]
-%    \node[state] (A)              {Me,Myself,1.0,2.0};   
-%    \node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
-%    \path (A) edge [] node {} (B); 
-%  \end{tikzpicture}
-%  \caption{
-%    $K_{2}$: a fully connected graph with two bundled vertices
-%  }
-%  \label{fig:bundled_vertices_k2_graph}
-%\end{figure}
+\begin{figure}
+  \begin{tikzpicture}[->,>=stealth,shorten>=1pt,auto,node distance=4cm,semithick]
+    \tikzstyle{every state}=[]
+    \node[state] (A)              {Me,Myself,1.0,2.0};   
+    \node[state] (B) [right of=A] {My computer,Not me,3.0,4.0};   
+    \path (A) edge [] node {} (B); 
+  \end{tikzpicture}
+  \caption{
+    $K_{2}$: a fully connected graph with two bundled vertices
+  }
+  \label{fig:bundled_vertices_k2_graph}
+\end{figure}
 
 \subsection{Function to create such a graph}
 
 \lstinputlisting[
-  caption = Creating $K_{2}$ as depicted in figure \ref{fig:named_vertices_k2_graph},
+  caption = Creating $K_{2}$ as depicted in figure \ref{fig:bundled_vertices_k2_graph},
   label = lst:create_bundled_vertices_k2_graph
 ]{create_bundled_vertices_k2_graph.impl}
 \index{Create bundled vertices K2 graph}
 
 Most of the code is a slight modification of the 
-\verb;create_named_vertices_k2_graph; function 
-(algorithm \ref{lst:create_named_vertices_k2_graph}).
+\verb;create_k2_graph; function 
+(algorithm \ref{lst:create_k2_graph}).
 In the end, (references to) the \verb;my_bundled_vertices; 
 are obtained and set with two bundled \verb;my_bundled_vertex; objects.
 

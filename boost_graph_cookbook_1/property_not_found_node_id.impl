@@ -8,7 +8,9 @@
 
 void property_not_found_node_id() noexcept
 {
-  const std::string dot_filename{ "property_not_found_node_id.dot" };
+  const std::string dot_filename{
+    "property_not_found_node_id.dot"
+  };
   // Create a file
   {
     const auto g = create_k2_graph();
@@ -21,7 +23,9 @@ void property_not_found_node_id() noexcept
   auto g = create_empty_undirected_graph();
 
   // Line below should have been
-  //  boost::dynamic_properties dp(boost::ignore_other_properties);
+  //  boost::dynamic_properties dp(
+  //    boost::ignore_other_properties
+  //  );
   boost::dynamic_properties dp; // Error
 
   try {

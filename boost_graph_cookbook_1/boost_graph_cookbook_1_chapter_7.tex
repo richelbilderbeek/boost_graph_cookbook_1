@@ -9,9 +9,9 @@
 
 Before modifying our edges, let's first determine if we can find an edge
 by its bundled type (\verb;my_bundled_edge;) in a graph.
-After obtaining a my\_bundled\_edge map, 
+After obtaining a \verb;my_bundled_edge; map, 
 we obtain the edge iterators, dereference these to obtain 
-the edge descriptors and then compare each edge its my\_bundled\_edge 
+the edge descriptors and then compare each edge its \verb;my_bundled_edge; 
 with the one desired.
 
 \lstinputlisting[
@@ -23,7 +23,7 @@ with the one desired.
 This function can be demonstrated as in algorithm 
 \ref{lst:has_bundled_edge_with_my_edge_demo}, 
 where a certain \verb;my_bundled_edge; cannot be found in an empty graph.
-After adding the desired my\_bundled\_edge, it is found.
+After adding the desired \verb;my_bundled_edge;, it is found.
 
 \lstinputlisting[
   caption = Demonstration of the has\_bundled\_edge\_with\_my\_edge function,
@@ -31,7 +31,8 @@ After adding the desired my\_bundled\_edge, it is found.
 ]{has_bundled_edge_with_my_edge_demo.impl}
 
 Note that this function only finds if there is at least one edge with that
-my\_bundled\_edge: it does not tell how many edges with that my\_bundled\_edge
+\verb;my_bundled_edge;: 
+it does not tell how many edges with that \verb;my_bundled_edge;
 exist in the graph.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +45,7 @@ Where STL functions work with iterators, here we obtain an edge descriptor
 to obtain a handle to the desired edge.
 Listing \ref{lst:find_first_bundled_edge_with_my_edge}
 shows how to obtain an edge descriptor to the first edge found with a specific
-my\_bundled\_edge value.
+\verb;my_bundled_edge; value.
 
 \lstinputlisting[
   caption = Find the first bundled edge with a certain my\_bundled\_edge,
@@ -67,8 +68,9 @@ shows some examples of how to do so.
 \label{subsec:get_bundled_edge_my_edge}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To obtain the my\_bundled\_edge from an edge descriptor, one needs to pull
-out the my\_bundled_edges map and then look up the my\_edge of interest.
+To obtain the \verb;my_bundled_edge: from an edge descriptor, 
+one needs to pull out the \verb;my_bundled_edges; map 
+and then look up the \verb;my_edge; of interest.
 
 \lstinputlisting[
   caption = Get a vertex its my\_bundled\_vertex from its vertex descriptor,
@@ -90,8 +92,10 @@ Listing \ref{lst:get_bundled_edge_my_edge_demo} shows a simple example.
 \label{subsec:set_bundled_edge_my_edge}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-If you know how to get the my\_bundled\_edge from an edge descriptor, 
-setting it is just as easy, as shown in algorithm \ref{lst:set_bundled_edge_my_edge}.
+If you know how to get the \verb;my_bundled_edge; 
+from an edge descriptor, 
+setting it is just as easy, 
+as shown in algorithm \ref{lst:set_bundled_edge_my_edge}.
 
 \lstinputlisting[
   caption = Set a bundled edge its my\_bundled\_edge from its edge descriptor,
@@ -119,8 +123,11 @@ shows a simple example.
 If you used the \verb;create_bundled_edges_and_vertices_k3_graph; 
 function (algorithm \ref{lst:create_bundled_edges_and_vertices_k3_graph}) 
 to produce a $K_{3}$ graph with edges and vertices 
-associated with my\_bundled\_edge and my\_bundled\_vertex objects, 
-you can store these my\_bundled\_edges and my\_bundled\_vertex-es
+associated with \verb;my_bundled_edge; 
+and \verb;my_bundled_vertex; objects, 
+you can store these 
+\verb;my_bundled_edges; and 
+\verb;my_bundled_vertex;-es
 additionally with algorithm \ref{lst:save_bundled_edges_and_vertices_graph_to_dot}:
 
 \lstinputlisting[
@@ -136,7 +143,8 @@ additionally with algorithm \ref{lst:save_bundled_edges_and_vertices_graph_to_do
 
 When loading a graph from file, one needs to specify a type of graph.
 In this example, an directed graph with bundled edges and vertices is loaded,
-as shown in algorithm \ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}:
+as shown in algorithm 
+\ref{lst:load_directed_bundled_edges_and_vertices_graph_from_dot}:
 
 \lstinputlisting[
   caption = Loading a directed graph with bundled edges and vertices from a .dot file,
@@ -146,13 +154,14 @@ as shown in algorithm \ref{lst:load_directed_bundled_edges_and_vertices_graph_fr
 
 In this algorithm, first it is checked if the file to load exists.
 Then an empty directed graph is created.
-Next to this, a boost::dynamic\_properties \index{boost::dynamic\_properties}
+Next to this, a 
+\verb;boost::dynamic_properties; \index{boost::dynamic\_properties}
 is created with its default constructor, after which we direct the 
-boost::dynamic\_properties \index{boost::dynamic\_properties}
+\verb;boost::dynamic_properties; \index{boost::dynamic\_properties}
 to find a \verb;node_id; and \verb;label; in the vertex name map, 
 \verb;edge_id; and \verb;label; to the edge name map.
- From this and the empty graph, \verb;boost::read_graphviz;
-\index{boost::read\_graphviz}
+ From this and the empty graph, 
+\verb;boost::read_graphviz; \index{boost::read\_graphviz}
 is called to build up the graph.
 
 Listing 
@@ -206,7 +215,7 @@ function:
 This demonstration shows how $K_{2}$
 with bundled vertices is created using the 
 \verb;create_bundled_vertices_k2_graph; function 
-(algorithm \ref{lst:create_custom_vertices_k2_graph}), 
+(algorithm \ref{lst:create_bundled_vertices_k2_graph}), 
 saved and then loaded. 
 The loaded graph is checked to be a graph similar to the original.
 
