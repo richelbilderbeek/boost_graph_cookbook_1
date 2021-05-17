@@ -48,14 +48,14 @@ edges are tried to be cleared. Either use a directed graph (which has out
 edges), or use the \verb;boost::clear_vertex; function instead.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{No matching function for call to \verb;clear_in_edges;}
+\section{No matching function for call to clear\_in\_edges}
 \label{subsec:no_matching_function_for_call_to_clear_in_edges}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 See chapter \ref{subsec:no_matching_function_for_call_to_clear_out_edges}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Undefined reference to boost::detail::graph::read_graphviz_new}
+\section{Undefined reference to boost::detail::graph::read\_graphviz\_new}
 \label{subsec:undefined_reference_to_read_graphviz_new}
 \index{read\_graphviz\_new}
 \index{Undefined reference to read_graphviz\_new}
@@ -69,5 +69,104 @@ project file:
 
 \begin{verbatim}
 LIBS += -lboost_graph -lboost_regex 
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Property not found: node\_id}
+\label{subsec:property_not_found_node_id}
+\index{node\_id}
+\index{Property not found}
+\index{Property not found: node\_id}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from file 
+(as in chapter \ref{subsec:load_undirected_graph_from_dot})
+you will be using 
+boost::read\_graphviz \index{boost::read\_graphviz}.
+
+boost::read\_graphviz \index{boost::read\_graphviz}
+needs a third argument, of type boost::dynamic\_properties
+\index{boost::dynamic\_properties}. 
+When a graph does not have properties, do not use a default constructed
+version, but initialize with \verb;boost::ignore_other_properties;
+\index{boost::ignore\_other\_properties}
+as a constructor argument instead. Listing \ref{lst:property_not_found_node_id} shows how to trigger this run-time error.
+
+\lstinputlisting[
+  caption = Creating the error 'Property not found: node_id',
+  label = lst:property_not_found_node_id
+]{property_not_found_node_id.impl}
+\index{Property not found: node_id}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stream zeroes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When loading a graph from a .dot file, in \verb;operator>>;, 
+I encountered reading zeroes, where I expected an XML formatted string:
+
+\begin{verbatim}
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
+  noexcept
+{
+  std::string s;
+  is >> s; //s has an XML format
+  assert(s != 0);
+  any_class = my_class(s);
+  return is;
+}
+\end{verbatim}
+
+This was because I misconfigured the reader.
+I did (heavily simplified code):
+
+\begin{verbatim}
+graph load_from_dot(const std::string& dot_filename)
+{
+  std::ifstream f(dot_filename);
+  graph g;
+  boost::dynamic_properties dp;
+  dp.property(TODO}node_id}, get(boost::vertex_custom_type, g));
+  dp.property(TODO}label}, get(boost::vertex_custom_type, g));
+  boost::read_graphviz(f,g,dp);
+  return g;
+}
+\end{verbatim}
+
+Where it should have been:
+
+\begin{verbatim}
+graph load_from_dot(const std::string& dot_filename)
+{
+  std::ifstream f(dot_filename);
+  graph g;
+  boost::dynamic_properties dp(boost::ignore_other_properties);
+  dp.property(}label}, get(boost::vertex_custom_type, g));
+  boost::read_graphviz(f,g,dp);
+  return g;
+}
+\end{verbatim}
+
+The explanation is that by setting the \verb;boost::dynamic_property; \verb;node_id;
+to \verb;boost::vertex_custom_type;, \verb;operator>>; 
+will receive the node indices.
+ 
+An alternative, but less clean solution, is to let \verb;operator>>; ignore the
+node indices:
+
+\begin{verbatim}
+std::istream& ribi::cmap::operator>>(std::istream& is, my_class& any_class)
+ noexcept
+{
+  std::string s;
+  is >> s; //s has an XML format
+  if (!is_xml(s)) { //Ignore node index
+    any_class_class = my_class(); 
+  }
+  else {
+    any_class_class = my_class(s);
+  }
+  return is;
+}
 \end{verbatim}
 
