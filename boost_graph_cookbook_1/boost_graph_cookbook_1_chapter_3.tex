@@ -275,7 +275,8 @@ as being two components:
 
 An undirected graph may consist out of two components, that are connect
 within each, but unconnected between them.
-Take for example, a graph of two isolated edges, with four vertices.
+Take for example, a graph of two isolated edges, with four vertices,
+as shown in figure \ref{fig:count_undirected_graph_levels}:
 
 \begin{figure}
   \begin{tikzpicture}
@@ -319,17 +320,18 @@ From a starting vertex, the number of levels can be counted.
 A graph of one vertex has zero levels.
 A graph with one edge has one level.
 A linear graph of three vertices and two edges has one or two levels, depending
-on the starting vertex.
+on the starting vertex,
+as shown in figure \ref{fig:count_undirected_graph_levels}:
 
 \begin{figure}
   \begin{tikzpicture}
+    \draw[thick] 
     (0,0) node[draw=black,fill=white,shape=circle,text=white] {} 
       -- (5,2) node[draw=black,fill=white,shape=circle,text=white] {} 
-    (6,0) node[draw=black,fill=white,shape=circle,text=white] {} 
       -- (10,2) node[draw=black,fill=white,shape=circle,text=white] {} 
     ;
   \end{tikzpicture}
-  \caption{Example of an undirected graph with two components}
+  \caption{Example of an undirected graph with two levels}
   \label{fig:count_undirected_graph_levels}
 \end{figure}
 
