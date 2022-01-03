@@ -163,7 +163,7 @@ one can extract these all as such:
 \index{Get edge my\_bundled\_edges}
 
 The \verb;my_bundled_edge; object associated with the edges are obtained from
-the graph its \verb;property\_map\verb; and then put into a 
+the graph its \verb;property_map\verb; and then put into a 
 \verb;std::vector; \index{std::vector}.
 
 Note: the order of the \verb;my_bundled_edge; objects may be different after saving
@@ -184,7 +184,7 @@ Figure \ref{fig:bundled_edges_and_vertices_markov_chain}
 shows the graph that will be reproduced:
 
 \begin{figure}
-  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=9cm, semithick]
+  \begin{tikzpicture}[->,>=stealth',auto,node distance=9cm, semithick]
     \tikzstyle{every state}=[]
     \node[state] (A) 
       {Stable,Right, 1.0, 2.0};   
@@ -282,7 +282,7 @@ We reproduce the $K_{3}$ without properties of chapter
 
 Most of the code is a slight modification of algorithm 
 \ref{lst:create_k3_graph}.
-In the end, the \verb;my_edges; and my\_vertices are obtained as the graph its
+In the end, the \verb;my_edges; and \verb;my_vertices; are obtained as the graph its
 \verb;property_map; and set with the \verb;my_bundled_edge; 
 and \verb;my_bundled_vertex; objects.
 
