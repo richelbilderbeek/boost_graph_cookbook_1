@@ -16,14 +16,18 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: copy .bbl, so that next step can find it
-        run: cp boost_graph_cookbook_1/boost_graph_cookbook_1.bbl .
-
       - name: Compile LaTeX document
-        uses: dante-ev/latex-action@latest
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: boost_graph_cookbook_1.tex
           working_directory: boost_graph_cookbook_1
+
+      #- name: Compile LaTeX document
+      #  uses: dante-ev/latex-action@latest
+      #  with:
+      #    root_file: boost_graph_cookbook_1.tex
+      #    working_directory: boost_graph_cookbook_1
+
 
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
