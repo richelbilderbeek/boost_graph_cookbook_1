@@ -764,7 +764,7 @@ Note that directed graphs can have edges that start and end in the same
 vertex.
 These are called self-loops.
 
-\section{Function to create such a graph}
+\subsection{Function to create such a graph}
 
 To create this two-state Markov chain, the following code can be used:
 
@@ -788,7 +788,7 @@ is checked for a successful insertion.
 Note that the graph lacks all properties: nodes do not have names, nor do
 edges.
 
-\section{Creating such a graph}
+\subsection{Creating such a graph}
 
 Listing \ref{lst:create_markov_chain_demo} demonstrates 
 the \verb;create_markov_chain_graph; function and checks if it
@@ -799,7 +799,7 @@ has the correct amount of edges and vertices:
   label = lst:create_markov_chain_demo
 ]{create_markov_chain_demo.impl}
 
-\section{The .dot file produced}
+\subsection{The .dot file produced}
 \label{subsec:create_markov_chain_dot}
 
 Running a bit ahead, this graph can be converted to a .dot file using the
@@ -824,7 +824,7 @@ From the .dot file one can already see that the graph is directed, because:
    (where undirected connections would be written as \verb;–;)
 \end{itemize}
 
-\section{The .svg file produced}
+\subsection{The .svg file produced}
 \label{subsec:create_markov_chain.svg}
 
 The .svg file of this graph is shown in figure \ref{fig:create_markov_chain.svg}:
@@ -869,7 +869,7 @@ as depicted in figure \ref{fig:k2_graph}.
   \label{fig:k2_graph}
 \end{figure}
 
-\section{Function to create such a graph}
+\subsection{Function to create such a graph}
 
 To create $K_{2}$, the following code can be used:
 
@@ -896,7 +896,7 @@ it is only checked that insertion has been successful.
 Note that the graph lacks all properties: nodes do not have names, nor do
 edges.
 
-\section{Creating such a graph}
+\subsection{Creating such a graph}
 
 Listing \ref{lst:create_k2_graph_demo}
 demonstrates how to \verb;create_k2_graph; and checks if it has the correct
@@ -907,7 +907,7 @@ amount of edges and vertices:
   label = lst:create_k2_graph_demo
 ]{create_k2_graph_demo.impl}
 
-\section{The .dot file produced}
+\subsection{The .dot file produced}
 \label{subsec:create_k2_dot}
 
 Running a bit ahead, this graph can be converted to the .dot file as shown
@@ -928,7 +928,7 @@ From the .dot file one can already see that the graph is undirected, because:
     \verb;<-; or \verb;<>;)
 \end{itemize}
 
-\section{The .svg file produced}
+\subsection{The .svg file produced}
 \label{subsec:create_k2.svg}
 
 Continuing to running a bit ahead, 
@@ -954,7 +954,7 @@ Also this figure shows that the graph in undirected, otherwise the edge
 
 This is an extension of the previous chapter
 
-\section{Graph}
+\subsection{Graph}
 
 To create a fully connected undirected graph with three vertices 
 (also called $K_{4}$), 
@@ -977,7 +977,7 @@ as depicted in figure \ref{fig:create_k3_graph}.
   \label{fig:create_k3_graph}
 \end{figure}
 
-\section{Function to create such a graph}
+\subsection{Function to create such a graph}
 
 To create $K_{3}$, the following code can be used:
 
@@ -987,7 +987,7 @@ To create $K_{3}$, the following code can be used:
 ]{create_k3_graph.impl}
 \index{Create $K_{3}$ graph}
 
-\section{Creating such a graph}
+\subsection{Creating such a graph}
 
 Listing \ref{lst:create_k3_graph_demo} demonstrates 
 \verb;create_k3_graph; and checks if it has the correct
@@ -998,7 +998,7 @@ amount of edges and vertices:
   label = lst:create_k3_graph_demo
 ]{create_k3_graph_demo.impl}
 
-\section{The .dot file produced}
+\subsection{The .dot file produced}
 \label{subsec:create_k3_graph.dot}
 
 This graph can be converted to the .dot file as shown in algorithm 
@@ -1009,7 +1009,7 @@ This graph can be converted to the .dot file as shown in algorithm
   label = lst:create_k3_graph.dot
 ]{create_k3_graph.dot}
 
-\section{The .svg file produced}
+\subsection{The .svg file produced}
 \label{subsec:create_k3.svg}
 
 Continuing to running a bit ahead, this .dot file can be converted to the
@@ -1035,7 +1035,7 @@ Continuing to running a bit ahead, this .dot file can be converted to the
 
 A path graph is a linear graph without any branches
 
-\section{Graph}
+\subsection{Graph}
 
 Here I show a path graph with four vertices 
 (see figure \ref{fig:create_path_graph}):
@@ -1058,7 +1058,7 @@ Here I show a path graph with four vertices
   \label{fig:create_path_graph}
 \end{figure}
 
-\section{Function to create such a graph}
+\subsection{Function to create such a graph}
 
 To create a path graph, the following code can be used:
 
@@ -1068,7 +1068,7 @@ To create a path graph, the following code can be used:
 ]{create_path_graph.impl}
 \index{Create path graph}
 
-\section{Creating such a graph}
+\subsection{Creating such a graph}
 
 Listing \ref{lst:create_path_graph_demo}
 demonstrates \verb;create_path_graph; 
@@ -1079,7 +1079,7 @@ and checks if it has the correct amount of edges and vertices:
   label = lst:create_path_graph_demo
 ]{create_path_graph_demo.impl}
 
-\section{The .dot file produced}
+\subsection{The .dot file produced}
 \label{subsec:create_path_graph.dot}
 
 This graph can be converted to the .dot file 
@@ -1090,7 +1090,7 @@ as shown in algorithm \ref{lst:create_path_graph.dot}:
   label = lst:create_path_graph.dot
 ]{create_path_graph_4.dot}
 
-\section{The .svg file produced}
+\subsection{The .svg file produced}
 \label{subsec:create_path_graph.svg}
 
 The .dot file can be converted to the .svg 
@@ -1116,7 +1116,7 @@ as shown in figure \ref{fig:create_path_graph.svg}:
 
 A Petersen graph is the first graph with interesting properties.
 
-\section{Graph}
+\subsection{Graph}
 
 To create a Petersen graph, one needs five vertices and five undirected
  edges, as depicted in figure 
@@ -1131,7 +1131,7 @@ To create a Petersen graph, one needs five vertices and five undirected
   \label{fig:create_petersen_graph}
 \end{figure}
 
-\section{Function to create such a graph}
+\subsection{Function to create such a graph}
 
 To create a Petersen graph, the following code can be used:
 
@@ -1141,7 +1141,7 @@ To create a Petersen graph, the following code can be used:
 ]{create_petersen_graph.impl}
 \index{Create Petersen graph}
 
-\section{Creating such a graph}
+\subsection{Creating such a graph}
 
 Listing \ref{lst:create_petersen_graph_demo}
 demonstrates how to use \verb;create_petersen_graph; and checks if it has the
@@ -1152,7 +1152,7 @@ correct amount of edges and vertices:
   label = lst:create_petersen_graph_demo
 ]{create_petersen_graph_demo.impl}
 
-\section{The .dot file produced}
+\subsection{The .dot file produced}
 \label{subsec:create_petersen_graph.dot}
 
 This graph can be converted to the .dot file as shown in algorithm 
@@ -1163,7 +1163,7 @@ This graph can be converted to the .dot file as shown in algorithm
   label = lst:create_petersen_graph.dot
 ]{create_petersen_graph.dot}
 
-\section{The .svg file produced}
+\subsection{The .svg file produced}
 \label{subsec:create_petersen.svg}
 
 This .dot file can be converted to the .svg as shown in figure 
