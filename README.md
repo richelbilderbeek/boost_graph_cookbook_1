@@ -15,7 +15,7 @@ Branch   |[![GitHub Actions logo](pics/GitHubActions.png)](https://github.com/ri
 Downloads:
 
  * Stable: [PDF](boost_graph_cookbook_1.pdf) (v3.0)
- * Experimental: [PDF](boost_graph_cookbook_1_v3_2.pdf) (v3.2)
+ * Experimental: [PDF](https://github.com/richelbilderbeek/boost_graph_cookbook_1/files/7800940/boost_graph_cookbook_1.pdf) (v3.2.2)
  * Oldskool (also discusses named and custom vertices and edges): [PDF](boost_graph_cookbook_1_oldskool.pdf) (v2.0)
 
 ![Title graph](boost_graph_cookbook_1/title_graph.png)
