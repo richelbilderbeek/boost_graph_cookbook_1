@@ -1,18 +1,5 @@
 # Proposal
 
-From [https://nostarch.com/writeforus](https://nostarch.com/writeforus):
-
-> When submitting a proposal, please address the following. If this seems like an overwhelming task, just buzz us to see if we like the idea of your project and we can proceed from there. Really, the primary thing that we're looking for is a clear description of what it is that you want to write and your table of contents:
->
->    Summary of Your Book. Describe your book.
->    Outline. Provide a detailed outline listing at least chapter titles and first level headings.
->    Audience. Who is your target audience and how will your book meet their needs?
->    Competition. List any competing titles. How will your work compete?
->    Market. Discuss the market for your book.
->    You. Who are you? What are your goals in writing this book?
->
-> Please also submit any writing samples for this particular project, if available.
-
 ## Summary of Your Book. Describe your book.
 
 This book is the first to introduce the reader
