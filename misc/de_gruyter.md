@@ -8,8 +8,8 @@ Programming, C++, C++ libraries
 
 ## THE AUTHORS / EDITORS
 
-Please provide some brief information about yourself according to the following structure.
-If there is more than one author or editor, please enter their details in the order that they will appear on the cover. This information will be used on our website (related to this project only), so please enter it exactly as you would like to be identified, particularly regarding title, first names, middle names, etc. 
+> Please provide some brief information about yourself according to the following structure.
+> If there is more than one author or editor, please enter their details in the order that they will appear on the cover. This information will be used on our website (related to this project only), so please enter it exactly as you would like to be identified, particularly regarding title, first names, middle names, etc. 
 
 ### A. Author’s / Editor’s name and affiliation* (for each author/editor): academic title, first name and surname, institution/university, department, town/city, postal code, country: 
 
@@ -26,40 +26,83 @@ richel@richelbilderbeek.nl
  * Social Media (Twitter, LinkedIn, etc.): @rjcbilderbeek
  * Phone: +46-(0)79-3599417
 
-### D. Author’s / Editor’s bio* (max. 3.900 characters in total for all authors/editors): Please enter this information as a text in the way you’d like it displayed on the internet. Focus on affiliation, recent publications, main research focus, awards, etc.
+### D. Author’s / Editor’s bio* 
+
+> (max. 3.900 characters in total for all authors/editors): 
+> Please enter this information as a text in the way you’d like it displayed 
+> on the internet. 
+> Focus on affiliation, recent publications, main research focus, awards, etc.
 
  * [ ] TODO
 
-Richel Bilderbeek is a C++ developer with approximately 20 years of experience. 
+Richel Bilderbeek is a C++ developer with more than 20 years of experience,
+that has produced dozens of academic tools and (non-academic) games.
+
+Richel enjoys following the C++ literature and tries to follow
+all of the best practices, both when coding himself and when teaching others.
 He cares about code quality, because he cares about people. 
+And he cares about teaching for the same reason.
 The goal of writing this book is to give my students/colleagues a better introduction to the Boost.Graph library.
 
 ## SUBJECT MATTER OF BOOK
 
-### A. PLANNED BOOK TITLE AND SUBTITLE:* Title: In order that your title will be found on Amazon, please choose search-engine optimized (SEO) compatible keywords especially for the main title (max. 55 characters), and also for the subtitle (max. 80 characters). It is important to make this right from the beginning. (SEO keywords are words and phrases people type into search engines – e.g.: Google and Amazon – to find out about a subject. Choose keywords you think people will use when searching ideas and topics in your content).
+### A. PLANNED BOOK TITLE AND SUBTITLE:
+
+> * Title: In order that your title will be found on Amazon, 
+> please choose search-engine optimized (SEO) compatible keywords 
+> especially for the main title (max. 55 characters), 
+> and also for the subtitle (max. 80 characters). 
+> It is important to make this right from the beginning. 
+> (SEO keywords are words and phrases people type into search engines – e.g.: 
+> Google and Amazon – to find out about a subject. 
+> Choose keywords you think people will use when searching ideas 
+> and topics in your content).
 
 Boost.Graph Cookbook 1: Basics
 
 ### B. EDITED OR AUTHORED?*
-Edited works contain contributed works from other authors. The editor(s) may also contribute to the book as an author. Authored works are only authored by the listed main authors and contain no contributions from other parties. 
+
+> Edited works contain contributed works from other authors. 
+> The editor(s) may also contribute to the book as an author. 
+> Authored works are only authored by the listed main authors 
+> and contain no contributions from other parties. 
 
 Please indicate below whether your book will be authored or edited.
-Authored: Yes     Edited: No
+Authored: No     Edited: Yes
 
-For edited volumes, please indicate the approximate number of contributors.
+> For edited volumes, please indicate the approximate number of contributors.
 
-Number (approximate): N/A
+Number (approximate): 4
 
 ### C. BRIEF DESCRIPTION OF THE BOOK: 
 
 > maximum 450 characters including spaces (please note
 > that it is 450 characters not 450 words!): 
 > This text will be printed in our new releases and in booksellers’ catalogues 
-> and may serve as a basis for the back-cover text. The text should provide the reader with a quick overview of your book’s subject matter and the relevance of your topic or approach. Short texts are not just read by scholars, specialists and professionals but also potentially by librarians and booksellers who are strangers to your subject. Therefore, please ensure that your text is as clear as possible. We reserve the right to modify your text before it is published.
+> and may serve as a basis for the back-cover text. 
+> The text should provide the reader with a quick overview 
+> of your book’s subject matter and the relevance of your topic or approach. 
+> Short texts are not just read by scholars, specialists and professionals but also potentially by librarians and booksellers who are strangers to your subject. Therefore, please ensure that your text is as clear as possible. We reserve the right to modify your text before it is published.
+
+This book is the first to introduce the reader
+to the complex (yet powerful, useful and well known) Boost.Graph C++ library
+in a pedagogic and pragmatic way.
+
+This book, called 'Boost.Graph Cookbook 1: Basics', follows a 'cookbook' style,
+that orders its items in chronologically logical fashion,
+increasing the complexity gradually,
+while showing complete pieces of code.
+
+ * [ ] TODO
 
 ### D. LONGER INFORMATION TEXT FOR A SPECIALIST AUDIENCE: 
 
-> This is where you can provide us with more extensive information about your publication. This text will appear on our website and in the advertising flyers for your volume (www.degruyter.com). This text should not exceed 1,250 characters including spaces. It could be structured as follows:
+> This is where you can provide us with more extensive information 
+> about your publication. 
+> This text will appear on our website and in the advertising flyers for your volume 
+> (www.degruyter.com). 
+> This text should not exceed 1,250 characters including spaces. 
+> It could be structured as follows:
 >
 > * Introductory sentence: reason for publication 
 > * Main part: topic, subject matter of the book 
@@ -67,21 +110,81 @@ Number (approximate): N/A
 >
 > Please therefore ensure that your text is as clear as possible. We reserve the right to modify your text before it is published.
 
+#### Introductory sentence: reason for publication 
+
+The Boost.Graph library is a cutting-edge C++ library to work with graphs.
+
+Graphs are powerful data structures, consisting of points (called vertices)
+and lines connecting them (called edges)
+with broad applications, such as the famous Seven Bridges of Königsberg problem.
+
+
+
+
+
 ### E. SPECIAL FEATURES UNIQUE SELLING POINTS (up to 3)*:
 
-What makes your book special compared to other publications, what problem does it solve, and what are the key features that should be highlighted? (max. 250 characters in total).
-1)
-2)
-3)
-### F. KEYWORDS*: Our publications are made available inside and outside of our company in various directories and catalogues. Keywords are not only important for search engine optimization (SEO); they are also used for abstracting and indexing services as a mechanism to tag content. Keywords should describe the content of your publication as concisely as possible in order to ensure quick thematic classification and better searchability. Your list of keywords of terms should ideally NOT include words or terms that already used in the title of your book. Please provide 5 keywords (in the order of their importance). 
-1. Keyword 1
-2. Keyword 2
-3. Keyword 3
-4. Keyword 4
-5. Keyword 5
-### G. TABLE OF CONTENTS: Please provide a brief table of contents, or alternatively a description in one or two paragraphs of the content of each main chapter.
-### H. REVIEWERS: Feel free to provide the names and email addresses of three peers who might be willing to provide a detailed and unbiased opinion of the proposal. Endorsements therein might be used prepublication for Amazon and similar websites. We may or may not follow up on your suggestions. 
-### I. SERIES: You can look for existing series on our homepage. If you already know the series in which you want to publish, please suggest it here:
+> What makes your book special compared to other publications, 
+> what problem does it solve, 
+> and what are the key features that should be highlighted? 
+> (max. 250 characters in total).
+
+1) Provides a gradual learning curve
+
+2) Teaches topics in chronological order
+
+3) Copy-pastable high-quality and tested code
+
+### F. KEYWORDS*: 
+
+> Our publications are made available inside and outside of our company 
+> in various directories and catalogues. 
+> Keywords are not only important for search engine optimization (SEO); 
+> they are also used for abstracting and indexing services 
+> as a mechanism to tag content. 
+> Keywords should describe the content of your publication as concisely 
+> as possible in order to ensure quick thematic classification and better searchability. Your list of keywords of terms should ideally NOT include words or terms that already used in the title of your book. Please provide 5 keywords (in the order of their importance). 
+
+1. C++ library
+2. Boost.Graph
+3. graph library
+4. Boost library
+5. graphs
+
+### G. TABLE OF CONTENTS: 
+
+> Please provide a brief table of contents, 
+> or alternatively a description in one or two paragraphs 
+> of the content of each main chapter.
+
+  1. Introduction
+  2. Building graphs without properties
+  3. Working on graphs without properties
+  4. Building graphs with bundled vertices
+  5. Working on graphs with bundled vertices
+  6. Building graphs with bundled edges and vertices
+  7. Working on graphs with bundled edges and vertices
+  8. Building graphs with a graph name
+  9. Working on graphs with a graph name
+  10. Other graph functions
+  11. Misc functions
+  12. Errors
+  13. Appendix
+
+### H. REVIEWERS: 
+
+> Feel free to provide the names and email addresses of three peers 
+> who might be willing to provide a detailed and unbiased opinion of the proposal. 
+> Endorsements therein might be used prepublication for Amazon and similar websites. 
+> We may or may not follow up on your suggestions. 
+
+ * [ ] TODO
+
+### I. SERIES: 
+
+> You can look for existing series on our homepage. If you already know the series in which you want to publish, please suggest it here:
+
+
 
 ## MANUSCRIPT INFORMATION
 
