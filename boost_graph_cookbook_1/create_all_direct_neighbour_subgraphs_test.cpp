@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_subgraphs_thorough)
   {
     const auto v = create_all_direct_neighbour_subgraphs(create_k2_graph());
     BOOST_CHECK(v.size() == 2);
-    for (const auto g : v) {
+    for (const auto& g : v) {
       BOOST_CHECK(boost::num_vertices(g) == 2);
       BOOST_CHECK(boost::num_edges(g) == 1);
     }
@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_subgraphs_thorough)
   {
     const auto v = create_all_direct_neighbour_subgraphs(create_k3_graph());
     BOOST_CHECK(v.size() == 3);
-    for (const auto g : v) {
+    for (const auto& g : v) {
       BOOST_CHECK(boost::num_vertices(g) == 3);
       BOOST_CHECK(boost::num_edges(g) == 3);
     }
@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(create_all_direct_neighbour_subgraphs_thorough)
     const auto v
       = create_all_direct_neighbour_subgraphs(create_petersen_graph());
     BOOST_CHECK(v.size() == 10);
-    for (const auto g : v) {
+    for (const auto& g : v) {
       BOOST_CHECK(boost::num_vertices(g) == 4);
       BOOST_CHECK(boost::num_edges(g) == 3);
     }

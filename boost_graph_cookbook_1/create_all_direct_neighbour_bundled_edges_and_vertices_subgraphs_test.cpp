@@ -21,7 +21,7 @@ BOOST_AUTO_TEST_CASE(
       = create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs(
         create_bundled_edges_and_vertices_k2_graph());
     BOOST_CHECK(v.size() == 2);
-    for (const auto g : v) {
+    for (const auto& g : v) {
       BOOST_CHECK(boost::num_vertices(g) == 2);
       BOOST_CHECK(boost::num_edges(g) == 1);
     }
@@ -89,7 +89,7 @@ BOOST_AUTO_TEST_CASE(
       = create_all_direct_neighbour_bundled_edges_and_vertices_subgraphs(
         create_bundled_edges_and_vertices_petersen_graph());
     BOOST_CHECK(v.size() == 10);
-    for (const auto g : v) {
+    for (const auto& g : v) {
       BOOST_CHECK(boost::num_vertices(g) == 4);
       BOOST_CHECK(boost::num_edges(g) == 3);
     }

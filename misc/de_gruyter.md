@@ -41,7 +41,7 @@ richel@richelbilderbeek.nl
 > on the internet. 
 > Focus on affiliation, recent publications, main research focus, awards, etc.
 
- * [ ] Character count: /3900
+ * [X] Character count: 1106 chars + 169 spaces / 3900
 
 Richèl Bilderbeek is a C++ developer with more than 20 years of experience,
 that has produced dozens of libraries, 
@@ -112,7 +112,7 @@ that orders its items in chronologically logical fashion,
 increasing the complexity gradually,
 while showing complete pieces of code.
 
- * [ ] Character count: /450
+ * [X] Character count: 360 chars + 46 spaces /450
 
 ### D. LONGER INFORMATION TEXT FOR A SPECIALIST AUDIENCE: 
 
@@ -143,8 +143,7 @@ started with.
 This book allows one to use Boost.Graph quickly and in with a gentle learning
 curve, while following the C++ best practices.
 
- * [ ] Count characters: /1250
-
+ * [X] Count characters: 555 chars + 82 spaces /1250
 
 ### E. SPECIAL FEATURES UNIQUE SELLING POINTS (up to 3)*:
 
@@ -158,6 +157,8 @@ curve, while following the C++ best practices.
 2) Teaches topics in chronological order
 
 3) Copy-pastable high-quality and tested code
+
+ * [X] 121 chars + 15 spaces / 250
 
 ### F. KEYWORDS*: 
 
@@ -202,7 +203,7 @@ curve, while following the C++ best practices.
 > Endorsements therein might be used prepublication for Amazon and similar websites. 
 > We may or may not follow up on your suggestions. 
 
- * [ ] TODO
+ * [ ] TODO: Theo, Stefano, Oliver
 
 ### I. SERIES: 
 
@@ -226,8 +227,12 @@ The manuscript is already completed.
 Which program do you use to prepare your manuscript?*
 Word: _  LaTeX: X  Other: _
 
+I use LaTeX.
+
 Which operating system do you use (please specify the version)?
 Windows: _ Mac: _ Other: X, Linux
+
+I use Linux, with Ubuntu 22.04 LTS Jammy Jellyfish.
 
 Would you like to submit your manuscript camera ready? 
 If you choose this option, 
