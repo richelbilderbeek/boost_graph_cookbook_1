@@ -1,0 +1,19 @@
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 12 * *"
+
+name: check-links
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          config-file: 'mlc_config.json'
