@@ -4,7 +4,7 @@ Please fill in all mandatory fields marked with an asterisk (*). If you have que
 
 ## SUBJECT AREA*:
 
-Programming, C++, C++ libraries
+Programming, C++, C++ libraries, mathematics, graphs
 
 ## THE AUTHORS / EDITORS
 
@@ -203,7 +203,11 @@ curve, while following the C++ best practices.
 > Endorsements therein might be used prepublication for Amazon and similar websites. 
 > We may or may not follow up on your suggestions. 
 
- * [ ] TODO: Theo, Stefano, Oliver
+In alphabetic order:
+
+ * Arnaud Becheler
+ * Claudio Tiecher
+ * Oliver Turner
 
 ### I. SERIES: 
 
@@ -212,7 +216,6 @@ curve, while following the C++ best practices.
 > please suggest it here:
 
 I feel none of the series would fit well.
-
 
 ## MANUSCRIPT INFORMATION
 
