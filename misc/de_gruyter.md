@@ -129,8 +129,6 @@ while showing complete pieces of code.
 >
 > Please therefore ensure that your text is as clear as possible. We reserve the right to modify your text before it is published.
 
-#### Introductory sentence: reason for publication 
-
 The Boost.Graph library is a cutting-edge C++ library to work with graphs.
 
 Graphs are powerful data structures, consisting of points (called vertices)
@@ -170,11 +168,12 @@ curve, while following the C++ best practices.
 > Keywords should describe the content of your publication as concisely 
 > as possible in order to ensure quick thematic classification and better searchability. Your list of keywords of terms should ideally NOT include words or terms that already used in the title of your book. Please provide 5 keywords (in the order of their importance). 
 
-1. C++ library
-2. Boost.Graph
-3. graph library
+1. Boost.Graph
+2. graph library
+3. C++ library
 4. Boost library
 5. graphs
+6. applied mathematics
 
 ### G. TABLE OF CONTENTS: 
 
@@ -252,12 +251,10 @@ Yes X No___
 > 1 printed page = 2,800 characters including spaces without images 
 > (please use Word character count).
 
-    • Pages/ Total character count/ Total word count:
-    • Total Figures/ Photos:
-    • Color Figures/ Photos: Yes: _ No: _ How many: _
+    • Pages/ Total character count/ Total word count: 140/66485/13659
+    • Total Figures/ Photos: 29
+    • Color Figures/ Photos: Yes: _ No: X How many: _
     • Tables: b/w ____  colour____
-
- * [ ] Use TexCount
 
 ### D. INDEX: Your book should contain an index. 
 
@@ -312,7 +309,11 @@ Yes: _ No: X
 > need to take into account during our planning (e.g., whether you need file copies, 
 > important deadlines to be met, etc.)?
 
-No :-)
+I don't want/need money for this publication.
+All I want, is for people to be able to read it in paper form,
+while the online and rougher version remains free to read as well.
+
+The book 'Thinking C++' from Bruce Eckel did the same (I don't know if he requested money, though)
 
 > Thank you for completing this form!	
 > With kindest regards from your publishing team at De Gruyter.
