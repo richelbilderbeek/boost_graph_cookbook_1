@@ -20,7 +20,7 @@ jobs:
         run: sudo apt install -qq libboost-all-dev
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
 
       - name: Setup ImageMagick
         uses: mfinelli/setup-imagemagick@v1
