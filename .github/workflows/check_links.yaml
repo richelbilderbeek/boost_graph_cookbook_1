@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
   schedule:
-  - cron: "0 0 12 * *"
+  - cron: "0 0 2 * *"
 
 name: check-links
 
