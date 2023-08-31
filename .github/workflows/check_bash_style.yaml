@@ -1,0 +1,22 @@
+name: Check bash style
+
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 16 * *"
+
+
+jobs:
+  check_bash_style:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Check bash scripts for style
+        run: shellcheck *.sh scripts/*.sh
