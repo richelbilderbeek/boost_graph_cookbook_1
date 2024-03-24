@@ -25,11 +25,11 @@ Programming, C++, C++ libraries, mathematics, graphs
 
 ### B. Author’s / Editor’s mailing address*: 
 
-richel@richelbilderbeek.nl
+rjcbilderbeek@gmail.com
 
 ### C. E-mail*/ ORCID*/ Social Media/ Phone:
 
- * E-mail: richel@richelbilderbeek.nl
+ * E-mail: rjcbilderbeek@gmail.com
  * ORCID Number: 0000-0003-1107-7049
  * Social Media (Twitter, LinkedIn, etc.): @rjcbilderbeek
  * Phone: +46-(0)79-3599417
